@@ -1,0 +1,26 @@
+﻿@using Topppro.WebSite.Extensions
+@using Framework.Common.Extensions
+
+@model Topppro.Entities.Serie
+
+@Html.Separator()
+
+<tr>
+    <td width="55">
+        &nbsp;
+    </td>
+    <td colspan="9">
+        <img id="@Model.Name.ToSeoSlug()" src="@Url.Content("~/Content/Images/mx-series-spacer.png")" alt="@Model.Name.ToUpper() SERIE" width="881" height="43" />
+    </td>
+    <td width="55">
+        &nbsp;
+    </td>
+</tr>
+
+@Html.Separator()
+@Html.Pattern()
+
+@if (!Model.Products.IsEmpty())
+{
+    @Html.Partial("_ProductPartial", Model.Products.Where(p => p.Enabled).OrderBy(p => p.Priority), new ViewDataDictionary { { "MaxPerLine", 5 } })
+}

@@ -1,0 +1,75 @@
+﻿@using Framework.MVC.Extensions
+@using Framework.MVC.Resources
+
+@model Topppro.Entities.Product
+
+@{
+    ViewBag.Title = PersistanceResource.Details;
+}
+
+<h2>@PersistanceResource.Details</h2>
+
+<fieldset>
+    <legend>Product</legend>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Serie.CategoryId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Serie.Category.Name)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.SerieId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Serie.Name)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.ModelId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Model.Name)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Folder)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Folder)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Manual)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Manual)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Priority)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Priority)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Enabled)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Enabled)
+    </div>
+
+</fieldset>
+<p>
+    @Html.ActionLink(PersistanceResource.Edit, "Edit", new { id = Model.ProductId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

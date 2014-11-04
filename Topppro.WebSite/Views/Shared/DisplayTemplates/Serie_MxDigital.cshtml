@@ -1,0 +1,102 @@
+﻿@using Topppro.WebSite.Resources
+@using Topppro.WebSite.Extensions
+@using Framework.Common.Extensions
+
+@model Topppro.Entities.Serie
+
+@Html.Separator()
+
+<tr>
+    <td width="55">
+        &nbsp;
+    </td>
+    <td colspan="9">
+        <img id="@Model.Name.ToSeoSlug()" src="@Url.Content("~/Content/Images/mxdigital-series-spacer.png")" alt="@Model.Name.ToUpper() SERIES" width="881" height="43" />
+    </td>
+    <td width="55">
+        &nbsp;
+    </td>
+</tr>
+
+@Html.Separator()
+
+<tr>
+    <td>
+        &nbsp;
+    </td>
+    <td>
+        <table cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+                <td colspan="3" bgcolor="#F6F6F6" align="center">
+                    @if (Model.Products.FirstOrDefault().GetThumbs().IsEmpty())
+                    {
+                        <img src="@Url.Content("~/Content/Images/coming-soon.jpg")" alt="@Model.Products.FirstOrDefault().Name" name="@(string.Format("Image{0}", Model.Products.FirstOrDefault().Id))"
+                        width="148" height="148" border="0" id="@(string.Format("Image{0}", Model.Products.FirstOrDefault().Id))" />
+                    }
+                    else
+                    {
+                        <a href="@Url.RouteUrl("Detail", new { controller = "Mixers", id = Model.Products.FirstOrDefault().Id, name = Model.Products.FirstOrDefault().Name.ToSeoSlug() })" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('@(string.Format("Image{0}", Model.Products.FirstOrDefault().Id))','','@(Model.Products.FirstOrDefault().GetThumbs().Where(t => t.Contains("up")).DefaultIfEmpty<string>(Url.Content("~/Content/Images/coming-soon.jpg")).First())',1)">
+                            <img src="@(Model.Products.FirstOrDefault().GetThumbs().Where(t => !t.Contains("up")).DefaultIfEmpty<string>(Url.Content("~/Content/Images/coming-soon.jpg")).First())" alt="@Model.Products.FirstOrDefault().Name" name="@(string.Format("Image{0}", Model.Products.FirstOrDefault().Id))"
+                                width="148" height="148" border="0" id="@(string.Format("Image{0}", Model.Products.FirstOrDefault().Id))" />
+                        </a>
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="@Url.Content("~/Content/Images/middle1-separator.png")" width="1" height="24" alt="spacer" />
+                </td>
+                <td align="center">
+                    <span class="Estilo6">@Model.Products.FirstOrDefault().Name</span>
+                </td>
+                <td>
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;
+                </td>
+                <td align="center" height="20px">
+                    <input type="checkbox" id="@Model.Products.FirstOrDefault().Folder" value="@Model.Products.FirstOrDefault().Id" data-text="@Model.Products.FirstOrDefault().Name.ToSeoSlug()" />
+                    <label for="@Model.Products.FirstOrDefault().Folder">@Localization.Add_To_Compare</label>
+                </td>
+                <td>
+                    &nbsp;
+                </td>
+            </tr>
+        </table>
+    </td>
+    <td>
+        &nbsp;
+    </td>
+    <td colspan="7" bgcolor="#F7F7F7">
+        <a href="javascript:void(0);">
+            <img src="@Url.Content("~/Content/Images/dmx244-livemixing.jpg")" alt="@Localization.Mixers_Index_Mx_Digital_Live_Mixing" width="698" height="148" border="0" /></a>
+    </td>
+    <td>
+        &nbsp;
+    </td>
+</tr>
+<tr>
+    <td colspan="11">
+        &nbsp;
+    </td>
+</tr>
+<tr>
+    <td colspan="11">
+        &nbsp;
+    </td>
+</tr>
+<tr>
+    <td>
+        &nbsp;
+    </td>
+    <td colspan="9">
+        <a href="https://itunes.apple.com/cn/app/cs-eq/id838175440?mt=8" target="_blank">
+            <img src="@Url.Content("~/Content/Images/mx244-app.jpg")" alt="mx24.4 app" width="880" height="200" border="0"></a>
+    </td>
+    <td>
+        &nbsp;
+    </td>
+</tr>

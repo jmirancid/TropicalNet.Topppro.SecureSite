@@ -1,0 +1,78 @@
+﻿using System.Web.Mvc;
+using System.Web.Routing;
+using Topppro.WebSite.Filters;
+
+namespace Topppro.WebSite
+{
+	// Note: For instructions on enabling IIS6 or IIS7 classic mode, 
+	// visit http://go.microsoft.com/?LinkId=9394801
+
+	public class MvcApplication : System.Web.HttpApplication
+	{
+		public static void RegisterGlobalFilters(GlobalFilterCollection filters)
+		{
+			filters.Add(new HandleErrorAttribute());
+			filters.Add(new LocalizationFilterAttribute());
+		}
+
+		public static void RegisterRoutes(RouteCollection routes)
+		{
+			routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+
+			routes.MapRoute(
+				name: "Localization", // Route name
+				url: "{culture}/{controller}/{action}", // URL with parameters
+				defaults: new { culture = Topppro.Context.Current.Culture.TwoLetterISOLanguageName, controller = "Home", action = "Index" }, // Parameter defaults
+				constraints: new { culture = "[a-zA-Z]{2}" },
+				namespaces: new[] { "Topppro.WebSite.Controllers" }
+			);
+
+			routes.MapRoute(
+				name: "Detail", // Route name
+				url: "{culture}/{controller}/{id}/{name}", // URL with parameters
+				defaults: new { culture = Topppro.Context.Current.Culture.TwoLetterISOLanguageName, action = "Detail" }, // Parameter defaults
+				constraints: new { culture = "[a-zA-Z]{2}" },
+				namespaces: new[] { "Topppro.WebSite.Controllers" }
+			);
+
+			routes.MapRoute(
+				name: "HiRes", // Route name
+				url: "{culture}/{controller}/{id}/{name}/HiRes", // URL with parameters
+				defaults: new { culture = Topppro.Context.Current.Culture.TwoLetterISOLanguageName, action = "HiRes" }, // Parameter defaults
+				constraints: new { culture = "[a-zA-Z]{2}" },
+				namespaces: new[] { "Topppro.WebSite.Controllers" }
+			);
+
+			routes.MapRoute(
+				name: "Modules_HiRes", // Route name
+				url: "{culture}/{controller}/Modules/HiRes", // URL with parameters
+				defaults: new { culture = Topppro.Context.Current.Culture.TwoLetterISOLanguageName, controller = "Processors", action = "Modules_HiRes" }, // Parameter defaults
+				constraints: new { culture = "[a-zA-Z]{2}" },
+				namespaces: new[] { "Topppro.WebSite.Controllers" }
+			);
+
+			routes.MapRoute(
+				name: "Compare", // Route name
+				url: "{culture}/{controller}/{lid}/{lname}/VS/{rid}/{rname}", // URL with parameters
+				defaults: new { culture = Topppro.Context.Current.Culture.TwoLetterISOLanguageName, action = "Compare" }, // Parameter defaults
+				constraints: new { culture = "[a-zA-Z]{2}" },
+				namespaces: new[] { "Topppro.WebSite.Controllers" }
+			);
+
+			routes.MapRoute(
+				name: "Default", // Route name
+				url: "{controller}/{action}/{id}", // URL with parameters
+				defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }, // Parameter defaults
+				namespaces: new[] { "Topppro.WebSite.Controllers" }
+			);
+		}
+
+		protected void Application_Start()
+		{
+			AreaRegistration.RegisterAllAreas();
+
+			RegisterGlobalFilters(GlobalFilters.Filters);
+			RegisterRoutes(RouteTable.Routes);
+		}
+	}
+}

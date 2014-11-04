@@ -1,0 +1,143 @@
+﻿@using Topppro.WebSite.Resources
+@using Topppro.WebSite.Extensions
+@using Framework.Common.Extensions
+
+@model Topppro.Entities.Product
+
+@helper RenderHeader() {
+    
+    if (!Model.GetHeaders().IsEmpty()) {
+        <img src="@Model.GetHeaders().FirstOrDefault()" alt="@Model.Name" width="884" height="22" />
+    } else {
+        <div class="Estilo44" style="display:inline; background-color:#315F8D; font-size:16px; padding: 3px 204px 12px 3px;">@Model.Name.ToUpper()</div>
+        <div class="Estilo67" style="float:right; font-size:16px;">@Model.Serie.Name</div>
+        <img src="@Url.Content("~/Content/Images/spacer.png")" alt="spacer" width="100%" height="12" />
+    }
+}
+
+@helper RenderPopUp() {
+    
+    if (!Model.GetPopUp().IsEmpty()) {
+        <p>
+            <a href="@Model.GetPopUp().FirstOrDefault(i => i.Contains("popup"))" class="thickbox">
+                <img src="@Model.GetPopUp().FirstOrDefault(i => i.Contains("side"))" alt="@Model.Name" width="163" border="0" />
+            </a>
+        </p>
+    }
+}
+
+@helper RenderManual() {
+
+    if (Model.GetManual() != null) {
+        <p>
+            <a href="@Model.GetManual()" target="_blank">
+                <img src="@Url.Content("~/Content/Images/user-manual.png")" alt="user manual" width="33" height="40" />
+                <b>@Localization.User_Manual</b></a>
+        </p>
+    }
+}
+
+@helper RenderHiRes() {
+    
+    if (!Model.GetHiRes().IsEmpty()) {
+        <p>
+            <a href="@Url.RouteUrl("HiRes", new { controller = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"], id = Model.Id, name = Model.Name.ToSeoSlug() })">
+            <img src="@Url.Content("~/Content/Images/hi-res-photos.jpg")" alt="@Localization.HiRes_Pics" style="margin-right:5px;" width="30" height="24" />
+            <b>@Localization.HiRes_Pics</b></a>
+        </p>
+    }
+}
+
+@Html.Separator()
+
+<tr>
+    <td width="45">
+        &nbsp;
+    </td>
+    <td colspan="9">
+        @RenderHeader()
+    </td>
+    <td width="54">
+        &nbsp;
+    </td>
+</tr>
+
+@Html.Separator()
+
+<tr>
+    <td>
+        &nbsp;
+    </td>
+    <td colspan="9">
+        <p class="Estilo4" align="justify">
+            @Localization.Mixers_Detail_Dmx244_Message</p>
+    </td>
+    <td>
+        &nbsp;
+    </td>
+</tr>
+
+@Html.Scheme()
+
+<tr>
+    <td height="19">
+        &nbsp;
+    </td>
+    <td align="center" valign="top">
+        @RenderPopUp()
+        @RenderManual()
+        @RenderHiRes()
+    </td>
+    <td align="center" valign="middle">
+        &nbsp;
+    </td>
+    <td colspan="7" align="center" valign="top">
+        @Html.Partial("_Attribute", Model.Attributes)
+    </td>
+    <td>
+        &nbsp;
+    </td>
+</tr>
+
+@Html.Separator()
+
+<tr>
+    <td height="20">
+        &nbsp;
+    </td>
+    <td colspan="9" align="center" bgcolor="#A0BFDE">
+        <a href="@Url.Content("~/Content/Others/DMX24.4 Fireware Update(v2.9).zip")" target="_blank">@Localization.Mixers_Detail_Dmx244_Firmware_Download</a>
+    </td>
+    <td>
+        &nbsp;
+    </td>
+</tr>
+<tr>
+    <td height="20">
+        &nbsp;
+    </td>
+    <td colspan="9" align="center" bgcolor="#CCCCCC">
+        <a href="@Url.Content("~/Content/Others/MP24M MCU Firmware update Instruction.zip")" target="_blank">@Localization.Mixers_Detail_Dmx244_Firmware_Instructions</a>
+    </td>
+    <td>
+        &nbsp;
+    </td>
+</tr>
+
+@Html.Separator()
+
+<tr>
+    <td height="20">
+        &nbsp;
+    </td>
+    <td colspan="9" align="center">
+        <a href="https://itunes.apple.com/cn/app/cs-eq/id838175440?mt=8" target="_blank">
+            <img src="@Url.Content("~/Content/Images/mx244-app.jpg")" alt="mx24.4 app" width="880" height="200" border="0"></a>
+    </td>
+    <td>
+        &nbsp;
+    </td>
+</tr>
+
+@Html.Separator()
+

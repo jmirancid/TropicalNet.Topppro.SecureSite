@@ -1,0 +1,61 @@
+﻿@using Topppro.WebSite.Resources
+
+@model System.Web.Mvc.HandleErrorInfo
+
+@section Styles
+{
+    <style type="text/css">
+         body {
+            background-image: url('@Url.Content("~/Content/Images/home-bottom-page.jpg")');
+	        background-repeat: no-repeat;
+	        background-color: #D6D6D6;
+            background-position: 0px 116px;
+        }
+        a:link {
+	        color: #FFFFFF;
+	        text-decoration: none;
+        }
+        a:visited {
+	        text-decoration: none;
+        }
+        a:hover {
+	        text-decoration: underline;
+	        color: #FFFFFF;
+        }
+        a:active {
+	        text-decoration: none;
+        }
+        .Estilo9 {
+	        font-family: Verdana, Arial, Helvetica, sans-serif;
+	        color: #666666;
+	        font-size: 16px;
+        }
+        .Estilo10 {font-family: Verdana, Arial, Helvetica, sans-serif; color: #666666; font-size: 16px; font-weight: bold; }
+    </style>
+}
+
+<table width="1000" height="610" border="0" bgcolor="#FFFFFF">
+    <tr>
+        <td height="84" align="center">
+            &nbsp;
+        </td>
+    </tr>
+    <tr>
+        <td height="132" align="center">
+            <img src="@Url.Content("~/Content/Images/topp.jpg")" alt="topp logo" width="250" height="250" />
+        </td>
+    </tr>
+    <tr>
+        <td height="162" align="center">
+            <p class="Estilo10">
+                @Localization.Error_Title</p>
+            <p class="Estilo9">
+                @Localization.Error_Message</p>
+        </td>
+    </tr>
+    <tr>
+        <td height="102" align="center">
+            &nbsp;
+        </td>
+    </tr>
+</table>

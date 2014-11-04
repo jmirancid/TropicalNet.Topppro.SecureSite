@@ -1,0 +1,47 @@
+﻿@using Framework.MVC.Extensions
+@using Framework.MVC.Resources
+
+@model Topppro.Entities.Serie
+
+@{
+    ViewBag.Title = PersistanceResource.Details;
+}
+
+<h2>@PersistanceResource.Details</h2>
+
+<fieldset>
+    <legend>Serie</legend>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.CategoryId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Category.Name)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Priority)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Priority)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Enabled)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Enabled)
+    </div>
+
+</fieldset>
+<p>
+    @Html.ActionLink(PersistanceResource.Edit, "Edit", new { id = Model.SerieId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

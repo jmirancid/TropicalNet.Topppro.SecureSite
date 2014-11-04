@@ -1,0 +1,77 @@
+﻿@using Topppro.WebSite.Resources
+@using Topppro.WebSite.Extensions
+@using Framework.Common.Extensions
+
+@model Topppro.Entities.Product
+
+@section Styles {
+    <style type="text/css">
+        body {
+	        background-image: url('@ViewBag.BackgroundImage');
+	        background-repeat: no-repeat;
+            background-position: 0px 116px;
+            background-attachment: fixed;	        
+        }
+        a:link {
+            text-decoration: none;
+            color: #000000;
+        }
+    </style>
+}
+
+<table width="1000" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+    <tbody>
+        @foreach (var src_image in Model.GetHiRes().OrderBy(i => i))
+        {
+        <tr>
+            <td colspan="11">
+                <img src="@src_image" alt="@ViewBag.Title" /></td>
+        </tr>
+        }
+        <tr>
+            <td colspan="11">
+                &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="@Url.Content("~/Content/Images/middle1-separator.png")" width="16" height="24">
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td width="182">
+                &nbsp;
+            </td>
+            <td width="22">
+                &nbsp;
+            </td>
+            <td align="center" bgcolor="#A0BFDE" class="Estilo44" width="151">
+                <a href="@Url.RouteUrl("Detail", new { controller = ViewContext.RouteData.Values["controller"].ToString(), id = Model.Id, name = Model.Name.ToSeoSlug() })">&lt;&lt; @Localization.Back</a>
+            </td>
+            <td width="18">
+                &nbsp;
+            </td>
+            <td width="153">
+                &nbsp;
+            </td>
+            <td width="29">
+                &nbsp;
+            </td>
+            <td width="127">
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td colspan="11">
+                <img src="@Url.Content("~/Content/Images/middle1-separator.png")" width="16" height="24">
+            </td>
+        </tr>
+    </tbody>
+</table>

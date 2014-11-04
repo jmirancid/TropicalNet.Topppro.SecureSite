@@ -1,0 +1,67 @@
+﻿@using Topppro.WebSite.Resources
+@using Topppro.WebSite.Extensions
+@using Framework.Common.Extensions
+
+@model Topppro.Entities.Serie
+
+@Html.Separator()
+
+<tr>
+    <td width="55">
+        &nbsp;
+    </td>
+    <td colspan="9">
+        <img src="@Url.Content("~/Content/Images/i4k-series-spacer.png")" alt="@Model.Name SERIES" width="881" height="43" />
+    </td>
+    <td width="55">
+        &nbsp;
+    </td>
+</tr>
+
+@Html.Separator()
+
+<tr>
+    <td>
+        &nbsp;
+    </td>
+    <td>
+        <table cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+                <td colspan="3" bgcolor="#F6F6F6" align="center">
+                    @if (Model.Products.FirstOrDefault().GetThumbs().IsEmpty())
+                    {
+                        <img src="@Url.Content("~/Content/Images/coming-soon.jpg")" alt="@Model.Products.FirstOrDefault().Name" name="@(string.Format("Image{0}", Model.Products.FirstOrDefault().Id))"
+                        width="100%" height="148" border="0" id="@(string.Format("Image{0}", Model.Products.FirstOrDefault().Id))" />
+                    }
+                    else
+                    {
+                        <a href="@Url.RouteUrl("Detail", new { controller = "Packs", id = Model.Products.FirstOrDefault().Id, name = Model.Products.FirstOrDefault().Name.ToSeoSlug() })" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('@(string.Format("Image{0}", Model.Products.FirstOrDefault().Id))','','@(Model.Products.FirstOrDefault().GetThumbs().Where(t => t.Contains("up")).DefaultIfEmpty<string>(Url.Content("~/Content/Images/coming-soon.jpg")).First())',1)">
+                            <img src="@(Model.Products.FirstOrDefault().GetThumbs().Where(t => !t.Contains("up")).DefaultIfEmpty<string>(Url.Content("~/Content/Images/coming-soon.jpg")).First())" alt="@Model.Products.FirstOrDefault().Name" name="@(string.Format("Image{0}", Model.Products.FirstOrDefault().Id))"
+                                width="100%" height="148" border="0" id="@(string.Format("Image{0}", Model.Products.FirstOrDefault().Id))" />
+                        </a>
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" height="24" align="center" bgcolor="#315F8D">
+                    <span class="Estilo44">@Model.Products.FirstOrDefault().Name</span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" align="center" height="20px">
+                    <input type="checkbox" id="@Model.Products.FirstOrDefault().Folder" value="@Model.Products.FirstOrDefault().Id" data-text="@Model.Products.FirstOrDefault().Name.ToSeoSlug()" />
+                    <label for="@Model.Products.FirstOrDefault().Folder">@Localization.Add_To_Compare</label>
+                </td>
+            </tr>
+        </table>
+    </td>
+    <td>
+        &nbsp;
+    </td>
+    <td colspan="7" valign="top">
+        <img src="@Url.Content("~/Content/Images/i4K-2000w.jpg")" alt="@Localization.Packs_Index_i4K_2000W" width="698" height="148" border="0" />
+    </td>
+    <td>
+        &nbsp;
+    </td>
+</tr>

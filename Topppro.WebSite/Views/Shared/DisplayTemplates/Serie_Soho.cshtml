@@ -1,0 +1,49 @@
+﻿@using Topppro.WebSite.Resources
+@using Topppro.WebSite.Extensions
+@using Framework.Common.Extensions
+
+@model Topppro.Entities.Serie
+
+@Html.Separator()
+
+<tr>
+    <td width="55">
+        &nbsp;
+    </td>
+    <td colspan="9">
+        <img src="@Url.Content("~/Content/Images/soho-series-spacer.png")" alt="@Model.Name.ToUpper() SERIES" width="881" height="43" />
+    </td>
+    <td width="55">
+        &nbsp;
+    </td>
+</tr>
+
+@Html.Separator()
+
+<tr>
+    <td>
+        &nbsp;
+    </td>
+    <td colspan="9">
+        <p align="justify" class="Estilo82">
+            <span class="Estilo85">@Html.Raw(Localization.Packs_Index_Soho_Title)</span>
+            <br />
+            <br />
+            <span class="Estilo90">@Html.Raw(Localization.Packs_Index_Soho_Subtitle)</span>
+        </p>
+        <p align="justify" class="Estilo82">
+            <span class="Estilo76">@Html.Raw(Localization.Packs_Index_Soho_Message)</span>
+            <br />
+        </p>
+    </td>
+    <td>
+        &nbsp;
+    </td>
+</tr>
+
+@Html.Pattern()
+
+@if (!Model.Products.IsEmpty())
+{
+    @Html.Partial("_ProductPartial", Model.Products.Where(p => p.Enabled).OrderBy(p => p.Priority), new ViewDataDictionary { { "MaxPerLine", 5 } })
+}

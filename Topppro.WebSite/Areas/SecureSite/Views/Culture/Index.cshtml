@@ -1,0 +1,63 @@
+﻿@using Framework.MVC.Extensions
+@using Framework.MVC.Resources
+
+@model IEnumerable<Topppro.Entities.Culture>
+
+@{
+    ViewBag.Title = PersistanceResource.Index;
+}
+
+@section Styles {
+    <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Areas/SecureSite/Content/themes/base/jquery.ui.all.css")" />
+    <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Areas/SecureSite/Content/jquery-ui.dataTables.css")" />
+}
+
+<h2>@PersistanceResource.Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table width="100%">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Code)
+            </th>
+            <th>
+                @PersistanceResource.Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) 
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Code)
+            </td>
+            <td>
+                @Html.ActionLink(PersistanceResource.Edit, "Edit", new { id = item.CultureId }) |
+                @Html.ActionLink(PersistanceResource.Details, "Details", new { id = item.CultureId }) |
+                @Html.ActionLink(PersistanceResource.Delete, "Delete", new { id = item.CultureId })
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script type="text/javascript" src="@Url.Content("~/Areas/SecureSite/Scripts/jquery.dataTables.min.js")"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('table').dataTable({
+                bJQueryUI: true
+            });
+        });
+    </script>
+}

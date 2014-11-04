@@ -1,0 +1,36 @@
+﻿@using Framework.MVC.Extensions
+@using Framework.MVC.Resources
+
+@model Topppro.Entities.Culture
+
+@{
+    ViewBag.Title = PersistanceResource.Delete;
+}
+
+<h2>@PersistanceResource.Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Culture</legend>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Code)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Code)
+    </div>
+
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="@PersistanceResource.Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

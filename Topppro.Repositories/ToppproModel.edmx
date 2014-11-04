@@ -1,0 +1,436 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ToppproModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ToppproModelStoreContainer">
+          <EntitySet Name="Attribute" EntityType="ToppproModel.Store.Attribute" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Category" EntityType="ToppproModel.Store.Category" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Culture" EntityType="ToppproModel.Store.Culture" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Model" EntityType="ToppproModel.Store.Model" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Product" EntityType="ToppproModel.Store.Product" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Serie" EntityType="ToppproModel.Store.Serie" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK__Attribute__Cultu__182C9B23" Association="ToppproModel.Store.FK__Attribute__Cultu__182C9B23">
+            <End Role="Culture" EntitySet="Culture" />
+            <End Role="Attribute" EntitySet="Attribute" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Attribute__Produ__173876EA" Association="ToppproModel.Store.FK__Attribute__Produ__173876EA">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Attribute" EntitySet="Attribute" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__ModelId__164452B1" Association="ToppproModel.Store.FK__Product__ModelId__164452B1">
+            <End Role="Model" EntitySet="Model" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__SerieId__15502E78" Association="ToppproModel.Store.FK__Product__SerieId__15502E78">
+            <End Role="Serie" EntitySet="Serie" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Serie__CategoryI__145C0A3F" Association="ToppproModel.Store.FK__Serie__CategoryI__145C0A3F">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Serie" EntitySet="Serie" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Attribute">
+          <Key>
+            <PropertyRef Name="AttributeId" />
+          </Key>
+          <Property Name="AttributeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="CultureId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="150" />
+          <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Priority" Type="int" />
+          <Property Name="Enabled" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Culture">
+          <Key>
+            <PropertyRef Name="CultureId" />
+          </Key>
+          <Property Name="CultureId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Code" Type="nvarchar" Nullable="false" MaxLength="2" />
+        </EntityType>
+        <EntityType Name="Model">
+          <Key>
+            <PropertyRef Name="ModelId" />
+          </Key>
+          <Property Name="ModelId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SerieId" Type="int" Nullable="false" />
+          <Property Name="ModelId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Priority" Type="int" />
+          <Property Name="Enabled" Type="bit" Nullable="false" />
+          <Property Name="Folder" Type="nvarchar" MaxLength="50" />
+          <Property Name="Manual" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Serie">
+          <Key>
+            <PropertyRef Name="SerieId" />
+          </Key>
+          <Property Name="SerieId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Priority" Type="int" />
+          <Property Name="Enabled" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Attribute__Cultu__182C9B23">
+          <End Role="Culture" Type="ToppproModel.Store.Culture" Multiplicity="1" />
+          <End Role="Attribute" Type="ToppproModel.Store.Attribute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Culture">
+              <PropertyRef Name="CultureId" />
+            </Principal>
+            <Dependent Role="Attribute">
+              <PropertyRef Name="CultureId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Attribute__Produ__173876EA">
+          <End Role="Product" Type="ToppproModel.Store.Product" Multiplicity="1" />
+          <End Role="Attribute" Type="ToppproModel.Store.Attribute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="Attribute">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__ModelId__164452B1">
+          <End Role="Model" Type="ToppproModel.Store.Model" Multiplicity="1" />
+          <End Role="Product" Type="ToppproModel.Store.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Model">
+              <PropertyRef Name="ModelId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ModelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__SerieId__15502E78">
+          <End Role="Serie" Type="ToppproModel.Store.Serie" Multiplicity="1" />
+          <End Role="Product" Type="ToppproModel.Store.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Serie">
+              <PropertyRef Name="SerieId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="SerieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Serie__CategoryI__145C0A3F">
+          <End Role="Category" Type="ToppproModel.Store.Category" Multiplicity="1" />
+          <End Role="Serie" Type="ToppproModel.Store.Serie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="Serie">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ToppproModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="ToppproEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Attribute" EntityType="ToppproModel.Attribute" />
+          <EntitySet Name="Category" EntityType="ToppproModel.Category" />
+          <EntitySet Name="Culture" EntityType="ToppproModel.Culture" />
+          <EntitySet Name="Serie" EntityType="ToppproModel.Serie" />
+          <AssociationSet Name="FK__Attribute__Cultu__1367E606" Association="ToppproModel.FK__Attribute__Cultu__1367E606">
+            <End Role="Culture" EntitySet="Culture" />
+            <End Role="Attribute" EntitySet="Attribute" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Serie__CategoryI__108B795B" Association="ToppproModel.FK__Serie__CategoryI__108B795B">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Serie" EntitySet="Serie" />
+          </AssociationSet>
+          <EntitySet Name="Model" EntityType="ToppproModel.Model" />
+          <EntitySet Name="Product" EntityType="ToppproModel.Product" />
+          <AssociationSet Name="FK__Attribute__Produ__173876EA" Association="ToppproModel.FK__Attribute__Produ__173876EA">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Attribute" EntitySet="Attribute" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__ModelId__164452B1" Association="ToppproModel.FK__Product__ModelId__164452B1">
+            <End Role="Model" EntitySet="Model" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__SerieId__15502E78" Association="ToppproModel.FK__Product__SerieId__15502E78">
+            <End Role="Serie" EntitySet="Serie" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Attribute">
+          <Key>
+            <PropertyRef Name="AttributeId" />
+          </Key>
+          <Property Type="Int32" Name="AttributeId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ProductId" Nullable="false" />
+          <Property Type="Int32" Name="CultureId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Value" Nullable="false" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Priority" />
+          <Property Type="Boolean" Name="Enabled" Nullable="false" />
+          <NavigationProperty Name="Culture" Relationship="ToppproModel.FK__Attribute__Cultu__1367E606" FromRole="Attribute" ToRole="Culture" />
+          <NavigationProperty Name="Product" Relationship="ToppproModel.FK__Attribute__Produ__173876EA" FromRole="Attribute" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Type="Int32" Name="CategoryId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Series" Relationship="ToppproModel.FK__Serie__CategoryI__108B795B" FromRole="Category" ToRole="Serie" />
+        </EntityType>
+        <EntityType Name="Culture">
+          <Key>
+            <PropertyRef Name="CultureId" />
+          </Key>
+          <Property Type="Int32" Name="CultureId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Attributes" Relationship="ToppproModel.FK__Attribute__Cultu__1367E606" FromRole="Culture" ToRole="Attribute" />
+        </EntityType>
+        <EntityType Name="Serie">
+          <Key>
+            <PropertyRef Name="SerieId" />
+          </Key>
+          <Property Type="Int32" Name="SerieId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="CategoryId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Priority" />
+          <Property Type="Boolean" Name="Enabled" Nullable="false" />
+          <NavigationProperty Name="Category" Relationship="ToppproModel.FK__Serie__CategoryI__108B795B" FromRole="Serie" ToRole="Category" />
+          <NavigationProperty Name="Products" Relationship="ToppproModel.FK__Product__SerieId__15502E78" FromRole="Serie" ToRole="Product" />
+        </EntityType>
+        <Association Name="FK__Attribute__Cultu__1367E606">
+          <End Type="ToppproModel.Culture" Role="Culture" Multiplicity="1" />
+          <End Type="ToppproModel.Attribute" Role="Attribute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Culture">
+              <PropertyRef Name="CultureId" />
+            </Principal>
+            <Dependent Role="Attribute">
+              <PropertyRef Name="CultureId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Serie__CategoryI__108B795B">
+          <End Type="ToppproModel.Category" Role="Category" Multiplicity="1" />
+          <End Type="ToppproModel.Serie" Role="Serie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="Serie">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Model">
+          <Key>
+            <PropertyRef Name="ModelId" />
+          </Key>
+          <Property Type="Int32" Name="ModelId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Products" Relationship="ToppproModel.FK__Product__ModelId__164452B1" FromRole="Model" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Type="Int32" Name="ProductId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="SerieId" Nullable="false" />
+          <Property Type="Int32" Name="ModelId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Priority" />
+          <Property Type="Boolean" Name="Enabled" Nullable="false" />
+          <Property Type="String" Name="Folder" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Attributes" Relationship="ToppproModel.FK__Attribute__Produ__173876EA" FromRole="Product" ToRole="Attribute" />
+          <NavigationProperty Name="Model" Relationship="ToppproModel.FK__Product__ModelId__164452B1" FromRole="Product" ToRole="Model" />
+          <NavigationProperty Name="Serie" Relationship="ToppproModel.FK__Product__SerieId__15502E78" FromRole="Product" ToRole="Serie" />
+          <Property Type="String" Name="Manual" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK__Attribute__Produ__173876EA">
+          <End Type="ToppproModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="ToppproModel.Attribute" Role="Attribute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="Attribute">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__ModelId__164452B1">
+          <End Type="ToppproModel.Model" Role="Model" Multiplicity="1" />
+          <End Type="ToppproModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Model">
+              <PropertyRef Name="ModelId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ModelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__SerieId__15502E78">
+          <End Type="ToppproModel.Serie" Role="Serie" Multiplicity="1" />
+          <End Type="ToppproModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Serie">
+              <PropertyRef Name="SerieId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="SerieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ToppproModelStoreContainer" CdmEntityContainer="ToppproEntities">
+          <EntitySetMapping Name="Attribute">
+            <EntityTypeMapping TypeName="ToppproModel.Attribute">
+              <MappingFragment StoreEntitySet="Attribute">
+                <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CultureId" ColumnName="CultureId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="AttributeId" ColumnName="AttributeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Category">
+            <EntityTypeMapping TypeName="ToppproModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Culture">
+            <EntityTypeMapping TypeName="ToppproModel.Culture">
+              <MappingFragment StoreEntitySet="Culture">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CultureId" ColumnName="CultureId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Serie">
+            <EntityTypeMapping TypeName="ToppproModel.Serie">
+              <MappingFragment StoreEntitySet="Serie">
+                <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="SerieId" ColumnName="SerieId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Model">
+            <EntityTypeMapping TypeName="ToppproModel.Model">
+              <MappingFragment StoreEntitySet="Model">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ModelId" ColumnName="ModelId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product">
+            <EntityTypeMapping TypeName="ToppproModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="Manual" ColumnName="Manual" />
+                <ScalarProperty Name="Folder" ColumnName="Folder" />
+                <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ModelId" ColumnName="ModelId" />
+                <ScalarProperty Name="SerieId" ColumnName="SerieId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="ToppproModel">
+        <EntityTypeShape EntityType="ToppproModel.Attribute" Width="1.5" PointX="7.5" PointY="1" Height="2.4140429687499996" />
+        <EntityTypeShape EntityType="ToppproModel.Category" Width="1.5" PointX="0.75" PointY="1.5" Height="1.4279589843749996" />
+        <EntityTypeShape EntityType="ToppproModel.Culture" Width="1.5" PointX="5.25" PointY="5.375" Height="1.5923063151041674" />
+        <EntityTypeShape EntityType="ToppproModel.Serie" Width="1.5" PointX="3" PointY="1.125" Height="2.3648893229166661" IsExpanded="true" />
+        <AssociationConnector Association="ToppproModel.FK__Attribute__Cultu__1367E606" >
+          <ConnectorPoint PointX="6.75" PointY="6.2689925130208337" />
+          <ConnectorPoint PointX="8.25" PointY="6.2689925130208337" />
+          <ConnectorPoint PointX="8.25" PointY="3.7494921875" />
+        </AssociationConnector>
+        <AssociationConnector Association="ToppproModel.FK__Serie__CategoryI__108B795B" >
+          <ConnectorPoint PointX="2.25" PointY="2.297841796875" />
+          <ConnectorPoint PointX="3" PointY="2.297841796875" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="ToppproModel.Model" Width="1.5" PointX="0.75" PointY="4.875" Height="1.5956835937499996" />
+        <EntityTypeShape EntityType="ToppproModel.Product" Width="1.5" PointX="5.25" PointY="1.375" Height="2.9417936197916674" />
+        <AssociationConnector Association="ToppproModel.FK__Attribute__Produ__173876EA" >
+          <ConnectorPoint PointX="6.75" PointY="2.56224609375" />
+          <ConnectorPoint PointX="7.5" PointY="2.56224609375" />
+        </AssociationConnector>
+        <AssociationConnector Association="ToppproModel.FK__Product__ModelId__164452B1" >
+          <ConnectorPoint PointX="2.25" PointY="4.875" />
+          <ConnectorPoint PointX="2.625" PointY="4.5" />
+          <ConnectorPoint PointX="2.625" PointY="4.6917936197916674" />
+          <ConnectorPoint PointX="4.875" PointY="4.6917936197916674" />
+          <ConnectorPoint PointX="5.25" PointY="4.3167936197916674" />
+        </AssociationConnector>
+        <AssociationConnector Association="ToppproModel.FK__Product__SerieId__15502E78" >
+          <ConnectorPoint PointX="4.5" PointY="2.4324446614583328" />
+          <ConnectorPoint PointX="5.25" PointY="2.4324446614583328" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,26 @@
+﻿@using Framework.MVC.Extensions
+@using Framework.MVC.Resources
+
+@model Topppro.Entities.Model
+
+@{
+    ViewBag.Title = PersistanceResource.Details;
+}
+
+<h2>@PersistanceResource.Details</h2>
+
+<fieldset>
+    <legend>Model</legend>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+</fieldset>
+<p>
+    @Html.ActionLink(PersistanceResource.Edit, "Edit", new { id = Model.ModelId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

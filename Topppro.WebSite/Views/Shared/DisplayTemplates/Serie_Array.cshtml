@@ -1,0 +1,43 @@
+﻿@using Topppro.WebSite.Extensions
+@using Framework.Common.Extensions
+
+@model IEnumerable<Topppro.Entities.Serie>
+
+@Html.Separator()
+
+<tr>
+    <td width="55">
+        &nbsp;
+    </td>
+    <td colspan="9">
+        <img id="@Model.FirstOrDefault().Name.ToSeoSlug()" src="@Url.Content("~/Content/Images/tarray-series-spacer.png")" alt="@string.Join(" ", Model.Select(s => s.Name.ToUpper())) SERIES" width="881" height="43" />
+    </td>
+    <td width="55">
+        &nbsp;
+    </td>
+</tr>
+
+@Html.Separator()
+@Html.Pattern()
+
+<tr>
+    <td>
+        &nbsp;
+    </td>
+    <td colspan="3">
+        <table cellpadding="0" cellspacing="0">
+            @Html.Partial("_ProductPartial", Model.FirstOrDefault().Products, new ViewDataDictionary { { "MaxPerLine", 2 } })
+        </table>
+    </td>
+    <td>
+        &nbsp;
+    </td>
+    <td colspan="4">
+        <table cellpadding="0" cellspacing="0">
+            @Html.Partial("_ProductPartial", Model.LastOrDefault().Products, new ViewDataDictionary { { "MaxPerLine", 3 } })
+        </table>
+    </td>
+    <td>
+        &nbsp;
+    </td>
+</tr>
