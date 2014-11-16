@@ -2,7 +2,7 @@
 
 namespace Topppro.WebSite.Controllers
 {
-    public class DistributorsController : Controller
+    public class BluetoothController : Controller
     {
         [OutputCache(CacheProfile = "Long")]
         public ActionResult Index()

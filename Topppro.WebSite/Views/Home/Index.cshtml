@@ -18,6 +18,32 @@
             color: #666666;
             text-decoration: none;
         }
+	    .map_image { 
+            display: block; 
+            width: 1000px; 
+            height: 100px; 
+            position: relative; 
+            background-position: 0 0; 
+            background-repeat: no-repeat; 
+        }
+	    .map_image .map_link { 
+            display: block; 
+            position: absolute; 
+            text-indent: -999em; 
+            overflow: hidden; 
+        }
+	    .map_image #map_link_0 { 
+            width: 250px; 
+            height: 97px; 
+            top: 1px; 
+            left: 1px; 
+        }
+	    .map_image #map_link_1 { 
+            width: 221px; 
+            height: 96px; 
+            top: 1px; 
+            left: 775px; 
+        }
     </style>
 }
 
@@ -61,13 +87,17 @@
 <table width="1000" border="0">
     <tr>
         <td align="center">
-            <a href="https://itunes.apple.com/cn/app/cs-eq/id838175440?mt=8#" target="_blank">
-                <img src="@Url.Content("~/Content/Images/cs-mx-app-100px.jpg")" alt="itunes app" width="1000" height="100" border="0" /></a>
+            <div class="map_image" style="background-image: url('@Url.Content("~/Content/Images/cs-mx-app-100px.jpg")');">
+	            <a class="map_link" id="map_link_0" title="cs-eq app itunes link" target="_blank" href="https://itunes.apple.com/cn/app/cs-eq/id838175440?mt=8#">
+                    &nbsp;</a>
+	            <a class="map_link" id="map_link_1" title="dmx app itunes link" target="_blank" href="https://itunes.apple.com/cn/app/dmx24.4i/id887695089?mt=8">
+                    &nbsp;</a>
+            </div>
         </td>
     </tr>
     <tr>
         <td align="center">
-            <a href="topppro-bluetooth cerified.html" target="_blank">
+            <a href="@Url.Action("Index", "Bluetooth")">
                 <img src="@Url.Content("~/Content/Images/bluetoth-footer.jpg")" alt="bluetoth certified" width="1000" height="100" border="0" /></a>
         </td>
     </tr>

@@ -22,5 +22,5 @@
 
 @if (!Model.Products.IsEmpty())
 {
-    @Html.Partial("_ProductPartial", Model.Products.Where(p => p.Enabled).OrderBy(p => p.Priority), new ViewDataDictionary { { "MaxPerLine", 5 } })
+    @Html.Partial("_ProductPartial", Model.Products.Where(p => p.Enabled).OrderBy(p => p.Priority), new ViewDataDictionary(ViewContext.ViewData) { { "MaxPerLine", 5 } });
 }

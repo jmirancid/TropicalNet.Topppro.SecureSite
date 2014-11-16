@@ -3,6 +3,11 @@
 @using Topppro.WebSite.Extensions
 @using Framework.Common.Extensions
 
+@{
+    ViewBag.AllowCompare = 
+        ViewBag.AllowCompare ?? true;
+}
+
 @functions {
 
     void SetColors(int modelId)
@@ -77,7 +82,7 @@
                     &nbsp;
                 </td>
                 <td align="center" height="20px">
-                    @if (product.Id != 158)
+                    @if (product.Id != 158 && ViewBag.AllowCompare)
                     {
                     <input type="checkbox" id="@product.Folder" value="@product.Id" data-text="@product.Name.ToSeoSlug()" />
                     <label for="@product.Folder">@Localization.Add_To_Compare</label>

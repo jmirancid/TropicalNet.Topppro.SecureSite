@@ -11,10 +11,11 @@ namespace Topppro.WebSite.Filters
     {
 		public override void OnActionExecuting(ActionExecutingContext filterContext)
 		{
-			string cultureName = Context.Current.Culture.TwoLetterISOLanguageName;
+            string cultureName = "en";
+			//string cultureName = Context.Current.Culture.TwoLetterISOLanguageName;
 
-			if (filterContext.RouteData.Values.ContainsKey("culture"))
-				cultureName = filterContext.RouteData.Values["culture"].ToString().ToLower();
+			//if (filterContext.RouteData.Values.ContainsKey("culture"))
+				//cultureName = filterContext.RouteData.Values["culture"].ToString().ToLower();
 
 			if (IsCultureAvailable(cultureName) && IsCultureDistinct(cultureName))
 			{

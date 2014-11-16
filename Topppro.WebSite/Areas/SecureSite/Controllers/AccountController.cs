@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web.Mvc;
 using System.Web.Security;
-using Topppro.WebSite.Models;
+using Topppro.WebSite.Areas.SecureSite.Models;
 
 namespace Topppro.WebSite.Areas.SecureSite.Controllers
 {

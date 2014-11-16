@@ -5,7 +5,7 @@
 
 @section Styles {
     <link rel="Stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
-    <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/jsPanel.css")" />
+    <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Plugins/jquery.jspanel/jsPanel.css")" />
     <style type="text/css">
         body {
 	        background-image: url('@ViewBag.BackgroundImage');
@@ -30,7 +30,7 @@
     @Html.PreloadedImages()
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
-    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.jspanel.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Plugins/jquery.jspanel/jquery.jspanel.js")"></script>
     <script type="text/javascript">
         $(function () {
             var jspanel, item_list = [];

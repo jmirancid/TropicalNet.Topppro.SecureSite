@@ -94,7 +94,9 @@
     <Compile Include="Areas\SecureSite\Controllers\ProductController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\SerieController.cs" />
     <Compile Include="Controllers\AmplifiersController.cs" />
+    <Compile Include="Controllers\BluetoothController.cs" />
     <Compile Include="Controllers\DistributorsController.cs" />
+    <Compile Include="Controllers\DownloadsController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\InstallController.cs" />
     <Compile Include="Controllers\LayoutController.cs" />
@@ -268,23 +270,34 @@
     <Content Include="Areas\SecureSite\Scripts\modernizr-1.7.js" />
     <Content Include="Areas\SecureSite\Scripts\modernizr-1.7.min.js" />
     <Content Include="Content\Downloads\Readme.txt" />
+    <Content Include="Content\Images\1.-TAC-BT2.1B-EPLCertificate.jpg" />
+    <Content Include="Content\Images\11.--MX-3BT-EPL--B019657.jpg" />
+    <Content Include="Content\Images\15.-DMX24.4--EPLCertificate.jpg" />
     <Content Include="Content\Images\2.4ghz-series-spacer.png" />
+    <Content Include="Content\Images\20.-TAP20BT-Topp-Pro-EPLCertificate.jpg" />
+    <Content Include="Content\Images\22.-TAP40BT-Topp-Pro-EPLCertificate.jpg" />
     <Content Include="Content\Images\airport-bottom-page.jpg" />
     <Content Include="Content\Images\airport-series-spacer.png" />
     <Content Include="Content\Images\argo-series-spacer.png" />
     <Content Include="Content\Images\ark-series-spacer.png" />
+    <Content Include="Content\Images\avi.png" />
     <Content Include="Content\Images\bluetooth-series-spacer.png" />
     <Content Include="Content\Images\bluetoth-footer.jpg" />
     <Content Include="Content\Images\amplifiers-bottom-page.jpg" />
+    <Content Include="Content\Images\bmp.png" />
     <Content Include="Content\Images\colombia-flag.jpg" />
     <Content Include="Content\Images\coming-soon.jpg" />
     <Content Include="Content\Images\cs-app.jpg" />
     <Content Include="Content\Images\distributors spacer.png" />
     <Content Include="Content\Images\dmx244-livemixing.jpg" />
+    <Content Include="Content\Images\doc.png" />
     <Content Include="Content\Images\dpm-bottom-page.jpg" />
     <Content Include="Content\Images\dpm-series-spacer.png" />
     <Content Include="Content\Images\drive-series-spacer.png" />
+    <Content Include="Content\Images\exe.png" />
     <Content Include="Content\Images\favicon.ico" />
+    <Content Include="Content\Images\flv.png" />
+    <Content Include="Content\Images\gif.png" />
     <Content Include="Content\Images\gig-series-spacer.png" />
     <Content Include="Content\Images\hi-res-photos.jpg" />
     <Content Include="Content\Images\home-bottom-page.jpg" />
@@ -305,7 +318,9 @@
     <Content Include="Content\Images\i4K-series-spacer.png" />
     <Content Include="Content\Images\install-bottom-page.jpg" />
     <Content Include="Content\Images\intro-2014.swf" />
+    <Content Include="Content\Images\iso.png" />
     <Content Include="Content\Images\italy-flag.jpg" />
+    <Content Include="Content\Images\jpg.png" />
     <Content Include="Content\Images\kpa300r-series-spacer.png" />
     <Content Include="Content\Images\ks-series-spacer.png" />
     <Content Include="Content\Images\left-separator.png" />
@@ -373,6 +388,9 @@
     <Content Include="Content\Images\modules-tac-mx-dsp-big.jpg" />
     <Content Include="Content\Images\modules-tac-mx-eq-big.jpg" />
     <Content Include="Content\Images\modules-tac-tmw-2.4r-big.jpg" />
+    <Content Include="Content\Images\mp3.png" />
+    <Content Include="Content\Images\mp4.png" />
+    <Content Include="Content\Images\mpg.png" />
     <Content Include="Content\Images\mx-bottom-page.jpg" />
     <Content Include="Content\Images\mx-series-spacer.png" />
     <Content Include="Content\Images\mx244-app.jpg" />
@@ -380,8 +398,13 @@
     <Content Include="Content\Images\mxdigital-series-spacer.png" />
     <Content Include="Content\Images\neo-series-spacer.png" />
     <Content Include="Content\Images\packs-bottom-page.jpg" />
+    <Content Include="Content\Images\pdf.png" />
+    <Content Include="Content\Images\png.png" />
+    <Content Include="Content\Images\ppt.png" />
     <Content Include="Content\Images\processors-bottom-page.jpg" />
     <Content Include="Content\Images\processors-series-spacer.png" />
+    <Content Include="Content\Images\psd.png" />
+    <Content Include="Content\Images\rar.png" />
     <Content Include="Content\Images\s-array-series-spacer.png" />
     <Content Include="Content\Images\soho-series-spacer.png" />
     <Content Include="Content\Images\spacer.gif" />
@@ -404,9 +427,15 @@
     <Content Include="Content\Images\tps16-series-spacer.png" />
     <Content Include="Content\Images\transmiters-series-spacer.png" />
     <Content Include="Content\Images\trx-series-spacer.png" />
+    <Content Include="Content\Images\txt.png" />
     <Content Include="Content\Images\user-manual.png" />
     <Content Include="Content\Images\wireless-bottom-page.jpg" />
     <Content Include="Content\Images\world-flag.jpg" />
+    <Content Include="Content\Images\xls.png" />
+    <Content Include="Content\Images\xlsx.png" />
+    <Content Include="Content\Images\xml.png" />
+    <Content Include="Content\Images\zip.png" />
+    <Content Include="Content\Images\_blank.png" />
     <Content Include="Content\Manuals\Readme.txt" />
     <Content Include="Content\Products\Readme.txt" />
     <Content Include="Content\Styles\Layout.css" />
@@ -746,6 +775,10 @@
     <Content Include="Web.Stage.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <Content Include="Views\Bluetooth\Index.cshtml" />
+    <Content Include="Views\Downloads\Index.cshtml" />
+    <Content Include="Views\Processors\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Serie_I.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
@@ -764,7 +797,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>2763</DevelopmentServerPort>
+          <DevelopmentServerPort>17162</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

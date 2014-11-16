@@ -1,0 +1,33 @@
+﻿@using Topppro.WebSite.Resources
+@using Topppro.WebSite.Extensions
+
+@model IEnumerable<Topppro.Entities.Serie>
+
+@{
+    ViewBag.AllowCompare = false;
+}
+
+@section Styles {
+    <style type="text/css">
+        body {
+	        background-image: url('@ViewBag.BackgroundImage');
+	        background-repeat: no-repeat;
+            background-position: 0px 116px;
+            background-attachment: fixed;
+        }
+    </style>
+}
+
+<table width="1000" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+    <tbody>
+        @Html.DisplayForModel()
+        
+        @Html.Separator()
+        @Html.Button(string.Format("<< {0}", Localization.Back), Url.Action("Index", "Home"), "#303030", "Estilo44")
+        @Html.Separator()
+    </tbody>
+</table>
+
+@section Scripts {
+    @Html.PreloadedImages()
+}
