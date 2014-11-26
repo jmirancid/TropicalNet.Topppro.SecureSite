@@ -37,48 +37,116 @@ namespace Topppro.Entities
         #endregion
         #region Navigation Properties
     
-    	//[XmlElement("Series", typeof(Collection<Serie>))]
-        public virtual ICollection<Serie> Series
+    	//[XmlElement("Cat_Ser_Assn", typeof(Collection<Cat_Ser_Assn>))]
+        public virtual ICollection<Cat_Ser_Assn> Cat_Ser_Assn
         {
             get
             {
-                if (_series == null)
+                if (_cat_Ser_Assn == null)
                 {
-                    var newCollection = new FixupCollection<Serie>();
-                    newCollection.CollectionChanged += FixupSeries;
-                    _series = newCollection;
+                    var newCollection = new FixupCollection<Cat_Ser_Assn>();
+                    newCollection.CollectionChanged += FixupCat_Ser_Assn;
+                    _cat_Ser_Assn = newCollection;
                 }
-                return _series;
+                return _cat_Ser_Assn;
             }
             set
             {
-                if (!ReferenceEquals(_series, value))
+                if (!ReferenceEquals(_cat_Ser_Assn, value))
                 {
-                    var previousValue = _series as FixupCollection<Serie>;
+                    var previousValue = _cat_Ser_Assn as FixupCollection<Cat_Ser_Assn>;
                     if (previousValue != null)
                     {
-                        previousValue.CollectionChanged -= FixupSeries;
+                        previousValue.CollectionChanged -= FixupCat_Ser_Assn;
                     }
-                    _series = value;
-                    var newValue = value as FixupCollection<Serie>;
+                    _cat_Ser_Assn = value;
+                    var newValue = value as FixupCollection<Cat_Ser_Assn>;
                     if (newValue != null)
                     {
-                        newValue.CollectionChanged += FixupSeries;
+                        newValue.CollectionChanged += FixupCat_Ser_Assn;
                     }
                 }
             }
         }
-    	//[XmlElement("Series", typeof(Collection<Serie>))]
-        private ICollection<Serie> _series;
+    	//[XmlElement("Cat_Ser_Assn", typeof(Collection<Cat_Ser_Assn>))]
+        private ICollection<Cat_Ser_Assn> _cat_Ser_Assn;
+    
+    	//[XmlElement("Cat_Ser_Pack_Assn", typeof(Collection<Cat_Ser_Pack_Assn>))]
+        public virtual ICollection<Cat_Ser_Pack_Assn> Cat_Ser_Pack_Assn
+        {
+            get
+            {
+                if (_cat_Ser_Pack_Assn == null)
+                {
+                    var newCollection = new FixupCollection<Cat_Ser_Pack_Assn>();
+                    newCollection.CollectionChanged += FixupCat_Ser_Pack_Assn;
+                    _cat_Ser_Pack_Assn = newCollection;
+                }
+                return _cat_Ser_Pack_Assn;
+            }
+            set
+            {
+                if (!ReferenceEquals(_cat_Ser_Pack_Assn, value))
+                {
+                    var previousValue = _cat_Ser_Pack_Assn as FixupCollection<Cat_Ser_Pack_Assn>;
+                    if (previousValue != null)
+                    {
+                        previousValue.CollectionChanged -= FixupCat_Ser_Pack_Assn;
+                    }
+                    _cat_Ser_Pack_Assn = value;
+                    var newValue = value as FixupCollection<Cat_Ser_Pack_Assn>;
+                    if (newValue != null)
+                    {
+                        newValue.CollectionChanged += FixupCat_Ser_Pack_Assn;
+                    }
+                }
+            }
+        }
+    	//[XmlElement("Cat_Ser_Pack_Assn", typeof(Collection<Cat_Ser_Pack_Assn>))]
+        private ICollection<Cat_Ser_Pack_Assn> _cat_Ser_Pack_Assn;
+    
+    	//[XmlElement("Cat_Ser_Prod_Assn", typeof(Collection<Cat_Ser_Prod_Assn>))]
+        public virtual ICollection<Cat_Ser_Prod_Assn> Cat_Ser_Prod_Assn
+        {
+            get
+            {
+                if (_cat_Ser_Prod_Assn == null)
+                {
+                    var newCollection = new FixupCollection<Cat_Ser_Prod_Assn>();
+                    newCollection.CollectionChanged += FixupCat_Ser_Prod_Assn;
+                    _cat_Ser_Prod_Assn = newCollection;
+                }
+                return _cat_Ser_Prod_Assn;
+            }
+            set
+            {
+                if (!ReferenceEquals(_cat_Ser_Prod_Assn, value))
+                {
+                    var previousValue = _cat_Ser_Prod_Assn as FixupCollection<Cat_Ser_Prod_Assn>;
+                    if (previousValue != null)
+                    {
+                        previousValue.CollectionChanged -= FixupCat_Ser_Prod_Assn;
+                    }
+                    _cat_Ser_Prod_Assn = value;
+                    var newValue = value as FixupCollection<Cat_Ser_Prod_Assn>;
+                    if (newValue != null)
+                    {
+                        newValue.CollectionChanged += FixupCat_Ser_Prod_Assn;
+                    }
+                }
+            }
+        }
+    	//[XmlElement("Cat_Ser_Prod_Assn", typeof(Collection<Cat_Ser_Prod_Assn>))]
+        private ICollection<Cat_Ser_Prod_Assn> _cat_Ser_Prod_Assn;
 
         #endregion
         #region Association Fixup
     
-        private void FixupSeries(object sender, NotifyCollectionChangedEventArgs e)
+        private void FixupCat_Ser_Assn(object sender, NotifyCollectionChangedEventArgs e)
         {
             if (e.NewItems != null)
             {
-                foreach (Serie item in e.NewItems)
+                foreach (Cat_Ser_Assn item in e.NewItems)
                 {
                     item.Category = this;
                 }
@@ -86,7 +154,51 @@ namespace Topppro.Entities
     
             if (e.OldItems != null)
             {
-                foreach (Serie item in e.OldItems)
+                foreach (Cat_Ser_Assn item in e.OldItems)
+                {
+                    if (ReferenceEquals(item.Category, this))
+                    {
+                        item.Category = null;
+                    }
+                }
+            }
+        }
+    
+        private void FixupCat_Ser_Pack_Assn(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (e.NewItems != null)
+            {
+                foreach (Cat_Ser_Pack_Assn item in e.NewItems)
+                {
+                    item.Category = this;
+                }
+            }
+    
+            if (e.OldItems != null)
+            {
+                foreach (Cat_Ser_Pack_Assn item in e.OldItems)
+                {
+                    if (ReferenceEquals(item.Category, this))
+                    {
+                        item.Category = null;
+                    }
+                }
+            }
+        }
+    
+        private void FixupCat_Ser_Prod_Assn(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (e.NewItems != null)
+            {
+                foreach (Cat_Ser_Prod_Assn item in e.NewItems)
+                {
+                    item.Category = this;
+                }
+            }
+    
+            if (e.OldItems != null)
+            {
+                foreach (Cat_Ser_Prod_Assn item in e.OldItems)
                 {
                     if (ReferenceEquals(item.Category, this))
                     {

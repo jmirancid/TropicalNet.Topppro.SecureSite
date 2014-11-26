@@ -18,17 +18,51 @@ using System.Xml.Serialization;
 namespace Topppro.Entities
 {
     [Serializable]
-    public partial class Serie
+    public partial class Cat_Ser_Assn
     {
         #region Primitive Properties
     
+        public virtual int CategoryId
+        {
+            get { return _categoryId; }
+            set
+            {
+                if (_categoryId != value)
+                {
+                    if (Category != null && Category.CategoryId != value)
+                    {
+                        Category = null;
+                    }
+                    _categoryId = value;
+                }
+            }
+        }
+        private int _categoryId;
+    
         public virtual int SerieId
+        {
+            get { return _serieId; }
+            set
+            {
+                if (_serieId != value)
+                {
+                    if (Serie != null && Serie.SerieId != value)
+                    {
+                        Serie = null;
+                    }
+                    _serieId = value;
+                }
+            }
+        }
+        private int _serieId;
+    
+        public virtual Nullable<int> Priority
         {
             get;
             set;
         }
     
-        public virtual string Name
+        public virtual bool Enabled
         {
             get;
             set;
@@ -36,40 +70,6 @@ namespace Topppro.Entities
 
         #endregion
         #region Navigation Properties
-    
-    	//[XmlElement("Cat_Ser_Assn", typeof(Collection<Cat_Ser_Assn>))]
-        public virtual ICollection<Cat_Ser_Assn> Cat_Ser_Assn
-        {
-            get
-            {
-                if (_cat_Ser_Assn == null)
-                {
-                    var newCollection = new FixupCollection<Cat_Ser_Assn>();
-                    newCollection.CollectionChanged += FixupCat_Ser_Assn;
-                    _cat_Ser_Assn = newCollection;
-                }
-                return _cat_Ser_Assn;
-            }
-            set
-            {
-                if (!ReferenceEquals(_cat_Ser_Assn, value))
-                {
-                    var previousValue = _cat_Ser_Assn as FixupCollection<Cat_Ser_Assn>;
-                    if (previousValue != null)
-                    {
-                        previousValue.CollectionChanged -= FixupCat_Ser_Assn;
-                    }
-                    _cat_Ser_Assn = value;
-                    var newValue = value as FixupCollection<Cat_Ser_Assn>;
-                    if (newValue != null)
-                    {
-                        newValue.CollectionChanged += FixupCat_Ser_Assn;
-                    }
-                }
-            }
-        }
-    	//[XmlElement("Cat_Ser_Assn", typeof(Collection<Cat_Ser_Assn>))]
-        private ICollection<Cat_Ser_Assn> _cat_Ser_Assn;
     
     	//[XmlElement("Cat_Ser_Pack_Assn", typeof(Collection<Cat_Ser_Pack_Assn>))]
         public virtual ICollection<Cat_Ser_Pack_Assn> Cat_Ser_Pack_Assn
@@ -138,28 +138,76 @@ namespace Topppro.Entities
         }
     	//[XmlElement("Cat_Ser_Prod_Assn", typeof(Collection<Cat_Ser_Prod_Assn>))]
         private ICollection<Cat_Ser_Prod_Assn> _cat_Ser_Prod_Assn;
+    
+        public virtual Category Category
+        {
+            get { return _category; }
+            set
+            {
+                if (!ReferenceEquals(_category, value))
+                {
+                    var previousValue = _category;
+                    _category = value;
+                    FixupCategory(previousValue);
+                }
+            }
+        }
+        private Category _category;
+    
+        public virtual Serie Serie
+        {
+            get { return _serie; }
+            set
+            {
+                if (!ReferenceEquals(_serie, value))
+                {
+                    var previousValue = _serie;
+                    _serie = value;
+                    FixupSerie(previousValue);
+                }
+            }
+        }
+        private Serie _serie;
 
         #endregion
         #region Association Fixup
     
-        private void FixupCat_Ser_Assn(object sender, NotifyCollectionChangedEventArgs e)
+        private void FixupCategory(Category previousValue)
         {
-            if (e.NewItems != null)
+            if (previousValue != null && previousValue.Cat_Ser_Assn.Contains(this))
             {
-                foreach (Cat_Ser_Assn item in e.NewItems)
-                {
-                    item.Serie = this;
-                }
+                previousValue.Cat_Ser_Assn.Remove(this);
             }
     
-            if (e.OldItems != null)
+            if (Category != null)
             {
-                foreach (Cat_Ser_Assn item in e.OldItems)
+                if (!Category.Cat_Ser_Assn.Contains(this))
                 {
-                    if (ReferenceEquals(item.Serie, this))
-                    {
-                        item.Serie = null;
-                    }
+                    Category.Cat_Ser_Assn.Add(this);
+                }
+                if (CategoryId != Category.CategoryId)
+                {
+                    CategoryId = Category.CategoryId;
+                }
+            }
+        }
+    
+        private void FixupSerie(Serie previousValue)
+        {
+            if (previousValue != null && previousValue.Cat_Ser_Assn.Contains(this))
+            {
+                previousValue.Cat_Ser_Assn.Remove(this);
+            }
+    
+            if (Serie != null)
+            {
+                if (!Serie.Cat_Ser_Assn.Contains(this))
+                {
+                    Serie.Cat_Ser_Assn.Add(this);
+                }
+                if (SerieId != Serie.SerieId)
+                {
+                    SerieId = Serie.SerieId;
                 }
             }
         }
@@ -170,7 +218,7 @@ namespace Topppro.Entities
             {
                 foreach (Cat_Ser_Pack_Assn item in e.NewItems)
                 {
-                    item.Serie = this;
+                    item.Cat_Ser_Assn = this;
                 }
             }
     
@@ -178,9 +226,9 @@ namespace Topppro.Entities
             {
                 foreach (Cat_Ser_Pack_Assn item in e.OldItems)
                 {
-                    if (ReferenceEquals(item.Serie, this))
+                    if (ReferenceEquals(item.Cat_Ser_Assn, this))
                     {
-                        item.Serie = null;
+                        item.Cat_Ser_Assn = null;
                     }
                 }
             }
@@ -192,7 +240,7 @@ namespace Topppro.Entities
             {
                 foreach (Cat_Ser_Prod_Assn item in e.NewItems)
                 {
-                    item.Serie = this;
+                    item.Cat_Ser_Assn = this;
                 }
             }
     
@@ -200,9 +248,9 @@ namespace Topppro.Entities
             {
                 foreach (Cat_Ser_Prod_Assn item in e.OldItems)
                 {
-                    if (ReferenceEquals(item.Serie, this))
+                    if (ReferenceEquals(item.Cat_Ser_Assn, this))
                     {
-                        item.Serie = null;
+                        item.Cat_Ser_Assn = null;
                     }
                 }
             }

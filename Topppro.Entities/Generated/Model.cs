@@ -37,6 +37,40 @@ namespace Topppro.Entities
         #endregion
         #region Navigation Properties
     
+    	//[XmlElement("Packages", typeof(Collection<Package>))]
+        public virtual ICollection<Package> Packages
+        {
+            get
+            {
+                if (_packages == null)
+                {
+                    var newCollection = new FixupCollection<Package>();
+                    newCollection.CollectionChanged += FixupPackages;
+                    _packages = newCollection;
+                }
+                return _packages;
+            }
+            set
+            {
+                if (!ReferenceEquals(_packages, value))
+                {
+                    var previousValue = _packages as FixupCollection<Package>;
+                    if (previousValue != null)
+                    {
+                        previousValue.CollectionChanged -= FixupPackages;
+                    }
+                    _packages = value;
+                    var newValue = value as FixupCollection<Package>;
+                    if (newValue != null)
+                    {
+                        newValue.CollectionChanged += FixupPackages;
+                    }
+                }
+            }
+        }
+    	//[XmlElement("Packages", typeof(Collection<Package>))]
+        private ICollection<Package> _packages;
+    
     	//[XmlElement("Products", typeof(Collection<Product>))]
         public virtual ICollection<Product> Products
         {
@@ -73,6 +107,28 @@ namespace Topppro.Entities
 
         #endregion
         #region Association Fixup
+    
+        private void FixupPackages(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (e.NewItems != null)
+            {
+                foreach (Package item in e.NewItems)
+                {
+                    item.Model = this;
+                }
+            }
+    
+            if (e.OldItems != null)
+            {
+                foreach (Package item in e.OldItems)
+                {
+                    if (ReferenceEquals(item.Model, this))
+                    {
+                        item.Model = null;
+                    }
+                }
+            }
+        }
     
         private void FixupProducts(object sender, NotifyCollectionChangedEventArgs e)
         {

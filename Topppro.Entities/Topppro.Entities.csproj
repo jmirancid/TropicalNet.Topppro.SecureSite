@@ -68,10 +68,25 @@
     <Compile Include="Generated\Category.cs">
       <DependentUpon>Templates.tt</DependentUpon>
     </Compile>
+    <Compile Include="Generated\Cat_Ser_Assn.cs">
+      <DependentUpon>Templates.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Generated\Cat_Ser_Pack_Assn.cs">
+      <DependentUpon>Templates.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Generated\Cat_Ser_Prod_Assn.cs">
+      <DependentUpon>Templates.tt</DependentUpon>
+    </Compile>
     <Compile Include="Generated\Culture.cs">
       <DependentUpon>Templates.tt</DependentUpon>
     </Compile>
     <Compile Include="Generated\Model.cs">
+      <DependentUpon>Templates.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Generated\Package.cs">
+      <DependentUpon>Templates.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Generated\Pack_Prod_Assn.cs">
       <DependentUpon>Templates.tt</DependentUpon>
     </Compile>
     <Compile Include="Generated\Product.cs">

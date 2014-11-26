@@ -48,6 +48,24 @@ namespace Topppro.Repositories
         }
         private ObjectSet<Attribute> _attribute;
     
+        public ObjectSet<Cat_Ser_Assn> Cat_Ser_Assn
+        {
+            get { return _cat_Ser_Assn  ?? (_cat_Ser_Assn = CreateObjectSet<Cat_Ser_Assn>("Cat_Ser_Assn")); }
+        }
+        private ObjectSet<Cat_Ser_Assn> _cat_Ser_Assn;
+    
+        public ObjectSet<Cat_Ser_Pack_Assn> Cat_Ser_Pack_Assn
+        {
+            get { return _cat_Ser_Pack_Assn  ?? (_cat_Ser_Pack_Assn = CreateObjectSet<Cat_Ser_Pack_Assn>("Cat_Ser_Pack_Assn")); }
+        }
+        private ObjectSet<Cat_Ser_Pack_Assn> _cat_Ser_Pack_Assn;
+    
+        public ObjectSet<Cat_Ser_Prod_Assn> Cat_Ser_Prod_Assn
+        {
+            get { return _cat_Ser_Prod_Assn  ?? (_cat_Ser_Prod_Assn = CreateObjectSet<Cat_Ser_Prod_Assn>("Cat_Ser_Prod_Assn")); }
+        }
+        private ObjectSet<Cat_Ser_Prod_Assn> _cat_Ser_Prod_Assn;
+    
         public ObjectSet<Category> Category
         {
             get { return _category  ?? (_category = CreateObjectSet<Category>("Category")); }
@@ -60,23 +78,35 @@ namespace Topppro.Repositories
         }
         private ObjectSet<Culture> _culture;
     
-        public ObjectSet<Serie> Serie
-        {
-            get { return _serie  ?? (_serie = CreateObjectSet<Serie>("Serie")); }
-        }
-        private ObjectSet<Serie> _serie;
-    
         public ObjectSet<Model> Model
         {
             get { return _model  ?? (_model = CreateObjectSet<Model>("Model")); }
         }
         private ObjectSet<Model> _model;
     
+        public ObjectSet<Pack_Prod_Assn> Pack_Prod_Assn
+        {
+            get { return _pack_Prod_Assn  ?? (_pack_Prod_Assn = CreateObjectSet<Pack_Prod_Assn>("Pack_Prod_Assn")); }
+        }
+        private ObjectSet<Pack_Prod_Assn> _pack_Prod_Assn;
+    
+        public ObjectSet<Package> Package
+        {
+            get { return _package  ?? (_package = CreateObjectSet<Package>("Package")); }
+        }
+        private ObjectSet<Package> _package;
+    
         public ObjectSet<Product> Product
         {
             get { return _product  ?? (_product = CreateObjectSet<Product>("Product")); }
         }
         private ObjectSet<Product> _product;
+    
+        public ObjectSet<Serie> Serie
+        {
+            get { return _serie  ?? (_serie = CreateObjectSet<Serie>("Serie")); }
+        }
+        private ObjectSet<Serie> _serie;
 
         #endregion
     }

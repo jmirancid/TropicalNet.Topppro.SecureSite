@@ -43,7 +43,7 @@ CREATE TABLE [dbo].[Cat_Ser_Prod_Assn] (
 , [SerieId] INTEGER  NOT NULL  
 , [ProductId] INTEGER  NOT NULL  
 , [Prority] INTEGER  NULL  
-, [Enabled] BIT  NULL  
+, [Enabled] BIT  NOT NULL  
 )
 GO
 
@@ -62,7 +62,7 @@ CREATE TABLE [dbo].[Cat_Ser_Assn] (
 [CategoryId] INTEGER  NOT NULL  
 , [SerieId] INTEGER  NOT NULL  
 , [Priority] INTEGER  NULL  
-, [Enabled] BIT  NULL  
+, [Enabled] BIT  NOT NULL  
 )
 GO
 
@@ -82,7 +82,7 @@ CREATE TABLE [dbo].[Product] (
 , [Name] VARCHAR(100)  NOT NULL  
 , [Folder] VARCHAR(50)  NULL  
 , [Manual] VARCHAR(50)  NULL  
-, [Draft] BIT  NULL  
+, [Draft] BIT  NOT NULL  
 )
 GO
 
@@ -100,7 +100,7 @@ CREATE TABLE [dbo].[Cat_Ser_Pack_Assn] (
 , [SerieId] INTEGER  NOT NULL  
 , [PackageId] INTEGER  NOT NULL  
 , [Priority] INTEGER  NULL  
-, [Enabled] BIT  NULL  
+, [Enabled] BIT  NOT NULL  
 )
 GO
 
@@ -122,7 +122,7 @@ CREATE TABLE [dbo].[Attribute] (
 , [Name] VARCHAR(150)  NOT NULL  
 , [Value] VARCHAR(8000)  NOT NULL  
 , [Priority] INTEGER  NULL  
-, [Enabled] BIT  NULL  
+, [Enabled] BIT  NOT NULL  
 )
 GO
 
@@ -141,7 +141,7 @@ CREATE TABLE [dbo].[Package] (
 , [Name] VARCHAR(100)  NOT NULL  
 , [Folder] VARCHAR(50)  NULL  
 , [Manual] VARCHAR(50)  NULL  
-, [Draft] BIT  NULL  
+, [Draft] BIT  NOT NULL  
 )
 GO
 
@@ -166,17 +166,17 @@ ALTER TABLE [dbo].[Model] ADD CONSTRAINT [Model_PK] PRIMARY KEY CLUSTERED (
 GO
 GO
 
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[CultureId]') AND type in (N'U'))
-    DROP TABLE [dbo].[CultureId]
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Culture]') AND type in (N'U'))
+    DROP TABLE [dbo].[Culture]
 GO
-CREATE TABLE [dbo].[CultureId] (
+CREATE TABLE [dbo].[Culture] (
 [CultureId] INTEGER  NOT NULL  
 , [Name] VARCHAR(50)  NOT NULL  
 , [Code] VARCHAR(2)  NOT NULL  
 )
 GO
 
-ALTER TABLE [dbo].[CultureId] ADD CONSTRAINT [CultureId_PK] PRIMARY KEY CLUSTERED (
+ALTER TABLE [dbo].[Culture] ADD CONSTRAINT [Culture_PK] PRIMARY KEY CLUSTERED (
 [CultureId]
 )
 GO
@@ -189,7 +189,7 @@ CREATE TABLE [dbo].[Pack_Prod_Assn] (
 [PackageId] INTEGER  NOT NULL  
 , [ProductId] INTEGER  NOT NULL  
 , [Priority] INTEGER  NULL  
-, [Enabled] BIT  NULL  
+, [Enabled] BIT  NOT NULL  
 )
 GO
 
@@ -282,10 +282,10 @@ REFERENCES [dbo].[Package] (
 )
 GO
 
-ALTER TABLE [dbo].[Attribute] WITH CHECK ADD CONSTRAINT [CultureId_Attribute_FK1] FOREIGN KEY (
+ALTER TABLE [dbo].[Attribute] WITH CHECK ADD CONSTRAINT [Culture_Attribute_FK1] FOREIGN KEY (
 [CultureId]
 )
-REFERENCES [dbo].[CultureId] (
+REFERENCES [dbo].[Culture] (
 [CultureId]
 )
 ALTER TABLE [dbo].[Attribute] WITH CHECK ADD CONSTRAINT [Product_Attribute_FK1] FOREIGN KEY (
