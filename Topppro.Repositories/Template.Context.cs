@@ -42,29 +42,35 @@ namespace Topppro.Repositories
     
         #region ObjectSet Properties
     
+        public ObjectSet<Assn_CategorySerie> Assn_CategorySerie
+        {
+            get { return _assn_CategorySerie  ?? (_assn_CategorySerie = CreateObjectSet<Assn_CategorySerie>("Assn_CategorySerie")); }
+        }
+        private ObjectSet<Assn_CategorySerie> _assn_CategorySerie;
+    
+        public ObjectSet<Assn_CategorySeriePackage> Assn_CategorySeriePackage
+        {
+            get { return _assn_CategorySeriePackage  ?? (_assn_CategorySeriePackage = CreateObjectSet<Assn_CategorySeriePackage>("Assn_CategorySeriePackage")); }
+        }
+        private ObjectSet<Assn_CategorySeriePackage> _assn_CategorySeriePackage;
+    
+        public ObjectSet<Assn_CategorySerieProduct> Assn_CategorySerieProduct
+        {
+            get { return _assn_CategorySerieProduct  ?? (_assn_CategorySerieProduct = CreateObjectSet<Assn_CategorySerieProduct>("Assn_CategorySerieProduct")); }
+        }
+        private ObjectSet<Assn_CategorySerieProduct> _assn_CategorySerieProduct;
+    
+        public ObjectSet<Assn_PackageProduct> Assn_PackageProduct
+        {
+            get { return _assn_PackageProduct  ?? (_assn_PackageProduct = CreateObjectSet<Assn_PackageProduct>("Assn_PackageProduct")); }
+        }
+        private ObjectSet<Assn_PackageProduct> _assn_PackageProduct;
+    
         public ObjectSet<Attribute> Attribute
         {
             get { return _attribute  ?? (_attribute = CreateObjectSet<Attribute>("Attribute")); }
         }
         private ObjectSet<Attribute> _attribute;
-    
-        public ObjectSet<Cat_Ser_Assn> Cat_Ser_Assn
-        {
-            get { return _cat_Ser_Assn  ?? (_cat_Ser_Assn = CreateObjectSet<Cat_Ser_Assn>("Cat_Ser_Assn")); }
-        }
-        private ObjectSet<Cat_Ser_Assn> _cat_Ser_Assn;
-    
-        public ObjectSet<Cat_Ser_Pack_Assn> Cat_Ser_Pack_Assn
-        {
-            get { return _cat_Ser_Pack_Assn  ?? (_cat_Ser_Pack_Assn = CreateObjectSet<Cat_Ser_Pack_Assn>("Cat_Ser_Pack_Assn")); }
-        }
-        private ObjectSet<Cat_Ser_Pack_Assn> _cat_Ser_Pack_Assn;
-    
-        public ObjectSet<Cat_Ser_Prod_Assn> Cat_Ser_Prod_Assn
-        {
-            get { return _cat_Ser_Prod_Assn  ?? (_cat_Ser_Prod_Assn = CreateObjectSet<Cat_Ser_Prod_Assn>("Cat_Ser_Prod_Assn")); }
-        }
-        private ObjectSet<Cat_Ser_Prod_Assn> _cat_Ser_Prod_Assn;
     
         public ObjectSet<Category> Category
         {
@@ -83,12 +89,6 @@ namespace Topppro.Repositories
             get { return _model  ?? (_model = CreateObjectSet<Model>("Model")); }
         }
         private ObjectSet<Model> _model;
-    
-        public ObjectSet<Pack_Prod_Assn> Pack_Prod_Assn
-        {
-            get { return _pack_Prod_Assn  ?? (_pack_Prod_Assn = CreateObjectSet<Pack_Prod_Assn>("Pack_Prod_Assn")); }
-        }
-        private ObjectSet<Pack_Prod_Assn> _pack_Prod_Assn;
     
         public ObjectSet<Package> Package
         {

@@ -18,26 +18,43 @@ using System.Xml.Serialization;
 namespace Topppro.Entities
 {
     [Serializable]
-    public partial class Pack_Prod_Assn
+    public partial class Assn_CategorySerieProduct
     {
         #region Primitive Properties
     
-        public virtual int PackageId
+        public virtual int CategoryId
         {
-            get { return _packageId; }
+            get { return _categoryId; }
             set
             {
-                if (_packageId != value)
+                if (_categoryId != value)
                 {
-                    if (Package != null && Package.PackageId != value)
+                    if (Assn_CategorySerie != null && Assn_CategorySerie.CategoryId != value)
                     {
-                        Package = null;
+                        Assn_CategorySerie = null;
                     }
-                    _packageId = value;
+                    _categoryId = value;
                 }
             }
         }
-        private int _packageId;
+        private int _categoryId;
+    
+        public virtual int SerieId
+        {
+            get { return _serieId; }
+            set
+            {
+                if (_serieId != value)
+                {
+                    if (Assn_CategorySerie != null && Assn_CategorySerie.SerieId != value)
+                    {
+                        Assn_CategorySerie = null;
+                    }
+                    _serieId = value;
+                }
+            }
+        }
+        private int _serieId;
     
         public virtual int ProductId
         {
@@ -56,7 +73,7 @@ namespace Topppro.Entities
         }
         private int _productId;
     
-        public virtual Nullable<int> Priority
+        public virtual Nullable<int> Prority
         {
             get;
             set;
@@ -71,20 +88,20 @@ namespace Topppro.Entities
         #endregion
         #region Navigation Properties
     
-        public virtual Package Package
+        public virtual Assn_CategorySerie Assn_CategorySerie
         {
-            get { return _package; }
+            get { return _assn_CategorySerie; }
             set
             {
-                if (!ReferenceEquals(_package, value))
+                if (!ReferenceEquals(_assn_CategorySerie, value))
                 {
-                    var previousValue = _package;
-                    _package = value;
-                    FixupPackage(previousValue);
+                    var previousValue = _assn_CategorySerie;
+                    _assn_CategorySerie = value;
+                    FixupAssn_CategorySerie(previousValue);
                 }
             }
         }
-        private Package _package;
+        private Assn_CategorySerie _assn_CategorySerie;
     
         public virtual Product Product
         {
@@ -104,38 +121,42 @@ namespace Topppro.Entities
         #endregion
         #region Association Fixup
     
-        private void FixupPackage(Package previousValue)
+        private void FixupAssn_CategorySerie(Assn_CategorySerie previousValue)
         {
-            if (previousValue != null && previousValue.Pack_Prod_Assn.Contains(this))
+            if (previousValue != null && previousValue.Assn_CategorySerieProduct.Contains(this))
             {
-                previousValue.Pack_Prod_Assn.Remove(this);
+                previousValue.Assn_CategorySerieProduct.Remove(this);
             }
     
-            if (Package != null)
+            if (Assn_CategorySerie != null)
             {
-                if (!Package.Pack_Prod_Assn.Contains(this))
+                if (!Assn_CategorySerie.Assn_CategorySerieProduct.Contains(this))
                 {
-                    Package.Pack_Prod_Assn.Add(this);
+                    Assn_CategorySerie.Assn_CategorySerieProduct.Add(this);
                 }
-                if (PackageId != Package.PackageId)
+                if (CategoryId != Assn_CategorySerie.CategoryId)
                 {
-                    PackageId = Package.PackageId;
+                    CategoryId = Assn_CategorySerie.CategoryId;
+                }
+                if (SerieId != Assn_CategorySerie.SerieId)
+                {
+                    SerieId = Assn_CategorySerie.SerieId;
                 }
             }
         }
     
         private void FixupProduct(Product previousValue)
         {
-            if (previousValue != null && previousValue.Pack_Prod_Assn.Contains(this))
+            if (previousValue != null && previousValue.Assn_CategorySerieProduct.Contains(this))
             {
-                previousValue.Pack_Prod_Assn.Remove(this);
+                previousValue.Assn_CategorySerieProduct.Remove(this);
             }
     
             if (Product != null)
             {
-                if (!Product.Pack_Prod_Assn.Contains(this))
+                if (!Product.Assn_CategorySerieProduct.Contains(this))
                 {
-                    Product.Pack_Prod_Assn.Add(this);
+                    Product.Assn_CategorySerieProduct.Add(this);
                 }
                 if (ProductId != Product.ProductId)
                 {

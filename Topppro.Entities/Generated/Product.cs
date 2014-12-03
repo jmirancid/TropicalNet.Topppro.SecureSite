@@ -72,6 +72,74 @@ namespace Topppro.Entities
         #endregion
         #region Navigation Properties
     
+    	//[XmlElement("Assn_CategorySerieProduct", typeof(Collection<Assn_CategorySerieProduct>))]
+        public virtual ICollection<Assn_CategorySerieProduct> Assn_CategorySerieProduct
+        {
+            get
+            {
+                if (_assn_CategorySerieProduct == null)
+                {
+                    var newCollection = new FixupCollection<Assn_CategorySerieProduct>();
+                    newCollection.CollectionChanged += FixupAssn_CategorySerieProduct;
+                    _assn_CategorySerieProduct = newCollection;
+                }
+                return _assn_CategorySerieProduct;
+            }
+            set
+            {
+                if (!ReferenceEquals(_assn_CategorySerieProduct, value))
+                {
+                    var previousValue = _assn_CategorySerieProduct as FixupCollection<Assn_CategorySerieProduct>;
+                    if (previousValue != null)
+                    {
+                        previousValue.CollectionChanged -= FixupAssn_CategorySerieProduct;
+                    }
+                    _assn_CategorySerieProduct = value;
+                    var newValue = value as FixupCollection<Assn_CategorySerieProduct>;
+                    if (newValue != null)
+                    {
+                        newValue.CollectionChanged += FixupAssn_CategorySerieProduct;
+                    }
+                }
+            }
+        }
+    	//[XmlElement("Assn_CategorySerieProduct", typeof(Collection<Assn_CategorySerieProduct>))]
+        private ICollection<Assn_CategorySerieProduct> _assn_CategorySerieProduct;
+    
+    	//[XmlElement("Assn_PackageProduct", typeof(Collection<Assn_PackageProduct>))]
+        public virtual ICollection<Assn_PackageProduct> Assn_PackageProduct
+        {
+            get
+            {
+                if (_assn_PackageProduct == null)
+                {
+                    var newCollection = new FixupCollection<Assn_PackageProduct>();
+                    newCollection.CollectionChanged += FixupAssn_PackageProduct;
+                    _assn_PackageProduct = newCollection;
+                }
+                return _assn_PackageProduct;
+            }
+            set
+            {
+                if (!ReferenceEquals(_assn_PackageProduct, value))
+                {
+                    var previousValue = _assn_PackageProduct as FixupCollection<Assn_PackageProduct>;
+                    if (previousValue != null)
+                    {
+                        previousValue.CollectionChanged -= FixupAssn_PackageProduct;
+                    }
+                    _assn_PackageProduct = value;
+                    var newValue = value as FixupCollection<Assn_PackageProduct>;
+                    if (newValue != null)
+                    {
+                        newValue.CollectionChanged += FixupAssn_PackageProduct;
+                    }
+                }
+            }
+        }
+    	//[XmlElement("Assn_PackageProduct", typeof(Collection<Assn_PackageProduct>))]
+        private ICollection<Assn_PackageProduct> _assn_PackageProduct;
+    
     	//[XmlElement("Attributes", typeof(Collection<Attribute>))]
         public virtual ICollection<Attribute> Attributes
         {
@@ -106,40 +174,6 @@ namespace Topppro.Entities
     	//[XmlElement("Attributes", typeof(Collection<Attribute>))]
         private ICollection<Attribute> _attributes;
     
-    	//[XmlElement("Cat_Ser_Prod_Assn", typeof(Collection<Cat_Ser_Prod_Assn>))]
-        public virtual ICollection<Cat_Ser_Prod_Assn> Cat_Ser_Prod_Assn
-        {
-            get
-            {
-                if (_cat_Ser_Prod_Assn == null)
-                {
-                    var newCollection = new FixupCollection<Cat_Ser_Prod_Assn>();
-                    newCollection.CollectionChanged += FixupCat_Ser_Prod_Assn;
-                    _cat_Ser_Prod_Assn = newCollection;
-                }
-                return _cat_Ser_Prod_Assn;
-            }
-            set
-            {
-                if (!ReferenceEquals(_cat_Ser_Prod_Assn, value))
-                {
-                    var previousValue = _cat_Ser_Prod_Assn as FixupCollection<Cat_Ser_Prod_Assn>;
-                    if (previousValue != null)
-                    {
-                        previousValue.CollectionChanged -= FixupCat_Ser_Prod_Assn;
-                    }
-                    _cat_Ser_Prod_Assn = value;
-                    var newValue = value as FixupCollection<Cat_Ser_Prod_Assn>;
-                    if (newValue != null)
-                    {
-                        newValue.CollectionChanged += FixupCat_Ser_Prod_Assn;
-                    }
-                }
-            }
-        }
-    	//[XmlElement("Cat_Ser_Prod_Assn", typeof(Collection<Cat_Ser_Prod_Assn>))]
-        private ICollection<Cat_Ser_Prod_Assn> _cat_Ser_Prod_Assn;
-    
         public virtual Model Model
         {
             get { return _model; }
@@ -154,40 +188,6 @@ namespace Topppro.Entities
             }
         }
         private Model _model;
-    
-    	//[XmlElement("Pack_Prod_Assn", typeof(Collection<Pack_Prod_Assn>))]
-        public virtual ICollection<Pack_Prod_Assn> Pack_Prod_Assn
-        {
-            get
-            {
-                if (_pack_Prod_Assn == null)
-                {
-                    var newCollection = new FixupCollection<Pack_Prod_Assn>();
-                    newCollection.CollectionChanged += FixupPack_Prod_Assn;
-                    _pack_Prod_Assn = newCollection;
-                }
-                return _pack_Prod_Assn;
-            }
-            set
-            {
-                if (!ReferenceEquals(_pack_Prod_Assn, value))
-                {
-                    var previousValue = _pack_Prod_Assn as FixupCollection<Pack_Prod_Assn>;
-                    if (previousValue != null)
-                    {
-                        previousValue.CollectionChanged -= FixupPack_Prod_Assn;
-                    }
-                    _pack_Prod_Assn = value;
-                    var newValue = value as FixupCollection<Pack_Prod_Assn>;
-                    if (newValue != null)
-                    {
-                        newValue.CollectionChanged += FixupPack_Prod_Assn;
-                    }
-                }
-            }
-        }
-    	//[XmlElement("Pack_Prod_Assn", typeof(Collection<Pack_Prod_Assn>))]
-        private ICollection<Pack_Prod_Assn> _pack_Prod_Assn;
 
         #endregion
         #region Association Fixup
@@ -212,6 +212,50 @@ namespace Topppro.Entities
             }
         }
     
+        private void FixupAssn_CategorySerieProduct(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (e.NewItems != null)
+            {
+                foreach (Assn_CategorySerieProduct item in e.NewItems)
+                {
+                    item.Product = this;
+                }
+            }
+    
+            if (e.OldItems != null)
+            {
+                foreach (Assn_CategorySerieProduct item in e.OldItems)
+                {
+                    if (ReferenceEquals(item.Product, this))
+                    {
+                        item.Product = null;
+                    }
+                }
+            }
+        }
+    
+        private void FixupAssn_PackageProduct(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (e.NewItems != null)
+            {
+                foreach (Assn_PackageProduct item in e.NewItems)
+                {
+                    item.Product = this;
+                }
+            }
+    
+            if (e.OldItems != null)
+            {
+                foreach (Assn_PackageProduct item in e.OldItems)
+                {
+                    if (ReferenceEquals(item.Product, this))
+                    {
+                        item.Product = null;
+                    }
+                }
+            }
+        }
+    
         private void FixupAttributes(object sender, NotifyCollectionChangedEventArgs e)
         {
             if (e.NewItems != null)
@@ -225,50 +269,6 @@ namespace Topppro.Entities
             if (e.OldItems != null)
             {
                 foreach (Attribute item in e.OldItems)
-                {
-                    if (ReferenceEquals(item.Product, this))
-                    {
-                        item.Product = null;
-                    }
-                }
-            }
-        }
-    
-        private void FixupCat_Ser_Prod_Assn(object sender, NotifyCollectionChangedEventArgs e)
-        {
-            if (e.NewItems != null)
-            {
-                foreach (Cat_Ser_Prod_Assn item in e.NewItems)
-                {
-                    item.Product = this;
-                }
-            }
-    
-            if (e.OldItems != null)
-            {
-                foreach (Cat_Ser_Prod_Assn item in e.OldItems)
-                {
-                    if (ReferenceEquals(item.Product, this))
-                    {
-                        item.Product = null;
-                    }
-                }
-            }
-        }
-    
-        private void FixupPack_Prod_Assn(object sender, NotifyCollectionChangedEventArgs e)
-        {
-            if (e.NewItems != null)
-            {
-                foreach (Pack_Prod_Assn item in e.NewItems)
-                {
-                    item.Product = this;
-                }
-            }
-    
-            if (e.OldItems != null)
-            {
-                foreach (Pack_Prod_Assn item in e.OldItems)
                 {
                     if (ReferenceEquals(item.Product, this))
                     {
