@@ -160,16 +160,16 @@ namespace Topppro.Entities
     
         private void FixupModel(Model previousValue)
         {
-            if (previousValue != null && previousValue.Packages.Contains(this))
+            if (previousValue != null && previousValue.Package.Contains(this))
             {
-                previousValue.Packages.Remove(this);
+                previousValue.Package.Remove(this);
             }
     
             if (Model != null)
             {
-                if (!Model.Packages.Contains(this))
+                if (!Model.Package.Contains(this))
                 {
-                    Model.Packages.Add(this);
+                    Model.Package.Add(this);
                 }
                 if (ModelId != Model.ModelId)
                 {

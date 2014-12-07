@@ -37,78 +37,78 @@ namespace Topppro.Entities
         #endregion
         #region Navigation Properties
     
-    	//[XmlElement("Packages", typeof(Collection<Package>))]
-        public virtual ICollection<Package> Packages
+    	//[XmlElement("Package", typeof(Collection<Package>))]
+        public virtual ICollection<Package> Package
         {
             get
             {
-                if (_packages == null)
+                if (_package == null)
                 {
                     var newCollection = new FixupCollection<Package>();
-                    newCollection.CollectionChanged += FixupPackages;
-                    _packages = newCollection;
+                    newCollection.CollectionChanged += FixupPackage;
+                    _package = newCollection;
                 }
-                return _packages;
+                return _package;
             }
             set
             {
-                if (!ReferenceEquals(_packages, value))
+                if (!ReferenceEquals(_package, value))
                 {
-                    var previousValue = _packages as FixupCollection<Package>;
+                    var previousValue = _package as FixupCollection<Package>;
                     if (previousValue != null)
                     {
-                        previousValue.CollectionChanged -= FixupPackages;
+                        previousValue.CollectionChanged -= FixupPackage;
                     }
-                    _packages = value;
+                    _package = value;
                     var newValue = value as FixupCollection<Package>;
                     if (newValue != null)
                     {
-                        newValue.CollectionChanged += FixupPackages;
+                        newValue.CollectionChanged += FixupPackage;
                     }
                 }
             }
         }
-    	//[XmlElement("Packages", typeof(Collection<Package>))]
-        private ICollection<Package> _packages;
+    	//[XmlElement("Package", typeof(Collection<Package>))]
+        private ICollection<Package> _package;
     
-    	//[XmlElement("Products", typeof(Collection<Product>))]
-        public virtual ICollection<Product> Products
+    	//[XmlElement("Product", typeof(Collection<Product>))]
+        public virtual ICollection<Product> Product
         {
             get
             {
-                if (_products == null)
+                if (_product == null)
                 {
                     var newCollection = new FixupCollection<Product>();
-                    newCollection.CollectionChanged += FixupProducts;
-                    _products = newCollection;
+                    newCollection.CollectionChanged += FixupProduct;
+                    _product = newCollection;
                 }
-                return _products;
+                return _product;
             }
             set
             {
-                if (!ReferenceEquals(_products, value))
+                if (!ReferenceEquals(_product, value))
                 {
-                    var previousValue = _products as FixupCollection<Product>;
+                    var previousValue = _product as FixupCollection<Product>;
                     if (previousValue != null)
                     {
-                        previousValue.CollectionChanged -= FixupProducts;
+                        previousValue.CollectionChanged -= FixupProduct;
                     }
-                    _products = value;
+                    _product = value;
                     var newValue = value as FixupCollection<Product>;
                     if (newValue != null)
                     {
-                        newValue.CollectionChanged += FixupProducts;
+                        newValue.CollectionChanged += FixupProduct;
                     }
                 }
             }
         }
-    	//[XmlElement("Products", typeof(Collection<Product>))]
-        private ICollection<Product> _products;
+    	//[XmlElement("Product", typeof(Collection<Product>))]
+        private ICollection<Product> _product;
 
         #endregion
         #region Association Fixup
     
-        private void FixupPackages(object sender, NotifyCollectionChangedEventArgs e)
+        private void FixupPackage(object sender, NotifyCollectionChangedEventArgs e)
         {
             if (e.NewItems != null)
             {
@@ -130,7 +130,7 @@ namespace Topppro.Entities
             }
         }
     
-        private void FixupProducts(object sender, NotifyCollectionChangedEventArgs e)
+        private void FixupProduct(object sender, NotifyCollectionChangedEventArgs e)
         {
             if (e.NewItems != null)
             {

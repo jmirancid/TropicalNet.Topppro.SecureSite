@@ -56,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Definitions\Assn_CategorySerieProductBusiness.cs" />
     <Compile Include="Definitions\AttributeBusiness.cs" />
     <Compile Include="Definitions\CategoryBusiness.cs" />
     <Compile Include="Definitions\Assn_CategorySerieBusiness.cs" />

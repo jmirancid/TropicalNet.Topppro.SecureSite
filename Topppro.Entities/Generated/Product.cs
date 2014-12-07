@@ -140,39 +140,39 @@ namespace Topppro.Entities
     	//[XmlElement("Assn_PackageProduct", typeof(Collection<Assn_PackageProduct>))]
         private ICollection<Assn_PackageProduct> _assn_PackageProduct;
     
-    	//[XmlElement("Attributes", typeof(Collection<Attribute>))]
-        public virtual ICollection<Attribute> Attributes
+    	//[XmlElement("Attribute", typeof(Collection<Attribute>))]
+        public virtual ICollection<Attribute> Attribute
         {
             get
             {
-                if (_attributes == null)
+                if (_attribute == null)
                 {
                     var newCollection = new FixupCollection<Attribute>();
-                    newCollection.CollectionChanged += FixupAttributes;
-                    _attributes = newCollection;
+                    newCollection.CollectionChanged += FixupAttribute;
+                    _attribute = newCollection;
                 }
-                return _attributes;
+                return _attribute;
             }
             set
             {
-                if (!ReferenceEquals(_attributes, value))
+                if (!ReferenceEquals(_attribute, value))
                 {
-                    var previousValue = _attributes as FixupCollection<Attribute>;
+                    var previousValue = _attribute as FixupCollection<Attribute>;
                     if (previousValue != null)
                     {
-                        previousValue.CollectionChanged -= FixupAttributes;
+                        previousValue.CollectionChanged -= FixupAttribute;
                     }
-                    _attributes = value;
+                    _attribute = value;
                     var newValue = value as FixupCollection<Attribute>;
                     if (newValue != null)
                     {
-                        newValue.CollectionChanged += FixupAttributes;
+                        newValue.CollectionChanged += FixupAttribute;
                     }
                 }
             }
         }
-    	//[XmlElement("Attributes", typeof(Collection<Attribute>))]
-        private ICollection<Attribute> _attributes;
+    	//[XmlElement("Attribute", typeof(Collection<Attribute>))]
+        private ICollection<Attribute> _attribute;
     
         public virtual Model Model
         {
@@ -194,16 +194,16 @@ namespace Topppro.Entities
     
         private void FixupModel(Model previousValue)
         {
-            if (previousValue != null && previousValue.Products.Contains(this))
+            if (previousValue != null && previousValue.Product.Contains(this))
             {
-                previousValue.Products.Remove(this);
+                previousValue.Product.Remove(this);
             }
     
             if (Model != null)
             {
-                if (!Model.Products.Contains(this))
+                if (!Model.Product.Contains(this))
                 {
-                    Model.Products.Add(this);
+                    Model.Product.Add(this);
                 }
                 if (ModelId != Model.ModelId)
                 {
@@ -256,7 +256,7 @@ namespace Topppro.Entities
             }
         }
     
-        private void FixupAttributes(object sender, NotifyCollectionChangedEventArgs e)
+        private void FixupAttribute(object sender, NotifyCollectionChangedEventArgs e)
         {
             if (e.NewItems != null)
             {

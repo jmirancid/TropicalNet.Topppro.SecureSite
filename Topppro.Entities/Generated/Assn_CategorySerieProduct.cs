@@ -73,7 +73,7 @@ namespace Topppro.Entities
         }
         private int _productId;
     
-        public virtual Nullable<int> Prority
+        public virtual Nullable<int> Priority
         {
             get;
             set;
