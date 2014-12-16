@@ -44,7 +44,7 @@ GO
 --
 
 CREATE TABLE dbo.Model (
-  ModelId int NOT NULL,
+  ModelId int IDENTITY(1, 1) NOT NULL,
   Name varchar(50)  NOT NULL
 )
 ON [PRIMARY]
@@ -55,7 +55,7 @@ GO
 --
 
 CREATE TABLE dbo.Package (
-  PackageId int NOT NULL,
+  PackageId int IDENTITY(1, 1) NOT NULL,
   ModelId int NOT NULL,
   Name varchar(100)  NOT NULL,
   Folder varchar(50)  NULL,
@@ -84,7 +84,7 @@ GO
 --
 
 CREATE TABLE dbo.Product (
-  ProductId int NOT NULL,
+  ProductId int IDENTITY(1, 1) NOT NULL,
   ModelId int NOT NULL,
   Name varchar(100)  NOT NULL,
   Folder varchar(50)  NULL,
@@ -102,7 +102,7 @@ CREATE TABLE dbo.Assn_CategorySerieProduct (
   CategoryId int NOT NULL,
   SerieId int NOT NULL,
   ProductId int NOT NULL,
-  Prority int NULL,
+  Priority int NULL,
   Enabled bit NOT NULL
 )
 ON [PRIMARY]
@@ -126,7 +126,7 @@ GO
 --
 
 CREATE TABLE dbo.Culture (
-  CultureId int NOT NULL,
+  CultureId int IDENTITY(1, 1) NOT NULL,
   Name varchar(50) NOT NULL,
   Code varchar(2) NOT NULL
 )
@@ -138,7 +138,7 @@ GO
 --
 
 CREATE TABLE dbo.Attribute (
-  AttributeId int NOT NULL,
+  AttributeId int IDENTITY(1, 1) NOT NULL,
   ProductId int NOT NULL,
   CultureId int NOT NULL,
   Name varchar(150) NOT NULL,

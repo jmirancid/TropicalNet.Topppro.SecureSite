@@ -805,81 +805,97 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="ToppproModel" ZoomLevel="71">
-        <EntityTypeShape EntityType="ToppproModel.Assn_CategorySerie" Width="1.5" PointX="3" PointY="0.75" Height="2.5571907552083317" />
-        <EntityTypeShape EntityType="ToppproModel.Assn_CategorySeriePackage" Width="1.5" PointX="5.25" PointY="5.875" Height="2.3648893229166674" />
-        <EntityTypeShape EntityType="ToppproModel.Assn_CategorySerieProduct" Width="1.5" PointX="8.25" PointY="9.5" Height="2.3648893229166674" />
-        <EntityTypeShape EntityType="ToppproModel.Assn_PackageProduct" Width="1.5" PointX="5.25" PointY="9.75" Height="2.172587890624996" />
-        <EntityTypeShape EntityType="ToppproModel.Attribute" Width="1.5" PointX="5.25" PointY="13.25" Height="2.749492187499996" />
-        <EntityTypeShape EntityType="ToppproModel.Category" Width="1.5" PointX="0.75" PointY="4.375" Height="1.5956835937500031" />
-        <EntityTypeShape EntityType="ToppproModel.Culture" Width="1.5" PointX="3" PointY="13.75" Height="1.7879850260416674" />
-        <EntityTypeShape EntityType="ToppproModel.Model" Width="1.5" PointX="0.75" PointY="8" Height="1.7879850260416683" />
-        <EntityTypeShape EntityType="ToppproModel.Package" Width="1.5" PointX="3" PointY="5.625" Height="2.7494921875000031" />
-        <EntityTypeShape EntityType="ToppproModel.Product" Width="1.5" PointX="3" PointY="9.125" Height="2.9417936197916674" />
-        <EntityTypeShape EntityType="ToppproModel.Serie" Width="1.5" PointX="0.75" PointY="10.75" Height="1.595683593749996" />
+        <EntityTypeShape EntityType="ToppproModel.Assn_CategorySerie" Width="1.5" PointX="3" PointY="0.75" Height="2.2496956380208317" />
+        <EntityTypeShape EntityType="ToppproModel.Assn_CategorySeriePackage" Width="1.5" PointX="5.25" PointY="4.875" Height="2.0853483072916674" />
+        <EntityTypeShape EntityType="ToppproModel.Assn_CategorySerieProduct" Width="1.5" PointX="8.25" PointY="8.125" Height="2.0853483072916674" />
+        <EntityTypeShape EntityType="ToppproModel.Assn_PackageProduct" Width="1.5" PointX="5.25" PointY="8.625" Height="1.921000976562496" />
+        <EntityTypeShape EntityType="ToppproModel.Attribute" Width="1.5" PointX="8.25" PointY="4.875" Height="2.414042968749996" />
+        <EntityTypeShape EntityType="ToppproModel.Category" Width="1.5" PointX="0.75" PointY="4" Height="1.4279589843750031" />
+        <EntityTypeShape EntityType="ToppproModel.Culture" Width="1.5" PointX="6" PointY="2.375" Height="1.5923063151041674" />
+        <EntityTypeShape EntityType="ToppproModel.Model" Width="1.5" PointX="0.75" PointY="6.75" Height="1.5923063151041674" />
+        <EntityTypeShape EntityType="ToppproModel.Package" Width="1.5" PointX="3" PointY="4.625" Height="2.4140429687500031" />
+        <EntityTypeShape EntityType="ToppproModel.Product" Width="1.5" PointX="3" PointY="7.875" Height="2.5783902994791683" />
+        <EntityTypeShape EntityType="ToppproModel.Serie" Width="1.5" PointX="0.75" PointY="9.25" Height="1.427958984374996" />
         <AssociationConnector Association="ToppproModel.Ass_CategorySerie_CategorySerieProduct_FK" >
-          <ConnectorPoint PointX="4.5" PointY="2.0285953776041659" />
-          <ConnectorPoint PointX="9" PointY="2.0285953776041659" />
-          <ConnectorPoint PointX="9" PointY="9.5" />
+          <ConnectorPoint PointX="4.5" PointY="2.9996956380208317" />
+          <ConnectorPoint PointX="4.875" PointY="3.3746956380208317" />
+          <ConnectorPoint PointX="4.875" PointY="7.75" />
+          <ConnectorPoint PointX="4.979166666666667" PointY="7.7499999999999991" />
+          <ConnectorPoint PointX="5.270833333333333" PointY="7.75" />
+          <ConnectorPoint PointX="7.705709635416663" PointY="7.7499999999999991" />
+          <ConnectorPoint PointX="7.8723763020833291" PointY="7.75" />
+          <ConnectorPoint PointX="7.875" PointY="7.75" />
+          <ConnectorPoint PointX="8.25" PointY="8.125" />
         </AssociationConnector>
         <AssociationConnector Association="ToppproModel.Assn_CategorySerie_CategorySeriePackage_FK" >
-          <ConnectorPoint PointX="4.5" PointY="2.6991455664062496" />
-          <ConnectorPoint PointX="6" PointY="2.6991455664062496" />
-          <ConnectorPoint PointX="6" PointY="5.875" />
+          <ConnectorPoint PointX="4.5" PointY="1.53125" />
+          <ConnectorPoint PointX="5.59375" PointY="1.53125" />
+          <ConnectorPoint PointX="5.59375" PointY="4.875" />
         </AssociationConnector>
         <AssociationConnector Association="ToppproModel.Category_Ass_CategorySerie_FK" >
-          <ConnectorPoint PointX="1.5" PointY="4.375" />
-          <ConnectorPoint PointX="1.5" PointY="2.0285953776041659" />
-          <ConnectorPoint PointX="3" PointY="2.0285953776041659" />
+          <ConnectorPoint PointX="1.5" PointY="4" />
+          <ConnectorPoint PointX="1.5" PointY="1.8748478190104159" />
+          <ConnectorPoint PointX="3" PointY="1.8748478190104159" />
         </AssociationConnector>
         <AssociationConnector Association="ToppproModel.Serie_Assn_CategorySerie_FK" >
-          <ConnectorPoint PointX="2.25" PointY="10.751152846153847" />
-          <ConnectorPoint PointX="2.625" PointY="10.376152846153847" />
-          <ConnectorPoint PointX="2.625" PointY="2.6991450664062495" />
-          <ConnectorPoint PointX="3" PointY="2.6991450664062495" />
+          <ConnectorPoint PointX="2.25" PointY="9.2510974299879809" />
+          <ConnectorPoint PointX="2.625" PointY="8.8760974299879809" />
+          <ConnectorPoint PointX="2.625" PointY="2.4685237285156245" />
+          <ConnectorPoint PointX="3" PointY="2.4685237285156245" />
         </AssociationConnector>
         <AssociationConnector Association="ToppproModel.Package_Assn_CategorySeriePackage_FK" >
-          <ConnectorPoint PointX="4.5" PointY="7.0574446614583337" />
-          <ConnectorPoint PointX="5.25" PointY="7.0574446614583337" />
+          <ConnectorPoint PointX="4.5" PointY="5.9176741536458337" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="5.9176741536458328" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="5.9176741536458337" />
+          <ConnectorPoint PointX="5.25" PointY="5.9176741536458337" />
         </AssociationConnector>
         <AssociationConnector Association="ToppproModel.Product_Assn_CategorySerieProduct_FK" >
-          <ConnectorPoint PointX="4.5" PointY="9.59375" />
-          <ConnectorPoint PointX="4.791666666666667" PointY="9.59375" />
-          <ConnectorPoint PointX="4.958333333333333" PointY="9.59375" />
-          <ConnectorPoint PointX="8.25" PointY="9.59375" />
+          <ConnectorPoint PointX="4.5" PointY="8.3750025" />
+          <ConnectorPoint PointX="4.979166666666667" PointY="8.3750025" />
+          <ConnectorPoint PointX="5.145833333333333" PointY="8.3750025" />
+          <ConnectorPoint PointX="8.25" PointY="8.3750025" />
         </AssociationConnector>
         <AssociationConnector Association="ToppproModel.Package_Assn_PackageProduct_FK" >
-          <ConnectorPoint PointX="4.5" PointY="8.3744921875000031" />
-          <ConnectorPoint PointX="4.875" PointY="8.7494921875000031" />
-          <ConnectorPoint PointX="4.875" PointY="10.836293945312498" />
-          <ConnectorPoint PointX="5.25" PointY="10.836293945312498" />
+          <ConnectorPoint PointX="4.5" PointY="6.97673427644231" />
+          <ConnectorPoint PointX="4.8160744349011217" PointY="7.2928087113434312" />
+          <ConnectorPoint PointX="4.9339255650988791" PointY="7.4106598415411895" />
+          <ConnectorPoint PointX="5.0625" PointY="7.53923427644231" />
+          <ConnectorPoint PointX="5.0625" PointY="9.585500488281248" />
+          <ConnectorPoint PointX="5.25" PointY="9.585500488281248" />
         </AssociationConnector>
         <AssociationConnector Association="ToppproModel.Product_Assn_PackageProduct_FK" >
-          <ConnectorPoint PointX="4.5" PointY="10.230646972656249" />
-          <ConnectorPoint PointX="4.791666666666667" PointY="10.230646972656249" />
-          <ConnectorPoint PointX="4.958333333333333" PointY="10.230646972656249" />
-          <ConnectorPoint PointX="5.25" PointY="10.230646972656249" />
+          <ConnectorPoint PointX="4.5" PointY="9.042750244140624" />
+          <ConnectorPoint PointX="4.979166666666667" PointY="9.042750244140624" />
+          <ConnectorPoint PointX="5.145833333333333" PointY="9.042750244140624" />
+          <ConnectorPoint PointX="5.25" PointY="9.042750244140624" />
         </AssociationConnector>
         <AssociationConnector Association="ToppproModel.Culture_Attribute_FK" >
-          <ConnectorPoint PointX="4.5" PointY="14.643992513020834" />
-          <ConnectorPoint PointX="5.25" PointY="14.643992513020834" />
+          <ConnectorPoint PointX="7.15625" PointY="3.9673063151041674" />
+          <ConnectorPoint PointX="7.15625" PointY="7.1559456380208317" />
+          <ConnectorPoint PointX="8.25" PointY="7.1559456380208317" />
         </AssociationConnector>
         <AssociationConnector Association="ToppproModel.Product_Attribute_FK" >
-          <ConnectorPoint PointX="4.5" PointY="12.066793619791667" />
-          <ConnectorPoint PointX="4.875" PointY="12.441793619791667" />
-          <ConnectorPoint PointX="4.875" PointY="13.915744256510422" />
-          <ConnectorPoint PointX="5.25" PointY="13.915744256510422" />
+          <ConnectorPoint PointX="4.5" PointY="7.9373066923076916" />
+          <ConnectorPoint PointX="4.8160744349011209" PointY="7.62123225740657" />
+          <ConnectorPoint PointX="4.9339255650988791" PointY="7.5033811272088125" />
+          <ConnectorPoint PointX="5.1875" PointY="7.2498066923076916" />
+          <ConnectorPoint PointX="5.1875" PointY="7.914042968749996" />
+          <ConnectorPoint PointX="7.625" PointY="7.914042968749996" />
+          <ConnectorPoint PointX="8.25" PointY="7.289042968749996" />
         </AssociationConnector>
         <AssociationConnector Association="ToppproModel.Model_Package_FK" >
-          <ConnectorPoint PointX="2.25" PointY="8.1872460937500016" />
-          <ConnectorPoint PointX="2.5416666666666665" PointY="8.1872460937500016" />
-          <ConnectorPoint PointX="2.7083333333333335" PointY="8.1872460937500016" />
-          <ConnectorPoint PointX="3" PointY="8.1872460937500016" />
+          <ConnectorPoint PointX="2.25" PointY="6.8123066923076925" />
+          <ConnectorPoint PointX="2.5660744349011204" PointY="6.4962322574065716" />
+          <ConnectorPoint PointX="2.6839255650988791" PointY="6.3783811272088142" />
+          <ConnectorPoint PointX="2.8125" PointY="6.2498066923076934" />
+          <ConnectorPoint PointX="2.8125" PointY="7.2265429687500031" />
+          <ConnectorPoint PointX="3" PointY="7.0390429687500031" />
         </AssociationConnector>
         <AssociationConnector Association="ToppproModel.Model_Product_FK" >
-          <ConnectorPoint PointX="2.25" PointY="9.4564925130208337" />
-          <ConnectorPoint PointX="2.5416666666666665" PointY="9.4564925130208337" />
-          <ConnectorPoint PointX="2.7083333333333335" PointY="9.4564925130208337" />
-          <ConnectorPoint PointX="3" PointY="9.4564925130208337" />
+          <ConnectorPoint PointX="2.25" PointY="8.1086531575520837" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="8.1086531575520837" />
+          <ConnectorPoint PointX="2.7083333333333335" PointY="8.1086531575520837" />
+          <ConnectorPoint PointX="3" PointY="8.1086531575520837" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>
