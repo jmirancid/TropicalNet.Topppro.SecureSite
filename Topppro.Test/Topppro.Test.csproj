@@ -75,6 +75,7 @@
     <Compile Include="Business\Assn_CategorySerieBusinessTest.cs" />
     <Compile Include="Business\CultureBusinessTest.cs" />
     <Compile Include="Business\ModelBusinessTest.cs" />
+    <Compile Include="Business\PackageBusinessTest.cs" />
     <Compile Include="Business\ProductBusinessTest.cs" />
     <Compile Include="Business\SerieBusinessTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

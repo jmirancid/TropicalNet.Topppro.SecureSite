@@ -62,6 +62,7 @@
     <Compile Include="Definitions\Assn_CategorySerieBusiness.cs" />
     <Compile Include="Definitions\CultureBusiness.cs" />
     <Compile Include="Definitions\ModelBusiness.cs" />
+    <Compile Include="Definitions\PackageBusiness.cs" />
     <Compile Include="Definitions\ProductBusiness.cs" />
     <Compile Include="Definitions\SerieBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -102,6 +102,7 @@
       <DependentUpon>Templates.tt</DependentUpon>
     </Compile>
     <Compile Include="Model.cs" />
+    <Compile Include="Package.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Ent_AttributeResource.Designer.cs">
@@ -128,6 +129,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Ent_ModelResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Ent_PackageResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ent_PackageResource.resx</DependentUpon>
     </Compile>
     <Compile Include="Resources\Ent_ProductResource.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -176,6 +182,10 @@
     <EmbeddedResource Include="Resources\Ent_ModelResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Ent_ModelResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Ent_PackageResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Ent_PackageResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Ent_ProductResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

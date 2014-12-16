@@ -63,6 +63,7 @@
     <Compile Include="Repositories\IAssn_CategorySerieRepository.cs" />
     <Compile Include="Repositories\ICultureRepository.cs" />
     <Compile Include="Repositories\IModelRepository.cs" />
+    <Compile Include="Repositories\IPackageRepository.cs" />
     <Compile Include="Repositories\IProductRepository.cs" />
     <Compile Include="Repositories\ISerieRepository.cs" />
   </ItemGroup>
