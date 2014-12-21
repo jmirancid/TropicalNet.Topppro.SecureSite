@@ -62,7 +62,7 @@
     <Compile Include="Definitions\Assn_CategorySerieProductRepository.cs" />
     <Compile Include="Definitions\AttributeRepository.cs" />
     <Compile Include="Definitions\CategoryRepository.cs" />
-    <Compile Include="Definitions\Assn_CategorySerieRepository.cs" />
+    <Compile Include="Definitions\AssnCategorySerieRepository.cs" />
     <Compile Include="Definitions\CultureRepository.cs" />
     <Compile Include="Definitions\ModelRepository.cs" />
     <Compile Include="Definitions\PackageRepository.cs" />

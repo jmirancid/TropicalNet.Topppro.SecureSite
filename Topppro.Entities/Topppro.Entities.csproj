@@ -59,9 +59,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assn_CategorySerie.cs" />
     <Compile Include="Attribute.cs" />
     <Compile Include="Category.cs" />
-    <Compile Include="Assn_CategorySerie.cs" />
     <Compile Include="Culture.cs" />
     <Compile Include="Generated\Assn_CategorySerie.cs">
       <DependentUpon>Templates.tt</DependentUpon>
@@ -115,10 +115,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Ent_CategoryResource.resx</DependentUpon>
     </Compile>
-    <Compile Include="Resources\Ent_Assn_CategorySerieResource.Designer.cs">
+    <Compile Include="Resources\Ent_AssnCategorySerieResource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Ent_Assn_CategorySerieResource.resx</DependentUpon>
+      <DependentUpon>Ent_AssnCategorySerieResource.resx</DependentUpon>
     </Compile>
     <Compile Include="Resources\Ent_CultureResource.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -171,9 +171,9 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Ent_CategoryResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Ent_Assn_CategorySerieResource.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Ent_Assn_CategorySerieResource.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="Resources\Ent_AssnCategorySerieResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Ent_AssnCategorySerieResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Ent_CultureResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

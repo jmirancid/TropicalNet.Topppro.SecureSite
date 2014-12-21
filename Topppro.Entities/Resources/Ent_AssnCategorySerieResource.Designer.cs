@@ -22,24 +22,24 @@ namespace Topppro.Entities.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Ent_Assn_CategorySerieResource {
+    public class Ent_AssnCategorySerieResource {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Ent_Assn_CategorySerieResource() {
+        internal Ent_AssnCategorySerieResource() {
         }
         
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Topppro.Entities.Resources.Ent_Assn_CategorySerieResource", typeof(Ent_Assn_CategorySerieResource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Topppro.Entities.Resources.Ent_AssnCategorySerieResource", typeof(Ent_AssnCategorySerieResource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -51,7 +51,7 @@ namespace Topppro.Entities.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Topppro.Entities.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Category/Serie Association.
         /// </summary>
-        internal static string _Caption {
+        public static string _Caption {
             get {
                 return ResourceManager.GetString("_Caption", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace Topppro.Entities.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Category.
         /// </summary>
-        internal static string Entity_Category {
+        public static string Entity_Category {
             get {
                 return ResourceManager.GetString("Entity_Category", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace Topppro.Entities.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Enabled.
         /// </summary>
-        internal static string Entity_Enabled {
+        public static string Entity_Enabled {
             get {
                 return ResourceManager.GetString("Entity_Enabled", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace Topppro.Entities.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Priority.
         /// </summary>
-        internal static string Entity_Priority {
+        public static string Entity_Priority {
             get {
                 return ResourceManager.GetString("Entity_Priority", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace Topppro.Entities.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Serie.
         /// </summary>
-        internal static string Entity_Serie {
+        public static string Entity_Serie {
             get {
                 return ResourceManager.GetString("Entity_Serie", resourceCulture);
             }

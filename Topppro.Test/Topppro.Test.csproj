@@ -72,7 +72,7 @@
     <Compile Include="Business\AttributeBusinessTest.cs" />
     <Compile Include="Business\BusinessTest.cs" />
     <Compile Include="Business\CategoryBusinessTest.cs" />
-    <Compile Include="Business\Assn_CategorySerieBusinessTest.cs" />
+    <Compile Include="Business\AssnCategorySerieBusinessTest.cs" />
     <Compile Include="Business\CultureBusinessTest.cs" />
     <Compile Include="Business\ModelBusinessTest.cs" />
     <Compile Include="Business\PackageBusinessTest.cs" />
