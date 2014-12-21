@@ -59,7 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Definitions\Assn_CategorySerieProductRepository.cs" />
+    <Compile Include="Definitions\AssnCategorySerieProductRepository.cs" />
     <Compile Include="Definitions\AttributeRepository.cs" />
     <Compile Include="Definitions\CategoryRepository.cs" />
     <Compile Include="Definitions\AssnCategorySerieRepository.cs" />
