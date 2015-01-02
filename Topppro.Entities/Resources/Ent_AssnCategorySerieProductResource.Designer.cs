@@ -70,11 +70,11 @@ namespace Topppro.Entities.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Category.
+        ///   Looks up a localized string similar to Category/Serie.
         /// </summary>
-        public static string Entity_Category {
+        public static string Entity_CategorySerie {
             get {
-                return ResourceManager.GetString("Entity_Category", resourceCulture);
+                return ResourceManager.GetString("Entity_CategorySerie", resourceCulture);
             }
         }
         
@@ -102,15 +102,6 @@ namespace Topppro.Entities.Resources {
         public static string Entity_Product {
             get {
                 return ResourceManager.GetString("Entity_Product", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Serie.
-        /// </summary>
-        public static string Entity_Serie {
-            get {
-                return ResourceManager.GetString("Entity_Serie", resourceCulture);
             }
         }
     }

@@ -1,4 +1,5 @@
 ﻿@using Framework.MVC.Resources
+@using Topppro.Entities.Resources;
 
 @model Topppro.Entities.Serie
 
@@ -11,15 +12,7 @@
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
     <fieldset>
-        <legend>Serie</legend>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.CategoryId)
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("CategoryId", PersistanceResource.Selection)
-            @Html.ValidationMessageFor(model => model.CategoryId)
-        </div>
+        <legend>@Ent_SerieResource._Caption</legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Name)
@@ -27,22 +20,6 @@
         <div class="editor-field">
             @Html.EditorFor(model => model.Name)
             @Html.ValidationMessageFor(model => model.Name)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Priority)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Priority)
-            @Html.ValidationMessageFor(model => model.Priority)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Enabled)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Enabled)
-            @Html.ValidationMessageFor(model => model.Enabled)
         </div>
 
         <p>

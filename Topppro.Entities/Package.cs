@@ -1,9 +1,7 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using Framework.Entities;
 using Framework.Entities.Resources;
 using Topppro.Entities.Resources;
-
 
 namespace Topppro.Entities
 {
@@ -25,10 +23,6 @@ namespace Topppro.Entities
 
     public class Package_Metadata
     {
-        //[Display(Name = "Entity_Serie", ResourceType = typeof(Ent_ProductResource))]
-        //[Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Ent_ValidationResource))]
-        //public int SerieId { get; set; }
-
         [Display(Name = "Entity_Model", ResourceType = typeof(Ent_PackageResource))]
         [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Ent_ValidationResource))]
         public int ModelId { get; set; }
@@ -42,13 +36,6 @@ namespace Topppro.Entities
 
         [Display(Name = "Entity_Manual", ResourceType = typeof(Ent_PackageResource))]
         public string Manual { get; set; }
-
-        //[Display(Name = "Entity_Priority", ResourceType = typeof(Ent_PackageResource))]
-        //public Nullable<int> Priority { get; set; }
-
-        //[Display(Name = "Entity_Enabled", ResourceType = typeof(Ent_PackageResource))]
-        //[Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Ent_ValidationResource))]
-        //public bool Enabled { get; set; }
 
         [Display(Name = "Entity_Draft", ResourceType = typeof(Ent_PackageResource))]
         [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Ent_ValidationResource))]

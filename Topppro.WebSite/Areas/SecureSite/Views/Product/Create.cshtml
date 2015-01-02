@@ -1,4 +1,5 @@
 ﻿@using Framework.MVC.Resources
+@using Topppro.Entities.Resources
 
 @model Topppro.Entities.Product
 
@@ -11,23 +12,7 @@
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
     <fieldset>
-        <legend>Product</legend>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Serie.CategoryId)
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("CategoryId", PersistanceResource.Selection)
-            @Html.ValidationMessageFor(model => model.Serie.CategoryId)
-        </div>
-        
-        <div class="editor-label">
-            @Html.LabelFor(model => model.SerieId)
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("SerieId", Enumerable.Empty<SelectListItem>(), PersistanceResource.Selection)
-            @Html.ValidationMessageFor(model => model.SerieId)
-        </div>
+        <legend>@Ent_ProductResource._Caption</legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Name)
@@ -53,7 +38,6 @@
             @Html.ValidationMessageFor(model => model.Folder)
         </div>
 
-
         <div class="editor-label">
             @Html.LabelFor(model => model.Manual)
         </div>
@@ -63,19 +47,11 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Priority)
+            @Html.LabelFor(model => model.Draft)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Priority)
-            @Html.ValidationMessageFor(model => model.Priority)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Enabled)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Enabled)
-            @Html.ValidationMessageFor(model => model.Enabled)
+            @Html.EditorFor(model => model.Draft)
+            @Html.ValidationMessageFor(model => model.Draft)
         </div>
 
         <p>
@@ -91,26 +67,4 @@
 @section Scripts {
     <script src="@Url.Content("~/Areas/SecureSite/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Areas/SecureSite/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#CategoryId').bind('change', function () {
-
-                $('#SerieId')
-                    .children('option:not(:first)')
-                    .remove();
-
-                if (!$(this).val())
-                    return;
-
-                $.getJSON('@Url.Action("LoadSeriesByCategoryId")', { id: $(this).val() }, function (data, status, xhr) {
-                    $(data).each(function (ix, el) {
-                        $('#SerieId')
-                            .append($("<option></option>")
-                                .attr("value", el.Value)
-                                .text(el.Text));
-                    });
-                });
-            })
-        });
-    </script>
 }

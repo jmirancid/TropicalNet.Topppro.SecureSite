@@ -22,6 +22,12 @@ namespace Topppro.Entities
     {
         #region Primitive Properties
     
+        public virtual int AssnPackageProductId
+        {
+            get;
+            set;
+        }
+    
         public virtual int PackageId
         {
             get { return _packageId; }

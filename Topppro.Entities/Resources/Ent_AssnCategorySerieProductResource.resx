@@ -117,8 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Entity_Category" xml:space="preserve">
-    <value>Category</value>
+  <data name="Entity_CategorySerie" xml:space="preserve">
+    <value>Category/Serie</value>
   </data>
   <data name="Entity_Enabled" xml:space="preserve">
     <value>Enabled</value>
@@ -128,9 +128,6 @@
   </data>
   <data name="Entity_Product" xml:space="preserve">
     <value>Product</value>
-  </data>
-  <data name="Entity_Serie" xml:space="preserve">
-    <value>Serie</value>
   </data>
   <data name="_Caption" xml:space="preserve">
     <value>Category/Serie/Product Association</value>

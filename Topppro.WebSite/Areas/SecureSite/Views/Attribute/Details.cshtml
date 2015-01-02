@@ -1,5 +1,6 @@
-﻿@using Framework.MVC.Extensions
-@using Framework.MVC.Resources
+﻿@using Framework.MVC.Resources
+@using Framework.MVC.Extensions
+@using Topppro.Entities.Resources
 
 @model Topppro.Entities.Attribute
 
@@ -10,21 +11,7 @@
 <h2>@PersistanceResource.Details</h2>
 
 <fieldset>
-    <legend>Attribute</legend>
-
-    <div class="display-label">
-        @Html.DisplayNameFor(model => model.Product.Serie.CategoryId)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Product.Serie.Category.Name)
-    </div>
-
-    <div class="display-label">
-        @Html.DisplayNameFor(model => model.Product.SerieId)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Product.Serie.Name)
-    </div>
+    <legend>@Ent_AttributeResource._Caption</legend>
 
     <div class="display-label">
         @Html.DisplayNameFor(model => model.ProductId)
@@ -70,6 +57,6 @@
 
 </fieldset>
 <p>
-    @Html.ActionLink(PersistanceResource.Edit, "Edit", new { id = Model.AttributeId }) |
+    @Html.ActionLink(PersistanceResource.Edit, "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

@@ -11,7 +11,7 @@ namespace Topppro.WebSite.Controllers
 	{
 		public override ActionResult Index(string controller)
 		{
-			var airport = this._bizSerie.Value
+			/*var airport = this._bizSerie.Value
 									.AllBy(s => s.SerieId == 11 && s.Enabled)
 									.Include(s => s.Products)
 									.Include(s => s.Products.Select(p => p.Model))
@@ -58,8 +58,9 @@ namespace Topppro.WebSite.Controllers
 			foreach (var entity in entities)
 				foreach (var product in entity.As<Topppro.Entities.Serie>().Products)
 					ViewBag.PreloadedImages = product.GetThumbs().Concat((IEnumerable<string>)ViewBag.PreloadedImages);
-
-			return View(entities);
+            */
+			
+            return View();
 		}
 
 	}

@@ -42,8 +42,8 @@ namespace Topppro.Test.Business
 
             var assn = new Topppro.Entities.Assn_CategorySerie()
             {
-                CategoryId = category.Id,
-                SerieId = serie.Id,
+                CategoryId = (int)category.Id,
+                SerieId = (int)serie.Id,
                 Priority = 1000,
                 Enabled = true
             };

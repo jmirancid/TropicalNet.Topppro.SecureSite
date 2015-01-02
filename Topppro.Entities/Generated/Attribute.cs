@@ -124,16 +124,16 @@ namespace Topppro.Entities
     
         private void FixupCulture(Culture previousValue)
         {
-            if (previousValue != null && previousValue.Attribute.Contains(this))
+            if (previousValue != null && previousValue.Attributes.Contains(this))
             {
-                previousValue.Attribute.Remove(this);
+                previousValue.Attributes.Remove(this);
             }
     
             if (Culture != null)
             {
-                if (!Culture.Attribute.Contains(this))
+                if (!Culture.Attributes.Contains(this))
                 {
-                    Culture.Attribute.Add(this);
+                    Culture.Attributes.Add(this);
                 }
                 if (CultureId != Culture.CultureId)
                 {
@@ -144,16 +144,16 @@ namespace Topppro.Entities
     
         private void FixupProduct(Product previousValue)
         {
-            if (previousValue != null && previousValue.Attribute.Contains(this))
+            if (previousValue != null && previousValue.Attributes.Contains(this))
             {
-                previousValue.Attribute.Remove(this);
+                previousValue.Attributes.Remove(this);
             }
     
             if (Product != null)
             {
-                if (!Product.Attribute.Contains(this))
+                if (!Product.Attributes.Contains(this))
                 {
-                    Product.Attribute.Add(this);
+                    Product.Attributes.Add(this);
                 }
                 if (ProductId != Product.ProductId)
                 {

@@ -1,18 +1,96 @@
-IF EXISTS (SELECT name FROM master.dbo.sysdatabases WHERE name = N'ToppproNew') DROP DATABASE [ToppproNew];
-CREATE DATABASE [ToppproNew];
+-- SQL Manager Lite for SQL Server 4.0.1.44515
+-- ---------------------------------------
+-- Host      : (local)
+-- Database  : ToppproNew
+-- Version   : Microsoft SQL Server  10.50.1600.1
+
+
+--
+-- Dropping table Assn_CategorySerie : 
+--
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Assn_CategorySerie') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  DROP TABLE dbo.Assn_CategorySerie
 GO
 
-USE ToppproNew;
-
 --
--- Definition for table Serie : 
+-- Dropping table Category : 
 --
 
-CREATE TABLE dbo.Serie (
-  SerieId int IDENTITY(1, 1) NOT NULL,
-  Name varchar(50) NOT NULL
-)
-ON [PRIMARY]
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Category') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  DROP TABLE dbo.Category
+GO
+
+--
+-- Dropping table Serie : 
+--
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Serie') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  DROP TABLE dbo.Serie
+GO
+
+--
+-- Dropping table Assn_CategorySeriePackage : 
+--
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Assn_CategorySeriePackage') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  DROP TABLE dbo.Assn_CategorySeriePackage
+GO
+
+--
+-- Dropping table Package : 
+--
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Package') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  DROP TABLE dbo.Package
+GO
+
+--
+-- Dropping table Model : 
+--
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Model') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  DROP TABLE dbo.Model
+GO
+
+--
+-- Dropping table Assn_CategorySerieProduct : 
+--
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Assn_CategorySerieProduct') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  DROP TABLE dbo.Assn_CategorySerieProduct
+GO
+
+--
+-- Dropping table Product : 
+--
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Product') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  DROP TABLE dbo.Product
+GO
+
+--
+-- Dropping table Assn_PackageProduct : 
+--
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Assn_PackageProduct') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  DROP TABLE dbo.Assn_PackageProduct
+GO
+
+--
+-- Dropping table Attribute : 
+--
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Attribute') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  DROP TABLE dbo.Attribute
+GO
+
+--
+-- Dropping table Culture : 
+--
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Culture') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  DROP TABLE dbo.Culture
 GO
 
 --
@@ -21,7 +99,18 @@ GO
 
 CREATE TABLE dbo.Category (
   CategoryId int IDENTITY(1, 1) NOT NULL,
-  Name varchar(50) NOT NULL
+  Name varchar(50) COLLATE Modern_Spanish_CI_AS NOT NULL
+)
+ON [PRIMARY]
+GO
+
+--
+-- Definition for table Serie : 
+--
+
+CREATE TABLE dbo.Serie (
+  SerieId int IDENTITY(1, 1) NOT NULL,
+  Name varchar(50) COLLATE Modern_Spanish_CI_AS NOT NULL
 )
 ON [PRIMARY]
 GO
@@ -31,6 +120,7 @@ GO
 --
 
 CREATE TABLE dbo.Assn_CategorySerie (
+  AssnCategorySerieId int IDENTITY(1, 1) NOT NULL,
   CategoryId int NOT NULL,
   SerieId int NOT NULL,
   Priority int NULL,
@@ -45,7 +135,7 @@ GO
 
 CREATE TABLE dbo.Model (
   ModelId int IDENTITY(1, 1) NOT NULL,
-  Name varchar(50)  NOT NULL
+  Name varchar(50) COLLATE Modern_Spanish_CI_AS NOT NULL
 )
 ON [PRIMARY]
 GO
@@ -57,9 +147,9 @@ GO
 CREATE TABLE dbo.Package (
   PackageId int IDENTITY(1, 1) NOT NULL,
   ModelId int NOT NULL,
-  Name varchar(100)  NOT NULL,
-  Folder varchar(50)  NULL,
-  Manual varchar(50)  NULL,
+  Name varchar(100) COLLATE Modern_Spanish_CI_AS NOT NULL,
+  Folder varchar(50) COLLATE Modern_Spanish_CI_AS NULL,
+  Manual varchar(50) COLLATE Modern_Spanish_CI_AS NULL,
   Draft bit NOT NULL
 )
 ON [PRIMARY]
@@ -70,8 +160,8 @@ GO
 --
 
 CREATE TABLE dbo.Assn_CategorySeriePackage (
-  CategoryId int NOT NULL,
-  SerieId int NOT NULL,
+  AssnCategorySeriePackageId int IDENTITY(1, 1) NOT NULL,
+  AssnCategorySerieId int NOT NULL,
   PackageId int NOT NULL,
   Priority int NULL,
   Enabled bit NOT NULL
@@ -86,9 +176,9 @@ GO
 CREATE TABLE dbo.Product (
   ProductId int IDENTITY(1, 1) NOT NULL,
   ModelId int NOT NULL,
-  Name varchar(100)  NOT NULL,
-  Folder varchar(50)  NULL,
-  Manual varchar(50)  NULL,
+  Name varchar(100) COLLATE Modern_Spanish_CI_AS NOT NULL,
+  Folder varchar(50) COLLATE Modern_Spanish_CI_AS NULL,
+  Manual varchar(50) COLLATE Modern_Spanish_CI_AS NULL,
   Draft bit NOT NULL
 )
 ON [PRIMARY]
@@ -99,8 +189,8 @@ GO
 --
 
 CREATE TABLE dbo.Assn_CategorySerieProduct (
-  CategoryId int NOT NULL,
-  SerieId int NOT NULL,
+  AssnCategorySerieProductId int IDENTITY(1, 1) NOT NULL,
+  AssnCategorySerieId int NOT NULL,
   ProductId int NOT NULL,
   Priority int NULL,
   Enabled bit NOT NULL
@@ -113,6 +203,7 @@ GO
 --
 
 CREATE TABLE dbo.Assn_PackageProduct (
+  AssnPackageProductId int IDENTITY(1, 1) NOT NULL,
   PackageId int NOT NULL,
   ProductId int NOT NULL,
   Priority int NULL,
@@ -127,8 +218,8 @@ GO
 
 CREATE TABLE dbo.Culture (
   CultureId int IDENTITY(1, 1) NOT NULL,
-  Name varchar(50) NOT NULL,
-  Code varchar(2) NOT NULL
+  Name varchar(50) COLLATE Modern_Spanish_CI_AS NOT NULL,
+  Code varchar(2) COLLATE Modern_Spanish_CI_AS NOT NULL
 )
 ON [PRIMARY]
 GO
@@ -141,8 +232,8 @@ CREATE TABLE dbo.Attribute (
   AttributeId int IDENTITY(1, 1) NOT NULL,
   ProductId int NOT NULL,
   CultureId int NOT NULL,
-  Name varchar(150) NOT NULL,
-  Value varchar(8000) NOT NULL,
+  Name varchar(150) COLLATE Modern_Spanish_CI_AS NOT NULL,
+  Value varchar(8000) COLLATE Modern_Spanish_CI_AS NOT NULL,
   Priority int NULL,
   Enabled bit NOT NULL
 )
@@ -152,18 +243,6 @@ GO
 --
 -- Definition for indices : 
 --
-
-ALTER TABLE dbo.Serie
-ADD CONSTRAINT Serie_PK 
-PRIMARY KEY CLUSTERED (SerieId)
-WITH (
-  PAD_INDEX = OFF,
-  IGNORE_DUP_KEY = OFF,
-  STATISTICS_NORECOMPUTE = OFF,
-  ALLOW_ROW_LOCKS = ON,
-  ALLOW_PAGE_LOCKS = ON)
-ON [PRIMARY]
-GO
 
 ALTER TABLE dbo.Category
 ADD CONSTRAINT Category_PK 
@@ -177,9 +256,9 @@ WITH (
 ON [PRIMARY]
 GO
 
-ALTER TABLE dbo.Assn_CategorySerie
-ADD CONSTRAINT Ass_CategorySerie_PK 
-PRIMARY KEY CLUSTERED (CategoryId, SerieId)
+ALTER TABLE dbo.Serie
+ADD CONSTRAINT Serie_PK 
+PRIMARY KEY CLUSTERED (SerieId)
 WITH (
   PAD_INDEX = OFF,
   IGNORE_DUP_KEY = OFF,
@@ -189,27 +268,25 @@ WITH (
 ON [PRIMARY]
 GO
 
-CREATE NONCLUSTERED INDEX Assn_CategorySerie_CategoryId_IX ON dbo.Assn_CategorySerie
-  (CategoryId)
+ALTER TABLE dbo.Assn_CategorySerie
+ADD CONSTRAINT Assn_CategorySerie_PK 
+PRIMARY KEY CLUSTERED (AssnCategorySerieId)
 WITH (
   PAD_INDEX = OFF,
-  DROP_EXISTING = OFF,
+  IGNORE_DUP_KEY = OFF,
   STATISTICS_NORECOMPUTE = OFF,
-  SORT_IN_TEMPDB = OFF,
-  ONLINE = OFF,
   ALLOW_ROW_LOCKS = ON,
   ALLOW_PAGE_LOCKS = ON)
 ON [PRIMARY]
 GO
 
-CREATE NONCLUSTERED INDEX Assn_CategorySerie_SerieId_IX ON dbo.Assn_CategorySerie
-  (SerieId)
+ALTER TABLE dbo.Assn_CategorySerie
+ADD CONSTRAINT Assn_CategorySerie_UK 
+UNIQUE NONCLUSTERED (CategoryId, SerieId)
 WITH (
   PAD_INDEX = OFF,
-  DROP_EXISTING = OFF,
+  IGNORE_DUP_KEY = OFF,
   STATISTICS_NORECOMPUTE = OFF,
-  SORT_IN_TEMPDB = OFF,
-  ONLINE = OFF,
   ALLOW_ROW_LOCKS = ON,
   ALLOW_PAGE_LOCKS = ON)
 ON [PRIMARY]
@@ -239,35 +316,9 @@ WITH (
 ON [PRIMARY]
 GO
 
-CREATE NONCLUSTERED INDEX Assn_CategorySeriePackage_CategoryId_IX ON dbo.Assn_CategorySeriePackage
-  (CategoryId)
-WITH (
-  PAD_INDEX = OFF,
-  DROP_EXISTING = OFF,
-  STATISTICS_NORECOMPUTE = OFF,
-  SORT_IN_TEMPDB = OFF,
-  ONLINE = OFF,
-  ALLOW_ROW_LOCKS = ON,
-  ALLOW_PAGE_LOCKS = ON)
-ON [PRIMARY]
-GO
-
-CREATE NONCLUSTERED INDEX Assn_CategorySeriePackage_PackageId_IX ON dbo.Assn_CategorySeriePackage
-  (PackageId)
-WITH (
-  PAD_INDEX = OFF,
-  DROP_EXISTING = OFF,
-  STATISTICS_NORECOMPUTE = OFF,
-  SORT_IN_TEMPDB = OFF,
-  ONLINE = OFF,
-  ALLOW_ROW_LOCKS = ON,
-  ALLOW_PAGE_LOCKS = ON)
-ON [PRIMARY]
-GO
-
 ALTER TABLE dbo.Assn_CategorySeriePackage
 ADD CONSTRAINT Assn_CategorySeriePackage_PK 
-PRIMARY KEY CLUSTERED (CategoryId, SerieId, PackageId)
+PRIMARY KEY CLUSTERED (AssnCategorySeriePackageId)
 WITH (
   PAD_INDEX = OFF,
   IGNORE_DUP_KEY = OFF,
@@ -277,14 +328,13 @@ WITH (
 ON [PRIMARY]
 GO
 
-CREATE NONCLUSTERED INDEX Assn_CategorySeriePackage_SerieId_IX ON dbo.Assn_CategorySeriePackage
-  (SerieId)
+ALTER TABLE dbo.Assn_CategorySeriePackage
+ADD CONSTRAINT Assn_CategorySeriePackage_UK 
+UNIQUE NONCLUSTERED (AssnCategorySerieId, PackageId)
 WITH (
   PAD_INDEX = OFF,
-  DROP_EXISTING = OFF,
+  IGNORE_DUP_KEY = OFF,
   STATISTICS_NORECOMPUTE = OFF,
-  SORT_IN_TEMPDB = OFF,
-  ONLINE = OFF,
   ALLOW_ROW_LOCKS = ON,
   ALLOW_PAGE_LOCKS = ON)
 ON [PRIMARY]
@@ -302,22 +352,9 @@ WITH (
 ON [PRIMARY]
 GO
 
-CREATE NONCLUSTERED INDEX Assn_CategorySerieProduct_CategoryId_IX ON dbo.Assn_CategorySerieProduct
-  (CategoryId)
-WITH (
-  PAD_INDEX = OFF,
-  DROP_EXISTING = OFF,
-  STATISTICS_NORECOMPUTE = OFF,
-  SORT_IN_TEMPDB = OFF,
-  ONLINE = OFF,
-  ALLOW_ROW_LOCKS = ON,
-  ALLOW_PAGE_LOCKS = ON)
-ON [PRIMARY]
-GO
-
 ALTER TABLE dbo.Assn_CategorySerieProduct
 ADD CONSTRAINT Assn_CategorySerieProduct_PK 
-PRIMARY KEY CLUSTERED (CategoryId, SerieId, ProductId)
+PRIMARY KEY CLUSTERED (AssnCategorySerieProductId)
 WITH (
   PAD_INDEX = OFF,
   IGNORE_DUP_KEY = OFF,
@@ -327,40 +364,13 @@ WITH (
 ON [PRIMARY]
 GO
 
-CREATE NONCLUSTERED INDEX Assn_CategorySerieProduct_ProductId_IX ON dbo.Assn_CategorySerieProduct
-  (ProductId)
+ALTER TABLE dbo.Assn_CategorySerieProduct
+ADD CONSTRAINT Assn_CategorySerieProduct_UK 
+UNIQUE NONCLUSTERED (AssnCategorySerieId, ProductId)
 WITH (
   PAD_INDEX = OFF,
-  DROP_EXISTING = OFF,
+  IGNORE_DUP_KEY = OFF,
   STATISTICS_NORECOMPUTE = OFF,
-  SORT_IN_TEMPDB = OFF,
-  ONLINE = OFF,
-  ALLOW_ROW_LOCKS = ON,
-  ALLOW_PAGE_LOCKS = ON)
-ON [PRIMARY]
-GO
-
-CREATE NONCLUSTERED INDEX Assn_CategorySerieProduct_SerieId_IX ON dbo.Assn_CategorySerieProduct
-  (SerieId)
-WITH (
-  PAD_INDEX = OFF,
-  DROP_EXISTING = OFF,
-  STATISTICS_NORECOMPUTE = OFF,
-  SORT_IN_TEMPDB = OFF,
-  ONLINE = OFF,
-  ALLOW_ROW_LOCKS = ON,
-  ALLOW_PAGE_LOCKS = ON)
-ON [PRIMARY]
-GO
-
-CREATE NONCLUSTERED INDEX Assn_PackageProduct_PackageId_IX ON dbo.Assn_PackageProduct
-  (PackageId)
-WITH (
-  PAD_INDEX = OFF,
-  DROP_EXISTING = OFF,
-  STATISTICS_NORECOMPUTE = OFF,
-  SORT_IN_TEMPDB = OFF,
-  ONLINE = OFF,
   ALLOW_ROW_LOCKS = ON,
   ALLOW_PAGE_LOCKS = ON)
 ON [PRIMARY]
@@ -368,7 +378,7 @@ GO
 
 ALTER TABLE dbo.Assn_PackageProduct
 ADD CONSTRAINT Assn_PackageProduct_PK 
-PRIMARY KEY CLUSTERED (PackageId, ProductId)
+PRIMARY KEY CLUSTERED (AssnPackageProductId)
 WITH (
   PAD_INDEX = OFF,
   IGNORE_DUP_KEY = OFF,
@@ -378,14 +388,13 @@ WITH (
 ON [PRIMARY]
 GO
 
-CREATE NONCLUSTERED INDEX Assn_PackageProduct_ProductId_IX ON dbo.Assn_PackageProduct
-  (ProductId)
+ALTER TABLE dbo.Assn_PackageProduct
+ADD CONSTRAINT Assn_PackageProduct_UK 
+UNIQUE NONCLUSTERED (PackageId, ProductId)
 WITH (
   PAD_INDEX = OFF,
-  DROP_EXISTING = OFF,
+  IGNORE_DUP_KEY = OFF,
   STATISTICS_NORECOMPUTE = OFF,
-  SORT_IN_TEMPDB = OFF,
-  ONLINE = OFF,
   ALLOW_ROW_LOCKS = ON,
   ALLOW_PAGE_LOCKS = ON)
 ON [PRIMARY]
@@ -441,8 +450,8 @@ ADD CONSTRAINT Model_Package_FK FOREIGN KEY (ModelId)
 GO
 
 ALTER TABLE dbo.Assn_CategorySeriePackage
-ADD CONSTRAINT Assn_CategorySerie_CategorySeriePackage_FK FOREIGN KEY (CategoryId, SerieId) 
-  REFERENCES dbo.Assn_CategorySerie (CategoryId, SerieId) 
+ADD CONSTRAINT Assn_CategorySerie_Assn_CategorySeriePackage_FK FOREIGN KEY (AssnCategorySerieId) 
+  REFERENCES dbo.Assn_CategorySerie (AssnCategorySerieId) 
   ON UPDATE NO ACTION
   ON DELETE NO ACTION
 GO
@@ -462,8 +471,8 @@ ADD CONSTRAINT Model_Product_FK FOREIGN KEY (ModelId)
 GO
 
 ALTER TABLE dbo.Assn_CategorySerieProduct
-ADD CONSTRAINT Ass_CategorySerie_CategorySerieProduct_FK FOREIGN KEY (CategoryId, SerieId) 
-  REFERENCES dbo.Assn_CategorySerie (CategoryId, SerieId) 
+ADD CONSTRAINT Assn_CategorySerie_Assn_CategorySerieProduct_FK FOREIGN KEY (AssnCategorySerieId) 
+  REFERENCES dbo.Assn_CategorySerie (AssnCategorySerieId) 
   ON UPDATE NO ACTION
   ON DELETE NO ACTION
 GO
@@ -502,3 +511,4 @@ ADD CONSTRAINT Product_Attribute_FK FOREIGN KEY (ProductId)
   ON UPDATE NO ACTION
   ON DELETE NO ACTION
 GO
+

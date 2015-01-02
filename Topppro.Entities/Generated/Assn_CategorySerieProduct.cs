@@ -22,39 +22,28 @@ namespace Topppro.Entities
     {
         #region Primitive Properties
     
-        public virtual int CategoryId
+        public virtual int AssnCategorySerieProductId
         {
-            get { return _categoryId; }
-            set
-            {
-                if (_categoryId != value)
-                {
-                    if (Assn_CategorySerie != null && Assn_CategorySerie.CategoryId != value)
-                    {
-                        Assn_CategorySerie = null;
-                    }
-                    _categoryId = value;
-                }
-            }
+            get;
+            set;
         }
-        private int _categoryId;
     
-        public virtual int SerieId
+        public virtual int AssnCategorySerieId
         {
-            get { return _serieId; }
+            get { return _assnCategorySerieId; }
             set
             {
-                if (_serieId != value)
+                if (_assnCategorySerieId != value)
                 {
-                    if (Assn_CategorySerie != null && Assn_CategorySerie.SerieId != value)
+                    if (Assn_CategorySerie != null && Assn_CategorySerie.AssnCategorySerieId != value)
                     {
                         Assn_CategorySerie = null;
                     }
-                    _serieId = value;
+                    _assnCategorySerieId = value;
                 }
             }
         }
-        private int _serieId;
+        private int _assnCategorySerieId;
     
         public virtual int ProductId
         {
@@ -134,13 +123,9 @@ namespace Topppro.Entities
                 {
                     Assn_CategorySerie.Assn_CategorySerieProduct.Add(this);
                 }
-                if (CategoryId != Assn_CategorySerie.CategoryId)
+                if (AssnCategorySerieId != Assn_CategorySerie.AssnCategorySerieId)
                 {
-                    CategoryId = Assn_CategorySerie.CategoryId;
-                }
-                if (SerieId != Assn_CategorySerie.SerieId)
-                {
-                    SerieId = Assn_CategorySerie.SerieId;
+                    AssnCategorySerieId = Assn_CategorySerie.AssnCategorySerieId;
                 }
             }
         }

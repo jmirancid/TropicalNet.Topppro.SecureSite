@@ -1,5 +1,5 @@
-﻿@using Framework.MVC.Extensions
-@using Framework.MVC.Resources
+﻿@using Framework.MVC.Resources
+@using Framework.MVC.Extensions
 
 @model IEnumerable<Topppro.Entities.Serie>
 
@@ -21,16 +21,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.CategoryId)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Priority)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Enabled)
             </th>
             <th>
                 @PersistanceResource.Actions
@@ -42,16 +33,7 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Category.Name)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Priority)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Enabled)
             </td>
             <td>
                 @Html.ActionLink(PersistanceResource.Edit, "Edit", new { id = item.SerieId }) |

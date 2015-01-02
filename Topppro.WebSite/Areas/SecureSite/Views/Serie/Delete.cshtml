@@ -1,5 +1,6 @@
-﻿@using Framework.MVC.Extensions
-@using Framework.MVC.Resources
+﻿@using Framework.MVC.Resources
+@using Framework.MVC.Extensions
+@using Topppro.Entities.Resources
 
 @model Topppro.Entities.Serie
 
@@ -9,36 +10,15 @@
 
 <h2>@PersistanceResource.Delete</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>@PersistanceResource.Delete_Message</h3>
 <fieldset>
-    <legend>Serie</legend>
-
-    <div class="display-label">
-        @Html.DisplayNameFor(model => model.CategoryId)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Category.Name)
-    </div>
+    <legend>@Ent_SerieResource._Caption</legend>
 
     <div class="display-label">
         @Html.DisplayNameFor(model => model.Name)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Name)
-    </div>
-
-    <div class="display-label">
-        @Html.DisplayNameFor(model => model.Priority)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Priority)
-    </div>
-
-    <div class="display-label">
-        @Html.DisplayNameFor(model => model.Enabled)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Enabled)
     </div>
 
 </fieldset>

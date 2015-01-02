@@ -1,0 +1,48 @@
+﻿@using Framework.MVC.Extensions
+@using Framework.MVC.Resources
+@using Topppro.Entities.Resources
+
+@model Topppro.Entities.Assn_CategorySerie
+
+@{
+    ViewBag.Title = PersistanceResource.Details;
+}
+
+<h2>@PersistanceResource.Details</h2>
+
+<fieldset>
+    <legend>@Ent_AssnCategorySerieResource._Caption</legend>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.CategoryId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Category.Name)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.SerieId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Serie.Name)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Priority)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Priority)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Enabled)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Enabled)
+    </div>
+
+</fieldset>
+<p>
+    @Html.ActionLink(PersistanceResource.Edit, "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,81 @@
+﻿@using Framework.MVC.Extensions
+@using Framework.MVC.Resources
+
+@model IEnumerable<Topppro.Entities.Assn_CategorySerieProduct>
+
+@{
+    ViewBag.Title = PersistanceResource.Index;
+}
+
+@section Styles {
+    <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Areas/SecureSite/Content/themes/base/jquery.ui.all.css")" />
+    <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Areas/SecureSite/Content/jquery-ui.dataTables.css")" />
+}
+
+<h2>@PersistanceResource.Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table width="100%">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Assn_CategorySerie.CategoryId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Assn_CategorySerie.SerieId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Priority)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Enabled)
+            </th>
+            <th>
+                @PersistanceResource.Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) 
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Assn_CategorySerie.Category.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Assn_CategorySerie.Serie.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Priority)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Enabled)
+            </td>
+            <td>
+                @Html.ActionLink(PersistanceResource.Edit, "Edit", new { id = item.Id }) |
+                @Html.ActionLink(PersistanceResource.Details, "Details", new { id = item.Id }) |
+                @Html.ActionLink(PersistanceResource.Delete, "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script type="text/javascript" src="@Url.Content("~/Areas/SecureSite/Scripts/jquery.dataTables.min.js")"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('table').dataTable({
+                bJQueryUI: true
+            });
+        });
+    </script>
+}

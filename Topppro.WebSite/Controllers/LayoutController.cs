@@ -23,6 +23,7 @@ namespace Topppro.WebSite.Controllers
 
 		public virtual ActionResult Index(string controller)
 		{
+            /*
 			var categoryId =
 				(int)Enum.Parse(typeof(Topppro.Entities.Category_Enum), controller);
 
@@ -44,12 +45,13 @@ namespace Topppro.WebSite.Controllers
 			foreach (var entity in entities)
 				foreach (var product in entity.As<Topppro.Entities.Serie>().Products)
 					ViewBag.PreloadedImages = product.GetThumbs().Concat((IEnumerable<string>)ViewBag.PreloadedImages);
-
-			return View(entities);
+            */
+			return View();
 		}
 
 		public virtual ActionResult Detail(string controller, int id, string name)
 		{
+            /*
 			var entity = this._bizProduct.Value
 								.AllBy(p => p.ProductId == id)
 								.Include(p => p.Serie)
@@ -67,8 +69,8 @@ namespace Topppro.WebSite.Controllers
 
 			ViewBag.BackgroundImage =
 				Url.Content(string.Format("~/Content/Images/{0}-bottom-page.jpg", controller));
-
-			return View(entity);
+            */
+			return View();
 		}
 
 		public virtual ActionResult HiRes(string controller, int id, string name)
@@ -87,6 +89,7 @@ namespace Topppro.WebSite.Controllers
 
 		public virtual ActionResult Compare(string controller, int lid, string lname, int rid, string rname)
 		{
+            /*
 			var entities = this._bizProduct.Value
 								.AllBy(p => p.ProductId == lid || p.ProductId == rid)
 								.ToList();
@@ -103,8 +106,8 @@ namespace Topppro.WebSite.Controllers
 
 			ViewBag.BackgroundImage =
 				Url.Content(string.Format("~/Content/Images/{0}-bottom-page.jpg", controller));
-
-			return View(entities);
+            */
+			return View();
 		}
 
 	}

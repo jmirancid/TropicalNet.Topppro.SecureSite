@@ -60,7 +60,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assn_CategorySerie.cs" />
-    <Compile Include="Assn_CategorySerieProduct.cs" />
+    <Compile Include="Assn_CategorySerieProduct.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Attribute.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="Culture.cs" />

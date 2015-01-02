@@ -1,5 +1,6 @@
-﻿@using Framework.MVC.Extensions
-@using Framework.MVC.Resources
+﻿@using Framework.MVC.Resources
+@using Framework.MVC.Extensions
+@using Topppro.Entities.Resources
 
 @model Topppro.Entities.Culture
 
@@ -10,7 +11,7 @@
 <h2>@PersistanceResource.Details</h2>
 
 <fieldset>
-    <legend>Culture</legend>
+    <legend>@Ent_CultureResource._Caption</legend>
 
     <div class="display-label">
         @Html.DisplayNameFor(model => model.Name)

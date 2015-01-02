@@ -1,4 +1,5 @@
 ﻿@using Framework.MVC.Resources
+@using Topppro.Entities.Resources
 
 @model Topppro.Entities.Culture
 
@@ -11,7 +12,7 @@
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
     <fieldset>
-        <legend>Culture</legend>
+        <legend>@Ent_CultureResource._Caption</legend>
 
         @Html.HiddenFor(model => model.CultureId)
 

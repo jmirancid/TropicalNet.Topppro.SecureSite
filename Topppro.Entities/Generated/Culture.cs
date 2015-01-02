@@ -43,44 +43,44 @@ namespace Topppro.Entities
         #endregion
         #region Navigation Properties
     
-    	//[XmlElement("Attribute", typeof(Collection<Attribute>))]
-        public virtual ICollection<Attribute> Attribute
+    	//[XmlElement("Attributes", typeof(Collection<Attribute>))]
+        public virtual ICollection<Attribute> Attributes
         {
             get
             {
-                if (_attribute == null)
+                if (_attributes == null)
                 {
                     var newCollection = new FixupCollection<Attribute>();
-                    newCollection.CollectionChanged += FixupAttribute;
-                    _attribute = newCollection;
+                    newCollection.CollectionChanged += FixupAttributes;
+                    _attributes = newCollection;
                 }
-                return _attribute;
+                return _attributes;
             }
             set
             {
-                if (!ReferenceEquals(_attribute, value))
+                if (!ReferenceEquals(_attributes, value))
                 {
-                    var previousValue = _attribute as FixupCollection<Attribute>;
+                    var previousValue = _attributes as FixupCollection<Attribute>;
                     if (previousValue != null)
                     {
-                        previousValue.CollectionChanged -= FixupAttribute;
+                        previousValue.CollectionChanged -= FixupAttributes;
                     }
-                    _attribute = value;
+                    _attributes = value;
                     var newValue = value as FixupCollection<Attribute>;
                     if (newValue != null)
                     {
-                        newValue.CollectionChanged += FixupAttribute;
+                        newValue.CollectionChanged += FixupAttributes;
                     }
                 }
             }
         }
-    	//[XmlElement("Attribute", typeof(Collection<Attribute>))]
-        private ICollection<Attribute> _attribute;
+    	//[XmlElement("Attributes", typeof(Collection<Attribute>))]
+        private ICollection<Attribute> _attributes;
 
         #endregion
         #region Association Fixup
     
-        private void FixupAttribute(object sender, NotifyCollectionChangedEventArgs e)
+        private void FixupAttributes(object sender, NotifyCollectionChangedEventArgs e)
         {
             if (e.NewItems != null)
             {

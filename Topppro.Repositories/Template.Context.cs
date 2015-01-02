@@ -96,17 +96,17 @@ namespace Topppro.Repositories
         }
         private ObjectSet<Package> _package;
     
-        public ObjectSet<Product> Product
-        {
-            get { return _product  ?? (_product = CreateObjectSet<Product>("Product")); }
-        }
-        private ObjectSet<Product> _product;
-    
         public ObjectSet<Serie> Serie
         {
             get { return _serie  ?? (_serie = CreateObjectSet<Serie>("Serie")); }
         }
         private ObjectSet<Serie> _serie;
+    
+        public ObjectSet<Product> Product
+        {
+            get { return _product  ?? (_product = CreateObjectSet<Product>("Product")); }
+        }
+        private ObjectSet<Product> _product;
 
         #endregion
     }

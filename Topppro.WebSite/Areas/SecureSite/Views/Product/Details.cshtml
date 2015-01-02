@@ -1,5 +1,6 @@
-﻿@using Framework.MVC.Extensions
-@using Framework.MVC.Resources
+﻿@using Framework.MVC.Resources
+@using Framework.MVC.Extensions
+@using Topppro.Entities.Resources
 
 @model Topppro.Entities.Product
 
@@ -10,21 +11,7 @@
 <h2>@PersistanceResource.Details</h2>
 
 <fieldset>
-    <legend>Product</legend>
-
-    <div class="display-label">
-        @Html.DisplayNameFor(model => model.Serie.CategoryId)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Serie.Category.Name)
-    </div>
-
-    <div class="display-label">
-        @Html.DisplayNameFor(model => model.SerieId)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Serie.Name)
-    </div>
+    <legend>@Ent_ProductResource._Caption</legend>
 
     <div class="display-label">
         @Html.DisplayNameFor(model => model.Name)
@@ -55,21 +42,14 @@
     </div>
 
     <div class="display-label">
-        @Html.DisplayNameFor(model => model.Priority)
+        @Html.DisplayNameFor(model => model.Draft)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Priority)
-    </div>
-
-    <div class="display-label">
-        @Html.DisplayNameFor(model => model.Enabled)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Enabled)
+        @Html.DisplayFor(model => model.Draft)
     </div>
 
 </fieldset>
 <p>
-    @Html.ActionLink(PersistanceResource.Edit, "Edit", new { id = Model.ProductId }) |
+    @Html.ActionLink(PersistanceResource.Edit, "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

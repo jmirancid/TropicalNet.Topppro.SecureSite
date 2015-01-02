@@ -1,0 +1,51 @@
+﻿@using Framework.MVC.Extensions
+@using Framework.MVC.Resources
+@using Topppro.Entities.Resources
+
+@model Topppro.Entities.Assn_CategorySerie
+
+@{
+    ViewBag.Title = PersistanceResource.Delete;
+}
+
+<h2>@PersistanceResource.Delete</h2>
+
+<h3>@PersistanceResource.Delete_Message</h3>
+<fieldset>
+    <legend>@Ent_AssnCategorySerieResource._Caption</legend>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.CategoryId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Category.Name)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.SerieId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Serie.Name)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Priority)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Priority)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Enabled)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Enabled)
+    </div>
+
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="@PersistanceResource.Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

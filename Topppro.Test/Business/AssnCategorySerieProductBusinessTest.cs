@@ -9,11 +9,8 @@ namespace Topppro.Test.Business
     public class AssnCategorySerieProductBusinessTest :
         BusinessTest<Topppro.Entities.Assn_CategorySerieProduct, AssnCategorySerieProductBusiness>
     {
-        private readonly Lazy<CategoryBusiness> _bizCategory =
-            new Lazy<CategoryBusiness>();
-
-        private readonly Lazy<SerieBusiness> _bizSerie =
-            new Lazy<SerieBusiness>();
+        private readonly Lazy<AssnCategorySerieBusiness> _bizAssnCategorySerie =
+            new Lazy<AssnCategorySerieBusiness>();
 
         private readonly Lazy<ProductBusiness> _bizProduct =
             new Lazy<ProductBusiness>();
@@ -33,25 +30,19 @@ namespace Topppro.Test.Business
         [TestMethod]
         public void Can_Create()
         {
-            var category = _bizCategory.Value.All().FirstOrDefault();
-
-            var serie = _bizSerie.Value.All().FirstOrDefault();
+            var ass_cat_ser = _bizAssnCategorySerie.Value.All().FirstOrDefault();
 
             var product = _bizProduct.Value.All().FirstOrDefault();
 
-            if (category == null)
-                throw new ArgumentNullException("category");
-
-            if (serie == null)
-                throw new ArgumentNullException("serie");
+            if (ass_cat_ser == null)
+                throw new ArgumentNullException("ass_cat_ser");
 
             if (product == null)
                 throw new ArgumentNullException("product");
 
             var assn = new Topppro.Entities.Assn_CategorySerieProduct()
             {
-                CategoryId = category.Id,
-                SerieId = serie.Id,
+                AssnCategorySerieId = ass_cat_ser.Id,
                 ProductId = product.Id,
                 Priority = 1000,
                 Enabled = true
@@ -94,16 +85,14 @@ namespace Topppro.Test.Business
             if (assn == null)
                 throw new ArgumentNullException("assn");
 
-            var category_id = assn.CategoryId;
-            var serie_id = assn.SerieId;
-            var product_id = assn.ProductId;
-
             bizEntity.Value.Delete(assn);
+
+            var id = assn.AssnCategorySerieProductId;
 
             assn = null;
 
             assn =
-                bizEntity.Value.GetBy(a => a.CategoryId == category_id && a.SerieId == serie_id && a.ProductId == product_id);
+                bizEntity.Value.Get(id);
 
             Assert.IsNull(assn);
         }

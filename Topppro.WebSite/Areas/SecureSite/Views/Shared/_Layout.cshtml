@@ -26,6 +26,12 @@
                     <li>@Html.ActionLink("Cultures", "Index", "Culture")</li>
                 </ul>
             </div>
+            <div id="menucontainer">
+                <ul id="menu">
+                    <li>@Html.ActionLink("Category => Serie", "Index", "AssnCategorySerie")</li>
+                    <li>@Html.ActionLink("Category => Serie => Product", "Index", "AssnCategorySerieProduct")</li>
+                </ul>
+            </div>
         </div>
         <div id="main">
             @RenderBody()
