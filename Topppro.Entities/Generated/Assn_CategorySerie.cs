@@ -62,6 +62,12 @@ namespace Topppro.Entities
         }
         private int _serieId;
     
+        public virtual Nullable<int> ItemsPerLine
+        {
+            get;
+            set;
+        }
+    
         public virtual Nullable<int> Priority
         {
             get;

@@ -42,12 +42,6 @@ namespace Topppro.Repositories
     
         #region ObjectSet Properties
     
-        public ObjectSet<Assn_CategorySerie> Assn_CategorySerie
-        {
-            get { return _assn_CategorySerie  ?? (_assn_CategorySerie = CreateObjectSet<Assn_CategorySerie>("Assn_CategorySerie")); }
-        }
-        private ObjectSet<Assn_CategorySerie> _assn_CategorySerie;
-    
         public ObjectSet<Assn_CategorySeriePackage> Assn_CategorySeriePackage
         {
             get { return _assn_CategorySeriePackage  ?? (_assn_CategorySeriePackage = CreateObjectSet<Assn_CategorySeriePackage>("Assn_CategorySeriePackage")); }
@@ -107,6 +101,12 @@ namespace Topppro.Repositories
             get { return _product  ?? (_product = CreateObjectSet<Product>("Product")); }
         }
         private ObjectSet<Product> _product;
+    
+        public ObjectSet<Assn_CategorySerie> Assn_CategorySerie
+        {
+            get { return _assn_CategorySerie  ?? (_assn_CategorySerie = CreateObjectSet<Assn_CategorySerie>("Assn_CategorySerie")); }
+        }
+        private ObjectSet<Assn_CategorySerie> _assn_CategorySerie;
 
         #endregion
     }

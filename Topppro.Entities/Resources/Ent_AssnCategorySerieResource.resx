@@ -123,6 +123,9 @@
   <data name="Entity_Enabled" xml:space="preserve">
     <value>Enabled</value>
   </data>
+  <data name="Entity_ItemsPerLine" xml:space="preserve">
+    <value>Items Per Line</value>
+  </data>
   <data name="Entity_Priority" xml:space="preserve">
     <value>Priority</value>
   </data>

@@ -2,7 +2,7 @@
 @using Topppro.WebSite.Extensions
 @using Framework.Common.Extensions
 
-@model Topppro.Entities.Serie
+@model Topppro.Entities.Assn_CategorySerie
 
 @Html.Separator()
 
@@ -11,7 +11,7 @@
         &nbsp;
     </td>
     <td colspan="9">
-        <img id="@Model.Name.ToSeoSlug()" src="@Url.Content("~/Content/Images/ks-series-spacer.png")" alt="@Model.Name.ToUpper() SERIES" width="881" height="43" />
+        <img id="@Model.Serie.Name.ToSeoSlug()" src="@Url.Content("~/Content/Images/ks-series-spacer.png")" alt="@Model.Serie.Name.ToUpper() SERIES" width="881" height="43" />
     </td>
     <td width="55">
         &nbsp;
@@ -42,19 +42,40 @@
 
 @Html.Pattern()
 
-@if (!Model.Products.IsEmpty())
+@if (!Model.Assn_CategorySerieProduct.IsEmpty())
 {
-    @Html.Partial("_ProductPartial", Model.Products.Where(p => (new int[] { 1, 2, 3, 4, 5 }).Contains(p.Id)).OrderBy(p => p.Priority), new ViewDataDictionary { { "MaxPerLine", 5 } })
+    @Html.Partial(
+        "_ProductPartial", 
+        Model.Assn_CategorySerieProduct
+                .Where(a => a.Product.ModelId == (int)Topppro.Entities.Model_Enum.Active && a.Enabled)
+                .OrderBy(a => a.Priority)
+                .Take(5)
+                .Select(a => a.Product),
+        new ViewDataDictionary { { "MaxPerLine", Model.ItemsPerLine.GetValueOrDefault(5) } })
     
     @Html.Spacer()
     @Html.Separator()
     
-    @Html.Partial("_ProductPartial", Model.Products.Where(p => (new int[] { 18, 19, 20 }).Contains(p.Id)).OrderBy(p => p.Priority), new ViewDataDictionary { { "MaxPerLine", 5 } })
+    @Html.Partial(
+        "_ProductPartial",
+        Model.Assn_CategorySerieProduct
+                .Where(a => a.Product.ModelId == (int)Topppro.Entities.Model_Enum.Active && a.Enabled)
+                .OrderBy(a => a.Priority)
+                .Skip(5).Take(3)
+                .Select(a => a.Product),
+        new ViewDataDictionary { { "MaxPerLine", Model.ItemsPerLine.GetValueOrDefault(5) } })
 
     @Html.Spacer()
     @Html.Separator()
 
-    @Html.Partial("_ProductPartial", Model.Products.Where(p => (new int[] { 21, 22 }).Contains(p.Id)).OrderBy(p => p.Priority), new ViewDataDictionary { { "MaxPerLine", 5 } })
+    @Html.Partial(
+        "_ProductPartial",
+        Model.Assn_CategorySerieProduct
+                .Where(a => a.Product.ModelId == (int)Topppro.Entities.Model_Enum.Active && a.Enabled)
+                .OrderBy(a => a.Priority)
+                .Skip(7).Take(2)
+                .Select(a => a.Product),
+        new ViewDataDictionary { { "MaxPerLine", Model.ItemsPerLine.GetValueOrDefault(5) } })
     
     @Html.Spacer()
     @Html.Separator()
@@ -76,6 +97,11 @@
     @Html.Spacer()
     @Html.Separator()
     
-    @Html.Partial("_ProductPartial", Model.Products.Where(p => p.ModelId == (int)Topppro.Entities.Model_Enum.Passive && p.Enabled).OrderBy(p => p.Priority), new ViewDataDictionary { { "MaxPerLine", 5 } })
+    @Html.Partial(
+        "_ProductPartial",
+        Model.Assn_CategorySerieProduct
+                .Where(a => a.Product.ModelId == (int)Topppro.Entities.Model_Enum.Passive && a.Enabled)
+                .OrderBy(a => a.Priority)
+                .Select(a => a.Product),
+        new ViewDataDictionary { { "MaxPerLine", Model.ItemsPerLine.GetValueOrDefault(5) } })
 }
-

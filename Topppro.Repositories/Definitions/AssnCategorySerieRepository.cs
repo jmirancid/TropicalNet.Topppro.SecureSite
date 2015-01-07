@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using Topppro.Interfaces.Repositories;
 
@@ -20,6 +21,16 @@ namespace Topppro.Repositories.Definitions
                         .Include(e => e.Category)
                         .Include(e => e.Serie)
                         .SingleOrDefault(e => e.AssnCategorySerieId == id);
+        }
+
+        public IEnumerable<Topppro.Entities.Assn_CategorySerie> GetByCategoryFullRef(int categoryId)
+        {
+            return Context.Assn_CategorySerie
+                        .Include(a => a.Serie)
+                        .Include(a => a.Assn_CategorySerieProduct.Select(b => b.Product))
+                        .Include(a => a.Assn_CategorySeriePackage.Select(c => c.Package))
+                        .Where(a => a.CategoryId == categoryId && a.Enabled)
+                        .OrderBy(a => a.Priority);
         }
     }
 }

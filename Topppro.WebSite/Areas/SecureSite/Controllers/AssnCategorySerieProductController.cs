@@ -22,8 +22,7 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
                 this.Business.Value.All()
                     .OrderBy(a => a.Assn_CategorySerie.Category.Name)
                         .ThenBy(a => a.Assn_CategorySerie.Serie.Name)
-                            .ThenBy(a => a.Product.Name)
-                                .ThenBy(a => a.Priority);
+                            .ThenBy(a => a.Priority);
 
             return View(assn);
         }

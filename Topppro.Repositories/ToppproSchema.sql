@@ -123,6 +123,7 @@ CREATE TABLE dbo.Assn_CategorySerie (
   AssnCategorySerieId int IDENTITY(1, 1) NOT NULL,
   CategoryId int NOT NULL,
   SerieId int NOT NULL,
+  ItemsPerLine int NULL,
   Priority int NULL,
   Enabled bit NOT NULL
 )

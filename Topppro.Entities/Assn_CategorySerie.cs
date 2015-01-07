@@ -41,6 +41,9 @@ namespace Topppro.Entities
         [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Ent_ValidationResource))]
         public int SerieId { get; set; }
 
+        [Display(Name = "Entity_ItemsPerLine", ResourceType = typeof(Ent_AssnCategorySerieResource))]
+        public Nullable<int> ItemsPerLine { get; set; }
+
         [Display(Name = "Entity_Priority", ResourceType = typeof(Ent_AssnCategorySerieResource))]
         public Nullable<int> Priority { get; set; }
 

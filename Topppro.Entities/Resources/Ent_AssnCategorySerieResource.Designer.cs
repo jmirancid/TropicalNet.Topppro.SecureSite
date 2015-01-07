@@ -88,6 +88,15 @@ namespace Topppro.Entities.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Items Per Line.
+        /// </summary>
+        public static string Entity_ItemsPerLine {
+            get {
+                return ResourceManager.GetString("Entity_ItemsPerLine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Priority.
         /// </summary>
         public static string Entity_Priority {
