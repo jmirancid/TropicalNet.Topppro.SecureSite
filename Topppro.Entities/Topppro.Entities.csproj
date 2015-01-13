@@ -64,6 +64,7 @@
     <Compile Include="Assn_CategorySerieProduct.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Assn_PackageProduct.cs" />
     <Compile Include="Attribute.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="Culture.cs" />
@@ -118,6 +119,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Ent_AssnCategorySerieProductResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Ent_AssnPackageProductResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ent_AssnPackageProductResource.resx</DependentUpon>
     </Compile>
     <Compile Include="Resources\Ent_AttributeResource.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -184,6 +190,10 @@
     <EmbeddedResource Include="Resources\Ent_AssnCategorySerieProductResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Ent_AssnCategorySerieProductResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Ent_AssnPackageProductResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Ent_AssnPackageProductResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Ent_AttributeResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

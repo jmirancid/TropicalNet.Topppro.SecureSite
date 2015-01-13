@@ -70,6 +70,7 @@
   <ItemGroup>
     <Compile Include="Business\AssnCategorySeriePackageBusinessTest.cs" />
     <Compile Include="Business\AssnCategorySerieProductBusinessTest.cs" />
+    <Compile Include="Business\AssnPackageProductBusinessTest.cs" />
     <Compile Include="Business\AttributeBusinessTest.cs" />
     <Compile Include="Business\BusinessTest.cs" />
     <Compile Include="Business\CategoryBusinessTest.cs" />
