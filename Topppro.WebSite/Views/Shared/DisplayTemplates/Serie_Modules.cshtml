@@ -2,11 +2,7 @@
 @using Topppro.WebSite.Extensions
 @using Framework.Common.Extensions
 
-@model Topppro.Entities.Serie
-
-@{
-    ViewBag.MaxPerLine = 5;
-}
+@model Topppro.Entities.Assn_CategorySerie
 
 @functions {
 
@@ -46,7 +42,7 @@
         &nbsp;
     </td>
     <td colspan="9">
-        <img src="@Url.Content("~/Content/Images/modules-series-spacer.png")" alt="@Model.Name.ToUpper() SERIES" width="881" height="43" />
+        <img src="@Url.Content("~/Content/Images/modules-series-spacer.png")" alt="@Model.Serie.Name.ToUpper() SERIES" width="881" height="43" />
     </td>
     <td width="55">
         &nbsp;
@@ -56,14 +52,14 @@
 @Html.Separator()
 @Html.Pattern()
 
-@if (!Model.Products.IsEmpty())
+@if (!Model.Assn_CategorySerieProduct.IsEmpty())
 {
 <tr>
     <td>&nbsp;</td>
-    @foreach (var product in Model.Products.Where(p => p.Enabled).OrderBy(p => p.Priority))
+    @foreach (var product in Model.Assn_CategorySerieProduct.Where(p => p.Enabled).OrderBy(p => p.Priority).Select(p => p.Product))
     {
-        if (Model.Products.Where(p => p.Enabled).OrderBy(p => p.Priority).ToList().IndexOf(product) != 0
-            && (Model.Products.Where(p => p.Enabled).OrderBy(p => p.Priority).ToList().IndexOf(product) % ViewBag.MaxPerLine) == 0)
+        if (Model.Assn_CategorySerieProduct.Where(p => p.Enabled).OrderBy(p => p.Priority).Select(p => p.Product).ToList().IndexOf(product) != 0
+            && (Model.Assn_CategorySerieProduct.Where(p => p.Enabled).OrderBy(p => p.Priority).Select(p => p.Product).ToList().IndexOf(product) % Model.ItemsPerLine) == 0)
         {
             @:</tr>
             @Html.Separator()

@@ -1,6 +1,10 @@
 ﻿USE Topppro
 GO
 
+DELETE FROM dbo.Assn.CategorySerieProduct
+GO
+DELETE FROM dbo.Assn_CategorySerie
+GO
 DELETE FROM dbo.Attribute
 GO
 DELETE FROM dbo.Culture
@@ -13,7 +17,6 @@ DELETE FROM dbo.Serie
 GO
 DELETE FROM dbo.Category
 GO
-
 
 SET IDENTITY_INSERT dbo.Category ON
 GO
@@ -63,8 +66,6 @@ INSERT INTO dbo.Serie (SerieId, Name) values (26,'Processors')
 INSERT INTO dbo.Serie (SerieId, Name) values (27,'Modules')
 INSERT INTO dbo.Serie (SerieId, Name) values (28,'DRIVE')
 INSERT INTO dbo.Serie (SerieId, Name) values (29,'METRO')
-INSERT INTO dbo.Serie (SerieId, Name) values (30,'MX')
-INSERT INTO dbo.Serie (SerieId, Name) values (31,'TMW')
 GO
 
 SET IDENTITY_INSERT dbo.Serie OFF
@@ -5475,8 +5476,54 @@ INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Prior
 INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled) values (102465,142,2,'física ','',260,1)
 INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled) values (102466,142,2,'dimensión ','483 x 195 x 44 mm ',270,1)
 INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled) values (102467,142,2,'peso neto','3.1kg',280,1)
-
 GO
 
 SET IDENTITY_INSERT dbo.Attribute OFF
+GO
+
+SET IDENTITY_INSERT dbo.Assn_CategorySerie ON
+GO
+
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, Priority, Enabled) values (1,1,1,5,10,1)
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, Priority, Enabled) values (2,1,2,4,20,1)
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, Priority, Enabled) values (3,1,3,4,30,1)
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, Priority, Enabled) values (4,1,4,4,40,1)
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, Priority, Enabled) values (5,1,5,5,50,1)
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, Priority, Enabled) values (6,1,6,5,60,1)
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, Priority, Enabled) values (7,1,8,5,70,1)
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, Priority, Enabled) values (8,1,10,5,80,1)
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, Priority, Enabled) values (9,1,11,4,90,1)
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, Priority, Enabled) values (10,2,12,5,10,1)
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, Priority, Enabled) values (11,2,13,5,20,1)
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, Priority, Enabled) values (12,2,14,5,30,1)
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, Priority, Enabled) values (13,3,15,5,10,1)
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, Priority, Enabled) values (14,3,16,5,20,1)
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, Priority, Enabled) values (15,3,17,3,30,1)
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, Priority, Enabled) values (16,4,19,5,10,1)
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, Priority, Enabled) values (17,4,20,5,20,1)
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, Priority, Enabled) values (18,4,21,5,30,1)
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, Priority, Enabled) values (19,5,23,4,10,1)
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, Priority, Enabled) values (20,5,24,5,20,1)
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, Priority, Enabled) values (21,5,25,5,30,1)
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, Priority, Enabled) values (22,6,26,5,10,1)
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, Priority, Enabled) values (23,6,27,5,20,1)
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, Priority, Enabled) values (24,7,11,4,10,1)
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, Priority, Enabled) values (25,7,10,5,20,1)
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, Priority, Enabled) values (26,7,14,5,30,1)
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, Priority, Enabled) values (27,7,24,5,40,1)
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, Priority, Enabled) values (28,7,25,5,50,1)
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, Priority, Enabled) values (29,8,16,5,10,1)
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, Priority, Enabled) values (30,8,1,5,20,1)
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, Priority, Enabled) values (31,8,7,4,30,1)
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, Priority, Enabled) values (32,8,28,5,40,1)
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, Priority, Enabled) values (33,8,29,5,50,1)
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, Priority, Enabled) values (34,8,22,5,60,1)
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, Priority, Enabled) values (35,8,23,5,70,1)
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, Priority, Enabled) values (36,8,18,5,80,1)
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, Priority, Enabled) values (37,8,26,5,90,1)
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, Priority, Enabled) values (38,8,3,5,100,1)
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, Priority, Enabled) values (39,8,9,5,110,1)
+GO
+
+SET IDENTITY_INSERT dbo.Assn_CategorySerie OFF
 GO
