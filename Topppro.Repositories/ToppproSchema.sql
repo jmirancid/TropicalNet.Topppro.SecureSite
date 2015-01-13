@@ -4,10 +4,17 @@
 -- Database  : ToppproNew
 -- Version   : Microsoft SQL Server  10.50.1600.1
 
+IF EXISTS (SELECT name FROM master.dbo.sysdatabases WHERE name = N'ToppproNew') DROP DATABASE [ToppproNew];
+CREATE DATABASE [ToppproNew];
+GO
+
+USE ToppproNew;
 
 --
 -- Dropping table Assn_CategorySerie : 
 --
+
+
 
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Assn_CategorySerie') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
   DROP TABLE dbo.Assn_CategorySerie
