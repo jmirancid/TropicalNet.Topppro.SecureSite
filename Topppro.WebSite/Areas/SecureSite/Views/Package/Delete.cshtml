@@ -1,0 +1,58 @@
+﻿@using Framework.MVC.Resources
+@using Framework.MVC.Extensions
+@using Topppro.Entities.Resources
+
+@model Topppro.Entities.Package
+
+@{
+    ViewBag.Title = PersistanceResource.Delete;
+}
+
+<h2>@PersistanceResource.Delete</h2>
+
+<h3>@PersistanceResource.Delete_Message</h3>
+<fieldset>
+    <legend>@Ent_PackageResource._Caption</legend>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.ModelId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Model.Name)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Folder)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Folder)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Manual)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Manual)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Draft)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Draft)
+    </div>
+
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="@PersistanceResource.Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

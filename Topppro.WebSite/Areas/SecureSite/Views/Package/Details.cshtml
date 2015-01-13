@@ -1,0 +1,55 @@
+﻿@using Framework.MVC.Resources
+@using Framework.MVC.Extensions
+@using Topppro.Entities.Resources
+
+@model Topppro.Entities.Package
+
+@{
+    ViewBag.Title = PersistanceResource.Details;
+}
+
+<h2>@PersistanceResource.Details</h2>
+
+<fieldset>
+    <legend>@Ent_PackageResource._Caption</legend>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.ModelId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Model.Name)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Folder)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Folder)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Manual)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Manual)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Draft)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Draft)
+    </div>
+
+</fieldset>
+<p>
+    @Html.ActionLink(PersistanceResource.Edit, "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

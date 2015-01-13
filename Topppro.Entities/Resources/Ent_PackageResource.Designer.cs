@@ -22,7 +22,7 @@ namespace Topppro.Entities.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Ent_PackageResource {
+    public class Ent_PackageResource {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Topppro.Entities.Resources {
         ///   Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Topppro.Entities.Resources.Ent_PackageResource", typeof(Ent_PackageResource).Assembly);
@@ -51,7 +51,7 @@ namespace Topppro.Entities.Resources {
         ///   búsquedas de recursos mediante esta clase de recurso con establecimiento inflexible de tipos.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Topppro.Entities.Resources {
         /// <summary>
         ///   Busca una cadena traducida similar a Package.
         /// </summary>
-        internal static string _Caption {
+        public static string _Caption {
             get {
                 return ResourceManager.GetString("_Caption", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace Topppro.Entities.Resources {
         /// <summary>
         ///   Busca una cadena traducida similar a Draft.
         /// </summary>
-        internal static string Entity_Draft {
+        public static string Entity_Draft {
             get {
                 return ResourceManager.GetString("Entity_Draft", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace Topppro.Entities.Resources {
         /// <summary>
         ///   Busca una cadena traducida similar a Folder.
         /// </summary>
-        internal static string Entity_Folder {
+        public static string Entity_Folder {
             get {
                 return ResourceManager.GetString("Entity_Folder", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace Topppro.Entities.Resources {
         /// <summary>
         ///   Busca una cadena traducida similar a Manual.
         /// </summary>
-        internal static string Entity_Manual {
+        public static string Entity_Manual {
             get {
                 return ResourceManager.GetString("Entity_Manual", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace Topppro.Entities.Resources {
         /// <summary>
         ///   Busca una cadena traducida similar a Model.
         /// </summary>
-        internal static string Entity_Model {
+        public static string Entity_Model {
             get {
                 return ResourceManager.GetString("Entity_Model", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace Topppro.Entities.Resources {
         /// <summary>
         ///   Busca una cadena traducida similar a Name.
         /// </summary>
-        internal static string Entity_Name {
+        public static string Entity_Name {
             get {
                 return ResourceManager.GetString("Entity_Name", resourceCulture);
             }
