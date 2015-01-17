@@ -68,6 +68,12 @@ namespace Topppro.Entities
             set;
         }
     
+        public virtual bool AllowCompare
+        {
+            get;
+            set;
+        }
+    
         public virtual Nullable<int> Priority
         {
             get;

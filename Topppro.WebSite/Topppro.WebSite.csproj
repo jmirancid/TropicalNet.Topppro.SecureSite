@@ -674,9 +674,6 @@
     <Content Include="Areas\SecureSite\Views\Product\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\_ProductPartial.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Shared\DisplayTemplates\Serie.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -708,9 +705,6 @@
     <Content Include="Views\Shared\DisplayTemplates\Product.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\_Attribute.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Shared\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -721,9 +715,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\DisplayTemplates\Serie_Ks.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Shared\DisplayTemplates\Serie_Array.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_Separator.cshtml" />
@@ -754,9 +745,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\DisplayTemplates\Serie_Tmw.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Shared\DisplayTemplates\Serie_Transmitters.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\DisplayTemplates\Serie_Modules.cshtml" />
@@ -831,6 +819,12 @@
     <Content Include="Areas\SecureSite\Views\AssnPackageProduct\Create.cshtml" />
     <None Include="Plugins\jquery.jspanel-2.1.0\License.pdf" />
     <None Include="Plugins\jquery.jspanel-2.1.0\README.md" />
+    <Content Include="Views\Shared\_ProductHeader.cshtml" />
+    <Content Include="Views\Shared\_ProductPopUp.cshtml" />
+    <Content Include="Views\Shared\_ProductManual.cshtml" />
+    <Content Include="Views\Shared\_ProductHiRes.cshtml" />
+    <Content Include="Views\Shared\_ProductAttributes.cshtml" />
+    <Content Include="Views\Shared\_ProductList.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

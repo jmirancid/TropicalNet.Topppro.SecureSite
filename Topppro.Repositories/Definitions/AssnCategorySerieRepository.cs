@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using Topppro.Interfaces.Repositories;
 
@@ -23,14 +22,26 @@ namespace Topppro.Repositories.Definitions
                         .SingleOrDefault(e => e.AssnCategorySerieId == id);
         }
 
-        public IEnumerable<Topppro.Entities.Assn_CategorySerie> GetByCategoryFullRef(int categoryId)
+        public IQueryable<Entities.Assn_CategorySerie> AllByWithRefs(System.Linq.Expressions.Expression<System.Func<Entities.Assn_CategorySerie, bool>> predicate)
         {
-            return Context.Assn_CategorySerie
-                        .Include(a => a.Serie)
-                        .Include(a => a.Assn_CategorySerieProduct.Select(b => b.Product))
-                        .Include(a => a.Assn_CategorySeriePackage.Select(c => c.Package))
-                        .Where(a => a.CategoryId == categoryId && a.Enabled)
-                        .OrderBy(a => a.Priority);
+            var dbquery = Context.Assn_CategorySerie
+                            .Include(a => a.Category)
+                            .Include(a => a.Serie)
+                            .Include(a => a.Assn_CategorySerieProduct.Select(b => b.Product))
+                            .Include(a => a.Assn_CategorySeriePackage.Select(c => c.Package))
+                            .Where(predicate)
+                            .Select(a => new
+                            {
+                                a,
+                                Category = a.Category,
+                                Serie = a.Serie,
+                                Assn_Products = a.Assn_CategorySerieProduct.Where(b => b.Enabled),
+                                Products = a.Assn_CategorySerieProduct.Select(b => b.Product),
+                                Assn_Packages = a.Assn_CategorySeriePackage.Where(c => c.Enabled),
+                                Packages = a.Assn_CategorySeriePackage.Select(c => c.Package)
+                            });
+
+            return dbquery.AsEnumerable().Select(n => n.a).AsQueryable();
         }
     }
 }

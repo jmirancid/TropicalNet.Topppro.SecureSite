@@ -1,15 +1,15 @@
-﻿using Framework.Business.Definitions;
+﻿using System.Linq;
+using Framework.Business.Definitions;
 using Topppro.Interfaces.Repositories;
-using System.Collections.Generic;
 
 namespace Topppro.Business.Definitions
 {
     public class AssnCategorySerieBusiness :
         Business<Topppro.Entities.Assn_CategorySerie, IAssnCategorySerieRepository>
     {
-        public IEnumerable<Topppro.Entities.Assn_CategorySerie> GetByCategoryFullRef(int categoryId)
+        public IQueryable<Entities.Assn_CategorySerie> AllByWithRefs(System.Linq.Expressions.Expression<System.Func<Entities.Assn_CategorySerie, bool>> predicate)
         {
-            return Repository.Value.GetByCategoryFullRef(categoryId);
+            return Repository.Value.AllByWithRefs(predicate);
         }
     }
 }

@@ -42,66 +42,53 @@
 
 @Html.Pattern()
 
-@if (!Model.Assn_CategorySerieProduct.IsEmpty())
-{
-    @Html.Partial(
-        "_ProductPartial", 
-        Model.Assn_CategorySerieProduct
-                .Where(a => a.Product.ModelId == (int)Topppro.Entities.Model_Enum.Active && a.Enabled)
-                .OrderBy(a => a.Priority)
-                .Take(5)
-                .Select(a => a.Product),
-        new ViewDataDictionary { { "MaxPerLine", Model.ItemsPerLine.GetValueOrDefault(5) } })
-    
-    @Html.Spacer()
-    @Html.Separator()
-    
-    @Html.Partial(
-        "_ProductPartial",
-        Model.Assn_CategorySerieProduct
-                .Where(a => a.Product.ModelId == (int)Topppro.Entities.Model_Enum.Active && a.Enabled)
-                .OrderBy(a => a.Priority)
-                .Skip(5).Take(3)
-                .Select(a => a.Product),
-        new ViewDataDictionary { { "MaxPerLine", Model.ItemsPerLine.GetValueOrDefault(5) } })
+@Html.ProductList(
+    Model.Assn_CategorySerieProduct
+        .Where(a => a.Product.ModelId == (int)Topppro.Entities.Model_Enum.Active)
+        .OrderBy(a => a.Priority)
+        .Take(5))
 
-    @Html.Spacer()
-    @Html.Separator()
+@Html.Spacer()
+@Html.Separator()
 
-    @Html.Partial(
-        "_ProductPartial",
-        Model.Assn_CategorySerieProduct
-                .Where(a => a.Product.ModelId == (int)Topppro.Entities.Model_Enum.Active && a.Enabled)
-                .OrderBy(a => a.Priority)
-                .Skip(7).Take(2)
-                .Select(a => a.Product),
-        new ViewDataDictionary { { "MaxPerLine", Model.ItemsPerLine.GetValueOrDefault(5) } })
+@Html.ProductList(
+    Model.Assn_CategorySerieProduct
+        .Where(a => a.Product.ModelId == (int)Topppro.Entities.Model_Enum.Active)
+        .OrderBy(a => a.Priority)
+        .Skip(5).Take(3))
+
+@Html.Spacer()
+@Html.Separator()
+
+
+@Html.ProductList(
+    Model.Assn_CategorySerieProduct
+        .Where(a => a.Product.ModelId == (int)Topppro.Entities.Model_Enum.Active)
+        .OrderBy(a => a.Priority)
+        .Skip(8).Take(2))
     
-    @Html.Spacer()
-    @Html.Separator()
+@Html.Spacer()
+@Html.Separator()
     
-    <tr>
-        <td>
-            &nbsp;
-        </td>
-        <td colspan="9">
-            <a href="https://itunes.apple.com/cn/app/cs-eq/id838175440?mt=8#" target="_blank">
-                <img src="@Url.Content("~/Content/Images/cs-app.jpg")" alt="itunes free app" width="880" height="200" border="0" longdesc="controls ip and wifi speakers" /></a>
-        </td>
-        <td>
-            &nbsp;
-        </td>
-    </tr>
+<tr>
+    <td>
+        &nbsp;
+    </td>
+    <td colspan="9">
+        <a href="https://itunes.apple.com/cn/app/cs-eq/id838175440?mt=8#" target="_blank">
+            <img src="@Url.Content("~/Content/Images/cs-app.jpg")" alt="itunes free app" width="880" height="200" border="0" longdesc="controls ip and wifi speakers" /></a>
+    </td>
+    <td>
+        &nbsp;
+    </td>
+</tr>
     
-    @Html.Separator()
-    @Html.Spacer()
-    @Html.Separator()
-    
-    @Html.Partial(
-        "_ProductPartial",
-        Model.Assn_CategorySerieProduct
-                .Where(a => a.Product.ModelId == (int)Topppro.Entities.Model_Enum.Passive && a.Enabled)
-                .OrderBy(a => a.Priority)
-                .Select(a => a.Product),
-        new ViewDataDictionary { { "MaxPerLine", Model.ItemsPerLine.GetValueOrDefault(5) } })
-}
+@Html.Separator()
+@Html.Spacer()
+@Html.Separator()
+
+@Html.ProductList(
+    Model.Assn_CategorySerieProduct
+        .Where(a => a.Product.ModelId == (int)Topppro.Entities.Model_Enum.Passive)
+        .OrderBy(a => a.Priority))
+

@@ -17,3 +17,4 @@ cd "C:\Documents and Settings\test\My Documents"
 Delete those files. Type del filename.ext /a /s (where filename.extis the name of the files which you’d like to delete; wildcards are also acceptable.)
 For example:
 del /S /f /q /a:h desktop.ini
+del /S /f /q /a:h thumbs.db

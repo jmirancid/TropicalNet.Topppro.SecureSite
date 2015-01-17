@@ -57,16 +57,16 @@ namespace Topppro.WebSite.Extensions
         }
 
         public static MvcHtmlString DisplayForModel(
-            this HtmlHelper<Topppro.Entities.Product> htmlHelper)
+            this HtmlHelper<Topppro.Entities.Assn_CategorySerieProduct> htmlHelper)
         {
             var controller_vpath =
                 string.Format("~/Views/{0}/DisplayTemplates", htmlHelper.ViewContext.RouteData.Values["controller"]);
 
             var template =
-                ResolveTemplate<Topppro.Entities.Product>(
+                ResolveTemplate<Topppro.Entities.Assn_CategorySerieProduct>(
                     controller_vpath,
                     HttpContext.Current.Server.MapPath(controller_vpath),
-                    Topppro.Context.Current.Culture.TextInfo.ToTitleCase(htmlHelper.ViewData.Model.Folder.ToLower()));
+                    Topppro.Context.Current.Culture.TextInfo.ToTitleCase(htmlHelper.ViewData.Model.Product.Folder.ToLower()));
 
             return htmlHelper.Partial(template, htmlHelper.ViewData.Model);
         }
@@ -93,6 +93,51 @@ namespace Topppro.WebSite.Extensions
             this HtmlHelper htmlHelper)
         {
             return htmlHelper.Partial("_Scheme");
+        }
+
+        public static MvcHtmlString ProductList(
+            this HtmlHelper<Topppro.Entities.Assn_CategorySerie> htmlHelper)
+        {
+            return ProductList(htmlHelper, htmlHelper.ViewData.Model.Assn_CategorySerieProduct);
+        }
+
+        public static MvcHtmlString ProductList(
+            this HtmlHelper<Topppro.Entities.Assn_CategorySerie> htmlHelper, IEnumerable<Topppro.Entities.Assn_CategorySerieProduct> assn)
+        {
+            if (assn.IsEmpty())
+                return null;
+
+            return htmlHelper.Partial("_ProductList", assn);
+        }
+
+        public static MvcHtmlString ProductHeader(
+            this HtmlHelper<Topppro.Entities.Assn_CategorySerieProduct> htmlHelper)
+        {
+            return htmlHelper.Partial("_ProductHeader");
+        }
+
+        public static MvcHtmlString ProductPopUp(
+            this HtmlHelper<Topppro.Entities.Assn_CategorySerieProduct> htmlHelper)
+        {
+            return htmlHelper.Partial("_ProductPopUp");
+        }
+
+        public static MvcHtmlString ProductManual(
+            this HtmlHelper<Topppro.Entities.Assn_CategorySerieProduct> htmlHelper)
+        {
+            return htmlHelper.Partial("_ProductManual");
+        }
+
+        public static MvcHtmlString ProductHiRes(
+            this HtmlHelper<Topppro.Entities.Assn_CategorySerieProduct> htmlHelper)
+        {
+            return htmlHelper.Partial("_ProductHiRes");
+        }
+
+        public static MvcHtmlString ProductAttributes(
+            this HtmlHelper<Topppro.Entities.Assn_CategorySerieProduct> htmlHelper)
+        {
+            return htmlHelper.Partial("_ProductAttribute", htmlHelper.ViewData.Model.Product.Attributes);
         }
 
         public static MvcHtmlString Button(

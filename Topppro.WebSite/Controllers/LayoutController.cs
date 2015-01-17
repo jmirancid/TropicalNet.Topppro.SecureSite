@@ -25,7 +25,7 @@ namespace Topppro.WebSite.Controllers
                 (int)Enum.Parse(typeof(Topppro.Entities.Category_Enum), controller);
 
             var entities =
-                this._bizAssnCategorySerie.Value.GetByCategoryFullRef(categoryId);
+                this._bizAssnCategorySerie.Value.AllByWithRefs(n => n.CategoryId == categoryId && n.Enabled);
 
             ViewBag.Title =
                 string.Format(":: Topp Pro Professional Audio {0} ::", controller);

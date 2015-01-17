@@ -44,6 +44,9 @@ namespace Topppro.Entities
         [Display(Name = "Entity_ItemsPerLine", ResourceType = typeof(Ent_AssnCategorySerieResource))]
         public Nullable<int> ItemsPerLine { get; set; }
 
+        [Display(Name = "Entity_AllowCompare", ResourceType = typeof(Ent_AssnCategorySerieResource))]
+        public bool AllowCompare { get; set; }
+
         [Display(Name = "Entity_Priority", ResourceType = typeof(Ent_AssnCategorySerieResource))]
         public Nullable<int> Priority { get; set; }
 

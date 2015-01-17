@@ -48,12 +48,6 @@ namespace Topppro.Repositories
         }
         private ObjectSet<Assn_CategorySeriePackage> _assn_CategorySeriePackage;
     
-        public ObjectSet<Assn_CategorySerieProduct> Assn_CategorySerieProduct
-        {
-            get { return _assn_CategorySerieProduct  ?? (_assn_CategorySerieProduct = CreateObjectSet<Assn_CategorySerieProduct>("Assn_CategorySerieProduct")); }
-        }
-        private ObjectSet<Assn_CategorySerieProduct> _assn_CategorySerieProduct;
-    
         public ObjectSet<Assn_PackageProduct> Assn_PackageProduct
         {
             get { return _assn_PackageProduct  ?? (_assn_PackageProduct = CreateObjectSet<Assn_PackageProduct>("Assn_PackageProduct")); }
@@ -107,6 +101,12 @@ namespace Topppro.Repositories
             get { return _assn_CategorySerie  ?? (_assn_CategorySerie = CreateObjectSet<Assn_CategorySerie>("Assn_CategorySerie")); }
         }
         private ObjectSet<Assn_CategorySerie> _assn_CategorySerie;
+    
+        public ObjectSet<Assn_CategorySerieProduct> Assn_CategorySerieProduct
+        {
+            get { return _assn_CategorySerieProduct  ?? (_assn_CategorySerieProduct = CreateObjectSet<Assn_CategorySerieProduct>("Assn_CategorySerieProduct")); }
+        }
+        private ObjectSet<Assn_CategorySerieProduct> _assn_CategorySerieProduct;
 
         #endregion
     }

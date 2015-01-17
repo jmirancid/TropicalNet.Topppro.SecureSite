@@ -32,6 +32,9 @@ namespace Topppro.Entities
         [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Ent_ValidationResource))]
         public int ProductId { get; set; }
 
+        [Display(Name = "Entity_AllowCompare", ResourceType = typeof(Ent_AssnCategorySerieProductResource))]
+        public bool AllowCompare { get; set; }
+
         [Display(Name = "Entity_Priority", ResourceType = typeof(Ent_AssnCategorySerieProductResource))]
         public Nullable<int> Priority { get; set; }
 

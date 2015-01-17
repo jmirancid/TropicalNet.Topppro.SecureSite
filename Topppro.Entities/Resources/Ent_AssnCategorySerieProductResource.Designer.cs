@@ -70,6 +70,15 @@ namespace Topppro.Entities.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Allow Compare.
+        /// </summary>
+        public static string Entity_AllowCompare {
+            get {
+                return ResourceManager.GetString("Entity_AllowCompare", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Category/Serie.
         /// </summary>
         public static string Entity_CategorySerie {

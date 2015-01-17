@@ -41,6 +41,14 @@
         </div>
 
         <div class="editor-label">
+            @Html.LabelFor(model => model.AllowCompare)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AllowCompare)
+            @Html.ValidationMessageFor(model => model.AllowCompare)
+        </div>
+
+        <div class="editor-label">
             @Html.LabelFor(model => model.Priority)
         </div>
         <div class="editor-field">

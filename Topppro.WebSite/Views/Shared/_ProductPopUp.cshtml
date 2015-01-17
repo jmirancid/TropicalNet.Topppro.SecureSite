@@ -1,0 +1,12 @@
+﻿@using Topppro.WebSite.Extensions
+@using Framework.Common.Extensions
+
+@model Topppro.Entities.Assn_CategorySerieProduct
+
+@if (!Model.Product.GetPopUp().IsEmpty()) {
+    <p>
+        <a href="@Model.Product.GetPopUp().FirstOrDefault(i => i.Contains("popup"))" class="thickbox">
+            <img src="@Model.Product.GetPopUp().FirstOrDefault(i => i.Contains("side"))" alt="@Model.Product.Name" width="163" border="0" />
+        </a>
+    </p>
+}

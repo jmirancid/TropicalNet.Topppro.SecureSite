@@ -34,13 +34,4 @@
 
 @Html.Pattern()
 
-@if (!Model.Assn_CategorySerieProduct.IsEmpty())
-{
-    @Html.Partial(
-        "_ProductPartial",
-        Model.Assn_CategorySerieProduct
-                .Where(a => a.Enabled)
-                .OrderBy(a => a.Priority)
-                .Select(a => a.Product),
-        new ViewDataDictionary(ViewContext.ViewData) { { "MaxPerLine", Model.ItemsPerLine.GetValueOrDefault(5) } });
-}
+@Html.ProductList()

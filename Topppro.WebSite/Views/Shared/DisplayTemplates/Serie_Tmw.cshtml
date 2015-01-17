@@ -4,6 +4,22 @@
 
 @model Topppro.Entities.Assn_CategorySerie
            
+@functions {
+
+    string ResolveUrl(Topppro.Entities.Assn_CategorySerieProduct assn)
+    {
+        if (assn.Product.Draft)
+            return "javascript:void(0)";
+
+        return Url.RouteUrl("Detail", new { controller = ViewContext.RouteData.Values["controller"], id = assn.Id, name = assn.Product.Name.ToSeoSlug() });
+    }
+
+    bool ResolveAllowCompare(Topppro.Entities.Assn_CategorySerieProduct assn)
+    {
+        return assn.AllowCompare && assn.Assn_CategorySerie.AllowCompare;
+    }
+}
+
 @Html.Separator()
 
 <tr>
@@ -25,10 +41,10 @@
 {
 <tr>
     <td>&nbsp;</td>
-    @foreach (var product in Model.Assn_CategorySerieProduct.Where(p => p.Enabled).OrderBy(p => p.Priority).Select(p => p.Product))
+    @foreach (var assn in Model.Assn_CategorySerieProduct)
     {
-        if (Model.Assn_CategorySerieProduct.Where(p => p.Enabled).OrderBy(p => p.Priority).Select(p => p.Product).ToList().IndexOf(product) != 0
-            && (Model.Assn_CategorySerieProduct.Where(p => p.Enabled).OrderBy(p => p.Priority).Select(p => p.Product).ToList().IndexOf(product) % Model.ItemsPerLine) == 0)
+        if (Model.Assn_CategorySerieProduct.ToList().IndexOf(assn) != 0
+            && (Model.Assn_CategorySerieProduct.ToList().IndexOf(assn) % Model.ItemsPerLine) == 0)
         {
             @:</tr>
             @Html.Separator()
@@ -36,22 +52,14 @@
                 <td>&nbsp;</td>
         }
     
-        <td @(product.Id == 122 ? "colspan=3" : "")>
+        <td @(assn.Product.Id == 122 ? "colspan=3" : "")>
             <table cellpadding="0" cellspacing="0" width="100%">
                 <tr>
                     <td colspan="3" align="left">
-                        @if (product.GetThumbs().IsEmpty())
-                        {
-                        <img src="@Url.Content("~/Content/Images/coming-soon.jpg")" alt="@product.Name" name="@(string.Format("Image{0}", product.Id))"
-                            width="148" height="148" border="0" id="@(string.Format("Image{0}", product.Id))" />
-                        }
-                        else
-                        {
-                            <a href="@Url.RouteUrl("Detail", new { controller = ViewContext.RouteData.Values["controller"], id = product.Id, name = product.Name.ToSeoSlug() })" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('@(string.Format("Image{0}", product.Id))','','@(product.GetThumbs().Where(t => t.Contains("up")).DefaultIfEmpty<string>(Url.Content("~/Content/Images/coming-soon.jpg")).First())',1)">
-                                <img src="@(product.GetThumbs().Where(t => !t.Contains("up")).DefaultIfEmpty<string>(Url.Content("~/Content/Images/coming-soon.jpg")).First())" alt="@product.Name" name="@(string.Format("Image{0}", product.Id))"
-                                    @(product.Id != 122 ? "width=148" : "") height="148" border="0" id="@(string.Format("Image{0}", product.Id))" />
-                            </a>
-                        }
+                        <a href="@ResolveUrl(assn)" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('@(string.Format("Image{0}", assn.Id))','','@(assn.Product.GetThumbs().Where(t => t.Contains("up")).DefaultIfEmpty<string>(Url.Content("~/Content/Images/coming-soon.jpg")).First())',1)">
+                            <img src="@(assn.Product.GetThumbs().Where(t => !t.Contains("up")).DefaultIfEmpty<string>(Url.Content("~/Content/Images/coming-soon.jpg")).First())" alt="@assn.Product.Name" name="@(string.Format("Image{0}", assn.Id))"
+                                @(assn.Product.Id != 122 ? "width=148" : "") height="148" border="0" id="@(string.Format("Image{0}", assn.Id))" />
+                        </a>
                     </td>
                 </tr>
                 <tr>
@@ -59,11 +67,7 @@
                         <img src="@Url.Content("~/Content/Images/middle1-separator.png")" width="1" height="24" alt="spacer" />
                     </td>
                     <td align="center">
-                        @{
-                        var name = product.Name.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).ToList();
-                        name.Insert(2, "<br/>");
-                        }
-                        <span class="Estilo6">@Html.Raw(string.Join(" ", name))</span>
+                        <span class="Estilo6">@assn.Product.Name</span>
                     </td>
                     <td>
                         &nbsp;
@@ -74,8 +78,11 @@
                         &nbsp;
                     </td>
                     <td align="center" height="20px">
-                        <input type="checkbox" id="@product.Folder" value="@product.Id" data-text="@product.Name.ToSeoSlug()" />
-                        <label for="@product.Folder">@Localization.Add_To_Compare</label>
+                        @if (ResolveAllowCompare(assn))
+                        {
+                        <input type="checkbox" id="@assn.Product.Folder" value="@assn.Id" data-text="@assn.Product.Name.ToSeoSlug()" />
+                        <label for="@assn.Product.Folder">@Localization.Add_To_Compare</label>
+                        }
                     </td>
                     <td>
                         &nbsp;

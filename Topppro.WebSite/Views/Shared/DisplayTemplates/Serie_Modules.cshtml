@@ -56,10 +56,10 @@
 {
 <tr>
     <td>&nbsp;</td>
-    @foreach (var product in Model.Assn_CategorySerieProduct.Where(p => p.Enabled).OrderBy(p => p.Priority).Select(p => p.Product))
+    @foreach (var assn in Model.Assn_CategorySerieProduct)
     {
-        if (Model.Assn_CategorySerieProduct.Where(p => p.Enabled).OrderBy(p => p.Priority).Select(p => p.Product).ToList().IndexOf(product) != 0
-            && (Model.Assn_CategorySerieProduct.Where(p => p.Enabled).OrderBy(p => p.Priority).Select(p => p.Product).ToList().IndexOf(product) % Model.ItemsPerLine) == 0)
+        if (Model.Assn_CategorySerieProduct.ToList().IndexOf(assn) != 0
+            && (Model.Assn_CategorySerieProduct.ToList().IndexOf(assn) % Model.ItemsPerLine) == 0)
         {
             @:</tr>
             @Html.Separator()
@@ -71,24 +71,16 @@
             <table cellpadding="0" cellspacing="0" width="100%">
                 <tr>
                     <td align="left">
-                        @if (product.GetThumbs().IsEmpty())
-                        {
-                        <img src="@Url.Content("~/Content/Images/coming-soon.jpg")" alt="@product.Name" name="@(string.Format("Image{0}", product.Id))"
-                            width="100%" height="148" border="0" id="@(string.Format("Image{0}", product.Id))" />
-                        }
-                        else
-                        {
-                            <a href="@Url.Action("Modules_HiRes")" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('@(string.Format("Image{0}", product.Id))','','@(product.GetThumbs().Where(t => t.Contains("up")).DefaultIfEmpty<string>(Url.Content("~/Content/Images/coming-soon.jpg")).First())',1)">
-                                <img src="@(product.GetThumbs().Where(t => !t.Contains("up")).DefaultIfEmpty<string>(Url.Content("~/Content/Images/coming-soon.jpg")).First())" alt="@product.Name" name="@(string.Format("Image{0}", product.Id))"
-                                    width="100%" height="148" border="0" id="@(string.Format("Image{0}", product.Id))" />
-                            </a>
-                        }
+                        <a href="@Url.Action("Modules_HiRes")" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('@(string.Format("Image{0}", assn.Id))','','@(assn.Product.GetThumbs().Where(t => t.Contains("up")).DefaultIfEmpty<string>(Url.Content("~/Content/Images/coming-soon.jpg")).First())',1)">
+                            <img src="@(assn.Product.GetThumbs().Where(t => !t.Contains("up")).DefaultIfEmpty<string>(Url.Content("~/Content/Images/coming-soon.jpg")).First())" alt="@assn.Product.Name" name="@(string.Format("Image{0}", assn.Id))"
+                                width="100%" height="148" border="0" id="@(string.Format("Image{0}", assn.Id))" />
+                        </a>
                     </td>
                 </tr>
                 <tr>
-                    @{ SetColors(product.Id); }
+                    @{ SetColors(assn.Product.Id); }
                     <td align="center" height="61" bgcolor="@ViewBag.BackColor" class="@ViewBag.FontClass" style="padding-left:25px;padding-right:25px;">
-                        <span class="@ViewBag.FontClass">@product.Name</span>
+                        <span class="@ViewBag.FontClass">@assn.Product.Name</span>
                     </td>
                 </tr>
             </table>
