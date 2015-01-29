@@ -1,30 +1,32 @@
-﻿using Topppro.Interfaces.Repositories;
+﻿using System;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
+using Topppro.Entities;
+using Topppro.Interfaces.Repositories;
 
 namespace Topppro.Repositories.Definitions
 {
-    public class ProductRepository : Repository<Topppro.Entities.Product>, IProductRepository
+    public class ProductRepository : Repository<Product>, IProductRepository
     {
-        public override IQueryable<Topppro.Entities.Product> All()
+        public override IQueryable<Product> All()
         {
             return Context.Product
-                    .Include(p => p.Model)
-                    .OrderBy(p => p.Name);
+                        .Include(p => p.Model);
         }
 
-        public override IQueryable<Topppro.Entities.Product> AllBy(System.Linq.Expressions.Expression<System.Func<Entities.Product, bool>> predicate)
+        public override IQueryable<Product> AllBy(Expression<Func<Product, bool>> predicate)
         {
             return Context.Product
-                    .Include(p => p.Model)
-                    .Where(predicate);
+                        .Include(p => p.Model)
+                        .Where(predicate);
         }
 
-        public override Topppro.Entities.Product Get(int id)
+        public override Product Get(int id)
         {
             return Context.Product
-                    .Include(p => p.Model)
-                    .SingleOrDefault(p => p.ProductId == id);
+                        .Include(p => p.Model)
+                        .SingleOrDefault(p => p.ProductId == id);
         }
     }
 }

@@ -60,24 +60,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assn_CategorySerie.cs" />
-    <Compile Include="Assn_CategorySeriePackage.cs" />
     <Compile Include="Assn_CategorySerieProduct.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Assn_PackageProduct.cs" />
     <Compile Include="Attribute.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="Culture.cs" />
     <Compile Include="Generated\Assn_CategorySerie.cs">
       <DependentUpon>Templates.tt</DependentUpon>
     </Compile>
-    <Compile Include="Generated\Assn_CategorySeriePackage.cs">
-      <DependentUpon>Templates.tt</DependentUpon>
-    </Compile>
     <Compile Include="Generated\Assn_CategorySerieProduct.cs">
-      <DependentUpon>Templates.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Generated\Assn_PackageProduct.cs">
       <DependentUpon>Templates.tt</DependentUpon>
     </Compile>
     <Compile Include="Generated\Attribute.cs">
@@ -110,20 +102,10 @@
     <Compile Include="Package.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resources\Ent_AssnCategorySeriePackageResource.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Ent_AssnCategorySeriePackageResource.resx</DependentUpon>
-    </Compile>
     <Compile Include="Resources\Ent_AssnCategorySerieProductResource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Ent_AssnCategorySerieProductResource.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\Ent_AssnPackageProductResource.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Ent_AssnPackageProductResource.resx</DependentUpon>
     </Compile>
     <Compile Include="Resources\Ent_AttributeResource.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -183,17 +165,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Ent_AssnCategorySeriePackageResource.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Ent_AssnCategorySeriePackageResource.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Ent_AssnCategorySerieProductResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Ent_AssnCategorySerieProductResource.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Ent_AssnPackageProductResource.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Ent_AssnPackageProductResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Ent_AttributeResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

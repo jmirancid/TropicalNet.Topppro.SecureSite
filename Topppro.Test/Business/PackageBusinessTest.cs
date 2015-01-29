@@ -1,19 +1,16 @@
 ﻿using System;
-using System.Text;
-using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Topppro.Entities;
 using Topppro.Business.Definitions;
+using Topppro.Entities;
 
 namespace Topppro.Test.Business
 {
     [TestClass]
     public class PackageBusinessTest : BusinessTest<Package, PackageBusiness>
     {
-
-        private readonly Lazy<ModelBusiness> bizModel =
-            new Lazy<ModelBusiness>();
+        private readonly Lazy<ProductBusiness> bizProduct =
+            new Lazy<ProductBusiness>();
 
         [ClassInitialize()]
         public static void Initialize(TestContext testContext)
@@ -40,22 +37,20 @@ namespace Topppro.Test.Business
         [TestMethod]
         public void Can_Create()
         {
-            var model = bizModel.Value.Get(0);
+            var parent = bizProduct.Value.All().FirstOrDefault();
+            var child = bizProduct.Value.All().LastOrDefault();
 
-            var assn = new Package()
+            var pack = new Package()
             {
-                //PackageId	ModelId	Name	Folder	Manual	Draft
-                Name = "",
-                Folder = "",
-                Manual = "",
-                Draft = true
+                ParentProductId = parent.Id,
+                ChildProductId = child.Id,
+                Priority = 10,
+                Enabled = true
             };
 
-            bizEntity.Value.Create(assn);
+            bizEntity.Value.Create(pack);
 
             Assert.IsTrue(bizEntity.Value.Count() > 0);
         }
-
-
     }
 }

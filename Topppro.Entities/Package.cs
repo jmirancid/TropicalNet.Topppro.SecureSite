@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using Framework.Entities;
 using Framework.Entities.Resources;
 using Topppro.Entities.Resources;
@@ -23,22 +24,19 @@ namespace Topppro.Entities
 
     public class Package_Metadata
     {
-        [Display(Name = "Entity_Model", ResourceType = typeof(Ent_PackageResource))]
+        [Display(Name = "Entity_ParentProduct", ResourceType = typeof(Ent_PackageResource))]
         [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Ent_ValidationResource))]
-        public int ModelId { get; set; }
+        public int ParentProductId { get; set; }
 
-        [Display(Name = "Entity_Name", ResourceType = typeof(Ent_PackageResource))]
+        [Display(Name = "Entity_ChildProduct", ResourceType = typeof(Ent_PackageResource))]
         [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Ent_ValidationResource))]
-        public string Name { get; set; }
+        public int ChildProductId { get; set; }
 
-        [Display(Name = "Entity_Folder", ResourceType = typeof(Ent_PackageResource))]
-        public string Folder { get; set; }
+        [Display(Name = "Entity_Priority", ResourceType = typeof(Ent_PackageResource))]
+        public Nullable<int> Priority { get; set; }
 
-        [Display(Name = "Entity_Manual", ResourceType = typeof(Ent_PackageResource))]
-        public string Manual { get; set; }
-
-        [Display(Name = "Entity_Draft", ResourceType = typeof(Ent_PackageResource))]
+        [Display(Name = "Entity_Enabled", ResourceType = typeof(Ent_PackageResource))]
         [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Ent_ValidationResource))]
-        public bool Draft { get; set; }
+        public bool Enabled { get; set; }
     }
 }

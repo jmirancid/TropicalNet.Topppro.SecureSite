@@ -2,7 +2,7 @@
 @using Topppro.WebSite.Extensions
 @using Framework.Common.Extensions
 
-@model Topppro.Entities.Product
+@model Topppro.Entities.Assn_CategorySerieProduct
 
 @section Styles {
     <style type="text/css">
@@ -21,12 +21,26 @@
 
 <table width="1000" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
     <tbody>
-        @foreach (var src_image in Model.GetHiRes().OrderBy(i => i))
+        @foreach (var src_image in Model.Product.GetHiRes().OrderBy(i => i))
         {
         <tr>
             <td colspan="11">
                 <img src="@src_image" alt="@ViewBag.Title" /></td>
         </tr>
+        }
+
+        @foreach (var package in Model.Product.ParentInPackages)
+        {
+            if (!package.ChildProduct.GetHiRes().IsEmpty())
+            {
+                foreach (var src_image in package.ChildProduct.GetHiRes().OrderBy(i => i))
+                {
+                    <tr>
+                        <td colspan="11">
+                            <img src="@src_image" alt="@ViewBag.Title" /></td>
+                    </tr>
+                }
+            }
         }
         <tr>
             <td colspan="11">
@@ -50,7 +64,7 @@
                 &nbsp;
             </td>
             <td align="center" bgcolor="#A0BFDE" class="Estilo44" width="151">
-                <a href="@Url.RouteUrl("Detail", new { controller = ViewContext.RouteData.Values["controller"].ToString(), id = Model.Id, name = Model.Name.ToSeoSlug() })">&lt;&lt; @Localization.Back</a>
+                <a href="@Url.RouteUrl("Detail", new { controller = ViewContext.RouteData.Values["controller"].ToString(), id = Model.Id, name = Model.Product.Name.ToSeoSlug() })">&lt;&lt; @Localization.Back</a>
             </td>
             <td width="18">
                 &nbsp;

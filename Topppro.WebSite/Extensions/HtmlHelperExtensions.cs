@@ -30,10 +30,10 @@ namespace Topppro.WebSite.Extensions
             foreach (var assn in htmlHelper.ViewData.Model)
             {
                 var template =
-                ResolveTemplate<Topppro.Entities.Serie>(
-                    controller_vpath,
-                    HttpContext.Current.Server.MapPath(controller_vpath),
-                    Topppro.Context.Current.Culture.TextInfo.ToTitleCase(assn.Serie.Name.Strip(special_chars).ToLower()));
+                    ResolveTemplate<Topppro.Entities.Serie>(
+                        controller_vpath,
+                        HttpContext.Current.Server.MapPath(controller_vpath),
+                        Topppro.Context.Current.Culture.TextInfo.ToTitleCase(assn.Serie.Name.Strip(special_chars).ToLower()));
 
                 sb.Append(htmlHelper.Partial(template, assn));
             }
@@ -63,10 +63,10 @@ namespace Topppro.WebSite.Extensions
                 string.Format("~/Views/{0}/DisplayTemplates", htmlHelper.ViewContext.RouteData.Values["controller"]);
 
             var template =
-                ResolveTemplate<Topppro.Entities.Assn_CategorySerieProduct>(
-                    controller_vpath,
-                    HttpContext.Current.Server.MapPath(controller_vpath),
-                    Topppro.Context.Current.Culture.TextInfo.ToTitleCase(htmlHelper.ViewData.Model.Product.Folder.ToLower()));
+                    ResolveTemplate<Topppro.Entities.Product>(
+                        controller_vpath,
+                        HttpContext.Current.Server.MapPath(controller_vpath),
+                        Topppro.Context.Current.Culture.TextInfo.ToTitleCase(htmlHelper.ViewData.Model.As<Topppro.Entities.Assn_CategorySerieProduct>().Product.Folder.ToLower()));
 
             return htmlHelper.Partial(template, htmlHelper.ViewData.Model);
         }
@@ -119,7 +119,15 @@ namespace Topppro.WebSite.Extensions
         public static MvcHtmlString ProductPopUp(
             this HtmlHelper<Topppro.Entities.Assn_CategorySerieProduct> htmlHelper)
         {
-            return htmlHelper.Partial("_ProductPopUp");
+            StringBuilder output = new StringBuilder();
+            output.Append(htmlHelper.Partial("_ProductPopUp", htmlHelper.ViewData.Model.Product));
+
+            foreach (var package in htmlHelper.ViewData.Model.Product.ParentInPackages)
+            {
+                output.Append(htmlHelper.Partial("_ProductPopUp", package.ChildProduct));
+            }
+
+            return MvcHtmlString.Create(output.ToString());
         }
 
         public static MvcHtmlString ProductManual(
@@ -137,7 +145,15 @@ namespace Topppro.WebSite.Extensions
         public static MvcHtmlString ProductAttributes(
             this HtmlHelper<Topppro.Entities.Assn_CategorySerieProduct> htmlHelper)
         {
-            return htmlHelper.Partial("_ProductAttribute", htmlHelper.ViewData.Model.Product.Attributes);
+            StringBuilder output = new StringBuilder();
+            output.Append(htmlHelper.Partial("_ProductAttributes", htmlHelper.ViewData.Model.Product.Attributes));
+
+            foreach (var package in htmlHelper.ViewData.Model.Product.ParentInPackages)
+            {
+                output.Append(htmlHelper.Partial("_ProductAttributes", package.ChildProduct.Attributes));
+            }
+
+            return MvcHtmlString.Create(output.ToString());
         }
 
         public static MvcHtmlString Button(

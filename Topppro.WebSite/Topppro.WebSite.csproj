@@ -85,9 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\SecureSite\Controllers\AssnCategorySerieController.cs" />
-    <Compile Include="Areas\SecureSite\Controllers\AssnCategorySeriePackageController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\AssnCategorySerieProductController.cs" />
-    <Compile Include="Areas\SecureSite\Controllers\AssnPackageProductController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\AttributeController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\CategoryController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\CultureController.cs" />
@@ -807,16 +805,6 @@
     <Content Include="Areas\SecureSite\Views\Package\Delete.cshtml" />
     <Content Include="Areas\SecureSite\Views\Package\Create.cshtml" />
     <Content Include="Areas\SecureSite\Views\Package\Edit.cshtml" />
-    <Content Include="Areas\SecureSite\Views\AssnCategorySeriePackage\Index.cshtml" />
-    <Content Include="Areas\SecureSite\Views\AssnCategorySeriePackage\Create.cshtml" />
-    <Content Include="Areas\SecureSite\Views\AssnCategorySeriePackage\Delete.cshtml" />
-    <Content Include="Areas\SecureSite\Views\AssnCategorySeriePackage\Details.cshtml" />
-    <Content Include="Areas\SecureSite\Views\AssnCategorySeriePackage\Edit.cshtml" />
-    <Content Include="Areas\SecureSite\Views\AssnPackageProduct\Index.cshtml" />
-    <Content Include="Areas\SecureSite\Views\AssnPackageProduct\Details.cshtml" />
-    <Content Include="Areas\SecureSite\Views\AssnPackageProduct\Delete.cshtml" />
-    <Content Include="Areas\SecureSite\Views\AssnPackageProduct\Edit.cshtml" />
-    <Content Include="Areas\SecureSite\Views\AssnPackageProduct\Create.cshtml" />
     <None Include="Plugins\jquery.jspanel-2.1.0\License.pdf" />
     <None Include="Plugins\jquery.jspanel-2.1.0\README.md" />
     <Content Include="Views\Shared\_ProductHeader.cshtml" />

@@ -20,7 +20,8 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
         public override ActionResult Index()
         {
             var products =
-                this.Business.Value.All();
+                base.Business.Value.All()
+                    .OrderBy(p => p.Name);
 
             return View(products);
         }

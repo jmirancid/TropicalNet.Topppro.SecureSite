@@ -89,40 +89,6 @@ namespace Topppro.Entities
         #endregion
         #region Navigation Properties
     
-    	//[XmlElement("Assn_CategorySeriePackage", typeof(Collection<Assn_CategorySeriePackage>))]
-        public virtual ICollection<Assn_CategorySeriePackage> Assn_CategorySeriePackage
-        {
-            get
-            {
-                if (_assn_CategorySeriePackage == null)
-                {
-                    var newCollection = new FixupCollection<Assn_CategorySeriePackage>();
-                    newCollection.CollectionChanged += FixupAssn_CategorySeriePackage;
-                    _assn_CategorySeriePackage = newCollection;
-                }
-                return _assn_CategorySeriePackage;
-            }
-            set
-            {
-                if (!ReferenceEquals(_assn_CategorySeriePackage, value))
-                {
-                    var previousValue = _assn_CategorySeriePackage as FixupCollection<Assn_CategorySeriePackage>;
-                    if (previousValue != null)
-                    {
-                        previousValue.CollectionChanged -= FixupAssn_CategorySeriePackage;
-                    }
-                    _assn_CategorySeriePackage = value;
-                    var newValue = value as FixupCollection<Assn_CategorySeriePackage>;
-                    if (newValue != null)
-                    {
-                        newValue.CollectionChanged += FixupAssn_CategorySeriePackage;
-                    }
-                }
-            }
-        }
-    	//[XmlElement("Assn_CategorySeriePackage", typeof(Collection<Assn_CategorySeriePackage>))]
-        private ICollection<Assn_CategorySeriePackage> _assn_CategorySeriePackage;
-    
     	//[XmlElement("Assn_CategorySerieProduct", typeof(Collection<Assn_CategorySerieProduct>))]
         public virtual ICollection<Assn_CategorySerieProduct> Assn_CategorySerieProduct
         {
@@ -226,28 +192,6 @@ namespace Topppro.Entities
                 if (SerieId != Serie.SerieId)
                 {
                     SerieId = Serie.SerieId;
-                }
-            }
-        }
-    
-        private void FixupAssn_CategorySeriePackage(object sender, NotifyCollectionChangedEventArgs e)
-        {
-            if (e.NewItems != null)
-            {
-                foreach (Assn_CategorySeriePackage item in e.NewItems)
-                {
-                    item.Assn_CategorySerie = this;
-                }
-            }
-    
-            if (e.OldItems != null)
-            {
-                foreach (Assn_CategorySeriePackage item in e.OldItems)
-                {
-                    if (ReferenceEquals(item.Assn_CategorySerie, this))
-                    {
-                        item.Assn_CategorySerie = null;
-                    }
                 }
             }
         }

@@ -15,38 +15,31 @@
     <legend>@Ent_PackageResource._Caption</legend>
 
     <div class="display-label">
-        @Html.DisplayNameFor(model => model.Name)
+        @Html.DisplayNameFor(model => model.ParentProductId)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Name)
+        @Html.DisplayFor(model => model.ParentProduct.Name)
     </div>
 
     <div class="display-label">
-        @Html.DisplayNameFor(model => model.ModelId)
+        @Html.DisplayNameFor(model => model.ChildProductId)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Model.Name)
+        @Html.DisplayFor(model => model.ChildProduct.Name)
     </div>
 
     <div class="display-label">
-        @Html.DisplayNameFor(model => model.Folder)
+        @Html.DisplayNameFor(model => model.Priority)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Folder)
+        @Html.DisplayFor(model => model.Priority)
     </div>
 
     <div class="display-label">
-        @Html.DisplayNameFor(model => model.Manual)
+        @Html.DisplayNameFor(model => model.Enabled)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Manual)
-    </div>
-
-    <div class="display-label">
-        @Html.DisplayNameFor(model => model.Draft)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Draft)
+        @Html.DisplayFor(model => model.Enabled)
     </div>
 
 </fieldset>

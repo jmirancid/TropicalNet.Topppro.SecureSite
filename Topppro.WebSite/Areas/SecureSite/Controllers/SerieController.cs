@@ -12,7 +12,7 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
         public override ActionResult Index()
         {
             var series =
-                this.Business.Value.All()
+                base.Business.Value.All()
                     .OrderBy(s => s.Name);
 
             return View(series);

@@ -12,12 +12,8 @@ namespace Topppro.WebSite.Controllers
         protected readonly Lazy<AssnCategorySerieBusiness> _bizAssnCategorySerie =
             new Lazy<AssnCategorySerieBusiness>();
 
-        protected readonly Lazy<ProductBusiness> _bizProduct =
-            new Lazy<ProductBusiness>();
-
-        protected readonly Lazy<AttributeBusiness> _bizAttribute =
-            new Lazy<AttributeBusiness>();
-
+        protected readonly Lazy<AssnCategorySerieProductBusiness> _bizAssnCategorySerieProduct =
+            new Lazy<AssnCategorySerieProductBusiness>();
 
         public virtual ActionResult Index(string controller)
         {
@@ -40,24 +36,16 @@ namespace Topppro.WebSite.Controllers
                 foreach (var assn in entity.Assn_CategorySerieProduct)
                     ViewBag.PreloadedImages = assn.Product.GetThumbs().Concat((IEnumerable<string>)ViewBag.PreloadedImages);
 
-            //TODO Manage Packages
-
             return View(entities);
         }
 
         public virtual ActionResult Detail(string controller, int id, string name)
         {
-            var entity = this._bizProduct.Value
-                                    .Get(id);
-
-            entity.Attributes = this._bizAttribute.Value
-                                        .AllBy(a => a.ProductId == entity.Id && a.Enabled
-                                                    && a.Culture.Code == Topppro.Context.Current.Culture.TwoLetterISOLanguageName)
-                                        .OrderBy(a => a.Priority)
-                                        .ToList();
+            var entity = this._bizAssnCategorySerieProduct.Value
+                                .GetWithAttributesByCulture(id, Topppro.Context.Current.Culture.TwoLetterISOLanguageName);
 
             ViewBag.Title =
-                string.Format(":: Topp Pro {0} ::", name.ToUpper());
+                string.Format(":: Topp Pro {0} ::", entity.Product.Name.ToUpper());
 
             ViewBag.BackgroundImage =
                 Url.Content(string.Format("~/Content/Images/{0}-bottom-page.jpg", controller));
@@ -67,11 +55,11 @@ namespace Topppro.WebSite.Controllers
 
         public virtual ActionResult HiRes(string controller, int id, string name)
         {
-            var entity = this._bizProduct.Value
-                                .Get(id);
+            var entity =
+                this._bizAssnCategorySerieProduct.Value.Get(id);
 
             ViewBag.Title =
-                string.Format(":: Topp Pro {0} HiRes ::", name.ToUpper());
+                string.Format(":: Topp Pro {0} HiRes ::", entity.Product.Name.ToUpper());
 
             ViewBag.BackgroundImage =
                 Url.Content(string.Format("~/Content/Images/{0}-bottom-page.jpg", controller));
@@ -81,7 +69,7 @@ namespace Topppro.WebSite.Controllers
 
         public virtual ActionResult Compare(string controller, int lid, string lname, int rid, string rname)
         {
-            var entities = this._bizProduct.Value
+            /*var entities = this._bizProduct.Value
                                 .AllBy(p => p.ProductId == lid || p.ProductId == rid)
                                 .ToList();
 
@@ -97,8 +85,8 @@ namespace Topppro.WebSite.Controllers
 
             ViewBag.BackgroundImage =
                 Url.Content(string.Format("~/Content/Images/{0}-bottom-page.jpg", controller));
-
-            return View(entities);
+            */
+            return View();
         }
 
     }

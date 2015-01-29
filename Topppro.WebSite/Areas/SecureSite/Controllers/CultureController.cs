@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
 using Framework.MVC.Controllers;
 using Topppro.Business.Definitions;
@@ -9,19 +6,16 @@ using Topppro.Entities;
 
 namespace Topppro.WebSite.Areas.SecureSite.Controllers
 {
-	public class CultureController :
-		PersistanceController<Culture, CultureBusiness>
-	{
-		//
-		// GET: /SecureSite/Culture/
+    public class CultureController :
+        PersistanceController<Culture, CultureBusiness>
+    {
+        public override ActionResult Index()
+        {
+            var cults =
+                base.Business.Value.All()
+                    .OrderBy(c => c.Name);
 
-		public override ActionResult Index()
-		{
-			var cultures =
-				this.Business.Value.All();
-
-			return View(cultures);
-		}
-
-	}
+            return View(cults);
+        }
+    }
 }

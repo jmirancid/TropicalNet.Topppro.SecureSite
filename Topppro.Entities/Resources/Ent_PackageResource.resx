@@ -117,20 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Entity_Draft" xml:space="preserve">
-    <value>Draft</value>
+  <data name="Entity_ChildProduct" xml:space="preserve">
+    <value>Child Product</value>
   </data>
-  <data name="Entity_Folder" xml:space="preserve">
-    <value>Folder</value>
+  <data name="Entity_Enabled" xml:space="preserve">
+    <value>Enabled</value>
   </data>
-  <data name="Entity_Manual" xml:space="preserve">
-    <value>Manual</value>
+  <data name="Entity_ParentProduct" xml:space="preserve">
+    <value>Parent Product</value>
   </data>
-  <data name="Entity_Model" xml:space="preserve">
-    <value>Model</value>
-  </data>
-  <data name="Entity_Name" xml:space="preserve">
-    <value>Name</value>
+  <data name="Entity_Priority" xml:space="preserve">
+    <value>Priority</value>
   </data>
   <data name="_Caption" xml:space="preserve">
     <value>Package</value>

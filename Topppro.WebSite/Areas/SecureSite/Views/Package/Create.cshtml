@@ -15,43 +15,34 @@
         <legend>@Ent_PackageResource._Caption</legend>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Name)
+            @Html.LabelFor(model => model.ParentProductId)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Name)
-            @Html.ValidationMessageFor(model => model.Name)
+            @Html.DropDownListFor(model  => model.ParentProductId, null, PersistanceResource.Selection)
+            @Html.ValidationMessageFor(model => model.ParentProductId)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.ModelId)
+            @Html.LabelFor(model => model.ChildProductId)
         </div>
         <div class="editor-field">
-            @Html.DropDownList("ModelId", PersistanceResource.Selection)
-            @Html.ValidationMessageFor(model => model.ModelId)
+            @Html.DropDownListFor(model => model.ChildProductId, null, PersistanceResource.Selection)
+            @Html.ValidationMessageFor(model => model.ChildProductId)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Folder)
+            @Html.LabelFor(model => model.Priority)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Folder)
-            @Html.ValidationMessageFor(model => model.Folder)
+            @Html.EditorFor(model => model.Priority)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Manual)
+            @Html.LabelFor(model => model.Enabled)
         </div>
         <div class="editor-field">
-            @Html.DropDownList("Manual", PersistanceResource.Selection)
-            @Html.ValidationMessageFor(model => model.Manual)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Draft)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Draft)
-            @Html.ValidationMessageFor(model => model.Draft)
+            @Html.EditorFor(model => model.Enabled)
+            @Html.ValidationMessageFor(model => model.Enabled)
         </div>
 
         <p>

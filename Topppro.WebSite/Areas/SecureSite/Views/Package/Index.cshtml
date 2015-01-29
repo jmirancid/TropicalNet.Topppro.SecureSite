@@ -21,10 +21,16 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                @Html.DisplayNameFor(model => model.ParentProductId)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ModelId)
+                @Html.DisplayNameFor(model => model.ChildProductId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Priority)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Enabled)
             </th>
             <th>
                 @PersistanceResource.Actions
@@ -36,10 +42,16 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                @Html.DisplayFor(modelItem => item.ParentProduct.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Model.Name)
+                @Html.DisplayFor(modelItem => item.ChildProduct.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Priority)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Enabled)
             </td>
             <td>
                 @Html.ActionLink(PersistanceResource.Edit, "Edit", new { id = item.Id }) |

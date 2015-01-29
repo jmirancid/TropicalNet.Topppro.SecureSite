@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.IO;
 using System.Linq;
-using System.Web.Helpers;
 using System.Web.Mvc;
 using Framework.MVC.Controllers;
 using Topppro.Business.Definitions;
@@ -14,51 +10,31 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
     public class PackageController :
         PersistanceController<Package, PackageBusiness>
     {
-        private readonly Lazy<ModelBusiness> _bizModel =
-            new Lazy<ModelBusiness>();
+        private readonly Lazy<ProductBusiness> _bizProduct =
+            new Lazy<ProductBusiness>();
 
         public override ActionResult Index()
         {
-            var packages =
-                this.Business.Value.All();
+            var packs =
+                base.Business.Value.All()
+                    .OrderBy(p => p.ParentProduct.Name)
+                        .ThenBy(p => p.Priority);
 
-            return View(packages);
+            return View(packs);
         }
 
         public override void CreateGetPrerender(Package entity = null)
         {
-            ViewBag.ModelId = new SelectList(this._bizModel.Value.All(), "ModelId", "Name");
-            ViewBag.Manual = new SelectList(this.GetManuals());
+            ViewBag.ParentProductId =
+                ViewBag.ChildProductId = new SelectList(this._bizProduct.Value.All(), "ProductId", "Name");
         }
 
         public override void EditGetPrerender(Package entity)
         {
-            ViewBag.ModelId = new SelectList(this._bizModel.Value.All(), "ModelId", "Name", entity.ModelId);
-            ViewBag.Manual = new SelectList(this.GetManuals(), entity.Manual);
-        }
+            var source = this._bizProduct.Value.All();
 
-        private IEnumerable<string> GetManuals()
-        {
-            string manuals_vpath =
-                ConfigurationManager.AppSettings["RootManualsFolderPath"];
-
-            var key = "Topppro_Manuals";
-
-            var cached = WebCache.Get(key);
-
-            if (cached == null)
-            {
-                string manuals_path =
-                    this.HttpContext.Server.MapPath(manuals_vpath);
-
-                DirectoryInfo manuals_folder = new DirectoryInfo(manuals_path);
-
-                cached = manuals_folder.GetFiles("*.pdf").OrderBy(f => f.Name).Select(f => f.Name);
-
-                WebCache.Set(key, cached);
-            }
-
-            return cached;
+            ViewBag.ParentProductId = new SelectList(source, "ProductId", "Name", entity.ParentProductId);
+            ViewBag.ChildProductId = new SelectList(source, "ProductId", "Name", entity.ChildProductId);
         }
     }
 }

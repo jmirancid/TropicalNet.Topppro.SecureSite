@@ -1,8 +1,9 @@
-﻿using Topppro.Interfaces.Repositories;
+﻿using Topppro.Entities;
+using Topppro.Interfaces.Repositories;
 
 namespace Topppro.Repositories.Definitions
 {
-    public class CategoryRepository : Repository<Topppro.Entities.Category>, ICategoryRepository
+    public class CategoryRepository : Repository<Category>, ICategoryRepository
     {
     }
 }

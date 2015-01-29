@@ -4,17 +4,10 @@
 -- Database  : ToppproNew
 -- Version   : Microsoft SQL Server  10.50.1600.1
 
-IF EXISTS (SELECT name FROM master.dbo.sysdatabases WHERE name = N'ToppproNew') DROP DATABASE [ToppproNew];
-CREATE DATABASE [ToppproNew];
-GO
-
-USE ToppproNew;
 
 --
 -- Dropping table Assn_CategorySerie : 
 --
-
-
 
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Assn_CategorySerie') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
   DROP TABLE dbo.Assn_CategorySerie
@@ -37,30 +30,6 @@ IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Serie') AND OBJEC
 GO
 
 --
--- Dropping table Assn_CategorySeriePackage : 
---
-
-IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Assn_CategorySeriePackage') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
-  DROP TABLE dbo.Assn_CategorySeriePackage
-GO
-
---
--- Dropping table Package : 
---
-
-IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Package') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
-  DROP TABLE dbo.Package
-GO
-
---
--- Dropping table Model : 
---
-
-IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Model') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
-  DROP TABLE dbo.Model
-GO
-
---
 -- Dropping table Assn_CategorySerieProduct : 
 --
 
@@ -77,11 +46,11 @@ IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Product') AND OBJ
 GO
 
 --
--- Dropping table Assn_PackageProduct : 
+-- Dropping table Model : 
 --
 
-IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Assn_PackageProduct') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
-  DROP TABLE dbo.Assn_PackageProduct
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Model') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  DROP TABLE dbo.Model
 GO
 
 --
@@ -98,6 +67,14 @@ GO
 
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Culture') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
   DROP TABLE dbo.Culture
+GO
+
+--
+-- Dropping table Package : 
+--
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Package') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  DROP TABLE dbo.Package
 GO
 
 --
@@ -131,6 +108,7 @@ CREATE TABLE dbo.Assn_CategorySerie (
   CategoryId int NOT NULL,
   SerieId int NOT NULL,
   ItemsPerLine int NULL,
+  AllowCompare bit NOT NULL,
   Priority int NULL,
   Enabled bit NOT NULL
 )
@@ -144,35 +122,6 @@ GO
 CREATE TABLE dbo.Model (
   ModelId int IDENTITY(1, 1) NOT NULL,
   Name varchar(50) COLLATE Modern_Spanish_CI_AS NOT NULL
-)
-ON [PRIMARY]
-GO
-
---
--- Definition for table Package : 
---
-
-CREATE TABLE dbo.Package (
-  PackageId int IDENTITY(1, 1) NOT NULL,
-  ModelId int NOT NULL,
-  Name varchar(100) COLLATE Modern_Spanish_CI_AS NOT NULL,
-  Folder varchar(50) COLLATE Modern_Spanish_CI_AS NULL,
-  Manual varchar(50) COLLATE Modern_Spanish_CI_AS NULL,
-  Draft bit NOT NULL
-)
-ON [PRIMARY]
-GO
-
---
--- Definition for table Assn_CategorySeriePackage : 
---
-
-CREATE TABLE dbo.Assn_CategorySeriePackage (
-  AssnCategorySeriePackageId int IDENTITY(1, 1) NOT NULL,
-  AssnCategorySerieId int NOT NULL,
-  PackageId int NOT NULL,
-  Priority int NULL,
-  Enabled bit NOT NULL
 )
 ON [PRIMARY]
 GO
@@ -200,20 +149,7 @@ CREATE TABLE dbo.Assn_CategorySerieProduct (
   AssnCategorySerieProductId int IDENTITY(1, 1) NOT NULL,
   AssnCategorySerieId int NOT NULL,
   ProductId int NOT NULL,
-  Priority int NULL,
-  Enabled bit NOT NULL
-)
-ON [PRIMARY]
-GO
-
---
--- Definition for table Assn_PackageProduct : 
---
-
-CREATE TABLE dbo.Assn_PackageProduct (
-  AssnPackageProductId int IDENTITY(1, 1) NOT NULL,
-  PackageId int NOT NULL,
-  ProductId int NOT NULL,
+  AllowCompare bit NOT NULL,
   Priority int NULL,
   Enabled bit NOT NULL
 )
@@ -242,6 +178,20 @@ CREATE TABLE dbo.Attribute (
   CultureId int NOT NULL,
   Name varchar(150) COLLATE Modern_Spanish_CI_AS NOT NULL,
   Value varchar(8000) COLLATE Modern_Spanish_CI_AS NOT NULL,
+  Priority int NULL,
+  Enabled bit NOT NULL
+)
+ON [PRIMARY]
+GO
+
+--
+-- Definition for table Package : 
+--
+
+CREATE TABLE dbo.Package (
+  PackageId int IDENTITY(1, 1) NOT NULL,
+  ParentProductId int NOT NULL,
+  ChildProductId int NOT NULL,
   Priority int NULL,
   Enabled bit NOT NULL
 )
@@ -312,42 +262,6 @@ WITH (
 ON [PRIMARY]
 GO
 
-ALTER TABLE dbo.Package
-ADD CONSTRAINT Package_PK 
-PRIMARY KEY CLUSTERED (PackageId)
-WITH (
-  PAD_INDEX = OFF,
-  IGNORE_DUP_KEY = OFF,
-  STATISTICS_NORECOMPUTE = OFF,
-  ALLOW_ROW_LOCKS = ON,
-  ALLOW_PAGE_LOCKS = ON)
-ON [PRIMARY]
-GO
-
-ALTER TABLE dbo.Assn_CategorySeriePackage
-ADD CONSTRAINT Assn_CategorySeriePackage_PK 
-PRIMARY KEY CLUSTERED (AssnCategorySeriePackageId)
-WITH (
-  PAD_INDEX = OFF,
-  IGNORE_DUP_KEY = OFF,
-  STATISTICS_NORECOMPUTE = OFF,
-  ALLOW_ROW_LOCKS = ON,
-  ALLOW_PAGE_LOCKS = ON)
-ON [PRIMARY]
-GO
-
-ALTER TABLE dbo.Assn_CategorySeriePackage
-ADD CONSTRAINT Assn_CategorySeriePackage_UK 
-UNIQUE NONCLUSTERED (AssnCategorySerieId, PackageId)
-WITH (
-  PAD_INDEX = OFF,
-  IGNORE_DUP_KEY = OFF,
-  STATISTICS_NORECOMPUTE = OFF,
-  ALLOW_ROW_LOCKS = ON,
-  ALLOW_PAGE_LOCKS = ON)
-ON [PRIMARY]
-GO
-
 ALTER TABLE dbo.Product
 ADD CONSTRAINT Product_PK 
 PRIMARY KEY CLUSTERED (ProductId)
@@ -384,30 +298,6 @@ WITH (
 ON [PRIMARY]
 GO
 
-ALTER TABLE dbo.Assn_PackageProduct
-ADD CONSTRAINT Assn_PackageProduct_PK 
-PRIMARY KEY CLUSTERED (AssnPackageProductId)
-WITH (
-  PAD_INDEX = OFF,
-  IGNORE_DUP_KEY = OFF,
-  STATISTICS_NORECOMPUTE = OFF,
-  ALLOW_ROW_LOCKS = ON,
-  ALLOW_PAGE_LOCKS = ON)
-ON [PRIMARY]
-GO
-
-ALTER TABLE dbo.Assn_PackageProduct
-ADD CONSTRAINT Assn_PackageProduct_UK 
-UNIQUE NONCLUSTERED (PackageId, ProductId)
-WITH (
-  PAD_INDEX = OFF,
-  IGNORE_DUP_KEY = OFF,
-  STATISTICS_NORECOMPUTE = OFF,
-  ALLOW_ROW_LOCKS = ON,
-  ALLOW_PAGE_LOCKS = ON)
-ON [PRIMARY]
-GO
-
 ALTER TABLE dbo.Culture
 ADD CONSTRAINT Culture_PK 
 PRIMARY KEY CLUSTERED (CultureId)
@@ -423,6 +313,18 @@ GO
 ALTER TABLE dbo.Attribute
 ADD CONSTRAINT Attribute_PK 
 PRIMARY KEY CLUSTERED (AttributeId)
+WITH (
+  PAD_INDEX = OFF,
+  IGNORE_DUP_KEY = OFF,
+  STATISTICS_NORECOMPUTE = OFF,
+  ALLOW_ROW_LOCKS = ON,
+  ALLOW_PAGE_LOCKS = ON)
+ON [PRIMARY]
+GO
+
+ALTER TABLE dbo.Package
+ADD CONSTRAINT Package_PK 
+PRIMARY KEY CLUSTERED (PackageId)
 WITH (
   PAD_INDEX = OFF,
   IGNORE_DUP_KEY = OFF,
@@ -450,27 +352,6 @@ ADD CONSTRAINT Serie_Assn_CategorySerie_FK FOREIGN KEY (SerieId)
   ON DELETE NO ACTION
 GO
 
-ALTER TABLE dbo.Package
-ADD CONSTRAINT Model_Package_FK FOREIGN KEY (ModelId) 
-  REFERENCES dbo.Model (ModelId) 
-  ON UPDATE NO ACTION
-  ON DELETE NO ACTION
-GO
-
-ALTER TABLE dbo.Assn_CategorySeriePackage
-ADD CONSTRAINT Assn_CategorySerie_Assn_CategorySeriePackage_FK FOREIGN KEY (AssnCategorySerieId) 
-  REFERENCES dbo.Assn_CategorySerie (AssnCategorySerieId) 
-  ON UPDATE NO ACTION
-  ON DELETE NO ACTION
-GO
-
-ALTER TABLE dbo.Assn_CategorySeriePackage
-ADD CONSTRAINT Package_Assn_CategorySeriePackage_FK FOREIGN KEY (PackageId) 
-  REFERENCES dbo.Package (PackageId) 
-  ON UPDATE NO ACTION
-  ON DELETE NO ACTION
-GO
-
 ALTER TABLE dbo.Product
 ADD CONSTRAINT Model_Product_FK FOREIGN KEY (ModelId) 
   REFERENCES dbo.Model (ModelId) 
@@ -492,20 +373,6 @@ ADD CONSTRAINT Product_Assn_CategorySerieProduct_FK FOREIGN KEY (ProductId)
   ON DELETE NO ACTION
 GO
 
-ALTER TABLE dbo.Assn_PackageProduct
-ADD CONSTRAINT Package_Assn_PackageProduct_FK FOREIGN KEY (PackageId) 
-  REFERENCES dbo.Package (PackageId) 
-  ON UPDATE NO ACTION
-  ON DELETE NO ACTION
-GO
-
-ALTER TABLE dbo.Assn_PackageProduct
-ADD CONSTRAINT Product_Assn_PackageProduct_FK FOREIGN KEY (ProductId) 
-  REFERENCES dbo.Product (ProductId) 
-  ON UPDATE NO ACTION
-  ON DELETE NO ACTION
-GO
-
 ALTER TABLE dbo.Attribute
 ADD CONSTRAINT Culture_Attribute_FK FOREIGN KEY (CultureId) 
   REFERENCES dbo.Culture (CultureId) 
@@ -515,6 +382,20 @@ GO
 
 ALTER TABLE dbo.Attribute
 ADD CONSTRAINT Product_Attribute_FK FOREIGN KEY (ProductId) 
+  REFERENCES dbo.Product (ProductId) 
+  ON UPDATE NO ACTION
+  ON DELETE NO ACTION
+GO
+
+ALTER TABLE dbo.Package
+ADD CONSTRAINT Package_Child_Product_FK FOREIGN KEY (ChildProductId) 
+  REFERENCES dbo.Product (ProductId) 
+  ON UPDATE NO ACTION
+  ON DELETE NO ACTION
+GO
+
+ALTER TABLE dbo.Package
+ADD CONSTRAINT Package_Parent_Product_FK FOREIGN KEY (ParentProductId) 
   REFERENCES dbo.Product (ProductId) 
   ON UPDATE NO ACTION
   ON DELETE NO ACTION

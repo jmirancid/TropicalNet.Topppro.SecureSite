@@ -7,9 +7,7 @@
     <Schema Namespace="ToppproModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="ToppproModelStoreContainer">
           <EntitySet Name="Assn_CategorySerie" EntityType="ToppproModel.Store.Assn_CategorySerie" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Assn_CategorySeriePackage" EntityType="ToppproModel.Store.Assn_CategorySeriePackage" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Assn_CategorySerieProduct" EntityType="ToppproModel.Store.Assn_CategorySerieProduct" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Assn_PackageProduct" EntityType="ToppproModel.Store.Assn_PackageProduct" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Attribute" EntityType="ToppproModel.Store.Attribute" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Category" EntityType="ToppproModel.Store.Category" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Culture" EntityType="ToppproModel.Store.Culture" store:Type="Tables" Schema="dbo" />
@@ -17,10 +15,6 @@
           <EntitySet Name="Package" EntityType="ToppproModel.Store.Package" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Product" EntityType="ToppproModel.Store.Product" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Serie" EntityType="ToppproModel.Store.Serie" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="Assn_CategorySerie_Assn_CategorySeriePackage_FK" Association="ToppproModel.Store.Assn_CategorySerie_Assn_CategorySeriePackage_FK">
-            <End Role="Assn_CategorySerie" EntitySet="Assn_CategorySerie" />
-            <End Role="Assn_CategorySeriePackage" EntitySet="Assn_CategorySeriePackage" />
-          </AssociationSet>
           <AssociationSet Name="Assn_CategorySerie_Assn_CategorySerieProduct_FK" Association="ToppproModel.Store.Assn_CategorySerie_Assn_CategorySerieProduct_FK">
             <End Role="Assn_CategorySerie" EntitySet="Assn_CategorySerie" />
             <End Role="Assn_CategorySerieProduct" EntitySet="Assn_CategorySerieProduct" />
@@ -33,29 +27,21 @@
             <End Role="Culture" EntitySet="Culture" />
             <End Role="Attribute" EntitySet="Attribute" />
           </AssociationSet>
-          <AssociationSet Name="Model_Package_FK" Association="ToppproModel.Store.Model_Package_FK">
-            <End Role="Model" EntitySet="Model" />
-            <End Role="Package" EntitySet="Package" />
-          </AssociationSet>
           <AssociationSet Name="Model_Product_FK" Association="ToppproModel.Store.Model_Product_FK">
             <End Role="Model" EntitySet="Model" />
             <End Role="Product" EntitySet="Product" />
           </AssociationSet>
-          <AssociationSet Name="Package_Assn_CategorySeriePackage_FK" Association="ToppproModel.Store.Package_Assn_CategorySeriePackage_FK">
+          <AssociationSet Name="Package_Child_Product_FK" Association="ToppproModel.Store.Package_Child_Product_FK">
+            <End Role="Product" EntitySet="Product" />
             <End Role="Package" EntitySet="Package" />
-            <End Role="Assn_CategorySeriePackage" EntitySet="Assn_CategorySeriePackage" />
           </AssociationSet>
-          <AssociationSet Name="Package_Assn_PackageProduct_FK" Association="ToppproModel.Store.Package_Assn_PackageProduct_FK">
+          <AssociationSet Name="Package_Parent_Product_FK" Association="ToppproModel.Store.Package_Parent_Product_FK">
+            <End Role="Product" EntitySet="Product" />
             <End Role="Package" EntitySet="Package" />
-            <End Role="Assn_PackageProduct" EntitySet="Assn_PackageProduct" />
           </AssociationSet>
           <AssociationSet Name="Product_Assn_CategorySerieProduct_FK" Association="ToppproModel.Store.Product_Assn_CategorySerieProduct_FK">
             <End Role="Product" EntitySet="Product" />
             <End Role="Assn_CategorySerieProduct" EntitySet="Assn_CategorySerieProduct" />
-          </AssociationSet>
-          <AssociationSet Name="Product_Assn_PackageProduct_FK" Association="ToppproModel.Store.Product_Assn_PackageProduct_FK">
-            <End Role="Product" EntitySet="Product" />
-            <End Role="Assn_PackageProduct" EntitySet="Assn_PackageProduct" />
           </AssociationSet>
           <AssociationSet Name="Product_Attribute_FK" Association="ToppproModel.Store.Product_Attribute_FK">
             <End Role="Product" EntitySet="Product" />
@@ -78,16 +64,6 @@
           <Property Name="Priority" Type="int" />
           <Property Name="Enabled" Type="bit" Nullable="false" />
         </EntityType>
-        <EntityType Name="Assn_CategorySeriePackage">
-          <Key>
-            <PropertyRef Name="AssnCategorySeriePackageId" />
-          </Key>
-          <Property Name="AssnCategorySeriePackageId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="AssnCategorySerieId" Type="int" Nullable="false" />
-          <Property Name="PackageId" Type="int" Nullable="false" />
-          <Property Name="Priority" Type="int" />
-          <Property Name="Enabled" Type="bit" Nullable="false" />
-        </EntityType>
         <EntityType Name="Assn_CategorySerieProduct">
           <Key>
             <PropertyRef Name="AssnCategorySerieProductId" />
@@ -96,16 +72,6 @@
           <Property Name="AssnCategorySerieId" Type="int" Nullable="false" />
           <Property Name="ProductId" Type="int" Nullable="false" />
           <Property Name="AllowCompare" Type="bit" Nullable="false" />
-          <Property Name="Priority" Type="int" />
-          <Property Name="Enabled" Type="bit" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Assn_PackageProduct">
-          <Key>
-            <PropertyRef Name="AssnPackageProductId" />
-          </Key>
-          <Property Name="AssnPackageProductId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="PackageId" Type="int" Nullable="false" />
-          <Property Name="ProductId" Type="int" Nullable="false" />
           <Property Name="Priority" Type="int" />
           <Property Name="Enabled" Type="bit" Nullable="false" />
         </EntityType>
@@ -148,11 +114,10 @@
             <PropertyRef Name="PackageId" />
           </Key>
           <Property Name="PackageId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="ModelId" Type="int" Nullable="false" />
-          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="100" />
-          <Property Name="Folder" Type="varchar" MaxLength="50" />
-          <Property Name="Manual" Type="varchar" MaxLength="50" />
-          <Property Name="Draft" Type="bit" Nullable="false" />
+          <Property Name="ParentProductId" Type="int" Nullable="false" />
+          <Property Name="ChildProductId" Type="int" Nullable="false" />
+          <Property Name="Priority" Type="int" />
+          <Property Name="Enabled" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -172,18 +137,6 @@
           <Property Name="SerieId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
         </EntityType>
-        <Association Name="Assn_CategorySerie_Assn_CategorySeriePackage_FK">
-          <End Role="Assn_CategorySerie" Type="ToppproModel.Store.Assn_CategorySerie" Multiplicity="1" />
-          <End Role="Assn_CategorySeriePackage" Type="ToppproModel.Store.Assn_CategorySeriePackage" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Assn_CategorySerie">
-              <PropertyRef Name="AssnCategorySerieId" />
-            </Principal>
-            <Dependent Role="Assn_CategorySeriePackage">
-              <PropertyRef Name="AssnCategorySerieId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="Assn_CategorySerie_Assn_CategorySerieProduct_FK">
           <End Role="Assn_CategorySerie" Type="ToppproModel.Store.Assn_CategorySerie" Multiplicity="1" />
           <End Role="Assn_CategorySerieProduct" Type="ToppproModel.Store.Assn_CategorySerieProduct" Multiplicity="*" />
@@ -220,18 +173,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="Model_Package_FK">
-          <End Role="Model" Type="ToppproModel.Store.Model" Multiplicity="1" />
-          <End Role="Package" Type="ToppproModel.Store.Package" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Model">
-              <PropertyRef Name="ModelId" />
-            </Principal>
-            <Dependent Role="Package">
-              <PropertyRef Name="ModelId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="Model_Product_FK">
           <End Role="Model" Type="ToppproModel.Store.Model" Multiplicity="1" />
           <End Role="Product" Type="ToppproModel.Store.Product" Multiplicity="*" />
@@ -244,27 +185,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="Package_Assn_CategorySeriePackage_FK">
-          <End Role="Package" Type="ToppproModel.Store.Package" Multiplicity="1" />
-          <End Role="Assn_CategorySeriePackage" Type="ToppproModel.Store.Assn_CategorySeriePackage" Multiplicity="*" />
+        <Association Name="Package_Child_Product_FK">
+          <End Role="Product" Type="ToppproModel.Store.Product" Multiplicity="1" />
+          <End Role="Package" Type="ToppproModel.Store.Package" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Package">
-              <PropertyRef Name="PackageId" />
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
             </Principal>
-            <Dependent Role="Assn_CategorySeriePackage">
-              <PropertyRef Name="PackageId" />
+            <Dependent Role="Package">
+              <PropertyRef Name="ChildProductId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="Package_Assn_PackageProduct_FK">
-          <End Role="Package" Type="ToppproModel.Store.Package" Multiplicity="1" />
-          <End Role="Assn_PackageProduct" Type="ToppproModel.Store.Assn_PackageProduct" Multiplicity="*" />
+        <Association Name="Package_Parent_Product_FK">
+          <End Role="Product" Type="ToppproModel.Store.Product" Multiplicity="1" />
+          <End Role="Package" Type="ToppproModel.Store.Package" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Package">
-              <PropertyRef Name="PackageId" />
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
             </Principal>
-            <Dependent Role="Assn_PackageProduct">
-              <PropertyRef Name="PackageId" />
+            <Dependent Role="Package">
+              <PropertyRef Name="ParentProductId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -276,18 +217,6 @@
               <PropertyRef Name="ProductId" />
             </Principal>
             <Dependent Role="Assn_CategorySerieProduct">
-              <PropertyRef Name="ProductId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="Product_Assn_PackageProduct_FK">
-          <End Role="Product" Type="ToppproModel.Store.Product" Multiplicity="1" />
-          <End Role="Assn_PackageProduct" Type="ToppproModel.Store.Assn_PackageProduct" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="ProductId" />
-            </Principal>
-            <Dependent Role="Assn_PackageProduct">
               <PropertyRef Name="ProductId" />
             </Dependent>
           </ReferentialConstraint>
@@ -321,49 +250,15 @@
     <edmx:ConceptualModels>
       <Schema Namespace="ToppproModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="ToppproEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Assn_CategorySeriePackage" EntityType="ToppproModel.Assn_CategorySeriePackage" />
-          <EntitySet Name="Assn_PackageProduct" EntityType="ToppproModel.Assn_PackageProduct" />
+          <EntitySet Name="Assn_CategorySerie" EntityType="ToppproModel.Assn_CategorySerie" />
+          <EntitySet Name="Assn_CategorySerieProduct" EntityType="ToppproModel.Assn_CategorySerieProduct" />
           <EntitySet Name="Attribute" EntityType="ToppproModel.Attribute" />
           <EntitySet Name="Category" EntityType="ToppproModel.Category" />
           <EntitySet Name="Culture" EntityType="ToppproModel.Culture" />
           <EntitySet Name="Model" EntityType="ToppproModel.Model" />
           <EntitySet Name="Package" EntityType="ToppproModel.Package" />
-          <EntitySet Name="Serie" EntityType="ToppproModel.Serie" />
-          <AssociationSet Name="Package_Assn_CategorySeriePackage_FK" Association="ToppproModel.Package_Assn_CategorySeriePackage_FK">
-            <End Role="Package" EntitySet="Package" />
-            <End Role="Assn_CategorySeriePackage" EntitySet="Assn_CategorySeriePackage" />
-          </AssociationSet>
-          <AssociationSet Name="Package_Assn_PackageProduct_FK" Association="ToppproModel.Package_Assn_PackageProduct_FK">
-            <End Role="Package" EntitySet="Package" />
-            <End Role="Assn_PackageProduct" EntitySet="Assn_PackageProduct" />
-          </AssociationSet>
-          <AssociationSet Name="Culture_Attribute_FK" Association="ToppproModel.Culture_Attribute_FK">
-            <End Role="Culture" EntitySet="Culture" />
-            <End Role="Attribute" EntitySet="Attribute" />
-          </AssociationSet>
-          <AssociationSet Name="Model_Package_FK" Association="ToppproModel.Model_Package_FK">
-            <End Role="Model" EntitySet="Model" />
-            <End Role="Package" EntitySet="Package" />
-          </AssociationSet>
           <EntitySet Name="Product" EntityType="ToppproModel.Product" />
-          <AssociationSet Name="Product_Assn_PackageProduct_FK" Association="ToppproModel.Product_Assn_PackageProduct_FK">
-            <End Role="Product" EntitySet="Product" />
-            <End Role="Assn_PackageProduct" EntitySet="Assn_PackageProduct" />
-          </AssociationSet>
-          <AssociationSet Name="Product_Attribute_FK" Association="ToppproModel.Product_Attribute_FK">
-            <End Role="Product" EntitySet="Product" />
-            <End Role="Attribute" EntitySet="Attribute" />
-          </AssociationSet>
-          <AssociationSet Name="Model_Product_FK" Association="ToppproModel.Model_Product_FK">
-            <End Role="Model" EntitySet="Model" />
-            <End Role="Product" EntitySet="Product" />
-          </AssociationSet>
-          <EntitySet Name="Assn_CategorySerie" EntityType="ToppproModel.Assn_CategorySerie" />
-          <EntitySet Name="Assn_CategorySerieProduct" EntityType="ToppproModel.Assn_CategorySerieProduct" />
-          <AssociationSet Name="Assn_CategorySerie_Assn_CategorySeriePackage_FK" Association="ToppproModel.Assn_CategorySerie_Assn_CategorySeriePackage_FK">
-            <End Role="Assn_CategorySerie" EntitySet="Assn_CategorySerie" />
-            <End Role="Assn_CategorySeriePackage" EntitySet="Assn_CategorySeriePackage" />
-          </AssociationSet>
+          <EntitySet Name="Serie" EntityType="ToppproModel.Serie" />
           <AssociationSet Name="Assn_CategorySerie_Assn_CategorySerieProduct_FK" Association="ToppproModel.Assn_CategorySerie_Assn_CategorySerieProduct_FK">
             <End Role="Assn_CategorySerie" EntitySet="Assn_CategorySerie" />
             <End Role="Assn_CategorySerieProduct" EntitySet="Assn_CategorySerieProduct" />
@@ -380,30 +275,54 @@
             <End Role="Product" EntitySet="Product" />
             <End Role="Assn_CategorySerieProduct" EntitySet="Assn_CategorySerieProduct" />
           </AssociationSet>
-          </EntityContainer>
-        <EntityType Name="Assn_CategorySeriePackage">
+          <AssociationSet Name="Culture_Attribute_FK" Association="ToppproModel.Culture_Attribute_FK">
+            <End Role="Culture" EntitySet="Culture" />
+            <End Role="Attribute" EntitySet="Attribute" />
+          </AssociationSet>
+          <AssociationSet Name="Product_Attribute_FK" Association="ToppproModel.Product_Attribute_FK">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Attribute" EntitySet="Attribute" />
+          </AssociationSet>
+          <AssociationSet Name="Model_Product_FK" Association="ToppproModel.Model_Product_FK">
+            <End Role="Model" EntitySet="Model" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="Package_Child_Product_FK" Association="ToppproModel.Package_Child_Product_FK">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Package" EntitySet="Package" />
+          </AssociationSet>
+          <AssociationSet Name="Package_Parent_Product_FK" Association="ToppproModel.Package_Parent_Product_FK">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Package" EntitySet="Package" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Assn_CategorySerie">
           <Key>
-            <PropertyRef Name="AssnCategorySeriePackageId" />
+            <PropertyRef Name="AssnCategorySerieId" />
           </Key>
-          <Property Type="Int32" Name="AssnCategorySeriePackageId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="AssnCategorySerieId" Nullable="false" />
-          <Property Type="Int32" Name="PackageId" Nullable="false" />
+          <Property Type="Int32" Name="AssnCategorySerieId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="CategoryId" Nullable="false" />
+          <Property Type="Int32" Name="SerieId" Nullable="false" />
+          <Property Type="Int32" Name="ItemsPerLine" />
+          <Property Type="Boolean" Name="AllowCompare" Nullable="false" />
           <Property Type="Int32" Name="Priority" />
           <Property Type="Boolean" Name="Enabled" Nullable="false" />
-          <NavigationProperty Name="Package" Relationship="ToppproModel.Package_Assn_CategorySeriePackage_FK" FromRole="Assn_CategorySeriePackage" ToRole="Package" />
-          <NavigationProperty Name="Assn_CategorySerie" Relationship="ToppproModel.Assn_CategorySerie_Assn_CategorySeriePackage_FK" FromRole="Assn_CategorySeriePackage" ToRole="Assn_CategorySerie" />
+          <NavigationProperty Name="Assn_CategorySerieProduct" Relationship="ToppproModel.Assn_CategorySerie_Assn_CategorySerieProduct_FK" FromRole="Assn_CategorySerie" ToRole="Assn_CategorySerieProduct" />
+          <NavigationProperty Name="Category" Relationship="ToppproModel.Category_Ass_CategorySerie_FK" FromRole="Assn_CategorySerie" ToRole="Category" />
+          <NavigationProperty Name="Serie" Relationship="ToppproModel.Serie_Assn_CategorySerie_FK" FromRole="Assn_CategorySerie" ToRole="Serie" />
         </EntityType>
-        <EntityType Name="Assn_PackageProduct">
+        <EntityType Name="Assn_CategorySerieProduct">
           <Key>
-            <PropertyRef Name="AssnPackageProductId" />
+            <PropertyRef Name="AssnCategorySerieProductId" />
           </Key>
-          <Property Type="Int32" Name="AssnPackageProductId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="PackageId" Nullable="false" />
+          <Property Type="Int32" Name="AssnCategorySerieProductId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="AssnCategorySerieId" Nullable="false" />
           <Property Type="Int32" Name="ProductId" Nullable="false" />
+          <Property Type="Boolean" Name="AllowCompare" Nullable="false" />
           <Property Type="Int32" Name="Priority" />
           <Property Type="Boolean" Name="Enabled" Nullable="false" />
-          <NavigationProperty Name="Package" Relationship="ToppproModel.Package_Assn_PackageProduct_FK" FromRole="Assn_PackageProduct" ToRole="Package" />
-          <NavigationProperty Name="Product" Relationship="ToppproModel.Product_Assn_PackageProduct_FK" FromRole="Assn_PackageProduct" ToRole="Product" />
+          <NavigationProperty Name="Assn_CategorySerie" Relationship="ToppproModel.Assn_CategorySerie_Assn_CategorySerieProduct_FK" FromRole="Assn_CategorySerieProduct" ToRole="Assn_CategorySerie" />
+          <NavigationProperty Name="Product" Relationship="ToppproModel.Product_Assn_CategorySerieProduct_FK" FromRole="Assn_CategorySerieProduct" ToRole="Product" />
         </EntityType>
         <EntityType Name="Attribute">
           <Key>
@@ -442,79 +361,20 @@
           </Key>
           <Property Type="Int32" Name="ModelId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Package" Relationship="ToppproModel.Model_Package_FK" FromRole="Model" ToRole="Package" />
-          <NavigationProperty Name="Product" Relationship="ToppproModel.Model_Product_FK" FromRole="Model" ToRole="Product" />
+          <NavigationProperty Name="Products" Relationship="ToppproModel.Model_Product_FK" FromRole="Model" ToRole="Product" />
         </EntityType>
         <EntityType Name="Package">
           <Key>
             <PropertyRef Name="PackageId" />
           </Key>
           <Property Type="Int32" Name="PackageId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="ModelId" Nullable="false" />
-          <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Folder" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Manual" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="Boolean" Name="Draft" Nullable="false" />
-          <NavigationProperty Name="Assn_CategorySeriePackage" Relationship="ToppproModel.Package_Assn_CategorySeriePackage_FK" FromRole="Package" ToRole="Assn_CategorySeriePackage" />
-          <NavigationProperty Name="Assn_PackageProduct" Relationship="ToppproModel.Package_Assn_PackageProduct_FK" FromRole="Package" ToRole="Assn_PackageProduct" />
-          <NavigationProperty Name="Model" Relationship="ToppproModel.Model_Package_FK" FromRole="Package" ToRole="Model" />
+          <Property Type="Int32" Name="ParentProductId" Nullable="false" />
+          <Property Type="Int32" Name="ChildProductId" Nullable="false" />
+          <Property Type="Int32" Name="Priority" />
+          <Property Type="Boolean" Name="Enabled" Nullable="false" />
+          <NavigationProperty Name="ChildProduct" Relationship="ToppproModel.Package_Child_Product_FK" FromRole="Package" ToRole="Product" />
+          <NavigationProperty Name="ParentProduct" Relationship="ToppproModel.Package_Parent_Product_FK" FromRole="Package" ToRole="Product" />
         </EntityType>
-        <EntityType Name="Serie">
-          <Key>
-            <PropertyRef Name="SerieId" />
-          </Key>
-          <Property Type="Int32" Name="SerieId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Assn_CategorySerie" Relationship="ToppproModel.Serie_Assn_CategorySerie_FK" FromRole="Serie" ToRole="Assn_CategorySerie" />
-        </EntityType>
-        <Association Name="Package_Assn_CategorySeriePackage_FK">
-          <End Type="ToppproModel.Package" Role="Package" Multiplicity="1" />
-          <End Type="ToppproModel.Assn_CategorySeriePackage" Role="Assn_CategorySeriePackage" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Package">
-              <PropertyRef Name="PackageId" />
-            </Principal>
-            <Dependent Role="Assn_CategorySeriePackage">
-              <PropertyRef Name="PackageId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="Package_Assn_PackageProduct_FK">
-          <End Type="ToppproModel.Package" Role="Package" Multiplicity="1" />
-          <End Type="ToppproModel.Assn_PackageProduct" Role="Assn_PackageProduct" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Package">
-              <PropertyRef Name="PackageId" />
-            </Principal>
-            <Dependent Role="Assn_PackageProduct">
-              <PropertyRef Name="PackageId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="Culture_Attribute_FK">
-          <End Type="ToppproModel.Culture" Role="Culture" Multiplicity="1" />
-          <End Type="ToppproModel.Attribute" Role="Attribute" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Culture">
-              <PropertyRef Name="CultureId" />
-            </Principal>
-            <Dependent Role="Attribute">
-              <PropertyRef Name="CultureId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="Model_Package_FK">
-          <End Type="ToppproModel.Model" Role="Model" Multiplicity="1" />
-          <End Type="ToppproModel.Package" Role="Package" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Model">
-              <PropertyRef Name="ModelId" />
-            </Principal>
-            <Dependent Role="Package">
-              <PropertyRef Name="ModelId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="Product">
           <Key>
             <PropertyRef Name="ProductId" />
@@ -525,88 +385,20 @@
           <Property Type="String" Name="Folder" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Manual" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="Boolean" Name="Draft" Nullable="false" />
-          <NavigationProperty Name="Assn_PackageProduct" Relationship="ToppproModel.Product_Assn_PackageProduct_FK" FromRole="Product" ToRole="Assn_PackageProduct" />
+          <NavigationProperty Name="Assn_CategorySerieProduct" Relationship="ToppproModel.Product_Assn_CategorySerieProduct_FK" FromRole="Product" ToRole="Assn_CategorySerieProduct" />
           <NavigationProperty Name="Attributes" Relationship="ToppproModel.Product_Attribute_FK" FromRole="Product" ToRole="Attribute" />
           <NavigationProperty Name="Model" Relationship="ToppproModel.Model_Product_FK" FromRole="Product" ToRole="Model" />
-          <NavigationProperty Name="Assn_CategorySerieProduct" Relationship="ToppproModel.Product_Assn_CategorySerieProduct_FK" FromRole="Product" ToRole="Assn_CategorySerieProduct" />
+          <NavigationProperty Name="ChildInPackages" Relationship="ToppproModel.Package_Child_Product_FK" FromRole="Product" ToRole="Package" />
+          <NavigationProperty Name="ParentInPackages" Relationship="ToppproModel.Package_Parent_Product_FK" FromRole="Product" ToRole="Package" />
         </EntityType>
-        <Association Name="Product_Assn_PackageProduct_FK">
-          <End Type="ToppproModel.Product" Role="Product" Multiplicity="1" />
-          <End Type="ToppproModel.Assn_PackageProduct" Role="Assn_PackageProduct" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="ProductId" />
-            </Principal>
-            <Dependent Role="Assn_PackageProduct">
-              <PropertyRef Name="ProductId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="Product_Attribute_FK">
-          <End Type="ToppproModel.Product" Role="Product" Multiplicity="1" />
-          <End Type="ToppproModel.Attribute" Role="Attribute" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="ProductId" />
-            </Principal>
-            <Dependent Role="Attribute">
-              <PropertyRef Name="ProductId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="Model_Product_FK">
-          <End Type="ToppproModel.Model" Role="Model" Multiplicity="1" />
-          <End Type="ToppproModel.Product" Role="Product" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Model">
-              <PropertyRef Name="ModelId" />
-            </Principal>
-            <Dependent Role="Product">
-              <PropertyRef Name="ModelId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="Assn_CategorySerie">
+        <EntityType Name="Serie">
           <Key>
-            <PropertyRef Name="AssnCategorySerieId" />
+            <PropertyRef Name="SerieId" />
           </Key>
-          <Property Type="Int32" Name="AssnCategorySerieId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="CategoryId" Nullable="false" />
-          <Property Type="Int32" Name="SerieId" Nullable="false" />
-          <Property Type="Int32" Name="ItemsPerLine" />
-          <Property Type="Boolean" Name="AllowCompare" Nullable="false" />
-          <Property Type="Int32" Name="Priority" />
-          <Property Type="Boolean" Name="Enabled" Nullable="false" />
-          <NavigationProperty Name="Assn_CategorySeriePackage" Relationship="ToppproModel.Assn_CategorySerie_Assn_CategorySeriePackage_FK" FromRole="Assn_CategorySerie" ToRole="Assn_CategorySeriePackage" />
-          <NavigationProperty Name="Assn_CategorySerieProduct" Relationship="ToppproModel.Assn_CategorySerie_Assn_CategorySerieProduct_FK" FromRole="Assn_CategorySerie" ToRole="Assn_CategorySerieProduct" />
-          <NavigationProperty Name="Category" Relationship="ToppproModel.Category_Ass_CategorySerie_FK" FromRole="Assn_CategorySerie" ToRole="Category" />
-          <NavigationProperty Name="Serie" Relationship="ToppproModel.Serie_Assn_CategorySerie_FK" FromRole="Assn_CategorySerie" ToRole="Serie" />
+          <Property Type="Int32" Name="SerieId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Assn_CategorySerie" Relationship="ToppproModel.Serie_Assn_CategorySerie_FK" FromRole="Serie" ToRole="Assn_CategorySerie" />
         </EntityType>
-        <EntityType Name="Assn_CategorySerieProduct">
-          <Key>
-            <PropertyRef Name="AssnCategorySerieProductId" />
-          </Key>
-          <Property Type="Int32" Name="AssnCategorySerieProductId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="AssnCategorySerieId" Nullable="false" />
-          <Property Type="Int32" Name="ProductId" Nullable="false" />
-          <Property Type="Boolean" Name="AllowCompare" Nullable="false" />
-          <Property Type="Int32" Name="Priority" />
-          <Property Type="Boolean" Name="Enabled" Nullable="false" />
-          <NavigationProperty Name="Assn_CategorySerie" Relationship="ToppproModel.Assn_CategorySerie_Assn_CategorySerieProduct_FK" FromRole="Assn_CategorySerieProduct" ToRole="Assn_CategorySerie" />
-          <NavigationProperty Name="Product" Relationship="ToppproModel.Product_Assn_CategorySerieProduct_FK" FromRole="Assn_CategorySerieProduct" ToRole="Product" />
-        </EntityType>
-        <Association Name="Assn_CategorySerie_Assn_CategorySeriePackage_FK">
-          <End Type="ToppproModel.Assn_CategorySerie" Role="Assn_CategorySerie" Multiplicity="1" />
-          <End Type="ToppproModel.Assn_CategorySeriePackage" Role="Assn_CategorySeriePackage" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Assn_CategorySerie">
-              <PropertyRef Name="AssnCategorySerieId" />
-            </Principal>
-            <Dependent Role="Assn_CategorySeriePackage">
-              <PropertyRef Name="AssnCategorySerieId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="Assn_CategorySerie_Assn_CategorySerieProduct_FK">
           <End Type="ToppproModel.Assn_CategorySerie" Role="Assn_CategorySerie" Multiplicity="1" />
           <End Type="ToppproModel.Assn_CategorySerieProduct" Role="Assn_CategorySerieProduct" Multiplicity="*" />
@@ -655,31 +447,94 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="Culture_Attribute_FK">
+          <End Type="ToppproModel.Culture" Role="Culture" Multiplicity="1" />
+          <End Type="ToppproModel.Attribute" Role="Attribute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Culture">
+              <PropertyRef Name="CultureId" />
+            </Principal>
+            <Dependent Role="Attribute">
+              <PropertyRef Name="CultureId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Product_Attribute_FK">
+          <End Type="ToppproModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="ToppproModel.Attribute" Role="Attribute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="Attribute">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Model_Product_FK">
+          <End Type="ToppproModel.Model" Role="Model" Multiplicity="1" />
+          <End Type="ToppproModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Model">
+              <PropertyRef Name="ModelId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ModelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Package_Child_Product_FK">
+          <End Type="ToppproModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="ToppproModel.Package" Role="Package" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="Package">
+              <PropertyRef Name="ChildProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Package_Parent_Product_FK">
+          <End Type="ToppproModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="ToppproModel.Package" Role="Package" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="Package">
+              <PropertyRef Name="ParentProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ToppproModelStoreContainer" CdmEntityContainer="ToppproEntities">
-          <EntitySetMapping Name="Assn_CategorySeriePackage">
-            <EntityTypeMapping TypeName="ToppproModel.Assn_CategorySeriePackage">
-              <MappingFragment StoreEntitySet="Assn_CategorySeriePackage">
+          <EntitySetMapping Name="Assn_CategorySerie">
+            <EntityTypeMapping TypeName="ToppproModel.Assn_CategorySerie">
+              <MappingFragment StoreEntitySet="Assn_CategorySerie">
                 <ScalarProperty Name="Enabled" ColumnName="Enabled" />
                 <ScalarProperty Name="Priority" ColumnName="Priority" />
-                <ScalarProperty Name="PackageId" ColumnName="PackageId" />
+                <ScalarProperty Name="AllowCompare" ColumnName="AllowCompare" />
+                <ScalarProperty Name="ItemsPerLine" ColumnName="ItemsPerLine" />
+                <ScalarProperty Name="SerieId" ColumnName="SerieId" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
                 <ScalarProperty Name="AssnCategorySerieId" ColumnName="AssnCategorySerieId" />
-                <ScalarProperty Name="AssnCategorySeriePackageId" ColumnName="AssnCategorySeriePackageId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Assn_PackageProduct">
-            <EntityTypeMapping TypeName="ToppproModel.Assn_PackageProduct">
-              <MappingFragment StoreEntitySet="Assn_PackageProduct">
+          <EntitySetMapping Name="Assn_CategorySerieProduct">
+            <EntityTypeMapping TypeName="ToppproModel.Assn_CategorySerieProduct">
+              <MappingFragment StoreEntitySet="Assn_CategorySerieProduct">
                 <ScalarProperty Name="Enabled" ColumnName="Enabled" />
                 <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="AllowCompare" ColumnName="AllowCompare" />
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-                <ScalarProperty Name="PackageId" ColumnName="PackageId" />
-                <ScalarProperty Name="AssnPackageProductId" ColumnName="AssnPackageProductId" />
+                <ScalarProperty Name="AssnCategorySerieId" ColumnName="AssnCategorySerieId" />
+                <ScalarProperty Name="AssnCategorySerieProductId" ColumnName="AssnCategorySerieProductId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -724,20 +579,11 @@
           <EntitySetMapping Name="Package">
             <EntityTypeMapping TypeName="ToppproModel.Package">
               <MappingFragment StoreEntitySet="Package">
-                <ScalarProperty Name="Draft" ColumnName="Draft" />
-                <ScalarProperty Name="Manual" ColumnName="Manual" />
-                <ScalarProperty Name="Folder" ColumnName="Folder" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ModelId" ColumnName="ModelId" />
+                <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="ChildProductId" ColumnName="ChildProductId" />
+                <ScalarProperty Name="ParentProductId" ColumnName="ParentProductId" />
                 <ScalarProperty Name="PackageId" ColumnName="PackageId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Serie">
-            <EntityTypeMapping TypeName="ToppproModel.Serie">
-              <MappingFragment StoreEntitySet="Serie">
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="SerieId" ColumnName="SerieId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -753,28 +599,11 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Assn_CategorySerie">
-            <EntityTypeMapping TypeName="ToppproModel.Assn_CategorySerie">
-              <MappingFragment StoreEntitySet="Assn_CategorySerie">
-                <ScalarProperty Name="Enabled" ColumnName="Enabled" />
-                <ScalarProperty Name="Priority" ColumnName="Priority" />
-                <ScalarProperty Name="AllowCompare" ColumnName="AllowCompare" />
-                <ScalarProperty Name="ItemsPerLine" ColumnName="ItemsPerLine" />
+          <EntitySetMapping Name="Serie">
+            <EntityTypeMapping TypeName="ToppproModel.Serie">
+              <MappingFragment StoreEntitySet="Serie">
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="SerieId" ColumnName="SerieId" />
-                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
-                <ScalarProperty Name="AssnCategorySerieId" ColumnName="AssnCategorySerieId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Assn_CategorySerieProduct">
-            <EntityTypeMapping TypeName="ToppproModel.Assn_CategorySerieProduct">
-              <MappingFragment StoreEntitySet="Assn_CategorySerieProduct">
-                <ScalarProperty Name="Enabled" ColumnName="Enabled" />
-                <ScalarProperty Name="Priority" ColumnName="Priority" />
-                <ScalarProperty Name="AllowCompare" ColumnName="AllowCompare" />
-                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-                <ScalarProperty Name="AssnCategorySerieId" ColumnName="AssnCategorySerieId" />
-                <ScalarProperty Name="AssnCategorySerieProductId" ColumnName="AssnCategorySerieProductId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -800,85 +629,66 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="ToppproModel" ZoomLevel="71">
-        <EntityTypeShape EntityType="ToppproModel.Assn_CategorySeriePackage" Width="1.5" PointX="5.25" PointY="3.375" Height="2.3648893229166656" />
-        <EntityTypeShape EntityType="ToppproModel.Assn_PackageProduct" Width="1.5" PointX="8.25" PointY="8.375" Height="2.3648893237113953" />
-        <EntityTypeShape EntityType="ToppproModel.Attribute" Width="1.5" PointX="11.25" PointY="8.125" Height="2.7494921870529652" />
-        <EntityTypeShape EntityType="ToppproModel.Category" Width="1.5" PointX="0.75" PointY="3.75" Height="1.5956835937500005" />
-        <EntityTypeShape EntityType="ToppproModel.Culture" Width="1.5" PointX="9" PointY="11.625" Height="1.7879850268363953" />
-        <EntityTypeShape EntityType="ToppproModel.Model" Width="1.5" PointX="0.75" PointY="8.625" Height="1.7879850268363953" />
-        <EntityTypeShape EntityType="ToppproModel.Package" Width="1.5" PointX="3" PointY="8.125" Height="2.7494921870529652" />
-        <EntityTypeShape EntityType="ToppproModel.Serie" Width="1.5" PointX="0.75" PointY="0.75" Height="1.5956835937499996" />
-        <AssociationConnector Association="ToppproModel.Package_Assn_CategorySeriePackage_FK" >
-          <ConnectorPoint PointX="4.5" PointY="8.1261528461538468" />
-          <ConnectorPoint PointX="4.875" PointY="7.7511528461538468" />
-          <ConnectorPoint PointX="4.875" PointY="4.5574446614583328" />
-          <ConnectorPoint PointX="5.25" PointY="4.5574446614583328" />
-        </AssociationConnector>
-        <AssociationConnector Association="ToppproModel.Package_Assn_PackageProduct_FK" >
-          <ConnectorPoint PointX="3.75" PointY="8.125" />
-          <ConnectorPoint PointX="3.75" PointY="7.8749999996026361" />
-          <ConnectorPoint PointX="4.6678195132178777" PointY="7.8749999996026352" />
-          <ConnectorPoint PointX="4.8344861798845438" PointY="7.8749999996026361" />
-          <ConnectorPoint PointX="7.072916666666667" PointY="7.8749999996026352" />
-          <ConnectorPoint PointX="7.239583333333333" PointY="7.8749999996026361" />
-          <ConnectorPoint PointX="7.875" PointY="7.8749999996026361" />
-          <ConnectorPoint PointX="7.875" PointY="9.5574446618556976" />
-          <ConnectorPoint PointX="8.25" PointY="9.5574446618556976" />
-        </AssociationConnector>
-        <AssociationConnector Association="ToppproModel.Culture_Attribute_FK" >
-          <ConnectorPoint PointX="10.15625" PointY="11.625" />
-          <ConnectorPoint PointX="10.15625" PointY="8.21875" />
-          <ConnectorPoint PointX="11.25" PointY="8.21875" />
-        </AssociationConnector>
-        <AssociationConnector Association="ToppproModel.Model_Package_FK" >
-          <ConnectorPoint PointX="2.25" PointY="9.5189925134181976" />
-          <ConnectorPoint PointX="3" PointY="9.5189925134181976" />
-        </AssociationConnector>
-        <EntityTypeShape EntityType="ToppproModel.Product" Width="1.5" PointX="6" PointY="8.125" Height="2.9417936197916674" />
-        <AssociationConnector Association="ToppproModel.Product_Assn_PackageProduct_FK" >
-          <ConnectorPoint PointX="7.5" PointY="8.9037223309278488" />
-          <ConnectorPoint PointX="7.791666666666667" PointY="8.9037223309278488" />
-          <ConnectorPoint PointX="7.958333333333333" PointY="8.9037223309278488" />
-          <ConnectorPoint PointX="8.25" PointY="8.9037223309278488" />
-        </AssociationConnector>
-        <AssociationConnector Association="ToppproModel.Product_Attribute_FK" >
-          <ConnectorPoint PointX="7.5" PointY="10.83844075538218" />
-          <ConnectorPoint PointX="10.072916666666666" PointY="10.83844075538218" />
-          <ConnectorPoint PointX="10.239583333333334" PointY="10.83844075538218" />
-          <ConnectorPoint PointX="11.25" PointY="10.83844075538218" />
-        </AssociationConnector>
-        <AssociationConnector Association="ToppproModel.Model_Product_FK" >
-          <ConnectorPoint PointX="1.5" PointY="10.412985026836395" />
-          <ConnectorPoint PointX="1.5" PointY="11.001892903620998" />
-          <ConnectorPoint PointX="6" PointY="11.001892903620998" />
-        </AssociationConnector>
-        <EntityTypeShape EntityType="ToppproModel.Assn_CategorySerie" Width="1.5" PointX="3" PointY="3" Height="3.1340950520833313" />
-        <EntityTypeShape EntityType="ToppproModel.Assn_CategorySerieProduct" Width="1.5" PointX="8.25" PointY="2.125" Height="2.5571907552083388" />
-        <AssociationConnector Association="ToppproModel.Assn_CategorySerie_Assn_CategorySeriePackage_FK" >
-          <ConnectorPoint PointX="4.5" PointY="3.903722330530484" />
-          <ConnectorPoint PointX="5.25" PointY="3.903722330530484" />
-        </AssociationConnector>
+        <EntityTypeShape EntityType="ToppproModel.Assn_CategorySerie" Width="1.5" PointX="3" PointY="0.75" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="ToppproModel.Assn_CategorySerieProduct" Width="1.5" PointX="5.25" PointY="6" Height="2.5571907552083317" />
+        <EntityTypeShape EntityType="ToppproModel.Attribute" Width="1.5" PointX="8.25" PointY="5.875" Height="2.749492187499996" />
+        <EntityTypeShape EntityType="ToppproModel.Category" Width="1.5" PointX="0.75" PointY="3.625" Height="1.5956835937500031" />
+        <EntityTypeShape EntityType="ToppproModel.Culture" Width="1.5" PointX="6" PointY="3.375" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="ToppproModel.Model" Width="1.5" PointX="0.75" PointY="6.375" Height="1.5956835937500031" />
+        <EntityTypeShape EntityType="ToppproModel.Package" Width="1.5" PointX="5.25" PointY="12.875" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="ToppproModel.Product" Width="1.5" PointX="3" PointY="5.625" Height="3.1340950520833388" />
+        <EntityTypeShape EntityType="ToppproModel.Serie" Width="1.5" PointX="0.75" PointY="8.875" Height="1.5956835937500031" />
         <AssociationConnector Association="ToppproModel.Assn_CategorySerie_Assn_CategorySerieProduct_FK" >
-          <ConnectorPoint PointX="4.5" PointY="3.1562499998013176" />
-          <ConnectorPoint PointX="7.072916666666667" PointY="3.1562499998013172" />
-          <ConnectorPoint PointX="7.239583333333333" PointY="3.1562499998013176" />
-          <ConnectorPoint PointX="8.25" PointY="3.1562499998013176" />
+          <ConnectorPoint PointX="4.5" PointY="2.03125" />
+          <ConnectorPoint PointX="5.59375" PointY="2.03125" />
+          <ConnectorPoint PointX="5.59375" PointY="6" />
         </AssociationConnector>
         <AssociationConnector Association="ToppproModel.Category_Ass_CategorySerie_FK" >
-          <ConnectorPoint PointX="2.25" PointY="4.547841796875" />
-          <ConnectorPoint PointX="3" PointY="4.547841796875" />
+          <ConnectorPoint PointX="2.25" PointY="4.4562391067708358" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="4.4562391067708349" />
+          <ConnectorPoint PointX="2.7083333333333335" PointY="4.4562391067708358" />
+          <ConnectorPoint PointX="3.75" PointY="4.4562391067708358" />
+          <ConnectorPoint PointX="3.75" PointY="3.6917936197916674" />
         </AssociationConnector>
         <AssociationConnector Association="ToppproModel.Serie_Assn_CategorySerie_FK" >
-          <ConnectorPoint PointX="2.25" PointY="1.5478417968749998" />
-          <ConnectorPoint PointX="3.75" PointY="1.5478417968749998" />
-          <ConnectorPoint PointX="3.75" PointY="3" />
+          <ConnectorPoint PointX="2.25" PointY="8.8761528461538468" />
+          <ConnectorPoint PointX="2.625" PointY="8.5011528461538468" />
+          <ConnectorPoint PointX="2.625" PointY="2.2208968098958337" />
+          <ConnectorPoint PointX="3" PointY="2.2208968098958337" />
         </AssociationConnector>
         <AssociationConnector Association="ToppproModel.Product_Assn_CategorySerieProduct_FK" >
-          <ConnectorPoint PointX="7.15625" PointY="8.125" />
-          <ConnectorPoint PointX="7.15625" PointY="2.6093724999006582" />
-          <ConnectorPoint PointX="8.25" PointY="2.6093724999006582" />
+          <ConnectorPoint PointX="4.5" PointY="7.2785953776041659" />
+          <ConnectorPoint PointX="5.25" PointY="7.2785953776041659" />
         </AssociationConnector>
-        </Diagram>
+        <AssociationConnector Association="ToppproModel.Culture_Attribute_FK" >
+          <ConnectorPoint PointX="7.15625" PointY="5.1629850260416674" />
+          <ConnectorPoint PointX="7.15625" PointY="5.90625" />
+          <ConnectorPoint PointX="8.25" PointY="5.90625" />
+        </AssociationConnector>
+        <AssociationConnector Association="ToppproModel.Product_Attribute_FK" >
+          <ConnectorPoint PointX="4.5" PointY="8.7590950520833388" />
+          <ConnectorPoint PointX="4.875" PointY="9.1340950520833388" />
+          <ConnectorPoint PointX="4.875" PointY="8.999492187499996" />
+          <ConnectorPoint PointX="7.875" PointY="8.999492187499996" />
+          <ConnectorPoint PointX="8.25" PointY="8.624492187499996" />
+        </AssociationConnector>
+        <AssociationConnector Association="ToppproModel.Model_Product_FK" >
+          <ConnectorPoint PointX="2.25" PointY="7.1728417968750016" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="7.1728417968750007" />
+          <ConnectorPoint PointX="2.7083333333333335" PointY="7.1728417968750016" />
+          <ConnectorPoint PointX="3" PointY="7.1728417968750016" />
+        </AssociationConnector>
+        <AssociationConnector Association="ToppproModel.Package_Child_Product_FK" >
+          <ConnectorPoint PointX="3.7187475" PointY="8.7590950520833388" />
+          <ConnectorPoint PointX="3.7187475" PointY="14.057444661458334" />
+          <ConnectorPoint PointX="5.25" PointY="14.057444661458334" />
+        </AssociationConnector>
+        <AssociationConnector Association="ToppproModel.Package_Parent_Product_FK" >
+          <ConnectorPoint PointX="4.10937375" PointY="8.7590950520833388" />
+          <ConnectorPoint PointX="4.10937375" PointY="13.434969830729166" />
+          <ConnectorPoint PointX="5.25" PointY="13.434969830729166" />
+        </AssociationConnector>
+      </Diagram>
     </Diagrams>
   </Designer>
 </edmx:Edmx>

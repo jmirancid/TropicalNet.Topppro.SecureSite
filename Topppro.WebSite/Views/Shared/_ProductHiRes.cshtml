@@ -6,7 +6,7 @@
 
 @if (!Model.Product.GetHiRes().IsEmpty()) {
     <p>
-        <a href="@Url.RouteUrl("HiRes", new { controller = ViewContext.RouteData.Values["controller"], id = Model.Product.Id, name = Model.Product.Name.ToSeoSlug() })">
+        <a href="@Url.RouteUrl("HiRes", new { controller = ViewContext.RouteData.Values["controller"], id = Model.Id, name = Model.Product.Name.ToSeoSlug() })">
         <img src="@Url.Content("~/Content/Images/hi-res-photos.jpg")" alt="@Localization.HiRes_Pics" style="margin-right:5px;" width="30" height="24" />
         <b>@Localization.HiRes_Pics</b></a>
     </p>

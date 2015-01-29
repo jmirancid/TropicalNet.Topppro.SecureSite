@@ -28,42 +28,47 @@ namespace Topppro.Entities
             set;
         }
     
-        public virtual int ModelId
+        public virtual int ParentProductId
         {
-            get { return _modelId; }
+            get { return _parentProductId; }
             set
             {
-                if (_modelId != value)
+                if (_parentProductId != value)
                 {
-                    if (Model != null && Model.ModelId != value)
+                    if (ParentProduct != null && ParentProduct.ProductId != value)
                     {
-                        Model = null;
+                        ParentProduct = null;
                     }
-                    _modelId = value;
+                    _parentProductId = value;
                 }
             }
         }
-        private int _modelId;
+        private int _parentProductId;
     
-        public virtual string Name
+        public virtual int ChildProductId
+        {
+            get { return _childProductId; }
+            set
+            {
+                if (_childProductId != value)
+                {
+                    if (ChildProduct != null && ChildProduct.ProductId != value)
+                    {
+                        ChildProduct = null;
+                    }
+                    _childProductId = value;
+                }
+            }
+        }
+        private int _childProductId;
+    
+        public virtual Nullable<int> Priority
         {
             get;
             set;
         }
     
-        public virtual string Folder
-        {
-            get;
-            set;
-        }
-    
-        public virtual string Manual
-        {
-            get;
-            set;
-        }
-    
-        public virtual bool Draft
+        public virtual bool Enabled
         {
             get;
             set;
@@ -72,152 +77,75 @@ namespace Topppro.Entities
         #endregion
         #region Navigation Properties
     
-    	//[XmlElement("Assn_CategorySeriePackage", typeof(Collection<Assn_CategorySeriePackage>))]
-        public virtual ICollection<Assn_CategorySeriePackage> Assn_CategorySeriePackage
+        public virtual Product ChildProduct
         {
-            get
-            {
-                if (_assn_CategorySeriePackage == null)
-                {
-                    var newCollection = new FixupCollection<Assn_CategorySeriePackage>();
-                    newCollection.CollectionChanged += FixupAssn_CategorySeriePackage;
-                    _assn_CategorySeriePackage = newCollection;
-                }
-                return _assn_CategorySeriePackage;
-            }
+            get { return _childProduct; }
             set
             {
-                if (!ReferenceEquals(_assn_CategorySeriePackage, value))
+                if (!ReferenceEquals(_childProduct, value))
                 {
-                    var previousValue = _assn_CategorySeriePackage as FixupCollection<Assn_CategorySeriePackage>;
-                    if (previousValue != null)
-                    {
-                        previousValue.CollectionChanged -= FixupAssn_CategorySeriePackage;
-                    }
-                    _assn_CategorySeriePackage = value;
-                    var newValue = value as FixupCollection<Assn_CategorySeriePackage>;
-                    if (newValue != null)
-                    {
-                        newValue.CollectionChanged += FixupAssn_CategorySeriePackage;
-                    }
+                    var previousValue = _childProduct;
+                    _childProduct = value;
+                    FixupChildProduct(previousValue);
                 }
             }
         }
-    	//[XmlElement("Assn_CategorySeriePackage", typeof(Collection<Assn_CategorySeriePackage>))]
-        private ICollection<Assn_CategorySeriePackage> _assn_CategorySeriePackage;
+        private Product _childProduct;
     
-    	//[XmlElement("Assn_PackageProduct", typeof(Collection<Assn_PackageProduct>))]
-        public virtual ICollection<Assn_PackageProduct> Assn_PackageProduct
+        public virtual Product ParentProduct
         {
-            get
-            {
-                if (_assn_PackageProduct == null)
-                {
-                    var newCollection = new FixupCollection<Assn_PackageProduct>();
-                    newCollection.CollectionChanged += FixupAssn_PackageProduct;
-                    _assn_PackageProduct = newCollection;
-                }
-                return _assn_PackageProduct;
-            }
+            get { return _parentProduct; }
             set
             {
-                if (!ReferenceEquals(_assn_PackageProduct, value))
+                if (!ReferenceEquals(_parentProduct, value))
                 {
-                    var previousValue = _assn_PackageProduct as FixupCollection<Assn_PackageProduct>;
-                    if (previousValue != null)
-                    {
-                        previousValue.CollectionChanged -= FixupAssn_PackageProduct;
-                    }
-                    _assn_PackageProduct = value;
-                    var newValue = value as FixupCollection<Assn_PackageProduct>;
-                    if (newValue != null)
-                    {
-                        newValue.CollectionChanged += FixupAssn_PackageProduct;
-                    }
+                    var previousValue = _parentProduct;
+                    _parentProduct = value;
+                    FixupParentProduct(previousValue);
                 }
             }
         }
-    	//[XmlElement("Assn_PackageProduct", typeof(Collection<Assn_PackageProduct>))]
-        private ICollection<Assn_PackageProduct> _assn_PackageProduct;
-    
-        public virtual Model Model
-        {
-            get { return _model; }
-            set
-            {
-                if (!ReferenceEquals(_model, value))
-                {
-                    var previousValue = _model;
-                    _model = value;
-                    FixupModel(previousValue);
-                }
-            }
-        }
-        private Model _model;
+        private Product _parentProduct;
 
         #endregion
         #region Association Fixup
     
-        private void FixupModel(Model previousValue)
+        private void FixupChildProduct(Product previousValue)
         {
-            if (previousValue != null && previousValue.Package.Contains(this))
+            if (previousValue != null && previousValue.ChildInPackages.Contains(this))
             {
-                previousValue.Package.Remove(this);
+                previousValue.ChildInPackages.Remove(this);
             }
     
-            if (Model != null)
+            if (ChildProduct != null)
             {
-                if (!Model.Package.Contains(this))
+                if (!ChildProduct.ChildInPackages.Contains(this))
                 {
-                    Model.Package.Add(this);
+                    ChildProduct.ChildInPackages.Add(this);
                 }
-                if (ModelId != Model.ModelId)
+                if (ChildProductId != ChildProduct.ProductId)
                 {
-                    ModelId = Model.ModelId;
+                    ChildProductId = ChildProduct.ProductId;
                 }
             }
         }
     
-        private void FixupAssn_CategorySeriePackage(object sender, NotifyCollectionChangedEventArgs e)
+        private void FixupParentProduct(Product previousValue)
         {
-            if (e.NewItems != null)
+            if (previousValue != null && previousValue.ParentInPackages.Contains(this))
             {
-                foreach (Assn_CategorySeriePackage item in e.NewItems)
-                {
-                    item.Package = this;
-                }
+                previousValue.ParentInPackages.Remove(this);
             }
     
-            if (e.OldItems != null)
+            if (ParentProduct != null)
             {
-                foreach (Assn_CategorySeriePackage item in e.OldItems)
+                if (!ParentProduct.ParentInPackages.Contains(this))
                 {
-                    if (ReferenceEquals(item.Package, this))
-                    {
-                        item.Package = null;
-                    }
+                    ParentProduct.ParentInPackages.Add(this);
                 }
-            }
-        }
-    
-        private void FixupAssn_PackageProduct(object sender, NotifyCollectionChangedEventArgs e)
-        {
-            if (e.NewItems != null)
-            {
-                foreach (Assn_PackageProduct item in e.NewItems)
+                if (ParentProductId != ParentProduct.ProductId)
                 {
-                    item.Package = this;
-                }
-            }
-    
-            if (e.OldItems != null)
-            {
-                foreach (Assn_PackageProduct item in e.OldItems)
-                {
-                    if (ReferenceEquals(item.Package, this))
-                    {
-                        item.Package = null;
-                    }
+                    ParentProductId = ParentProduct.ProductId;
                 }
             }
         }

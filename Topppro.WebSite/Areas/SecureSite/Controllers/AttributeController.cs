@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 using Framework.MVC.Controllers;
 using Topppro.Business.Definitions;
@@ -16,10 +17,12 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
 
         public override ActionResult Index()
         {
-            var attributes =
-                this.Business.Value.All();
+            var attrs =
+                base.Business.Value.All()
+                    .OrderBy(a => a.Product.Name)
+                        .ThenBy(a => a.Priority);
 
-            return View(attributes);
+            return View(attrs);
         }
 
         public override void CreateGetPrerender(Topppro.Entities.Attribute entity = null)

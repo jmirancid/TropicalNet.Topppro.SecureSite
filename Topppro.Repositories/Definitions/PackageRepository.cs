@@ -1,23 +1,25 @@
-﻿using Topppro.Interfaces.Repositories;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
+using Topppro.Entities;
+using Topppro.Interfaces.Repositories;
 
 namespace Topppro.Repositories.Definitions
 {
-    public class PackageRepository : Repository<Topppro.Entities.Package>, IPackageRepository
+    public class PackageRepository : Repository<Package>, IPackageRepository
     {
-        public override System.Linq.IQueryable<Entities.Package> All()
+        public override IQueryable<Package> All()
         {
             return Context.Package
-                    .Include(p => p.Model)
-                    .OrderBy(p => p.Name);
+                        .Include(p => p.ParentProduct)
+                        .Include(p => p.ChildProduct);
         }
 
-        public override Entities.Package Get(int id)
+        public override Package Get(int id)
         {
             return Context.Package
-                    .Include(p => p.Model)
-                    .SingleOrDefault(p => p.PackageId == id);
+                        .Include(p => p.ParentProduct)
+                        .Include(p => p.ChildProduct)
+                        .SingleOrDefault(p => p.PackageId == id);
         }
     }
 }

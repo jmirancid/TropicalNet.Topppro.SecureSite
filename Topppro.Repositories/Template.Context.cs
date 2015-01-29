@@ -42,17 +42,17 @@ namespace Topppro.Repositories
     
         #region ObjectSet Properties
     
-        public ObjectSet<Assn_CategorySeriePackage> Assn_CategorySeriePackage
+        public ObjectSet<Assn_CategorySerie> Assn_CategorySerie
         {
-            get { return _assn_CategorySeriePackage  ?? (_assn_CategorySeriePackage = CreateObjectSet<Assn_CategorySeriePackage>("Assn_CategorySeriePackage")); }
+            get { return _assn_CategorySerie  ?? (_assn_CategorySerie = CreateObjectSet<Assn_CategorySerie>("Assn_CategorySerie")); }
         }
-        private ObjectSet<Assn_CategorySeriePackage> _assn_CategorySeriePackage;
+        private ObjectSet<Assn_CategorySerie> _assn_CategorySerie;
     
-        public ObjectSet<Assn_PackageProduct> Assn_PackageProduct
+        public ObjectSet<Assn_CategorySerieProduct> Assn_CategorySerieProduct
         {
-            get { return _assn_PackageProduct  ?? (_assn_PackageProduct = CreateObjectSet<Assn_PackageProduct>("Assn_PackageProduct")); }
+            get { return _assn_CategorySerieProduct  ?? (_assn_CategorySerieProduct = CreateObjectSet<Assn_CategorySerieProduct>("Assn_CategorySerieProduct")); }
         }
-        private ObjectSet<Assn_PackageProduct> _assn_PackageProduct;
+        private ObjectSet<Assn_CategorySerieProduct> _assn_CategorySerieProduct;
     
         public ObjectSet<Attribute> Attribute
         {
@@ -84,29 +84,17 @@ namespace Topppro.Repositories
         }
         private ObjectSet<Package> _package;
     
-        public ObjectSet<Serie> Serie
-        {
-            get { return _serie  ?? (_serie = CreateObjectSet<Serie>("Serie")); }
-        }
-        private ObjectSet<Serie> _serie;
-    
         public ObjectSet<Product> Product
         {
             get { return _product  ?? (_product = CreateObjectSet<Product>("Product")); }
         }
         private ObjectSet<Product> _product;
     
-        public ObjectSet<Assn_CategorySerie> Assn_CategorySerie
+        public ObjectSet<Serie> Serie
         {
-            get { return _assn_CategorySerie  ?? (_assn_CategorySerie = CreateObjectSet<Assn_CategorySerie>("Assn_CategorySerie")); }
+            get { return _serie  ?? (_serie = CreateObjectSet<Serie>("Serie")); }
         }
-        private ObjectSet<Assn_CategorySerie> _assn_CategorySerie;
-    
-        public ObjectSet<Assn_CategorySerieProduct> Assn_CategorySerieProduct
-        {
-            get { return _assn_CategorySerieProduct  ?? (_assn_CategorySerieProduct = CreateObjectSet<Assn_CategorySerieProduct>("Assn_CategorySerieProduct")); }
-        }
-        private ObjectSet<Assn_CategorySerieProduct> _assn_CategorySerieProduct;
+        private ObjectSet<Serie> _serie;
 
         #endregion
     }

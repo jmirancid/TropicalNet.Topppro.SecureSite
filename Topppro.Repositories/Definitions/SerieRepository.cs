@@ -1,8 +1,9 @@
-﻿using Topppro.Interfaces.Repositories;
+﻿using Topppro.Entities;
+using Topppro.Interfaces.Repositories;
 
 namespace Topppro.Repositories.Definitions
 {
-    public class SerieRepository : Repository<Topppro.Entities.Serie>, ISerieRepository
+    public class SerieRepository : Repository<Serie>, ISerieRepository
     {
     }
 }

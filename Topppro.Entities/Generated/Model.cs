@@ -37,100 +37,44 @@ namespace Topppro.Entities
         #endregion
         #region Navigation Properties
     
-    	//[XmlElement("Package", typeof(Collection<Package>))]
-        public virtual ICollection<Package> Package
+    	//[XmlElement("Products", typeof(Collection<Product>))]
+        public virtual ICollection<Product> Products
         {
             get
             {
-                if (_package == null)
-                {
-                    var newCollection = new FixupCollection<Package>();
-                    newCollection.CollectionChanged += FixupPackage;
-                    _package = newCollection;
-                }
-                return _package;
-            }
-            set
-            {
-                if (!ReferenceEquals(_package, value))
-                {
-                    var previousValue = _package as FixupCollection<Package>;
-                    if (previousValue != null)
-                    {
-                        previousValue.CollectionChanged -= FixupPackage;
-                    }
-                    _package = value;
-                    var newValue = value as FixupCollection<Package>;
-                    if (newValue != null)
-                    {
-                        newValue.CollectionChanged += FixupPackage;
-                    }
-                }
-            }
-        }
-    	//[XmlElement("Package", typeof(Collection<Package>))]
-        private ICollection<Package> _package;
-    
-    	//[XmlElement("Product", typeof(Collection<Product>))]
-        public virtual ICollection<Product> Product
-        {
-            get
-            {
-                if (_product == null)
+                if (_products == null)
                 {
                     var newCollection = new FixupCollection<Product>();
-                    newCollection.CollectionChanged += FixupProduct;
-                    _product = newCollection;
+                    newCollection.CollectionChanged += FixupProducts;
+                    _products = newCollection;
                 }
-                return _product;
+                return _products;
             }
             set
             {
-                if (!ReferenceEquals(_product, value))
+                if (!ReferenceEquals(_products, value))
                 {
-                    var previousValue = _product as FixupCollection<Product>;
+                    var previousValue = _products as FixupCollection<Product>;
                     if (previousValue != null)
                     {
-                        previousValue.CollectionChanged -= FixupProduct;
+                        previousValue.CollectionChanged -= FixupProducts;
                     }
-                    _product = value;
+                    _products = value;
                     var newValue = value as FixupCollection<Product>;
                     if (newValue != null)
                     {
-                        newValue.CollectionChanged += FixupProduct;
+                        newValue.CollectionChanged += FixupProducts;
                     }
                 }
             }
         }
-    	//[XmlElement("Product", typeof(Collection<Product>))]
-        private ICollection<Product> _product;
+    	//[XmlElement("Products", typeof(Collection<Product>))]
+        private ICollection<Product> _products;
 
         #endregion
         #region Association Fixup
     
-        private void FixupPackage(object sender, NotifyCollectionChangedEventArgs e)
-        {
-            if (e.NewItems != null)
-            {
-                foreach (Package item in e.NewItems)
-                {
-                    item.Model = this;
-                }
-            }
-    
-            if (e.OldItems != null)
-            {
-                foreach (Package item in e.OldItems)
-                {
-                    if (ReferenceEquals(item.Model, this))
-                    {
-                        item.Model = null;
-                    }
-                }
-            }
-        }
-    
-        private void FixupProduct(object sender, NotifyCollectionChangedEventArgs e)
+        private void FixupProducts(object sender, NotifyCollectionChangedEventArgs e)
         {
             if (e.NewItems != null)
             {

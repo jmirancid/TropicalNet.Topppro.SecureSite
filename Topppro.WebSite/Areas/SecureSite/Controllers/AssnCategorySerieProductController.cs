@@ -19,9 +19,9 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
         public override ActionResult Index()
         {
             var assn =
-                this.Business.Value.All()
+                base.Business.Value.All()
                     .OrderBy(a => a.Assn_CategorySerie.Category.Name)
-                        .ThenBy(a => a.Assn_CategorySerie.Serie.Name)
+                        .ThenBy(a => a.Assn_CategorySerie.Priority)
                             .ThenBy(a => a.Priority);
 
             return View(assn);
@@ -37,11 +37,6 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
         {
             ViewBag.AssnCategorySerieId = new SelectList(this._bizAssnCategorySerie.Value.All(), "AssnCategorySerieId", "Name", entity.AssnCategorySerieId);
             ViewBag.ProductId = new SelectList(this._bizProduct.Value.All(), "ProductId", "Name", entity.ProductId);
-        }
-
-        public override void DeleteGetPrerender(Assn_CategorySerieProduct entity)
-        {
-            DetailsGetPrerender(entity);
         }
     }
 }

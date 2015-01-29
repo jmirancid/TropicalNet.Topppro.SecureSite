@@ -2,10 +2,10 @@
 @using Topppro.WebSite.Extensions
 @using Framework.Common.Extensions
 
-@model Topppro.Entities.Product
+@model Topppro.Entities.Assn_CategorySerieProduct
 
 @section Styles {
-    <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/ThickBox.css")" />
+    <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Plugins/jquery.thickbox-3.1/thickbox.css")" />
     <style type="text/css">
         body {
 	        background-image: url('@ViewBag.BackgroundImage');
@@ -54,7 +54,7 @@
                 &nbsp;
             </td>
             <td align="center" bgcolor="#A0BFDE" class="Estilo44" width="151">
-                @Html.ActionLink(string.Format("<< {0}", Localization.Back), "Index", ViewContext.RouteData.Values["controller"].ToString(), null, null, Model.Serie.Name.ToSeoSlug(), null, null)
+                @Html.ActionLink(string.Format("<< {0}", Localization.Back), "Index", ViewContext.RouteData.Values["controller"].ToString(), null, null, Model.Assn_CategorySerie.Serie.Name.ToSeoSlug(), null, null)
             </td>
             <td width="18">
                 &nbsp;
@@ -81,9 +81,9 @@
 </table>
 
 @section Scripts {
-    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.5.1.min.js")"></script>
-    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.thickbox-3.1.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.8.3.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Plugins/jquery.thickbox-3.1/thickbox-compressed.js")"></script>
     <script type="text/javascript">
-        var tb_pathToImage = "@Url.Content("~/Content/Images/loadingAnimation.gif")";
+        var tb_pathToImage = "@Url.Content("~/Plugins/jquery.thickbox-3.1/images/loadingAnimation.gif")";
     </script>
 }
