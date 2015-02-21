@@ -71,6 +71,12 @@ namespace Topppro.WebSite.Extensions
             return htmlHelper.Partial(template, htmlHelper.ViewData.Model);
         }
 
+        public static MvcHtmlString Menu(
+            this HtmlHelper htmlHelper)
+        {
+            return htmlHelper.Partial("_Menu");
+        }
+
         public static MvcHtmlString Separator(
             this HtmlHelper htmlHelper)
         {

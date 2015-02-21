@@ -84,6 +84,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Areas\Humanist\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Humanist\Controllers\SpeakersController.cs" />
+    <Compile Include="Areas\Humanist\HumanistAreaRegistration.cs" />
     <Compile Include="Areas\SecureSite\Controllers\AssnCategorySerieController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\AssnCategorySerieProductController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\AttributeController.cs" />
@@ -132,6 +135,41 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Humanist\Content\Images\menu_r1_c1.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\menu_r1_c10.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\menu_r1_c3.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\menu_r1_c4.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\menu_r2_c4.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\menu_r2_c6.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\menu_r2_c8.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\menu_r2_c9.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\menu_r3_c10.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\menu_r3_c11.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\menu_r3_c12.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\menu_r4_c10.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\menu_r5_c4.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\menu_r6_c1-up.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\menu_r6_c1.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\menu_r6_c10-up.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\menu_r6_c10.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\menu_r6_c11-up.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\menu_r6_c11.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\menu_r6_c12-up.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\menu_r6_c12.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\menu_r6_c2-up.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\menu_r6_c2.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\menu_r6_c5-up.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\menu_r6_c5.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\menu_r6_c7-up.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\menu_r6_c7.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\menu_r6_c8-up.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\menu_r6_c8.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\menu_r6_c9-up.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\menu_r6_c9.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\spacer.gif" />
+    <Content Include="Areas\Humanist\Content\Styles\Layout.css" />
+    <Content Include="Areas\Humanist\Scripts\AC_RunActiveContent.js" />
+    <Content Include="Areas\Humanist\Scripts\MM_functions.js" />
     <Content Include="Areas\SecureSite\Content\jquery-ui.dataTables.css" />
     <Content Include="Areas\SecureSite\Content\Site.css" />
     <Content Include="Areas\SecureSite\Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -517,6 +555,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Humanist\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -780,6 +819,12 @@
     <Content Include="Areas\SecureSite\Views\AssnCategorySerie\Details.cshtml" />
     <Content Include="Areas\SecureSite\Views\AssnCategorySerie\Edit.cshtml" />
     <Content Include="Areas\SecureSite\Views\AssnCategorySerie\Delete.cshtml" />
+    <Content Include="Areas\Humanist\Views\Web.config" />
+    <Content Include="Areas\Humanist\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Humanist\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Humanist\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Humanist\Views\Shared\_Menu.cshtml" />
+    <Content Include="Areas\Humanist\Views\Speakers\Index.cshtml" />
     <None Include="Areas\SecureSite\Scripts\tinymce\langs\readme.md" />
     <None Include="Areas\SecureSite\Scripts\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
     <None Include="Areas\SecureSite\Scripts\tinymce\skins\lightgray\fonts\tinymce-small.ttf" />

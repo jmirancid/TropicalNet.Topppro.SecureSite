@@ -25,7 +25,7 @@ namespace Topppro.WebSite
                 defaults: new { culture = Topppro.Context.Current.Culture.TwoLetterISOLanguageName, action = "Compare" }, // Parameter defaults
                 constraints: new { culture = "[a-zA-Z]{2}" },
                 namespaces: new[] { "Topppro.WebSite.Controllers" }
-            );
+            ).DataTokens["area"] = "Humanist";
 
             routes.MapRoute(
                 name: "Modules_HiRes", // Route name
@@ -33,7 +33,7 @@ namespace Topppro.WebSite
                 defaults: new { culture = Topppro.Context.Current.Culture.TwoLetterISOLanguageName, controller = "Processors", action = "Modules_HiRes" }, // Parameter defaults
                 constraints: new { culture = "[a-zA-Z]{2}" },
                 namespaces: new[] { "Topppro.WebSite.Controllers" }
-            );
+            ).DataTokens["area"] = "Humanist";
 
             routes.MapRoute(
                 name: "HiRes", // Route name
@@ -41,7 +41,7 @@ namespace Topppro.WebSite
                 defaults: new { culture = Topppro.Context.Current.Culture.TwoLetterISOLanguageName, action = "HiRes" }, // Parameter defaults
                 constraints: new { culture = "[a-zA-Z]{2}" },
                 namespaces: new[] { "Topppro.WebSite.Controllers" }
-            );
+            ).DataTokens["area"] = "Humanist";
 
             routes.MapRoute(
                 name: "Detail", // Route name
@@ -49,22 +49,22 @@ namespace Topppro.WebSite
                 defaults: new { culture = Topppro.Context.Current.Culture.TwoLetterISOLanguageName, action = "Detail" }, // Parameter defaults
                 constraints: new { culture = "[a-zA-Z]{2}" },
                 namespaces: new[] { "Topppro.WebSite.Controllers" }
-            );
+            ).DataTokens["area"] = "Humanist";
 
             routes.MapRoute(
-                name: "Localization", // Route name
+                name: "Catalog", // Route name
                 url: "{culture}/{controller}/{action}", // URL with parameters
                 defaults: new { culture = Topppro.Context.Current.Culture.TwoLetterISOLanguageName, controller = "Home", action = "Index" }, // Parameter defaults
                 constraints: new { culture = "[a-zA-Z]{2}" },
                 namespaces: new[] { "Topppro.WebSite.Controllers" }
-            );
+            ).DataTokens["area"] = "Humanist";
 
             routes.MapRoute(
                 name: "Default", // Route name
                 url: "{controller}/{action}/{id}", // URL with parameters
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }, // Parameter defaults
                 namespaces: new[] { "Topppro.WebSite.Controllers" }
-            );
+            ).DataTokens["area"] = "Humanist";
         }
 
         protected void Application_Start()
