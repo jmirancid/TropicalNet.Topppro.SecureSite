@@ -1,5 +1,8 @@
-﻿body
+﻿@import url('Fonts.css');
+
+body
 {
+    font-family: 'Humanst521BT-Light' , Sans-Serif;
     background-color: #F0EFF0;
     margin-top: 0px;
 }

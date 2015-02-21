@@ -1,0 +1,19 @@
+﻿/** Humanst521BT-Light **/
+@font-face
+{
+    font-family: 'Humanst521BT-Light';
+    src: url('../Fonts/Humanst521BT-Light.eot');
+    src: url('../Fonts/Humanst521BT-Light.eot?#iefix') format('embedded-opentype'), url('../Fonts/Humanst521BT-Light.woff') format('woff'), url('../Fonts/Humanst521BT-Light.ttf') format('truetype'), url('../Fonts/Humanst521BT-Light.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/** Humanst521BT-Roman **/
+@font-face
+{
+    font-family: 'Humanst521BT-Roman';
+    src: url('../Fonts/Humanst521BT-Roman.eot');
+    src: url('../Fonts/Humanst521BT-Roman.eot?#iefix') format('embedded-opentype'), url('../Fonts/Humanst521BT-Roman.woff') format('woff'), url('../Fonts/Humanst521BT-Roman.ttf') format('truetype'), url('../Fonts/Humanst521BT-Roman.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
