@@ -13,7 +13,7 @@
     <meta name="keywords" content="@ViewBag.Keywords" />
     <meta name="robots" content="all" />
     <meta name="revisit-after" content="10 day" />
-    <link rel="Shortcut Icon" href="@Url.Content("~/Content/Images/favicon.ico")" />
+    <link rel="Shortcut Icon" href="@Url.Content("~/Areas/Humanist/Content/Others/favicon.ico")" />
     <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Areas/Humanist/Content/Styles/Layout.css")" />
     @RenderSection("Styles", false)
     @*Html.Partial("_GoogleAnalytics")*@
@@ -26,21 +26,21 @@
         <div id="main">
             @RenderBody()
         </div>
-        <div id="footer">
-            @RenderSection("Footer", false)
-            @if (!IsSectionDefined("Footer"))
-            {
-                <table width="1000" border="0" cellspacing="0" bgcolor="#FFFFFF">
-                    <tbody>
-                        <tr>
-                            <td align="center">
-                                <img src="@Url.Content("~/Areas/Humanist/Content/Images/bottom.jpg")" width="1000" alt="" />
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            }
-        </div>
+    </div>
+    <div id="footer">
+        @RenderSection("Footer", false)
+        @if (!IsSectionDefined("Footer"))
+        {
+            <table width="1000" border="0" cellspacing="0" bgcolor="#FFFFFF">
+                <tbody>
+                    <tr>
+                        <td align="center">
+                            <img src="@Url.Content("~/Areas/Humanist/Content/Images/bottom.jpg")" width="1000" alt="" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        }
     </div>
     <script type="text/javascript" src="@Url.Content("~/Areas/Humanist/Scripts/MM_functions.js")"></script>
     @RenderSection("Scripts", false)
