@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Topppro.WebSite.Areas.Humanist.Controllers
 {
-    public class SpeakersController : LayoutController
+    public class AmplifiersController : LayoutController
     {
 
     }

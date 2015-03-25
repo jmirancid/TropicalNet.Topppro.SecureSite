@@ -1,0 +1,13 @@
+﻿@using Framework.Common.Extensions
+@using Topppro.WebSite.Areas.Humanist.Resources
+@using Topppro.WebSite.Areas.Humanist.Extensions
+
+@model Topppro.Entities.Assn_CategorySerie
+
+<div class="title">
+    <h1>@Model.Serie.Name.ToUpper() <small>Series</small></h1>
+</div>
+
+<h4 class="bluetooth">@Html.Raw(Localization.Mixers_Index_Mx_Bluetooth)</h4>
+
+@Html.Catalog()

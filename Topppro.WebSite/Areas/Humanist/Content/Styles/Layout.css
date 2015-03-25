@@ -51,6 +51,18 @@ td img
     display: block;
 }
 
+div.title h1
+{
+    font-size: 26px;
+    color: #E85122;
+}
+
+div.title h1 > small
+{
+    font-weight: lighter;
+    color: #646369;
+}
+
 ul.products
 {
     margin: 16px -18px 16px;
@@ -88,6 +100,7 @@ span.product_badge.left
     font-size: 14px;
     color: #646369;
     left: 0;
+    width: 105px;
 }
 
 span.product_badge.right
@@ -125,4 +138,11 @@ ul.products li > a
 {
     text-decoration: none;
     color: #cccccc;
+}
+
+h4.bluetooth
+{
+    text-align: center;
+    background-color: #c8c8c8;
+    margin-top: 10px;
 }

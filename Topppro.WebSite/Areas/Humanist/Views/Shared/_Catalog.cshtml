@@ -1,9 +1,19 @@
-﻿<ul class="products">
+﻿@using Topppro.Entities
+@using Framework.Common.Extensions
+@using System.Text.RegularExpressions
+@using Topppro.WebSite.Areas.Humanist.Resources
+@using Topppro.WebSite.Areas.Humanist.Extensions
+
+@model IEnumerable<Topppro.Entities.Assn_CategorySerieProduct>
+
+<ul class="products">
+@foreach (var assn in Model)
+{
     <li>
         <a href="#">
-            <span class="product_badge left">KS CS 8A</span>
+            <span class="product_badge left">@assn.Product.Name.ToUpper()</span>
             <span class="product_badge right">
-                <big>15"</big><small>ACTIVE</small>
+                <big>@(Regex.Match(assn.Product.Name, @"\d+").Value)"</big><small>@assn.Product.Model.Name.ToUpper()</small>
             </span>
             <img src="http://res.cloudinary.com/dl05ea4pe/image/upload/v1424869384/maiN_r9_c17_owwr5v.gif">
             <ul class="highlights">
@@ -13,102 +23,6 @@
             </ul>
         </a>
     </li>
-    <li>
-        <a href="#">
-            <span class="product_badge left">KS CS 8A</span>
-            <span class="product_badge right">
-                <big>15"</big><small>ACTIVE</small>
-            </span>
-            <img src="http://res.cloudinary.com/dl05ea4pe/image/upload/v1424869384/maiN_r9_c17_owwr5v.gif">
-            <ul class="highlights">
-                <li>Donec tincidunt libero at justo.</li>
-                <li>Nunc ut felis nunc.</li>
-                <li>Quisque nec molestie magna.</li>
-            </ul>
-        </a>
-    </li>
-    <li>
-        <a href="#">
-            <span class="product_badge left">KS CS 8A</span>
-            <span class="product_badge right">
-                <big>15"</big><small>ACTIVE</small>
-            </span>
-            <img src="http://res.cloudinary.com/dl05ea4pe/image/upload/v1424869384/maiN_r9_c17_owwr5v.gif">
-            <ul class="highlights">
-                <li>Donec tincidunt libero at justo.</li>
-                <li>Nunc ut felis nunc.</li>
-                <li>Quisque nec molestie magna.</li>
-            </ul>
-        </a>
-    </li>
-    <li>
-        <a href="#">
-            <span class="product_badge left">KS CS 8A</span>
-            <span class="product_badge right">
-                <big>15"</big><small>ACTIVE</small>
-            </span>
-            <img src="http://res.cloudinary.com/dl05ea4pe/image/upload/v1424869384/maiN_r9_c17_owwr5v.gif">
-            <ul class="highlights">
-                <li>Donec tincidunt libero at justo.</li>
-                <li>Nunc ut felis nunc.</li>
-                <li>Quisque nec molestie magna.</li>
-            </ul>
-        </a>
-    </li>
-    <li>
-        <a href="#">
-            <span class="product_badge left">KS CS 8A</span>
-            <span class="product_badge right">
-                <big>15"</big><small>ACTIVE</small>
-            </span>
-            <img src="http://res.cloudinary.com/dl05ea4pe/image/upload/v1424869384/maiN_r9_c17_owwr5v.gif">
-            <ul class="highlights">
-                <li>Donec tincidunt libero at justo.</li>
-                <li>Nunc ut felis nunc.</li>
-                <li>Quisque nec molestie magna.</li>
-            </ul>
-        </a>
-    </li>
-    <li>
-        <a href="#">
-            <span class="product_badge left">KS CS 8A</span>
-            <span class="product_badge right">
-                <big>15"</big><small>ACTIVE</small>
-            </span>
-            <img src="http://res.cloudinary.com/dl05ea4pe/image/upload/v1424869384/maiN_r9_c17_owwr5v.gif">
-            <ul class="highlights">
-                <li>Donec tincidunt libero at justo.</li>
-                <li>Nunc ut felis nunc.</li>
-                <li>Quisque nec molestie magna.</li>
-            </ul>
-        </a>
-    </li>
-    <li>
-        <a href="#">
-            <span class="product_badge left">KS CS 8A</span>
-            <span class="product_badge right">
-                <big>15"</big><small>ACTIVE</small>
-            </span>
-            <img src="http://res.cloudinary.com/dl05ea4pe/image/upload/v1424869384/maiN_r9_c17_owwr5v.gif">
-            <ul class="highlights">
-                <li>Donec tincidunt libero at justo.</li>
-                <li>Nunc ut felis nunc.</li>
-                <li>Quisque nec molestie magna.</li>
-            </ul>
-        </a>
-    </li>
-    <li>
-        <a href="#">
-            <span class="product_badge left">KS CS 8A</span>
-            <span class="product_badge right">
-                <big>15"</big><small>ACTIVE</small>
-            </span>
-            <img src="http://res.cloudinary.com/dl05ea4pe/image/upload/v1424869384/maiN_r9_c17_owwr5v.gif">
-            <ul class="highlights">
-                <li>Donec tincidunt libero at justo.</li>
-                <li>Nunc ut felis nunc.</li>
-                <li>Quisque nec molestie magna.</li>
-            </ul>
-        </a>
-    </li>
+}
 </ul>
+

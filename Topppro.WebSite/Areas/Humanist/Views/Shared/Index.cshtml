@@ -1,0 +1,138 @@
+﻿@using Topppro.WebSite.Areas.Humanist.Extensions
+@using Topppro.WebSite.Areas.Humanist.Resources
+@using Framework.MVC.Extensions
+
+@model IEnumerable<Topppro.Entities.Assn_CategorySerie>
+
+@section Styles {
+    <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Areas/Humanist/Content/Styles/themes/base/jquery.ui.all.css")" />
+    <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Areas/Humanist/Scripts/jquery.jspanel-2.1.0/jsPanel.css")" />
+}
+
+<table width="1000" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+    <tbody>
+        @Html.DisplayForModel()
+    </tbody>
+</table>
+
+@section Scripts {
+    @Html.PreloadedImages()
+    <script type="text/javascript" src="@Url.Content("~/Areas/Humanist/Scripts/jquery-1.8.3.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Areas/Humanist/Scripts/jquery-ui-1.9.2.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Areas/Humanist/Scripts/jquery.jspanel-2.1.0/jquery.jspanel.min.js")"></script>
+    <script type="text/javascript">
+        $(function () {
+            var jspanel, item_list = [];
+
+            $('input[type="checkbox"]').change(function (event) {
+                var target = $(this);
+
+                if (target.is(':checked')) {
+
+                    if (item_list.length == 2) {
+                        target.attr('checked', false);
+                        return;
+                    }
+
+                    var item = {
+                        id: target.attr('id'),
+                        value: target.val(),
+                        text: target.data('text'),
+                        timestamp: (new Date()).getTime()
+                    };
+
+                    item_list.push(item);
+
+                    if (jspanel) {
+                        refresh_panel_content();
+                        return;
+                    }
+
+                    jspanel = $.jsPanel({
+                        title: '@Localization.Compare_Panel_Title',
+                        theme: 'info',
+                        size: { width: 250, height: 80 },
+                        position: 'bottom center',
+                        controls: { buttons: 'closeonly' },
+                        toolbarFooter: [
+                        {
+                            item: '<button class="..." type="button"><span class="..."></span></button>',
+                            event: 'click',
+                            btnclass: 'btn-sm',
+                            btntext: '@Localization.Compare_Panel_Clear_Button',
+                            callback: function (event) {
+                                reset_compare(); refresh_panel_content();
+                            }
+                        }, {
+                            item: '<button class="..." type="button"><span class="..."></span></button>',
+                            event: 'click',
+                            btnclass: 'btn-sm',
+                            btntext: '@Localization.Compare_Panel_Compare_Button',
+                            callback: function (event) {
+                                if (item_list.length < 2)
+                                    return;
+
+                                var compare_mask =
+                                    '@Url.RouteUrl("Compare", new { lid = "lid", lname = "lname", rid = "rid", rname = "rname"})';
+
+                                var compare_url = compare_mask.replace('lid', item_list[0].value)
+                                                              .replace('lname', item_list[0].text)
+                                                              .replace('rid', item_list[1].value)
+                                                              .replace('rname', item_list[1].text);
+
+                                $(location).attr('href', compare_url);
+                            }
+                        }]
+                    });
+
+                    refresh_panel_content();
+
+                } else {
+
+                    item_list =
+                        $.grep(item_list, function (el, ix) { return el.value != target.val(); });
+
+                    refresh_panel_content();
+                }
+            });
+
+            $('body').on('click', '.remove-from-compare', function (event) {
+                var ix = $(this).data('ix');
+
+                $('#' + item_list[ix].id).attr('checked', false);
+
+                item_list.splice(ix, 1);
+                refresh_panel_content();
+            });
+
+            $('body').on('jspanelclosed', function (event, id) {
+                jspanel = null; reset_compare();
+            });
+
+            function refresh_panel_content() {
+
+                var ul = $('<ul>');
+
+                var rem_btn = $('<a>');
+                rem_btn.attr('class', 'remove-from-compare');
+                rem_btn.attr('href', 'javascript:void(0)');
+                rem_btn.attr('title', '@Localization.Remove_From_Compare');
+                rem_btn.html('(x)');
+
+                $(item_list).each(function (ix, el) {
+                    var clone = rem_btn.clone();
+                    clone.attr('data-ix', ix);
+
+                    ul.append($('<li>').append(el.text).append('&nbsp;').append(clone));
+                });
+
+                jspanel.content.html($('<p>').append(ul));
+            }
+
+            function reset_compare() {
+                item_list = [];
+                $('input[type="checkbox"]').attr('checked', false);
+            }
+        });
+    </script>
+}

@@ -1,0 +1,16 @@
+﻿@using Framework.Common.Extensions
+@using Topppro.WebSite.Areas.Humanist.Resources
+@using Topppro.WebSite.Areas.Humanist.Extensions
+
+@model Topppro.Entities.Assn_CategorySerie
+
+<div class="title">
+    <h1>@Model.Serie.Name.ToUpper() <small>Series</small></h1>
+</div>
+
+<table width="960" cellspacing="0" border="0">
+    <tr>
+        <td>@Html.Catalog(Model.Assn_CategorySerieProduct.Take(1))</td>
+        <td align="right"><img src="@Url.Content("~/Areas/Humanist/Content/Images/i4K-2000w.jpg")" alt="@Localization.Packs_Index_i4K_2000W" /></td>
+    </tr>
+</table>

@@ -31,6 +31,7 @@ namespace Topppro.Repositories.Definitions
                             .Include(a => a.Category)
                             .Include(a => a.Serie)
                             .Include(a => a.Assn_CategorySerieProduct.Select(b => b.Product))
+                            .Include(a => a.Assn_CategorySerieProduct.Select(b => b.Product.Model))
                             .Where(predicate)
                             .Select(a => new
                             {
@@ -38,7 +39,8 @@ namespace Topppro.Repositories.Definitions
                                 Category = a.Category,
                                 Serie = a.Serie,
                                 Assn_Products = a.Assn_CategorySerieProduct.Where(b => b.Enabled).OrderBy(b => b.Priority),
-                                Products = a.Assn_CategorySerieProduct.Select(b => b.Product)
+                                Products = a.Assn_CategorySerieProduct.Select(b => b.Product),
+                                Models = a.Assn_CategorySerieProduct.Select(b => b.Product.Model)
                             });
 
             return dbquery.AsEnumerable().Select(n => n.a).AsQueryable();

@@ -1,0 +1,28 @@
+﻿@using Framework.Common.Extensions
+@using Topppro.WebSite.Areas.Humanist.Resources
+@using Topppro.WebSite.Areas.Humanist.Extensions
+
+@model Topppro.Entities.Assn_CategorySerie
+
+<div class="title">
+    <h1>@Model.Serie.Name.ToUpper() <small>Series</small></h1>
+</div>
+
+<table width="960" cellspacing="0" border="0">
+    <tr>
+        <td>@Html.Catalog(Model.Assn_CategorySerieProduct.Take(1))</td>
+        <td align="right"><img src="@Url.Content("~/Areas/Humanist/Content/Images/dmx244-livemixing.jpg")" alt="@Localization.Mixers_Index_Mx_Digital_Live_Mixing" /></td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <img src="@Url.Content("~/Areas/Humanist/Content/Images/mx244-app.jpg")" alt="" />
+        </td>
+    </tr>
+</table>
+
+<table width="960" cellspacing="0" border="0">
+    <tr>
+        <td>@Html.Catalog(Model.Assn_CategorySerieProduct.Skip(1))</td>
+        <td align="right"><img src="@Url.Content("~/Areas/Humanist/Content/Images/t20-banner.jpg")" alt="" /></td>
+    </tr>
+</table>

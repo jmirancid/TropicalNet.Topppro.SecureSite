@@ -1,0 +1,24 @@
+﻿@using Framework.Common.Extensions
+@using Topppro.WebSite.Areas.Humanist.Resources
+@using Topppro.WebSite.Areas.Humanist.Extensions
+
+@model Topppro.Entities.Assn_CategorySerie
+
+<style type="text/css">
+    h4
+    {
+        font-size: 20px;
+        margin-top: 1.33em;
+        margin-bottom: 1.33em;
+    }
+</style>
+
+<div class="title">
+    <h1>@Model.Serie.Name.ToUpper() <small>Series</small></h1>
+</div>
+
+<h4 style="color: #315F8D;"><b>@Html.Raw(Localization.Packs_Index_Soho_Title)</b></h4>
+<h4>@Html.Raw(Localization.Packs_Index_Soho_Subtitle)</h4>
+<p style="text-align: justify;">@Html.Raw(Localization.Packs_Index_Soho_Message)</p>
+
+@Html.Catalog()

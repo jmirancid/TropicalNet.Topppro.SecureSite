@@ -1,7 +1,7 @@
 -- SQL Manager Lite for SQL Server 4.0.1.44515
 -- ---------------------------------------
 -- Host      : (local)
--- Database  : ToppproNew
+-- Database  : Topppro
 -- Version   : Microsoft SQL Server  10.50.1600.1
 
 
@@ -14,19 +14,19 @@ IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Assn_CategorySeri
 GO
 
 --
--- Dropping table Category : 
---
-
-IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Category') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
-  DROP TABLE dbo.Category
-GO
-
---
 -- Dropping table Serie : 
 --
 
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Serie') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
   DROP TABLE dbo.Serie
+GO
+
+--
+-- Dropping table Category : 
+--
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Category') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  DROP TABLE dbo.Category
 GO
 
 --
@@ -78,22 +78,22 @@ IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Package') AND OBJ
 GO
 
 --
--- Definition for table Category : 
+-- Definition for table Serie : 
 --
 
-CREATE TABLE dbo.Category (
-  CategoryId int IDENTITY(1, 1) NOT NULL,
+CREATE TABLE dbo.Serie (
+  SerieId int IDENTITY(1, 1) NOT NULL,
   Name varchar(50) COLLATE Modern_Spanish_CI_AS NOT NULL
 )
 ON [PRIMARY]
 GO
 
 --
--- Definition for table Serie : 
+-- Definition for table Category : 
 --
 
-CREATE TABLE dbo.Serie (
-  SerieId int IDENTITY(1, 1) NOT NULL,
+CREATE TABLE dbo.Category (
+  CategoryId int IDENTITY(1, 1) NOT NULL,
   Name varchar(50) COLLATE Modern_Spanish_CI_AS NOT NULL
 )
 ON [PRIMARY]
@@ -202,9 +202,9 @@ GO
 -- Definition for indices : 
 --
 
-ALTER TABLE dbo.Category
-ADD CONSTRAINT Category_PK 
-PRIMARY KEY CLUSTERED (CategoryId)
+ALTER TABLE dbo.Serie
+ADD CONSTRAINT Serie_PK 
+PRIMARY KEY CLUSTERED (SerieId)
 WITH (
   PAD_INDEX = OFF,
   IGNORE_DUP_KEY = OFF,
@@ -214,9 +214,9 @@ WITH (
 ON [PRIMARY]
 GO
 
-ALTER TABLE dbo.Serie
-ADD CONSTRAINT Serie_PK 
-PRIMARY KEY CLUSTERED (SerieId)
+ALTER TABLE dbo.Category
+ADD CONSTRAINT Category_PK 
+PRIMARY KEY CLUSTERED (CategoryId)
 WITH (
   PAD_INDEX = OFF,
   IGNORE_DUP_KEY = OFF,

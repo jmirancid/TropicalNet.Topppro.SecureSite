@@ -1,0 +1,16 @@
+﻿@using Topppro.WebSite.Areas.Humanist.Extensions
+@using Framework.Common.Extensions
+
+@model Topppro.Entities.Assn_CategorySerie
+
+<div class="title">
+    <h1>@Model.Serie.Name.ToUpper() <small>ACTIVE</small></h1>
+</div>
+
+@Html.Catalog(Model.Assn_CategorySerieProduct.Where(a => a.Product.ModelId == 1))
+
+<div class="title">
+    <h1>@Model.Serie.Name.ToUpper() <small>PASSIVE</small></h1>
+</div>
+
+@Html.Catalog(Model.Assn_CategorySerieProduct.Where(a => a.Product.ModelId == 2))
