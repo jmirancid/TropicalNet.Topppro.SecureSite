@@ -61,7 +61,7 @@ namespace Topppro.WebSite
 
             routes.MapRoute(
                 name: "Catalog", // Route name
-                url: "{culture}/{controller}/{action}", // URL with parameters
+                url: "{culture}/{controller}", // URL with parameters
                 defaults: new { culture = Topppro.Context.Current.Culture.TwoLetterISOLanguageName, controller = "Home", action = "Index" }, // Parameter defaults
                 constraints: new { culture = "[a-zA-Z]{2}" },
                 namespaces: namespaces

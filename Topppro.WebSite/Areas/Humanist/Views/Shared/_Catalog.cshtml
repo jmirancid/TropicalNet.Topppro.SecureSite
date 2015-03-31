@@ -10,7 +10,7 @@
 @foreach (var assn in Model)
 {
     <li>
-        <a href="#">
+        <a href="@Url.RouteUrl("Detail", new { controller = ViewContext.RouteData.Values["controller"], id = assn.Id, name = assn.Product.Name.ToSeoSlug() })">
             <span class="product_badge left">@assn.Product.Name.ToUpper()</span>
             <span class="product_badge right">
                 <big>@(Regex.Match(assn.Product.Name, @"\d+").Value)"</big><small>@assn.Product.Model.Name.ToUpper()</small>

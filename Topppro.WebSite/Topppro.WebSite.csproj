@@ -940,6 +940,8 @@
     <Content Include="Areas\Humanist\Views\Mixers\DisplayTemplates\Serie_MxDigital.cshtml" />
     <Content Include="Areas\Humanist\Views\Packs\DisplayTemplates\Serie_I4k.cshtml" />
     <Content Include="Areas\Humanist\Views\Packs\DisplayTemplates\Serie_Soho.cshtml" />
+    <Content Include="Areas\Humanist\Views\Shared\Detail.cshtml" />
+    <Content Include="Areas\Humanist\Views\Shared\_Attributes.cshtml" />
     <None Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.eot" />
     <None Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.ttf" />
     <None Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.woff" />

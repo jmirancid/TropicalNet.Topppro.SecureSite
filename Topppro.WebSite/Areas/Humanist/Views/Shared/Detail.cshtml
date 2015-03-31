@@ -1,0 +1,17 @@
+﻿@using Framework.MVC.Extensions
+@using Topppro.WebSite.Areas.Humanist.Resources
+@using Topppro.WebSite.Areas.Humanist.Extensions
+
+@model Topppro.Entities.Assn_CategorySerieProduct
+
+<h4>@Model.Assn_CategorySerie.Serie.Name.ToUpper() Series</h4>
+<div class="title">
+    <h1>@Model.Product.Name.ToUpper()</h1>
+</div>
+
+@Html.Partial("_Attributes", Model.Product.Attributes)
+
+@foreach (var package in Model.Product.ParentInPackages)
+{
+    @Html.Partial("_Attributes", package.ChildProduct.Attributes);
+}
