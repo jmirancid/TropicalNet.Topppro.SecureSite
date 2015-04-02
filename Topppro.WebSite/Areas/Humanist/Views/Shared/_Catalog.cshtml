@@ -15,7 +15,8 @@
             <span class="product_badge right">
                 <big>@(Regex.Match(assn.Product.Name, @"\d+").Value)"</big><small>@assn.Product.Model.Name.ToUpper()</small>
             </span>
-            <img src="http://res.cloudinary.com/dl05ea4pe/image/upload/v1424869384/maiN_r9_c17_owwr5v.gif">
+            <img src="@(assn.Product.GetThumbs().Where(t => !t.Contains("up")).DefaultIfEmpty<string>(Url.Content("~/Content/Images/coming-soon.jpg")).First())" alt="@assn.Product.Name" name="@(string.Format("Image{0}", assn.Id))"
+                width="173" height="143" border="0" id="@(string.Format("Image{0}", assn.Id))" />
             <ul class="highlights">
                 <li>Donec tincidunt libero at justo.</li>
                 <li>Nunc ut felis nunc.</li>
