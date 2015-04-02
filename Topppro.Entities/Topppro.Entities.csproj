@@ -75,6 +75,9 @@
     <Compile Include="Generated\Attribute.cs">
       <DependentUpon>Templates.tt</DependentUpon>
     </Compile>
+    <Compile Include="Generated\Bullet.cs">
+      <DependentUpon>Templates.tt</DependentUpon>
+    </Compile>
     <Compile Include="Generated\Category.cs">
       <DependentUpon>Templates.tt</DependentUpon>
     </Compile>

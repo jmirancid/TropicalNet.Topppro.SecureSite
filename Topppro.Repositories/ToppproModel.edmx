@@ -9,6 +9,7 @@
           <EntitySet Name="Assn_CategorySerie" EntityType="ToppproModel.Store.Assn_CategorySerie" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Assn_CategorySerieProduct" EntityType="ToppproModel.Store.Assn_CategorySerieProduct" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Attribute" EntityType="ToppproModel.Store.Attribute" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Bullet" EntityType="ToppproModel.Store.Bullet" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Category" EntityType="ToppproModel.Store.Category" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Culture" EntityType="ToppproModel.Store.Culture" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Model" EntityType="ToppproModel.Store.Model" store:Type="Tables" Schema="dbo" />
@@ -26,6 +27,10 @@
           <AssociationSet Name="Culture_Attribute_FK" Association="ToppproModel.Store.Culture_Attribute_FK">
             <End Role="Culture" EntitySet="Culture" />
             <End Role="Attribute" EntitySet="Attribute" />
+          </AssociationSet>
+          <AssociationSet Name="Culture_Bullet_FK" Association="ToppproModel.Store.Culture_Bullet_FK">
+            <End Role="Culture" EntitySet="Culture" />
+            <End Role="Bullet" EntitySet="Bullet" />
           </AssociationSet>
           <AssociationSet Name="Model_Product_FK" Association="ToppproModel.Store.Model_Product_FK">
             <End Role="Model" EntitySet="Model" />
@@ -46,6 +51,10 @@
           <AssociationSet Name="Product_Attribute_FK" Association="ToppproModel.Store.Product_Attribute_FK">
             <End Role="Product" EntitySet="Product" />
             <End Role="Attribute" EntitySet="Attribute" />
+          </AssociationSet>
+          <AssociationSet Name="Product_Bullet_FK" Association="ToppproModel.Store.Product_Bullet_FK">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Bullet" EntitySet="Bullet" />
           </AssociationSet>
           <AssociationSet Name="Serie_Assn_CategorySerie_FK" Association="ToppproModel.Store.Serie_Assn_CategorySerie_FK">
             <End Role="Serie" EntitySet="Serie" />
@@ -80,6 +89,18 @@
             <PropertyRef Name="AttributeId" />
           </Key>
           <Property Name="AttributeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="CultureId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="Value" Type="varchar" Nullable="false" />
+          <Property Name="Priority" Type="int" />
+          <Property Name="Enabled" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bullet">
+          <Key>
+            <PropertyRef Name="BulletId" />
+          </Key>
+          <Property Name="BulletId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="ProductId" Type="int" Nullable="false" />
           <Property Name="CultureId" Type="int" Nullable="false" />
           <Property Name="Name" Type="varchar" Nullable="false" MaxLength="150" />
@@ -173,6 +194,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="Culture_Bullet_FK">
+          <End Role="Culture" Type="ToppproModel.Store.Culture" Multiplicity="1" />
+          <End Role="Bullet" Type="ToppproModel.Store.Bullet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Culture">
+              <PropertyRef Name="CultureId" />
+            </Principal>
+            <Dependent Role="Bullet">
+              <PropertyRef Name="CultureId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="Model_Product_FK">
           <End Role="Model" Type="ToppproModel.Store.Model" Multiplicity="1" />
           <End Role="Product" Type="ToppproModel.Store.Product" Multiplicity="*" />
@@ -229,6 +262,18 @@
               <PropertyRef Name="ProductId" />
             </Principal>
             <Dependent Role="Attribute">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Product_Bullet_FK">
+          <End Role="Product" Type="ToppproModel.Store.Product" Multiplicity="1" />
+          <End Role="Bullet" Type="ToppproModel.Store.Bullet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="Bullet">
               <PropertyRef Name="ProductId" />
             </Dependent>
           </ReferentialConstraint>
@@ -295,6 +340,15 @@
             <End Role="Product" EntitySet="Product" />
             <End Role="Package" EntitySet="Package" />
           </AssociationSet>
+          <EntitySet Name="Bullet" EntityType="ToppproModel.Bullet" />
+          <AssociationSet Name="Culture_Bullet_FK" Association="ToppproModel.Culture_Bullet_FK">
+            <End Role="Culture" EntitySet="Culture" />
+            <End Role="Bullet" EntitySet="Bullet" />
+          </AssociationSet>
+          <AssociationSet Name="Product_Bullet_FK" Association="ToppproModel.Product_Bullet_FK">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Bullet" EntitySet="Bullet" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Assn_CategorySerie">
           <Key>
@@ -354,6 +408,7 @@
           <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Code" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Attributes" Relationship="ToppproModel.Culture_Attribute_FK" FromRole="Culture" ToRole="Attribute" />
+          <NavigationProperty Name="Bullet" Relationship="ToppproModel.Culture_Bullet_FK" FromRole="Culture" ToRole="Bullet" />
         </EntityType>
         <EntityType Name="Model">
           <Key>
@@ -390,6 +445,7 @@
           <NavigationProperty Name="Model" Relationship="ToppproModel.Model_Product_FK" FromRole="Product" ToRole="Model" />
           <NavigationProperty Name="ChildInPackages" Relationship="ToppproModel.Package_Child_Product_FK" FromRole="Product" ToRole="Package" />
           <NavigationProperty Name="ParentInPackages" Relationship="ToppproModel.Package_Parent_Product_FK" FromRole="Product" ToRole="Package" />
+          <NavigationProperty Name="Bullet" Relationship="ToppproModel.Product_Bullet_FK" FromRole="Product" ToRole="Bullet" />
         </EntityType>
         <EntityType Name="Serie">
           <Key>
@@ -507,6 +563,44 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Bullet">
+          <Key>
+            <PropertyRef Name="BulletId" />
+          </Key>
+          <Property Type="Int32" Name="BulletId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ProductId" Nullable="false" />
+          <Property Type="Int32" Name="CultureId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Value" Nullable="false" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Priority" />
+          <Property Type="Boolean" Name="Enabled" Nullable="false" />
+          <NavigationProperty Name="Culture" Relationship="ToppproModel.Culture_Bullet_FK" FromRole="Bullet" ToRole="Culture" />
+          <NavigationProperty Name="Product" Relationship="ToppproModel.Product_Bullet_FK" FromRole="Bullet" ToRole="Product" />
+        </EntityType>
+        <Association Name="Culture_Bullet_FK">
+          <End Type="ToppproModel.Culture" Role="Culture" Multiplicity="1" />
+          <End Type="ToppproModel.Bullet" Role="Bullet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Culture">
+              <PropertyRef Name="CultureId" />
+            </Principal>
+            <Dependent Role="Bullet">
+              <PropertyRef Name="CultureId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Product_Bullet_FK">
+          <End Type="ToppproModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="ToppproModel.Bullet" Role="Bullet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="Bullet">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -607,6 +701,19 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Bullet">
+            <EntityTypeMapping TypeName="ToppproModel.Bullet">
+              <MappingFragment StoreEntitySet="Bullet">
+                <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CultureId" ColumnName="CultureId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="BulletId" ColumnName="BulletId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -639,8 +746,8 @@
         <EntityTypeShape EntityType="ToppproModel.Product" Width="1.5" PointX="3" PointY="5.625" Height="3.1340950520833388" />
         <EntityTypeShape EntityType="ToppproModel.Serie" Width="1.5" PointX="0.75" PointY="8.875" Height="1.5956835937500031" />
         <AssociationConnector Association="ToppproModel.Assn_CategorySerie_Assn_CategorySerieProduct_FK" >
-          <ConnectorPoint PointX="4.5" PointY="2.03125" />
-          <ConnectorPoint PointX="5.59375" PointY="2.03125" />
+          <ConnectorPoint PointX="4.5" PointY="2.0391951497395837" />
+          <ConnectorPoint PointX="5.59375" PointY="2.0391951497395837" />
           <ConnectorPoint PointX="5.59375" PointY="6" />
         </AssociationConnector>
         <AssociationConnector Association="ToppproModel.Category_Ass_CategorySerie_FK" >
@@ -651,42 +758,58 @@
           <ConnectorPoint PointX="3.75" PointY="3.6917936197916674" />
         </AssociationConnector>
         <AssociationConnector Association="ToppproModel.Serie_Assn_CategorySerie_FK" >
-          <ConnectorPoint PointX="2.25" PointY="8.8761528461538468" />
-          <ConnectorPoint PointX="2.625" PointY="8.5011528461538468" />
-          <ConnectorPoint PointX="2.625" PointY="2.2208968098958337" />
-          <ConnectorPoint PointX="3" PointY="2.2208968098958337" />
+          <ConnectorPoint PointX="2.25" PointY="8.8760974299879809" />
+          <ConnectorPoint PointX="2.625" PointY="8.5010974299879809" />
+          <ConnectorPoint PointX="2.625" PointY="2.0391951497395837" />
+          <ConnectorPoint PointX="3" PointY="2.0391951497395837" />
         </AssociationConnector>
         <AssociationConnector Association="ToppproModel.Product_Assn_CategorySerieProduct_FK" >
-          <ConnectorPoint PointX="4.5" PointY="7.2785953776041659" />
-          <ConnectorPoint PointX="5.25" PointY="7.2785953776041659" />
+          <ConnectorPoint PointX="4.5" PointY="7.1248478190104167" />
+          <ConnectorPoint PointX="5.25" PointY="7.1248478190104167" />
         </AssociationConnector>
         <AssociationConnector Association="ToppproModel.Culture_Attribute_FK" >
-          <ConnectorPoint PointX="7.15625" PointY="5.1629850260416674" />
+          <ConnectorPoint PointX="7.15625" PointY="5.1316536458333326" />
           <ConnectorPoint PointX="7.15625" PointY="5.90625" />
           <ConnectorPoint PointX="8.25" PointY="5.90625" />
         </AssociationConnector>
         <AssociationConnector Association="ToppproModel.Product_Attribute_FK" >
-          <ConnectorPoint PointX="4.5" PointY="8.7590950520833388" />
-          <ConnectorPoint PointX="4.875" PointY="9.1340950520833388" />
-          <ConnectorPoint PointX="4.875" PointY="8.999492187499996" />
-          <ConnectorPoint PointX="7.875" PointY="8.999492187499996" />
-          <ConnectorPoint PointX="8.25" PointY="8.624492187499996" />
+          <ConnectorPoint PointX="4.5" PointY="8.5320849609375" />
+          <ConnectorPoint PointX="4.875" PointY="8.9070849609375" />
+          <ConnectorPoint PointX="4.875" PointY="8.66404296875" />
+          <ConnectorPoint PointX="7.875" PointY="8.66404296875" />
+          <ConnectorPoint PointX="8.25" PointY="8.28904296875" />
         </AssociationConnector>
         <AssociationConnector Association="ToppproModel.Model_Product_FK" >
-          <ConnectorPoint PointX="2.25" PointY="7.1728417968750016" />
-          <ConnectorPoint PointX="2.5416666666666665" PointY="7.1728417968750007" />
-          <ConnectorPoint PointX="2.7083333333333335" PointY="7.1728417968750016" />
-          <ConnectorPoint PointX="3" PointY="7.1728417968750016" />
+          <ConnectorPoint PointX="2.25" PointY="7.0889794921875" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="7.0889794921874989" />
+          <ConnectorPoint PointX="2.7083333333333335" PointY="7.0889794921875" />
+          <ConnectorPoint PointX="3" PointY="7.0889794921875" />
         </AssociationConnector>
         <AssociationConnector Association="ToppproModel.Package_Child_Product_FK" >
-          <ConnectorPoint PointX="3.7187475" PointY="8.7590950520833388" />
-          <ConnectorPoint PointX="3.7187475" PointY="14.057444661458334" />
-          <ConnectorPoint PointX="5.25" PointY="14.057444661458334" />
+          <ConnectorPoint PointX="3.50585859375" PointY="8.5320849609375" />
+          <ConnectorPoint PointX="3.50585859375" PointY="14.280975726656447" />
+          <ConnectorPoint PointX="5.25" PointY="14.280975726656447" />
         </AssociationConnector>
         <AssociationConnector Association="ToppproModel.Package_Parent_Product_FK" >
-          <ConnectorPoint PointX="4.10937375" PointY="8.7590950520833388" />
-          <ConnectorPoint PointX="4.10937375" PointY="13.434969830729166" />
-          <ConnectorPoint PointX="5.25" PointY="13.434969830729166" />
+          <ConnectorPoint PointX="4.002929296875" PointY="8.5320849609375" />
+          <ConnectorPoint PointX="4.002929296875" PointY="13.546735363328223" />
+          <ConnectorPoint PointX="5.25" PointY="13.546735363328223" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="ToppproModel.Bullet" Width="1.5" PointX="8.25" PointY="2.75" Height="2.4140429687499996" />
+        <AssociationConnector Association="ToppproModel.Culture_Bullet_FK" >
+          <ConnectorPoint PointX="7.5" PointY="4.2533268229166659" />
+          <ConnectorPoint PointX="8.25" PointY="4.2533268229166659" />
+        </AssociationConnector>
+        <AssociationConnector Association="ToppproModel.Product_Bullet_FK" >
+          <ConnectorPoint PointX="4.5" PointY="5.625" />
+          <ConnectorPoint PointX="4.875" PointY="5.25" />
+          <ConnectorPoint PointX="4.875" PointY="5.53904296875" />
+          <ConnectorPoint PointX="5.510416666666667" PointY="5.5390429687499987" />
+          <ConnectorPoint PointX="5.677083333333333" PointY="5.53904296875" />
+          <ConnectorPoint PointX="7.072916666666667" PointY="5.5390429687499987" />
+          <ConnectorPoint PointX="7.239583333333333" PointY="5.53904296875" />
+          <ConnectorPoint PointX="7.875" PointY="5.53904296875" />
+          <ConnectorPoint PointX="8.25" PointY="5.16404296875" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

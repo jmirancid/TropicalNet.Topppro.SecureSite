@@ -222,6 +222,40 @@ namespace Topppro.Entities
         }
     	//[XmlElement("ParentInPackages", typeof(Collection<Package>))]
         private ICollection<Package> _parentInPackages;
+    
+    	//[XmlElement("Bullet", typeof(Collection<Bullet>))]
+        public virtual ICollection<Bullet> Bullet
+        {
+            get
+            {
+                if (_bullet == null)
+                {
+                    var newCollection = new FixupCollection<Bullet>();
+                    newCollection.CollectionChanged += FixupBullet;
+                    _bullet = newCollection;
+                }
+                return _bullet;
+            }
+            set
+            {
+                if (!ReferenceEquals(_bullet, value))
+                {
+                    var previousValue = _bullet as FixupCollection<Bullet>;
+                    if (previousValue != null)
+                    {
+                        previousValue.CollectionChanged -= FixupBullet;
+                    }
+                    _bullet = value;
+                    var newValue = value as FixupCollection<Bullet>;
+                    if (newValue != null)
+                    {
+                        newValue.CollectionChanged += FixupBullet;
+                    }
+                }
+            }
+        }
+    	//[XmlElement("Bullet", typeof(Collection<Bullet>))]
+        private ICollection<Bullet> _bullet;
 
         #endregion
         #region Association Fixup
@@ -329,6 +363,28 @@ namespace Topppro.Entities
                     if (ReferenceEquals(item.ParentProduct, this))
                     {
                         item.ParentProduct = null;
+                    }
+                }
+            }
+        }
+    
+        private void FixupBullet(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (e.NewItems != null)
+            {
+                foreach (Bullet item in e.NewItems)
+                {
+                    item.Product = this;
+                }
+            }
+    
+            if (e.OldItems != null)
+            {
+                foreach (Bullet item in e.OldItems)
+                {
+                    if (ReferenceEquals(item.Product, this))
+                    {
+                        item.Product = null;
                     }
                 }
             }

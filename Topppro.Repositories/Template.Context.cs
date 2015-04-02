@@ -95,6 +95,12 @@ namespace Topppro.Repositories
             get { return _serie  ?? (_serie = CreateObjectSet<Serie>("Serie")); }
         }
         private ObjectSet<Serie> _serie;
+    
+        public ObjectSet<Bullet> Bullet
+        {
+            get { return _bullet  ?? (_bullet = CreateObjectSet<Bullet>("Bullet")); }
+        }
+        private ObjectSet<Bullet> _bullet;
 
         #endregion
     }
