@@ -95,6 +95,7 @@
     <Compile Include="Areas\Humanist\Controllers\SpeakersController.cs" />
     <Compile Include="Areas\Humanist\Controllers\WirelessController.cs" />
     <Compile Include="Areas\Humanist\Extensions\HtmlHelperExtensions.cs" />
+    <Compile Include="Areas\Humanist\Extensions\ProductExtensions.cs" />
     <Compile Include="Areas\Humanist\HumanistAreaRegistration.cs" />
     <Compile Include="Areas\Humanist\Resources\Localization.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -943,6 +944,7 @@
     <Content Include="Areas\Humanist\Views\Shared\Detail.cshtml" />
     <Content Include="Areas\Humanist\Views\Shared\_Attributes.cshtml" />
     <Content Include="Areas\Humanist\Views\Distributors\Index.cshtml" />
+    <Content Include="Areas\Humanist\Views\Shared\HiRes.cshtml" />
     <None Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.eot" />
     <None Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.ttf" />
     <None Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.woff" />
