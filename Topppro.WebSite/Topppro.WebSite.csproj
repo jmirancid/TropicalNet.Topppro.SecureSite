@@ -157,10 +157,16 @@
     <Compile Include="Security\StaticMembershipProvider.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Humanist\Content\Images\back-bottom.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\back-top.jpg" />
     <Content Include="Areas\Humanist\Content\Images\dmx244-livemixing.jpg" />
     <Content Include="Areas\Humanist\Content\Images\glyphicons-halflings-white.png" />
     <Content Include="Areas\Humanist\Content\Images\glyphicons-halflings.png" />
+    <Content Include="Areas\Humanist\Content\Images\hires-bottom.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\hires-top.jpg" />
     <Content Include="Areas\Humanist\Content\Images\i4K-2000w.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\manual-bottom.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\manual-top.jpg" />
     <Content Include="Areas\Humanist\Content\Images\mx244-app.jpg" />
     <Content Include="Areas\Humanist\Content\Images\syncfusion-icons-white.png" />
     <Content Include="Areas\Humanist\Content\Images\syncfusion-icons.png" />
