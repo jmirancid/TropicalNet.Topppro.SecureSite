@@ -61,6 +61,42 @@ namespace Topppro.WebSite.Areas.Humanist.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Remember me?.
+        /// </summary>
+        public static string Account_LogOn_RememberMe {
+            get {
+                return ResourceManager.GetString("Account_LogOn_RememberMe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Log On.
+        /// </summary>
+        public static string Account_LogOn_Submit {
+            get {
+                return ResourceManager.GetString("Account_LogOn_Submit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter your user name and password..
+        /// </summary>
+        public static string Account_LogOn_Subtitle {
+            get {
+                return ResourceManager.GetString("Account_LogOn_Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Log On.
+        /// </summary>
+        public static string Account_LogOn_Title {
+            get {
+                return ResourceManager.GetString("Account_LogOn_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Compare.
         /// </summary>
         public static string Add_To_Compare {
@@ -102,6 +138,15 @@ namespace Topppro.WebSite.Areas.Humanist.Resources {
         public static string Compare_Panel_Title {
             get {
                 return ResourceManager.GetString("Compare_Panel_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://placehold.it/173x143&amp;text=Coming+Soon!.
+        /// </summary>
+        public static string Default_Coming_Soon {
+            get {
+                return ResourceManager.GetString("Default_Coming_Soon", resourceCulture);
             }
         }
         

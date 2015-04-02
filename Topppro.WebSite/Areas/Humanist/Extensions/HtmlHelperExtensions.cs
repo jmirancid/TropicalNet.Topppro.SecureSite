@@ -71,34 +71,22 @@ namespace Topppro.WebSite.Areas.Humanist.Extensions
             return htmlHelper.Partial(template, htmlHelper.ViewData.Model);
         }
 
+        public static MvcHtmlString LogOn(
+            this HtmlHelper htmlHelper)
+        {
+            return htmlHelper.Partial("_LogOn");
+        }
+
         public static MvcHtmlString Menu(
             this HtmlHelper htmlHelper)
         {
             return htmlHelper.Partial("_Menu");
         }
 
-        public static MvcHtmlString Separator(
+        public static MvcHtmlString GoogleAnalytics(
             this HtmlHelper htmlHelper)
         {
-            return htmlHelper.Partial("_Separator");
-        }
-
-        public static MvcHtmlString Spacer(
-            this HtmlHelper htmlHelper)
-        {
-            return htmlHelper.Partial("_Spacer");
-        }
-
-        public static MvcHtmlString Pattern(
-            this HtmlHelper htmlHelper)
-        {
-            return htmlHelper.Partial("_Pattern");
-        }
-
-        public static MvcHtmlString Scheme(
-            this HtmlHelper htmlHelper)
-        {
-            return htmlHelper.Partial("_Scheme");
+            return htmlHelper.Partial("_GoogleAnalytics");
         }
 
         public static MvcHtmlString Catalog(
@@ -116,56 +104,21 @@ namespace Topppro.WebSite.Areas.Humanist.Extensions
             return htmlHelper.Partial("_Catalog", assn);
         }
 
-        public static MvcHtmlString ProductHeader(
-            this HtmlHelper<Topppro.Entities.Assn_CategorySerieProduct> htmlHelper)
-        {
-            return htmlHelper.Partial("_ProductHeader");
-        }
-
-        public static MvcHtmlString ProductPopUp(
+        public static MvcHtmlString Attributes(
             this HtmlHelper<Topppro.Entities.Assn_CategorySerieProduct> htmlHelper)
         {
             StringBuilder output = new StringBuilder();
-            output.Append(htmlHelper.Partial("_ProductPopUp", htmlHelper.ViewData.Model.Product));
+
+            if (htmlHelper.ViewData.Model.Product.Attributes.IsEmpty() == false)
+                output.Append(htmlHelper.Partial("_Attributes", htmlHelper.ViewData.Model.Product.Attributes));
 
             foreach (var package in htmlHelper.ViewData.Model.Product.ParentInPackages)
             {
-                output.Append(htmlHelper.Partial("_ProductPopUp", package.ChildProduct));
+                if (package.ChildProduct.Attributes.IsEmpty() == false)
+                    output.Append(htmlHelper.Partial("_Attributes", package.ChildProduct.Attributes));
             }
 
             return MvcHtmlString.Create(output.ToString());
-        }
-
-        public static MvcHtmlString ProductManual(
-            this HtmlHelper<Topppro.Entities.Assn_CategorySerieProduct> htmlHelper)
-        {
-            return htmlHelper.Partial("_ProductManual");
-        }
-
-        public static MvcHtmlString ProductHiRes(
-            this HtmlHelper<Topppro.Entities.Assn_CategorySerieProduct> htmlHelper)
-        {
-            return htmlHelper.Partial("_ProductHiRes");
-        }
-
-        public static MvcHtmlString ProductAttributes(
-            this HtmlHelper<Topppro.Entities.Assn_CategorySerieProduct> htmlHelper)
-        {
-            StringBuilder output = new StringBuilder();
-            output.Append(htmlHelper.Partial("_ProductAttributes", htmlHelper.ViewData.Model.Product.Attributes));
-
-            foreach (var package in htmlHelper.ViewData.Model.Product.ParentInPackages)
-            {
-                output.Append(htmlHelper.Partial("_ProductAttributes", package.ChildProduct.Attributes));
-            }
-
-            return MvcHtmlString.Create(output.ToString());
-        }
-
-        public static MvcHtmlString Button(
-            this HtmlHelper htmlHelper, string text, string link, string color, string className)
-        {
-            return htmlHelper.Partial("_Button", new ViewDataDictionary { { "ButtonText", text }, { "ButtonLink", link }, { "ButtonColor", color }, { "ButtonClass", className } });
         }
 
         public static MvcHtmlString PreloadedImages(

@@ -84,7 +84,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Areas\Humanist\Controllers\AccountController.cs" />
     <Compile Include="Areas\Humanist\Controllers\AmplifiersController.cs" />
+    <Compile Include="Areas\Humanist\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Humanist\Controllers\ErrorController.cs" />
     <Compile Include="Areas\Humanist\Controllers\HomeController.cs" />
     <Compile Include="Areas\Humanist\Controllers\InstallController.cs" />
     <Compile Include="Areas\Humanist\Controllers\LayoutController.cs" />
@@ -97,6 +100,8 @@
     <Compile Include="Areas\Humanist\Extensions\HtmlHelperExtensions.cs" />
     <Compile Include="Areas\Humanist\Extensions\ProductExtensions.cs" />
     <Compile Include="Areas\Humanist\HumanistAreaRegistration.cs" />
+    <Compile Include="Areas\Humanist\Models\AccountModels.cs" />
+    <Compile Include="Areas\Humanist\Models\DashboardModels.cs" />
     <Compile Include="Areas\Humanist\Resources\Localization.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -148,12 +153,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Localization.es.resx</DependentUpon>
     </Compile>
+    <Compile Include="Security\StaticMembershipProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Humanist\Content\Images\dmx244-livemixing.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\glyphicons-halflings-white.png" />
+    <Content Include="Areas\Humanist\Content\Images\glyphicons-halflings.png" />
     <Content Include="Areas\Humanist\Content\Images\i4K-2000w.jpg" />
     <Content Include="Areas\Humanist\Content\Images\mx244-app.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\syncfusion-icons-white.png" />
+    <Content Include="Areas\Humanist\Content\Images\syncfusion-icons.png" />
     <Content Include="Areas\Humanist\Content\Images\t20-banner.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\topp-error.jpg" />
     <Content Include="Areas\Humanist\Content\Others\favicon.ico" />
     <Content Include="Areas\Humanist\Content\Others\intro.swf" />
     <Content Include="Areas\Humanist\Content\Fonts\Humanst521BT-Light.svg" />
@@ -205,6 +216,9 @@
     <Content Include="Areas\Humanist\Content\Images\spacer.gif" />
     <Content Include="Areas\Humanist\Content\Styles\Fonts.css" />
     <Content Include="Areas\Humanist\Content\Styles\Layout.css" />
+    <Content Include="Areas\Humanist\Content\Styles\m-buttons.min.css" />
+    <Content Include="Areas\Humanist\Content\Styles\m-forms.min.css" />
+    <Content Include="Areas\Humanist\Content\Styles\m-icons.min.css" />
     <Content Include="Areas\Humanist\Content\Styles\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Areas\Humanist\Content\Styles\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Areas\Humanist\Content\Styles\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -259,6 +273,11 @@
     <Content Include="Areas\Humanist\Scripts\jquery.thickbox-3.1\thickbox-compressed.js" />
     <Content Include="Areas\Humanist\Scripts\jquery.thickbox-3.1\thickbox.css" />
     <Content Include="Areas\Humanist\Scripts\jquery.thickbox-3.1\thickbox.js" />
+    <Content Include="Areas\Humanist\Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Areas\Humanist\Scripts\jquery.validate.js" />
+    <Content Include="Areas\Humanist\Scripts\jquery.validate.min.js" />
+    <Content Include="Areas\Humanist\Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Areas\Humanist\Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Areas\Humanist\Scripts\MM_functions.js" />
     <Content Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.svg" />
     <Content Include="Areas\SecureSite\Content\Fonts\glyphicons-halflings-regular.svg" />
@@ -650,7 +669,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Humanist\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -945,6 +963,10 @@
     <Content Include="Areas\Humanist\Views\Shared\_Attributes.cshtml" />
     <Content Include="Areas\Humanist\Views\Distributors\Index.cshtml" />
     <Content Include="Areas\Humanist\Views\Shared\HiRes.cshtml" />
+    <Content Include="Areas\Humanist\Views\Account\LogOn.cshtml" />
+    <Content Include="Areas\Humanist\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\Humanist\Views\Shared\Error.cshtml" />
+    <Content Include="Areas\Humanist\Views\Shared\_LogOn.cshtml" />
     <None Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.eot" />
     <None Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.ttf" />
     <None Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.woff" />

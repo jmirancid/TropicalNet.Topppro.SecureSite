@@ -9,12 +9,5 @@
     <h1>@Model.Product.Name.ToUpper()</h1>
 </div>
 
-@Html.Partial("_Attributes", Model.Product.Attributes)
+@Html.Attributes()
 
-@foreach (var package in Model.Product.ParentInPackages)
-{
-    @Html.Partial("_Attributes", package.ChildProduct.Attributes);
-}
-
-@Html.ProductManual()
-@Html.ProductHiRes()

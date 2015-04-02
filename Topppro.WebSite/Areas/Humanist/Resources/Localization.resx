@@ -217,4 +217,19 @@ The bracket combines two i28H satellite cabinets mounted on a custom tooled arra
   <data name="User_Manual" xml:space="preserve">
     <value>User Manual</value>
   </data>
+  <data name="Account_LogOn_RememberMe" xml:space="preserve">
+    <value>Remember me?</value>
+  </data>
+  <data name="Account_LogOn_Submit" xml:space="preserve">
+    <value>Log On</value>
+  </data>
+  <data name="Account_LogOn_Subtitle" xml:space="preserve">
+    <value>Please enter your user name and password.</value>
+  </data>
+  <data name="Account_LogOn_Title" xml:space="preserve">
+    <value>Log On</value>
+  </data>
+  <data name="Default_Coming_Soon" xml:space="preserve">
+    <value>http://placehold.it/173x143&amp;text=Coming+Soon!</value>
+  </data>
 </root>
