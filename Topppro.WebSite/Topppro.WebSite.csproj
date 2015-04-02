@@ -87,6 +87,7 @@
     <Compile Include="Areas\Humanist\Controllers\AccountController.cs" />
     <Compile Include="Areas\Humanist\Controllers\AmplifiersController.cs" />
     <Compile Include="Areas\Humanist\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Humanist\Controllers\DistributorsController.cs" />
     <Compile Include="Areas\Humanist\Controllers\ErrorController.cs" />
     <Compile Include="Areas\Humanist\Controllers\HomeController.cs" />
     <Compile Include="Areas\Humanist\Controllers\InstallController.cs" />
@@ -967,6 +968,8 @@
     <Content Include="Areas\Humanist\Views\Dashboard\Index.cshtml" />
     <Content Include="Areas\Humanist\Views\Shared\Error.cshtml" />
     <Content Include="Areas\Humanist\Views\Shared\_LogOn.cshtml" />
+    <Content Include="Areas\Humanist\Views\Shared\_PreloadedImages.cshtml.cshtml" />
+    <Content Include="Areas\Humanist\Views\Shared\_GoogleAnalytics.cshtml.cshtml" />
     <None Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.eot" />
     <None Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.ttf" />
     <None Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.woff" />

@@ -16,6 +16,7 @@
     <meta name="robots" content="all" />
     <meta name="revisit-after" content="10 day" />
     <link rel="Shortcut Icon" href="@Url.Content("~/Areas/Humanist/Content/Others/favicon.ico")" />
+    <script type="text/javascript" src="@Url.Content("~/Areas/Humanist/Scripts/MM_functions.js")"></script>
     <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Areas/Humanist/Content/Styles/Layout.css")" />
     @RenderSection("Styles", false)
     @*Html.GoogleAnalytics()*@
@@ -44,7 +45,6 @@
             </table>
         }
     </div>
-    <script type="text/javascript" src="@Url.Content("~/Areas/Humanist/Scripts/MM_functions.js")"></script>
     @RenderSection("Scripts", false)
 </body>
 </html>

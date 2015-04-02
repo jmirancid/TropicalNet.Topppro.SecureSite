@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using Topppro.Business.Definitions;
+using Topppro.WebSite.Areas.Humanist.Extensions;
 
 namespace Topppro.WebSite.Areas.Humanist.Controllers
 {
@@ -24,15 +26,12 @@ namespace Topppro.WebSite.Areas.Humanist.Controllers
             ViewBag.Title =
                 string.Format(":: Topp Pro Professional Audio {0} ::", controller);
 
-            //ViewBag.BackgroundImage =
-            //Url.Content(string.Format("~/Content/Images/{0}-bottom-page.jpg", controller));
-
             ViewBag.PreloadedImages =
                 Enumerable.Empty<string>();
 
-            //foreach (var entity in entities)
-            //foreach (var assn in entity.Assn_CategorySerieProduct)
-            //ViewBag.PreloadedImages = assn.Product.GetThumbs().Concat((IEnumerable<string>)ViewBag.PreloadedImages);
+            foreach (var entity in entities)
+                foreach (var assn in entity.Assn_CategorySerieProduct)
+                    ViewBag.PreloadedImages = assn.Product.GetThumbs().Concat((IEnumerable<string>)ViewBag.PreloadedImages);
 
             return View(entities);
         }
@@ -45,9 +44,6 @@ namespace Topppro.WebSite.Areas.Humanist.Controllers
             ViewBag.Title =
                 string.Format(":: Topp Pro {0} ::", entity.Product.Name.ToUpper());
 
-            //ViewBag.BackgroundImage =
-            //Url.Content(string.Format("~/Content/Images/{0}-bottom-page.jpg", controller));
-
             return View(entity);
         }
 
@@ -58,9 +54,6 @@ namespace Topppro.WebSite.Areas.Humanist.Controllers
 
             ViewBag.Title =
                 string.Format(":: Topp Pro {0} HiRes ::", entity.Product.Name.ToUpper());
-
-            //ViewBag.BackgroundImage =
-            //Url.Content(string.Format("~/Content/Images/{0}-bottom-page.jpg", controller));
 
             return View(entity);
         }
