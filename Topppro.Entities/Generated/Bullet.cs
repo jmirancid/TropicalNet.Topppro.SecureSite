@@ -144,16 +144,16 @@ namespace Topppro.Entities
     
         private void FixupProduct(Product previousValue)
         {
-            if (previousValue != null && previousValue.Bullet.Contains(this))
+            if (previousValue != null && previousValue.Bullets.Contains(this))
             {
-                previousValue.Bullet.Remove(this);
+                previousValue.Bullets.Remove(this);
             }
     
             if (Product != null)
             {
-                if (!Product.Bullet.Contains(this))
+                if (!Product.Bullets.Contains(this))
                 {
-                    Product.Bullet.Add(this);
+                    Product.Bullets.Add(this);
                 }
                 if (ProductId != Product.ProductId)
                 {

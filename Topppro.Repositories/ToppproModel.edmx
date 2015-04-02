@@ -445,7 +445,7 @@
           <NavigationProperty Name="Model" Relationship="ToppproModel.Model_Product_FK" FromRole="Product" ToRole="Model" />
           <NavigationProperty Name="ChildInPackages" Relationship="ToppproModel.Package_Child_Product_FK" FromRole="Product" ToRole="Package" />
           <NavigationProperty Name="ParentInPackages" Relationship="ToppproModel.Package_Parent_Product_FK" FromRole="Product" ToRole="Package" />
-          <NavigationProperty Name="Bullet" Relationship="ToppproModel.Product_Bullet_FK" FromRole="Product" ToRole="Bullet" />
+          <NavigationProperty Name="Bullets" Relationship="ToppproModel.Product_Bullet_FK" FromRole="Product" ToRole="Bullet" />
         </EntityType>
         <EntityType Name="Serie">
           <Key>

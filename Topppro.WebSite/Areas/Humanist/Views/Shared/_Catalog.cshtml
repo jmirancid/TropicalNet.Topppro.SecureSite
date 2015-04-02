@@ -21,9 +21,10 @@
             <img src="@(assn.Product.GetThumbs().Where(t => !t.Contains("up")).DefaultIfEmpty<string>(Localization.Default_Coming_Soon).First())" alt="@assn.Product.Name" name="@(string.Format("Image{0}", assn.Id))"
                 width="173" height="143" border="0" id="@(string.Format("Image{0}", assn.Id))" />
             <ul class="highlights">
-                <li>Donec tincidunt libero at justo.</li>
-                <li>Nunc ut felis nunc.</li>
-                <li>Quisque nec molestie magna.</li>
+                @foreach (var bullet in assn.Product.Bullets)
+                {
+                    <li>@bullet.Value</li>
+                }
             </ul>
         </a>
     </li>

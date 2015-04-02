@@ -223,39 +223,39 @@ namespace Topppro.Entities
     	//[XmlElement("ParentInPackages", typeof(Collection<Package>))]
         private ICollection<Package> _parentInPackages;
     
-    	//[XmlElement("Bullet", typeof(Collection<Bullet>))]
-        public virtual ICollection<Bullet> Bullet
+    	//[XmlElement("Bullets", typeof(Collection<Bullet>))]
+        public virtual ICollection<Bullet> Bullets
         {
             get
             {
-                if (_bullet == null)
+                if (_bullets == null)
                 {
                     var newCollection = new FixupCollection<Bullet>();
-                    newCollection.CollectionChanged += FixupBullet;
-                    _bullet = newCollection;
+                    newCollection.CollectionChanged += FixupBullets;
+                    _bullets = newCollection;
                 }
-                return _bullet;
+                return _bullets;
             }
             set
             {
-                if (!ReferenceEquals(_bullet, value))
+                if (!ReferenceEquals(_bullets, value))
                 {
-                    var previousValue = _bullet as FixupCollection<Bullet>;
+                    var previousValue = _bullets as FixupCollection<Bullet>;
                     if (previousValue != null)
                     {
-                        previousValue.CollectionChanged -= FixupBullet;
+                        previousValue.CollectionChanged -= FixupBullets;
                     }
-                    _bullet = value;
+                    _bullets = value;
                     var newValue = value as FixupCollection<Bullet>;
                     if (newValue != null)
                     {
-                        newValue.CollectionChanged += FixupBullet;
+                        newValue.CollectionChanged += FixupBullets;
                     }
                 }
             }
         }
-    	//[XmlElement("Bullet", typeof(Collection<Bullet>))]
-        private ICollection<Bullet> _bullet;
+    	//[XmlElement("Bullets", typeof(Collection<Bullet>))]
+        private ICollection<Bullet> _bullets;
 
         #endregion
         #region Association Fixup
@@ -368,7 +368,7 @@ namespace Topppro.Entities
             }
         }
     
-        private void FixupBullet(object sender, NotifyCollectionChangedEventArgs e)
+        private void FixupBullets(object sender, NotifyCollectionChangedEventArgs e)
         {
             if (e.NewItems != null)
             {
