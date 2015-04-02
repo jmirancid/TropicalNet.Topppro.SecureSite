@@ -10,7 +10,8 @@
 @foreach (var assn in Model)
 {
     <li>
-        <a href="@Url.RouteUrl("Detail", new { controller = ViewContext.RouteData.Values["controller"], id = assn.Id, name = assn.Product.Name.ToSeoSlug() })">
+        <a href="@Url.RouteUrl("Detail", new { controller = ViewContext.RouteData.Values["controller"], id = assn.Id, name = assn.Product.Name.ToSeoSlug() })"
+            onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('@(string.Format("Image{0}", assn.Id))','','@(assn.Product.GetThumbs().Where(t => t.Contains("up")).DefaultIfEmpty<string>(Url.Content("~/Content/Images/coming-soon.jpg")).First())',1)">
             <span class="product_badge left">@assn.Product.Name.ToUpper()</span>
             <span class="product_badge right">
                 <big>@(Regex.Match(assn.Product.Name, @"\d+").Value)"</big><small>@assn.Product.Model.Name.ToUpper()</small>
