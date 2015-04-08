@@ -990,6 +990,7 @@
     <Content Include="Areas\Humanist\Views\Public\CustomSound.cshtml" />
     <Content Include="Areas\Humanist\Views\Shared\DisplayTemplates\Product.cshtml" />
     <Content Include="Areas\Humanist\Views\Shared\DisplayTemplates\Product_T20.cshtml" />
+    <Content Include="Areas\Humanist\Views\Shared\DisplayTemplates\Product_Dmx244.cshtml" />
     <None Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.eot" />
     <None Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.ttf" />
     <None Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.woff" />

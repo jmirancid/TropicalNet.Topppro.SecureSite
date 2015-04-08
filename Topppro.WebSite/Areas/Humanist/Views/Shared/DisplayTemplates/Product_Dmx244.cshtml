@@ -1,0 +1,24 @@
+﻿@using Topppro.WebSite.Areas.Humanist.Resources
+@using Topppro.WebSite.Areas.Humanist.Extensions
+
+@model Topppro.Entities.Assn_CategorySerieProduct
+
+<h4>@Model.Assn_CategorySerie.Serie.Name.ToUpper() Series</h4>
+<div class="title">
+    <h1>@Model.Product.Name.ToUpper()</h1>
+</div>
+
+<h4 style="margin:10px 0 10px;text-align:justify;">@Localization.Mixers_Detail_Dmx244_Message</h4>
+
+@Html.Attributes()
+
+<a href="@Url.Content("~/Areas/Humanist/Content/Downloads/DMX24.4 Fireware Update(v2.9).zip")" target="_blank">
+    <h4 style="text-align:center;color:#ffffff;background-color:#4A7837;font-weight:lighter;">@Localization.Mixers_Detail_Dmx244_Firmware_Download</h4></a>
+
+<a href="@Url.Content("~/Areas/Humanist/Content/Downloads/MP24M MCU Firmware update Instruction.zip")" target="_blank">
+    <h4 style="text-align:center;color:#ffffff;background-color:#E55121;font-weight:lighter;">@Localization.Mixers_Detail_Dmx244_Firmware_Instructions</h4></a>
+
+<div style="text-align:center;margin:20px 0 14px;">
+    <a href="https://itunes.apple.com/cn/app/cs-eq/id838175440?mt=8" target="_blank">
+        <img src="@Url.Content("~/Areas/Humanist/Content/Images/mx244-app.jpg")" alt="mx24.4 app" width="880" height="200" border="0" /></a>
+</div>
