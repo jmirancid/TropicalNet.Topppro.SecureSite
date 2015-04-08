@@ -1,0 +1,13 @@
+﻿@using Framework.Common.Extensions
+@using Topppro.WebSite.Areas.Humanist.Resources
+@using Topppro.WebSite.Areas.Humanist.Extensions
+
+@model Topppro.Entities.Assn_CategorySerieProduct
+
+<h4>@Model.Assn_CategorySerie.Serie.Name.ToUpper() Series</h4>
+<div class="title">
+    <h1>@Model.Product.Name.ToUpper()</h1>
+</div>
+
+<img src="@Url.Content("~/Areas/Humanist/Content/Images/t20-content.jpg")" alt="@ViewBag.Title" 
+        style="position: relative; left: -18px; margin-bottom: 20px;" />

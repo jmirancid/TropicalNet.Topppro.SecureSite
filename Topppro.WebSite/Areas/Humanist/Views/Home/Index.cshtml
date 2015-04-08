@@ -27,11 +27,11 @@
                 <img src="@Url.Content("~/Areas/Humanist/Content/Images/mx-v2.jpg")" alt="mx v2 series" name="Image10" width="250" height="227" border="0" id="Image10" /></a>
         </td>
         <td width="250">
-            <a href="@Url.RouteUrl("HiRes", new { controller = "Mixers", id = 168, name = "T20" })" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image11','','@Url.Content("~/Areas/Humanist/Content/Images/t20-up.jpg")',1)">
+            <a href="@Url.RouteUrl("Detail", new { controller = "Mixers", id = 68, name = "t20" })" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image11','','@Url.Content("~/Areas/Humanist/Content/Images/t20-up.jpg")',1)">
                 <img src="@Url.Content("~/Areas/Humanist/Content/Images/t20.jpg")" alt="T20 Digital Mixer" name="Image11" width="250" height="227" border="0" id="Image11" /></a>
         </td>
         <td width="250">
-            <a href="javascript:void();" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image12','','@Url.Content("~/Areas/Humanist/Content/Images/cs-sound-up.jpg")',1)">
+            <a href="@Url.RouteUrl("Default", new { controller = "Public", action = "CustomSound" })" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image12','','@Url.Content("~/Areas/Humanist/Content/Images/cs-sound-up.jpg")',1)">
                 <img src="@Url.Content("~/Areas/Humanist/Content/Images/cs-sound.jpg")" alt="Custom Sound" name="Image12" width="250" height="227" border="0" id="Image12" /></a>
         </td>
         <td width="250">
@@ -49,7 +49,7 @@
     <tbody>
         <tr>
             <td width="500" height="113">
-                <a href="@Url.Action("Index", "Bluetooth")" onmouseover="MM_swapImage('Image14','','@Url.Content("~/Areas/Humanist/Content/Images/bluetoth-certificates-up.jpg")',1)"
+                <a href="@Url.RouteUrl("Default", new { controller = "Public", action = "Bluetooth" })" onmouseover="MM_swapImage('Image14','','@Url.Content("~/Areas/Humanist/Content/Images/bluetoth-certificates-up.jpg")',1)"
                     onmouseout="MM_swapImgRestore()">
                     <img src="@Url.Content("~/Areas/Humanist/Content/Images/bluetoth-certificates.jpg")" alt="Blutooth Certificates" name="Image14"
                         width="499" height="111" border="0" id="Image14"></a>
