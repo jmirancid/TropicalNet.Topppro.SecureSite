@@ -1,91 +1,68 @@
 ﻿@section Styles {
     <style type="text/css">
-        #main {
+        #main
+        {
             padding: 0 0 91px;
-        } 
-	    .map_image { 
-            display: block; 
-            width: 1000px; 
-            height: 100px; 
-            position: relative; 
-            background-position: 0 0; 
-            background-repeat: no-repeat; 
-        }
-	    .map_image .map_link { 
-            display: block; 
-            position: absolute; 
-            text-indent: -999em; 
-            overflow: hidden; 
-        }
-	    .map_image #map_link_0 { 
-            width: 250px; 
-            height: 97px; 
-            top: 1px; 
-            left: 1px; 
-        }
-	    .map_image #map_link_1 { 
-            width: 221px; 
-            height: 96px; 
-            top: 1px; 
-            left: 775px; 
         }
     </style>
 }
 
-<table width="1000" border="0" cellspacing="0" bgcolor="#000000">
+<table width="1000" border="0" cellspacing="0" cellpadding="0" bgcolor="#000000">
     <tr>
         <td colspan="5">
             <!--<noscript>-->
             <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0"
-                width="999" height="460" title="intro">
+                width="999" height="480" title="@ViewBag.Title">
                 <param name="movie" value="@Url.Content("~/Areas/Humanist/Content/Others/intro.swf")" />
                 <param name="quality" value="high" />
                 <param name="wmode" value="transparent" />
-                <embed src="@Url.Content("~/Areas/Humanist/Content/Others/intro.swf")" quality="high" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="999" height="460" wmode="transparent"></embed>
+                <embed src="@Url.Content("~/Areas/Humanist/Content/Others/intro.swf")" quality="high" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="999" height="480" wmode="transparent"></embed>
             </object>
             <!--</noscript>-->
         </td>
     </tr>
     <tr>
-        <td width="196" height="200">
-            <a href="@Url.RouteUrl("Detail", new { controller = "Mixers", id = 86, name = "dmx24-4" })" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image10','','@Url.Content("~/Areas/Humanist/Content/Images/foot2-up.jpg")',1)">
-                <img src="@Url.Content("~/Areas/Humanist/Content/Images/foot2.jpg")" alt="mx32.4" name="Image10" width="200" height="200" border="0" id="Image10" /></a>
+        <td width="250" height="227">
+            <a href="@Url.RouteUrl("Catalog", new { controller = "Mixers" })" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image10','','@Url.Content("~/Areas/Humanist/Content/Images/mx-v2-up.jpg")',1)">
+                <img src="@Url.Content("~/Areas/Humanist/Content/Images/mx-v2.jpg")" alt="mx v2 series" name="Image10" width="250" height="227" border="0" id="Image10" /></a>
         </td>
-        <td width="198">
-            <a href="@Url.Action("Index", "Speakers")" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image11','','@Url.Content("~/Areas/Humanist/Content/Images/foot3-up.jpg")',1)">
-                <img src="@Url.Content("~/Areas/Humanist/Content/Images/foot3.jpg")" alt="ks series" name="Image11" width="200" height="200" border="0" id="Image11" /></a>
+        <td width="250">
+            <a href="@Url.RouteUrl("HiRes", new { controller = "Mixers", id = 168, name = "T20" })" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image11','','@Url.Content("~/Areas/Humanist/Content/Images/t20-up.jpg")',1)">
+                <img src="@Url.Content("~/Areas/Humanist/Content/Images/t20.jpg")" alt="T20 Digital Mixer" name="Image11" width="250" height="227" border="0" id="Image11" /></a>
         </td>
-        <td width="199">
-            <a href="@Url.RouteUrl("Detail", new { controller = "Mixers", id = 99, name = "mx2442" })" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image12','','@Url.Content("~/Areas/Humanist/Content/Images/foot4-up.jpg")',1)">
-                <img src="@Url.Content("~/Areas/Humanist/Content/Images/foot4.jpg")" alt="tpa gig 6250" name="Image12" width="200" height="200" border="0" id="Image12" /></a>
+        <td width="250">
+            <a href="javascript:void();" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image12','','@Url.Content("~/Areas/Humanist/Content/Images/cs-sound-up.jpg")',1)">
+                <img src="@Url.Content("~/Areas/Humanist/Content/Images/cs-sound.jpg")" alt="Custom Sound" name="Image12" width="250" height="227" border="0" id="Image12" /></a>
         </td>
-        <td width="199">
-            <a href="@Url.Action("Modules_HiRes", "Processors")" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image9','','@Url.Content("~/Areas/Humanist/Content/Images/foot1-up.jpg")',1)">
-                <img src="@Url.Content("~/Areas/Humanist/Content/Images/foot1.jpg")" alt="metro 4700 st" name="Image9" width="200" height="200" border="0" id="Image9" /></a>
-        </td>
-        <td width="200">
-            <a href="@Url.Action("Index", "Amplifiers")" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image13','','@Url.Content("~/Areas/Humanist/Content/Images/foot5-up.jpg")',1)">
-                <img src="@Url.Content("~/Areas/Humanist/Content/Images/foot5.jpg")" alt="trx series" name="Image13" width="200" height="200" border="0" id="Image13" /></a>
+        <td width="250">
+            <a href="javascript:void();" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image9','','@Url.Content("~/Areas/Humanist/Content/Images/appstore-apps-up.jpg")',1)">
+                <img src="@Url.Content("~/Areas/Humanist/Content/Images/appstore-apps.jpg")" alt="Free App Store Apps" name="Image9" width="250" height="227" border="0" id="Image9" usemap="#AppMap" />
+                <map name="AppMap" id="AppMap">
+                    <area shape="rect" coords="132,109,247,206" href="https://itunes.apple.com/cn/app/dmx24.4i/id887695089?mt=8" target="_blank">
+                    <area shape="rect" coords="131,8,247,96" href="https://itunes.apple.com/cn/app/cs-eq/id838175440?mt=8#" target="_blank">
+                </map>
+            </a>
         </td>
     </tr>
 </table>
-<table width="999" cellspacing="0" border="0">
-    <tr>
-        <td align="center">
-            <div class="map_image" style="background-image: url('@Url.Content("~/Areas/Humanist/Content/Images/cs-mx-app-100px.jpg")');">
-	            <a class="map_link" id="map_link_0" title="cs-eq app itunes link" target="_blank" href="https://itunes.apple.com/cn/app/cs-eq/id838175440?mt=8#">
-                    &nbsp;</a>
-	            <a class="map_link" id="map_link_1" title="dmx app itunes link" target="_blank" href="https://itunes.apple.com/cn/app/dmx24.4i/id887695089?mt=8">
-                    &nbsp;</a>
-            </div>
-        </td>
-    </tr>
-    <tr>
-        <td align="center">
-            <a href="@Url.Action("Index", "Bluetooth")">
-                <img src="@Url.Content("~/Areas/Humanist/Content/Images/bluetoth-footer.jpg")" alt="bluetoth certified" width="1000" height="100" border="0" /></a>
-        </td>
-    </tr>
+<table width="999" border="0" align="center" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+    <tbody>
+        <tr>
+            <td width="500" height="113">
+                <a href="@Url.Action("Index", "Bluetooth")" onmouseover="MM_swapImage('Image14','','@Url.Content("~/Areas/Humanist/Content/Images/bluetoth-certificates-up.jpg")',1)"
+                    onmouseout="MM_swapImgRestore()">
+                    <img src="@Url.Content("~/Areas/Humanist/Content/Images/bluetoth-certificates.jpg")" alt="Blutooth Certificates" name="Image14"
+                        width="499" height="111" border="0" id="Image14"></a>
+            </td>
+            <td width="498">
+                <a href="#" target="_blank"
+                    onmouseover="MM_swapImage('Image15','','@Url.Content("~/Areas/Humanist/Content/Images/catalog-download-up.jpg")',1)" onmouseout="MM_swapImgRestore()">
+                    <img src="@Url.Content("~/Areas/Humanist/Content/Images/catalog-download.jpg")"
+                        alt="Download 2015 Line Products" name="Image15" width="499" height="111" border="0"
+                        id="Image15"></a>
+            </td>
+        </tr>
+    </tbody>
 </table>
 
 @section Scripts {
@@ -93,11 +70,12 @@
     <script type="text/javascript">
         MM_onLoad(function() {
             MM_preloadImages(
-                "@Url.Content("~/Areas/Humanist/Content/Images/foot1-up.jpg")",
-                "@Url.Content("~/Areas/Humanist/Content/Images/foot2-up.jpg")",
-                "@Url.Content("~/Areas/Humanist/Content/Images/foot3-up.jpg")",
-                "@Url.Content("~/Areas/Humanist/Content/Images/foot4-up.jpg")",
-                "@Url.Content("~/Areas/Humanist/Content/Images/foot5-up.jpg")"
+                "@Url.Content("~/Areas/Humanist/Content/Images/mx-v2-up.jpg")",
+                "@Url.Content("~/Areas/Humanist/Content/Images/t20-up.jpg")",
+                "@Url.Content("~/Areas/Humanist/Content/Images/cs-sound-up.jpg")",
+                "@Url.Content("~/Areas/Humanist/Content/Images/appstore-apps-up.jpg")",
+                "@Url.Content("~/Areas/Humanist/Content/Images/bluetoth-certificates-up.jpg")"
+                "@Url.Content("~/Areas/Humanist/Content/Images/catalog-download-up.jpg")"
             );
 
             //AC_FL_RunContent('codebase', 'http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0', 'width', '1000', 'height', '460', 'title', 'intro', 'src', '@Url.Content("~/Content/Images/intro-2013")', 'quality', 'high', 'pluginspage', 'http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash', 'movie', '@Url.Content("~/Content/Images/intro-2013")'); //end AC code
