@@ -5,13 +5,9 @@
 @model Topppro.Entities.Assn_CategorySerie
 
 <div class="title">
-    <h1>@Model.Serie.Name.ToUpper() <small>ACTIVE</small></h1>
+    <h1>@Model.Serie.Name.ToUpper() <small>Series</small></h1>
 </div>
 
 @Html.Catalog(Model.Assn_CategorySerieProduct.Where(a => a.Product.ModelId == (int)Model_Enum.Active))
-
-<div class="title">
-    <h1>@Model.Serie.Name.ToUpper() <small>PASSIVE</small></h1>
-</div>
 
 @Html.Catalog(Model.Assn_CategorySerieProduct.Where(a => a.Product.ModelId == (int)Model_Enum.Passive))

@@ -1003,6 +1003,7 @@
     <Content Include="Areas\Humanist\Views\Shared\DisplayTemplates\Serie_Modules.cshtml" />
     <Content Include="Areas\Humanist\Views\Shared\DisplayTemplates\Serie_Processors.cshtml" />
     <Content Include="Areas\Humanist\Views\Shared\Modules_HiRes.cshtml" />
+    <Content Include="Areas\Humanist\Views\Speakers\DisplayTemplates\Serie_I.cshtml" />
     <None Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.eot" />
     <None Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.ttf" />
     <None Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.woff" />
