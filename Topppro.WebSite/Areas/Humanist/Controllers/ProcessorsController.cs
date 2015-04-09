@@ -8,6 +8,9 @@ namespace Topppro.WebSite.Areas.Humanist.Controllers
 {
     public class ProcessorsController : LayoutController
     {
-
+        public ActionResult Modules_HiRes()
+        {
+            return View();
+        }
     }
 }

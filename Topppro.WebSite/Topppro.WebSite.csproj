@@ -184,6 +184,15 @@
     <Content Include="Areas\Humanist\Content\Images\i4K-2000w.jpg" />
     <Content Include="Areas\Humanist\Content\Images\manual-bottom.jpg" />
     <Content Include="Areas\Humanist\Content\Images\manual-top.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\modules-e-cs-big.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\modules-tac-ark-big.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\modules-tac-bt2.1b-big.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\modules-tac-mp3-r-big.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\modules-tac-mp3-s-big.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\modules-tac-mp3-t-big.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\modules-tac-mx-dsp-big.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\modules-tac-mx-eq-big.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\modules-tac-tmw-2.4r-big.jpg" />
     <Content Include="Areas\Humanist\Content\Images\mx-v2-up.jpg" />
     <Content Include="Areas\Humanist\Content\Images\mx-v2.jpg" />
     <Content Include="Areas\Humanist\Content\Images\mx244-app.jpg" />
@@ -991,6 +1000,9 @@
     <Content Include="Areas\Humanist\Views\Shared\DisplayTemplates\Product.cshtml" />
     <Content Include="Areas\Humanist\Views\Shared\DisplayTemplates\Product_T20.cshtml" />
     <Content Include="Areas\Humanist\Views\Shared\DisplayTemplates\Product_Dmx244.cshtml" />
+    <Content Include="Areas\Humanist\Views\Shared\DisplayTemplates\Serie_Modules.cshtml" />
+    <Content Include="Areas\Humanist\Views\Shared\DisplayTemplates\Serie_Processors.cshtml" />
+    <Content Include="Areas\Humanist\Views\Shared\Modules_HiRes.cshtml" />
     <None Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.eot" />
     <None Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.ttf" />
     <None Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.woff" />
