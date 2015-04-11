@@ -23,7 +23,14 @@
             <ul class="highlights">
                 @foreach (var bullet in assn.Product.Bullets)
                 {
-                    <li><span>@bullet.Value</span></li>
+                    if (bullet.Name.IsEmpty())
+                    {
+                        <li><span>@bullet.Value</span></li>
+                    }
+                    else
+                    {
+                        <li><span>@bullet.Name: @bullet.Value</span></li>
+                    }
                 }
             </ul>
         </a>
