@@ -170,7 +170,8 @@ table
     border-collapse: collapse;
 }
 
-.table-striped > tbody > tr
+.table-striped > tbody > tr,
+.table-striped > tbody > tr tr
 {
     height: 32px;
 }
