@@ -68,6 +68,12 @@ namespace Topppro.Entities
             get;
             set;
         }
+    
+        public virtual string Badge
+        {
+            get;
+            set;
+        }
 
         #endregion
         #region Navigation Properties

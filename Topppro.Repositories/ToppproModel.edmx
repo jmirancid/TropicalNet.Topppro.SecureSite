@@ -150,6 +150,7 @@
           <Property Name="Folder" Type="varchar" MaxLength="50" />
           <Property Name="Manual" Type="varchar" MaxLength="50" />
           <Property Name="Draft" Type="bit" Nullable="false" />
+          <Property Name="Badge" Type="varchar" MaxLength="6" />
         </EntityType>
         <EntityType Name="Serie">
           <Key>
@@ -446,6 +447,7 @@
           <NavigationProperty Name="ChildInPackages" Relationship="ToppproModel.Package_Child_Product_FK" FromRole="Product" ToRole="Package" />
           <NavigationProperty Name="ParentInPackages" Relationship="ToppproModel.Package_Parent_Product_FK" FromRole="Product" ToRole="Package" />
           <NavigationProperty Name="Bullets" Relationship="ToppproModel.Product_Bullet_FK" FromRole="Product" ToRole="Bullet" />
+          <Property Type="String" Name="Badge" MaxLength="6" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Serie">
           <Key>
@@ -684,6 +686,7 @@
           <EntitySetMapping Name="Product">
             <EntityTypeMapping TypeName="ToppproModel.Product">
               <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="Badge" ColumnName="Badge" />
                 <ScalarProperty Name="Draft" ColumnName="Draft" />
                 <ScalarProperty Name="Manual" ColumnName="Manual" />
                 <ScalarProperty Name="Folder" ColumnName="Folder" />
