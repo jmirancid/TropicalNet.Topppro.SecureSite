@@ -1,6 +1,5 @@
 ﻿@using Topppro.Entities
 @using Framework.Common.Extensions
-@using System.Text.RegularExpressions
 @using Topppro.WebSite.Areas.Humanist.Resources
 @using Topppro.WebSite.Areas.Humanist.Extensions
 
@@ -15,9 +14,12 @@
                     Url.RouteUrl("Detail", new { controller = ViewContext.RouteData.Values["controller"], id = assn.Id, name = assn.Product.Name.ToSeoSlug() }))"
                     onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('@(string.Format("Image{0}", assn.Id))','','@(assn.Product.GetThumbs().Where(t => t.Contains("up")).DefaultIfEmpty<string>(Localization.Default_Coming_Soon).First())',1)">
             <span class="product_badge left">@assn.Product.Name.ToUpper()</span>
-            <span class="product_badge right">
-                <big>@(Regex.Match(assn.Product.Name, @"\d+").Value)"</big><small>@assn.Product.Model.Name.ToUpper()</small>
-            </span>
+            @if (!assn.Product.Badge.IsEmpty())
+            {
+                <span class="product_badge right">
+                    <big>@assn.Product.Badge</big><small>@assn.Product.Model.Name.ToUpper()</small>
+                </span>
+            }
             <img src="@(assn.Product.GetThumbs().Where(t => !t.Contains("up")).DefaultIfEmpty<string>(Localization.Default_Coming_Soon).First())" alt="@assn.Product.Name" name="@(string.Format("Image{0}", assn.Id))"
                 width="173" height="143" border="0" id="@(string.Format("Image{0}", assn.Id))" />
             <ul class="highlights">
