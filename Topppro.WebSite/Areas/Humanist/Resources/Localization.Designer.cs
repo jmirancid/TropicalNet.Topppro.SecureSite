@@ -178,6 +178,15 @@ namespace Topppro.WebSite.Areas.Humanist.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Download here the DMX24.4 PC Editor for Windows.
+        /// </summary>
+        public static string Mixers_Detail_Dmx244_Editor_Windows {
+            get {
+                return ResourceManager.GetString("Mixers_Detail_Dmx244_Editor_Windows", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Download here the DMX24.4 Firmware Update (v 2.9) 16mb.
         /// </summary>
         public static string Mixers_Detail_Dmx244_Firmware_Download {
@@ -368,7 +377,7 @@ namespace Topppro.WebSite.Areas.Humanist.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Building on the success of our original KS Series &amp; their highly acclaimed signature sound, &lt;strong&gt;KS CS Series&lt;/strong&gt; offers customers two new significant benefits: The ability to create your own sound voicing for the cabinet via Ethernet port or Wi-Fi, and the ability to receive wireless audio.&lt;br /&gt;&lt;strong&gt;KS CS Series&lt;/strong&gt; includes a series of professionally painted active wood cabinets with onboard DSP processor, available in 8” Active, 10” Active, 12” Active, 15” Active, 215” Active, 15” Active [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to Building on the success of our original KS Series &amp; their highly acclaimed signature sound, &lt;strong&gt;KS CS Series&lt;/strong&gt; offers customers two new significant benefits: The ability to create your own sound voicing for the cabinet via Ethernet port or Wi-Fi, and the ability to receive wireless audio.&lt;br /&gt;&lt;br/&gt;&lt;strong&gt;KS CS Series&lt;/strong&gt; includes a series of professionally painted active wood cabinets with onboard DSP processor, available in 8” Active, 10” Active, 12” Active, 15” Active, 215” Active, 15” A [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Speakers_Index_Ks_Message {
             get {

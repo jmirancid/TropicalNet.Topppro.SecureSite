@@ -1,14 +1,22 @@
 ﻿@using Topppro.Entities
 @using Framework.Common.Extensions
+@using Topppro.WebSite.Areas.Humanist.Resources
 @using Topppro.WebSite.Areas.Humanist.Extensions
 
 @model Topppro.Entities.Assn_CategorySerie
 
 <div class="title">
-    <h1>@Model.Serie.Name.ToUpper() <small>ACTIVE</small></h1>
+    <h1>@string.Format("{0} CS", Model.Serie.Name.ToUpper()) <small>ACTIVE</small></h1>
 </div>
 
+<h4 style="font-size:20px; margin:1.33em 0 1.33em; color:#315F8D;"><b>@Html.Raw(Localization.Speakers_Index_Ks_Title)</b></h4>
+<h4 style="font-size:20px; margin:1.33em 0 1.33em;">@Html.Raw(Localization.Speakers_Index_Ks_Subtitle)</h4>
+<p style="text-align: justify; margin-bottom:2.33em;">@Html.Raw(Localization.Speakers_Index_Ks_Message)</p>
+
 @Html.Catalog(Model.Assn_CategorySerieProduct.Where(a => a.Product.ModelId == (int)Model_Enum.Active))
+
+<a href="@Url.RouteUrl("Default", new { controller = "Public", action = "CustomSound" })" style="position:relative; left:-18px;">
+    <img src="@Url.Content("~/Areas/Humanist/Content/Images/custom-sound-banner.jpg")" style="margin-bottom:1.33em" alt="Custom Sound" border="0" /></a>
 
 <div class="title">
     <h1>@Model.Serie.Name.ToUpper() <small>PASSIVE</small></h1>

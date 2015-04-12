@@ -206,7 +206,7 @@
 The bracket combines two i28H satellite cabinets mounted on a custom tooled array-style bracket (which allows multi-angle positioning of the two satellites) providing a very versatile application-specific coverage.</value>
   </data>
   <data name="Speakers_Index_Ks_Message" xml:space="preserve">
-    <value>Building on the success of our original KS Series &amp; their highly acclaimed signature sound, &lt;strong&gt;KS CS Series&lt;/strong&gt; offers customers two new significant benefits: The ability to create your own sound voicing for the cabinet via Ethernet port or Wi-Fi, and the ability to receive wireless audio.&lt;br /&gt;&lt;strong&gt;KS CS Series&lt;/strong&gt; includes a series of professionally painted active wood cabinets with onboard DSP processor, available in 8” Active, 10” Active, 12” Active, 15” Active, 215” Active, 15” Active SUB &amp; 18” Active SUB. All powered by our state-of-the-art amplifier offering up to 2000 Watts* &lt;em&gt;(peak) &lt;/em&gt; and capable of producing up to 132db SPL, with very transparent highs, very precise mids &amp; very clean DSP-Enhanced bass reproduction.&lt;br /&gt;&lt;strong&gt;KS CS&lt;/strong&gt; uses a modular approach which allows the user to add the CS Custom Sound module or the Wi-Fi Audio Receiver module to their cabinet allowing them to customize the cabinet to maximize their application needs, our modular architecture provides these cabinets with great flexibility today &amp;amp; keeps a window open to future expandability. The cabinets come with a FLAT setting, Loudness &amp; user setting.</value>
+    <value>Building on the success of our original KS Series &amp; their highly acclaimed signature sound, &lt;strong&gt;KS CS Series&lt;/strong&gt; offers customers two new significant benefits: The ability to create your own sound voicing for the cabinet via Ethernet port or Wi-Fi, and the ability to receive wireless audio.&lt;br /&gt;&lt;br/&gt;&lt;strong&gt;KS CS Series&lt;/strong&gt; includes a series of professionally painted active wood cabinets with onboard DSP processor, available in 8” Active, 10” Active, 12” Active, 15” Active, 215” Active, 15” Active SUB &amp; 18” Active SUB. All powered by our state-of-the-art amplifier offering up to 2000 Watts* &lt;em&gt;(peak) &lt;/em&gt; and capable of producing up to 132db SPL, with very transparent highs, very precise mids &amp; very clean DSP-Enhanced bass reproduction.&lt;br /&gt;&lt;br/&gt;&lt;strong&gt;KS CS&lt;/strong&gt; uses a modular approach which allows the user to add the CS Custom Sound module or the Wi-Fi Audio Receiver module to their cabinet allowing them to customize the cabinet to maximize their application needs, our modular architecture provides these cabinets with great flexibility today &amp;amp; keeps a window open to future expandability. The cabinets come with a FLAT setting, Loudness &amp; user setting.</value>
   </data>
   <data name="Speakers_Index_Ks_Subtitle" xml:space="preserve">
     <value>Introducing: &lt;strong&gt;Topp Pro KS CS Series&lt;/strong&gt;</value>
@@ -231,5 +231,8 @@ The bracket combines two i28H satellite cabinets mounted on a custom tooled arra
   </data>
   <data name="Default_Coming_Soon" xml:space="preserve">
     <value>http://placehold.it/173x143&amp;text=Coming+Soon!</value>
+  </data>
+  <data name="Mixers_Detail_Dmx244_Editor_Windows" xml:space="preserve">
+    <value>Download here the DMX24.4 PC Editor for Windows</value>
   </data>
 </root>

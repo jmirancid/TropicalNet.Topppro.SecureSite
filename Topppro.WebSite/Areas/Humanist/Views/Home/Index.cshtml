@@ -12,11 +12,13 @@
         <td colspan="5">
             <!--<noscript>-->
             <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0"
-                width="999" height="480" title="@ViewBag.Title">
+                width="999" height="479" title="@ViewBag.Title">
                 <param name="movie" value="@Url.Content("~/Areas/Humanist/Content/Others/intro.swf")" />
                 <param name="quality" value="high" />
-                <param name="wmode" value="transparent" />
-                <embed src="@Url.Content("~/Areas/Humanist/Content/Others/intro.swf")" quality="high" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="999" height="480" wmode="transparent"></embed>
+                <param name="wmode" value="opaque" />
+                <param name="bgcolor" value="#ffffff" />
+                <param name="scale" value="noborder" />
+                <embed src="@Url.Content("~/Areas/Humanist/Content/Others/intro.swf")" quality="high" scale="noborder" bgcolor="#ffffff" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="1000" height="481" wmode="opaque"></embed>
             </object>
             <!--</noscript>-->
         </td>
@@ -74,7 +76,7 @@
                 "@Url.Content("~/Areas/Humanist/Content/Images/t20-up.jpg")",
                 "@Url.Content("~/Areas/Humanist/Content/Images/cs-sound-up.jpg")",
                 "@Url.Content("~/Areas/Humanist/Content/Images/appstore-apps-up.jpg")",
-                "@Url.Content("~/Areas/Humanist/Content/Images/bluetoth-certificates-up.jpg")"
+                "@Url.Content("~/Areas/Humanist/Content/Images/bluetoth-certificates-up.jpg")",
                 "@Url.Content("~/Areas/Humanist/Content/Images/catalog-download-up.jpg")"
             );
 

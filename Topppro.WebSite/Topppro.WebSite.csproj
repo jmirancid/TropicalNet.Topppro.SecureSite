@@ -176,6 +176,7 @@
     <Content Include="Areas\Humanist\Content\Images\cs1.jpg" />
     <Content Include="Areas\Humanist\Content\Images\cs2.jpg" />
     <Content Include="Areas\Humanist\Content\Images\cs3.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\custom-sound-banner.jpg" />
     <Content Include="Areas\Humanist\Content\Images\dmx244-livemixing.jpg" />
     <Content Include="Areas\Humanist\Content\Images\glyphicons-halflings-white.png" />
     <Content Include="Areas\Humanist\Content\Images\glyphicons-halflings.png" />
@@ -1004,6 +1005,8 @@
     <Content Include="Areas\Humanist\Views\Shared\DisplayTemplates\Serie_Processors.cshtml" />
     <Content Include="Areas\Humanist\Views\Shared\Modules_HiRes.cshtml" />
     <Content Include="Areas\Humanist\Views\Speakers\DisplayTemplates\Serie_I.cshtml" />
+    <Content Include="Areas\Humanist\Views\Install\DisplayTemplates\Serie_Bluetooth.cshtml" />
+    <Content Include="Areas\Humanist\Views\Shared\DisplayTemplates\Serie_Wireless.cshtml" />
     <None Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.eot" />
     <None Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.ttf" />
     <None Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.woff" />
