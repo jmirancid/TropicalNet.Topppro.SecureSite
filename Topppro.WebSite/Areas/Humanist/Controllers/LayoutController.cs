@@ -15,6 +15,12 @@ namespace Topppro.WebSite.Areas.Humanist.Controllers
         protected readonly Lazy<AssnCategorySerieProductBusiness> _bizAssnCategorySerieProduct =
             new Lazy<AssnCategorySerieProductBusiness>();
 
+        protected readonly Lazy<ProductBusiness> _bizProduct =
+            new Lazy<ProductBusiness>();
+
+        protected readonly Lazy<AttributeBusiness> _bizAttribute =
+            new Lazy<AttributeBusiness>();
+
         public virtual ActionResult Index(string controller)
         {
             var categoryId =
@@ -60,7 +66,7 @@ namespace Topppro.WebSite.Areas.Humanist.Controllers
 
         public virtual ActionResult Compare(string controller, int lid, string lname, int rid, string rname)
         {
-            /*var entities = this._bizProduct.Value
+            var entities = this._bizProduct.Value
                                 .AllBy(p => p.ProductId == lid || p.ProductId == rid)
                                 .ToList();
 
@@ -74,10 +80,7 @@ namespace Topppro.WebSite.Areas.Humanist.Controllers
             ViewBag.Title =
                 string.Format(":: Topp Pro {0} vs {1} ::", lname.ToUpper(), rname.ToUpper());
 
-            ViewBag.BackgroundImage =
-                Url.Content(string.Format("~/Content/Images/{0}-bottom-page.jpg", controller));
-            */
-            return View();
+            return View(entities);
         }
     }
 }
