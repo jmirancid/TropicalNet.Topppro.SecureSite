@@ -42,7 +42,7 @@
         @if (assn.AllowCompare && assn.Assn_CategorySerie.AllowCompare)
         {
         <div class="product-compare">
-            <input type="checkbox" id="@assn.Product.Folder" value="@assn.Id" data-text="@assn.Product.Name.ToUpper()" />
+            <input type="checkbox" id="@assn.Product.Folder" value="@assn.Id" data-text="@assn.Product.Name.ToSeoSlug()" />
             <label for="@assn.Product.Folder">@Localization.Add_To_Compare</label>
         </div>
         }

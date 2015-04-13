@@ -66,16 +66,14 @@ namespace Topppro.WebSite.Areas.Humanist.Controllers
 
         public virtual ActionResult Compare(string controller, int lid, string lname, int rid, string rname)
         {
-            var entities = this._bizProduct.Value
-                                .AllBy(p => p.ProductId == lid || p.ProductId == rid)
-                                .ToList();
+            var lentity = this._bizAssnCategorySerieProduct.Value
+                                .GetWithAttributesByCulture(lid, Topppro.Context.Current.Culture.TwoLetterISOLanguageName).Product;
 
-            entities.ForEach(p =>
-            {
-                p.Attributes = this._bizAttribute.Value.AllBy(a => a.ProductId == p.ProductId && a.Enabled
-                                                                   && a.Culture.Code == Topppro.Context.Current.Culture.TwoLetterISOLanguageName)
-                                                        .OrderBy(a => a.Priority).ToList();
-            });
+            var rentity = this._bizAssnCategorySerieProduct.Value
+                                .GetWithAttributesByCulture(rid, Topppro.Context.Current.Culture.TwoLetterISOLanguageName).Product;
+
+            var entities =
+                new List<Topppro.Entities.Product>() { lentity, rentity };
 
             ViewBag.Title =
                 string.Format(":: Topp Pro {0} vs {1} ::", lname.ToUpper(), rname.ToUpper());
