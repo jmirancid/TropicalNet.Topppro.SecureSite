@@ -5,8 +5,8 @@
 @model IEnumerable<Topppro.Entities.Assn_CategorySerie>
 
 @section Styles {
-    <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Areas/Humanist/Content/Styles/themes/base/jquery.ui.all.css")" />
-    <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Areas/Humanist/Scripts/jquery.jspanel-2.1.0/jsPanel.css")" />
+    <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Areas/Humanist/Content/Styles/m-icons.min.css")" />
+    <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Areas/Humanist/Content/Styles/m-buttons.min.css")" />
 }
 
 <table width="1000" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
@@ -15,21 +15,29 @@
     </tbody>
 </table>
 
+<div class="slide-panel left">
+    <h2><a href="javascript:$.panelslider.close();"><i class="m-icon-big-swapleft m-icon-white" style="margin:0px 3px;"></i></a> @Localization.Compare_Panel_Title</h2>
+    <ul class="compare-list"></ul>
+    <p class="controls">
+        <button id="btn-clear" class="m-btn black">@Localization.Compare_Panel_Clear_Button <i class="icon-refresh icon-white"></i></button>
+        <button id="btn-compare" class="m-btn green">@Localization.Compare_Panel_Compare_Button <i class="icon-share-alt icon-white"></i></button>
+    </p>
+</div>
+
 @section Scripts {
     @Html.PreloadedImages()
     <script type="text/javascript" src="@Url.Content("~/Areas/Humanist/Scripts/jquery-1.8.3.min.js")"></script>
-    <script type="text/javascript" src="@Url.Content("~/Areas/Humanist/Scripts/jquery-ui-1.9.2.min.js")"></script>
-    <script type="text/javascript" src="@Url.Content("~/Areas/Humanist/Scripts/jquery.jspanel-2.1.0/jquery.jspanel.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Areas/Humanist/Scripts/jquery.panelslider-0.1.1/jquery.panelslider.min.js")"></script>
     <script type="text/javascript">
         $(function () {
-            var jspanel, item_list = [];
+            var jspanel = $('.slide-panel'), compare_list = [];
 
             $('input[type="checkbox"]').change(function (event) {
                 var target = $(this);
 
                 if (target.is(':checked')) {
 
-                    if (item_list.length == 2) {
+                    if (compare_list.length == 2) {
                         target.attr('checked', false);
                         return;
                     }
@@ -41,56 +49,21 @@
                         timestamp: (new Date()).getTime()
                     };
 
-                    item_list.push(item);
+                    compare_list.push(item);
 
-                    if (jspanel) {
+                    if (jspanel.hasClass('ps-active-panel')) {
                         refresh_panel_content();
                         return;
                     }
 
-                    jspanel = $.jsPanel({
-                        title: '@Localization.Compare_Panel_Title',
-                        theme: 'info',
-                        size: { width: 250, height: 80 },
-                        position: 'bottom center',
-                        controls: { buttons: 'closeonly' },
-                        toolbarFooter: [
-                        {
-                            item: '<button class="..." type="button"><span class="..."></span></button>',
-                            event: 'click',
-                            btnclass: 'btn-sm',
-                            btntext: '@Localization.Compare_Panel_Clear_Button',
-                            callback: function (event) {
-                                reset_compare(); refresh_panel_content();
-                            }
-                        }, {
-                            item: '<button class="..." type="button"><span class="..."></span></button>',
-                            event: 'click',
-                            btnclass: 'btn-sm',
-                            btntext: '@Localization.Compare_Panel_Compare_Button',
-                            callback: function (event) {
-                                if (item_list.length < 2)
-                                    return;
-
-                                var compare_mask =
-                                    '@Url.RouteUrl("Compare", new { lid = "lid", lname = "lname", rid = "rid", rname = "rname"})';
-
-                                var compare_url = compare_mask.replace('lid', item_list[0].value)
-                                                              .replace('lname', item_list[0].text)
-                                                              .replace('rid', item_list[1].value)
-                                                              .replace('rname', item_list[1].text);
-
-                                $(location).attr('href', compare_url);
-                            }
-                        }]
-                    });
+                    $.panelslider($('.slide-panel'), { clickClose: false });
 
                     refresh_panel_content();
 
                 } else {
 
-                    item_list =
-                        $.grep(item_list, function (el, ix) { return el.value != target.val(); });
+                    compare_list =
+                        $.grep(compare_list, function (el, ix) { return el.value != target.val(); });
 
                     refresh_panel_content();
                 }
@@ -99,38 +72,53 @@
             $('body').on('click', '.remove-from-compare', function (event) {
                 var ix = $(this).data('ix');
 
-                $('#' + item_list[ix].id).attr('checked', false);
+                $('#' + compare_list[ix].id).attr('checked', false);
 
-                item_list.splice(ix, 1);
+                compare_list.splice(ix, 1);
                 refresh_panel_content();
             });
 
-            $('body').on('jspanelclosed', function (event, id) {
-                jspanel = null; reset_compare();
+            $('#btn-clear').on('click', function (event) {
+                reset_compare(); refresh_panel_content();
+            });
+
+            $('#btn-compare').on('click', function (event) {
+                if (compare_list.length < 2)
+                    return;
+
+                var compare_mask =
+                	'@Url.RouteUrl("Compare", new { lid = "lid", lname = "lname", rid = "rid", rname = "rname"})';
+
+                var compare_url = compare_mask.replace('lid', compare_list[0].value)
+                                            .replace('lname', compare_list[0].text)
+                                            .replace('rid', compare_list[1].value)
+                                            .replace('rname', compare_list[1].text);
+
+                $(location).attr('href', compare_url);
             });
 
             function refresh_panel_content() {
 
-                var ul = $('<ul>');
+                var ul = jspanel.find('ul.compare-list');
+                ul.empty();
 
-                var rem_btn = $('<a>');
-                rem_btn.attr('class', 'remove-from-compare');
-                rem_btn.attr('href', 'javascript:void(0)');
-                rem_btn.attr('title', '@Localization.Remove_From_Compare');
-                rem_btn.html('(x)');
+                var rem_btn = $('<button>', { "class": "m-btn red-stripe remove-from-compare", style:"color:#F00;" });
+                rem_btn.html('<b>X</b>');
 
-                $(item_list).each(function (ix, el) {
+                $(compare_list).each(function (ix, el) {
                     var clone = rem_btn.clone();
                     clone.attr('data-ix', ix);
 
-                    ul.append($('<li>').append(el.text).append('&nbsp;').append(clone));
-                });
+                    var div = $('<div>', { "class":"m-input-prepend" });
+                    var span = $('<span>', { "class": "m-wrap m-uneditable-input", style:"color:#ffffff;margin-left:5px;" }).text(el.text);
 
-                jspanel.content.html($('<p>').append(ul));
+                    ul.append(
+                        $('<li>').append(div.append(clone).append(span)));
+                });
             }
 
             function reset_compare() {
-                item_list = [];
+                compare_list = [];
                 $('input[type="checkbox"]').attr('checked', false);
             }
         });

@@ -124,6 +124,15 @@ namespace Topppro.WebSite.Areas.Humanist.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Compare_Panel_Close_Button {
+            get {
+                return ResourceManager.GetString("Compare_Panel_Close_Button", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Compare.
         /// </summary>
         public static string Compare_Panel_Compare_Button {

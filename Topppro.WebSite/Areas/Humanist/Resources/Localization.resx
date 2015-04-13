@@ -235,4 +235,7 @@ The bracket combines two i28H satellite cabinets mounted on a custom tooled arra
   <data name="Mixers_Detail_Dmx244_Editor_Windows" xml:space="preserve">
     <value>Download here the DMX24.4 PC Editor for Windows</value>
   </data>
+  <data name="Compare_Panel_Close_Button" xml:space="preserve">
+    <value />
+  </data>
 </root>

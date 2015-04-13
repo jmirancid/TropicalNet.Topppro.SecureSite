@@ -14,7 +14,6 @@ body
 {
     font-family: 'Humanst521BT-Light' , Sans-Serif;
     background-color: #F0EFF0;
-    width: 100%;
     height: 100%;
 }
 
@@ -27,6 +26,36 @@ a
 a:visited
 {
     color: inherit;
+}
+
+input[type=checkbox], input[type=radio]
+{
+    vertical-align: middle;
+    position: relative;
+    bottom: 1px;
+    cursor: hand;
+    cursor: pointer;
+}
+
+input[type=radio]
+{
+    bottom: 2px;
+}
+
+input[type=checkbox]:checked + label
+{
+    text-decoration: underline;
+}
+
+input[type=radio]:checked + label
+{
+    font-weight: bold;
+}
+
+label
+{
+    cursor: hand;
+    cursor: pointer;
 }
 
 .page
@@ -85,10 +114,22 @@ ul.products > li
     position: relative;
     display: inline-block;
     vertical-align: top;
-    border: 1px solid #c8c8c8;
-    border-bottom: 3px solid #487B31;
     margin-bottom: 25px;
     margin-left: 18px; /**display: inline;     *zoom: 1;*/
+}
+
+ul.products > li > div.product-item
+{
+    width: 100%;
+    border-top: 1px solid #c8c8c8;
+    border-left: 1px solid #c8c8c8;
+    border-right: 1px solid #c8c8c8;
+    padding-bottom: 1px;
+}
+
+ul.products > li > div.product-compare
+{
+    text-align: center;
 }
 
 ul.products img
@@ -170,8 +211,7 @@ table
     border-collapse: collapse;
 }
 
-.table-striped > tbody > tr,
-.table-striped > tbody > tr tr
+.table-striped > tbody > tr, .table-striped > tbody > tr tr
 {
     height: 32px;
 }
@@ -205,4 +245,36 @@ table
 .validation-summary-errors > ul
 {
     margin-top: 10px;
+}
+
+.slide-panel
+{
+    display: none;
+    width: 220px;
+    padding: 20px;
+    background-color: #E25B2E;
+    color: #ffffff;
+}
+
+.slide-panel.left
+{
+    position: fixed;
+    top: 0px;
+    height: 100%;
+    z-index: 999999;
+    left: -260px;
+    right: auto;
+    display: none;
+}
+
+.slide-panel > h2
+{
+    font-weight: lighter;
+}
+
+.slide-panel > ul.compare-list
+{
+    margin: 10px 0 15px;
+    list-style-type: none;
+    list-style-position: inside;
 }

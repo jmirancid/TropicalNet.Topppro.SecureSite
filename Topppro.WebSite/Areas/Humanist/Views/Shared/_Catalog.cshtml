@@ -9,33 +9,43 @@
 @foreach (var assn in Model)
 {
     <li>
-        <a href="@(assn.Product.Draft ? 
-                    "javascript:void(0)" : 
-                    Url.RouteUrl("Detail", new { controller = ViewContext.RouteData.Values["controller"], id = assn.Id, name = assn.Product.Name.ToSeoSlug() }))"
-                    onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('@(string.Format("Image{0}", assn.Id))','','@(assn.Product.GetThumbs().Where(t => t.Contains("up")).DefaultIfEmpty<string>(Localization.Default_Coming_Soon).First())',1)">
-            <span class="product_badge left">@assn.Product.Name.ToUpper()</span>
-            @if (!assn.Product.Badge.IsEmpty())
-            {
-                <span class="product_badge right">
-                    <big>@assn.Product.Badge</big><small>@assn.Product.Model.Name.ToUpper()</small>
-                </span>
-            }
-            <img src="@(assn.Product.GetThumbs().Where(t => !t.Contains("up")).DefaultIfEmpty<string>(Localization.Default_Coming_Soon).First())" alt="@assn.Product.Name" name="@(string.Format("Image{0}", assn.Id))"
-                width="173" height="143" border="0" id="@(string.Format("Image{0}", assn.Id))" />
-            <ul class="highlights">
-                @foreach (var bullet in assn.Product.Bullets)
+        <div class="product-item">
+            <a href="@(assn.Product.Draft ? 
+                        "javascript:void(0)" : 
+                        Url.RouteUrl("Detail", new { controller = ViewContext.RouteData.Values["controller"], id = assn.Id, name = assn.Product.Name.ToSeoSlug() }))"
+                        onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('@(string.Format("Image{0}", assn.Id))','','@(assn.Product.GetThumbs().Where(t => t.Contains("up")).DefaultIfEmpty<string>(Localization.Default_Coming_Soon).First())',1)">
+                <span class="product_badge left">@assn.Product.Name.ToUpper()</span>
+                @if (!assn.Product.Badge.IsEmpty())
                 {
-                    if (bullet.Name.IsEmpty())
-                    {
-                        <li><span>@bullet.Value</span></li>
-                    }
-                    else
-                    {
-                        <li><span>@bullet.Name: @bullet.Value</span></li>
-                    }
+                    <span class="product_badge right">
+                        <big>@assn.Product.Badge</big><small>@assn.Product.Model.Name.ToUpper()</small>
+                    </span>
                 }
-            </ul>
-        </a>
+                <img src="@(assn.Product.GetThumbs().Where(t => !t.Contains("up")).DefaultIfEmpty<string>(Localization.Default_Coming_Soon).First())" alt="@assn.Product.Name" name="@(string.Format("Image{0}", assn.Id))"
+                    width="173" height="143" border="0" id="@(string.Format("Image{0}", assn.Id))" />
+                <ul class="highlights">
+                    @foreach (var bullet in assn.Product.Bullets)
+                    {
+                        if (bullet.Name.IsEmpty())
+                        {
+                            <li><span>@bullet.Value</span></li>
+                        }
+                        else
+                        {
+                            <li><span>@bullet.Name: @bullet.Value</span></li>
+                        }
+                    }
+                </ul>
+            </a>
+        </div>
+        <div style="border:1px solid #487B31; width:100%; height:2px; background-color:#487B31;"></div>
+        @if (assn.AllowCompare && assn.Assn_CategorySerie.AllowCompare)
+        {
+        <div class="product-compare">
+            <input type="checkbox" id="@assn.Product.Folder" value="@assn.Id" data-text="@assn.Product.Name.ToUpper()" />
+            <label for="@assn.Product.Folder">@Localization.Add_To_Compare</label>
+        </div>
+        }
     </li>
 }
 </ul>
