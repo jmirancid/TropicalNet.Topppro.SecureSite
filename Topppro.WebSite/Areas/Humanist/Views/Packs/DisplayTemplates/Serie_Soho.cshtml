@@ -22,3 +22,6 @@
 <p style="text-align: justify;">@Html.Raw(Localization.Packs_Index_Soho_Message)</p>
 
 @Html.Catalog()
+
+<a href="@Url.RouteUrl("Default", new { controller = "Public", action = "CustomSound" })" style="position:relative; left:-18px;">
+    <img src="@Url.Content("~/Areas/Humanist/Content/Images/custom-sound-banner.jpg")" style="margin-bottom:1.33em" alt="Custom Sound" border="0" /></a>

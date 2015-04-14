@@ -1,7 +1,8 @@
-﻿@using Topppro.WebSite.Areas.Humanist.Extensions
+﻿@using Framework.Common.Extensions
 @using Topppro.WebSite.Areas.Humanist.Resources
+@using Topppro.WebSite.Areas.Humanist.Extensions
 
-@model IEnumerable<Topppro.Entities.Product>
+@model IEnumerable<Topppro.Entities.Assn_CategorySerieProduct>
 
 @{
     var item_A = Model.First();
@@ -20,19 +21,41 @@
     </tbody>
     <tr>
         <td></td>
-        <td height="30" align="center"><div class="title"><h1>@item_A.Name.ToUpper()</h1></div></td>
+        <td height="30" align="center"><div class="title"><h1>@item_A.Product.Name.ToUpper()</h1></div></td>
         <td></td>
-        <td height="30" align="center"><div class="title"><h1>@item_B.Name.ToUpper()</h1></div></td>
+        <td height="30" align="center"><div class="title"><h1>@item_B.Product.Name.ToUpper()</h1></div></td>
         <td></td>
     </tr>
     <tr>
         <td></td>
         <td valign="top">
-            @Html.Partial("_Attributes", item_A.Attributes)
+            @if (item_A.Product.Attributes.IsEmpty() == false)
+            {
+                @Html.Partial("_Attributes", item_A.Product.Attributes)
+            }
+
+            @foreach (var package in item_A.Product.ParentInPackages)
+            {
+                if (package.ChildProduct.Attributes.IsEmpty() == false)
+                {
+                    @Html.Partial("_Attributes", package.ChildProduct.Attributes)
+                }
+            }
         </td>
         <td></td>
         <td valign="top">
-            @Html.Partial("_Attributes", item_B.Attributes)
+            @if (item_A.Product.Attributes.IsEmpty() == false)
+            {
+                @Html.Partial("_Attributes", item_B.Product.Attributes)
+            }
+
+            @foreach (var package in item_B.Product.ParentInPackages)
+            {
+                if (package.ChildProduct.Attributes.IsEmpty() == false)
+                {
+                    @Html.Partial("_Attributes", package.ChildProduct.Attributes)
+                }
+            }
         </td>
         <td></td>
     </tr>

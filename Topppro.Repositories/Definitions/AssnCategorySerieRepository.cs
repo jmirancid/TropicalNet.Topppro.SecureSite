@@ -35,6 +35,7 @@ namespace Topppro.Repositories.Definitions
                             .Include(a => a.Assn_CategorySerieProduct.Select(b => b.Product.Bullets))
                             .Include(a => a.Assn_CategorySerieProduct.Select(b => b.Product.Bullets.Select(c => c.Culture)))
                             .Where(predicate)
+                            .OrderBy(a => a.Priority)
                             .Select(a => new
                             {
                                 a,
