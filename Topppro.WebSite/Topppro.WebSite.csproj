@@ -203,6 +203,8 @@
     <Content Include="Areas\Humanist\Content\Images\t20-content.jpg" />
     <Content Include="Areas\Humanist\Content\Images\t20-up.jpg" />
     <Content Include="Areas\Humanist\Content\Images\t20.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\tma54bzt-up.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\tma54bzt.jpg" />
     <Content Include="Areas\Humanist\Content\Images\topp-error.jpg" />
     <Content Include="Areas\Humanist\Content\Others\favicon.ico" />
     <Content Include="Areas\Humanist\Content\Others\intro.swf" />
