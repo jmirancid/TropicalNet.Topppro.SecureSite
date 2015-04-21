@@ -4,22 +4,11 @@
 
 @model Topppro.Entities.Assn_CategorySerie
 
-<style type="text/css">
-    h4
-    {
-        font-size: 20px;
-        margin-top: 1.33em;
-        margin-bottom: 1.33em;
-    }
-</style>
-
 <div class="title">
     <h1>@Model.Serie.Name.ToUpper() <small>Series</small></h1>
 </div>
 
-<h4 style="color: #315F8D;"><b>@Html.Raw(Localization.Packs_Index_Soho_Title)</b></h4>
-<h4>@Html.Raw(Localization.Packs_Index_Soho_Subtitle)</h4>
-<p style="text-align: justify;">@Html.Raw(Localization.Packs_Index_Soho_Message)</p>
+<p style="text-align: justify; margin:1.33em 0 2.33em;">@Html.Raw(Localization.Packs_Index_Soho_Message)</p>
 
 @Html.Catalog()
 
