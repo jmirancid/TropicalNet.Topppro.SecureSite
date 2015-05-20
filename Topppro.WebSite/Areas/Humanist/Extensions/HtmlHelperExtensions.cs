@@ -107,12 +107,18 @@ namespace Topppro.WebSite.Areas.Humanist.Extensions
         public static MvcHtmlString Attributes(
             this HtmlHelper<Topppro.Entities.Assn_CategorySerieProduct> htmlHelper)
         {
+            return Attributes(htmlHelper, htmlHelper.ViewData.Model);
+        }
+
+        public static MvcHtmlString Attributes(
+            this HtmlHelper htmlHelper, Topppro.Entities.Assn_CategorySerieProduct assn)
+        {
             StringBuilder output = new StringBuilder();
 
-            if (htmlHelper.ViewData.Model.Product.Attributes.IsEmpty() == false)
-                output.Append(htmlHelper.Partial("_Attributes", htmlHelper.ViewData.Model.Product.Attributes));
+            if (assn.Product.Attributes.IsEmpty() == false)
+                output.Append(htmlHelper.Partial("_Attributes", assn.Product.Attributes));
 
-            foreach (var package in htmlHelper.ViewData.Model.Product.ParentInPackages)
+            foreach (var package in assn.Product.ParentInPackages)
             {
                 if (package.ChildProduct.Attributes.IsEmpty() == false)
                     output.Append(htmlHelper.Partial("_Attributes", package.ChildProduct.Attributes));

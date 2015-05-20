@@ -66,19 +66,16 @@ namespace Topppro.WebSite.Areas.Humanist.Controllers
 
         public virtual ActionResult Compare(string controller, int lid, string lname, int rid, string rname)
         {
-            var lentity = this._bizAssnCategorySerieProduct.Value
-                                .GetWithAttributesByCulture(lid, Topppro.Context.Current.Culture.TwoLetterISOLanguageName);
-
-            var rentity = this._bizAssnCategorySerieProduct.Value
-                                .GetWithAttributesByCulture(rid, Topppro.Context.Current.Culture.TwoLetterISOLanguageName);
-
             var entities =
-                new List<Topppro.Entities.Assn_CategorySerieProduct>() { lentity, rentity };
+                this._bizAssnCategorySerieProduct.Value.GetWithAttributesByCulture(new int[] { lid, rid }, Topppro.Context.Current.Culture.TwoLetterISOLanguageName);
+
+            var model = 
+                Tuple.Create(entities.FirstOrDefault(), entities.LastOrDefault());
 
             ViewBag.Title =
                 string.Format(":: Topp Pro {0} vs {1} ::", lname.ToUpper(), rname.ToUpper());
 
-            return View(entities);
+            return View(model);
         }
     }
 }

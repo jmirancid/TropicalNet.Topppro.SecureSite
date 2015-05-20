@@ -104,5 +104,21 @@ namespace Topppro.Test.Business
 
             Assert.IsNotNull(list);
         }
+
+        [TestMethod]
+        public void Can_GetWithAttributesByCulture()
+        {
+            var list = bizEntity.Value.GetWithAttributesByCulture(new int[] { 1, 2 }, "en");
+
+            Assert.AreEqual<int>(2, list.Count());
+
+            Assert.IsNotNull(list.FirstOrDefault());
+            Assert.IsNotNull(list.FirstOrDefault().Product);
+            Assert.IsNotNull(list.FirstOrDefault().Product.Attributes);
+            
+            Assert.IsNotNull(list.LastOrDefault());
+            Assert.IsNotNull(list.LastOrDefault().Product);
+            Assert.IsNotNull(list.LastOrDefault().Product.Attributes);
+        }
     }
 }

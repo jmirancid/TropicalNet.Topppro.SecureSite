@@ -1,4 +1,5 @@
-﻿using Framework.Business.Definitions;
+﻿using System.Collections.Generic;
+using Framework.Business.Definitions;
 using Topppro.Interfaces.Repositories;
 
 namespace Topppro.Business.Definitions
@@ -7,6 +8,11 @@ namespace Topppro.Business.Definitions
         Business<Topppro.Entities.Assn_CategorySerieProduct, IAssnCategorySerieProductRepository>
     {
         public Topppro.Entities.Assn_CategorySerieProduct GetWithAttributesByCulture(int id, string cultureCode)
+        {
+            return Repository.Value.GetWithAttributesByCulture(id, cultureCode);
+        }
+
+        public IEnumerable<Topppro.Entities.Assn_CategorySerieProduct> GetWithAttributesByCulture(int[] id, string cultureCode)
         {
             return Repository.Value.GetWithAttributesByCulture(id, cultureCode);
         }
