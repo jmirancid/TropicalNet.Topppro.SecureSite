@@ -32,7 +32,7 @@ namespace Topppro.WebSite.Extensions
 			return GetAssets(source, _thumbFolderName);
 		}
 
-		public static IEnumerable<string> GetHeaders(this Product source)
+		public static IEnumerable<string> GetHeader(this Product source)
 		{
 			return GetAssets(source, _headerFolderName);
 		}

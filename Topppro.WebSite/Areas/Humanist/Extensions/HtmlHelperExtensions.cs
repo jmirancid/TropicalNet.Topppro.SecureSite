@@ -104,6 +104,15 @@ namespace Topppro.WebSite.Areas.Humanist.Extensions
             return htmlHelper.Partial("_Catalog", assn);
         }
 
+        public static MvcHtmlString Header(
+            this HtmlHelper<Topppro.Entities.Assn_CategorySerieProduct> htmlHelper)
+        {
+            if (htmlHelper.ViewData.Model.Product.GetHeader().IsEmpty())
+                return null;
+
+            return htmlHelper.Partial("_Header", htmlHelper.ViewData.Model.Product);
+        }
+
         public static MvcHtmlString Attributes(
             this HtmlHelper<Topppro.Entities.Assn_CategorySerieProduct> htmlHelper)
         {

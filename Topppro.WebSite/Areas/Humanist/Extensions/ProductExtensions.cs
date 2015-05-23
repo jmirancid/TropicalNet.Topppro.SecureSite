@@ -27,6 +27,11 @@ namespace Topppro.WebSite.Areas.Humanist.Extensions
         private readonly static string _hiresFolderName =
             ConfigurationManager.AppSettings["HiResFolderName"];
 
+        public static IEnumerable<string> GetHeader(this Product source)
+        {
+            return GetAssets(source, _headerFolderName);
+        }
+
         public static IEnumerable<string> GetThumbs(this Product source)
         {
             return GetAssets(source, _thumbFolderName);
