@@ -3,6 +3,7 @@ using System.Configuration;
 using System.Security.Cryptography;
 using System.Text;
 using System.Web.Security;
+using Topppro.WebSite.Settings;
 
 namespace Topppro.WebSite.Security
 {
@@ -147,9 +148,6 @@ namespace Topppro.WebSite.Security
 
         public override bool ValidateUser(string username, string password)
         {
-            string expected_token =
-                ConfigurationManager.AppSettings["AuthToken"];
-
             // Calculte the serialized data's hash value
             HashAlgorithm sha1 = SHA1.Create();
             byte[] hash = sha1.ComputeHash(Encoding.UTF8.GetBytes(string.Format("{0}/{1}", username, password)));
@@ -157,7 +155,7 @@ namespace Topppro.WebSite.Security
             string hashAsText =
                 BitConverter.ToString(hash).Replace("-", "").ToLower();
 
-            return expected_token == hashAsText;
+            return ToppproSettings.Download.Token == hashAsText;
         }
     }
 }

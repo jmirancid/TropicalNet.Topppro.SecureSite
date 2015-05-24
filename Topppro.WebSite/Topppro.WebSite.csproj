@@ -156,6 +156,7 @@
       <DependentUpon>Localization.es.resx</DependentUpon>
     </Compile>
     <Compile Include="Security\StaticMembershipProvider.cs" />
+    <Compile Include="Settings\ToppproSettings.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Humanist\Content\Images\1.-TAC-BT2.1B-EPLCertificate.jpg" />

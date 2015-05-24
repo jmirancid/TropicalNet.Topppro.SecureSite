@@ -1,45 +1,29 @@
 ﻿using System.Collections.Generic;
-using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
 using Topppro.Entities;
+using Topppro.WebSite.Settings;
 
 namespace Topppro.WebSite.Areas.Humanist.Extensions
 {
     public static class ProductExtensions
     {
-        // TODO: Crear una Config Class.
-        private readonly static string _rootProductsFolderPath =
-            ConfigurationManager.AppSettings["RootProductsFolderPath"];
-
-        private readonly static string _thumbFolderName =
-            ConfigurationManager.AppSettings["ThumbFolderName"];
-
-        private readonly static string _headerFolderName =
-            ConfigurationManager.AppSettings["HeaderFolderName"];
-
-        private readonly static string _popupFolderName =
-            ConfigurationManager.AppSettings["PopUpFolderName"];
-
-        private readonly static string _hiresFolderName =
-            ConfigurationManager.AppSettings["HiResFolderName"];
-
         public static IEnumerable<string> GetHeader(this Product source)
         {
-            return GetAssets(source, _headerFolderName);
+            return GetAssets(source, ToppproSettings.Product.Header);
         }
 
         public static IEnumerable<string> GetThumbs(this Product source)
         {
-            return GetAssets(source, _thumbFolderName);
+            return GetAssets(source, ToppproSettings.Product.Thumb);
         }
 
         public static IEnumerable<string> GetHiRes(this Product source)
         {
-            return GetAssets(source, _hiresFolderName);
+            return GetAssets(source, ToppproSettings.Product.HiRes);
         }
 
         public static IEnumerable<string> GetManuals(this Product source)
@@ -50,15 +34,13 @@ namespace Topppro.WebSite.Areas.Humanist.Extensions
 
             if (cached == null)
             {
-                string asset_vpath = "~/Content/Manuals";
-
                 string asset_path =
-                    HttpContext.Current.Server.MapPath(asset_vpath);
+                    HttpContext.Current.Server.MapPath(ToppproSettings.Manual.Root);
 
                 DirectoryInfo asset_folder = new DirectoryInfo(asset_path);
 
                 cached = asset_folder.GetFiles()
-                                .Select(f => UrlHelper.GenerateContentUrl(Path.Combine(asset_vpath, f.Name), new HttpContextWrapper(HttpContext.Current)));
+                                .Select(f => UrlHelper.GenerateContentUrl(Path.Combine(ToppproSettings.Manual.Root, f.Name), new HttpContextWrapper(HttpContext.Current)));
 
                 WebCache.Set(key, cached);
             }
@@ -68,13 +50,10 @@ namespace Topppro.WebSite.Areas.Humanist.Extensions
 
         public static string GetManual(this Product source)
         {
-            var manuals_vpath =
-                ConfigurationManager.AppSettings["RootManualsFolderPath"];
-
             if (string.IsNullOrWhiteSpace(source.Manual))
                 return null;
 
-            return UrlHelper.GenerateContentUrl(Path.Combine(manuals_vpath, source.Manual), new HttpContextWrapper(HttpContext.Current));
+            return UrlHelper.GenerateContentUrl(Path.Combine(ToppproSettings.Manual.Root, source.Manual), new HttpContextWrapper(HttpContext.Current));
         }
 
         #region Private Members
@@ -89,7 +68,7 @@ namespace Topppro.WebSite.Areas.Humanist.Extensions
 
             if (cached == null)
             {
-                string asset_vpath = Path.Combine(_rootProductsFolderPath, source.Folder, folderName);
+                string asset_vpath = Path.Combine(ToppproSettings.Product.Root, source.Folder, folderName);
 
                 string asset_path =
                     HttpContext.Current.Server.MapPath(asset_vpath);
