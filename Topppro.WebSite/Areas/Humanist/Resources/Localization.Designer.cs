@@ -241,6 +241,33 @@ namespace Topppro.WebSite.Areas.Humanist.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;b&gt;CS-LAN&lt;/b&gt; Ethernet Module..
+        /// </summary>
+        public static string Modules_HiRes_Cs_Lan {
+            get {
+                return ResourceManager.GetString("Modules_HiRes_Cs_Lan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;b&gt;CS-WM&lt;/b&gt; Wireless Master Module..
+        /// </summary>
+        public static string Modules_HiRes_Cs_Wm {
+            get {
+                return ResourceManager.GetString("Modules_HiRes_Cs_Wm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;b&gt;CS-WSL&lt;/b&gt; Wireless Slave Module..
+        /// </summary>
+        public static string Modules_HiRes_Cs_Wsl {
+            get {
+                return ResourceManager.GetString("Modules_HiRes_Cs_Wsl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;b&gt;E-CS&lt;/b&gt; Ethernet Module..
         /// </summary>
         public static string Modules_HiRes_E_Cs {
