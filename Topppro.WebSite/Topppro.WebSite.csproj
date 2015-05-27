@@ -992,14 +992,14 @@
     <Content Include="Areas\Humanist\Views\Shared\DisplayTemplates\Product.cshtml" />
     <Content Include="Areas\Humanist\Views\Shared\DisplayTemplates\Product_T20.cshtml" />
     <Content Include="Areas\Humanist\Views\Shared\DisplayTemplates\Product_Dmx244.cshtml" />
-    <Content Include="Areas\Humanist\Views\Shared\DisplayTemplates\Serie_Modules.cshtml" />
-    <Content Include="Areas\Humanist\Views\Shared\DisplayTemplates\Serie_Processors.cshtml" />
     <Content Include="Areas\Humanist\Views\Shared\Modules_HiRes.cshtml" />
     <Content Include="Areas\Humanist\Views\Speakers\DisplayTemplates\Serie_I.cshtml" />
-    <Content Include="Areas\Humanist\Views\Shared\DisplayTemplates\Serie_Wireless.cshtml" />
     <None Include="Areas\Humanist\Scripts\jquery.panelslider-0.1.1\README.md" />
     <Content Include="Areas\Humanist\Views\Shared\Compare.cshtml" />
     <Content Include="Areas\Humanist\Views\Shared\_Header.cshtml" />
+    <Content Include="Areas\Humanist\Views\Processors\DisplayTemplates\Serie_Modules.cshtml" />
+    <Content Include="Areas\Humanist\Views\Processors\DisplayTemplates\Serie_Processors.cshtml" />
+    <Content Include="Areas\Humanist\Views\Wireless\DisplayTemplates\Serie_Wireless.cshtml" />
     <None Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.eot" />
     <None Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.ttf" />
     <None Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.woff" />
