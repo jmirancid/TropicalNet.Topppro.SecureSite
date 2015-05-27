@@ -11,18 +11,9 @@
 
 @Html.Header()
 
-@foreach (var src_image in Model.Product.GetHiRes().OrderBy(i => i))
-{
-    <img src="@src_image" alt="@ViewBag.Title" style="position: relative; left: -18px;" />
-}
+<div style="margin-top:20px;">
+    @Html.HiRes()
+</div>
 
-@foreach (var package in Model.Product.ParentInPackages)
-{
-    if (!package.ChildProduct.GetHiRes().IsEmpty())
-    {
-        foreach (var src_image in package.ChildProduct.GetHiRes().OrderBy(i => i))
-        {
-            <img src="@src_image" alt="@ViewBag.Title" style="position: relative; left: -18px;" />
-        }
-    }
-}
+<img src="@Url.Content("~/Areas/Humanist/Content/Images/t20-content.jpg")" alt="@ViewBag.Title" 
+        style="position: relative; left: -18px; margin-bottom: 20px;" />

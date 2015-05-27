@@ -7,6 +7,6 @@
 @Html.DisplayForModel()
 
 <div style="margin-bottom:30px;">
-    @Html.Back(new { style = "float:right;" })
+    @Html.Back(Url.RouteUrl("Catalog", new { controller = ViewContext.RouteData.Values["controller"] }) + "#" + Model.Assn_CategorySerie.Serie.Name.ToLower(), new { style = "float:right;" })
     <br style="clear: both;" />
 </div>

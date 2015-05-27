@@ -28,6 +28,6 @@
 <div style="margin-bottom:30px;">
     @Html.Manual()
     
-    @Html.Back(new { style = "float:right;" })
+    @Html.Back(Url.RouteUrl("Detail", new { controller = ViewContext.RouteData.Values["controller"], id = Model.Id, name = Model.Product.Name.ToSeoSlug() }), new { style = "float:right;" })
     <br style="clear: both;" />
 </div>

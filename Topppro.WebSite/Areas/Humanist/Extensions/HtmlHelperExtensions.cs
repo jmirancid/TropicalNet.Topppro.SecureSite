@@ -220,52 +220,22 @@ namespace Topppro.WebSite.Areas.Humanist.Extensions
         }
 
         public static MvcHtmlString Back(
-            this HtmlHelper htmlHelper)
+            this HtmlHelper htmlHelper, string href)
         {
-            return Back(htmlHelper, null);
+            return Back(htmlHelper, href, null);
         }
 
         public static MvcHtmlString Back(
-            this HtmlHelper htmlHelper, object htmlAttributes)
+            this HtmlHelper htmlHelper, string href, object htmlAttributes)
         {
-            return Back(htmlHelper, HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
+            return Back(htmlHelper, href, HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
         }
 
         public static MvcHtmlString Back(
-            this HtmlHelper htmlHelper, IDictionary<string, object> htmlAttributes)
-        {
-            return Back(htmlHelper, null, htmlAttributes);
-        }
-
-        public static MvcHtmlString Back(
-            this HtmlHelper<Topppro.Entities.Assn_CategorySerieProduct> htmlHelper)
-        {
-            return Back(htmlHelper, null);
-        }
-
-        public static MvcHtmlString Back(
-            this HtmlHelper<Topppro.Entities.Assn_CategorySerieProduct> htmlHelper, object htmlAttributes)
-        {
-            return Back(htmlHelper, HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
-        }
-
-        public static MvcHtmlString Back(
-            this HtmlHelper<Topppro.Entities.Assn_CategorySerieProduct> htmlHelper, IDictionary<string, object> htmlAttributes)
-        {
-            return Back(htmlHelper, htmlHelper.ViewData.Model, htmlAttributes);
-        }
-
-        private static MvcHtmlString Back(
-            this HtmlHelper htmlHelper, Topppro.Entities.Assn_CategorySerieProduct referrer, IDictionary<string, object> htmlAttributes)
+            this HtmlHelper htmlHelper, string href, IDictionary<string, object> htmlAttributes)
         {
             var urlHelper =
                 new UrlHelper(htmlHelper.ViewContext.RequestContext);
-
-            var href =
-                urlHelper.RouteUrl("Catalog", new { controller = htmlHelper.ViewContext.RouteData.Values["controller"] });
-
-            if (referrer != null)
-                href += "#" + referrer.Assn_CategorySerie.Serie.Name.ToLower();
 
             var a = new TagBuilder("a");
             a.Attributes.Add("href", href);
