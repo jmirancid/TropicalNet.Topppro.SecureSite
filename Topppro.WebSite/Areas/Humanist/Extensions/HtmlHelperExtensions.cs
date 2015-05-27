@@ -136,6 +136,157 @@ namespace Topppro.WebSite.Areas.Humanist.Extensions
             return MvcHtmlString.Create(output.ToString());
         }
 
+        public static MvcHtmlString Manual(
+            this HtmlHelper<Topppro.Entities.Assn_CategorySerieProduct> htmlHelper)
+        {
+            return Manual(htmlHelper, null);
+        }
+
+        public static MvcHtmlString Manual(
+            this HtmlHelper<Topppro.Entities.Assn_CategorySerieProduct> htmlHelper, object htmlAttributes)
+        {
+            return Manual(htmlHelper, HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
+        }
+
+        public static MvcHtmlString Manual(
+            this HtmlHelper<Topppro.Entities.Assn_CategorySerieProduct> htmlHelper, IDictionary<string, object> htmlAttributes)
+        {
+            if (htmlHelper.ViewData.Model.Product.GetManual().IsEmpty())
+                return null;
+
+            var urlHelper =
+                new UrlHelper(htmlHelper.ViewContext.RequestContext);
+
+            var a = new TagBuilder("a");
+            a.Attributes.Add("href", htmlHelper.ViewData.Model.Product.GetManual());
+            a.Attributes.Add("target", "_blank");
+            a.Attributes.Add("onmouseout", "MM_swapImgRestore()");
+            a.Attributes.Add("onmouseover", "MM_swapImage('Manual','','" + urlHelper.Content("~/Areas/Humanist/Content/Images/manual-top.jpg") + "',1)");
+            a.MergeAttributes(htmlAttributes);
+
+            var img = new TagBuilder("img");
+            img.Attributes.Add("src", urlHelper.Content("~/Areas/Humanist/Content/Images/manual-bottom.jpg"));
+            img.Attributes.Add("alt", "user manual");
+            img.Attributes.Add("id", "Manual");
+            img.Attributes.Add("name", "Manual");
+            img.Attributes.Add("width", "100");
+            img.Attributes.Add("height", "100");
+            img.Attributes.Add("border", "0");
+
+            a.InnerHtml += img.ToString(TagRenderMode.SelfClosing);
+
+            return MvcHtmlString.Create(a.ToString());
+        }
+
+        public static MvcHtmlString HiRes(
+            this HtmlHelper<Topppro.Entities.Assn_CategorySerieProduct> htmlHelper)
+        {
+            return HiRes(htmlHelper, null);
+        }
+
+        public static MvcHtmlString HiRes(
+            this HtmlHelper<Topppro.Entities.Assn_CategorySerieProduct> htmlHelper, object htmlAttributes)
+        {
+            return HiRes(htmlHelper, HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
+        }
+
+        public static MvcHtmlString HiRes(
+            this HtmlHelper<Topppro.Entities.Assn_CategorySerieProduct> htmlHelper, IDictionary<string, object> htmlAttributes)
+        {
+            if (htmlHelper.ViewData.Model.Product.GetHiRes().IsEmpty())
+                return null;
+
+            var urlHelper =
+                new UrlHelper(htmlHelper.ViewContext.RequestContext);
+
+            var a = new TagBuilder("a");
+            a.Attributes.Add("href", urlHelper.RouteUrl("HiRes", new { controller = htmlHelper.ViewContext.RouteData.Values["controller"], id = htmlHelper.ViewData.Model.Id, name = htmlHelper.ViewData.Model.Product.Name.ToSeoSlug() }));
+            a.Attributes.Add("onmouseout", "MM_swapImgRestore()");
+            a.Attributes.Add("onmouseover", "MM_swapImage('HiRes','','" + urlHelper.Content("~/Areas/Humanist/Content/Images/hires-top.jpg") + "',1)");
+            a.MergeAttributes(htmlAttributes);
+
+            var img = new TagBuilder("img");
+            img.Attributes.Add("src", urlHelper.Content("~/Areas/Humanist/Content/Images/hires-bottom.jpg"));
+            img.Attributes.Add("alt", "images");
+            img.Attributes.Add("id", "HiRes");
+            img.Attributes.Add("name", "HiRes");
+            img.Attributes.Add("width", "100");
+            img.Attributes.Add("height", "100");
+            img.Attributes.Add("border", "0");
+
+            a.InnerHtml += img.ToString(TagRenderMode.SelfClosing);
+
+            return MvcHtmlString.Create(a.ToString());
+        }
+
+        public static MvcHtmlString Back(
+            this HtmlHelper htmlHelper)
+        {
+            return Back(htmlHelper, null);
+        }
+
+        public static MvcHtmlString Back(
+            this HtmlHelper htmlHelper, object htmlAttributes)
+        {
+            return Back(htmlHelper, HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
+        }
+
+        public static MvcHtmlString Back(
+            this HtmlHelper htmlHelper, IDictionary<string, object> htmlAttributes)
+        {
+            return Back(htmlHelper, null, htmlAttributes);
+        }
+
+        public static MvcHtmlString Back(
+            this HtmlHelper<Topppro.Entities.Assn_CategorySerieProduct> htmlHelper)
+        {
+            return Back(htmlHelper, null);
+        }
+
+        public static MvcHtmlString Back(
+            this HtmlHelper<Topppro.Entities.Assn_CategorySerieProduct> htmlHelper, object htmlAttributes)
+        {
+            return Back(htmlHelper, HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
+        }
+
+        public static MvcHtmlString Back(
+            this HtmlHelper<Topppro.Entities.Assn_CategorySerieProduct> htmlHelper, IDictionary<string, object> htmlAttributes)
+        {
+            return Back(htmlHelper, htmlHelper.ViewData.Model, htmlAttributes);
+        }
+
+        private static MvcHtmlString Back(
+            this HtmlHelper htmlHelper, Topppro.Entities.Assn_CategorySerieProduct referrer, IDictionary<string, object> htmlAttributes)
+        {
+            var urlHelper =
+                new UrlHelper(htmlHelper.ViewContext.RequestContext);
+
+            var href =
+                urlHelper.RouteUrl("Catalog", new { controller = htmlHelper.ViewContext.RouteData.Values["controller"] });
+
+            if (referrer != null)
+                href += "#" + referrer.Assn_CategorySerie.Serie.Name.ToLower();
+
+            var a = new TagBuilder("a");
+            a.Attributes.Add("href", href);
+            a.Attributes.Add("onmouseout", "MM_swapImgRestore()");
+            a.Attributes.Add("onmouseover", "MM_swapImage('Back','','" + urlHelper.Content("~/Areas/Humanist/Content/Images/back-top.jpg") + "',1)");
+            a.MergeAttributes(htmlAttributes);
+
+            var img = new TagBuilder("img");
+            img.Attributes.Add("src", urlHelper.Content("~/Areas/Humanist/Content/Images/back-bottom.jpg"));
+            img.Attributes.Add("alt", "back");
+            img.Attributes.Add("id", "Back");
+            img.Attributes.Add("name", "Back");
+            img.Attributes.Add("width", "100");
+            img.Attributes.Add("height", "100");
+            img.Attributes.Add("border", "0");
+
+            a.InnerHtml += img.ToString(TagRenderMode.SelfClosing);
+
+            return MvcHtmlString.Create(a.ToString());
+        }
+
         public static MvcHtmlString PreloadedImages(
             this HtmlHelper htmlHelper)
         {

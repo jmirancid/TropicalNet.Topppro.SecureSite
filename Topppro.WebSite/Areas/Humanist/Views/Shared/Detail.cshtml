@@ -7,20 +7,6 @@
 @Html.DisplayForModel()
 
 <div style="margin-bottom:30px;">
-
-    @if (!Model.Product.Manual.IsEmpty())
-    {
-    <a href="@Model.Product.GetManual()" target="_blank" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Manual','','@Url.Content("~/Areas/Humanist/Content/Images/manual-top.jpg")',1)" style="margin-right:85px;">
-        <img src="@Url.Content("~/Areas/Humanist/Content/Images/manual-bottom.jpg")" alt="user manual" name="Manual" width="100" height="100" border="0" id="Manual" /></a>
-    }
-    
-    @if (!Model.Product.GetHiRes().IsEmpty())
-    {
-    <a href="@Url.RouteUrl("HiRes", new { controller = ViewContext.RouteData.Values["controller"], id = Model.Id, name = Model.Product.Name.ToSeoSlug() })" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('HiRes','','@Url.Content("~/Areas/Humanist/Content/Images/hires-top.jpg")',1)">
-        <img src="@Url.Content("~/Areas/Humanist/Content/Images/hires-bottom.jpg")" alt="images" name="HiRes" width="100" height="100" border="0" id="HiRes" /></a>
-    }
-    
-    <a href="@Url.RouteUrl("Catalog", new { controller = ViewContext.RouteData.Values["controller"] })#@Model.Assn_CategorySerie.Serie.Name.ToLower()" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Back','','@Url.Content("~/Areas/Humanist/Content/Images/back-top.jpg")',1)" style="float:right;">
-        <img src="@Url.Content("~/Areas/Humanist/Content/Images/back-bottom.jpg")" alt="back" name="Back" width="100" height="100" border="0" id="Back" /></a>
+    @Html.Back(new { style = "float:right;" })
     <br style="clear: both;" />
 </div>

@@ -1,4 +1,5 @@
-﻿@using Topppro.WebSite.Areas.Humanist.Resources
+﻿@using Framework.Common.Extensions
+@using Topppro.WebSite.Areas.Humanist.Resources
 @using Topppro.WebSite.Areas.Humanist.Extensions
 
 @model Topppro.Entities.Assn_CategorySerieProduct
@@ -9,6 +10,11 @@
 </div>
 
 @Html.Header()
+
+<div style="margin-bottom:10px;">
+    @Html.Manual(new { style = "margin-right:85px;" })
+    @Html.HiRes()
+</div>
 
 <h4 style="margin:10px 0 10px;text-align:justify;">@Localization.Mixers_Detail_Dmx244_Message</h4>
 
