@@ -22,14 +22,14 @@ namespace Topppro.Entities.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Ent_AttributeResource {
+    public class Ent_BulletResource {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Ent_AttributeResource() {
+        internal Ent_BulletResource() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Topppro.Entities.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Topppro.Entities.Resources.Ent_AttributeResource", typeof(Ent_AttributeResource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Topppro.Entities.Resources.Ent_BulletResource", typeof(Ent_BulletResource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,7 +61,7 @@ namespace Topppro.Entities.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Attribute.
+        ///   Busca una cadena traducida similar a Bullet.
         /// </summary>
         public static string _Caption {
             get {

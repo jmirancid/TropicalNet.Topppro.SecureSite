@@ -112,6 +112,7 @@
     <Compile Include="Areas\SecureSite\Controllers\AssnCategorySerieController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\AssnCategorySerieProductController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\AttributeController.cs" />
+    <Compile Include="Areas\SecureSite\Controllers\BulletController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\CategoryController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\CultureController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\ModelController.cs" />
@@ -1032,6 +1033,11 @@
     <Content Include="Areas\SecureSite\Views\Package\Delete.cshtml" />
     <Content Include="Areas\SecureSite\Views\Package\Create.cshtml" />
     <Content Include="Areas\SecureSite\Views\Package\Edit.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Bullet\Create.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Bullet\Delete.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Bullet\Details.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Bullet\Edit.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Bullet\Index.cshtml" />
     <None Include="Plugins\jquery.jspanel-2.1.0\License.pdf" />
     <None Include="Plugins\jquery.jspanel-2.1.0\README.md" />
     <Content Include="Views\Shared\_ProductHeader.cshtml" />

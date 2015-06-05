@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="Definitions\AssnCategorySerieProductRepository.cs" />
     <Compile Include="Definitions\AttributeRepository.cs" />
+    <Compile Include="Definitions\BulletRepository.cs" />
     <Compile Include="Definitions\CategoryRepository.cs" />
     <Compile Include="Definitions\AssnCategorySerieRepository.cs" />
     <Compile Include="Definitions\CultureRepository.cs" />

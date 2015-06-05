@@ -64,6 +64,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Attribute.cs" />
+    <Compile Include="Bullet.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="Culture.cs" />
     <Compile Include="Generated\Assn_CategorySerie.cs">
@@ -114,6 +115,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Ent_AttributeResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Ent_BulletResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ent_BulletResource.resx</DependentUpon>
     </Compile>
     <Compile Include="Resources\Ent_CategoryResource.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -175,6 +181,10 @@
     <EmbeddedResource Include="Resources\Ent_AttributeResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Ent_AttributeResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Ent_BulletResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Ent_BulletResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Ent_CategoryResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
