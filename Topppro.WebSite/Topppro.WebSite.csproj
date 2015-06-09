@@ -119,6 +119,7 @@
     <Compile Include="Areas\SecureSite\Controllers\PackageController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\ProductController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\SerieController.cs" />
+    <Compile Include="Areas\SecureSite\Extensions\HtmlHelperExtensions.cs" />
     <Compile Include="Controllers\AmplifiersController.cs" />
     <Compile Include="Controllers\BluetoothController.cs" />
     <Compile Include="Controllers\DistributorsController.cs" />
@@ -1038,6 +1039,7 @@
     <Content Include="Areas\SecureSite\Views\Bullet\Details.cshtml" />
     <Content Include="Areas\SecureSite\Views\Bullet\Edit.cshtml" />
     <Content Include="Areas\SecureSite\Views\Bullet\Index.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Shared\_Menu.cshtml" />
     <None Include="Plugins\jquery.jspanel-2.1.0\License.pdf" />
     <None Include="Plugins\jquery.jspanel-2.1.0\README.md" />
     <Content Include="Views\Shared\_ProductHeader.cshtml" />

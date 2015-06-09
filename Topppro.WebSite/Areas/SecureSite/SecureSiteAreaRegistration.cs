@@ -17,7 +17,7 @@ namespace Topppro.WebSite.Areas.SecureSite
 			context.MapRoute(
 				name: "SecureSite_default",
 				url: "SecureSite/{controller}/{action}/{id}",
-				defaults: new { controller = "Account", action = "LogOn", id = UrlParameter.Optional },
+				defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
                 namespaces: new[] { "Topppro.WebSite.Areas.SecureSite.Controllers" }
 			);
 		}

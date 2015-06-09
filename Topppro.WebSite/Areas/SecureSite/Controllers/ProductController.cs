@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using Framework.MVC.Controllers;
 using Topppro.Business.Definitions;
 using Topppro.Entities;
+using Topppro.WebSite.Settings;
 
 namespace Topppro.WebSite.Areas.SecureSite.Controllers
 {
@@ -40,9 +41,6 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
 
         private IEnumerable<string> GetManuals()
         {
-            string manuals_vpath =
-                ConfigurationManager.AppSettings["RootManualsFolderPath"];
-
             var key = "Topppro_Manuals";
 
             var cached = WebCache.Get(key);
@@ -50,7 +48,7 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
             if (cached == null)
             {
                 string manuals_path =
-                    this.HttpContext.Server.MapPath(manuals_vpath);
+                    this.HttpContext.Server.MapPath(ToppproSettings.Manual.Root);
 
                 DirectoryInfo manuals_folder = new DirectoryInfo(manuals_path);
 

@@ -26,28 +26,6 @@ namespace Topppro.WebSite.Areas.Humanist.Extensions
             return GetAssets(source, ToppproSettings.Product.HiRes);
         }
 
-        public static IEnumerable<string> GetManuals(this Product source)
-        {
-            var key = "Topppro_Manuals";
-
-            var cached = WebCache.Get(key);
-
-            if (cached == null)
-            {
-                string asset_path =
-                    HttpContext.Current.Server.MapPath(ToppproSettings.Manual.Root);
-
-                DirectoryInfo asset_folder = new DirectoryInfo(asset_path);
-
-                cached = asset_folder.GetFiles()
-                                .Select(f => UrlHelper.GenerateContentUrl(Path.Combine(ToppproSettings.Manual.Root, f.Name), new HttpContextWrapper(HttpContext.Current)));
-
-                WebCache.Set(key, cached);
-            }
-
-            return cached;
-        }
-
         public static string GetManual(this Product source)
         {
             if (string.IsNullOrWhiteSpace(source.Manual))
