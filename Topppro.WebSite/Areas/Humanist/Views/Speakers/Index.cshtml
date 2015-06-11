@@ -1,0 +1,137 @@
+﻿@using Framework.MVC.Extensions
+@using Topppro.WebSite.Areas.Humanist.Resources
+@using Topppro.WebSite.Areas.Humanist.Extensions
+
+@model IEnumerable<Topppro.Entities.Assn_CategorySerie>
+
+@section Styles {
+    <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Areas/Humanist/Content/Styles/m-icons.min.css")" />
+    <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Areas/Humanist/Content/Styles/m-buttons.min.css")" />
+}
+
+<table width="1000" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+    <tbody>
+        <!--<noscript>-->
+        <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0"
+            width="964" height="300" title="@ViewBag.Title">
+            <param name="movie" value="@Url.Content("~/Areas/Humanist/Content/Others/cs.swf")" />
+            <param name="quality" value="high" />
+            <param name="wmode" value="opaque" />
+            <param name="bgcolor" value="#FFFFFF" />
+            <param name="scale" value="noborder" />
+            <embed src="@Url.Content("~/Areas/Humanist/Content/Others/cs.swf")" quality="high" scale="noborder" bgcolor="#FFFFFF" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="964" height="280" wmode="opaque"></embed>
+        </object>
+        <!--</noscript>-->
+        @Html.DisplayForModel()
+    </tbody>
+</table>
+
+<div class="slide-panel left">
+    <h2><a href="javascript:$.panelslider.close();"><i class="m-icon-big-swapleft m-icon-white" style="margin:0px 3px;"></i></a> @Localization.Compare_Panel_Title</h2>
+    <ul class="compare-list"></ul>
+    <p class="controls">
+        <button id="btn-clear" class="m-btn black">@Localization.Compare_Panel_Clear_Button <i class="icon-refresh icon-white"></i></button>
+        <button id="btn-compare" class="m-btn green">@Localization.Compare_Panel_Compare_Button <i class="icon-share-alt icon-white"></i></button>
+    </p>
+</div>
+
+@section Scripts {
+    @Html.PreloadedImages()
+    <script type="text/javascript" src="@Url.Content("~/Areas/Humanist/Scripts/jquery-1.8.3.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Areas/Humanist/Scripts/jquery.panelslider-0.1.1/jquery.panelslider.min.js")"></script>
+    <script type="text/javascript">
+        $(function () {
+            var jspanel = $('.slide-panel'), compare_list = [];
+
+            $('input[type="checkbox"]').change(function (event) {
+                var target = $(this);
+
+                if (target.is(':checked')) {
+
+                    if (compare_list.length == 2) {
+                        target.attr('checked', false);
+                        return;
+                    }
+
+                    var item = {
+                        id: target.attr('id'),
+                        value: target.val(),
+                        text: target.data('text'),
+                        timestamp: (new Date()).getTime()
+                    };
+
+                    compare_list.push(item);
+
+                    if (jspanel.hasClass('ps-active-panel')) {
+                        refresh_panel_content();
+                        return;
+                    }
+
+                    $.panelslider($('.slide-panel'), { clickClose: false });
+
+                    refresh_panel_content();
+
+                } else {
+
+                    compare_list =
+                        $.grep(compare_list, function (el, ix) { return el.value != target.val(); });
+
+                    refresh_panel_content();
+                }
+            });
+
+            $('body').on('click', '.remove-from-compare', function (event) {
+                var ix = $(this).data('ix');
+
+                $('#' + compare_list[ix].id).attr('checked', false);
+
+                compare_list.splice(ix, 1);
+                refresh_panel_content();
+            });
+
+            $('#btn-clear').on('click', function (event) {
+                reset_compare(); refresh_panel_content();
+            });
+
+            $('#btn-compare').on('click', function (event) {
+                if (compare_list.length < 2)
+                    return;
+
+                var compare_mask =
+                	'@Url.RouteUrl("Compare", new { lid = "lid", lname = "lname", rid = "rid", rname = "rname"})';
+
+                var compare_url = compare_mask.replace('lid', compare_list[0].value)
+                                            .replace('lname', compare_list[0].text)
+                                            .replace('rid', compare_list[1].value)
+                                            .replace('rname', compare_list[1].text);
+
+                $(location).attr('href', compare_url);
+            });
+
+            function refresh_panel_content() {
+
+                var ul = jspanel.find('ul.compare-list');
+                ul.empty();
+
+                var rem_btn = $('<button>', { "class": "m-btn red-stripe remove-from-compare", style: "color:#F00;" });
+                rem_btn.html('<b>X</b>');
+
+                $(compare_list).each(function (ix, el) {
+                    var clone = rem_btn.clone();
+                    clone.attr('data-ix', ix);
+
+                    var div = $('<div>', { "class": "m-input-prepend" });
+                    var span = $('<span>', { "class": "m-wrap m-uneditable-input", style: "color:#ffffff;margin-left:5px;" }).text(el.text);
+
+                    ul.append(
+                        $('<li>').append(div.append(clone).append(span)));
+                });
+            }
+
+            function reset_compare() {
+                compare_list = [];
+                $('input[type="checkbox"]').attr('checked', false);
+            }
+        });
+    </script>
+}
