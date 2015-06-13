@@ -13,7 +13,7 @@
     <tbody>
         <!--<noscript>-->
         <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0"
-            width="964" height="300" title="@ViewBag.Title">
+            width="964" height="280" title="@ViewBag.Title">
             <param name="movie" value="@Url.Content("~/Areas/Humanist/Content/Others/cs.swf")" />
             <param name="quality" value="high" />
             <param name="wmode" value="opaque" />
@@ -22,6 +22,7 @@
             <embed src="@Url.Content("~/Areas/Humanist/Content/Others/cs.swf")" quality="high" scale="noborder" bgcolor="#FFFFFF" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="964" height="280" wmode="opaque"></embed>
         </object>
         <!--</noscript>-->
+        <div style="margin-bottom:40px;">&nbsp;</div>
         @Html.DisplayForModel()
     </tbody>
 </table>
