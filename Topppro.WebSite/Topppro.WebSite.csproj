@@ -331,6 +331,11 @@
     <Content Include="Areas\SecureSite\Scripts\custom.js" />
     <Content Include="Areas\SecureSite\Scripts\dataTables\dataTables.bootstrap.css" />
     <Content Include="Areas\SecureSite\Scripts\dataTables\dataTables.bootstrap.js" />
+    <Content Include="Areas\SecureSite\Scripts\dataTables\images\sort_asc.png" />
+    <Content Include="Areas\SecureSite\Scripts\dataTables\images\sort_asc_disabled.png" />
+    <Content Include="Areas\SecureSite\Scripts\dataTables\images\sort_both.png" />
+    <Content Include="Areas\SecureSite\Scripts\dataTables\images\sort_desc.png" />
+    <Content Include="Areas\SecureSite\Scripts\dataTables\images\sort_desc_disabled.png" />
     <Content Include="Areas\SecureSite\Scripts\dataTables\jquery.dataTables.js" />
     <Content Include="Areas\SecureSite\Scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="Areas\SecureSite\Scripts\jquery-1.10.2.js" />
@@ -1004,6 +1009,8 @@
     <Content Include="Areas\Humanist\Views\Processors\DisplayTemplates\Serie_Processors.cshtml" />
     <Content Include="Areas\Humanist\Views\Wireless\DisplayTemplates\Serie_Wireless.cshtml" />
     <Content Include="Areas\Humanist\Views\Speakers\Index.cshtml" />
+    <Content Include="Areas\Humanist\Views\Shared\_Slide.cshtml" />
+    <Content Include="Areas\Humanist\Views\Packs\Index.cshtml" />
     <None Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.eot" />
     <None Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.ttf" />
     <None Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.woff" />

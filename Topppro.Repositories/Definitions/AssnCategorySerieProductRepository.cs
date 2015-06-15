@@ -16,6 +16,16 @@ namespace Topppro.Repositories.Definitions
                         .Include(e => e.Product);
         }
 
+        public override IQueryable<Assn_CategorySerieProduct> AllBy(
+            System.Linq.Expressions.Expression<System.Func<Assn_CategorySerieProduct, bool>> predicate)
+        {
+            return Context.Assn_CategorySerieProduct
+                        .Include(e => e.Assn_CategorySerie.Category)
+                        .Include(e => e.Assn_CategorySerie.Serie)
+                        .Include(e => e.Product)
+                        .Where(predicate);
+        }
+
         public override Assn_CategorySerieProduct Get(int id)
         {
             return Context.Assn_CategorySerieProduct

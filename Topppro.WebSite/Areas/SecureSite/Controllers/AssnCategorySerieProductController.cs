@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using Framework.MVC.Controllers;
@@ -18,13 +19,64 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
 
         public override ActionResult Index()
         {
-            var assn =
-                base.Business.Value.All()
-                    .OrderBy(a => a.Assn_CategorySerie.Category.Name)
-                        .ThenBy(a => a.Assn_CategorySerie.Priority)
-                            .ThenBy(a => a.Priority);
+            return View();
+        }
 
-            return View(assn);
+        public override JsonResult Index(string sEcho, string sSearch, int iSortCol_0, string sSortDir_0, int iDisplayStart, int iDisplayLength)
+        {
+            int count;
+            IEnumerable<Assn_CategorySerieProduct> filtered;
+            System.Linq.Expressions.Expression<Func<Assn_CategorySerieProduct, bool>> predicate;
+
+            if (!string.IsNullOrEmpty(sSearch))
+            {
+                predicate =
+                    x => x.Assn_CategorySerie.Category.Name.ToLower().Contains(sSearch.ToLower())
+                         || x.Assn_CategorySerie.Serie.Name.ToLower().Contains(sSearch.ToLower())
+                         || x.Product.Name.ToLower().Contains(sSearch.ToLower());
+
+                count =
+                    base.Business.Value.CountBy(predicate);
+
+                filtered =
+                    base.Business.Value
+                        .FilterBy(iDisplayStart, iDisplayLength, predicate);
+            }
+            else
+            {
+                count =
+                    base.Business.Value.Count();
+
+                filtered =
+                    base.Business.Value.Filter(iDisplayStart, iDisplayLength);
+            }
+
+            if (sSortDir_0 == "asc")
+            {
+                filtered = filtered.OrderBy(x =>
+                                  (iSortCol_0 == 0) ? x.Assn_CategorySerie.Category.Name
+                                : (iSortCol_0 == 1) ? x.Assn_CategorySerie.Serie.Name
+                                : (iSortCol_0 == 2) ? x.Product.Name : x.Priority.GetValueOrDefault(0).ToString());
+            }
+            else
+            {
+                filtered = filtered.OrderByDescending(x =>
+                                  (iSortCol_0 == 0) ? x.Assn_CategorySerie.Category.Name
+                                : (iSortCol_0 == 1) ? x.Assn_CategorySerie.Serie.Name
+                                : (iSortCol_0 == 2) ? x.Product.Name : x.Priority.GetValueOrDefault(0).ToString());
+            }
+
+            var data = filtered
+                .Select(x => new { Id = x.Id, Category = x.Assn_CategorySerie.Category.Name, Serie = x.Assn_CategorySerie.Serie.Name, Product = x.Product.Name, Priority = x.Priority, Enabled = x.Enabled });
+
+            return
+                Json(new
+                {
+                    sEcho = sEcho,
+                    iTotalRecords = base.Business.Value.Count(),
+                    iTotalDisplayRecords = count,
+                    aaData = data
+                }, JsonRequestBehavior.AllowGet);
         }
 
         public override void CreateGetPrerender(Assn_CategorySerieProduct entity = null)

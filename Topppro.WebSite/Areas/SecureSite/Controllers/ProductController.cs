@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Web.Helpers;
@@ -25,6 +24,60 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
                     .OrderBy(p => p.Name);
 
             return View(products);
+        }
+
+        public override JsonResult Index(
+            string sEcho, string sSearch, int iSortCol_0, string sSortDir_0, int iDisplayStart, int iDisplayLength)
+        {
+            int count;
+            IEnumerable<Product> filtered;
+            System.Linq.Expressions.Expression<Func<Product, bool>> predicate;
+
+            if (!string.IsNullOrEmpty(sSearch))
+            {
+                predicate =
+                    x => x.Name.ToLower().Contains(sSearch.ToLower())
+                         || x.Model.Name.ToLower().Contains(sSearch.ToLower());
+
+                count =
+                    base.Business.Value
+                        .CountBy(predicate);
+
+                filtered =
+                    base.Business.Value
+                        .FilterBy(iDisplayStart, iDisplayLength, predicate);
+            }
+            else
+            {
+                count =
+                    base.Business.Value.Count();
+
+                filtered =
+                    base.Business.Value.Filter(iDisplayStart, iDisplayLength);
+            }
+
+            if (sSortDir_0 == "asc")
+            {
+                filtered = filtered.OrderBy(x =>
+                                    (iSortCol_0 == 0) ? x.Name : x.Model.Name);
+            }
+            else
+            {
+                filtered = filtered.OrderByDescending(x =>
+                                    (iSortCol_0 == 0) ? x.Name : x.Model.Name);
+            }
+
+            var data = filtered
+                .Select(x => new { Id = x.Id, Product = x.Name, Model = x.Model.Name });
+
+            return
+                Json(new
+                {
+                    sEcho = sEcho,
+                    iTotalRecords = base.Business.Value.Count(),
+                    iTotalDisplayRecords = filtered.Count(),
+                    aaData = data
+                }, JsonRequestBehavior.AllowGet);
         }
 
         public override void CreateGetPrerender(Product entity = null)
