@@ -19,11 +19,7 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
 
         public override ActionResult Index()
         {
-            var products =
-                base.Business.Value.All()
-                    .OrderBy(p => p.Name);
-
-            return View(products);
+            return View();
         }
 
         public override JsonResult Index(
@@ -75,7 +71,7 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
                 {
                     sEcho = sEcho,
                     iTotalRecords = base.Business.Value.Count(),
-                    iTotalDisplayRecords = filtered.Count(),
+                    iTotalDisplayRecords = count,
                     aaData = data
                 }, JsonRequestBehavior.AllowGet);
         }
