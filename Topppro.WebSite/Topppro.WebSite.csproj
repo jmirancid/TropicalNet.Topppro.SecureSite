@@ -174,6 +174,11 @@
     <Content Include="Areas\Humanist\Content\Images\bluetoth-certificates.jpg" />
     <Content Include="Areas\Humanist\Content\Images\catalog-download-up.jpg" />
     <Content Include="Areas\Humanist\Content\Images\catalog-download.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\cs-appstore.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\cs-banner-1.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\cs-banner-2.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\cs-banner-3.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\cs-banner-4.jpg" />
     <Content Include="Areas\Humanist\Content\Images\cs-sound-up.jpg" />
     <Content Include="Areas\Humanist\Content\Images\cs-sound.jpg" />
     <Content Include="Areas\Humanist\Content\Images\cs1.jpg" />
@@ -186,6 +191,10 @@
     <Content Include="Areas\Humanist\Content\Images\hires-bottom.jpg" />
     <Content Include="Areas\Humanist\Content\Images\hires-top.jpg" />
     <Content Include="Areas\Humanist\Content\Images\i4K-2000w.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\intro-1.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\intro-2.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\intro-3.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\intro-5.jpg" />
     <Content Include="Areas\Humanist\Content\Images\manual-bottom.jpg" />
     <Content Include="Areas\Humanist\Content\Images\manual-top.jpg" />
     <Content Include="Areas\Humanist\Content\Images\modules-cs-lan-1-2.jpg" />
@@ -301,6 +310,13 @@
     <Content Include="Areas\Humanist\Scripts\jquery.validate.min.js" />
     <Content Include="Areas\Humanist\Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Areas\Humanist\Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Areas\Humanist\Scripts\jssor.slider-19.0\arrow.png" />
+    <Content Include="Areas\Humanist\Scripts\jssor.slider-19.0\jssor.js" />
+    <Content Include="Areas\Humanist\Scripts\jssor.slider-19.0\jssor.slider.js" />
+    <Content Include="Areas\Humanist\Scripts\jssor.slider-19.0\jssor.slider.min.js" />
+    <Content Include="Areas\Humanist\Scripts\jssor.slider-19.0\MIT-LICENSE.txt" />
+    <Content Include="Areas\Humanist\Scripts\jssor.slider-19.0\readme.txt" />
+    <Content Include="Areas\Humanist\Scripts\jssor.slider-19.0\jssor.slider.css" />
     <Content Include="Areas\Humanist\Scripts\MM_functions.js" />
     <Content Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.svg" />
     <Content Include="Areas\SecureSite\Content\Fonts\glyphicons-halflings-regular.svg" />
@@ -993,8 +1009,8 @@
     <Content Include="Areas\Humanist\Views\Dashboard\Index.cshtml" />
     <Content Include="Areas\Humanist\Views\Shared\Error.cshtml" />
     <Content Include="Areas\Humanist\Views\Shared\_LogOn.cshtml" />
-    <Content Include="Areas\Humanist\Views\Shared\_PreloadedImages.cshtml.cshtml" />
-    <Content Include="Areas\Humanist\Views\Shared\_GoogleAnalytics.cshtml.cshtml" />
+    <Content Include="Areas\Humanist\Views\Shared\_PreloadedImages.cshtml" />
+    <Content Include="Areas\Humanist\Views\Shared\_GoogleAnalytics.cshtml" />
     <Content Include="Areas\Humanist\Views\Public\Bluetooth.cshtml" />
     <Content Include="Areas\Humanist\Views\Public\CustomSound.cshtml" />
     <Content Include="Areas\Humanist\Views\Shared\DisplayTemplates\Product.cshtml" />
@@ -1011,6 +1027,8 @@
     <Content Include="Areas\Humanist\Views\Speakers\Index.cshtml" />
     <Content Include="Areas\Humanist\Views\Shared\_Slide.cshtml" />
     <Content Include="Areas\Humanist\Views\Packs\Index.cshtml" />
+    <Content Include="Areas\Humanist\Views\Shared\_Intro.cshtml" />
+    <Content Include="Areas\Humanist\Views\Shared\_Banner.cshtml" />
     <None Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.eot" />
     <None Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.ttf" />
     <None Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.woff" />

@@ -89,6 +89,18 @@ namespace Topppro.WebSite.Areas.Humanist.Extensions
             return htmlHelper.Partial("_GoogleAnalytics");
         }
 
+        public static MvcHtmlString Intro(
+            this HtmlHelper htmlHelper)
+        {
+            return htmlHelper.Partial("_Intro");
+        }
+
+        public static MvcHtmlString Banner(
+            this HtmlHelper htmlHelper)
+        {
+            return htmlHelper.Partial("_Banner");
+        }
+        
         public static MvcHtmlString Catalog(
             this HtmlHelper<Topppro.Entities.Assn_CategorySerie> htmlHelper)
         {

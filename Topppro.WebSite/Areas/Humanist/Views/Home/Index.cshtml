@@ -1,4 +1,7 @@
-﻿@section Styles {
+﻿@using Topppro.Entities
+@using Topppro.WebSite.Areas.Humanist.Extensions
+
+@section Styles {
     <style type="text/css">
         #main
         {
@@ -10,17 +13,7 @@
 <table width="1000" border="0" cellspacing="0" cellpadding="0" bgcolor="#000000">
     <tr>
         <td colspan="5">
-            <!--<noscript>-->
-            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0"
-                width="999" height="479" title="@ViewBag.Title">
-                <param name="movie" value="@Url.Content("~/Areas/Humanist/Content/Others/intro.swf")" />
-                <param name="quality" value="high" />
-                <param name="wmode" value="opaque" />
-                <param name="bgcolor" value="#FFFFFF" />
-                <param name="scale" value="noborder" />
-                <embed src="@Url.Content("~/Areas/Humanist/Content/Others/intro.swf")" quality="high" scale="noborder" bgcolor="#FFFFFF" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="1000" height="481" wmode="opaque"></embed>
-            </object>
-            <!--</noscript>-->
+            @Html.Intro()
         </td>
     </tr>
     <tr>
@@ -79,8 +72,6 @@
                 "@Url.Content("~/Areas/Humanist/Content/Images/bluetoth-certificates-up.jpg")",
                 "@Url.Content("~/Areas/Humanist/Content/Images/catalog-download-up.jpg")"
             );
-
-            //AC_FL_RunContent('codebase', 'http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0', 'width', '1000', 'height', '460', 'title', 'intro', 'src', '@Url.Content("~/Content/Images/intro-2013")', 'quality', 'high', 'pluginspage', 'http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash', 'movie', '@Url.Content("~/Content/Images/intro-2013")'); //end AC code
         });
     </script>
 }
