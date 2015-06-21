@@ -1029,6 +1029,8 @@
     <Content Include="Areas\Humanist\Views\Packs\Index.cshtml" />
     <Content Include="Areas\Humanist\Views\Shared\_Intro.cshtml" />
     <Content Include="Areas\Humanist\Views\Shared\_Banner.cshtml" />
+    <Content Include="Areas\Humanist\Views\Shared\DisplayTemplates\Serie_Ready12cx.cshtml" />
+    <Content Include="Areas\Humanist\Views\Shared\DisplayTemplates\Serie_Kst28a.cshtml" />
     <None Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.eot" />
     <None Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.ttf" />
     <None Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.woff" />

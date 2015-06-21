@@ -1,8 +1,8 @@
 -- SQL Manager Lite for SQL Server 4.0.1.44515
 -- ---------------------------------------
--- Host      : (local)
--- Database  : Topppro
--- Version   : Microsoft SQL Server  10.50.1600.1
+-- Host      : 209.200.224.115
+-- Database  : tropi23_topppro_net
+-- Version   : Microsoft SQL Server  9.00.5069.00
 
 
 --
@@ -70,12 +70,21 @@ IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Culture') AND OBJ
 GO
 
 --
+-- Dropping table Bullet : 
+--
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Bullet') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  DROP TABLE dbo.Bullet
+GO
+
+--
 -- Dropping table Package : 
 --
 
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Package') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
   DROP TABLE dbo.Package
 GO
+
 
 --
 -- Definition for table Serie : 
@@ -136,7 +145,8 @@ CREATE TABLE dbo.Product (
   Name varchar(100) COLLATE Modern_Spanish_CI_AS NOT NULL,
   Folder varchar(50) COLLATE Modern_Spanish_CI_AS NULL,
   Manual varchar(50) COLLATE Modern_Spanish_CI_AS NULL,
-  Draft bit NOT NULL
+  Draft bit NOT NULL,
+  Badge varchar(6) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
 )
 ON [PRIMARY]
 GO
@@ -174,6 +184,22 @@ GO
 
 CREATE TABLE dbo.Attribute (
   AttributeId int IDENTITY(1, 1) NOT NULL,
+  ProductId int NOT NULL,
+  CultureId int NOT NULL,
+  Name varchar(150) COLLATE Modern_Spanish_CI_AS NOT NULL,
+  Value varchar(8000) COLLATE Modern_Spanish_CI_AS NOT NULL,
+  Priority int NULL,
+  Enabled bit NOT NULL
+)
+ON [PRIMARY]
+GO
+
+--
+-- Definition for table Bullet : 
+--
+
+CREATE TABLE dbo.Bullet (
+  BulletId int IDENTITY(1, 1) NOT NULL,
   ProductId int NOT NULL,
   CultureId int NOT NULL,
   Name varchar(150) COLLATE Modern_Spanish_CI_AS NOT NULL,
@@ -322,6 +348,18 @@ WITH (
 ON [PRIMARY]
 GO
 
+ALTER TABLE dbo.Bullet
+ADD CONSTRAINT Bullet_PK 
+PRIMARY KEY CLUSTERED (BulletId)
+WITH (
+  PAD_INDEX = OFF,
+  IGNORE_DUP_KEY = OFF,
+  STATISTICS_NORECOMPUTE = OFF,
+  ALLOW_ROW_LOCKS = ON,
+  ALLOW_PAGE_LOCKS = ON)
+ON [PRIMARY]
+GO
+
 ALTER TABLE dbo.Package
 ADD CONSTRAINT Package_PK 
 PRIMARY KEY CLUSTERED (PackageId)
@@ -382,6 +420,20 @@ GO
 
 ALTER TABLE dbo.Attribute
 ADD CONSTRAINT Product_Attribute_FK FOREIGN KEY (ProductId) 
+  REFERENCES dbo.Product (ProductId) 
+  ON UPDATE NO ACTION
+  ON DELETE NO ACTION
+GO
+
+ALTER TABLE dbo.Bullet
+ADD CONSTRAINT Culture_Bullet_FK FOREIGN KEY (CultureId) 
+  REFERENCES dbo.Culture (CultureId) 
+  ON UPDATE NO ACTION
+  ON DELETE NO ACTION
+GO
+
+ALTER TABLE dbo.Bullet
+ADD CONSTRAINT Product_Bullet_FK FOREIGN KEY (ProductId) 
   REFERENCES dbo.Product (ProductId) 
   ON UPDATE NO ACTION
   ON DELETE NO ACTION
