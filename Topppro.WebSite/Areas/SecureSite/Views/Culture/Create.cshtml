@@ -14,6 +14,7 @@
     <fieldset>
         <legend>@Ent_CultureResource._Caption</legend>
 
+        <!--
         <div class="editor-label">
             @Html.LabelFor(model => model.Name)
         </div>
@@ -29,9 +30,21 @@
             @Html.EditorFor(model => model.Code)
             @Html.ValidationMessageFor(model => model.Code)
         </div>
+        -->
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name)
+            @Html.TextBoxFor(model => model.Name, new { @class = "form-control", style = "width:400px;" })
+            @Html.ValidationMessageFor(model => model.Name)
+
+            @Html.LabelFor(model => model.Code)
+            @Html.TextBoxFor(model => model.Code, new { @class = "form-control", style = "width:400px;" })
+            @Html.ValidationMessageFor(model => model.Code)
+
+        </div>
 
         <p>
-            <input type="submit" value="@PersistanceResource.Save" />
+            <input class="btn btn-primary" type="submit" value="@PersistanceResource.Save" />
         </p>
     </fieldset>
 }

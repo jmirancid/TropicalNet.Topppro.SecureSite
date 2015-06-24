@@ -13,6 +13,7 @@
 <fieldset>
     <legend>@Ent_CultureResource._Caption</legend>
 
+    <!--
     <div class="display-label">
         @Html.DisplayNameFor(model => model.Name)
     </div>
@@ -26,9 +27,17 @@
     <div class="display-field">
         @Html.DisplayFor(model => model.Code)
     </div>
+    -->
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name)
+        @Html.TextBoxFor(model => model.Name, new { @class = "form-control", style = "width:400px;", id = "disabledInput", disabled = "disabled" })
+        @Html.LabelFor(model => model.Code)
+        @Html.TextBoxFor(model => model.Code, new { @class = "form-control", style = "width:400px;", id = "disabledInput", disabled = "disabled" })
+    </div>
 
 </fieldset>
 <p>
-    @Html.ActionLink(PersistanceResource.Edit, "Edit", new { id = Model.CultureId }) |
+    @Html.ActionLink(PersistanceResource.Edit, "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

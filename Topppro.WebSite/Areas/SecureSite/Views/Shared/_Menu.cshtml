@@ -17,7 +17,10 @@
                 <img src="@Url.Content("~/Areas/SecureSite/Content/Images/find_user.png")" class="user-image img-responsive" alt="" />
 			</li>
             <li>
-                <a class="active-menu" href="@Url.Action("Index", "Home")"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
+                <a class="active-menu" href="@Url.Action("Index", "Home")"><i class="fa fa-home fa-3x"></i> Index</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Index", "Culture")"><i class="fa fa-language fa-3x"></i> Culture</a>
             </li>
             <li>
                 <a href="@Url.Action("Index", "Category")"><i class="fa fa-book fa-3x"></i> Category</a>
@@ -26,7 +29,21 @@
                 <a href="@Url.Action("Index", "Serie")"><i class="fa fa-tags fa-3x"></i> Serie</a>
             </li>
             <li>
+                <a href="@Url.Action("Index", "Model")"><i class="fa fa-bookmark fa-3x"></i> Model</a>
+            </li>
+            <li>
                 <a href="@Url.Action("Index", "Product")"><i class="fa fa-cube fa-3x"></i> Product</a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-bars fa-3x"></i> Product Detail<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="@Url.Action("Index", "Attribute")">Attribute</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "Bullet")">Bullet</a>
+                    </li>
+                </ul>
             </li>
             <li>
                 <a href="#"><i class="fa fa-code-fork fa-3x"></i> Association<span class="fa arrow"></span></a>
