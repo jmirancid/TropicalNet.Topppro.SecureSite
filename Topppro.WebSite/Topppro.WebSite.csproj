@@ -195,6 +195,7 @@
     <Content Include="Areas\Humanist\Content\Images\intro-2.jpg" />
     <Content Include="Areas\Humanist\Content\Images\intro-3.jpg" />
     <Content Include="Areas\Humanist\Content\Images\intro-5.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\intro-6.jpg" />
     <Content Include="Areas\Humanist\Content\Images\manual-bottom.jpg" />
     <Content Include="Areas\Humanist\Content\Images\manual-top.jpg" />
     <Content Include="Areas\Humanist\Content\Images\modules-cs-lan-1-2.jpg" />
@@ -214,6 +215,7 @@
     <Content Include="Areas\Humanist\Content\Images\mx244-app.jpg" />
     <Content Include="Areas\Humanist\Content\Images\syncfusion-icons-white.png" />
     <Content Include="Areas\Humanist\Content\Images\syncfusion-icons.png" />
+    <Content Include="Areas\Humanist\Content\Images\t20-app.jpg" />
     <Content Include="Areas\Humanist\Content\Images\t20-banner.jpg" />
     <Content Include="Areas\Humanist\Content\Images\t20-content.jpg" />
     <Content Include="Areas\Humanist\Content\Images\t20-up.jpg" />
