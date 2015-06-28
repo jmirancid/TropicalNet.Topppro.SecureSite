@@ -413,6 +413,15 @@ namespace Topppro.WebSite.Areas.Humanist.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;b&gt;KS CS&lt;/b&gt; Series includes a series of professionally painted active wood cabinets with onboard DSP processor, available in 8” Active, 10” Active, 12” Active, 15” Active, 215” Active, 15” Active SUB &amp; 18” Active SUB. All powered by our state-of-the-art amplifier offering up to 2000 Watts* (peak) and capable of producing up to 132db SPL, with very transparent highs, very precise mids &amp; very clean DSP-Enhanced bass reproduction..
+        /// </summary>
+        public static string Speakers_Index_Ks_Cs_Message {
+            get {
+                return ResourceManager.GetString("Speakers_Index_Ks_Cs_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Building on the success of our original KS Series &amp; their highly acclaimed signature sound, &lt;strong&gt;KS CS Series&lt;/strong&gt; offers customers two new significant benefits: The ability to create your own sound voicing for the cabinet via Ethernet port or Wi-Fi, and the ability to receive wireless audio.&lt;br /&gt;&lt;br/&gt;&lt;strong&gt;KS CS Series&lt;/strong&gt; includes a series of professionally painted active wood cabinets with onboard DSP processor, available in 8” Active, 10” Active, 12” Active, 15” Active, 215” Active, 15” A [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Speakers_Index_Ks_Message {

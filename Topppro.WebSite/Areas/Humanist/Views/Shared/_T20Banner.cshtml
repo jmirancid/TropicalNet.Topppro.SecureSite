@@ -1,0 +1,42 @@
+﻿<div id="t20_banner" style="position: relative; width: 964px; height: 280px; overflow: hidden;">
+    <!-- Loading Screen -->
+    <div u="loading" style="position: absolute; top: 0px; left: 0px;">
+        <span>Loading...</span>
+    </div>
+    <!-- Slides Container -->
+    <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 964px;
+        height: 280px; overflow: hidden;">
+        <div>
+            <img u="image" src="@Url.Content("~/Areas/Humanist/Content/Images/cs-t20-1.jpg")" alt=""/></div>
+        <div>
+            <img u="image" src="@Url.Content("~/Areas/Humanist/Content/Images/cs-t20-2.jpg")" alt=""/></div>
+        <div>
+            <img u="image" src="@Url.Content("~/Areas/Humanist/Content/Images/cs-t20-3.jpg")" alt=""/></div>
+    </div>
+</div>
+<script src="@Url.Content("~/Areas/Humanist/Scripts/jssor.slider-19.0/jssor.slider.min.js")" type="text/javascript"></script>
+<script type="text/javascript" language="javascript">
+    init_jssor_slider1 = function (containerId) {
+
+        var _SlideshowTransitions = [
+            { $Duration: 1200, $Opacity: 2 }
+        ];
+
+        var options = {
+            $AutoPlay: true,
+            $PauseOnHover: 0,
+            $SlideDuration: 500,
+            $DragOrientation: 0,
+
+            $SlideshowOptions: {
+                $Class: $JssorSlideshowRunner$,
+                $Transitions: _SlideshowTransitions,
+                $TransitionsOrder: 1
+            }
+        };
+
+        var jssor_slider1 = new $JssorSlider$(containerId, options);
+    };
+
+    init_jssor_slider1("t20_slider");
+</script>

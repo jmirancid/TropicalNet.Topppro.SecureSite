@@ -11,7 +11,7 @@
 
 <table width="1000" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
     <tbody>
-        @*@Html.Banner()*@
+        @Html.CsBanner()
         <div style="margin-bottom:40px;">&nbsp;</div>
         @Html.DisplayForModel()
     </tbody>
@@ -29,6 +29,7 @@
 @section Scripts {
     @Html.PreloadedImages()
     <script type="text/javascript" src="@Url.Content("~/Areas/Humanist/Scripts/jquery-1.8.3.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Areas/Humanist/Scripts/jssor.slider-19.0/jssor.slider.min.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Areas/Humanist/Scripts/jquery.panelslider-0.1.1/jquery.panelslider.min.js")"></script>
     @Html.Partial("_Slide")
 }

@@ -247,4 +247,7 @@ The bracket combines two i28H satellite cabinets mounted on a custom tooled arra
   <data name="Modules_HiRes_Cs_Wsl" xml:space="preserve">
     <value>&lt;b&gt;CS-WSL&lt;/b&gt; Wireless Slave Module.</value>
   </data>
+  <data name="Speakers_Index_Ks_Cs_Message" xml:space="preserve">
+    <value>&lt;b&gt;KS CS&lt;/b&gt; Series includes a series of professionally painted active wood cabinets with onboard DSP processor, available in 8” Active, 10” Active, 12” Active, 15” Active, 215” Active, 15” Active SUB &amp; 18” Active SUB. All powered by our state-of-the-art amplifier offering up to 2000 Watts* (peak) and capable of producing up to 132db SPL, with very transparent highs, very precise mids &amp; very clean DSP-Enhanced bass reproduction.</value>
+  </data>
 </root>

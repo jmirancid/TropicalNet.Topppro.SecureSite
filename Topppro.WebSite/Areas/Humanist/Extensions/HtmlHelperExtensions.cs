@@ -95,10 +95,22 @@ namespace Topppro.WebSite.Areas.Humanist.Extensions
             return htmlHelper.Partial("_Intro");
         }
 
-        public static MvcHtmlString Banner(
+        public static MvcHtmlString CsBanner(
             this HtmlHelper htmlHelper)
         {
-            return htmlHelper.Partial("_Banner");
+            return htmlHelper.Partial("_CsBanner");
+        }
+
+        public static MvcHtmlString SohoBanner(
+            this HtmlHelper htmlHelper)
+        {
+            return htmlHelper.Partial("_SohoBanner");
+        }
+
+        public static MvcHtmlString T20Banner(
+            this HtmlHelper htmlHelper)
+        {
+            return htmlHelper.Partial("_T20Banner");
         }
         
         public static MvcHtmlString Catalog(
