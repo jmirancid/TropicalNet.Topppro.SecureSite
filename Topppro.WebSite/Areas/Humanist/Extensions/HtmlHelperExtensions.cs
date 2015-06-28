@@ -231,6 +231,45 @@ namespace Topppro.WebSite.Areas.Humanist.Extensions
             return MvcHtmlString.Create(a.ToString());
         }
 
+        public static MvcHtmlString Software(
+            this HtmlHelper<Topppro.Entities.Assn_CategorySerieProduct> htmlHelper)
+        {
+            return Software(htmlHelper, null);
+        }
+
+        public static MvcHtmlString Software(
+            this HtmlHelper<Topppro.Entities.Assn_CategorySerieProduct> htmlHelper, object htmlAttributes)
+        {
+            return Software(htmlHelper, HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
+        }
+
+        public static MvcHtmlString Software(
+            this HtmlHelper<Topppro.Entities.Assn_CategorySerieProduct> htmlHelper, IDictionary<string, object> htmlAttributes)
+        {
+            var urlHelper =
+                new UrlHelper(htmlHelper.ViewContext.RequestContext);
+
+            var a = new TagBuilder("a");
+            a.Attributes.Add("href", urlHelper.RouteUrl("Default", new { controller = "Public", action = "Software" }));
+            a.Attributes.Add("target", "_top");
+            a.Attributes.Add("onmouseout", "MM_swapImgRestore()");
+            a.Attributes.Add("onmouseover", "MM_swapImage('Software','','" + urlHelper.Content("~/Areas/Humanist/Content/Images/software-top.jpg") + "',1)");
+            a.MergeAttributes(htmlAttributes);
+
+            var img = new TagBuilder("img");
+            img.Attributes.Add("src", urlHelper.Content("~/Areas/Humanist/Content/Images/software-bottom.jpg"));
+            img.Attributes.Add("alt", "software");
+            img.Attributes.Add("id", "Software");
+            img.Attributes.Add("name", "Software");
+            img.Attributes.Add("width", "100");
+            img.Attributes.Add("height", "100");
+            img.Attributes.Add("border", "0");
+
+            a.InnerHtml += img.ToString(TagRenderMode.SelfClosing);
+
+            return MvcHtmlString.Create(a.ToString());
+        }
+
         public static MvcHtmlString Back(
             this HtmlHelper htmlHelper, string href)
         {
