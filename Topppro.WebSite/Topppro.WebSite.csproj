@@ -213,6 +213,8 @@
     <Content Include="Areas\Humanist\Content\Images\mx-v2-up.jpg" />
     <Content Include="Areas\Humanist\Content\Images\mx-v2.jpg" />
     <Content Include="Areas\Humanist\Content\Images\mx244-app.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\software-bottom.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\software-top.jpg" />
     <Content Include="Areas\Humanist\Content\Images\syncfusion-icons-white.png" />
     <Content Include="Areas\Humanist\Content\Images\syncfusion-icons.png" />
     <Content Include="Areas\Humanist\Content\Images\t20-app.jpg" />
@@ -1033,6 +1035,7 @@
     <Content Include="Areas\Humanist\Views\Shared\_Banner.cshtml" />
     <Content Include="Areas\Humanist\Views\Shared\DisplayTemplates\Serie_Ready12cx.cshtml" />
     <Content Include="Areas\Humanist\Views\Shared\DisplayTemplates\Serie_Kst28a.cshtml" />
+    <Content Include="Areas\Humanist\Views\Public\Software.cshtml" />
     <None Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.eot" />
     <None Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.ttf" />
     <None Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.woff" />

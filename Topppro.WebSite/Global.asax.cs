@@ -69,8 +69,8 @@ namespace Topppro.WebSite
 
             routes.MapRoute(
                 name: "Default", // Route name
-                url: "{controller}/{action}/{id}", // URL with parameters
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }, // Parameter defaults
+                url: "{culture}/{controller}/{action}/{id}", // URL with parameters
+                defaults: new { culture = Topppro.Context.Current.Culture.TwoLetterISOLanguageName, controller = "Home", action = "Index", id = UrlParameter.Optional }, // Parameter defaults
                 namespaces: namespaces
             ).DataTokens["area"] = theme_name;
         }

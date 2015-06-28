@@ -93,7 +93,7 @@
             </td>
             <td>
                 <img name="menu_r3_c11" src="@Url.Content("~/Areas/Humanist/Content/Images/menu_r3_c11.jpg")" width="111" height="48" border="0"
-                    id="menu_r3_c11" alt="" />
+                    id="menu_r3_c11" usemap="#menu_r3_c11Map" alt="" />
             </td>
             <td>
                 <img src="@Url.Content("~/Areas/Humanist/Content/Images/menu_r3_c12.jpg")" alt="" name="menu_r3_c12" width="111" height="48"
@@ -183,10 +183,13 @@
     </tbody>
 </table>
 <map name="menu_r1_c1Map" id="menu_r1_c1Map">
-    <area shape="circle" coords="66,66,52" href="@Url.RouteUrl("Catalog", new { controller = "Home" })" target="_top" />
+    <area shape="circle" coords="66,66,52" href="@Url.RouteUrl("Default", new { controller = "Home" })" target="_top" />
+</map>
+<map name="menu_r3_c11Map" id="menu_r3_c11Map">
+    <area shape="rect" coords="19,5,93,41" href="@Url.RouteUrl("Default", new { controller = "Public", action = "Software" })" target="_top" />
 </map>
 <map name="menu_r3_c12Map" id="menu_r3_c12Map">
-    <area shape="rect" coords="19,6,91,40" href="@Url.RouteUrl("Catalog", new { controller = "Home" })" target="_top" />
+    <area shape="rect" coords="19,6,91,40" href="@Url.RouteUrl("Default", new { controller = "Home" })" target="_top" />
 </map>
 <script type="text/javascript" />
 MM_onLoad( MM_preloadImages( '@Url.Content("~/Areas/Humanist/Content/Images/menu_r6_c1-up.jpg")',

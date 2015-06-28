@@ -17,5 +17,10 @@ namespace Topppro.WebSite.Areas.Humanist.Controllers
         {
             return View();
         }
+
+        public ActionResult Software()
+        {
+            return View();
+        }
     }
 }
