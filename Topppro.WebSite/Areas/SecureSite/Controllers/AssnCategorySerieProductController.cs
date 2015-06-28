@@ -36,7 +36,8 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
                          || x.Product.Name.ToLower().Contains(sSearch.ToLower());
 
                 count =
-                    base.Business.Value.CountBy(predicate);
+                    base.Business.Value
+                        .CountBy(predicate);
 
                 filtered =
                     base.Business.Value

@@ -37,6 +37,29 @@ namespace Topppro.Repositories.Definitions
                         .SingleOrDefault(e => e.AssnCategorySerieProductId == id);
         }
 
+        public override IQueryable<Assn_CategorySerieProduct> Filter(int skip, int take)
+        {
+            return Context.Assn_CategorySerieProduct
+                        .Include(a => a.Assn_CategorySerie)
+                        .Include(a => a.Assn_CategorySerie.Category)
+                        .Include(a => a.Assn_CategorySerie.Serie)
+                        .Include(a => a.Product)
+                        .OrderBy(p => p.ProductId)
+                        .Skip(skip).Take(take);
+        }
+
+        public override IQueryable<Assn_CategorySerieProduct> FilterBy(int skip, int take, System.Linq.Expressions.Expression<System.Func<Assn_CategorySerieProduct, bool>> predicate)
+        {
+            return Context.Assn_CategorySerieProduct
+                        .Include(a => a.Assn_CategorySerie)
+                        .Include(a => a.Assn_CategorySerie.Category)
+                        .Include(a => a.Assn_CategorySerie.Serie)
+                        .Include(a => a.Product)
+                        .Where(predicate)
+                        .OrderBy(p => p.ProductId)
+                        .Skip(skip).Take(take);
+        }
+
         public Assn_CategorySerieProduct GetWithAttributesByCulture(int id, string cultureCode)
         {
             var dbQuery = Context.Assn_CategorySerieProduct
