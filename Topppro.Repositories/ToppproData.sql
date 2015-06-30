@@ -198,6 +198,26 @@ VALUES
   (35, N'READY 12CX')
 GO
 
+INSERT INTO dbo.Serie (SerieId, Name)
+VALUES 
+  (36, N'KS CS')
+GO
+
+INSERT INTO dbo.Serie (SerieId, Name)
+VALUES 
+  (37, N'X CS')
+GO
+
+INSERT INTO dbo.Serie (SerieId, Name)
+VALUES 
+  (38, N'i')
+GO
+
+INSERT INTO dbo.Serie (SerieId, Name)
+VALUES 
+  (39, N'CS Modules')
+GO
+
 COMMIT
 GO
 
@@ -272,52 +292,47 @@ GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (1, 1, 1, 5, 1, 10, 1)
+  (1, 1, 1, 5, 1, 110, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (2, 1, 2, 5, 1, 20, 1)
+  (2, 1, 2, 5, 1, 30, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (3, 1, 3, 4, 1, 30, 1)
+  (3, 1, 3, 4, 1, 50, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (4, 1, 4, 5, 1, 40, 1)
+  (4, 1, 4, 5, 1, 60, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (5, 1, 5, 5, 1, 50, 1)
+  (5, 1, 5, 5, 1, 70, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (6, 1, 6, 5, 1, 60, 1)
+  (6, 1, 6, 5, 1, 130, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (7, 1, 7, 1, 1, 70, 1)
+  (7, 1, 7, 1, 1, 90, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (8, 1, 8, 1, 1, 80, 1)
+  (8, 1, 8, 1, 1, 140, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (9, 1, 9, 5, 1, 90, 1)
-GO
-
-INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
-VALUES 
-  (10, 1, 10, 4, 1, 100, 1)
+  (9, 1, 9, 5, 1, 80, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
@@ -352,17 +367,17 @@ GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (17, 4, 17, 5, 1, 10, 1)
+  (17, 4, 17, 5, 1, 30, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (18, 4, 18, 5, 1, 20, 1)
+  (18, 4, 18, 5, 1, 10, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (19, 1, 19, 5, 1, 20, 1)
+  (19, 1, 19, 5, 1, 40, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
@@ -372,22 +387,22 @@ GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (21, 5, 21, 5, 1, 10, 1)
+  (21, 5, 21, 5, 1, 20, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (22, 5, 22, 5, 0, 20, 0)
+  (22, 5, 22, 5, 0, 30, 0)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (23, 5, 23, 5, 0, 30, 0)
+  (23, 5, 23, 5, 0, 40, 0)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (24, 6, 24, 5, 1, 10, 1)
+  (24, 6, 24, 5, 1, 30, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
@@ -487,7 +502,7 @@ GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (45, 5, 33, 5, 1, 40, 1)
+  (45, 5, 33, 5, 1, 10, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
@@ -507,12 +522,32 @@ GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (50, 1, 34, 1, 1, 75, 1)
+  (50, 1, 34, 1, 1, 100, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (51, 4, 35, 1, 1, 30, 1)
+  (51, 4, 35, 1, 1, 20, 1)
+GO
+
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
+VALUES 
+  (52, 1, 36, 5, 1, 10, 1)
+GO
+
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
+VALUES 
+  (53, 1, 37, 5, 1, 20, 1)
+GO
+
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
+VALUES 
+  (54, 1, 38, 5, 1, 120, 1)
+GO
+
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
+VALUES 
+  (55, 6, 39, 5, 1, 10, 1)
 GO
 
 COMMIT
@@ -1554,112 +1589,112 @@ GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (1, 1, 1, 1, 10, 1)
+  (1, 52, 1, 1, 10, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (2, 1, 2, 1, 20, 1)
+  (2, 52, 2, 1, 20, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (3, 1, 3, 1, 30, 1)
+  (3, 52, 3, 1, 30, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (4, 1, 4, 1, 40, 1)
+  (4, 52, 4, 1, 40, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (5, 1, 5, 1, 50, 1)
+  (5, 52, 5, 1, 50, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (6, 1, 6, 1, 60, 1)
+  (6, 1, 6, 1, 10, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (7, 1, 7, 1, 70, 1)
+  (7, 1, 7, 1, 20, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (8, 1, 8, 1, 80, 1)
+  (8, 1, 8, 1, 30, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (9, 1, 9, 1, 90, 1)
+  (9, 1, 9, 1, 40, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (10, 1, 10, 1, 100, 1)
+  (10, 1, 10, 1, 50, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (11, 1, 11, 1, 110, 1)
+  (11, 1, 11, 1, 60, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (12, 1, 12, 1, 120, 1)
+  (12, 1, 12, 1, 70, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (13, 1, 158, 0, 130, 1)
+  (13, 1, 158, 0, 80, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (14, 1, 18, 1, 140, 1)
+  (14, 52, 18, 1, 60, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (15, 1, 19, 1, 150, 1)
+  (15, 52, 19, 1, 70, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (16, 1, 20, 1, 160, 1)
+  (16, 52, 20, 1, 80, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (17, 1, 21, 1, 170, 1)
+  (17, 52, 21, 1, 90, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (18, 1, 22, 1, 180, 1)
+  (18, 52, 22, 1, 100, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (19, 2, 161, 1, 30, 1)
+  (19, 2, 161, 1, 10, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (20, 2, 162, 1, 40, 1)
+  (20, 2, 162, 1, 20, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (21, 2, 163, 1, 50, 1)
+  (21, 2, 163, 1, 30, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (22, 2, 164, 1, 60, 1)
+  (22, 2, 164, 1, 40, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
@@ -1684,22 +1719,22 @@ GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (27, 3, 36, 1, 50, 1)
+  (27, 54, 36, 1, 10, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (28, 3, 37, 1, 60, 1)
+  (28, 54, 37, 1, 20, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (29, 3, 38, 1, 70, 1)
+  (29, 54, 38, 1, 30, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (30, 3, 39, 1, 80, 1)
+  (30, 54, 39, 1, 40, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
@@ -1780,36 +1815,6 @@ GO
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
   (46, 9, 65, 1, 20, 1)
-GO
-
-INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
-VALUES 
-  (47, 10, 66, 1, 10, 1)
-GO
-
-INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
-VALUES 
-  (48, 10, 67, 1, 20, 1)
-GO
-
-INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
-VALUES 
-  (49, 10, 68, 1, 30, 1)
-GO
-
-INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
-VALUES 
-  (50, 10, 69, 1, 40, 1)
-GO
-
-INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
-VALUES 
-  (51, 10, 70, 1, 50, 1)
-GO
-
-INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
-VALUES 
-  (52, 10, 71, 1, 60, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
@@ -2464,27 +2469,27 @@ GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (185, 2, 195, 1, 10, 1)
+  (185, 53, 195, 1, 10, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (186, 2, 196, 1, 20, 1)
+  (186, 53, 196, 1, 20, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (187, 25, 197, 0, 100, 1)
+  (187, 55, 197, 0, 100, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (189, 25, 198, 0, 110, 1)
+  (189, 55, 198, 0, 110, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (190, 25, 199, 0, 120, 1)
+  (190, 55, 199, 0, 120, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)

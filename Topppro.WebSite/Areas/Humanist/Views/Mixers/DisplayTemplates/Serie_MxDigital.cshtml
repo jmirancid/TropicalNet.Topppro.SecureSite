@@ -4,20 +4,11 @@
 
 @model Topppro.Entities.Assn_CategorySerie
 
+@Html.T20Banner()
+<br />
+
 <div class="title">
-    <h1>DIGITAL MIXERS</h1>
+    <h1>DIGITAL <small>Mixers</small></h1>
 </div>
 
-<table width="960" cellspacing="0" border="0" style="margin-bottom:30px;">
-    <tr>
-        <td>@Html.Catalog(Model.Assn_CategorySerieProduct.Skip(1))</td>
-        <td align="right"><img src="@Url.Content("~/Areas/Humanist/Content/Images/t20-banner.jpg")" alt="" /></td>
-    </tr>
-</table>
-
-<table width="960" cellspacing="0" border="0" style="margin-bottom:40px;">
-    <tr>
-        <td>@Html.Catalog(Model.Assn_CategorySerieProduct.Take(1))</td>
-        <td align="right"><img src="@Url.Content("~/Areas/Humanist/Content/Images/dmx244-livemixing.jpg")" alt="@Localization.Mixers_Index_Mx_Digital_Live_Mixing" /></td>
-    </tr>
-</table>
+@Html.Catalog()

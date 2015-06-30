@@ -4,6 +4,9 @@
 
 @model Topppro.Entities.Assn_CategorySerie
 
+@Html.SohoBanner()
+<br />
+
 <div class="title">
     <h1>@Model.Serie.Name.ToUpper() <small>Series</small></h1>
 </div>
@@ -11,6 +14,3 @@
 <p style="text-align: justify; margin:1.33em 0 2.33em;">@Html.Raw(Localization.Packs_Index_Soho_Message)</p>
 
 @Html.Catalog()
-
-<a href="@Url.RouteUrl("Default", new { controller = "Public", action = "CustomSound" })" style="position:relative; left:-18px;">
-    <img src="@Url.Content("~/Areas/Humanist/Content/Images/custom-sound-banner.jpg")" style="margin-bottom:1.33em" alt="Custom Sound" border="0" /></a>

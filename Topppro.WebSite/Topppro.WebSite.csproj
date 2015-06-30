@@ -1036,9 +1036,7 @@
     <Content Include="Areas\Humanist\Views\Processors\DisplayTemplates\Serie_Modules.cshtml" />
     <Content Include="Areas\Humanist\Views\Processors\DisplayTemplates\Serie_Processors.cshtml" />
     <Content Include="Areas\Humanist\Views\Wireless\DisplayTemplates\Serie_Wireless.cshtml" />
-    <Content Include="Areas\Humanist\Views\Speakers\Index.cshtml" />
     <Content Include="Areas\Humanist\Views\Shared\_Slide.cshtml" />
-    <Content Include="Areas\Humanist\Views\Packs\Index.cshtml" />
     <Content Include="Areas\Humanist\Views\Shared\_Intro.cshtml" />
     <Content Include="Areas\Humanist\Views\Shared\DisplayTemplates\Serie_Ready12cx.cshtml" />
     <Content Include="Areas\Humanist\Views\Shared\DisplayTemplates\Serie_Kst28a.cshtml" />
