@@ -86,7 +86,11 @@ namespace Topppro.WebSite.Areas.Humanist.Extensions
         public static MvcHtmlString GoogleAnalytics(
             this HtmlHelper htmlHelper)
         {
+            #if !DEBUG
             return htmlHelper.Partial("_GoogleAnalytics");
+            #else
+            return MvcHtmlString.Empty;
+            #endif
         }
 
         public static MvcHtmlString Intro(
