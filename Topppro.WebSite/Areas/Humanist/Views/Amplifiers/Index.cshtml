@@ -1,0 +1,35 @@
+﻿@using Framework.MVC.Extensions
+@using Topppro.WebSite.Areas.Humanist.Resources
+@using Topppro.WebSite.Areas.Humanist.Extensions
+
+@model IEnumerable<Topppro.Entities.Assn_CategorySerie>
+
+@section Styles {
+    <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Areas/Humanist/Content/Styles/m-icons.min.css")" />
+    <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Areas/Humanist/Content/Styles/m-buttons.min.css")" />
+}
+
+<table width="1000" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+    <tbody>
+        @Html.AmplifiersBanner()
+        <br />
+
+        @Html.DisplayForModel()
+    </tbody>
+</table>
+
+<div class="slide-panel left">
+    <h2><a href="javascript:$.panelslider.close();"><i class="m-icon-big-swapleft m-icon-white" style="margin:0px 3px;"></i></a> @Localization.Compare_Panel_Title</h2>
+    <ul class="compare-list"></ul>
+    <p class="controls">
+        <button id="btn-clear" class="m-btn black">@Localization.Compare_Panel_Clear_Button <i class="icon-refresh icon-white"></i></button>
+        <button id="btn-compare" class="m-btn green">@Localization.Compare_Panel_Compare_Button <i class="icon-share-alt icon-white"></i></button>
+    </p>
+</div>
+
+@section Scripts {
+    @Html.PreloadedImages()
+    <script type="text/javascript" src="@Url.Content("~/Areas/Humanist/Scripts/jquery-1.8.3.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Areas/Humanist/Scripts/jquery.panelslider-0.1.1/jquery.panelslider.min.js")"></script>
+    @Html.Partial("_Slide")
+}

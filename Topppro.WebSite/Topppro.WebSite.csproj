@@ -166,6 +166,9 @@
     <Content Include="Areas\Humanist\Content\Images\15.-DMX24.4--EPLCertificate.jpg" />
     <Content Include="Areas\Humanist\Content\Images\20.-TAP20BT-Topp-Pro-EPLCertificate.jpg" />
     <Content Include="Areas\Humanist\Content\Images\22.-TAP40BT-Topp-Pro-EPLCertificate.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\amps-slider-1.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\amps-slider-2.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\amps-slider-3.jpg" />
     <Content Include="Areas\Humanist\Content\Images\appstore-apps-up.jpg" />
     <Content Include="Areas\Humanist\Content\Images\appstore-apps.jpg" />
     <Content Include="Areas\Humanist\Content\Images\back-bottom.jpg" />
@@ -247,6 +250,9 @@
     <Content Include="Areas\Humanist\Content\Images\tma54bzt-up.jpg" />
     <Content Include="Areas\Humanist\Content\Images\tma54bzt.jpg" />
     <Content Include="Areas\Humanist\Content\Images\topp-error.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\wireless-slider-1.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\wireless-slider-2.jpg" />
+    <Content Include="Areas\Humanist\Content\Images\wireless-slider-3.jpg" />
     <Content Include="Areas\Humanist\Content\Others\cs.swf" />
     <Content Include="Areas\Humanist\Content\Others\favicon.ico" />
     <Content Include="Areas\Humanist\Content\Others\intro.swf" />
@@ -1043,7 +1049,6 @@
     <Content Include="Areas\Humanist\Views\Shared\DisplayTemplates\Serie_Kst28a.cshtml" />
     <Content Include="Areas\Humanist\Views\Public\Software.cshtml" />
     <Content Include="Areas\Humanist\Views\Processors\DisplayTemplates\Serie_CsModules.cshtml" />
-    <Content Include="Areas\Humanist\Views\Shared\_CsBanner.cshtml" />
     <Content Include="Areas\Humanist\Views\Shared\_SohoBanner.cshtml" />
     <Content Include="Areas\Humanist\Views\Shared\_T20Banner.cshtml" />
     <Content Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.eot" />
@@ -1056,6 +1061,13 @@
     <Content Include="Areas\Humanist\Views\Speakers\DisplayTemplates\Serie_KsCs.cshtml" />
     <Content Include="Areas\Humanist\Views\Shared\DisplayTemplates\Serie_TArray.cshtml" />
     <Content Include="Areas\Humanist\Views\Speakers\DisplayTemplates\Serie_Ks.cshtml" />
+    <Content Include="Areas\Humanist\Views\Shared\_AmplifiersBanner.cshtml" />
+    <Content Include="Areas\Humanist\Views\Shared\_CustomSoundBanner.cshtml" />
+    <Content Include="Areas\Humanist\Views\Shared\_WirelessBanner.cshtml" />
+    <Content Include="Areas\Humanist\Views\Amplifiers\Index.cshtml" />
+    <Content Include="Areas\Humanist\Views\Wireless\Index.cshtml" />
+    <Content Include="Areas\Humanist\Views\Processors\Index.cshtml" />
+    <Content Include="Areas\Humanist\Views\Speakers\Index.cshtml" />
     <None Include="Areas\SecureSite\Scripts\tinymce\langs\readme.md" />
     <None Include="Areas\SecureSite\Scripts\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
     <None Include="Areas\SecureSite\Scripts\tinymce\skins\lightgray\fonts\tinymce-small.ttf" />

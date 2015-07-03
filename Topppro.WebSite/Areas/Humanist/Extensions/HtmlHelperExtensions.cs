@@ -99,10 +99,10 @@ namespace Topppro.WebSite.Areas.Humanist.Extensions
             return htmlHelper.Partial("_Intro");
         }
 
-        public static MvcHtmlString CsBanner(
+        public static MvcHtmlString CustomSoundBanner(
             this HtmlHelper htmlHelper)
         {
-            return htmlHelper.Partial("_CsBanner");
+            return htmlHelper.Partial("_CustomSoundBanner");
         }
 
         public static MvcHtmlString SohoBanner(
@@ -116,7 +116,19 @@ namespace Topppro.WebSite.Areas.Humanist.Extensions
         {
             return htmlHelper.Partial("_T20Banner");
         }
-        
+
+        public static MvcHtmlString AmplifiersBanner(
+            this HtmlHelper htmlHelper)
+        {
+            return htmlHelper.Partial("_AmplifiersBanner");
+        }
+
+        public static MvcHtmlString WirelessBanner(
+            this HtmlHelper htmlHelper)
+        {
+            return htmlHelper.Partial("_WirelessBanner");
+        }
+
         public static MvcHtmlString Catalog(
             this HtmlHelper<Topppro.Entities.Assn_CategorySerie> htmlHelper)
         {
