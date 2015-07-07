@@ -13,6 +13,7 @@
 <fieldset>
     <legend>@Ent_ProductResource._Caption</legend>
 
+    <!--
     <div class="display-label">
         @Html.DisplayNameFor(model => model.Name)
     </div>
@@ -46,6 +47,37 @@
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Draft)
+    </div>
+    -->
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name)
+        @Html.TextBoxFor(model => model.Name, new { @class = "form-control", style = "width:400px;", id = "disabledInput", disabled = "disabled" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ModelId)
+        @Html.TextBoxFor(model => model.Model.Name, new { @class = "form-control", style = "width:400px;", id = "disabledInput", disabled = "disabled" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Folder)
+        @Html.TextBoxFor(model => model.Folder, new { @class = "form-control", style = "width:400px;", id = "disabledInput", disabled = "disabled" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Manual)
+        @Html.TextBoxFor(model => model.Manual, new { @class = "form-control", style = "width:400px;", id = "disabledInput", disabled = "disabled" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Draft)
+        @Html.DisplayFor(model => model.Draft)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Badge)
+        @Html.TextBoxFor(model => model.Badge, new { @class = "form-control", style = "width:400px;", id = "disabledInput", disabled = "disabled" })
     </div>
 
 </fieldset>
