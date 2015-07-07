@@ -14,6 +14,12 @@
     <fieldset>
         <legend>@Ent_AttributeResource._Caption</legend>
 
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProductId)
+            @Html.DropDownListFor(model => model.ProductId, null, PersistanceResource.Selection, new { @class = "form-control", style = "width:400px;" })
+            @Html.ValidationMessageFor(model => model.ProductId)
+        </div>
+<!--
         <div class="editor-label">
             @Html.LabelFor(model => model.ProductId)
         </div>
@@ -21,15 +27,31 @@
             @Html.DropDownList("ProductId", PersistanceResource.Selection)
             @Html.ValidationMessageFor(model => model.ProductId)
         </div>
+-->
 
-        <div class="editor-label">
+        <div class="form-group">
+            @Html.LabelFor(model => model.CultureId)
+            @Html.DropDownListFor(model => model.CultureId, null, PersistanceResource.Selection, new { @class = "form-control", style = "width:400px;" })
+            @Html.ValidationMessageFor(model => model.CultureId)
+        </div>
+
+        <!--
+                <div class="editor-label">
             @Html.LabelFor(model => model.CultureId)
         </div>
         <div class="editor-field">
             @Html.DropDownList("CultureId", PersistanceResource.Selection)
             @Html.ValidationMessageFor(model => model.CultureId)
         </div>
+        -->
 
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name)
+            @Html.TextBoxFor(model => model.Name, new { @class = "form-control", style = "width:400px;" })
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <!--
         <div class="editor-label">
             @Html.LabelFor(model => model.Name)
         </div>
@@ -37,15 +59,21 @@
             @Html.EditorFor(model => model.Name)
             @Html.ValidationMessageFor(model => model.Name)
         </div>
+        -->
 
-        <div class="editor-label">
+        <div class="form-group">
             @Html.LabelFor(model => model.Value)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Value, new { @class = "mceEditor" })
+            @Html.TextAreaFor(model => model.Value, new { @class = "mceEditor", style = "width:400px;" })
             @Html.ValidationMessageFor(model => model.Value)
         </div>
 
+        <div class="form-group">
+            @Html.LabelFor(model => model.Priority)
+            @Html.TextBoxFor(model => model.Priority, new { @class = "form-control", style = "width:400px;" })
+            @Html.ValidationMessageFor(model => model.Priority)
+        </div>
+
+        <!--
         <div class="editor-label">
             @Html.LabelFor(model => model.Priority)
         </div>
@@ -53,6 +81,7 @@
             @Html.EditorFor(model => model.Priority)
             @Html.ValidationMessageFor(model => model.Priority)
         </div>
+        -->
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Enabled)
@@ -63,7 +92,7 @@
         </div>
 
         <p>
-            <input type="submit" value="@PersistanceResource.Save" />
+            <input class="btn btn-primary" type="submit" value="@PersistanceResource.Save" />
         </p>
     </fieldset>
 }
