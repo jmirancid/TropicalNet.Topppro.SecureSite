@@ -14,6 +14,7 @@
 <fieldset>
     <legend>@Ent_BulletResource._Caption</legend>
 
+    <!--
     <div class="display-label">
         @Html.DisplayNameFor(model => model.ProductId)
     </div>
@@ -55,11 +56,45 @@
     <div class="display-field">
         @Html.DisplayFor(model => model.Enabled)
     </div>
+    -->
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ProductId)
+        @Html.TextBoxFor(model => model.Product.Name, new { @class = "form-control", style = "width:400px;", id = "disabledInput", disabled = "disabled" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CultureId)
+        @Html.TextBoxFor(model => model.Culture.Name, new { @class = "form-control", style = "width:400px;", id = "disabledInput", disabled = "disabled" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name)
+        @Html.TextBoxFor(model => model.Name, new { @class = "form-control", style = "width:400px;", id = "disabledInput", disabled = "disabled" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Value)
+        @Html.TextBoxFor(model => model.Value, new { @class = "form-control", style = "width:400px;", id = "disabledInput", disabled = "disabled" })
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Priority)
+        @Html.TextBoxFor(model => model.Priority, new { @class = "form-control", style = "width:400px;", id = "disabledInput", disabled = "disabled" })
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Enabled)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Enabled)
+    </div>
 
 </fieldset>
 @using (Html.BeginForm()) {
     <p>
-        <input type="submit" value="@PersistanceResource.Delete" /> |
+        <input class="btn btn-danger" type="submit" value="@PersistanceResource.Delete" /> |
         @Html.ActionLink("Back to List", "Index")
     </p>
 }
