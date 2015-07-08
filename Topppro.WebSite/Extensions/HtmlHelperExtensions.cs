@@ -123,6 +123,12 @@ namespace Topppro.WebSite.Extensions
             return htmlHelper.Partial("_AmplifiersBanner");
         }
 
+        public static MvcHtmlString InstallBanner(
+            this HtmlHelper htmlHelper)
+        {
+            return htmlHelper.Partial("_InstallBanner");
+        }
+
         public static MvcHtmlString WirelessBanner(
             this HtmlHelper htmlHelper)
         {

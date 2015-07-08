@@ -354,6 +354,11 @@
     <Content Include="Content\Images\hires-bottom.jpg" />
     <Content Include="Content\Images\hires-top.jpg" />
     <Content Include="Content\Images\i4K-2000w.jpg" />
+    <Content Include="Content\Images\install-slider-1.jpg" />
+    <Content Include="Content\Images\install-slider-2.jpg" />
+    <Content Include="Content\Images\install-slider-3.jpg" />
+    <Content Include="Content\Images\install-slider-4.jpg" />
+    <Content Include="Content\Images\install-slider-5.jpg" />
     <Content Include="Content\Images\intro-1.jpg" />
     <Content Include="Content\Images\intro-2.jpg" />
     <Content Include="Content\Images\intro-3.jpg" />
@@ -371,6 +376,7 @@
     <Content Include="Content\Images\menu_r2_c6.jpg" />
     <Content Include="Content\Images\menu_r2_c8.jpg" />
     <Content Include="Content\Images\menu_r2_c9.jpg" />
+    <Content Include="Content\Images\menu_r3_c10-up.jpg" />
     <Content Include="Content\Images\menu_r3_c10.jpg" />
     <Content Include="Content\Images\menu_r3_c11-up.jpg" />
     <Content Include="Content\Images\menu_r3_c11.jpg" />
@@ -812,6 +818,8 @@
     <Content Include="Views\Wireless\DisplayTemplates\Serie_Wireless.cshtml" />
     <Content Include="Views\Wireless\Index.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_InstallBanner.cshtml" />
+    <Content Include="Views\Install\Index.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

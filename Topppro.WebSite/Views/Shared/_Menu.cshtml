@@ -1,4 +1,6 @@
-﻿<table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
+﻿@using Topppro.Entities
+
+<table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
     <!-- fwtable fwsrc="Sin título" fwpage="Página 1" fwbase="menu.jpg" fwstyle="Dreamweaver" fwdocid = "1026781304" fwnested="0" -->
     <tbody>
         <tr>
@@ -87,7 +89,7 @@
         <tr>
             <td>
                 <img name="menu_r3_c10" src="@Url.Content("~/Content/Images/menu_r3_c10.jpg")" width="111" height="48" border="0"
-                    id="menu_r3_c10" alt="" />
+                    id="menu_r3_c10" usemap="#menu_r3_c10Map" alt="" />
             </td>
             <td>
                 <img name="menu_r3_c11" src="@Url.Content("~/Content/Images/menu_r3_c11.jpg")" width="111" height="48" border="0"
@@ -121,55 +123,64 @@
         </tr>
         <tr>
             <td>
-                <a href="@Url.RouteUrl("Catalog", new { controller = "Mixers" })" onmouseover="MM_swapImage('MenuMIX','','@Url.Content("~/Content/Images/menu_r6_c1-up.jpg")',1)"
+                <a href="@Url.RouteUrl("Catalog", new { controller = Category_Enum.Mixers.ToString() })"
+                    onmouseover="MM_swapImage('MenuMIX','','@Url.Content("~/Content/Images/menu_r6_c1-up.jpg")',1)"
                     onmouseout="MM_swapImgRestore()">
                     <img src="@Url.Content("~/Content/Images/menu_r6_c1.jpg")"
                         alt="mixers" name="MenuMIX" width="111" height="41" border="0" id="MenuMIX" /></a>
             </td>
             <td colspan="3">
-                <a href="@Url.RouteUrl("Catalog", new { controller = "Speakers" })" onmouseover="MM_swapImage('MenuSPK','','@Url.Content("~/Content/Images/menu_r6_c2-up.jpg")',1)"
+                <a href="@Url.RouteUrl("Catalog", new { controller = Category_Enum.Speakers.ToString() })" 
+                    onmouseover="MM_swapImage('MenuSPK','','@Url.Content("~/Content/Images/menu_r6_c2-up.jpg")',1)"
                     onmouseout="MM_swapImgRestore()">
                     <img src="@Url.Content("~/Content/Images/menu_r6_c2.jpg")"
                         alt="speakers" name="MenuSPK" width="111" height="41" border="0" id="MenuSPK" /></a>
             </td>
             <td colspan="2">
-                <a href="@Url.RouteUrl("Catalog", new { controller = "Packs" })" onmouseover="MM_swapImage('MenuPCK','','@Url.Content("~/Content/Images/menu_r6_c5-up.jpg")',1)"
+                <a href="@Url.RouteUrl("Catalog", new { controller = Category_Enum.Packs.ToString() })" 
+                    onmouseover="MM_swapImage('MenuPCK','','@Url.Content("~/Content/Images/menu_r6_c5-up.jpg")',1)"
                     onmouseout="MM_swapImgRestore()">
                     <img src="@Url.Content("~/Content/Images/menu_r6_c5.jpg")"
                         alt="pa systems" name="MenuPCK" width="112" height="41" border="0" id="MenuPCK" /></a>
             </td>
             <td>
-                <a href="@Url.RouteUrl("Catalog", new { controller = "Wireless" })" onmouseover="MM_swapImage('MenuWIR','','@Url.Content("~/Content/Images/menu_r6_c7-up.jpg")',1)"
+                <a href="@Url.RouteUrl("Catalog", new { controller = Category_Enum.Wireless.ToString() })" 
+                    onmouseover="MM_swapImage('MenuWIR','','@Url.Content("~/Content/Images/menu_r6_c7-up.jpg")',1)"
                     onmouseout="MM_swapImgRestore()">
                     <img src="@Url.Content("~/Content/Images/menu_r6_c7.jpg")"
                         alt="wireless systems" name="MenuWIR" width="111" height="41" border="0" id="MenuWIR" /></a>
             </td>
             <td>
-                <a href="@Url.RouteUrl("Catalog", new { controller = "Amplifiers" })" onmouseover="MM_swapImage('MenuAMP','','@Url.Content("~/Content/Images/menu_r6_c8-up.jpg")',1)"
+                <a href="@Url.RouteUrl("Catalog", new { controller = Category_Enum.Amplifiers.ToString() })" 
+                    onmouseover="MM_swapImage('MenuAMP','','@Url.Content("~/Content/Images/menu_r6_c8-up.jpg")',1)"
                     onmouseout="MM_swapImgRestore()">
                     <img src="@Url.Content("~/Content/Images/menu_r6_c8.jpg")"
                         alt="amplifiers" name="MenuAMP" width="111" height="41" border="0" id="MenuAMP" /></a>
             </td>
             <td>
-                <a href="@Url.RouteUrl("Catalog", new { controller = "Processors" })" onmouseover="MM_swapImage('MenuPRO','','@Url.Content("~/Content/Images/menu_r6_c9-up.jpg")',1)"
+                <a href="@Url.RouteUrl("Catalog", new { controller = Category_Enum.Processors.ToString() })" 
+                    onmouseover="MM_swapImage('MenuPRO','','@Url.Content("~/Content/Images/menu_r6_c9-up.jpg")',1)"
                     onmouseout="MM_swapImgRestore()">
                     <img src="@Url.Content("~/Content/Images/menu_r6_c9.jpg")"
                         alt="processors &amp; modules" name="MenuPRO" width="111" height="41" border="0" id="MenuPRO" /></a>
             </td>
             <td>
-                <a href="@Url.RouteUrl("Catalog", new { controller = "Install" })" onmouseover="MM_swapImage('MenuINS','','@Url.Content("~/Content/Images/menu_r6_c10-up.jpg")',1)"
+                <a href="@Url.RouteUrl("Catalog", new { controller = Category_Enum.Install.ToString() })" 
+                    onmouseover="MM_swapImage('MenuINS','','@Url.Content("~/Content/Images/menu_r6_c10-up.jpg")',1)"
                     onmouseout="MM_swapImgRestore()">
                     <img src="@Url.Content("~/Content/Images/menu_r6_c10.jpg")"
                         alt="install" name="MenuINS" width="111" height="41" border="0" id="MenuINS" /></a>
             </td>
             <td>
-                <a href="@Url.RouteUrl("Catalog", new { controller = "Distributors" })" onmouseover="MM_swapImage('MenuDIS','','@Url.Content("~/Content/Images/menu_r6_c11-up.jpg")',1)"
+                <a href="@Url.RouteUrl("Default", new { controller = "Distributors" })"
+                    onmouseover="MM_swapImage('MenuDIS','','@Url.Content("~/Content/Images/menu_r6_c11-up.jpg")',1)"
                     onmouseout="MM_swapImgRestore()">
                     <img src="@Url.Content("~/Content/Images/menu_r6_c11.jpg")"
                         alt="distributors" name="MenuDIS" width="111" height="41" border="0" id="MenuDIS" /></a>
             </td>
             <td>
-                <a href="@Url.RouteUrl("Catalog", new { controller = "Legacy" })" onmouseover="MM_swapImage('MenuLEG','','@Url.Content("~/Content/Images/menu_r6_c12-up.jpg")',1)"
+                <a href="@Url.RouteUrl("Catalog", new { controller = Category_Enum.Legacy.ToString() })"
+                    onmouseover="MM_swapImage('MenuLEG','','@Url.Content("~/Content/Images/menu_r6_c12-up.jpg")',1)"
                     onmouseout="MM_swapImgRestore()">
                     <img src="@Url.Content("~/Content/Images/menu_r6_c12.jpg")"
                         alt="legacy models" name="MenuLEG" width="111" height="41" border="0" id="MenuLEG" /></a>
@@ -182,6 +193,9 @@
 </table>
 <map name="menu_r1_c1Map" id="menu_r1_c1Map">
     <area shape="circle" coords="66,66,52" href="@Url.RouteUrl("Default", new { controller = "Home" })" target="_top" />
+</map>
+<map name="menu_r3_c10Map" id="menu_r3_c10Map" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('menu_r3_c10','','@Url.Content("~/Content/Images/menu_r3_c10-up.jpg")',1)">
+    <area shape="rect" coords="7,6,95,41" href="https://www.facebook.com/pages/Topp-Pro-Professional-Audio-Gear/101981530136916" target="_blank" />
 </map>
 <map name="menu_r3_c11Map" id="menu_r3_c11Map" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('menu_r3_c11','','@Url.Content("~/Content/Images/menu_r3_c11-up.jpg")',1)">
     <area shape="rect" coords="19,5,93,41" href="@Url.RouteUrl("Default", new { controller = "Public", action = "Software" })" target="_top" />
