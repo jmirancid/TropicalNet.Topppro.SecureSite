@@ -1,0 +1,55 @@
+﻿@using Topppro.WebSite.Extensions
+
+@{
+    ViewBag.Title = ViewBag.Title ?? ":: Topp Pro Professional Audio Gear ::";
+    ViewBag.Description = ViewBag.Description ?? "Topp Pro Music Gear is a manufacturer of loudspeakers, portable pa, power amplifiers, wireless systems, install and signal processing for audio professionals and musicians.";
+    ViewBag.Keywords = ViewBag.Keywords ?? "Music Gear,Music,Gear,Gear Music,Music Top Gear,the Gear ,Gear for,Music,the,for,usefull,user, audio gaer, mixers, processors, mic, wireless systems, speakers, loudspeakers, subwoofer, pa, packs, installation, mp3, eq, monitor, professional, audio music, audio equipment, audio soft,alfa,ready 15, metro, trx, tma, mx, tpm,drive,ark,ma,tps,dpm,teq";
+}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>@ViewBag.Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="@ViewBag.Description" />
+    <meta name="keywords" content="@ViewBag.Keywords" />
+    <meta name="robots" content="all" />
+    <meta name="revisit-after" content="10 day" />
+    <link rel="Shortcut Icon" href="@Url.Content("~/Content/Others/favicon.ico")" />
+    <script type="text/javascript" src="@Url.Content("~/Scripts/MM_functions.js")"></script>
+    <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/Layout.css")" />
+    @RenderSection("Styles", false)
+    @Html.GoogleAnalytics()
+</head>
+<body>
+    <div class="page">
+        <div id="header">
+            @Html.Menu()
+        </div>
+        <div id="main">
+            @RenderBody()
+        </div>
+    </div>
+    <div id="footer">
+        @RenderSection("Footer", false)
+        @if (!IsSectionDefined("Footer"))
+        {
+            <table width="1000" border="0" cellspacing="0" bgcolor="#FFFFFF">
+                <tbody>
+                    <tr>
+                        <td align="center">
+                            <img src="@Url.Content("~/Content/Images/bottom.jpg")" width="1000" alt="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            @Html.LogOn()
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        }
+    </div>
+    @RenderSection("Scripts", false)
+</body>
+</html>

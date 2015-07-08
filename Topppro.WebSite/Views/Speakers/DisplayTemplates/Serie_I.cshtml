@@ -1,0 +1,13 @@
+﻿@using Topppro.Entities
+@using Framework.Common.Extensions
+@using Topppro.WebSite.Extensions
+
+@model Topppro.Entities.Assn_CategorySerie
+
+<div id="@Model.Serie.Name.ToLower()" class="title">
+    <h1>@Model.Serie.Name.ToUpper() <small>Series</small></h1>
+</div>
+
+@Html.Catalog(Model.Assn_CategorySerieProduct.Where(a => a.Product.ModelId == (int)Model_Enum.Active))
+
+@Html.Catalog(Model.Assn_CategorySerieProduct.Where(a => a.Product.ModelId == (int)Model_Enum.Passive))

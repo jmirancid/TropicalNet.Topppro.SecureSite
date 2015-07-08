@@ -1,0 +1,49 @@
+﻿@using Framework.Common.Extensions
+@using Topppro.WebSite.Resources
+@using Topppro.WebSite.Extensions
+
+@model Tuple<Topppro.Entities.Assn_CategorySerieProduct, Topppro.Entities.Assn_CategorySerieProduct>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+    <colgroup>
+        <col width="1%" />
+        <col width="48%" />
+        <col width="2%" />
+        <col width="48%" />
+        <col width="1%" />
+    </colgroup>
+    <tbody>
+    </tbody>
+    <tr>
+        <td></td>
+        <td height="30" align="center"><div class="title"><h1>@Model.Item1.Product.Name.ToUpper()</h1></div></td>
+        <td></td>
+        <td height="30" align="center"><div class="title"><h1>@Model.Item2.Product.Name.ToUpper()</h1></div></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td valign="top">
+            @Html.Attributes(Model.Item1)
+        </td>
+        <td></td>
+        <td valign="top">
+            @Html.Attributes(Model.Item2)
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td height="30"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+
+<div style="margin-bottom:30px;">
+
+    <a href="@Url.RouteUrl("Catalog", new { controller = ViewContext.RouteData.Values["controller"] })" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Back','','@Url.Content("~/Content/Images/back-top.jpg")',1)" style="float:right;">
+        <img src="@Url.Content("~/Content/Images/back-bottom.jpg")" alt="back" name="Back" width="100" height="100" border="0" id="Back" /></a>
+    <br style="clear: both;" />
+</div>

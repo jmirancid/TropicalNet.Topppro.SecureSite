@@ -19,13 +19,8 @@ namespace Topppro.WebSite
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            // Change By Used Theme.-
-            var theme_name =
-                "Humanist";
-
             var namespaces =
-                new[] { string.Format("Topppro.WebSite.Areas.{0}.Controllers", theme_name) };
-            //.-
+                new[] { "Topppro.WebSite.Controllers" };
 
             routes.MapRoute(
                 name: "Compare", // Route name
@@ -33,7 +28,7 @@ namespace Topppro.WebSite
                 defaults: new { culture = Topppro.Context.Current.Culture.TwoLetterISOLanguageName, action = "Compare" }, // Parameter defaults
                 constraints: new { culture = "[a-zA-Z]{2}" },
                 namespaces: namespaces
-            ).DataTokens["area"] = theme_name;
+            );
 
             routes.MapRoute(
                 name: "Modules_HiRes", // Route name
@@ -41,7 +36,7 @@ namespace Topppro.WebSite
                 defaults: new { culture = Topppro.Context.Current.Culture.TwoLetterISOLanguageName, controller = "Processors", action = "Modules_HiRes" }, // Parameter defaults
                 constraints: new { culture = "[a-zA-Z]{2}" },
                 namespaces: namespaces
-            ).DataTokens["area"] = theme_name;
+            );
 
             routes.MapRoute(
                 name: "HiRes", // Route name
@@ -49,7 +44,7 @@ namespace Topppro.WebSite
                 defaults: new { culture = Topppro.Context.Current.Culture.TwoLetterISOLanguageName, action = "HiRes" }, // Parameter defaults
                 constraints: new { culture = "[a-zA-Z]{2}" },
                 namespaces: namespaces
-            ).DataTokens["area"] = theme_name;
+            );
 
             routes.MapRoute(
                 name: "Detail", // Route name
@@ -57,7 +52,7 @@ namespace Topppro.WebSite
                 defaults: new { culture = Topppro.Context.Current.Culture.TwoLetterISOLanguageName, action = "Detail" }, // Parameter defaults
                 constraints: new { culture = "[a-zA-Z]{2}" },
                 namespaces: namespaces
-            ).DataTokens["area"] = theme_name;
+            );
 
             routes.MapRoute(
                 name: "Catalog", // Route name
@@ -65,14 +60,14 @@ namespace Topppro.WebSite
                 defaults: new { culture = Topppro.Context.Current.Culture.TwoLetterISOLanguageName, controller = "Home", action = "Index" }, // Parameter defaults
                 constraints: new { culture = "[a-zA-Z]{2}" },
                 namespaces: namespaces
-            ).DataTokens["area"] = theme_name;
+            );
 
             routes.MapRoute(
                 name: "Default", // Route name
                 url: "{culture}/{controller}/{action}/{id}", // URL with parameters
                 defaults: new { culture = Topppro.Context.Current.Culture.TwoLetterISOLanguageName, controller = "Home", action = "Index", id = UrlParameter.Optional }, // Parameter defaults
                 namespaces: namespaces
-            ).DataTokens["area"] = theme_name;
+            );
         }
 
         protected void Application_Start()

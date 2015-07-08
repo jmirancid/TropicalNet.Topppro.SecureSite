@@ -1,0 +1,18 @@
+﻿@using Framework.Common.Extensions
+@using Topppro.WebSite.Extensions
+
+@model Topppro.Entities.Assn_CategorySerieProduct
+
+<h4>@Model.Assn_CategorySerie.Serie.Name.ToUpper() Series</h4>
+<div class="title">
+    <h1>@Model.Product.Name.ToUpper()</h1>
+</div>
+
+@Html.Header()
+
+<div style="margin-bottom:10px;">
+    @Html.Manual(new { style = "margin-right:85px;" })
+    @Html.HiRes()
+</div>
+
+@Html.Attributes()

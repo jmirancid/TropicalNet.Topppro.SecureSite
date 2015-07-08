@@ -1,0 +1,16 @@
+﻿@using Framework.Common.Extensions
+@using Topppro.WebSite.Resources
+@using Topppro.WebSite.Extensions
+
+@model Topppro.Entities.Assn_CategorySerie
+
+@Html.SohoBanner()
+<br />
+
+<div id="@Model.Serie.Name.ToLower()" class="title">
+    <h1>@Model.Serie.Name.ToUpper() <small>Series</small></h1>
+</div>
+
+<p style="text-align: justify; margin:1.33em 0 2.33em;">@Html.Raw(PacksResource.Soho_Message)</p>
+
+@Html.Catalog()

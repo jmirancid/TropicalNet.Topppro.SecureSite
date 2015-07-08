@@ -1,0 +1,78 @@
+﻿@using Topppro.Entities
+@using Topppro.WebSite.Extensions
+
+@section Styles {
+    <style type="text/css">
+        #main
+        {
+            padding: 0 0 91px;
+        }
+    </style>
+}
+
+<table width="1000" border="0" cellspacing="0" cellpadding="0" bgcolor="#000000">
+    <tr>
+        <td colspan="5">
+            @Html.Intro()
+        </td>
+    </tr>
+    <tr>
+        <td width="250" height="227">
+            <a href="@Url.RouteUrl("Catalog", new { controller = "Mixers" })" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image10','','@Url.Content("~/Content/Images/mx-v2-up.jpg")',1)">
+                <img src="@Url.Content("~/Content/Images/mx-v2.jpg")" alt="mx v2 series" name="Image10" width="250" height="227" border="0" id="Image10" /></a>
+        </td>
+        <td width="250">
+            <a href="@Url.RouteUrl("Catalog", new { controller = "Amplifiers" })" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image11','','@Url.Content("~/Content/Images/tma54bzt-up.jpg")',1)">
+                <img src="@Url.Content("~/Content/Images/tma54bzt.jpg")" alt="TMA51BZT" name="Image11" width="250" height="227" border="0" id="Image11" /></a>
+        </td>
+        <td width="250">
+            <a href="@Url.RouteUrl("Default", new { controller = "Public", action = "CustomSound" })" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image12','','@Url.Content("~/Content/Images/cs-sound-up.jpg")',1)">
+                <img src="@Url.Content("~/Content/Images/cs-sound.jpg")" alt="Custom Sound" name="Image12" width="250" height="227" border="0" id="Image12" /></a>
+        </td>
+        <td width="250">
+            <a href="javascript:void();" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image9','','@Url.Content("~/Content/Images/appstore-apps-up.jpg")',1)">
+                <img src="@Url.Content("~/Content/Images/appstore-apps.jpg")" alt="Free App Store Apps" name="Image9" width="250" height="227" border="0" id="Image9" usemap="#AppMap" />
+                <map name="AppMap" id="AppMap">
+                    <area shape="rect" coords="132,109,247,206" href="https://itunes.apple.com/en/app/dmx24.4i/id887695089?mt=8" target="_blank">
+                    <area shape="rect" coords="131,8,247,96" href="https://itunes.apple.com/en/app/cs-eq/id838175440?mt=8#" target="_blank">
+                    <area shape="rect" coords="12,119,130,207" href="https://itunes.apple.com/en/app/t20i/id950579631?mt=8#" target="_blank">
+                </map>
+            </a>
+        </td>
+    </tr>
+</table>
+<table width="999" border="0" align="center" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+    <tbody>
+        <tr>
+            <td width="500" height="113">
+                <a href="@Url.RouteUrl("Default", new { controller = "Public", action = "Bluetooth" })" onmouseover="MM_swapImage('Image14','','@Url.Content("~/Content/Images/bluetoth-certificates-up.jpg")',1)"
+                    onmouseout="MM_swapImgRestore()">
+                    <img src="@Url.Content("~/Content/Images/bluetoth-certificates.jpg")" alt="Blutooth Certificates" name="Image14"
+                        width="499" height="111" border="0" id="Image14"></a>
+            </td>
+            <td width="498">
+                <a href="@Url.Content("~/Content/Downloads/topppro2015.pdf")" target="_blank"
+                    onmouseover="MM_swapImage('Image15','','@Url.Content("~/Content/Images/catalog-download-up.jpg")',1)" onmouseout="MM_swapImgRestore()">
+                    <img src="@Url.Content("~/Content/Images/catalog-download.jpg")"
+                        alt="Download 2015 Line Products" name="Image15" width="499" height="111" border="0"
+                        id="Image15"></a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+@section Scripts {
+    <script src="@Url.Content("~/Scripts/AC_RunActiveContent.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+        MM_onLoad(function() {
+            MM_preloadImages(
+                "@Url.Content("~/Content/Images/mx-v2-up.jpg")",
+                "@Url.Content("~/Content/Images/t20-up.jpg")",
+                "@Url.Content("~/Content/Images/cs-sound-up.jpg")",
+                "@Url.Content("~/Content/Images/appstore-apps-up.jpg")",
+                "@Url.Content("~/Content/Images/bluetoth-certificates-up.jpg")",
+                "@Url.Content("~/Content/Images/catalog-download-up.jpg")"
+            );
+        });
+    </script>
+}

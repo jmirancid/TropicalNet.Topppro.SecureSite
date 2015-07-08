@@ -84,31 +84,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Areas\Humanist\Controllers\AccountController.cs" />
-    <Compile Include="Areas\Humanist\Controllers\AmplifiersController.cs" />
-    <Compile Include="Areas\Humanist\Controllers\DashboardController.cs" />
-    <Compile Include="Areas\Humanist\Controllers\DistributorsController.cs" />
-    <Compile Include="Areas\Humanist\Controllers\ErrorController.cs" />
-    <Compile Include="Areas\Humanist\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Humanist\Controllers\InstallController.cs" />
-    <Compile Include="Areas\Humanist\Controllers\LayoutController.cs" />
-    <Compile Include="Areas\Humanist\Controllers\LegacyController.cs" />
-    <Compile Include="Areas\Humanist\Controllers\MixersController.cs" />
-    <Compile Include="Areas\Humanist\Controllers\PacksController.cs" />
-    <Compile Include="Areas\Humanist\Controllers\ProcessorsController.cs" />
-    <Compile Include="Areas\Humanist\Controllers\PublicController.cs" />
-    <Compile Include="Areas\Humanist\Controllers\SpeakersController.cs" />
-    <Compile Include="Areas\Humanist\Controllers\WirelessController.cs" />
-    <Compile Include="Areas\Humanist\Extensions\HtmlHelperExtensions.cs" />
-    <Compile Include="Areas\Humanist\Extensions\ProductExtensions.cs" />
-    <Compile Include="Areas\Humanist\HumanistAreaRegistration.cs" />
-    <Compile Include="Areas\Humanist\Models\AccountModels.cs" />
-    <Compile Include="Areas\Humanist\Models\DashboardModels.cs" />
-    <Compile Include="Areas\Humanist\Resources\Localization.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Localization.resx</DependentUpon>
-    </Compile>
     <Compile Include="Areas\SecureSite\Controllers\AssnCategorySerieController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\AssnCategorySerieProductController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\AttributeController.cs" />
@@ -120,6 +95,23 @@
     <Compile Include="Areas\SecureSite\Controllers\ProductController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\SerieController.cs" />
     <Compile Include="Areas\SecureSite\Extensions\HtmlHelperExtensions.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AmplifiersController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\DistributorsController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InstallController.cs" />
+    <Compile Include="Controllers\LayoutController.cs" />
+    <Compile Include="Controllers\LegacyController.cs" />
+    <Compile Include="Controllers\MixersController.cs" />
+    <Compile Include="Controllers\PacksController.cs" />
+    <Compile Include="Controllers\ProcessorsController.cs" />
+    <Compile Include="Controllers\PublicController.cs" />
+    <Compile Include="Controllers\SpeakersController.cs" />
+    <Compile Include="Controllers\WirelessController.cs" />
+    <Compile Include="Extensions\HtmlHelperExtensions.cs" />
+    <Compile Include="Extensions\ProductExtensions.cs" />
     <Compile Include="Filters\LocalizationFilterAttribute.cs" />
     <Compile Include="Areas\SecureSite\Controllers\AccountController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\HomeController.cs" />
@@ -128,188 +120,53 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\DashboardModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\AccountResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AccountResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\CompareResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CompareResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\ErrorResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ErrorResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\GeneralResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GeneralResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\MixersResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MixersResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\PacksResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PacksResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\ProcessorsResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProcessorsResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\SpeakersResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SpeakersResource.resx</DependentUpon>
+    </Compile>
     <Compile Include="Security\StaticMembershipProvider.cs" />
     <Compile Include="Settings\ToppproSettings.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Humanist\Content\Images\1.-TAC-BT2.1B-EPLCertificate.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\11.--MX-3BT-EPL--B019657.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\15.-DMX24.4--EPLCertificate.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\20.-TAP20BT-Topp-Pro-EPLCertificate.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\22.-TAP40BT-Topp-Pro-EPLCertificate.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\amps-slider-1.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\amps-slider-2.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\amps-slider-3.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\appstore-apps-up.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\appstore-apps.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\back-bottom.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\back-top.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\bluetoth-certificates-up.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\bluetoth-certificates.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\catalog-download-up.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\catalog-download.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\cs-appstore.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\cs-slider-1.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\cs-slider-2.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\cs-slider-3.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\cs-slider-4.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\cs-slider-5.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\cs-slider-6.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\cs-sound-up.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\cs-sound.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\cs1.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\cs2.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\cs3.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\custom-sound-banner.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\dmx244-livemixing.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\glyphicons-halflings-white.png" />
-    <Content Include="Areas\Humanist\Content\Images\glyphicons-halflings.png" />
-    <Content Include="Areas\Humanist\Content\Images\hires-bottom.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\hires-top.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\i4K-2000w.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\intro-1.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\intro-2.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\intro-3.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\intro-5.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\intro-6.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\manual-bottom.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\manual-top.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\menu_r3_c11-up.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\menu_r6_c1-up.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\menu_r6_c1.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\menu_r6_c2-up.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\menu_r6_c2.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\menu_r6_c5-up.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\menu_r6_c5.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\menu_r6_c7-up.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\menu_r6_c7.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\menu_r6_c8-up.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\menu_r6_c8.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\menu_r6_c9-up.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\menu_r6_c9.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\modules-cs-lan-1-2.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\modules-cs-wm-1-3.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\modules-cs-wsl-1-3.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\modules-e-cs-big.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\modules-tac-ark-big.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\modules-tac-bt2.1b-big.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\modules-tac-mp3-r-big.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\modules-tac-mp3-s-big.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\modules-tac-mp3-t-big.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\modules-tac-mx-dsp-big.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\modules-tac-mx-eq-big.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\modules-tac-tmw-2.4r-big.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\mx-v2-up.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\mx-v2.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\mx244-app.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\software-bottom.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\software-top.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\soho-slider-1.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\soho-slider-2.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\soho-slider-3.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\soho-slider-4.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\syncfusion-icons-white.png" />
-    <Content Include="Areas\Humanist\Content\Images\syncfusion-icons.png" />
-    <Content Include="Areas\Humanist\Content\Images\t20-app.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\t20-banner.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\t20-content.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\t20-slider-1.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\t20-slider-2.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\t20-slider-3.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\t20-up.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\t20.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\tma54bzt-up.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\tma54bzt.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\topp-error.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\wireless-slider-1.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\wireless-slider-2.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\wireless-slider-3.jpg" />
-    <Content Include="Areas\Humanist\Content\Others\cs.swf" />
-    <Content Include="Areas\Humanist\Content\Others\favicon.ico" />
-    <Content Include="Areas\Humanist\Content\Others\intro.swf" />
-    <Content Include="Areas\Humanist\Content\Fonts\Humanst521BT-Light.svg" />
-    <Content Include="Areas\Humanist\Content\Fonts\Humanst521BT-Roman.svg" />
-    <Content Include="Areas\Humanist\Content\Images\bottom.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\menu_r1_c1.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\menu_r1_c10.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\menu_r1_c3.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\menu_r1_c4.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\menu_r2_c4.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\menu_r2_c6.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\menu_r2_c8.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\menu_r2_c9.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\menu_r3_c10.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\menu_r3_c11.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\menu_r3_c12.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\menu_r4_c10.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\menu_r5_c4.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\menu_r6_c10-up.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\menu_r6_c10.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\menu_r6_c11-up.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\menu_r6_c11.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\menu_r6_c12-up.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\menu_r6_c12.jpg" />
-    <Content Include="Areas\Humanist\Content\Images\spacer.gif" />
-    <Content Include="Areas\Humanist\Content\Styles\Fonts.css" />
-    <Content Include="Areas\Humanist\Content\Styles\Layout.css" />
-    <Content Include="Areas\Humanist\Content\Styles\m-buttons.min.css" />
-    <Content Include="Areas\Humanist\Content\Styles\m-forms.min.css" />
-    <Content Include="Areas\Humanist\Content\Styles\m-icons.min.css" />
-    <Content Include="Areas\Humanist\Content\Styles\m-normalize.min.css" />
-    <Content Include="Areas\Humanist\Content\Styles\m-styles.min.css" />
-    <Content Include="Areas\Humanist\Content\Styles\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
-    <Content Include="Areas\Humanist\Content\Styles\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
-    <Content Include="Areas\Humanist\Content\Styles\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
-    <Content Include="Areas\Humanist\Content\Styles\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
-    <Content Include="Areas\Humanist\Content\Styles\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
-    <Content Include="Areas\Humanist\Content\Styles\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
-    <Content Include="Areas\Humanist\Content\Styles\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
-    <Content Include="Areas\Humanist\Content\Styles\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
-    <Content Include="Areas\Humanist\Content\Styles\themes\base\images\ui-icons_222222_256x240.png" />
-    <Content Include="Areas\Humanist\Content\Styles\themes\base\images\ui-icons_2e83ff_256x240.png" />
-    <Content Include="Areas\Humanist\Content\Styles\themes\base\images\ui-icons_454545_256x240.png" />
-    <Content Include="Areas\Humanist\Content\Styles\themes\base\images\ui-icons_888888_256x240.png" />
-    <Content Include="Areas\Humanist\Content\Styles\themes\base\images\ui-icons_cd0a0a_256x240.png" />
-    <Content Include="Areas\Humanist\Content\Styles\themes\base\jquery-ui.css" />
-    <Content Include="Areas\Humanist\Content\Styles\themes\base\jquery.ui.accordion.css" />
-    <Content Include="Areas\Humanist\Content\Styles\themes\base\jquery.ui.all.css" />
-    <Content Include="Areas\Humanist\Content\Styles\themes\base\jquery.ui.autocomplete.css" />
-    <Content Include="Areas\Humanist\Content\Styles\themes\base\jquery.ui.base.css" />
-    <Content Include="Areas\Humanist\Content\Styles\themes\base\jquery.ui.button.css" />
-    <Content Include="Areas\Humanist\Content\Styles\themes\base\jquery.ui.core.css" />
-    <Content Include="Areas\Humanist\Content\Styles\themes\base\jquery.ui.datepicker.css" />
-    <Content Include="Areas\Humanist\Content\Styles\themes\base\jquery.ui.dialog.css" />
-    <Content Include="Areas\Humanist\Content\Styles\themes\base\jquery.ui.menu.css" />
-    <Content Include="Areas\Humanist\Content\Styles\themes\base\jquery.ui.progressbar.css" />
-    <Content Include="Areas\Humanist\Content\Styles\themes\base\jquery.ui.resizable.css" />
-    <Content Include="Areas\Humanist\Content\Styles\themes\base\jquery.ui.selectable.css" />
-    <Content Include="Areas\Humanist\Content\Styles\themes\base\jquery.ui.slider.css" />
-    <Content Include="Areas\Humanist\Content\Styles\themes\base\jquery.ui.spinner.css" />
-    <Content Include="Areas\Humanist\Content\Styles\themes\base\jquery.ui.tabs.css" />
-    <Content Include="Areas\Humanist\Content\Styles\themes\base\jquery.ui.theme.css" />
-    <Content Include="Areas\Humanist\Content\Styles\themes\base\jquery.ui.tooltip.css" />
-    <Content Include="Areas\Humanist\Scripts\AC_RunActiveContent.js" />
-    <Content Include="Areas\Humanist\Scripts\jquery-1.8.3-vsdoc.js" />
-    <Content Include="Areas\Humanist\Scripts\jquery-1.8.3.js" />
-    <Content Include="Areas\Humanist\Scripts\jquery-1.8.3.min.js" />
-    <Content Include="Areas\Humanist\Scripts\jquery-ui-1.9.2.js" />
-    <Content Include="Areas\Humanist\Scripts\jquery-ui-1.9.2.min.js" />
-    <Content Include="Areas\Humanist\Scripts\jquery.panelslider-0.1.1\jquery.panelslider.js" />
-    <Content Include="Areas\Humanist\Scripts\jquery.panelslider-0.1.1\jquery.panelslider.min.js" />
-    <Content Include="Areas\Humanist\Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Areas\Humanist\Scripts\jquery.validate.js" />
-    <Content Include="Areas\Humanist\Scripts\jquery.validate.min.js" />
-    <Content Include="Areas\Humanist\Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Areas\Humanist\Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Areas\Humanist\Scripts\jssor.slider-19.0\arrow.png" />
-    <Content Include="Areas\Humanist\Scripts\jssor.slider-19.0\jssor.js" />
-    <Content Include="Areas\Humanist\Scripts\jssor.slider-19.0\jssor.slider.js" />
-    <Content Include="Areas\Humanist\Scripts\jssor.slider-19.0\jssor.slider.min.js" />
-    <Content Include="Areas\Humanist\Scripts\jssor.slider-19.0\MIT-LICENSE.txt" />
-    <Content Include="Areas\Humanist\Scripts\jssor.slider-19.0\readme.txt" />
-    <Content Include="Areas\Humanist\Scripts\jssor.slider-19.0\jssor.slider.css" />
-    <Content Include="Areas\Humanist\Scripts\MM_functions.js" />
     <Content Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.svg" />
     <Content Include="Areas\SecureSite\Content\Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Areas\SecureSite\Content\Images\1.png" />
@@ -458,26 +315,191 @@
     <Content Include="Areas\SecureSite\Scripts\tinymce\themes\modern\theme.min.js" />
     <Content Include="Areas\SecureSite\Scripts\tinymce\tinymce.min.js" />
     <Content Include="Content\Downloads\Readme.txt" />
+    <Content Include="Content\Fonts\Humanst521BT-Light.svg" />
+    <Content Include="Content\Fonts\Humanst521BT-Roman.svg" />
+    <Content Include="Content\Images\1.-TAC-BT2.1B-EPLCertificate.jpg" />
+    <Content Include="Content\Images\11.--MX-3BT-EPL--B019657.jpg" />
+    <Content Include="Content\Images\15.-DMX24.4--EPLCertificate.jpg" />
+    <Content Include="Content\Images\20.-TAP20BT-Topp-Pro-EPLCertificate.jpg" />
+    <Content Include="Content\Images\22.-TAP40BT-Topp-Pro-EPLCertificate.jpg" />
+    <Content Include="Content\Images\amps-slider-1.jpg" />
+    <Content Include="Content\Images\amps-slider-2.jpg" />
+    <Content Include="Content\Images\amps-slider-3.jpg" />
+    <Content Include="Content\Images\appstore-apps-up.jpg" />
+    <Content Include="Content\Images\appstore-apps.jpg" />
+    <Content Include="Content\Images\back-bottom.jpg" />
+    <Content Include="Content\Images\back-top.jpg" />
+    <Content Include="Content\Images\bluetoth-certificates-up.jpg" />
+    <Content Include="Content\Images\bluetoth-certificates.jpg" />
+    <Content Include="Content\Images\bottom.jpg" />
+    <Content Include="Content\Images\catalog-download-up.jpg" />
+    <Content Include="Content\Images\catalog-download.jpg" />
+    <Content Include="Content\Images\colombia-flag.jpg" />
+    <Content Include="Content\Images\cs-appstore.jpg" />
+    <Content Include="Content\Images\cs-slider-1.jpg" />
+    <Content Include="Content\Images\cs-slider-2.jpg" />
+    <Content Include="Content\Images\cs-slider-3.jpg" />
+    <Content Include="Content\Images\cs-slider-4.jpg" />
+    <Content Include="Content\Images\cs-slider-5.jpg" />
+    <Content Include="Content\Images\cs-slider-6.jpg" />
+    <Content Include="Content\Images\cs-sound-up.jpg" />
+    <Content Include="Content\Images\cs-sound.jpg" />
+    <Content Include="Content\Images\cs1.jpg" />
+    <Content Include="Content\Images\cs2.jpg" />
+    <Content Include="Content\Images\cs3.jpg" />
+    <Content Include="Content\Images\custom-sound-banner.jpg" />
+    <Content Include="Content\Images\dmx244-livemixing.jpg" />
+    <Content Include="Content\Images\glyphicons-halflings-white.png" />
+    <Content Include="Content\Images\glyphicons-halflings.png" />
+    <Content Include="Content\Images\hires-bottom.jpg" />
+    <Content Include="Content\Images\hires-top.jpg" />
+    <Content Include="Content\Images\i4K-2000w.jpg" />
+    <Content Include="Content\Images\intro-1.jpg" />
+    <Content Include="Content\Images\intro-2.jpg" />
+    <Content Include="Content\Images\intro-3.jpg" />
+    <Content Include="Content\Images\intro-5.jpg" />
+    <Content Include="Content\Images\intro-6.jpg" />
+    <Content Include="Content\Images\italy-flag.jpg" />
+    <Content Include="Content\Images\loading.gif" />
+    <Content Include="Content\Images\manual-bottom.jpg" />
+    <Content Include="Content\Images\manual-top.jpg" />
+    <Content Include="Content\Images\menu_r1_c1.jpg" />
+    <Content Include="Content\Images\menu_r1_c10.jpg" />
+    <Content Include="Content\Images\menu_r1_c3.jpg" />
+    <Content Include="Content\Images\menu_r1_c4.jpg" />
+    <Content Include="Content\Images\menu_r2_c4.jpg" />
+    <Content Include="Content\Images\menu_r2_c6.jpg" />
+    <Content Include="Content\Images\menu_r2_c8.jpg" />
+    <Content Include="Content\Images\menu_r2_c9.jpg" />
+    <Content Include="Content\Images\menu_r3_c10.jpg" />
+    <Content Include="Content\Images\menu_r3_c11-up.jpg" />
+    <Content Include="Content\Images\menu_r3_c11.jpg" />
+    <Content Include="Content\Images\menu_r3_c12.jpg" />
+    <Content Include="Content\Images\menu_r4_c10.jpg" />
+    <Content Include="Content\Images\menu_r5_c4.jpg" />
+    <Content Include="Content\Images\menu_r6_c1-up.jpg" />
+    <Content Include="Content\Images\menu_r6_c1.jpg" />
+    <Content Include="Content\Images\menu_r6_c10-up.jpg" />
+    <Content Include="Content\Images\menu_r6_c10.jpg" />
+    <Content Include="Content\Images\menu_r6_c11-up.jpg" />
+    <Content Include="Content\Images\menu_r6_c11.jpg" />
+    <Content Include="Content\Images\menu_r6_c12-up.jpg" />
+    <Content Include="Content\Images\menu_r6_c12.jpg" />
+    <Content Include="Content\Images\menu_r6_c2-up.jpg" />
+    <Content Include="Content\Images\menu_r6_c2.jpg" />
+    <Content Include="Content\Images\menu_r6_c5-up.jpg" />
+    <Content Include="Content\Images\menu_r6_c5.jpg" />
+    <Content Include="Content\Images\menu_r6_c7-up.jpg" />
+    <Content Include="Content\Images\menu_r6_c7.jpg" />
+    <Content Include="Content\Images\menu_r6_c8-up.jpg" />
+    <Content Include="Content\Images\menu_r6_c8.jpg" />
+    <Content Include="Content\Images\menu_r6_c9-up.jpg" />
+    <Content Include="Content\Images\menu_r6_c9.jpg" />
+    <Content Include="Content\Images\middle1-separator.png" />
+    <Content Include="Content\Images\modules-cs-lan-1-2.jpg" />
+    <Content Include="Content\Images\modules-cs-wm-1-3.jpg" />
+    <Content Include="Content\Images\modules-cs-wsl-1-3.jpg" />
+    <Content Include="Content\Images\modules-e-cs-big.jpg" />
+    <Content Include="Content\Images\modules-tac-ark-big.jpg" />
+    <Content Include="Content\Images\modules-tac-bt2.1b-big.jpg" />
+    <Content Include="Content\Images\modules-tac-mp3-r-big.jpg" />
+    <Content Include="Content\Images\modules-tac-mp3-s-big.jpg" />
+    <Content Include="Content\Images\modules-tac-mp3-t-big.jpg" />
+    <Content Include="Content\Images\modules-tac-mx-dsp-big.jpg" />
+    <Content Include="Content\Images\modules-tac-mx-eq-big.jpg" />
+    <Content Include="Content\Images\modules-tac-tmw-2.4r-big.jpg" />
+    <Content Include="Content\Images\mx-v2-up.jpg" />
+    <Content Include="Content\Images\mx-v2.jpg" />
+    <Content Include="Content\Images\mx244-app.jpg" />
+    <Content Include="Content\Images\software-bottom.jpg" />
+    <Content Include="Content\Images\software-top.jpg" />
+    <Content Include="Content\Images\soho-slider-1.jpg" />
+    <Content Include="Content\Images\soho-slider-2.jpg" />
+    <Content Include="Content\Images\soho-slider-3.jpg" />
+    <Content Include="Content\Images\soho-slider-4.jpg" />
+    <Content Include="Content\Images\spacer.gif" />
+    <Content Include="Content\Images\syncfusion-icons-white.png" />
+    <Content Include="Content\Images\syncfusion-icons.png" />
+    <Content Include="Content\Images\t20-app.jpg" />
+    <Content Include="Content\Images\t20-banner.jpg" />
+    <Content Include="Content\Images\t20-content.jpg" />
+    <Content Include="Content\Images\t20-slider-1.jpg" />
+    <Content Include="Content\Images\t20-slider-2.jpg" />
+    <Content Include="Content\Images\t20-slider-3.jpg" />
+    <Content Include="Content\Images\t20-up.jpg" />
+    <Content Include="Content\Images\t20.jpg" />
+    <Content Include="Content\Images\tma54bzt-up.jpg" />
+    <Content Include="Content\Images\tma54bzt.jpg" />
+    <Content Include="Content\Images\topp-error.jpg" />
+    <Content Include="Content\Images\wireless-slider-1.jpg" />
+    <Content Include="Content\Images\wireless-slider-2.jpg" />
+    <Content Include="Content\Images\wireless-slider-3.jpg" />
+    <Content Include="Content\Images\world-flag.jpg" />
     <Content Include="Content\Manuals\Readme.txt" />
+    <Content Include="Content\Others\cs.swf" />
+    <Content Include="Content\Others\favicon.ico" />
+    <Content Include="Content\Others\intro.swf" />
     <Content Include="Content\Products\Readme.txt" />
+    <Content Include="Content\Styles\Fonts.css" />
+    <Content Include="Content\Styles\Layout.css" />
+    <Content Include="Content\Styles\m-buttons.min.css" />
+    <Content Include="Content\Styles\m-forms.min.css" />
+    <Content Include="Content\Styles\m-icons.min.css" />
+    <Content Include="Content\Styles\m-normalize.min.css" />
+    <Content Include="Content\Styles\m-styles.min.css" />
+    <Content Include="Content\Styles\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\Styles\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\Styles\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\Styles\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\Styles\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\Styles\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\Styles\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\Styles\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\Styles\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\Styles\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\Styles\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\Styles\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\Styles\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\Styles\themes\base\jquery-ui.css" />
+    <Content Include="Content\Styles\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\Styles\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\Styles\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\Styles\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\Styles\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\Styles\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\Styles\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\Styles\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\Styles\themes\base\jquery.ui.menu.css" />
+    <Content Include="Content\Styles\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\Styles\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\Styles\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\Styles\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\Styles\themes\base\jquery.ui.spinner.css" />
+    <Content Include="Content\Styles\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\Styles\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\Styles\themes\base\jquery.ui.tooltip.css" />
     <Content Include="Global.asax" />
-    <Content Include="Plugins\jquery.jspanel-2.1.0\images\close-20-333.png" />
-    <Content Include="Plugins\jquery.jspanel-2.1.0\images\close-20.png" />
-    <Content Include="Plugins\jquery.jspanel-2.1.0\images\icon-sprite-16x16.jpg" />
-    <Content Include="Plugins\jquery.jspanel-2.1.0\images\icon-sprite-20x20.jpg" />
-    <Content Include="Plugins\jquery.jspanel-2.1.0\images\icon-sprite-32x32.jpg" />
-    <Content Include="Plugins\jquery.jspanel-2.1.0\images\resize-handle.png" />
-    <Content Include="Plugins\jquery.jspanel-2.1.0\images\ui-icons_454545_256x240.png" />
-    <Content Include="Plugins\jquery.jspanel-2.1.0\jquery.jspanel.js" />
-    <Content Include="Plugins\jquery.jspanel-2.1.0\jquery.jspanel.min.js" />
-    <Content Include="Plugins\jquery.jspanel-2.1.0\jsPanel.css" />
-    <Content Include="Plugins\jquery.thickbox-3.1\GPL-Licence.txt" />
-    <Content Include="Plugins\jquery.thickbox-3.1\images\loadingAnimation.gif" />
-    <Content Include="Plugins\jquery.thickbox-3.1\MIT-Licence.txt" />
-    <Content Include="Plugins\jquery.thickbox-3.1\Readme.txt" />
-    <Content Include="Plugins\jquery.thickbox-3.1\thickbox-compressed.js" />
-    <Content Include="Plugins\jquery.thickbox-3.1\thickbox.css" />
-    <Content Include="Plugins\jquery.thickbox-3.1\thickbox.js" />
+    <Content Include="Scripts\AC_RunActiveContent.js" />
+    <Content Include="Scripts\jquery-1.8.3-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.8.3.js" />
+    <Content Include="Scripts\jquery-1.8.3.min.js" />
+    <Content Include="Scripts\jquery-ui-1.9.2.js" />
+    <Content Include="Scripts\jquery-ui-1.9.2.min.js" />
+    <Content Include="Scripts\jquery.panelslider-0.1.1\jquery.panelslider.js" />
+    <Content Include="Scripts\jquery.panelslider-0.1.1\jquery.panelslider.min.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jssor.slider-19.0\arrow.png" />
+    <Content Include="Scripts\jssor.slider-19.0\jssor.js" />
+    <Content Include="Scripts\jssor.slider-19.0\jssor.slider.css" />
+    <Content Include="Scripts\jssor.slider-19.0\jssor.slider.js" />
+    <Content Include="Scripts\jssor.slider-19.0\jssor.slider.min.js" />
+    <Content Include="Scripts\jssor.slider-19.0\MIT-LICENSE.txt" />
+    <Content Include="Scripts\jssor.slider-19.0\readme.txt" />
+    <Content Include="Scripts\MM_functions.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -489,14 +511,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Images\" />
-    <Folder Include="Content\Styles\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="Extensions\" />
-    <Folder Include="Models\" />
-    <Folder Include="Resources\" />
-    <Folder Include="Scripts\" />
-    <Folder Include="Views\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -574,9 +588,37 @@
     <Content Include="Areas\SecureSite\Views\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Areas\Humanist\Resources\Localization.resx">
+    <EmbeddedResource Include="Resources\AccountResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Localization.Designer.cs</LastGenOutput>
+      <LastGenOutput>AccountResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CompareResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CompareResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ErrorResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ErrorResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\GeneralResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GeneralResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\MixersResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MixersResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\PacksResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>PacksResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ProcessorsResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ProcessorsResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\SpeakersResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SpeakersResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -671,57 +713,6 @@
     <Content Include="Areas\SecureSite\Views\AssnCategorySerie\Details.cshtml" />
     <Content Include="Areas\SecureSite\Views\AssnCategorySerie\Edit.cshtml" />
     <Content Include="Areas\SecureSite\Views\AssnCategorySerie\Delete.cshtml" />
-    <Content Include="Areas\Humanist\Views\Web.config" />
-    <Content Include="Areas\Humanist\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Humanist\Views\Home\Index.cshtml" />
-    <Content Include="Areas\Humanist\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Humanist\Views\Shared\_Menu.cshtml" />
-    <Content Include="Areas\Humanist\Content\Fonts\Humanst521BT-Light.eot" />
-    <Content Include="Areas\Humanist\Content\Fonts\Humanst521BT-Light.otf" />
-    <Content Include="Areas\Humanist\Content\Fonts\Humanst521BT-Light.ttf" />
-    <Content Include="Areas\Humanist\Content\Fonts\Humanst521BT-Light.woff" />
-    <Content Include="Areas\Humanist\Content\Fonts\Humanst521BT-Roman.eot" />
-    <Content Include="Areas\Humanist\Content\Fonts\Humanst521BT-Roman.otf" />
-    <Content Include="Areas\Humanist\Content\Fonts\Humanst521BT-Roman.ttf" />
-    <Content Include="Areas\Humanist\Content\Fonts\Humanst521BT-Roman.woff" />
-    <Content Include="Areas\Humanist\Views\Shared\_Catalog.cshtml" />
-    <Content Include="Areas\Humanist\Views\Shared\Index.cshtml" />
-    <Content Include="Areas\Humanist\Views\Shared\DisplayTemplates\Serie.cshtml" />
-    <Content Include="Areas\Humanist\Views\Mixers\DisplayTemplates\Serie_Mx.cshtml" />
-    <Content Include="Areas\Humanist\Views\Mixers\DisplayTemplates\Serie_MxDigital.cshtml" />
-    <Content Include="Areas\Humanist\Views\Packs\DisplayTemplates\Serie_I4k.cshtml" />
-    <Content Include="Areas\Humanist\Views\Packs\DisplayTemplates\Serie_Soho.cshtml" />
-    <Content Include="Areas\Humanist\Views\Shared\Detail.cshtml" />
-    <Content Include="Areas\Humanist\Views\Shared\_Attributes.cshtml" />
-    <Content Include="Areas\Humanist\Views\Distributors\Index.cshtml" />
-    <Content Include="Areas\Humanist\Views\Shared\HiRes.cshtml" />
-    <Content Include="Areas\Humanist\Views\Account\LogOn.cshtml" />
-    <Content Include="Areas\Humanist\Views\Dashboard\Index.cshtml" />
-    <Content Include="Areas\Humanist\Views\Shared\Error.cshtml" />
-    <Content Include="Areas\Humanist\Views\Shared\_LogOn.cshtml" />
-    <Content Include="Areas\Humanist\Views\Shared\_PreloadedImages.cshtml" />
-    <Content Include="Areas\Humanist\Views\Shared\_GoogleAnalytics.cshtml" />
-    <Content Include="Areas\Humanist\Views\Public\Bluetooth.cshtml" />
-    <Content Include="Areas\Humanist\Views\Public\CustomSound.cshtml" />
-    <Content Include="Areas\Humanist\Views\Shared\DisplayTemplates\Product.cshtml" />
-    <Content Include="Areas\Humanist\Views\Shared\DisplayTemplates\Product_T20.cshtml" />
-    <Content Include="Areas\Humanist\Views\Shared\DisplayTemplates\Product_Dmx244.cshtml" />
-    <Content Include="Areas\Humanist\Views\Shared\Modules_HiRes.cshtml" />
-    <Content Include="Areas\Humanist\Views\Speakers\DisplayTemplates\Serie_I.cshtml" />
-    <None Include="Areas\Humanist\Scripts\jquery.panelslider-0.1.1\README.md" />
-    <Content Include="Areas\Humanist\Views\Shared\Compare.cshtml" />
-    <Content Include="Areas\Humanist\Views\Shared\_Header.cshtml" />
-    <Content Include="Areas\Humanist\Views\Processors\DisplayTemplates\Serie_Modules.cshtml" />
-    <Content Include="Areas\Humanist\Views\Processors\DisplayTemplates\Serie_Processors.cshtml" />
-    <Content Include="Areas\Humanist\Views\Wireless\DisplayTemplates\Serie_Wireless.cshtml" />
-    <Content Include="Areas\Humanist\Views\Shared\_Slide.cshtml" />
-    <Content Include="Areas\Humanist\Views\Shared\_Intro.cshtml" />
-    <Content Include="Areas\Humanist\Views\Shared\DisplayTemplates\Serie_Ready12cx.cshtml" />
-    <Content Include="Areas\Humanist\Views\Shared\DisplayTemplates\Serie_Kst28a.cshtml" />
-    <Content Include="Areas\Humanist\Views\Public\Software.cshtml" />
-    <Content Include="Areas\Humanist\Views\Processors\DisplayTemplates\Serie_CsModules.cshtml" />
-    <Content Include="Areas\Humanist\Views\Shared\_SohoBanner.cshtml" />
-    <Content Include="Areas\Humanist\Views\Shared\_T20Banner.cshtml" />
     <Content Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.eot" />
     <Content Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.ttf" />
     <Content Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.woff" />
@@ -729,16 +720,6 @@
     <Content Include="Areas\SecureSite\Content\Fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Areas\SecureSite\Content\Fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Areas\SecureSite\Content\Fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Areas\Humanist\Views\Speakers\DisplayTemplates\Serie_KsCs.cshtml" />
-    <Content Include="Areas\Humanist\Views\Shared\DisplayTemplates\Serie_TArray.cshtml" />
-    <Content Include="Areas\Humanist\Views\Speakers\DisplayTemplates\Serie_Ks.cshtml" />
-    <Content Include="Areas\Humanist\Views\Shared\_AmplifiersBanner.cshtml" />
-    <Content Include="Areas\Humanist\Views\Shared\_CustomSoundBanner.cshtml" />
-    <Content Include="Areas\Humanist\Views\Shared\_WirelessBanner.cshtml" />
-    <Content Include="Areas\Humanist\Views\Amplifiers\Index.cshtml" />
-    <Content Include="Areas\Humanist\Views\Wireless\Index.cshtml" />
-    <Content Include="Areas\Humanist\Views\Processors\Index.cshtml" />
-    <Content Include="Areas\Humanist\Views\Speakers\Index.cshtml" />
     <None Include="Areas\SecureSite\Scripts\tinymce\langs\readme.md" />
     <None Include="Areas\SecureSite\Scripts\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
     <None Include="Areas\SecureSite\Scripts\tinymce\skins\lightgray\fonts\tinymce-small.ttf" />
@@ -770,8 +751,67 @@
     <Content Include="Areas\SecureSite\Views\Bullet\Edit.cshtml" />
     <Content Include="Areas\SecureSite\Views\Bullet\Index.cshtml" />
     <Content Include="Areas\SecureSite\Views\Shared\_Menu.cshtml" />
-    <None Include="Plugins\jquery.jspanel-2.1.0\License.pdf" />
-    <None Include="Plugins\jquery.jspanel-2.1.0\README.md" />
+    <Content Include="Content\Fonts\Humanst521BT-Light.eot" />
+    <Content Include="Content\Fonts\Humanst521BT-Light.otf" />
+    <Content Include="Content\Fonts\Humanst521BT-Light.ttf" />
+    <Content Include="Content\Fonts\Humanst521BT-Light.woff" />
+    <Content Include="Content\Fonts\Humanst521BT-Roman.eot" />
+    <Content Include="Content\Fonts\Humanst521BT-Roman.otf" />
+    <Content Include="Content\Fonts\Humanst521BT-Roman.ttf" />
+    <Content Include="Content\Fonts\Humanst521BT-Roman.woff" />
+    <None Include="Scripts\jquery.panelslider-0.1.1\README.md" />
+    <Content Include="Views\Account\LogOn.cshtml" />
+    <Content Include="Views\Amplifiers\Index.cshtml" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\Distributors\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Mixers\DisplayTemplates\Serie_Mx.cshtml" />
+    <Content Include="Views\Mixers\DisplayTemplates\Serie_MxDigital.cshtml" />
+    <Content Include="Views\Packs\DisplayTemplates\Serie_I4k.cshtml" />
+    <Content Include="Views\Packs\DisplayTemplates\Serie_Soho.cshtml" />
+    <Content Include="Views\Processors\DisplayTemplates\Serie_CsModules.cshtml" />
+    <Content Include="Views\Processors\DisplayTemplates\Serie_Modules.cshtml" />
+    <Content Include="Views\Processors\DisplayTemplates\Serie_Processors.cshtml" />
+    <Content Include="Views\Processors\Index.cshtml" />
+    <Content Include="Views\Public\Bluetooth.cshtml" />
+    <Content Include="Views\Public\CustomSound.cshtml" />
+    <Content Include="Views\Public\Software.cshtml" />
+    <Content Include="Views\Shared\Compare.cshtml" />
+    <Content Include="Views\Shared\Detail.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Product.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Product_Dmx244.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Product_T20.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Serie.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Serie_Kst28a.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Serie_Ready12cx.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Serie_TArray.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\HiRes.cshtml" />
+    <Content Include="Views\Shared\Index.cshtml" />
+    <Content Include="Views\Shared\Modules_HiRes.cshtml" />
+    <Content Include="Views\Shared\_AmplifiersBanner.cshtml" />
+    <Content Include="Views\Shared\_Attributes.cshtml" />
+    <Content Include="Views\Shared\_Catalog.cshtml" />
+    <Content Include="Views\Shared\_CustomSoundBanner.cshtml" />
+    <Content Include="Views\Shared\_GoogleAnalytics.cshtml" />
+    <Content Include="Views\Shared\_Header.cshtml" />
+    <Content Include="Views\Shared\_Intro.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_LogOn.cshtml" />
+    <Content Include="Views\Shared\_Menu.cshtml" />
+    <Content Include="Views\Shared\_PreloadedImages.cshtml" />
+    <Content Include="Views\Shared\_Slide.cshtml" />
+    <Content Include="Views\Shared\_SohoBanner.cshtml" />
+    <Content Include="Views\Shared\_T20Banner.cshtml" />
+    <Content Include="Views\Shared\_WirelessBanner.cshtml" />
+    <Content Include="Views\Speakers\DisplayTemplates\Serie_I.cshtml" />
+    <Content Include="Views\Speakers\DisplayTemplates\Serie_Ks.cshtml" />
+    <Content Include="Views\Speakers\DisplayTemplates\Serie_KsCs.cshtml" />
+    <Content Include="Views\Speakers\Index.cshtml" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\Wireless\DisplayTemplates\Serie_Wireless.cshtml" />
+    <Content Include="Views\Wireless\Index.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

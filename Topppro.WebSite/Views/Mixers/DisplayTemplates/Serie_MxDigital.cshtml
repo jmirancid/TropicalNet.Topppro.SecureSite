@@ -1,0 +1,13 @@
+﻿@using Framework.Common.Extensions
+@using Topppro.WebSite.Extensions
+
+@model Topppro.Entities.Assn_CategorySerie
+
+@Html.T20Banner()
+<br />
+
+<div id="@Model.Serie.Name.ToLower()" class="title">
+    <h1>DIGITAL <small>Mixers</small></h1>
+</div>
+
+@Html.Catalog()
