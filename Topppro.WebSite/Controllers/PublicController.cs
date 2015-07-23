@@ -8,18 +8,25 @@ namespace Topppro.WebSite.Controllers
 {
     public class PublicController : Controller
     {
-        [OutputCache(CacheProfile="Long")]
+        [OutputCache(CacheProfile = "Long")]
         public ActionResult Bluetooth()
         {
             return View();
         }
 
-        [OutputCache(CacheProfile="Long")]
+        [OutputCache(CacheProfile = "Long")]
         public ActionResult CustomSound()
         {
             return View();
         }
 
+        [OutputCache(CacheProfile = "Long")]
+        public ActionResult Distributors()
+        {
+            return View();
+        }
+
+        [OutputCache(CacheProfile = "Long")]
         public ActionResult Software()
         {
             return View();
