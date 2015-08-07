@@ -157,6 +157,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ProcessorsResource.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\PublicResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PublicResource.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\SpeakersResource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -620,6 +625,10 @@
     <EmbeddedResource Include="Resources\ProcessorsResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ProcessorsResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\PublicResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>PublicResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\SpeakersResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

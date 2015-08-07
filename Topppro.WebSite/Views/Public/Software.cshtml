@@ -25,7 +25,10 @@
             <a href="@Url.Content("~/Content/Downloads/SetupT20iUpdateV2.1.2.exe")" class="m-btn green-stripe" target="_blank">T20i Update For Windows</a></li>
         <li>
 		    <a href="@Url.Content("~/Content/Downloads/T20Update.app.zip")" class="m-btn green-stripe" target="_blank">T20i Update For Mac OS</a></li>
-		<li>	
+        <li style="margin:20px 0 20px;">
+            <a href="@Url.Content("~/Content/Downloads/PL2303_MacOSX_v1.5.1.pkg")" class="m-btn green-stripe" target="_blank">@PublicResource.Software_Usb_Driver_MacOS</a>
+            <small style="display:block;margin-top:10px;">@Html.Raw(PublicResource.Software_Usb_Driver_MacOS_Quote)</small></li>
+		<li>
             <a href="@Url.Content("~/Content/Downloads/User instruction of T20 application software download tool_V2.doc")" class="m-btn green-stripe" target="_blank">Firmware Update Instructions</a></li>
         <li>
             <a href="@Url.Content("~/Content/Downloads/T20Update Release(for user).doc")" class="m-btn green-stripe" target="_blank">Update Release</a></li>
