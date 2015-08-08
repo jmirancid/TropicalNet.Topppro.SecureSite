@@ -278,3 +278,38 @@ table
     list-style-type: none;
     list-style-position: inside;
 }
+
+abbr
+{
+    text-decoration: none;
+    border-bottom: 1px #999999 dotted;
+    cursor: help;
+    display: inline;
+}
+
+address
+{
+    font-weight: 400;
+    font-style: normal;
+    margin: .625rem 0;
+}
+
+.bg-green
+{
+    background-color: #35aa47;
+}
+
+.bg-orange
+{
+    background-color: #E85122;
+}
+
+.green
+{
+    color: #35aa47;
+}
+
+.orange
+{
+    color: #E85122;
+}

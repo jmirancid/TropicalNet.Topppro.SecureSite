@@ -355,6 +355,7 @@
     <Content Include="Content\Images\dmx244-livemixing.jpg" />
     <Content Include="Content\Images\glyphicons-halflings-white.png" />
     <Content Include="Content\Images\glyphicons-halflings.png" />
+    <Content Include="Content\Images\grey.jpg" />
     <Content Include="Content\Images\hires-bottom.jpg" />
     <Content Include="Content\Images\hires-top.jpg" />
     <Content Include="Content\Images\i4K-2000w.jpg" />
