@@ -7,9 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using Topppro.Entities;
 using System.Data.Objects;
 using System.Data.EntityClient;
-using Topppro.Entities;
 
 namespace Topppro.Repositories
 {
@@ -103,5 +103,6 @@ namespace Topppro.Repositories
         private ObjectSet<Bullet> _bullet;
 
         #endregion
+    
     }
 }

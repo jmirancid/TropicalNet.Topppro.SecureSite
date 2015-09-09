@@ -291,6 +291,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="Assn_CategorySerie_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CategoryId" Type="int" Mode="In" />
+          <Parameter Name="SerieId" Type="int" Mode="In" />
+          <Parameter Name="Priority" Type="int" Mode="In" />
+          <Parameter Name="Id" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="Assn_CategorySerie_Reorder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AssnCategorySerieId" Type="int" Mode="In" />
+          <Parameter Name="Priority" Type="int" Mode="In" />
+        </Function>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -350,6 +360,16 @@
             <End Role="Product" EntitySet="Product" />
             <End Role="Bullet" EntitySet="Bullet" />
           </AssociationSet>
+          <FunctionImport Name="Assn_CategorySerie_Reorder">
+            <Parameter Name="AssnCategorySerieId" Mode="In" Type="Int32" />
+            <Parameter Name="Priority" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Assn_CategorySerie_Insert">
+            <Parameter Name="CategoryId" Mode="In" Type="Int32" />
+            <Parameter Name="SerieId" Mode="In" Type="Int32" />
+            <Parameter Name="Priority" Mode="In" Type="Int32" />
+            <Parameter Name="Id" Mode="InOut" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="Assn_CategorySerie">
           <Key>
@@ -717,6 +737,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Assn_CategorySerie_Reorder" FunctionName="ToppproModel.Store.Assn_CategorySerie_Reorder" />
+          <FunctionImportMapping FunctionImportName="Assn_CategorySerie_Insert" FunctionName="ToppproModel.Store.Assn_CategorySerie_Insert" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

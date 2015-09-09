@@ -1,8 +1,8 @@
 -- SQL Manager Lite for SQL Server 4.0.1.44515
 -- ---------------------------------------
--- Host      : 209.200.224.115
--- Database  : tropi23_topppro_net
--- Version   : Microsoft SQL Server  9.00.5069.00
+-- Host      : (local)
+-- Database  : ToppproNew
+-- Version   : Microsoft SQL Server  10.50.1600.1
 
 
 --
@@ -14,19 +14,19 @@ IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Assn_CategorySeri
 GO
 
 --
--- Dropping table Serie : 
---
-
-IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Serie') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
-  DROP TABLE dbo.Serie
-GO
-
---
 -- Dropping table Category : 
 --
 
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Category') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
   DROP TABLE dbo.Category
+GO
+
+--
+-- Dropping table Serie : 
+--
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Serie') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  DROP TABLE dbo.Serie
 GO
 
 --
@@ -85,17 +85,22 @@ IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Package') AND OBJ
   DROP TABLE dbo.Package
 GO
 
-
 --
--- Definition for table Serie : 
+-- Dropping stored procedure Assn_CategorySerie_Insert : 
 --
 
-CREATE TABLE dbo.Serie (
-  SerieId int IDENTITY(1, 1) NOT NULL,
-  Name varchar(50) COLLATE Modern_Spanish_CI_AS NOT NULL
-)
-ON [PRIMARY]
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Assn_CategorySerie_Insert') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+  DROP PROCEDURE dbo.Assn_CategorySerie_Insert
 GO
+
+--
+-- Dropping stored procedure Assn_CategorySerie_Reorder : 
+--
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Assn_CategorySerie_Reorder') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+  DROP PROCEDURE dbo.Assn_CategorySerie_Reorder
+GO
+
 
 --
 -- Definition for table Category : 
@@ -103,6 +108,17 @@ GO
 
 CREATE TABLE dbo.Category (
   CategoryId int IDENTITY(1, 1) NOT NULL,
+  Name varchar(50) COLLATE Modern_Spanish_CI_AS NOT NULL
+)
+ON [PRIMARY]
+GO
+
+--
+-- Definition for table Serie : 
+--
+
+CREATE TABLE dbo.Serie (
+  SerieId int IDENTITY(1, 1) NOT NULL,
   Name varchar(50) COLLATE Modern_Spanish_CI_AS NOT NULL
 )
 ON [PRIMARY]
@@ -225,20 +241,69 @@ ON [PRIMARY]
 GO
 
 --
+-- Definition for stored procedure Assn_CategorySerie_Insert : 
+--
+GO
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE dbo.Assn_CategorySerie_Insert
+	@CategoryId int,
+    @SerieId int,
+    @Priority int,
+    @Id int OUTPUT
+AS
+BEGIN
+  /* Procedure body */
+  SET NOCOUNT ON;
+
+  UPDATE dbo.Assn_CategorySerie
+  SET Priority = Priority + 1
+  WHERE
+  	Priority >= @Priority
+  
+  INSERT INTO dbo.Assn_CategorySerie
+  	(CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, [Enabled])
+  VALUES
+  	(@CategoryId, @SerieId, 5, 1, @Priority, 1)
+  
+  SET @Id=SCOPE_IDENTITY()
+  
+END
+GO
+
+--
+-- Definition for stored procedure Assn_CategorySerie_Reorder : 
+--
+GO
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE dbo.Assn_CategorySerie_Reorder
+	@AssnCategorySerieId int,
+    @Priority int
+AS
+BEGIN
+  /* Procedure body */
+  
+  UPDATE dbo.Assn_CategorySerie
+  SET Priority = Priority + 1
+  WHERE
+  	Priority >= @Priority
+    
+  UPDATE dbo.Assn_CategorySerie
+  SET Priority = @Priority
+  WHERE
+  	AssnCategorySerieId = @AssnCategorySerieId
+  
+END
+GO
+
+--
 -- Definition for indices : 
 --
-
-ALTER TABLE dbo.Serie
-ADD CONSTRAINT Serie_PK 
-PRIMARY KEY CLUSTERED (SerieId)
-WITH (
-  PAD_INDEX = OFF,
-  IGNORE_DUP_KEY = OFF,
-  STATISTICS_NORECOMPUTE = OFF,
-  ALLOW_ROW_LOCKS = ON,
-  ALLOW_PAGE_LOCKS = ON)
-ON [PRIMARY]
-GO
 
 ALTER TABLE dbo.Category
 ADD CONSTRAINT Category_PK 
@@ -252,9 +317,9 @@ WITH (
 ON [PRIMARY]
 GO
 
-ALTER TABLE dbo.Assn_CategorySerie
-ADD CONSTRAINT Assn_CategorySerie_PK 
-PRIMARY KEY CLUSTERED (AssnCategorySerieId)
+ALTER TABLE dbo.Serie
+ADD CONSTRAINT Serie_PK 
+PRIMARY KEY CLUSTERED (SerieId)
 WITH (
   PAD_INDEX = OFF,
   IGNORE_DUP_KEY = OFF,
@@ -264,9 +329,22 @@ WITH (
 ON [PRIMARY]
 GO
 
+CREATE NONCLUSTERED INDEX Assn_CategorySerie_IX ON dbo.Assn_CategorySerie
+  (CategoryId, SerieId)
+WITH (
+  PAD_INDEX = OFF,
+  DROP_EXISTING = OFF,
+  STATISTICS_NORECOMPUTE = OFF,
+  SORT_IN_TEMPDB = OFF,
+  ONLINE = OFF,
+  ALLOW_ROW_LOCKS = ON,
+  ALLOW_PAGE_LOCKS = ON)
+ON [PRIMARY]
+GO
+
 ALTER TABLE dbo.Assn_CategorySerie
-ADD CONSTRAINT Assn_CategorySerie_UK 
-UNIQUE NONCLUSTERED (CategoryId, SerieId)
+ADD CONSTRAINT Assn_CategorySerie_PK 
+PRIMARY KEY CLUSTERED (AssnCategorySerieId)
 WITH (
   PAD_INDEX = OFF,
   IGNORE_DUP_KEY = OFF,

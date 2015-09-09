@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Web.Mvc;
 using Framework.MVC.Controllers;
 using Topppro.Business.Definitions;
@@ -18,24 +17,105 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
 
         public override ActionResult Index()
         {
-            var assn =
-                base.Business.Value.All()
-                    .OrderBy(a => a.Category.Name)
-                        .ThenBy(a => a.Priority);
+            var series =
+                this._bizSerie.Value.All();
 
-            return View(assn);
+            ViewBag.Series = series;
+
+            var model =
+                this._bizCategory.Value.AllWithSeries();
+
+            return View(model);
         }
 
-        public override void CreateGetPrerender(Assn_CategorySerie entity = null)
+        public override ActionResult Edit(int id)
         {
-            ViewBag.CategoryId = new SelectList(this._bizCategory.Value.All(), "CategoryId", "Name");
-            ViewBag.SerieId = new SelectList(this._bizSerie.Value.All(), "SerieId", "Name");
+            try
+            {
+                var entity =
+                    base.Business.Value.Get(id);
+
+                return PartialView("_Edit", entity);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = bool.FalseString, message = ex.Message });
+            }
+        }
+
+        public override ActionResult Edit(Assn_CategorySerie entity)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    EditPost(entity);
+                    return Json(new { success = bool.TrueString });
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", ex.Message);
+                }
+            }
+
+            EditGetPrerender(entity);
+
+            return PartialView("_Edit", entity);
+        }
+
+        public override ActionResult DeleteConfirmed(int id)
+        {
+            try
+            {
+                var entity = this.Business.Value.Get(id);
+                DeletePost(entity);
+
+                return Json(new { success = bool.TrueString });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = bool.FalseString, message = ex.Message });
+            }
+        }
+
+        [HttpPost]
+        public ActionResult Insert(int categoryId, int serieId, int priority)
+        {
+            try
+            {
+                var id =
+                    this.Business.Value.Insert(categoryId, serieId, priority);
+
+                return Json(new { success = bool.TrueString, id = id });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = bool.FalseString, message = ex.Message });
+            }
+        }
+
+        [HttpPost]
+        public ActionResult Reorder(int id, int priority)
+        {
+            try
+            {
+                this.Business.Value.Reorder(id, priority);
+
+                return Json(new { success = bool.TrueString });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = bool.FalseString, message = ex.Message });
+            }
         }
 
         public override void EditGetPrerender(Assn_CategorySerie entity)
         {
-            ViewBag.CategoryId = new SelectList(this._bizCategory.Value.All(), "CategoryId", "Name", entity.CategoryId);
-            ViewBag.SerieId = new SelectList(this._bizSerie.Value.All(), "SerieId", "Name", entity.SerieId);
+            entity.Category =
+                this._bizCategory.Value.Get(entity.CategoryId);
+
+            entity.Serie =
+                this._bizSerie.Value.Get(entity.SerieId);
         }
     }
 }

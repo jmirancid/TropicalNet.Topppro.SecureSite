@@ -38,9 +38,9 @@ if (container == null)
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using Topppro.Entities;
 using System.Data.Objects;
 using System.Data.EntityClient;
-using Topppro.Entities;
 
 <#
 if (!String.IsNullOrEmpty(namespaceName))
@@ -101,14 +101,16 @@ namespace <#=code.EscapeNamespace(namespaceName)#>
         }
 
         region.End();
+#>
 
+<#
         region.Begin("Function Imports");
 
         foreach (EdmFunction edmFunction in container.FunctionImports)
         {
             var parameters = FunctionImportParameter.Create(edmFunction.Parameters, code, ef);
             string paramList = String.Join(", ", parameters.Select(p => p.FunctionParameterType + " " + p.FunctionParameterName).ToArray());
-            if (edmFunction.ReturnParameter == null)
+			if (edmFunction.ReturnParameter == null)
             {
                 continue;
             }

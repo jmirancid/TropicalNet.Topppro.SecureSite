@@ -218,6 +218,11 @@ VALUES
   (39, N'CS Modules')
 GO
 
+INSERT INTO dbo.Serie (SerieId, Name)
+VALUES 
+  (40, N'X Passive')
+GO
+
 COMMIT
 GO
 
@@ -412,7 +417,7 @@ GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (26, 8, 2, 5, 1, 10, 0)
+  (26, 1, 40, 5, 1, 115, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
@@ -548,6 +553,11 @@ GO
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
   (55, 6, 39, 5, 1, 10, 1)
+GO
+
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
+VALUES 
+  (57, 8, 9, 5, 1, 150, 1)
 GO
 
 COMMIT
@@ -1008,22 +1018,22 @@ GO
 
 INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
 VALUES 
-  (89, 13, N'MX.5 V2', N'mx5', N'(MX_V2_SERIES_TOPP_PRO_V1.0).pdf', 0, NULL)
+  (89, 13, N'MX.5 V2', N'mx5', N'(MX_V2_SERIES_TOPP_PRO_V1.0).pdf', 0, N'5ch')
 GO
 
 INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
 VALUES 
-  (90, 4, N'MX.6  V2 / MX.6 V2 USB', N'mx6', N'(MX_V2_SERIES_TOPP_PRO_V1.0).pdf', 0, NULL)
+  (90, 4, N'MX.6  V2 / MX.6 V2 USB', N'mx6', N'(MX_V2_SERIES_TOPP_PRO_V1.0).pdf', 0, N'6ch')
 GO
 
 INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
 VALUES 
-  (91, 4, N'MX.10  V2 / MX.10 V2 USB', N'mx10', N'(MX_V2_SERIES_TOPP_PRO_V1.0).pdf', 0, NULL)
+  (91, 4, N'MX.10  V2 / MX.10 V2 USB', N'mx10', N'(MX_V2_SERIES_TOPP_PRO_V1.0).pdf', 0, N'10ch')
 GO
 
 INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
 VALUES 
-  (92, 4, N'MX.12  V2 / MX.12 V2 USB', N'mx12', N'(MX_V2_SERIES_TOPP_PRO_V1.0).pdf', 0, NULL)
+  (92, 4, N'MX.12  V2 / MX.12 V2 USB', N'mx12', N'(MX_V2_SERIES_TOPP_PRO_V1.0).pdf', 0, N'12ch')
 GO
 
 INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
@@ -1563,12 +1573,47 @@ GO
 
 INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
 VALUES 
-  (200, 1, N'KS-T28A', N'kst28a', NULL, 0, N'8"')
+  (200, 1, N'KS-T28A', N'kst28a', N'(KS ARRAY TOPP PRO_V1.0) English Users Manual.pdf', 0, N'8"')
 GO
 
 INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
 VALUES 
-  (201, 1, N'READY 12CX', N'ready12cx', NULL, 0, N'12"')
+  (201, 1, N'READY 12CX', N'ready12cx', N'ready12-12cx-eng.pdf', 0, N'12"')
+GO
+
+INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
+VALUES 
+  (202, 2, N'X 8', N'x8', N'(X PASSIVE SERIES TOPP PRO_V1.0).pdf', 0, N'8"')
+GO
+
+INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
+VALUES 
+  (206, 2, N'X 10', N'x10', N'(X PASSIVE SERIES TOPP PRO_V1.0).pdf', 0, N'10"')
+GO
+
+INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
+VALUES 
+  (207, 2, N'X 12', N'x12', N'(X PASSIVE SERIES TOPP PRO_V1.0).pdf', 0, N'12"')
+GO
+
+INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
+VALUES 
+  (208, 2, N'X 15', N'x15', N'(X PASSIVE SERIES TOPP PRO_V1.0).pdf', 0, N'15"')
+GO
+
+INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
+VALUES 
+  (209, 1, N'TPS 16A.UB', N'tps16a.ub', N'(TPS 16P 16AM.UB 16A.UB TOPP PRO_V1.0).pdf', 0, N'6.5"')
+GO
+
+INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
+VALUES 
+  (210, 2, N'TPS 16P', N'tps16p', N'(TPS 16P 16AM.UB 16A.UB TOPP PRO_V1.0).pdf', 0, N'6.5"')
+GO
+
+INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
+VALUES 
+  (211, 1, N'TPS 16AM.UB', N'tps16am.ub', N'(TPS 16P 16AM.UB 16A.UB TOPP PRO_V1.0).pdf', 0, N'6.5"')
 GO
 
 COMMIT
@@ -1809,16 +1854,6 @@ GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (45, 9, 64, 1, 10, 1)
-GO
-
-INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
-VALUES 
-  (46, 9, 65, 1, 20, 1)
-GO
-
-INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
-VALUES 
   (53, 11, 72, 1, 10, 1)
 GO
 
@@ -1894,7 +1929,7 @@ GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (68, 14, 168, 0, 20, 1)
+  (68, 14, 168, 0, 5, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
@@ -2219,16 +2254,6 @@ GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (133, 29, 64, 1, 10, 1)
-GO
-
-INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
-VALUES 
-  (134, 29, 65, 1, 20, 1)
-GO
-
-INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
-VALUES 
   (135, 30, 83, 1, 10, 1)
 GO
 
@@ -2515,6 +2540,66 @@ GO
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
   (195, 51, 201, 1, 10, 1)
+GO
+
+INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
+VALUES 
+  (213, 26, 202, 1, 10, 1)
+GO
+
+INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
+VALUES 
+  (214, 26, 206, 1, 20, 1)
+GO
+
+INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
+VALUES 
+  (215, 26, 207, 1, 30, 1)
+GO
+
+INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
+VALUES 
+  (216, 26, 208, 1, 40, 1)
+GO
+
+INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
+VALUES 
+  (217, 9, 209, 1, 20, 1)
+GO
+
+INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
+VALUES 
+  (218, 29, 209, 1, 20, 1)
+GO
+
+INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
+VALUES 
+  (219, 9, 210, 1, 10, 1)
+GO
+
+INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
+VALUES 
+  (220, 29, 210, 1, 10, 1)
+GO
+
+INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
+VALUES 
+  (221, 57, 65, 1, 10, 1)
+GO
+
+INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
+VALUES 
+  (222, 57, 64, 1, 20, 1)
+GO
+
+INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
+VALUES 
+  (223, 9, 211, 1, 30, 1)
+GO
+
+INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
+VALUES 
+  (224, 29, 211, 1, 30, 1)
 GO
 
 COMMIT
@@ -8110,7 +8195,7 @@ VALUES
   (1526, 89, 1, N'Frequency Response', N'<table class="table-striped" border="0" width="100%" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
-<td colspan="2" style="text-align:center; border-bottom: 1px solid #999999;">Mic Input to any Output (Trim at 0 dB)</td>
+<td style="text-align: center; border-bottom: 1px solid #999999;" colspan="2">Mic Input to any Output (Trim at 0 dB)</td>
 </tr>
 <tr>
 <td style="width: 30%; border-bottom: 1px solid #999999; border-right: 1px solid #999999; text-align: center;">+0, -1 dB</td>
@@ -21959,6 +22044,606 @@ VALUES
   (4085, 201, 1, N'Net Weight', N'32.2lbs / 14.6Kg', 150, 1)
 GO
 
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4086, 202, 1, N'Model Passive', N'X8', 10, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4087, 202, 1, N'System Type', N'2-Way Vented Passive Speaker Cabinet', 20, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4088, 202, 1, N'Continuous Power', N'100 Watts', 30, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4089, 202, 1, N'Peak Power', N'400 Watts', 40, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4090, 202, 1, N'Max SPL (1m)', N'113dB Max', 50, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4091, 202, 1, N'Frequency Response', N'68Hz-20kHz (-6dB)', 60, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4092, 202, 1, N'Crossover Frequency', N'2.2kHz', 70, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4093, 202, 1, N'Protection', N'PTC Protection for HF', 80, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4094, 202, 1, N'Impedance', N'8 Ohms', 90, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4095, 202, 1, N'Transducer Low', N'8" Woofer, 1.5" Voice Coil', 100, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4096, 202, 1, N'Transducer High', N'1" Ferrite Driver, 1" Voice Coil', 110, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4097, 202, 1, N'Connectors', N'2 x 1/4" Jack + SPK4 (Pin1+, Pin1-)', 120, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4098, 202, 1, N'Enclosure Construction', N'Plastic cabinet, Trapezoidal &amp; Monitor shape, Metal grille, 1 x Handle-On Top', 130, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4099, 202, 1, N'Mounting', N'36mm standard pole-mount / 4 x M10 flying Points (Optional)', 140, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4100, 202, 1, N'Dimensions (HxWxD)', N'420 x 270 x 240 mm', 150, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4101, 202, 1, N'Net Weight', N'5.81kg / 12.8Ibs', 160, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4102, 202, 1, N'Volume', N'1.96 CFT', 170, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4103, 206, 1, N'Model Passive', N'X10', 10, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4104, 206, 1, N'System Type', N'2-Way Vented Passive Speaker Cabinet', 20, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4105, 206, 1, N'Continuous Power', N'120 Watts', 30, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4107, 206, 1, N'Peak Power', N'480 Watts', 40, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4108, 206, 1, N'Max SPL (1m)', N'116dB Max', 50, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4109, 206, 1, N'Frequency Response', N'65Hz-20kHz (-6dB)', 60, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4110, 206, 1, N'Crossover Frequency', N'2.2kHz', 70, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4111, 206, 1, N'Protection', N'PTC Protection for HF', 80, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4112, 206, 1, N'Impedance', N'8 Ohms', 90, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4113, 206, 1, N'Transducer Low', N'10" Woofer, 1.5" Voice Coil', 100, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4114, 206, 1, N'Transducer High', N'1" Ferrite Driver, 1" Voice Coil', 110, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4115, 206, 1, N'Connectors', N'2 x 1/4" Jack + SPK4 (Pin1+, Pin1-)', 120, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4116, 206, 1, N'Enclosure Construction', N'Plastic cabinet, Trapezoidal &amp; Monitor shape, Metal grille, 1 x Handle-On Top', 130, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4117, 206, 1, N'Mounting', N'36mm standard pole-mount / 4 x M10 flying Points (Optional)', 140, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4118, 206, 1, N'Dimensions (HxWxD)', N'460 x 285 x 265mm', 150, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4119, 206, 1, N'Net Weight', N'6.8kg / 15Ibs', 160, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4120, 206, 1, N'Volume', N'2.36 CFT', 170, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4121, 207, 1, N'Model Passive', N'X12', 10, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4122, 207, 1, N'System Type', N'2-Way Vented Passive Speaker Cabinet', 20, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4123, 207, 1, N'Continuous Power', N'200 Watts', 30, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4124, 207, 1, N'Peak Power', N'800 Watts', 40, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4125, 207, 1, N'Max SPL (1m/1W)', N'119dB Max', 50, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4126, 207, 1, N'Frequency Response', N'55Hz-20kHz (-6dB)', 60, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4127, 207, 1, N'Crossover Frequency', N'2.5kHz', 70, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4128, 207, 1, N'Protection', N'PTC Protection for HF', 80, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4129, 207, 1, N'Impedance', N'8 Ohms', 90, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4130, 207, 1, N'Transducer Low', N'12" Woofer, 2" Voice Coil', 100, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4131, 207, 1, N'Transducer High', N'1" Neodymium Driver, 1" Voice Coil', 110, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4132, 207, 1, N'Connectors', N'2 x 1/4" Jack + SPK4 (Pin1+, Pin1-)', 120, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4133, 207, 1, N'Enclosure Construction', N'Plastic cabinet, Trapezoidal &amp; Monitor shape, Metal grille, Rubber feet, 3 x Handles (Top and sides)', 130, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4134, 207, 1, N'Mounting', N'36mm standard pole-mount / 4 x M10 flying Points (Optional)', 140, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4135, 207, 1, N'Dimensions (HxWxD)', N'607 x 380 x 337mm', 150, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4136, 207, 1, N'Net Weight', N'13.75kg / 30.31Ibs', 160, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4137, 207, 1, N'Volume', N'4.71 CFT', 170, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4138, 208, 1, N'Model Passive', N'X15', 10, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4139, 208, 1, N'System Type', N'2-Way Vented Passive Speaker Cabinet', 20, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4140, 208, 1, N'Continuous Power', N'200 Watts', 30, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4141, 208, 1, N'Peak Power', N'800 Watts', 40, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4142, 208, 1, N'Max SPL (1m/1W)', N'121dB Max', 50, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4143, 208, 1, N'Frequency Response', N'50Hz-20kHz (-6dB)', 60, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4144, 208, 1, N'Crossover Frequency', N'2.5kHz', 70, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4145, 208, 1, N'Protection', N'PTC Protection for HF', 80, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4146, 208, 1, N'Impedance', N'8 Ohms', 90, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4147, 208, 1, N'Transducer Low', N'15" Woofer, 2" Voice Coil', 100, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4148, 208, 1, N'Transducer High', N'1" Neodymium Driver, 1" Voice Coil', 110, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4149, 208, 2, N'Connectors', N'2 x 1/4" Jack + SPK4 (Pin1+, Pin1-)', 120, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4150, 208, 1, N'Enclosure Construction', N'Plastic cabinet, Trapezoidal &amp; Monitor shape, Metal grille, Rubber feet, 3 x Handles (Top and sides)', 130, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4151, 208, 1, N'Mounting', N'36mm standard pole-mount / 4 x M10 flying Points (Optional)', 140, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4152, 208, 1, N'Dimensions (HxWxD)', N'625 x 386 x 366mm', 150, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4153, 208, 1, N'Net Weight', N'14.86kg / 32.8Ibs', 160, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4154, 208, 1, N'Volume', N'5.91 CFT', 170, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4155, 209, 1, N'System Type:', N'2-Way 6.5" Vented Active Speaker Cabinet', 20, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4156, 209, 1, N'Power Handling:', N'RMS: 70Watts / Program: 140Watts', 30, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4157, 209, 1, N'Frequency Response:', N'75Hz-20KHz (-6dB)', 40, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4158, 209, 1, N'Sensitivity:', N'110dB Max', 50, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4159, 209, 1, N'X-over Frequency', N'6KHz@12dB/oct', 60, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4160, 209, 1, N'X-over Frequency', N'6KHz@12dB/oct', 60, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4161, 209, 1, N'Low Frequency:', N'6.5" (165mm) woofer / 1" Voice Coil', 70, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4162, 209, 1, N'High Frequency:', N'1" Neodymium Tweeter', 80, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4163, 209, 1, N'Connectors:', N'MIC/LINE balanced input at -40/0dB (Combo Connector), AUX input at -10dB with RCA Connector, LINK Output at -40/0dB with XLR', 90, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4164, 209, 1, N'Amplifier:', N'Class D 70Wx2 (BTL)', 100, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4165, 209, 1, N'Electronic Protections:', N'Thermal / overload / analog limiter', 110, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4166, 209, 1, N'Volume Control:', N'Continuous, work only on MIC/LINE input', 120, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4167, 209, 1, N'Power Supply:', N'110-120V / 220-240V~50/60Hz', 130, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4168, 209, 1, N'Enclosure:', N'Trapezoidal painted wood cabinet.metal grille', 140, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4169, 209, 1, N'Fixing Point:', N'2 x M4 Standard (2 x Vertical side)', 150, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4170, 209, 1, N'Dimensions (HxWxD):', N'12.52" (318mm) x 7.87" (200mm) x 7.93" (201.5mm)', 160, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4171, 209, 1, N'Net Weight:', N'13.05 lbs / 4.6Kg', 170, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4172, 209, 1, N'Volume:', N'1.19CFT', 180, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4173, 209, 1, N'Model Active:', N'TPS 16A.UB', 10, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4174, 210, 1, N'Model Passive:', N'TPS 16P', 10, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4175, 210, 1, N'System Type:', N'2-Way 6.5" Vented PASSIVE Speaker Cabinet', 20, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4176, 210, 1, N'Power Handling:', N'RMS: 70 Watts / Program: 140 Watts', 30, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4177, 210, 1, N'Frequency Response:', N'75Hz-20KHz (-6dB)', 40, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4178, 210, 1, N'Sensitivity:', N'110dB Max', 50, 1)
+GO
+
+COMMIT
+GO
+
+--
+-- Data for table dbo.Attribute  (LIMIT 3500,500)
+--
+
+BEGIN TRANSACTION
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4179, 210, 1, N'X-over Frequency:', N'6KHz@12dB/oct', 60, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4180, 210, 1, N'Low Frequency:', N'6.5" (165mm) woofer / 1" Voice Coil', 70, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4181, 210, 1, N'High Frequency:', N'1" Neodymium Tweeter', 80, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4182, 210, 1, N'Enclosure:', N'Trapezoidal painted wood cabinet.metal grille', 90, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4183, 210, 1, N'Fixing Point:', N'2 x M4 Standard (2 x Vertical side)', 100, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4184, 210, 1, N'Dimensions (HxWxD):', N'12.52" (318mm) x 7.87" (200mm) x 7.93" ( 201.5mm)', 110, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4185, 210, 1, N'Net Weight:', N'13.05 lbs / 4.2Kg', 120, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4186, 210, 1, N'Volume:', N'1.19CFT', 130, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4187, 211, 1, N'Model Active:', N'TPS 16AM.UB', 10, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4188, 211, 1, N'System Type:', N'2-Way 6.5" Vented Active Speaker Cabinet', 20, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4189, 211, 1, N'Power Handling:', N'RMS: 140Watts / Program: 280Watts', 30, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4190, 211, 1, N'Frequency Response:', N'75Hz-20KHz (-6dB)', 40, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4191, 211, 1, N'Sensitivity:', N'113dB Max', 50, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4192, 211, 1, N'Low Frequency:', N'6.5" (165mm) woofer / 1" Voice Coil', 60, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4193, 211, 1, N'High Frequency:', N'1" Neodymium Tweeter', 70, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4194, 211, 1, N'X-over Frequency:', N'5KHz@12dB/oct', 80, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4195, 211, 1, N'Mixer:', N'2-band equalizer on input channels, 5 Input channels with individual Volume control, 3 bands Master EQ, 3 COMBO microphone Inputs with phantom power, 2 RCA Line Inputs/3.5mm jack, 2 RCA Line Outputs, Monitor output with level control, Powered output 70W (@4 ohms, min) for optional external speakers, 16-preset digital effect processor', 90, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4196, 211, 1, N'USB Player:', N'With USB &amp; Micro SD CARD, Bluetooth', 100, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4197, 211, 1, N'Power Supply:', N'230V - 115V @50 - 60Hz', 110, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4198, 211, 1, N'Amplifier:', N'Class D 70W x 2, one for inside speaker / one for optional external speaker', 120, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4199, 211, 1, N'Electronic Protections:', N'Thermal / overload / analog limiter', 130, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4200, 211, 1, N'Enclosure:', N'Trapezoidal painted wood cabinet. metal grille', 140, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4201, 211, 1, N'Fixing Point:', N'4 x M4 Standard (2 x Vertical and Horizontal side)', 150, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4202, 211, 1, N'Dimensions (HxWxD):', N'12.52" (318mm) x 7.87" (200mm) x 8.67" ( 220mm)', 160, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4203, 211, 1, N'Net Weight:', N'13.67 lbs / 6.2Kg', 170, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4204, 211, 1, N'Volume:', N'1.24CFT', 180, 1)
+GO
+
 COMMIT
 GO
 
@@ -24030,6 +24715,116 @@ VALUES
   (412, 201, 1, N'Transducer High', N'1" Neodymium Tweeter', 30, 1)
 GO
 
+INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (413, 202, 1, N'POWER:', N'200W PROGRAM', 10, 1)
+GO
+
+INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (414, 202, 1, N'TRANSDUCER LOW:', N'8" Woofer, 1,5" Voice Coil', 20, 1)
+GO
+
+INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (415, 202, 1, N'TRANSDUCER HIGH:', N'1" Driver, 1" Voice Coil', 30, 1)
+GO
+
+INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (417, 206, 1, N'POWER', N'240W PROGRAM', 10, 1)
+GO
+
+INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (418, 206, 1, N'TRANSDUCER LOW:', N'10" Woofer, 1,5" Voice Coil', 20, 1)
+GO
+
+INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (419, 206, 1, N'TRANSDUCER HIGH', N'1" Driver, 1" Voice Coil', 30, 1)
+GO
+
+INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (420, 207, 1, N'POWER:', N'400W PROGRAM', 10, 1)
+GO
+
+INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (421, 207, 1, N'TRANSDUCER LOW:', N'12" Woofer, 2" Voice Coil', 20, 1)
+GO
+
+INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (422, 207, 1, N'TRANSDUCER HIGH:', N'1" Neodymium Driver, 1" Voice Coil', 30, 1)
+GO
+
+INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (423, 208, 1, N'POWER:', N'400W PROGRAM', 10, 1)
+GO
+
+INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (424, 208, 1, N'TRANSDUCER LOW:', N'15" Woofer, 2" Voice Coil', 20, 1)
+GO
+
+INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (425, 208, 1, N'TRANSDUCER HIGH:', N'1" Neodymium Driver, 1" Voice Coil', 30, 1)
+GO
+
+INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (426, 209, 1, N'POWER:', N'140W PROGRAM', 10, 1)
+GO
+
+INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (427, 209, 1, N'TRANSDUCER LOW:', N'6,5" Woofer, 1" Voice Coil', 20, 1)
+GO
+
+INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (428, 209, 1, N'TRANSDUCER HIGH:', N'1" Neodymium Tweeter', 30, 1)
+GO
+
+INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (429, 210, 1, N'POWER:', N'140W PROGRAM', 10, 1)
+GO
+
+INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (430, 210, 1, N'TRANSDUCER LOW:', N'6,5" Woofer, 1" Voice Coil', 20, 1)
+GO
+
+INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (431, 210, 1, N'TRANSDUCER HIGH:', N'1" Neodymium Tweeter', 30, 1)
+GO
+
+INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (432, 211, 1, N'POWER:', N'140W x 2 PROGRAM', 10, 1)
+GO
+
+INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (433, 211, 1, N'TRANSDUCER LOW:', N'6,5" Woofer, 1" Voice Coil', 20, 1)
+GO
+
+INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (434, 211, 1, N'TRANSDUCER HIGH:', N'1" Neodymium Tweeter', 30, 1)
+GO
+
+INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (435, 211, 1, N'TRANSDUCER HIGH:', N'1" Neodymium Tweeter', 30, 1)
+GO
+
 COMMIT
 GO
 
@@ -24119,6 +24914,11 @@ GO
 INSERT INTO dbo.Model (ModelId, Name)
 VALUES 
   (14, N'USB I/O')
+GO
+
+INSERT INTO dbo.Model (ModelId, Name)
+VALUES 
+  (15, N'NEW DESIGN')
 GO
 
 COMMIT

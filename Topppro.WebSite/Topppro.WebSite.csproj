@@ -318,6 +318,12 @@
     <Content Include="Areas\SecureSite\Scripts\tinymce\skins\xenmce\skin.min.css" />
     <Content Include="Areas\SecureSite\Scripts\tinymce\themes\modern\theme.min.js" />
     <Content Include="Areas\SecureSite\Scripts\tinymce\tinymce.min.js" />
+    <Content Include="Areas\SecureSite\Views\AssnCategorySerieProduct\Edit.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Areas\SecureSite\Views\AssnCategorySerie\Index.cshtml">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="Content\Downloads\Readme.txt" />
     <Content Include="Content\Fonts\Humanst521BT-Light.svg" />
     <Content Include="Content\Fonts\Humanst521BT-Roman.svg" />
@@ -723,11 +729,6 @@
     <Content Include="Web.Stage.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Areas\SecureSite\Views\AssnCategorySerie\Index.cshtml" />
-    <Content Include="Areas\SecureSite\Views\AssnCategorySerie\Create.cshtml" />
-    <Content Include="Areas\SecureSite\Views\AssnCategorySerie\Details.cshtml" />
-    <Content Include="Areas\SecureSite\Views\AssnCategorySerie\Edit.cshtml" />
-    <Content Include="Areas\SecureSite\Views\AssnCategorySerie\Delete.cshtml" />
     <Content Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.eot" />
     <Content Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.ttf" />
     <Content Include="Areas\SecureSite\Content\Fonts\fontawesome-webfont.woff" />
@@ -754,7 +755,6 @@
     <Content Include="Areas\SecureSite\Views\AssnCategorySerieProduct\Create.cshtml" />
     <Content Include="Areas\SecureSite\Views\AssnCategorySerieProduct\Delete.cshtml" />
     <Content Include="Areas\SecureSite\Views\AssnCategorySerieProduct\Details.cshtml" />
-    <Content Include="Areas\SecureSite\Views\AssnCategorySerieProduct\Edit.cshtml" />
     <Content Include="Areas\SecureSite\Views\Package\Index.cshtml" />
     <Content Include="Areas\SecureSite\Views\Package\Details.cshtml" />
     <Content Include="Areas\SecureSite\Views\Package\Delete.cshtml" />
@@ -774,6 +774,7 @@
     <Content Include="Content\Fonts\Humanst521BT-Roman.otf" />
     <Content Include="Content\Fonts\Humanst521BT-Roman.ttf" />
     <Content Include="Content\Fonts\Humanst521BT-Roman.woff" />
+    <Content Include="Areas\SecureSite\Views\AssnCategorySerie\_Edit.cshtml" />
     <None Include="Scripts\jquery.panelslider-0.1.1\README.md" />
     <Content Include="Views\Account\LogOn.cshtml" />
     <Content Include="Views\Amplifiers\Index.cshtml" />
