@@ -35,6 +35,8 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
                 var entity =
                     base.Business.Value.Get(id);
 
+                EditGetPrerender(entity);
+
                 return PartialView("_Edit", entity);
             }
             catch (Exception ex)
@@ -111,6 +113,12 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
 
         public override void EditGetPrerender(Assn_CategorySerie entity)
         {
+            ViewBag.CategoryId =
+                new SelectList(this._bizCategory.Value.All(), "CategoryId", "Name", entity.CategoryId);
+            
+            ViewBag.SerieId =
+                new SelectList(this._bizSerie.Value.All(), "SerieId", "Name", entity.SerieId);
+
             entity.Category =
                 this._bizCategory.Value.Get(entity.CategoryId);
 
