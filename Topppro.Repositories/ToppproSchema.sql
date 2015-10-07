@@ -531,3 +531,55 @@ ADD CONSTRAINT Package_Parent_Product_FK FOREIGN KEY (ParentProductId)
   ON DELETE NO ACTION
 GO
 
+
+--
+-- Dropping table Distributor : 
+--
+
+if exists (select * from sysobjects where id = object_id(N'dbo.Distributor') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table dbo.Distributor
+GO
+
+
+--
+-- Dropping table Country : 
+--
+
+if exists (select * from sysobjects where id = object_id(N'dbo.Country') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table dbo.Country
+GO
+
+/*******************************************************************************
+   Create Tables
+********************************************************************************/
+CREATE TABLE [dbo].[Country] 
+( 
+	[CountryId] INTEGER NOT NULL IDENTITY,
+    [Name] VARCHAR(150) NOT NULL,
+	[Priority] INTEGER ,
+	[Enabled] BIT NOT NULL,
+    PRIMARY KEY(CountryId)
+);
+
+CREATE TABLE [dbo].[Distributor] 
+( 
+	[DistributorId] INTEGER NOT NULL IDENTITY,
+	[CountryId] INTEGER NOT NULL,
+    [CultureId] INTEGER NOT NULL,
+    [Name] VARCHAR(150) NOT NULL,
+    [Detail] VARCHAR(8000) NOT NULL,
+	[Priority] INTEGER ,
+	[Enabled] BIT NOT NULL,
+    PRIMARY KEY(DistributorId)
+);
+
+/*******************************************************************************
+   Create Foreign Keys
+********************************************************************************/
+ALTER TABLE Distributor ADD FOREIGN KEY (CountryId) REFERENCES Country(CountryId);
+ALTER TABLE Distributor ADD FOREIGN KEY (CultureId) REFERENCES Culture(CultureId);
+/*******************************************************************************
+   Create Indexes
+********************************************************************************/
+CREATE INDEX IPK_Country_1 ON Country(CountryId);
+CREATE INDEX IPK_CountryId_1 ON Country(CountryId);

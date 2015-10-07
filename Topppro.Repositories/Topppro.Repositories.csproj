@@ -68,7 +68,9 @@
     <Compile Include="Definitions\BulletRepository.cs" />
     <Compile Include="Definitions\CategoryRepository.cs" />
     <Compile Include="Definitions\AssnCategorySerieRepository.cs" />
+    <Compile Include="Definitions\CountryRepository.cs" />
     <Compile Include="Definitions\CultureRepository.cs" />
+    <Compile Include="Definitions\DistributorRepository.cs" />
     <Compile Include="Definitions\ModelRepository.cs" />
     <Compile Include="Definitions\PackageRepository.cs" />
     <Compile Include="Definitions\ProductRepository.cs" />

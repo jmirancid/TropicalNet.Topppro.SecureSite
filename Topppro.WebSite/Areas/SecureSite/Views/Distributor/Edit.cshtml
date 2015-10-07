@@ -1,23 +1,25 @@
 ﻿@using Framework.MVC.Resources
 @using Topppro.Entities.Resources
 
-@model Topppro.Entities.Attribute
+@model Topppro.Entities.Distributor
 
 @{
-    ViewBag.Title = PersistanceResource.Create;
+    ViewBag.Title = PersistanceResource.Edit;
 }
 
-<h2>@PersistanceResource.Create</h2>
+<h2>@PersistanceResource.Edit</h2>
 
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
     <fieldset>
         <legend>@Ent_AttributeResource._Caption</legend>
 
+        @Html.HiddenFor(model => model.Id)
+
         <div class="form-group">
-            @Html.LabelFor(model => model.ProductId)
-            @Html.DropDownListFor(model => model.ProductId, null, PersistanceResource.Selection, new { @class = "form-control", style = "width:400px;" })
-            @Html.ValidationMessageFor(model => model.ProductId)
+            @Html.LabelFor(model => model.CountryId)
+            @Html.DropDownListFor(model => model.CountryId, null, PersistanceResource.Selection, new { @class = "form-control", style = "width:400px;" })
+            @Html.ValidationMessageFor(model => model.CountryId)
         </div>
 
         <div class="form-group">
@@ -26,36 +28,16 @@
             @Html.ValidationMessageFor(model => model.CultureId)
         </div>
 
-        <!--
-                <div class="editor-label">
-            @Html.LabelFor(model => model.CultureId)
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("CultureId", PersistanceResource.Selection)
-            @Html.ValidationMessageFor(model => model.CultureId)
-        </div>
-        -->
-
         <div class="form-group">
             @Html.LabelFor(model => model.Name)
             @Html.TextBoxFor(model => model.Name, new { @class = "form-control", style = "width:400px;" })
             @Html.ValidationMessageFor(model => model.Name)
         </div>
 
-        <!--
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Name)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Name)
-            @Html.ValidationMessageFor(model => model.Name)
-        </div>
-        -->
-
         <div class="form-group">
-            @Html.LabelFor(model => model.Value)
-            @Html.TextAreaFor(model => model.Value, new { @class = "mceEditor", style = "width:400px;" })
-            @Html.ValidationMessageFor(model => model.Value)
+            @Html.LabelFor(model => model.Detail)
+            @Html.TextAreaFor(model => model.Detail, new { @class = "mceEditor", style = "width:400px;" })
+            @Html.ValidationMessageFor(model => model.Detail)
         </div>
 
         <div class="form-group">
@@ -63,16 +45,6 @@
             @Html.TextBoxFor(model => model.Priority, new { @class = "form-control", style = "width:400px;" })
             @Html.ValidationMessageFor(model => model.Priority)
         </div>
-
-        <!--
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Priority)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Priority)
-            @Html.ValidationMessageFor(model => model.Priority)
-        </div>
-        -->
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Enabled)

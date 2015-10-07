@@ -101,6 +101,18 @@ namespace Topppro.Repositories
             get { return _bullet  ?? (_bullet = CreateObjectSet<Bullet>("Bullet")); }
         }
         private ObjectSet<Bullet> _bullet;
+    
+        public ObjectSet<Country> Country
+        {
+            get { return _country  ?? (_country = CreateObjectSet<Country>("Country")); }
+        }
+        private ObjectSet<Country> _country;
+    
+        public ObjectSet<Distributor> Distributor
+        {
+            get { return _distributor  ?? (_distributor = CreateObjectSet<Distributor>("Distributor")); }
+        }
+        private ObjectSet<Distributor> _distributor;
 
         #endregion
     

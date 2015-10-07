@@ -66,7 +66,9 @@
     <Compile Include="Attribute.cs" />
     <Compile Include="Bullet.cs" />
     <Compile Include="Category.cs" />
+    <Compile Include="Country.cs" />
     <Compile Include="Culture.cs" />
+    <Compile Include="Distributor.cs" />
     <Compile Include="Generated\Assn_CategorySerie.cs">
       <DependentUpon>Templates.tt</DependentUpon>
     </Compile>
@@ -82,7 +84,13 @@
     <Compile Include="Generated\Category.cs">
       <DependentUpon>Templates.tt</DependentUpon>
     </Compile>
+    <Compile Include="Generated\Country.cs">
+      <DependentUpon>Templates.tt</DependentUpon>
+    </Compile>
     <Compile Include="Generated\Culture.cs">
+      <DependentUpon>Templates.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Generated\Distributor.cs">
       <DependentUpon>Templates.tt</DependentUpon>
     </Compile>
     <Compile Include="Generated\Model.cs">
@@ -131,10 +139,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Ent_AssnCategorySerieResource.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Ent_CountryResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ent_CountryResource.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Ent_CultureResource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Ent_CultureResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Ent_DistributorResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ent_DistributorResource.resx</DependentUpon>
     </Compile>
     <Compile Include="Resources\Ent_ModelResource.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -194,9 +212,17 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Ent_AssnCategorySerieResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Ent_CountryResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Ent_CountryResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Ent_CultureResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Ent_CultureResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Ent_DistributorResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Ent_DistributorResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Ent_ModelResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

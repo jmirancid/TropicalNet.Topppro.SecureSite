@@ -110,6 +110,40 @@ namespace Topppro.Entities
         }
     	//[XmlElement("Bullet", typeof(Collection<Bullet>))]
         private ICollection<Bullet> _bullet;
+    
+    	//[XmlElement("Distributor", typeof(Collection<Distributor>))]
+        public virtual ICollection<Distributor> Distributor
+        {
+            get
+            {
+                if (_distributor == null)
+                {
+                    var newCollection = new FixupCollection<Distributor>();
+                    newCollection.CollectionChanged += FixupDistributor;
+                    _distributor = newCollection;
+                }
+                return _distributor;
+            }
+            set
+            {
+                if (!ReferenceEquals(_distributor, value))
+                {
+                    var previousValue = _distributor as FixupCollection<Distributor>;
+                    if (previousValue != null)
+                    {
+                        previousValue.CollectionChanged -= FixupDistributor;
+                    }
+                    _distributor = value;
+                    var newValue = value as FixupCollection<Distributor>;
+                    if (newValue != null)
+                    {
+                        newValue.CollectionChanged += FixupDistributor;
+                    }
+                }
+            }
+        }
+    	//[XmlElement("Distributor", typeof(Collection<Distributor>))]
+        private ICollection<Distributor> _distributor;
 
         #endregion
         #region Association Fixup
@@ -149,6 +183,28 @@ namespace Topppro.Entities
             if (e.OldItems != null)
             {
                 foreach (Bullet item in e.OldItems)
+                {
+                    if (ReferenceEquals(item.Culture, this))
+                    {
+                        item.Culture = null;
+                    }
+                }
+            }
+        }
+    
+        private void FixupDistributor(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (e.NewItems != null)
+            {
+                foreach (Distributor item in e.NewItems)
+                {
+                    item.Culture = this;
+                }
+            }
+    
+            if (e.OldItems != null)
+            {
+                foreach (Distributor item in e.OldItems)
                 {
                     if (ReferenceEquals(item.Culture, this))
                     {

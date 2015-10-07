@@ -89,7 +89,9 @@
     <Compile Include="Areas\SecureSite\Controllers\AttributeController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\BulletController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\SecureSite\Controllers\CountryController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\CultureController.cs" />
+    <Compile Include="Areas\SecureSite\Controllers\DistributorController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\ModelController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\PackageController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\ProductController.cs" />
@@ -775,6 +777,16 @@
     <Content Include="Content\Fonts\Humanst521BT-Roman.ttf" />
     <Content Include="Content\Fonts\Humanst521BT-Roman.woff" />
     <Content Include="Areas\SecureSite\Views\AssnCategorySerie\_Edit.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Country\Create.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Country\Delete.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Country\Details.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Country\Edit.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Country\Index.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Distributor\Create.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Distributor\Delete.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Distributor\Details.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Distributor\Edit.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Distributor\Index.cshtml" />
     <None Include="Scripts\jquery.panelslider-0.1.1\README.md" />
     <Content Include="Views\Account\LogOn.cshtml" />
     <Content Include="Views\Amplifiers\Index.cshtml" />

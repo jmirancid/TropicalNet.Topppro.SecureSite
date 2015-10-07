@@ -62,7 +62,9 @@
     <Compile Include="Repositories\IBulletRepository.cs" />
     <Compile Include="Repositories\ICategoryRepository.cs" />
     <Compile Include="Repositories\IAssnCategorySerieRepository.cs" />
+    <Compile Include="Repositories\ICountryRepository.cs" />
     <Compile Include="Repositories\ICultureRepository.cs" />
+    <Compile Include="Repositories\IDistributorRepository.cs" />
     <Compile Include="Repositories\IModelRepository.cs" />
     <Compile Include="Repositories\IPackageRepository.cs" />
     <Compile Include="Repositories\IProductRepository.cs" />

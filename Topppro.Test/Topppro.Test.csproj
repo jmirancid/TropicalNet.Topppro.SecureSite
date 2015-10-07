@@ -73,7 +73,9 @@
     <Compile Include="Business\BusinessTest.cs" />
     <Compile Include="Business\CategoryBusinessTest.cs" />
     <Compile Include="Business\AssnCategorySerieBusinessTest.cs" />
+    <Compile Include="Business\CountryBusinessTest.cs" />
     <Compile Include="Business\CultureBusinessTest.cs" />
+    <Compile Include="Business\DistributorBusinessTest.cs" />
     <Compile Include="Business\ModelBusinessTest.cs" />
     <Compile Include="Business\PackageBusinessTest.cs" />
     <Compile Include="Business\ProductBusinessTest.cs" />
@@ -86,6 +88,7 @@
     <None Include="packages.config" />
     <Content Include="Unity.Repositories.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>

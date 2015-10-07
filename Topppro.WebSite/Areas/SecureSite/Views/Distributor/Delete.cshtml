@@ -1,0 +1,56 @@
+﻿@using Framework.MVC.Resources
+@using Framework.MVC.Extensions
+@using Topppro.Entities.Resources
+
+@model Topppro.Entities.Distributor
+
+@{
+    ViewBag.Title = PersistanceResource.Delete;
+}
+
+<h2>@PersistanceResource.Delete</h2>
+
+<h3>@PersistanceResource.Delete_Message</h3>
+<fieldset>
+    <legend>@Ent_AttributeResource._Caption</legend>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CountryId)
+        @Html.TextBoxFor(model => model.Country.Name, new { @class = "form-control", style = "width:400px;", id = "disabledInput", disabled = "disabled" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CultureId)
+        @Html.TextBoxFor(model => model.Culture.Name, new { @class = "form-control", style = "width:400px;", id = "disabledInput", disabled = "disabled" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name)
+        @Html.TextBoxFor(model => model.Name, new { @class = "form-control", style = "width:400px;", id = "disabledInput", disabled = "disabled" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Detail)
+        @Html.TextBoxFor(model => model.Detail, new { @class = "form-control", style = "width:400px;", id = "disabledInput", disabled = "disabled" })
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Priority)
+        @Html.TextBoxFor(model => model.Priority, new { @class = "form-control", style = "width:400px;", id = "disabledInput", disabled = "disabled" })
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Enabled)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Enabled)
+    </div>
+
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input class="btn btn-danger" type="submit" value="@PersistanceResource.Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
