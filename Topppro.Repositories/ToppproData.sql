@@ -25106,3 +25106,127 @@ ALTER TABLE dbo.Product
 WITH CHECK CHECK CONSTRAINT Model_Product_FK
 GO
 
+
+
+
+
+
+DELETE FROM dbo.Distributor
+GO
+DELETE FROM dbo.Country
+GO
+
+
+SET IDENTITY_INSERT dbo.Country ON
+GO
+
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (1,'Worldwide',10,1)
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (2,'Andorra',20,1)
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (3,'Aruba',30,1)
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (4,'Bahamas',40,1)
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (5,'Barbados',50,1)
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (6,'Belize',60,1)
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (7,'Bolivia',70,1)
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (8,'Cayman',80,1)
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (9,'Chile',90,1)
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (10,'Colombia',100,1)
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (11,'Costa Rica',110,1)
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (12,'Curacao',120,1)
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (13,'Ecuador',130,1)
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (14,'El Salvador',140,1)
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (15,'Guadaloupe',150,1)
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (16,'Guyana',160,1)
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (17,'Grenada',170,1)
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (18,'Haiti',180,1)
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (19,'Honduras',190,1)
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (20,'Indonesia',200,1)
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (21,'Italy',210,1)
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (22,'Jamaica',220,1)
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (23,'Korea',230,1)
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (24,'Malaysia',240,1)
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (25,'Mexico',250,1)
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (26,'Myanmar',260,1)
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (27,'Nicaragua',270,1)
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (28,'Nigeria',280,1)
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (29,'Philippines',290,1)
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (30,'República Dominicana',300,1)
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (31,'St. Lucia',310,1)
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (32,'St. Maarten',320,1)
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (33,'Spain',330,1)
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (34,'Suriname',340,1)
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (35,'Trinidad',350,1)
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (36,'Turkey',360,1)
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (37,'Vietnam',370,1)
+GO
+
+SET IDENTITY_INSERT dbo.Country OFF
+GO
+
+SET IDENTITY_INSERT dbo.Distributor ON
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (1,1,1,'TOPP PRO Worldwide Distribution Contact','Allen Chen<br>Sales Manager<br><br>No.1, Lane 17, Sec. 2, Hanshi W. Road<br>Taichung, Taiwan<br>Ph. +886-4-22313737 ext. 122<br>Fax. +886-4-22346757<br>E-mail. allenchen@sekaku.com',10,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (2,1,1,'Tropical Music Export Enterprises, INC.','Exclusive Latin America Distribution<br><br>6850 S.W. 81 Terrace<br>Miami, FL. 33143<br>Ph. 305-740-7454<br>Fax. 305-740-7456',20,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (3,2,1,'PRO MUSICA ANDORRA','Avinguda Copríncep De Gaulle, 4. AD700<br>Escaldes-Engordany<br>Principat d''Andorra<br>Ph. +376 864 845<br>Fax. +376 860 790<br>E-mail. promusicaandorra@gmail.com<br>Laurent Liard<br>Cel. +376 334 069<br>www.promusicaandorra.com',30,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (4,3,1,'CLIFFIX MUSICAL INSTRUMENTS N.V.','San Barbola 4-E<br>Aruba<br>Ph. 297-582-9660',30,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (5,4,1,'AMN Enterprises Limited','2221 Town Centre Mall<br>Nassau<br>Bahamas<br>Ph. 242-356-5971',40,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (6,5,1,'A & B MUSIC SUPPLIES','12 Webster Industrial Park<br>Wildey<br>St. Michael BB14006<br>Barbados<br>Ph. 246-430-1100',50,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (7,5,1,'WEST RILEY ELECTRONICS COMPANY LIMITED','City Centre Mall<br>Chapel Street, Bridgetown<br>Barbados<br>Ph. 264-431-0109',60,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (8,6,1,'Covenant Books & Music Supply','15 Guanacastle Park St<br>Belmopan, Cayo District<br>Belize<br>Ph. 501-610-1517',70,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (9,6,1,'MIDWAY LTD.','Box 580<br>Spanish Look Out<br>Belize<br>Ph. 501-823-0095',80,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (10,6,1,'KOREA ELECTRONICS','77 Freetown Road<br>Cinderella Plaza, Belize City<br>Belize<br>Ph. 501-224-4763',90,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (11,6,1,'CY''S MUSIC & SOUVEMIRS','13 West Collet Canal, Belize City<br>Belize<br>Ph. 501-227-2777',100,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (12,7,1,'RCF MUSIC','Cochabamba<br>Bolivia<br>Ph. 591-4-4284851',110,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (13,8,1,'MYLES MUSIC EMPORIUM','Barnett Building<br># 24 Huldah Ave., Georgetown<br>Grand Cayman<br>Ph. 345-949-1753',120,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (14,9,1,'CASA AMARILLA','San Diego 140, Santiago<br>Chile<br>Ph. 56-2-6983483',130,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (15,9,1,'CY V MUSIC LIMITADA','Zona Franca Iquique Chile<br>Manzana 14 Galpón 9 Recinto Amurallado, Iquique<br>Chile<br>Ph. 56-978834788',140,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (16,10,1,'TROPICAL MUSIC COLOMBIA SAS','Transversal 93 # 53-32 Interior 11<br>Parque Empresarial El Dorado-Alamos Norte<br>Bogotá - Colombia<br>Ph. 2431233<br>Cel. 3138183850<br>E-mail. guillermo@tropicalmusic.com',150,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (17,10,1,'EL IMPERIO ELECTRONICO','Carrera 9 No. 20-52<br>Santa Fe de Bogotá<br>Ph. 57-1-284-5060',160,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (18,10,1,'SONIDO EN VIVO','Calle 8 B # 65-191 of 222<br>Centro empresarial Puerto Seco<br>Ph. 57-4-444-5808',170,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (19,10,1,'MEMO ELECTRONICS','Cra 6 # 15-89. Cali<br>Colombia<br>Ph. 57-318-310-0972',180,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (20,10,1,'ELECTROCOSAS CALI','Carrera 6a # 16-34<br>Santiago de Cali - Valle del Cauca<br>Colombia<br>Ph. 57-2-880-2885',190,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (21,11,1,'BANSBACH INSTRUMENTOS MUSICALES','Avenida 1 Calle 11, San Jose<br>Costa Rica<br>Ph. 506-2-5227601',200,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (22,11,1,'AMERICAN MUSIC','Guadalupe de Goicoechea frente al Liceo Napoleón Quesada, San Jose<br>Costa Rica<br>Ph. 506-2-2215800<br>E-mail. ventas@americanmusiccr.com',210,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (23,12,1,'L''AMIGA','Heerenstraat 19<br>Curacao<br>Ph. 599-9-461-1681',220,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (24,12,1,'INSTRUCUR','Kayudaweg 11<br>Willemstad<br>Curacao<br>Ph. 599-9-465-7356',230,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (25,13,1,'IMRELEVSA','P. Icaza 715 y Boyacá<br>Edificio Gémini Piso. 1 Dto. B1<br>Guayaquil<br>Ecuador<br>Ph. 593-423-07750',240,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (26,14,1,'ELECTRONICA 2001','Calle Arce 635, San Salvador<br>El Salvador<br>Ph. 503-2-523-2001',250,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (27,14,1,'SOCIEDAD COOPERATIVA SACERDOTAL LTDA. ARS.','4ta. Avenida Sur # 125, San Salvador<br>El Salvador<br>Ph. 503-2-221-5266',260,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (28,15,1,'NUMBER ONE ELECTRONIQUE','Imm. Le Parc II - La Rocade<br>971142<br>Abymes<br>Guadaloupe<br>Ph. 590-590-82-9020',270,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (29,16,1,'CENTRAL ELECTRONICS','67-68 Lacytown, Georgetown<br>Guyana<br>Ph. 592-225-8725',280,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (30,16,1,'D.P.& H. NEHAUL GENERAL STORE','Vigilance E.C.D.<br>Guyana<br>Ph. 592-274-0424',290,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (31,17,1,'D & D SOUNDS','Frequente<br>St. Georges<br>Grenada<br>Ph. 473-440-4867',300,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (32,18,1,'BIKINI SOUND','Rue B. Sylvan Chalet #210<br>Port De Paix<br>Haiti<br>Ph. 509-268-9942',310,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (33,18,1,'SOUND & CD SELECTION','340, Rte De Delmas (Coin Del. 40 B)<br>Delmas<br>Haiti<br>Ph. 786-629-7163',320,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (34,19,1,'ALMACEN PAJARO AZUL','3ra.Avenida 11 Calle Sur Oeste<br>San Pedro Sula, Honduras. CA.<br>Ph. 504-2-5523091',330,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (35,20,1,'TANGO GROUP','JL. Sun Yat Sen NO.56 Medan-20215,<br>North Sumatra - Indonesia<br>Mr. Robin Huang<br>Email. robin.tango@ymail.com<br>Ph. +6281 2602 0799',340,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (36,21,1,'GRISBY MUSIC','a Division of the Eko Music Group S.p.A.<br><br>Via O. Pigini, 8<br>62017 Montelupone (MC)<br>Italy<br>Ph. +39-07332271<br>Fax. +39-0733227250<br>Email. grisby@ekomusicgroup.com',350,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (37,22,1,'GOLD MART MANDEVILLE LTD','Shop G3 Superplus Center<br>25-27 Manchester Road<br>Mandeville, Jamaica<br>Ph. 876-902-5694',360,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (38,22,1,'QUALITY EQUIPMENT','4 Derry More Rd., Kingston 10<br>Jamaica<br>Ph. 876-960-3096',370,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (39,22,1,'THE MUSIC MART','27 Constant Spring Road, Kingston 10<br>Jamaica<br>Ph. 876-926-4687',380,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (40,23,1,'MIDI LAND','Mr. Lee Young-Duk<br>Email. daw@hanmail.net<br>Ph. +82-2763-5680',390,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (41,24,1,'UNION','1295, Jalan Baru, 13700 Prai. P.W.,<br>GPenang, Malaysia<br>Mr. Henry Ch''ngn<br>Email. henry@union.com.my<br>Ph. +604-3903620',400,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (42,25,1,'HERMES MUSIC, SA de CV','Daniel Tejas<br>Ejecutivo de ventas<br>Ph. (55) 5203 0018<br>Ph. (55) 5531 3085<br>Ph. (55) 5531 7099<br>Ext. 5503<br>Cel. 55-2653-4383<br>Email. daniel.tejas@omega-music.mx<br>Skype. daniel-tejas@hotmail.com',410,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (43,26,1,'GREAT ELECTROMOTIVE','Mr. Tin Chen<br>Email. ttnelectronic@gmail.com<br>Ph. +95-1395-548',420,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (44,27,1,'INSTRUMENTOS MUSICALES LA VOZ - NICARAGUA','Avenida Principal De Altamira # 490<br>De Sinsa Ceramica 75 Varas al Norte, Managua<br>Nicaragua<br>Ph. 505-2-2787225',430,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (45,28,1,'AMBU-BEST NIGERIA LIMITED','ABB20B,Alaba Int''l Market Ojo- Lagos<br>Nigeria<br>Mr. Ambrose Alí<br>Email. Ambubest@yahoo.com<br>Ph. +234-803 325 7526',440,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (46,29,1,'BASSHEAD MARKETING','11 G. Araneta Ave QC<br>Metro Manila , Philippines<br>Mr. Marcel Yu<br>Email. marcel_basshead@yahoo.com<br>Ph. +632-716-5355',450,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (47,30,1,'DANILO MUSIC','Av. 30 de marzo #121, Sto. Domingo<br>República Dominicana<br>Ph. 809-685-4600',460,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (48,31,1,'SHOP & SAVE','Bean Field<br>Vieux-Fort<br>St. Lucia<br>Ph. 758-454-6493',470,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (49,32,1,'CLASSIC ELECTRONICS','33, Back St., Phillipsburg<br>St. Maarten<br>Ph. 599-542-7919',480,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (50,32,1,'BERGEE ELECTRONIC ENT.','A.J.C. Brouwers Rd. #26, Cay Hill<br>St. Maarten<br>Ph. 599-544-2242',490,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (51,33,1,'SOUND LIGHT SPAIN S L','Fernando Abad<br>Ph. +34 691680209<br>Email. fernando@soundlightspain.com<br>Ezequiel Mayoral<br>Ph. +34 666670554<br>Email. ezequiel@soundlightspain.com<br>Office contact: Jessica Cruces<br>Ph. +34 638626631<br>Email. comercial@soundlightspain.com<br>Ph. (55) 5531 7099<br>www.soundlightspain.com',500,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (52,34,1,'C.K.M.','Zwartenovenbrug Street #46, Paramaribo<br>Suriname<br>Ph. 597-420-855',510,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (53,34,1,'NATRAJ PRO AUDIO','Keizer Str # 52, Paramaribo<br>Suriname<br>Ph. 597-425-676',520,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (54,34,1,'CHEUNG''S SOUND & VISION','P.O. Box 890, Paramaribo<br>Suriname<br>Ph. 597-47-9888',530,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (55,35,1,'DOUBLE AA ELECTRONIC LTD.','No. 38 De Vertuile Street, Woodbrook<br>Port of Spain<br>Trinidad<br>Ph. 868-622-1022',540,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (56,35,1,'SIMON''S MUSICAL SUPPLIES','59 St. Vincent Street<br>Port of Spain<br>Trinidad<br>Ph. 868-625-6412',550,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (57,35,1,'DEAN & DIANE ELECTRONICS','8 Cacan Deen Road<br>Felicity<br>Chaguanas<br>Trinidad<br>Ph. 868-671-3440',560,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (58,36,1,'EKiNGEN','Evren Mah. Halkali Cad., Asli Sok., No.31-33<br>Gunesli, Istanbul, Turkey<br>Mr. Eyup Ekingen<br>Email. eyup@ekingen.com.tr<br>Ph. +90-212 651 81 91',570,1)
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (59,37,1,'TAN HUNG DUNG CO., LTD','Showroom: No.259 No.7 Street. Binh Tri Dong B ward,<br>Binh Tan Dist, Ho Chi Minh City, Vietnam<br>ATTN: Mr. Vo Van Dung<br>Email. tanhungdung@gmail.com<br>Ph. +84-903829728',580,1)
+
+GO
+
+SET IDENTITY_INSERT dbo.Distributor OFF
+GO
+
