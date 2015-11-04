@@ -97,6 +97,11 @@
     <Compile Include="Areas\SecureSite\Controllers\ProductController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\SerieController.cs" />
     <Compile Include="Areas\SecureSite\Extensions\HtmlHelperExtensions.cs" />
+    <Compile Include="Areas\SecureSite\Resources\MenuResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MenuResource.resx</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AmplifiersController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
@@ -320,9 +325,6 @@
     <Content Include="Areas\SecureSite\Scripts\tinymce\skins\xenmce\skin.min.css" />
     <Content Include="Areas\SecureSite\Scripts\tinymce\themes\modern\theme.min.js" />
     <Content Include="Areas\SecureSite\Scripts\tinymce\tinymce.min.js" />
-    <Content Include="Areas\SecureSite\Views\AssnCategorySerieProduct\Edit.cshtml">
-      <SubType>Code</SubType>
-    </Content>
     <Content Include="Areas\SecureSite\Views\AssnCategorySerie\Index.cshtml">
       <SubType>Code</SubType>
     </Content>
@@ -607,6 +609,10 @@
     <Content Include="Areas\SecureSite\Views\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Areas\SecureSite\Resources\MenuResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MenuResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\AccountResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AccountResource.Designer.cs</LastGenOutput>
@@ -754,9 +760,6 @@
     <None Include="Areas\SecureSite\Scripts\tinymce\skins\xenmce\fonts\readme.md" />
     <None Include="Areas\SecureSite\Scripts\tinymce\skins\xenmce\skin.json" />
     <Content Include="Areas\SecureSite\Views\AssnCategorySerieProduct\Index.cshtml" />
-    <Content Include="Areas\SecureSite\Views\AssnCategorySerieProduct\Create.cshtml" />
-    <Content Include="Areas\SecureSite\Views\AssnCategorySerieProduct\Delete.cshtml" />
-    <Content Include="Areas\SecureSite\Views\AssnCategorySerieProduct\Details.cshtml" />
     <Content Include="Areas\SecureSite\Views\Package\Index.cshtml" />
     <Content Include="Areas\SecureSite\Views\Package\Details.cshtml" />
     <Content Include="Areas\SecureSite\Views\Package\Delete.cshtml" />
@@ -787,6 +790,9 @@
     <Content Include="Areas\SecureSite\Views\Distributor\Details.cshtml" />
     <Content Include="Areas\SecureSite\Views\Distributor\Edit.cshtml" />
     <Content Include="Areas\SecureSite\Views\Distributor\Index.cshtml" />
+    <Content Include="Areas\SecureSite\Views\AssnCategorySerieProduct\_Edit.cshtml" />
+    <Content Include="Areas\SecureSite\Views\AssnCategorySerieProduct\_Insert.cshtml" />
+    <Content Include="Areas\SecureSite\Views\AssnCategorySerie\_Insert.cshtml" />
     <None Include="Scripts\jquery.panelslider-0.1.1\README.md" />
     <Content Include="Views\Account\LogOn.cshtml" />
     <Content Include="Views\Amplifiers\Index.cshtml" />

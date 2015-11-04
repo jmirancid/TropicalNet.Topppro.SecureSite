@@ -1,84 +1,194 @@
 ﻿@using Framework.MVC.Extensions
 @using Framework.MVC.Resources
+@using Topppro.Entities.Resources
+@using Topppro.WebSite.Extensions
 
-@model IEnumerable<Topppro.Entities.Assn_CategorySerieProduct>
+@model Topppro.Entities.Assn_CategorySerie
 
 @{
     ViewBag.Title = PersistanceResource.Index;
 }
 
 @section Styles {
-    <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Areas/SecureSite/Scripts/dataTables/dataTables.bootstrap.css")" />
+    <link href="@Url.Content("~/Areas/SecureSite/Content/Styles/themes/base/jquery-ui-1.10.4.min.css")" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        ol
+        {
+            counter-reset: li;
+            margin-left: 0;
+            padding-left: 0;
+        }
+        ol > li
+        {
+            position: relative;
+            margin: 0 0 6px 0;
+            padding: 4px 8px;
+            list-style: none;
+            border-top: 2px solid #666;
+            background: #c6c6c6;
+            display: inline-block;
+        }
+        li img
+        {
+            padding: 0 0 6px 0;
+        }
+        ol > li:before
+        {
+            content: counter(li);
+            counter-increment: li;
+            position: absolute;
+            top: -2px;
+            left: 0;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            width: 2em;
+            
+            margin-right: 8px;
+            padding: 4px;
+            border-top: 2px solid #666;
+            color: #fff;
+            background: #666;
+            font-weight: bold;
+            text-align: center;
+        }
+        li ol, li ul
+        {
+            margin-top: 6px;
+        }
+        ol ol li:last-child
+        {
+            margin-bottom: 0;
+        }
+        .ui-state-highlight
+        {
+            border-style: dashed;
+        }
+        .ui-state-active
+        {
+            padding: 2px;
+            margin-bottom: 5px;
+        }
+        .modal-header
+        {
+            background-color: #800000;
+            color: #ffffff;
+        }
+    </style>
 }
 
 <h2>@PersistanceResource.Index</h2>
+<h5>@Ent_AssnCategorySerieProductResource._Caption</h5>
+<hr />
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<div class="row">
+	<div class="col-md-3 col-sm-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">@Ent_ProductResource._Caption</h3>
+            </div>
+            <div class="panel-body" style="max-height: 400px; overflow-y: scroll;">
+                <ul class="draggable list-unstyled">
+                    @foreach (var product in ViewBag.Products)
+                    {
+                        <li class="ui-state-active" data-id="@product.Id">@product.Name</li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+	<div class="col-md-9 col-sm-9">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">@Model.Category.Name</h3>
+                <small>@Model.Serie.Name</small>
+            </div>
+            <div class="panel-body">
+                <ol class="sortable" data-id="@Model.Id" style="min-height: 20px;">
+                @foreach (var assn in Model.Assn_CategorySerieProduct.OrderBy(a => a.Priority))
+                {
+                    <li data-id="@assn.Id">
+                        <img src="@assn.Product.GetThumbs().FirstOrDefault(t => !t.Contains("up"))" alt="@assn.Product.Name" />
+                        <br /><b>@assn.Product.Name</b>
+                        <div class="btn-group btn-group-xs pull-right">
+                            @Ajax.ActionLink(PersistanceResource.Edit, "Edit", null, 
+                                new { id = assn.Id },
+                                new AjaxOptions() { HttpMethod = "Get", UpdateTargetId = "dialog-assn-form", OnSuccess = "$.validator.unobtrusive.parse($('#dialog-assn-form')); $('#dialog-assn').modal({ show: true });" },
+                                new { @class = "btn btn-warning", @title = PersistanceResource.Edit })
+                            @Ajax.ActionLink(PersistanceResource.Delete, "Delete", null,
+                                new { id = assn.Id },
+                                new AjaxOptions() { HttpMethod = "Post", Confirm = PersistanceResource.Delete_Message, OnSuccess = "el.remove();" },
+                                new { @class = "btn btn-danger", @title = PersistanceResource.Delete, @onclick = "el = $(this).parents('li');" })
+                        </div>
+                    </li>
+                }
+                </ol>
+            </div>
+        </div>
+        <div>
+            @Html.ActionLink("Back to List", "Index", "AssnCategorySerie")
+        </div>
+	</div>
+</div>
 
-<table class="table table-striped table-bordered table-hover" id="data">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Assn_CategorySerie.CategoryId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Assn_CategorySerie.SerieId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ProductId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Priority)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Enabled)
-            </th>
-            <th>
-                @PersistanceResource.Actions
-            </th>
-        </tr>
-    </thead>
-</table>
+@*Modal Window Editor*@
+<div id="dialog-assn" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            @using (Ajax.BeginForm("Edit", null,
+                new AjaxOptions() { UpdateTargetId = "dialog-assn-form", LoadingElementId = "modal-loader", OnSuccess = "$('#dialog-assn').modal('hide');" }, new { @id = "dialog-assn-form" }))
+            {
+            }
+        </div>
+    </div>
+</div>
 
 @section Scripts {
-    <script type="text/javascript" src="@Url.Content("~/Areas/SecureSite/Scripts/dataTables/jquery.dataTables.js")"></script>
-    <script type="text/javascript" src="@Url.Content("~/Areas/SecureSite/Scripts/dataTables/dataTables.bootstrap.js")"></script>
+    <script src="@Url.Content("~/Areas/SecureSite/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Areas/SecureSite/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Areas/SecureSite/Scripts/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
     <script type="text/javascript">
-        $(document).ready(function () {
-            $('#data').dataTable({
-                bProcessing: true,
-                bServerSide: true,
-                sAjaxSource: document.URL,
-                sServerMethod: 'POST',
-                aoColumns: [
-                    { mDataProp: 'Category' },
-                    { mDataProp: 'Serie' },
-                    { mDataProp: 'Product' },
-                    { mDataProp: 'Priority' },
-                    {
-                        mDataProp: 'Enabled',
-                        mRender: function (o) {
-                            if (o === true)
-                                return '@Html.CheckBox("enabled", true, new { disabled = "disabled" })';
-                            else
-                                return '@Html.CheckBox("enabled", false, new { disabled = "disabled" })';
-                        }
-                    },
-                    {
-                        mData: 'Id',
-                        bSortable: false,
-                        mRender: function (o) {
-                            var tpl = '@Html.ActionLink(PersistanceResource.Edit, "Edit", new { id = 0}) |' +
-                                      '@Html.ActionLink(PersistanceResource.Details, "Details", new { id = 0 }) |' +
-                                      '@Html.ActionLink(PersistanceResource.Delete, "Delete", new { id = 0 })';
 
-                            return tpl.replace(/0/g, o);
-                        }
-                    }
-                ]
+        var el;
+
+        $(document).ajaxError(function (event, xhr, settings, error) {
+            alert(xhr.statusText);
+        });
+
+        $(function () {
+
+            $('.draggable > li').draggable({
+                cursor: 'move',
+                revert: 'invalid',
+                connectToSortable: '.sortable',
+                helper: 'clone'
             });
+
+            $('.sortable').sortable({
+                forceHelperSize: true,
+                forcePlaceholderSize: true,
+                placeholder: 'ui-state-highlight',
+                receive: function (event, ui) {
+
+                    var el = $(this).data().uiSortable.currentItem;
+
+                    $.post(
+                        '@Url.Action("Insert")',
+                        { assnCategorySerieId: el.parent().data('id'), productId: el.data('id'), priority: $(this).data('ui-sortable').currentItem.index() + 1 },
+                        function (data, status, xhr) {
+                            el.replaceWith(data);
+                            el.addClass('new');
+                        });
+
+                    return true;
+                },
+                update: function (event, ui) {
+                    if (!ui.item.hasClass('new')) {
+                        $.post('@Url.Action("Reorder")', { id: $(ui.item).data('id'), priority: ui.item.index() + 1 });
+                    }
+                    ui.item.removeClass();
+                }
+            }).disableSelection();
         });
     </script>
 }

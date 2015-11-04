@@ -41,7 +41,7 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
             }
             catch (Exception ex)
             {
-                return Json(new { success = bool.FalseString, message = ex.Message });
+                return new HttpStatusCodeResult(500, ex.Message);
             }
         }
 
@@ -52,13 +52,20 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
                 try
                 {
                     EditPost(entity);
-                    return Json(new { success = bool.TrueString });
+
+                    return new HttpStatusCodeResult(200);
                 }
                 catch (Exception ex)
                 {
                     ModelState.AddModelError("", ex.Message);
                 }
             }
+
+            entity.Category =
+                this._bizCategory.Value.Get(entity.CategoryId);
+
+            entity.Serie =
+                this._bizSerie.Value.Get(entity.SerieId);
 
             EditGetPrerender(entity);
 
@@ -72,11 +79,11 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
                 var entity = this.Business.Value.Get(id);
                 DeletePost(entity);
 
-                return Json(new { success = bool.TrueString });
+                return new HttpStatusCodeResult(200);
             }
             catch (Exception ex)
             {
-                return Json(new { success = bool.FalseString, message = ex.Message });
+                return new HttpStatusCodeResult(500, ex.Message);
             }
         }
 
@@ -88,11 +95,14 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
                 var id =
                     this.Business.Value.Insert(categoryId, serieId, priority);
 
-                return Json(new { success = bool.TrueString, id = id });
+                var entity =
+                    this.Business.Value.Get(id);
+
+                return PartialView("_Insert", entity);
             }
             catch (Exception ex)
             {
-                return Json(new { success = bool.FalseString, message = ex.Message });
+                return new HttpStatusCodeResult(500, ex.Message);
             }
         }
 
@@ -103,11 +113,11 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
             {
                 this.Business.Value.Reorder(id, priority);
 
-                return Json(new { success = bool.TrueString });
+                return new HttpStatusCodeResult(200);
             }
             catch (Exception ex)
             {
-                return Json(new { success = bool.FalseString, message = ex.Message });
+                return new HttpStatusCodeResult(500, ex.Message);
             }
         }
 
@@ -118,12 +128,6 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
             
             ViewBag.SerieId =
                 new SelectList(this._bizSerie.Value.All(), "SerieId", "Name", entity.SerieId);
-
-            entity.Category =
-                this._bizCategory.Value.Get(entity.CategoryId);
-
-            entity.Serie =
-                this._bizSerie.Value.Get(entity.SerieId);
         }
     }
 }

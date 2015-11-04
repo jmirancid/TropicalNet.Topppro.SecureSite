@@ -1,0 +1,21 @@
+﻿@using Framework.MVC.Resources
+@using Topppro.Entities.Resources
+@using Topppro.WebSite.Areas.SecureSite.Resources
+
+@model Topppro.Entities.Assn_CategorySerie
+
+<li data-id="@Model.Id">@Model.Serie.Name
+    <div class="btn-group btn-group-xs pull-right">
+        @Html.ActionLink(Ent_ProductResource._Caption, "Index", "AssnCategorySerieProduct", 
+            new { id = Model.Id },
+            new { @class = "btn btn-success" })
+        @Ajax.ActionLink(PersistanceResource.Edit, "Edit", null, 
+            new { id = Model.Id },
+            new AjaxOptions() { HttpMethod = "Get", UpdateTargetId = "dialog-assn-form", OnSuccess = "$.validator.unobtrusive.parse($('#dialog-assn-form')); $('#dialog-assn').modal({ show: true });" },
+            new { @class = "btn btn-warning", @title = PersistanceResource.Edit })
+        @Ajax.ActionLink(PersistanceResource.Delete, "Delete", null,
+            new { id = Model.Id },
+            new AjaxOptions() { HttpMethod = "Post", Confirm = PersistanceResource.Delete_Message, OnSuccess = "el.remove();" },
+            new { @class = "btn btn-danger", @title = PersistanceResource.Delete, @onclick = "el = $(this).parents('li');" })
+    </div>
+</li>

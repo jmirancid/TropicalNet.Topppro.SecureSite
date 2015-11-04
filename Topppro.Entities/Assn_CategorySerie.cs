@@ -20,15 +20,6 @@ namespace Topppro.Entities
                 AssnCategorySerieId = value;
             }
         }
-
-        public string Name
-        {
-            get
-            {
-                return string.Format("{0}/{1}", Category.Name, Serie.Name);
-            }
-        }
-
     }
 
     public class Assn_CategorySerie_Metadata

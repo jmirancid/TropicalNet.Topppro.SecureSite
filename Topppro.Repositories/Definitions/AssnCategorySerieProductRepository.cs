@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using System.Data.Objects;
 using System.Linq;
 using Topppro.Entities;
 using Topppro.Interfaces.Repositories;
@@ -8,6 +9,27 @@ namespace Topppro.Repositories.Definitions
     public class AssnCategorySerieProductRepository
         : Repository<Assn_CategorySerieProduct>, IAssnCategorySerieProductRepository
     {
+        public int Insert(int assnCategorySerieId, int productId, int priority)
+        {
+            var output =
+                new ObjectParameter("Id", typeof(int));
+
+            Context.ExecuteFunction("Assn_CategorySerieProduct_Insert",
+                new ObjectParameter("AssnCategorySerieId", assnCategorySerieId),
+                new ObjectParameter("ProductId", productId),
+                new ObjectParameter("Priority", priority),
+                output);
+
+            return (int)output.Value;
+        }
+
+        public void Reorder(int assnCategorySerieProductId, int priority)
+        {
+            Context.ExecuteFunction("Assn_CategorySerieProduct_Reorder",
+                new ObjectParameter("AssnCategorySerieProductId", assnCategorySerieProductId),
+                new ObjectParameter("Priority", priority));
+        }
+
         public override IQueryable<Assn_CategorySerieProduct> All()
         {
             return Context.Assn_CategorySerieProduct

@@ -40,6 +40,15 @@ namespace Topppro.Repositories.Definitions
                         .SingleOrDefault(e => e.AssnCategorySerieId == id);
         }
 
+        public Assn_CategorySerie GetWithProducts(int id)
+        {
+            return Context.Assn_CategorySerie
+                        .Include(e => e.Category)
+                        .Include(e => e.Serie)
+                        .Include(e => e.Assn_CategorySerieProduct.Select(a => a.Product))
+                        .SingleOrDefault(e => e.AssnCategorySerieId == id);
+        }
+
         public override IQueryable<Assn_CategorySerie> All()
         {
             return Context.Assn_CategorySerie

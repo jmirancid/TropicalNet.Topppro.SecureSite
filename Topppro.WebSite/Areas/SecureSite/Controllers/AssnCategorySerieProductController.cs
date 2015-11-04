@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using Framework.MVC.Controllers;
@@ -17,79 +16,119 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
         private readonly Lazy<ProductBusiness> _bizProduct =
             new Lazy<ProductBusiness>();
 
+        [NonAction]
         public override ActionResult Index()
         {
-            return View();
+            return base.Index();
         }
 
-        public override JsonResult Index(string sEcho, string sSearch, int iSortCol_0, string sSortDir_0, int iDisplayStart, int iDisplayLength)
+        public ActionResult Index(int id)
         {
-            int count;
-            IEnumerable<Assn_CategorySerieProduct> filtered;
-            System.Linq.Expressions.Expression<Func<Assn_CategorySerieProduct, bool>> predicate;
+            var products =
+                this._bizProduct.Value.All().OrderBy(p => p.Name);
 
-            if (!string.IsNullOrEmpty(sSearch))
+            ViewBag.Products = products;
+
+            var model =
+                this._bizAssnCategorySerie.Value.GetWithProducts(id);
+
+            return View(model);
+        }
+
+        public override ActionResult Edit(int id)
+        {
+            try
             {
-                predicate =
-                    x => x.Assn_CategorySerie.Category.Name.ToLower().Contains(sSearch.ToLower())
-                         || x.Assn_CategorySerie.Serie.Name.ToLower().Contains(sSearch.ToLower())
-                         || x.Product.Name.ToLower().Contains(sSearch.ToLower());
+                var entity =
+                    base.Business.Value.Get(id);
 
-                count =
-                    base.Business.Value
-                        .CountBy(predicate);
+                EditGetPrerender(entity);
 
-                filtered =
-                    base.Business.Value
-                        .FilterBy(iDisplayStart, iDisplayLength, predicate);
+                return PartialView("_Edit", entity);
             }
-            else
+            catch (Exception ex)
             {
-                count =
-                    base.Business.Value.Count();
-
-                filtered =
-                    base.Business.Value.Filter(iDisplayStart, iDisplayLength);
+                return new HttpStatusCodeResult(500, ex.Message);
             }
+        }
 
-            if (sSortDir_0 == "asc")
+        public override ActionResult Edit(Assn_CategorySerieProduct entity)
+        {
+            if (ModelState.IsValid)
             {
-                filtered = filtered.OrderBy(x =>
-                                  (iSortCol_0 == 0) ? x.Assn_CategorySerie.Category.Name
-                                : (iSortCol_0 == 1) ? x.Assn_CategorySerie.Serie.Name
-                                : (iSortCol_0 == 2) ? x.Product.Name : x.Priority.GetValueOrDefault(0).ToString());
-            }
-            else
-            {
-                filtered = filtered.OrderByDescending(x =>
-                                  (iSortCol_0 == 0) ? x.Assn_CategorySerie.Category.Name
-                                : (iSortCol_0 == 1) ? x.Assn_CategorySerie.Serie.Name
-                                : (iSortCol_0 == 2) ? x.Product.Name : x.Priority.GetValueOrDefault(0).ToString());
-            }
-
-            var data = filtered
-                .Select(x => new { Id = x.Id, Category = x.Assn_CategorySerie.Category.Name, Serie = x.Assn_CategorySerie.Serie.Name, Product = x.Product.Name, Priority = x.Priority, Enabled = x.Enabled });
-
-            return
-                Json(new
+                try
                 {
-                    sEcho = sEcho,
-                    iTotalRecords = base.Business.Value.Count(),
-                    iTotalDisplayRecords = count,
-                    aaData = data
-                }, JsonRequestBehavior.AllowGet);
+                    EditPost(entity);
+
+                    return new HttpStatusCodeResult(200);
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", ex.Message);
+                }
+            }
+
+            entity.Assn_CategorySerie =
+                this._bizAssnCategorySerie.Value.Get(entity.AssnCategorySerieId);
+
+            EditGetPrerender(entity);
+
+            return PartialView("_Edit", entity);
         }
 
-        public override void CreateGetPrerender(Assn_CategorySerieProduct entity = null)
+        public override ActionResult DeleteConfirmed(int id)
         {
-            ViewBag.AssnCategorySerieId = new SelectList(this._bizAssnCategorySerie.Value.All(), "AssnCategorySerieId", "Name");
-            ViewBag.ProductId = new SelectList(this._bizProduct.Value.All(), "ProductId", "Name");
+            try
+            {
+                var entity = this.Business.Value.Get(id);
+                DeletePost(entity);
+
+                return new HttpStatusCodeResult(200);
+            }
+            catch (Exception ex)
+            {
+                return new HttpStatusCodeResult(500, ex.Message);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult Insert(int assnCategorySerieId, int productId, int priority)
+        {
+            try
+            {
+                var id =
+                    this.Business.Value.Insert(assnCategorySerieId, productId, priority);
+
+                var entity =
+                    this.Business.Value.Get(id);
+
+                return PartialView("_Insert", entity);
+            }
+            catch (Exception ex)
+            {
+                return new HttpStatusCodeResult(500, ex.Message);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult Reorder(int id, int priority)
+        {
+            try
+            {
+                this.Business.Value.Reorder(id, priority);
+
+                return new HttpStatusCodeResult(200);
+            }
+            catch (Exception ex)
+            {
+                return new HttpStatusCodeResult(500, ex.Message);
+            }
         }
 
         public override void EditGetPrerender(Assn_CategorySerieProduct entity)
         {
-            ViewBag.AssnCategorySerieId = new SelectList(this._bizAssnCategorySerie.Value.All(), "AssnCategorySerieId", "Name", entity.AssnCategorySerieId);
-            ViewBag.ProductId = new SelectList(this._bizProduct.Value.All(), "ProductId", "Name", entity.ProductId);
+            ViewBag.ProductId =
+                new SelectList(this._bizProduct.Value.All().OrderBy(p => p.Name), "ProductId", "Name", entity.ProductId);
         }
     }
 }

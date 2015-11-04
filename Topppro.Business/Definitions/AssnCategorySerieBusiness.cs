@@ -17,7 +17,12 @@ namespace Topppro.Business.Definitions
             Repository.Value.Reorder(assnCategorySerieId, priority);
         }
 
-        public IQueryable<Entities.Assn_CategorySerie> AllByWithRefs(System.Linq.Expressions.Expression<System.Func<Entities.Assn_CategorySerie, bool>> predicate)
+        public Topppro.Entities.Assn_CategorySerie GetWithProducts(int id)
+        {
+            return base.Repository.Value.GetWithProducts(id);
+        }
+
+        public IQueryable<Topppro.Entities.Assn_CategorySerie> AllByWithRefs(System.Linq.Expressions.Expression<System.Func<Entities.Assn_CategorySerie, bool>> predicate)
         {
             return Repository.Value.AllByWithRefs(predicate);
         }
