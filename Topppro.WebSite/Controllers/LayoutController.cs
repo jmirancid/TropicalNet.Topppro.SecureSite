@@ -21,6 +21,7 @@ namespace Topppro.WebSite.Controllers
         protected readonly Lazy<AttributeBusiness> _bizAttribute =
             new Lazy<AttributeBusiness>();
 
+        [OutputCache(CacheProfile = "Short")]
         public virtual ActionResult Index(string controller)
         {
             var categoryId =
@@ -42,6 +43,7 @@ namespace Topppro.WebSite.Controllers
             return View(entities);
         }
 
+        [OutputCache(CacheProfile = "Short")]
         public virtual ActionResult Detail(string controller, int id, string name)
         {
             var entity = this._bizAssnCategorySerieProduct.Value
@@ -53,6 +55,7 @@ namespace Topppro.WebSite.Controllers
             return View(entity);
         }
 
+        [OutputCache(CacheProfile = "Short")]
         public virtual ActionResult HiRes(string controller, int id, string name)
         {
             var entity =
@@ -64,6 +67,7 @@ namespace Topppro.WebSite.Controllers
             return View(entity);
         }
 
+        [OutputCache(CacheProfile = "Mini")]
         public virtual ActionResult Compare(string controller, int lid, string lname, int rid, string rname)
         {
             var entities =

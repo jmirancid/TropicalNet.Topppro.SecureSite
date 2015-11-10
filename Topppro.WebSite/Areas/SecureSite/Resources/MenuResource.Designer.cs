@@ -79,6 +79,24 @@ namespace Topppro.WebSite.Areas.SecureSite.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Attributes.
+        /// </summary>
+        public static string Attribute {
+            get {
+                return ResourceManager.GetString("Attribute", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bullets.
+        /// </summary>
+        public static string Bullet {
+            get {
+                return ResourceManager.GetString("Bullet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cache.
         /// </summary>
         public static string Cache {
@@ -120,6 +138,15 @@ namespace Topppro.WebSite.Areas.SecureSite.Resources {
         public static string Index {
             get {
                 return ResourceManager.GetString("Index", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Master Data.
+        /// </summary>
+        public static string Master {
+            get {
+                return ResourceManager.GetString("Master", resourceCulture);
             }
         }
         

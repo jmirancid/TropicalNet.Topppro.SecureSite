@@ -120,6 +120,12 @@
   <data name="Association" xml:space="preserve">
     <value>Associations</value>
   </data>
+  <data name="Attribute" xml:space="preserve">
+    <value>Attributes</value>
+  </data>
+  <data name="Bullet" xml:space="preserve">
+    <value>Bullets</value>
+  </data>
   <data name="Cache" xml:space="preserve">
     <value>Cache</value>
   </data>
@@ -137,6 +143,9 @@
   </data>
   <data name="Index" xml:space="preserve">
     <value>Index</value>
+  </data>
+  <data name="Master" xml:space="preserve">
+    <value>Master Data</value>
   </data>
   <data name="Model" xml:space="preserve">
     <value>Models</value>

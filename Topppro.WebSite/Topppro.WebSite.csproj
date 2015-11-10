@@ -88,6 +88,7 @@
     <Compile Include="Areas\SecureSite\Controllers\AssnCategorySerieProductController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\AttributeController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\BulletController.cs" />
+    <Compile Include="Areas\SecureSite\Controllers\CacheController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\CategoryController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\CountryController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\CultureController.cs" />
@@ -546,6 +547,10 @@
       <Project>{67A2BF12-D86A-4023-BF3C-81504CFC1CE3}</Project>
       <Name>Framework.Business</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\TropicalNet.Framework\trunk\Framework.Cache\Framework.Cache.csproj">
+      <Project>{78450449-BF0A-4ED3-96FE-622DF252AD27}</Project>
+      <Name>Framework.Cache</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\TropicalNet.Framework\trunk\Framework.Common\Framework.Common.csproj">
       <Project>{83B7B840-B325-4CA1-B5AE-D368AE02B53D}</Project>
       <Name>Framework.Common</Name>
@@ -793,6 +798,9 @@
     <Content Include="Areas\SecureSite\Views\AssnCategorySerieProduct\_Edit.cshtml" />
     <Content Include="Areas\SecureSite\Views\AssnCategorySerieProduct\_Insert.cshtml" />
     <Content Include="Areas\SecureSite\Views\AssnCategorySerie\_Insert.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Cache\Index.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Cache\Delete.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Cache\DisplayTemplates\CacheEntry.cshtml" />
     <None Include="Scripts\jquery.panelslider-0.1.1\README.md" />
     <Content Include="Views\Account\LogOn.cshtml" />
     <Content Include="Views\Amplifiers\Index.cshtml" />
