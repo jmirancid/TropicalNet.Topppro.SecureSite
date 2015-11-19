@@ -35,7 +35,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Detail)
-            @Html.TinyMceFor(model => model.Detail, TinyMcePresets.Default)
+            @Html.TinyMceFor(model => model.Detail, TinyMcePresets.Lite)
             @Html.ValidationMessageFor(model => model.Detail)
         </div>
 

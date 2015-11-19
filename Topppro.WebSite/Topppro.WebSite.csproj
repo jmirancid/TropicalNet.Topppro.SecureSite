@@ -801,6 +801,9 @@
     <Content Include="Areas\SecureSite\Views\Cache\Index.cshtml" />
     <Content Include="Areas\SecureSite\Views\Cache\Delete.cshtml" />
     <Content Include="Areas\SecureSite\Views\Cache\DisplayTemplates\CacheEntry.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Shared\_TinyMCELite.cshtml">
+      <SubType>Code</SubType>
+    </Content>
     <None Include="Scripts\jquery.panelslider-0.1.1\README.md" />
     <Content Include="Views\Account\LogOn.cshtml" />
     <Content Include="Views\Amplifiers\Index.cshtml" />
