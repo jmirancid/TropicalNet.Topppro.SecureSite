@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web.Mvc;
 using Framework.MVC.Controllers;
 using Topppro.Business.Definitions;
@@ -16,11 +17,15 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
         private readonly Lazy<CultureBusiness> _bizCulture =
             new Lazy<CultureBusiness>();
 
+        #region NonAction
+
+        [NonAction]
         public override ActionResult Index()
         {
             return View();
         }
 
+        [NonAction]
         public override JsonResult Index(string sEcho, string sSearch, int iSortCol_0, string sSortDir_0, int iDisplayStart, int iDisplayLength)
         {
             int count;
@@ -80,15 +85,164 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
                 }, JsonRequestBehavior.AllowGet);
         }
 
+        [NonAction]
+        public override ActionResult Create()
+        {
+            return View();
+        }
+
+        #endregion
+
+        [ChildActionOnly]
+        public ActionResult Index(int id)
+        {
+            var entities =
+                base.Business.Value.AllBy(e => e.ProductId == id)
+                .OrderBy(e => e.Priority);
+
+            ViewBag.ProductId = id;
+
+            return PartialView("_Index", entities);
+        }
+
+        public ActionResult Create(int id)
+        {
+            try
+            {
+                var entity =
+                    new Topppro.Entities.Bullet()
+                    {
+                        ProductId = id,
+                        Value = string.Empty
+                    };
+
+                CreateGetPrerender();
+
+                return PartialView("_Create", entity);
+            }
+            catch (Exception ex)
+            {
+                Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                return Content(ex.Message);
+            }
+        }
+
+        public override ActionResult Create(Topppro.Entities.Bullet entity)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    CreatePost(entity);
+
+                    entity.Culture =
+                        this._bizCulture.Value.Get(entity.CultureId);
+
+                    Response.StatusCode = (int)HttpStatusCode.OK;
+                    return Json(new object[] { entity.Culture.Name, entity.Name, entity.Value, entity.Priority, entity.Enabled, entity.Id });
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", ex.Message);
+                }
+            }
+
+            var errors = from kvp in ModelState
+                         from e in kvp.Value.Errors
+                         select new { ModelMetadataProviders.Current.GetMetadataForProperty(null, typeof(Topppro.Entities.Bullet), kvp.Key).DisplayName, e.ErrorMessage };
+
+            Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+            return Json(errors);
+        }
+
+        public override ActionResult Details(int id)
+        {
+            try
+            {
+                var entity = this.Business.Value.Get(id);
+                DetailsGetPrerender(entity);
+
+                return PartialView("_Details", entity);
+            }
+            catch (Exception ex)
+            {
+                Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                return Content(ex.Message);
+            }
+        }
+
+        public override ActionResult Edit(int id)
+        {
+            try
+            {
+                var entity = this.Business.Value.Get(id);
+                EditGetPrerender(entity);
+
+                return PartialView("_Edit", entity);
+            }
+            catch (Exception ex)
+            {
+                Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                return Content(ex.Message);
+            }
+        }
+
+        public override ActionResult Edit(Topppro.Entities.Bullet entity)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    EditPost(entity);
+
+                    entity.Culture =
+                        this._bizCulture.Value.Get(entity.CultureId);
+
+                    Response.StatusCode = (int)HttpStatusCode.OK;
+                    return Json(new object[] { entity.Culture.Name, entity.Name, entity.Value, entity.Priority, entity.Enabled, entity.Id });
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", ex.Message);
+                }
+            }
+
+            var errors = from kvp in ModelState
+                         from e in kvp.Value.Errors
+                         select new { ModelMetadataProviders.Current.GetMetadataForProperty(null, typeof(Topppro.Entities.Bullet), kvp.Key).DisplayName, e.ErrorMessage };
+
+            Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+            return Json(errors);
+        }
+
+        public override ActionResult DeleteConfirmed(int id)
+        {
+            try
+            {
+                var entity = this.Business.Value.Get(id);
+                DeletePost(entity);
+
+                return new HttpStatusCodeResult((int)HttpStatusCode.OK);
+            }
+            catch (Exception ex)
+            {
+                Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                return Content(ex.Message);
+            }
+        }
+
         public override void CreateGetPrerender(Topppro.Entities.Bullet entity = null)
         {
-            ViewBag.ProductId = new SelectList(this._bizProduct.Value.All(), "ProductId", "Name");
             ViewBag.CultureId = new SelectList(this._bizCulture.Value.All(), "CultureId", "Name");
+        }
+
+        public override void DetailsGetPrerender(Entities.Bullet entity)
+        {
+            ViewBag.CultureId = new SelectList(this._bizCulture.Value.All(), "CultureId", "Name", entity.CultureId);
         }
 
         public override void EditGetPrerender(Topppro.Entities.Bullet entity)
         {
-            ViewBag.ProductId = new SelectList(this._bizProduct.Value.All(), "ProductId", "Name", entity.ProductId);
             ViewBag.CultureId = new SelectList(this._bizCulture.Value.All(), "CultureId", "Name", entity.CultureId);
         }
     }

@@ -13,10 +13,16 @@ namespace Topppro.Repositories.Definitions
                         .Include(e => e.Culture);
         }
 
+        public override IQueryable<Entities.Bullet> AllBy(System.Linq.Expressions.Expression<System.Func<Entities.Bullet, bool>> predicate)
+        {
+            return Context.Bullet
+                        .Include(e => e.Culture)
+                        .Where(predicate);
+        }
+
         public override IQueryable<Entities.Bullet> Filter(int skip, int take)
         {
             return Context.Bullet
-                        .Include(e => e.Product)
                         .Include(e => e.Culture)
                         .OrderBy(e => e.BulletId)
                         .Skip(skip).Take(take);
@@ -26,7 +32,6 @@ namespace Topppro.Repositories.Definitions
             int skip, int take, System.Linq.Expressions.Expression<System.Func<Entities.Bullet, bool>> predicate)
         {
             return Context.Bullet
-                        .Include(e => e.Product)
                         .Include(e => e.Culture)
                         .Where(predicate)
                         .OrderBy(e => e.BulletId)

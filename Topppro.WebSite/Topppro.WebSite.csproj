@@ -774,7 +774,6 @@
     <Content Include="Areas\SecureSite\Views\Bullet\Delete.cshtml" />
     <Content Include="Areas\SecureSite\Views\Bullet\Details.cshtml" />
     <Content Include="Areas\SecureSite\Views\Bullet\Edit.cshtml" />
-    <Content Include="Areas\SecureSite\Views\Bullet\Index.cshtml" />
     <Content Include="Areas\SecureSite\Views\Shared\_Menu.cshtml" />
     <Content Include="Content\Fonts\Humanst521BT-Light.eot" />
     <Content Include="Content\Fonts\Humanst521BT-Light.otf" />
@@ -804,6 +803,15 @@
     <Content Include="Areas\SecureSite\Views\Shared\_TinyMCELite.cshtml">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="Areas\SecureSite\Views\Bullet\DisplayTemplates\Bullet.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Bullet\Index.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Bullet\_Details.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Bullet\_Index.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Product\DisplayTemplates\Product.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Product\EditorTemplates\Product.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Bullet\_Create.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Bullet\EditorTemplates\Bullet.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Bullet\_Edit.cshtml" />
     <None Include="Scripts\jquery.panelslider-0.1.1\README.md" />
     <Content Include="Views\Account\LogOn.cshtml" />
     <Content Include="Views\Amplifiers\Index.cshtml" />

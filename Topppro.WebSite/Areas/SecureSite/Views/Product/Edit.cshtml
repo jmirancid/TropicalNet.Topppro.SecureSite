@@ -7,104 +7,69 @@
     ViewBag.Title = PersistanceResource.Edit;
 }
 
+@section Styles {
+    <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Areas/SecureSite/Scripts/dataTables/dataTables.bootstrap.css")" />
+    <style type="text/css">
+        .modal-header
+        {
+            background-color: #800000;
+            color: #ffffff;
+        }
+    </style>
+}
+
 <h2>@PersistanceResource.Edit</h2>
 
-@using (Html.BeginForm()) {
-    @Html.ValidationSummary(true)
-    <fieldset>
-        <legend>@Ent_ProductResource._Caption</legend>
+<ul class="nav nav-tabs">
+    <li class="active">
+        <a href="#product" data-toggle="tab" aria-expanded="true">@Ent_ProductResource._Caption</a>
+    </li>
+    <li>
+        <a href="#bullet" data-toggle="tab" aria-expanded="true">@Ent_BulletResource._Caption</a>
+    </li>
+    <li>
+        <a href="#attribute" data-toggle="tab" aria-expanded="false">@Ent_AttributeResource._Caption</a>
+    </li>
+</ul>
 
-        @Html.HiddenFor(model => model.ProductId)
-
-        <!--
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Name)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Name)
-            @Html.ValidationMessageFor(model => model.Name)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.ModelId)
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("ModelId", PersistanceResource.Selection)
-            @Html.ValidationMessageFor(model => model.ModelId)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Folder)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Folder)
-            @Html.ValidationMessageFor(model => model.Folder)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Manual)
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("Manual", PersistanceResource.Selection)
-            @Html.ValidationMessageFor(model => model.Manual)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Draft)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Draft)
-            @Html.ValidationMessageFor(model => model.Draft)
-        </div>
-        -->
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Name)
-            @Html.TextBoxFor(model => model.Name, new { @class = "form-control", style = "width:400px;" })
-            @Html.ValidationMessageFor(model => model.Name)
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ModelId)
-            @Html.DropDownListFor(model => model.ModelId, null, PersistanceResource.Selection, new { @class = "form-control", style = "width:400px;" })
-            @Html.ValidationMessageFor(model => model.ModelId)
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Folder)
-            @Html.TextBoxFor(model => model.Folder, new { @class = "form-control", style = "width:400px;" })
-            @Html.ValidationMessageFor(model => model.Folder)
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Manual)
-            @Html.DropDownListFor(model => model.Manual, null, PersistanceResource.Selection, new { @class = "form-control", style = "width:400px;" })
-            @Html.ValidationMessageFor(model => model.Manual)
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Draft)
-            @Html.EditorFor(model => model.Draft)
-            @Html.ValidationMessageFor(model => model.Draft)
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Badge)
-            @Html.TextBoxFor(model => model.Badge, new { @class = "form-control", style = "width:400px;" })
-            @Html.ValidationMessageFor(model => model.Badge)
-        </div>
-
-        <p>
-            <input class="btn btn-primary" type="submit" value="@PersistanceResource.Save" />
-        </p>
-    </fieldset>
-}
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="product">
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)
+            
+            <fieldset>
+                @Html.HiddenFor(model => model.ProductId)
+                @Html.EditorFor(model => Model)
+                <p>
+                    <input class="btn btn-primary" type="submit" value="@PersistanceResource.Save" />
+                </p>
+            </fieldset>
+        }
+    </div>
+    <div class="tab-pane fade" id="bullet">
+        @Html.Action("Index", "Bullet", new { id = Model.Id })
+    </div>
+    <div class="tab-pane fade" id="attribute">
+        <h4>@Ent_AttributeResource._Caption</h4>
+    </div>
+</div>
 
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
 
 @section Scripts {
+    <script src="@Url.Content("~/Areas/SecureSite/Scripts/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Areas/SecureSite/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Areas/SecureSite/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Areas/SecureSite/Scripts/dataTables/jquery.dataTables.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Areas/SecureSite/Scripts/dataTables/dataTables.bootstrap.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Areas/SecureSite/Scripts/tinymce/tinymce.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Areas/SecureSite/Scripts/tinymce/jquery.tinymce.min.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ajaxError(function (event, xhr, settings, error) {
+            alert(xhr.responseText);
+        });
+    </script>
 }
