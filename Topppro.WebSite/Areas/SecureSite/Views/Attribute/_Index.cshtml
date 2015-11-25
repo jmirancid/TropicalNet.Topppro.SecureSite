@@ -1,0 +1,95 @@
+﻿@using Framework.MVC.Resources
+@using Framework.MVC.Extensions
+
+@model IEnumerable<Topppro.Entities.Attribute>
+
+<p>
+    @Ajax.ActionLink(PersistanceResource.Create, "Create", "Attribute", new { id = ViewBag.ProductId },
+        new AjaxOptions()
+        {
+            HttpMethod = "Get",
+            UpdateTargetId = "attribute-modal-content",
+            OnSuccess = "$.validator.unobtrusive.parse($('#attribute-modal-content')); $('#attribute-modal').modal({ show: true });"
+        })
+</p>
+
+<table class="table table-striped table-bordered table-hover" id="attribute-list">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CultureId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Priority)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Enabled)
+            </th>
+            <th>
+                @PersistanceResource.Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Culture.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.Priority)</td>
+                <td>@item.Enabled.ToString().ToLower()</td>
+                <td class="center">@Html.DisplayFor(modelItem => item.Id)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@* Modal Box CRUD *@
+<div id="attribute-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div id="attribute-modal-content" class="modal-content">
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var el;
+
+        $('#attribute-list').dataTable({
+            aoColumns: [
+                    null,
+                    null,
+                    null,
+                    {
+                        mRender: function (o) {
+
+                            if (JSON.parse(o) === true)
+                                return '@Html.CheckBox("enabled", true, new { disabled = "disabled" })';
+                            else
+                                return '@Html.CheckBox("enabled", false, new { disabled = "disabled" })';
+                        }
+                    },
+                    {
+                        bSortable: false,
+                        mRender: function (o) {
+
+                            var tpl = '@Ajax.ActionLink(PersistanceResource.Edit, "Edit", "Attribute", new { id = 0 }, new AjaxOptions() { HttpMethod = "Get", UpdateTargetId = "attribute-modal-content", OnSuccess = "$('#attribute-modal').modal({ show: true });" }, new { onclick = "el = $(this).closest('tr');" }) |' +
+                                      '@Ajax.ActionLink(PersistanceResource.Details, "Details", "Attribute", new { id = 0 }, new AjaxOptions() { HttpMethod = "Get", UpdateTargetId = "attribute-modal-content", OnSuccess = "$('#attribute-modal').modal({ show: true });" }) |' +
+                                      '@Ajax.ActionLink(PersistanceResource.Delete, "Delete", "Attribute", new { id = 0 }, new AjaxOptions() { HttpMethod = "Post", Confirm = PersistanceResource.Delete_Message, OnSuccess = "$('#attribute-list').dataTable().fnDeleteRow(el);" }, new { onclick = "el = $(this).closest('tr');" })';
+
+                            return tpl.replace(/0/g, o);
+                        }
+                    }
+                ]
+        });
+
+        $('#attribute-modal').on('hide.bs.modal', function (e) {
+            tinyMCE.editors = [];
+        })
+    });
+</script>

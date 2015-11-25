@@ -812,6 +812,12 @@
     <Content Include="Areas\SecureSite\Views\Bullet\_Create.cshtml" />
     <Content Include="Areas\SecureSite\Views\Bullet\EditorTemplates\Bullet.cshtml" />
     <Content Include="Areas\SecureSite\Views\Bullet\_Edit.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Attribute\DisplayTemplates\Attribute.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Attribute\EditorTemplates\Attribute.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Attribute\_Index.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Attribute\_Create.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Attribute\_Details.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Attribute\_Edit.cshtml" />
     <None Include="Scripts\jquery.panelslider-0.1.1\README.md" />
     <Content Include="Views\Account\LogOn.cshtml" />
     <Content Include="Views\Amplifiers\Index.cshtml" />

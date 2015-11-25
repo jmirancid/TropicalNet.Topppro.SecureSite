@@ -236,7 +236,7 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
             ViewBag.CultureId = new SelectList(this._bizCulture.Value.All(), "CultureId", "Name");
         }
 
-        public override void DetailsGetPrerender(Entities.Bullet entity)
+        public override void DetailsGetPrerender(Topppro.Entities.Bullet entity)
         {
             ViewBag.CultureId = new SelectList(this._bizCulture.Value.All(), "CultureId", "Name", entity.CultureId);
         }

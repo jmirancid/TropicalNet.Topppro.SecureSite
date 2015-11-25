@@ -10,9 +10,14 @@
 @section Styles {
     <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Areas/SecureSite/Scripts/dataTables/dataTables.bootstrap.css")" />
     <style type="text/css">
-        .modal-header
+        #bullet-modal .modal-header
         {
             background-color: #800000;
+            color: #ffffff;
+        }
+        #attribute-modal .modal-header
+        {
+            background-color: #222999;
             color: #ffffff;
         }
     </style>
@@ -51,7 +56,7 @@
         @Html.Action("Index", "Bullet", new { id = Model.Id })
     </div>
     <div class="tab-pane fade" id="attribute">
-        <h4>@Ent_AttributeResource._Caption</h4>
+        @Html.Action("Index", "Attribute", new { id = Model.Id })
     </div>
 </div>
 
