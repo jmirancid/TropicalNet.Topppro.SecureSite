@@ -144,9 +144,6 @@
   <data name="Index" xml:space="preserve">
     <value>Index</value>
   </data>
-  <data name="Master" xml:space="preserve">
-    <value>Master Data</value>
-  </data>
   <data name="Model" xml:space="preserve">
     <value>Models</value>
   </data>

@@ -142,15 +142,6 @@ namespace Topppro.WebSite.Areas.SecureSite.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Master Data.
-        /// </summary>
-        public static string Master {
-            get {
-                return ResourceManager.GetString("Master", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Models.
         /// </summary>
         public static string Model {
