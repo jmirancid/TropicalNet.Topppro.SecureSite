@@ -716,13 +716,6 @@
     <Content Include="Areas\SecureSite\Views\Product\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\SecureSite\Views\Attribute\Create.cshtml" />
-    <Content Include="Areas\SecureSite\Views\Attribute\Delete.cshtml" />
-    <Content Include="Areas\SecureSite\Views\Attribute\Details.cshtml" />
-    <Content Include="Areas\SecureSite\Views\Attribute\Edit.cshtml" />
-    <Content Include="Areas\SecureSite\Views\Attribute\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Areas\SecureSite\Views\Model\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -770,10 +763,6 @@
     <Content Include="Areas\SecureSite\Views\Package\Delete.cshtml" />
     <Content Include="Areas\SecureSite\Views\Package\Create.cshtml" />
     <Content Include="Areas\SecureSite\Views\Package\Edit.cshtml" />
-    <Content Include="Areas\SecureSite\Views\Bullet\Create.cshtml" />
-    <Content Include="Areas\SecureSite\Views\Bullet\Delete.cshtml" />
-    <Content Include="Areas\SecureSite\Views\Bullet\Details.cshtml" />
-    <Content Include="Areas\SecureSite\Views\Bullet\Edit.cshtml" />
     <Content Include="Areas\SecureSite\Views\Shared\_Menu.cshtml" />
     <Content Include="Content\Fonts\Humanst521BT-Light.eot" />
     <Content Include="Content\Fonts\Humanst521BT-Light.otf" />
@@ -804,7 +793,6 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="Areas\SecureSite\Views\Bullet\DisplayTemplates\Bullet.cshtml" />
-    <Content Include="Areas\SecureSite\Views\Bullet\Index.cshtml" />
     <Content Include="Areas\SecureSite\Views\Bullet\_Details.cshtml" />
     <Content Include="Areas\SecureSite\Views\Bullet\_Index.cshtml" />
     <Content Include="Areas\SecureSite\Views\Product\DisplayTemplates\Product.cshtml" />
