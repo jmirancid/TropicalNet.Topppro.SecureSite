@@ -78,6 +78,22 @@ IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Bullet') AND OBJE
 GO
 
 --
+-- Dropping table Country : 
+--
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Country') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  DROP TABLE dbo.Country
+GO
+
+--
+-- Dropping table Distributor : 
+--
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Distributor') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  DROP TABLE dbo.Distributor
+GO
+
+--
 -- Dropping table Package : 
 --
 
@@ -101,6 +117,21 @@ IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Assn_CategorySeri
   DROP PROCEDURE dbo.Assn_CategorySerie_Reorder
 GO
 
+--
+-- Dropping stored procedure Assn_CategorySerieProduct_Insert : 
+--
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Assn_CategorySerieProduct_Insert') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+  DROP PROCEDURE dbo.Assn_CategorySerieProduct_Insert
+GO
+
+--
+-- Dropping stored procedure Assn_CategorySerieProduct_Reorder : 
+--
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Assn_CategorySerieProduct_Reorder') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+  DROP PROCEDURE dbo.Assn_CategorySerieProduct_Reorder
+GO
 
 --
 -- Definition for table Category : 
@@ -227,6 +258,35 @@ ON [PRIMARY]
 GO
 
 --
+-- Definition for table Country : 
+--
+
+CREATE TABLE dbo.Country (
+  CountryId int IDENTITY(1, 1) NOT NULL,
+  Name varchar(150) COLLATE Modern_Spanish_CI_AS NOT NULL,
+  Priority int NULL,
+  Enabled bit NOT NULL
+)
+ON [PRIMARY]
+GO
+
+--
+-- Definition for table Distributor : 
+--
+
+CREATE TABLE dbo.Distributor (
+  DistributorId int IDENTITY(1, 1) NOT NULL,
+  CountryId int NOT NULL,
+  CultureId int NOT NULL,
+  Name varchar(150) COLLATE Modern_Spanish_CI_AS NOT NULL,
+  Detail varchar(8000) COLLATE Modern_Spanish_CI_AS NOT NULL,
+  Priority int NULL,
+  Enabled bit NOT NULL
+)
+ON [PRIMARY]
+GO
+
+--
 -- Definition for table Package : 
 --
 
@@ -268,7 +328,7 @@ BEGIN
   VALUES
   	(@CategoryId, @SerieId, 5, 1, @Priority, 1)
   
-  SET @Id=SCOPE_IDENTITY()
+  SET @Id = SCOPE_IDENTITY()
   
 END
 GO
@@ -298,6 +358,67 @@ BEGIN
   WHERE
   	AssnCategorySerieId = @AssnCategorySerieId
   
+END
+GO
+
+--
+-- Definition for stored procedure Assn_CategorySerieProduct_Insert : 
+--
+GO
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE dbo.Assn_CategorySerieProduct_Insert
+	@AssnCategorySerieId int,
+    @ProductId int,
+    @Priority int,
+    @Id int OUTPUT
+AS
+BEGIN
+  /* Procedure body */
+  SET NOCOUNT ON;
+
+  UPDATE dbo.Assn_CategorySerieProduct
+  SET Priority = Priority + 1
+  WHERE
+  	Priority >= @Priority
+  
+  INSERT INTO dbo.Assn_CategorySerieProduct
+  	(AssnCategorySerieId, ProductId, AllowCompare, Priority, [Enabled])
+  VALUES
+  	(@AssnCategorySerieId, @ProductId, 1, @Priority, 1)
+  
+  SET @Id = SCOPE_IDENTITY()
+    
+END
+GO
+
+--
+-- Definition for stored procedure Assn_CategorySerieProduct_Reorder : 
+--
+GO
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE dbo.Assn_CategorySerieProduct_Reorder
+	@AssnCategorySerieProductId int,
+    @Priority int
+AS
+BEGIN
+  /* Procedure body */
+  SET NOCOUNT ON;
+  
+  UPDATE dbo.Assn_CategorySerieProduct
+  SET Priority = Priority + 1
+  WHERE
+  	Priority >= @Priority
+    
+  UPDATE dbo.Assn_CategorySerieProduct
+  SET Priority = @Priority
+  WHERE
+  	AssnCategorySerieProductId = @AssnCategorySerieProductId
 END
 GO
 
@@ -438,6 +559,54 @@ WITH (
 ON [PRIMARY]
 GO
 
+CREATE NONCLUSTERED INDEX IPK_Country_1 ON dbo.Country
+  (CountryId)
+WITH (
+  PAD_INDEX = OFF,
+  DROP_EXISTING = OFF,
+  STATISTICS_NORECOMPUTE = OFF,
+  SORT_IN_TEMPDB = OFF,
+  ONLINE = OFF,
+  ALLOW_ROW_LOCKS = ON,
+  ALLOW_PAGE_LOCKS = ON)
+ON [PRIMARY]
+GO
+
+CREATE NONCLUSTERED INDEX IPK_CountryId_1 ON dbo.Country
+  (CountryId)
+WITH (
+  PAD_INDEX = OFF,
+  DROP_EXISTING = OFF,
+  STATISTICS_NORECOMPUTE = OFF,
+  SORT_IN_TEMPDB = OFF,
+  ONLINE = OFF,
+  ALLOW_ROW_LOCKS = ON,
+  ALLOW_PAGE_LOCKS = ON)
+ON [PRIMARY]
+GO
+
+ALTER TABLE dbo.Country
+ADD PRIMARY KEY CLUSTERED (CountryId)
+WITH (
+  PAD_INDEX = OFF,
+  IGNORE_DUP_KEY = OFF,
+  STATISTICS_NORECOMPUTE = OFF,
+  ALLOW_ROW_LOCKS = ON,
+  ALLOW_PAGE_LOCKS = ON)
+ON [PRIMARY]
+GO
+
+ALTER TABLE dbo.Distributor
+ADD PRIMARY KEY CLUSTERED (DistributorId)
+WITH (
+  PAD_INDEX = OFF,
+  IGNORE_DUP_KEY = OFF,
+  STATISTICS_NORECOMPUTE = OFF,
+  ALLOW_ROW_LOCKS = ON,
+  ALLOW_PAGE_LOCKS = ON)
+ON [PRIMARY]
+GO
+
 ALTER TABLE dbo.Package
 ADD CONSTRAINT Package_PK 
 PRIMARY KEY CLUSTERED (PackageId)
@@ -517,6 +686,20 @@ ADD CONSTRAINT Product_Bullet_FK FOREIGN KEY (ProductId)
   ON DELETE NO ACTION
 GO
 
+ALTER TABLE dbo.Distributor
+ADD FOREIGN KEY (CountryId) 
+  REFERENCES dbo.Country (CountryId) 
+  ON UPDATE NO ACTION
+  ON DELETE NO ACTION
+GO
+
+ALTER TABLE dbo.Distributor
+ADD FOREIGN KEY (CultureId) 
+  REFERENCES dbo.Culture (CultureId) 
+  ON UPDATE NO ACTION
+  ON DELETE NO ACTION
+GO
+
 ALTER TABLE dbo.Package
 ADD CONSTRAINT Package_Child_Product_FK FOREIGN KEY (ChildProductId) 
   REFERENCES dbo.Product (ProductId) 
@@ -530,56 +713,3 @@ ADD CONSTRAINT Package_Parent_Product_FK FOREIGN KEY (ParentProductId)
   ON UPDATE NO ACTION
   ON DELETE NO ACTION
 GO
-
-
---
--- Dropping table Distributor : 
---
-
-if exists (select * from sysobjects where id = object_id(N'dbo.Distributor') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
-drop table dbo.Distributor
-GO
-
-
---
--- Dropping table Country : 
---
-
-if exists (select * from sysobjects where id = object_id(N'dbo.Country') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
-drop table dbo.Country
-GO
-
-/*******************************************************************************
-   Create Tables
-********************************************************************************/
-CREATE TABLE [dbo].[Country] 
-( 
-	[CountryId] INTEGER NOT NULL IDENTITY,
-    [Name] VARCHAR(150) NOT NULL,
-	[Priority] INTEGER ,
-	[Enabled] BIT NOT NULL,
-    PRIMARY KEY(CountryId)
-);
-
-CREATE TABLE [dbo].[Distributor] 
-( 
-	[DistributorId] INTEGER NOT NULL IDENTITY,
-	[CountryId] INTEGER NOT NULL,
-    [CultureId] INTEGER NOT NULL,
-    [Name] VARCHAR(150) NOT NULL,
-    [Detail] VARCHAR(8000) NOT NULL,
-	[Priority] INTEGER ,
-	[Enabled] BIT NOT NULL,
-    PRIMARY KEY(DistributorId)
-);
-
-/*******************************************************************************
-   Create Foreign Keys
-********************************************************************************/
-ALTER TABLE Distributor ADD FOREIGN KEY (CountryId) REFERENCES Country(CountryId);
-ALTER TABLE Distributor ADD FOREIGN KEY (CultureId) REFERENCES Culture(CultureId);
-/*******************************************************************************
-   Create Indexes
-********************************************************************************/
-CREATE INDEX IPK_Country_1 ON Country(CountryId);
-CREATE INDEX IPK_CountryId_1 ON Country(CountryId);
