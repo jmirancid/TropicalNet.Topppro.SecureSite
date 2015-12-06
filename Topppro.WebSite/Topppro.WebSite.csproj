@@ -378,8 +378,10 @@
     <Content Include="Content\Images\intro-1.jpg" />
     <Content Include="Content\Images\intro-2.jpg" />
     <Content Include="Content\Images\intro-3.jpg" />
+    <Content Include="Content\Images\intro-4.jpg" />
     <Content Include="Content\Images\intro-5.jpg" />
     <Content Include="Content\Images\intro-6.jpg" />
+    <Content Include="Content\Images\intro-7.jpg" />
     <Content Include="Content\Images\italy-flag.jpg" />
     <Content Include="Content\Images\loading.gif" />
     <Content Include="Content\Images\manual-bottom.jpg" />
