@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Topppro.WebSite.Models
+namespace Topppro.WebSite.Areas.Customers.Models
 {
-    public class DLCModel
+    public class DownloadContentModel
     {
         public string Url { get; set; }
 

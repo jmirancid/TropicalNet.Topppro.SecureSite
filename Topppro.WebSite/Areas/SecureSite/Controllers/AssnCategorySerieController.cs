@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Web.Mvc;
-using Framework.MVC.Controllers;
 using Topppro.Business.Definitions;
 using Topppro.Entities;
 
 namespace Topppro.WebSite.Areas.SecureSite.Controllers
 {
-    public class AssnCategorySerieController
-        : PersistanceController<Topppro.Entities.Assn_CategorySerie, AssnCategorySerieBusiness>
+    public class AssnCategorySerieController :
+        LayoutController<Topppro.Entities.Assn_CategorySerie, AssnCategorySerieBusiness>
     {
         private readonly Lazy<CategoryBusiness> _bizCategory =
             new Lazy<CategoryBusiness>();
@@ -125,7 +124,7 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
         {
             ViewBag.CategoryId =
                 new SelectList(this._bizCategory.Value.All(), "CategoryId", "Name", entity.CategoryId);
-            
+
             ViewBag.SerieId =
                 new SelectList(this._bizSerie.Value.All(), "SerieId", "Name", entity.SerieId);
         }

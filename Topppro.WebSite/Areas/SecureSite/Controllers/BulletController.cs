@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
-using Framework.MVC.Controllers;
 using Topppro.Business.Definitions;
 
 namespace Topppro.WebSite.Areas.SecureSite.Controllers
 {
     public class BulletController :
-        PersistanceController<Topppro.Entities.Bullet, BulletBusiness>
+        LayoutController<Topppro.Entities.Bullet, BulletBusiness>
     {
         private readonly Lazy<ProductBusiness> _bizProduct =
             new Lazy<ProductBusiness>();

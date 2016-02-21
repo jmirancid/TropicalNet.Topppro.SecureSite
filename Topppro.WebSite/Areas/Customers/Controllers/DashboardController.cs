@@ -2,13 +2,13 @@
 using System.Linq;
 using System.Web.Helpers;
 using System.Web.Mvc;
-using Topppro.WebSite.Models;
+using Topppro.WebSite.Areas.Customers.Models;
 using Topppro.WebSite.Settings;
 
-namespace Topppro.WebSite.Controllers
+namespace Topppro.WebSite.Areas.Customers.Controllers
 {
-    [Authorize]
-    public class DashboardController : Controller
+    public class DashboardController : 
+        LayoutController
     {
         public ActionResult Index()
         {
@@ -27,7 +27,7 @@ namespace Topppro.WebSite.Controllers
                     return null;
 
                 cached = dlc_folder.GetFiles()
-                                .Select(f => new DLCModel()
+                                .Select(f => new DownloadContentModel()
                                 {
                                     Url = UrlHelper.GenerateContentUrl(Path.Combine(ToppproSettings.Download.Root, f.Name), HttpContext),
                                     Name = Path.GetFileNameWithoutExtension(f.Name),

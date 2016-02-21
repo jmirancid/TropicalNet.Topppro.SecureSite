@@ -1,13 +1,12 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
-using Framework.MVC.Controllers;
 using Topppro.Business.Definitions;
 using Topppro.Entities;
 
 namespace Topppro.WebSite.Areas.SecureSite.Controllers
 {
     public class CountryController :
-        PersistanceController<Country, CountryBusiness>
+        LayoutController<Country, CountryBusiness>
     {
         public override ActionResult Index()
         {

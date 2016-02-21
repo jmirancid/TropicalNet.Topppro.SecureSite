@@ -1,9 +1,8 @@
-﻿using System;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Security;
 using Topppro.WebSite.Models;
 
-namespace Topppro.WebSite.Controllers
+namespace Topppro.WebSite.Areas.Customers.Controllers
 {
     public class AccountController : Controller
     {
@@ -40,11 +39,12 @@ namespace Topppro.WebSite.Controllers
             return View(model);
         }
 
+        [Framework.MVC.Attributes.Authorize(LoginUrl = "~/Customers/Account/LogOn", Roles = "Customers")]
         public ActionResult LogOff()
         {
             FormsAuthentication.SignOut();
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("LogOn", "Account");
         }
     }
 }

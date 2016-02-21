@@ -104,12 +104,5 @@ namespace Topppro.WebSite.Settings
             get { return (string)this["root"]; }
             set { this["root"] = value; }
         }
-
-        [ConfigurationProperty("token", IsRequired = true)]
-        public string Token
-        {
-            get { return (string)this["token"]; }
-            set { this["token"] = value; }
-        }
     }
 }

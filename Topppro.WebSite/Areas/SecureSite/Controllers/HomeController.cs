@@ -1,23 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace Topppro.WebSite.Areas.SecureSite.Controllers
 {
-	public class HomeController : Controller
-	{
-		public ActionResult Index()
-		{
-			ViewBag.Message = "Welcome to ASP.NET MVC SecureSite AREA!";
+    [Framework.MVC.Attributes.Authorize(LoginUrl = "~/SecureSite/Account/LogOn", Roles = "Administrators")]
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            ViewBag.Message = "Welcome to ASP.NET MVC SecureSite AREA!";
 
-			return View();
-		}
+            return View();
+        }
 
-		public ActionResult About()
-		{
-			return View();
-		}
-	}
+        public ActionResult About()
+        {
+            return View();
+        }
+    }
 }

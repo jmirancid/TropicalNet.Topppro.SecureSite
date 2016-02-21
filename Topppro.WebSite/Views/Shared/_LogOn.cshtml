@@ -1,7 +1,7 @@
 ﻿@if(Request.IsAuthenticated) {
     <text>Welcome <strong>@User.Identity.Name</strong>!
-    [ <a href="@Url.Action("Index", "Dashboard")">Dashboard</a> ] [ <a href="@Url.Action("LogOff", "Account")">Log Off</a> ]</text>
+    [ <a href="@Url.Action("Index", "Dashboard", new { area = "Customers" })">Dashboard</a> ] [ <a href="@Url.Action("LogOff", "Account")">Log Off</a> ]</text>
 }
 else {
-    @:[ <a href="@Url.Action("LogOn", "Account")">Log On</a> ]
+    @:[ <a href="@Url.Action("LogOn", "Account", new { area = "Customers" })">Log On</a> ]
 }

@@ -2,12 +2,11 @@
 using System.Web.Mvc;
 using Framework.Cache.Business;
 using Framework.Cache.Entities;
-using Framework.MVC.Controllers;
 
 namespace Topppro.WebSite.Areas.SecureSite.Controllers
 {
     public class CacheController :
-        PersistanceController<Framework.Cache.Entities.CacheEntry, MemoryCacheBusiness>
+        LayoutController<Framework.Cache.Entities.CacheEntry, MemoryCacheBusiness>
     {
         [ActionName("Delete")]
         public ActionResult DeleteCache(string id)

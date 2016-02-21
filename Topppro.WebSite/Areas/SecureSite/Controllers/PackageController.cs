@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Mvc;
-using Framework.MVC.Controllers;
 using Topppro.Business.Definitions;
 using Topppro.Entities;
 
 namespace Topppro.WebSite.Areas.SecureSite.Controllers
 {
     public class PackageController :
-        PersistanceController<Package, PackageBusiness>
+        LayoutController<Package, PackageBusiness>
     {
         private readonly Lazy<ProductBusiness> _bizProduct =
             new Lazy<ProductBusiness>();

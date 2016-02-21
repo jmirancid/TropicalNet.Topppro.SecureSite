@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Mvc;
-using Framework.MVC.Controllers;
 using Topppro.Business.Definitions;
 using Topppro.Entities;
 
 namespace Topppro.WebSite.Areas.SecureSite.Controllers
 {
-    public class AssnCategorySerieProductController
-        : PersistanceController<Assn_CategorySerieProduct, AssnCategorySerieProductBusiness>
+    public class AssnCategorySerieProductController :
+        LayoutController<Assn_CategorySerieProduct, AssnCategorySerieProductBusiness>
     {
         private readonly Lazy<AssnCategorySerieBusiness> _bizAssnCategorySerie =
             new Lazy<AssnCategorySerieBusiness>();

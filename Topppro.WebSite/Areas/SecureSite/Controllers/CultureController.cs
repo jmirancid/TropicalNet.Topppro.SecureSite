@@ -1,13 +1,12 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
-using Framework.MVC.Controllers;
 using Topppro.Business.Definitions;
 using Topppro.Entities;
 
 namespace Topppro.WebSite.Areas.SecureSite.Controllers
 {
     public class CultureController :
-        PersistanceController<Culture, CultureBusiness>
+        LayoutController<Culture, CultureBusiness>
     {
         public override ActionResult Index()
         {

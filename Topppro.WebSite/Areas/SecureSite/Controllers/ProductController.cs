@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Web.Helpers;
 using System.Web.Mvc;
-using Framework.MVC.Controllers;
 using Topppro.Business.Definitions;
 using Topppro.Entities;
 using Topppro.WebSite.Settings;
@@ -12,7 +11,7 @@ using Topppro.WebSite.Settings;
 namespace Topppro.WebSite.Areas.SecureSite.Controllers
 {
     public class ProductController :
-        PersistanceController<Product, ProductBusiness>
+        LayoutController<Product, ProductBusiness>
     {
         private readonly Lazy<ModelBusiness> _bizModel =
             new Lazy<ModelBusiness>();

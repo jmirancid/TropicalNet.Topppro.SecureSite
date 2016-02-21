@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using Framework.MVC.Controllers;
 using Topppro.Business.Definitions;
 
 namespace Topppro.WebSite.Areas.SecureSite.Controllers
 {
     public class DistributorController :
-        PersistanceController<Topppro.Entities.Distributor, DistributorBusiness>
+        LayoutController<Topppro.Entities.Distributor, DistributorBusiness>
     {
         private readonly Lazy<CountryBusiness> _bizCountry =
             new Lazy<CountryBusiness>();

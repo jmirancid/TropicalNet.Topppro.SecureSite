@@ -59,6 +59,7 @@
       <HintPath>..\packages\Unity.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.Configuration.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
@@ -74,7 +75,6 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
@@ -84,6 +84,11 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Areas\Customers\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Customers\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Customers\Controllers\LayoutController.cs" />
+    <Compile Include="Areas\Customers\CustomersAreaRegistration.cs" />
+    <Compile Include="Areas\Customers\Models\DashboardModels.cs" />
     <Compile Include="Areas\SecureSite\Controllers\AssnCategorySerieController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\AssnCategorySerieProductController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\AttributeController.cs" />
@@ -93,6 +98,7 @@
     <Compile Include="Areas\SecureSite\Controllers\CountryController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\CultureController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\DistributorController.cs" />
+    <Compile Include="Areas\SecureSite\Controllers\LayoutController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\ModelController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\PackageController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\ProductController.cs" />
@@ -103,9 +109,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MenuResource.resx</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AmplifiersController.cs" />
-    <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InstallController.cs" />
@@ -128,7 +132,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\DashboardModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\AccountResource.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -175,7 +178,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SpeakersResource.resx</DependentUpon>
     </Compile>
-    <Compile Include="Security\StaticMembershipProvider.cs" />
     <Compile Include="Settings\ToppproSettings.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -524,7 +526,9 @@
     <Content Include="Scripts\jssor.slider-19.0\MIT-LICENSE.txt" />
     <Content Include="Scripts\jssor.slider-19.0\readme.txt" />
     <Content Include="Scripts\MM_functions.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
@@ -535,6 +539,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Customers\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -744,6 +749,11 @@
     <Content Include="Areas\SecureSite\Content\Fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Areas\SecureSite\Content\Fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Areas\SecureSite\Content\Fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Areas\Customers\Views\Web.config" />
+    <Content Include="Areas\Customers\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\Customers\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Customers\Views\Account\LogOn.cshtml" />
+    <Content Include="Areas\Customers\Views\Dashboard\DisplayTemplates\DownloadContentModel.cshtml" />
     <None Include="Areas\SecureSite\Scripts\tinymce\langs\readme.md" />
     <Content Include="Areas\SecureSite\Scripts\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
     <Content Include="Areas\SecureSite\Scripts\tinymce\skins\lightgray\fonts\tinymce-small.ttf" />
@@ -808,10 +818,9 @@
     <Content Include="Areas\SecureSite\Views\Attribute\_Create.cshtml" />
     <Content Include="Areas\SecureSite\Views\Attribute\_Details.cshtml" />
     <Content Include="Areas\SecureSite\Views\Attribute\_Edit.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Shared\_LayoutEmpty.cshtml" />
     <None Include="Scripts\jquery.panelslider-0.1.1\README.md" />
-    <Content Include="Views\Account\LogOn.cshtml" />
     <Content Include="Views\Amplifiers\Index.cshtml" />
-    <Content Include="Views\Dashboard\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Mixers\DisplayTemplates\Serie_Mx.cshtml" />
     <Content Include="Views\Mixers\DisplayTemplates\Serie_MxDigital.cshtml" />

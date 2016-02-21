@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
-using Framework.MVC.Controllers;
 using Topppro.Business.Definitions;
 
 namespace Topppro.WebSite.Areas.SecureSite.Controllers
 {
     public class AttributeController :
-        PersistanceController<Topppro.Entities.Attribute, AttributeBusiness>
+        LayoutController<Topppro.Entities.Attribute, AttributeBusiness>
     {
         private readonly Lazy<ProductBusiness> _bizProduct =
             new Lazy<ProductBusiness>();

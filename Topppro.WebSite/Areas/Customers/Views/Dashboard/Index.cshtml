@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Topppro.WebSite.Areas.Humanist.Models.DLCModel>
+﻿@model IEnumerable<Topppro.WebSite.Areas.Customers.Models.DownloadContentModel>
 
 @section Styles {
     <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/m-forms.min.css")" />
@@ -8,14 +8,10 @@
 
 <div class="title">
     <h1>Dashboard
-    <small>Downloadable content available</small>
+        <small>Downloadable Content</small>
     </h1>
 </div>
 
 <p style="margin-top: 26px;">
-    @foreach (var dlc in Model)
-    {
-        <a href="@dlc.Url" target="_blank" class="m-btn @dlc.Color">@dlc.Name <i class="@dlc.Icon"></i></a>
-        <br />
-    }
+    @Html.DisplayForModel()
 </p>

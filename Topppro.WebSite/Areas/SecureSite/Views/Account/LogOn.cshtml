@@ -1,48 +1,51 @@
-﻿@model Topppro.WebSite.Areas.SecureSite.Models.LogOnModel
+﻿@using Framework.MVC.Extensions
+
+@model Topppro.WebSite.Areas.SecureSite.Models.LogOnModel
 
 @{
-    ViewBag.Title = "Log On";
+    Layout = "~/Areas/SecureSite/Views/Shared/_LayoutEmpty.cshtml";
 }
 
-<h2>Log On</h2>
-<p>
-    Please enter your user name and password. @Html.ActionLink("Register", "Register") if you don't have an account.
-</p>
-
-<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
-<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
-
-@Html.ValidationSummary(true, "Login was unsuccessful. Please correct the errors and try again.")
-
-@using (Html.BeginForm()) {
-    <div>
-        <fieldset>
-            <legend>Account Information</legend>
-
-            <div class="editor-label">
-                @Html.LabelFor(m => m.UserName)
-            </div>
-            <div class="editor-field">
-                @Html.TextBoxFor(m => m.UserName)
-                @Html.ValidationMessageFor(m => m.UserName)
-            </div>
-
-            <div class="editor-label">
-                @Html.LabelFor(m => m.Password)
-            </div>
-            <div class="editor-field">
-                @Html.PasswordFor(m => m.Password)
-                @Html.ValidationMessageFor(m => m.Password)
-            </div>
-
-            <div class="editor-label">
-                @Html.CheckBoxFor(m => m.RememberMe)
-                @Html.LabelFor(m => m.RememberMe)
-            </div>
-
-            <p>
-                <input type="submit" value="Log On" />
-            </p>
-        </fieldset>
+<div class="row text-center ">
+    <div class="col-md-12">
+        <br />
+        <br />
+        <h2>
+            Topppro : Profesional Audio Gear</h2>
+        <h5>
+            ( Secure Site Administration Tool )</h5>
+        <br />
     </div>
-}
+</div>
+<div class="row ">
+    <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <strong> Login </strong>
+            </div>
+            <div class="panel-body">
+                @using (Html.BeginForm()) 
+                {
+                    @Html.ValidationSummary(false, null, new { @class = "text-danger" })
+                    <br />
+                    <div class="form-group input-group">
+                        <span class="input-group-addon"><i class="fa fa-tag"></i></span>
+                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = Html.DisplayNameFor(m => m.UserName) })
+                    </div>
+                    <div class="form-group input-group">
+                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = Html.DisplayNameFor(m => m.Password) })
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-inline">
+                            @Html.CheckBoxFor(m => m.RememberMe)
+                            @Html.LabelFor(m => m.RememberMe)
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login Now</button>
+                    <hr />
+                }
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,13 +1,12 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
-using Framework.MVC.Controllers;
 using Topppro.Business.Definitions;
 using Topppro.Entities;
 
 namespace Topppro.WebSite.Areas.SecureSite.Controllers
 {
     public class SerieController :
-        PersistanceController<Serie, SerieBusiness>
+        LayoutController<Serie, SerieBusiness>
     {
         public override ActionResult Index()
         {
