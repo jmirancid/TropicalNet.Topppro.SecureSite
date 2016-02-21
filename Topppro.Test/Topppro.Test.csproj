@@ -61,6 +61,8 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
   </ItemGroup>
   <ItemGroup>
     <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
@@ -81,6 +83,7 @@
     <Compile Include="Business\ProductBusinessTest.cs" />
     <Compile Include="Business\SerieBusinessTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\MembershipProviderTest.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
