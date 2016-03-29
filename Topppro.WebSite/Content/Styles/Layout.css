@@ -205,6 +205,13 @@ h4.bluetooth
     margin-top: 10px;
 }
 
+h4.modules
+{
+    text-align:center;
+    font-weight:lighter;
+    margin: 5px 0 25px;
+}
+
 table
 {
     border-spacing: 0;
