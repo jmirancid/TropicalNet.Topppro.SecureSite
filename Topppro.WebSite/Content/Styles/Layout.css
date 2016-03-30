@@ -180,10 +180,10 @@ span.product_badge.right > small
 
 ul.highlights
 {
-    list-style: square inside;
+    list-style: square outside;
     font-size: 12px;
     color: #DF562A;
-    margin: 10px 0 5px 5px;
+    margin: 10px 0 5px 20px;
 }
 
 ul.highlights > li > span

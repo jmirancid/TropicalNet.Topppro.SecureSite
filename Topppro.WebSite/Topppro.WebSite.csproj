@@ -842,8 +842,6 @@
     <Content Include="Views\Mixers\DisplayTemplates\Serie_MxDigital.cshtml" />
     <Content Include="Views\Packs\DisplayTemplates\Serie_I4k.cshtml" />
     <Content Include="Views\Packs\DisplayTemplates\Serie_Soho.cshtml" />
-    <Content Include="Views\Processors\DisplayTemplates\Serie_Modules.cshtml" />
-    <Content Include="Views\Processors\DisplayTemplates\Serie_Processors.cshtml" />
     <Content Include="Views\Processors\Index.cshtml" />
     <Content Include="Views\Public\Bluetooth.cshtml" />
     <Content Include="Views\Public\CustomSound.cshtml" />
@@ -887,10 +885,8 @@
     <Content Include="Views\Shared\_InstallBanner.cshtml" />
     <Content Include="Views\Install\Index.cshtml" />
     <Content Include="Views\Public\Distributors.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\Product_Cs-Lan.cshtml" />
-    <Content Include="Views\Processors\DisplayTemplates\Serie_CsModules.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\Product_Cs-Wm.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\Product_Cs-Wsl.cshtml" />
+    <Content Include="Views\Processors\DisplayTemplates\Serie.cshtml" />
+    <Content Include="Views\Processors\DisplayTemplates\Serie_TacModules.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

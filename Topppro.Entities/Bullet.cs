@@ -34,7 +34,6 @@ namespace Topppro.Entities
         public int CultureId { get; set; }
 
         [Display(Name = "Entity_Name", ResourceType = typeof(Ent_BulletResource))]
-        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Ent_ValidationResource))]
         public string Name { get; set; }
 
         [AllowHtml]
