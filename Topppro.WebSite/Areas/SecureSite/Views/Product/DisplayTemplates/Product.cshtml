@@ -1,4 +1,6 @@
-﻿@model Topppro.Entities.Product
+﻿@using Framework.MVC.Extensions
+
+@model Topppro.Entities.Product
 
 <div class="form-group">
     @Html.LabelFor(model => model.Name)
@@ -20,9 +22,11 @@
    @Html.TextBoxFor(model => model.Manual, new { @class = "form-control", style = "width:400px;", disabled = "disabled" })
 </div>
 
-<div class="form-group">
-    @Html.LabelFor(model => model.Draft)
-    @Html.TextBoxFor(model => model.Draft, new { @class = "form-control", style = "width:400px;", disabled = "disabled" })
+<div class="checkbox">
+    <label>
+        @Html.CheckBoxFor(m => m.Draft, new { disabled = "disabled" })
+        @Html.DisplayNameFor(m => m.Draft)
+    </label>
 </div>
 
 <div class="form-group">

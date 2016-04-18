@@ -1,4 +1,5 @@
-﻿@using Framework.MVC.Resources
+﻿@using Framework.MVC.Extensions
+@using Framework.MVC.Resources
 
 @model Topppro.Entities.Product
 
@@ -17,24 +18,21 @@
 <div class="form-group">
     @Html.LabelFor(model => model.Folder)
     @Html.TextBoxFor(model => model.Folder, new { @class = "form-control", style = "width:400px;" })
-    @Html.ValidationMessageFor(model => model.Folder)
 </div>
 
 <div class="form-group">
     @Html.LabelFor(model => model.Manual)
     @Html.DropDownListFor(model => model.Manual, null, PersistanceResource.Selection, new { @class = "form-control", style = "width:400px;" })
-    @Html.ValidationMessageFor(model => model.Manual)
 </div>
 
-<div class="editor-label">
-    @Html.LabelFor(model => model.Draft)
-</div>
-<div class="editor-field">
-    @Html.EditorFor(model => model.Draft)
+<div class="checkbox">
+    <label>
+        @Html.CheckBoxFor(m => m.Draft)
+        @Html.DisplayNameFor(m => m.Draft)
+    </label>
 </div>
 
 <div class="form-group">
     @Html.LabelFor(model => model.Badge)
     @Html.TextBoxFor(model => model.Badge, new { @class = "form-control", style = "width:400px;" })
-    @Html.ValidationMessageFor(model => model.Badge)
 </div>
