@@ -30,13 +30,11 @@
 <div class="form-group">
     @Html.LabelFor(model => model.Priority)
     @Html.TextBoxFor(model => model.Priority, new { @class = "form-control", style = "width:400px;" })
-    @Html.ValidationMessageFor(model => model.Priority)
 </div>
 
-<div class="editor-label">
-    @Html.LabelFor(model => model.Enabled)
-</div>
-<div class="editor-field">
-    @Html.EditorFor(model => model.Enabled)
-    @Html.ValidationMessageFor(model => model.Enabled)
+<div class="checkbox">
+    <label>
+        @Html.CheckBoxFor(m => m.Enabled)
+        @Html.DisplayNameFor(m => m.Enabled)
+    </label>
 </div>

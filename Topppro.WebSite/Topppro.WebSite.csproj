@@ -126,6 +126,7 @@
       <DependentUpon>MenuResource.resx</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AmplifiersController.cs" />
+    <Compile Include="Controllers\DistributorController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InstallController.cs" />
@@ -137,6 +138,7 @@
     <Compile Include="Controllers\PublicController.cs" />
     <Compile Include="Controllers\SpeakersController.cs" />
     <Compile Include="Controllers\WirelessController.cs" />
+    <Compile Include="Extensions\CountryExtensions.cs" />
     <Compile Include="Extensions\HtmlHelperExtensions.cs" />
     <Compile Include="Extensions\ProductExtensions.cs" />
     <Compile Include="Filters\LocalizationFilterAttribute.cs" />
@@ -367,7 +369,6 @@
     <Content Include="Content\Images\bottom.jpg" />
     <Content Include="Content\Images\catalog-download-up.jpg" />
     <Content Include="Content\Images\catalog-download.jpg" />
-    <Content Include="Content\Images\colombia-flag.jpg" />
     <Content Include="Content\Images\cs-appstore.jpg" />
     <Content Include="Content\Images\cs-slider-1.jpg" />
     <Content Include="Content\Images\cs-slider-2.jpg" />
@@ -400,7 +401,6 @@
     <Content Include="Content\Images\intro-5.jpg" />
     <Content Include="Content\Images\intro-6.jpg" />
     <Content Include="Content\Images\intro-7.jpg" />
-    <Content Include="Content\Images\italy-flag.jpg" />
     <Content Include="Content\Images\loading.gif" />
     <Content Include="Content\Images\manual-bottom.jpg" />
     <Content Include="Content\Images\manual-top.jpg" />
@@ -476,7 +476,7 @@
     <Content Include="Content\Images\wireless-slider-1.jpg" />
     <Content Include="Content\Images\wireless-slider-2.jpg" />
     <Content Include="Content\Images\wireless-slider-3.jpg" />
-    <Content Include="Content\Images\world-flag.jpg" />
+    <Content Include="Content\Images\worldwide-flag.jpg" />
     <Content Include="Content\Manuals\Readme.txt" />
     <Content Include="Content\Others\cs.swf" />
     <Content Include="Content\Others\favicon.ico" />
@@ -525,6 +525,8 @@
     <Content Include="Scripts\jquery-1.8.3-vsdoc.js" />
     <Content Include="Scripts\jquery-1.8.3.js" />
     <Content Include="Scripts\jquery-1.8.3.min.js" />
+    <Content Include="Scripts\jquery.livefilter-1.0\jquery.livefilter.js" />
+    <Content Include="Scripts\jquery.livefilter-1.0\jquery.livefilter.min.js" />
     <Content Include="Scripts\jquery-ui-1.9.2.js" />
     <Content Include="Scripts\jquery-ui-1.9.2.min.js" />
     <Content Include="Scripts\jquery.panelslider-0.1.1\jquery.panelslider.js" />
@@ -682,18 +684,6 @@
     <Content Include="Areas\SecureSite\Views\Category\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\SecureSite\Views\Category\Edit.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Areas\SecureSite\Views\Category\Details.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Areas\SecureSite\Views\Category\Delete.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Areas\SecureSite\Views\Category\Create.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Areas\SecureSite\Views\Culture\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -801,10 +791,6 @@
     <Content Include="Content\Fonts\Humanst521BT-Roman.ttf" />
     <Content Include="Content\Fonts\Humanst521BT-Roman.woff" />
     <Content Include="Areas\SecureSite\Views\AssnCategorySerie\_Edit.cshtml" />
-    <Content Include="Areas\SecureSite\Views\Country\Create.cshtml" />
-    <Content Include="Areas\SecureSite\Views\Country\Delete.cshtml" />
-    <Content Include="Areas\SecureSite\Views\Country\Details.cshtml" />
-    <Content Include="Areas\SecureSite\Views\Country\Edit.cshtml" />
     <Content Include="Areas\SecureSite\Views\Country\Index.cshtml" />
     <Content Include="Areas\SecureSite\Views\Distributor\Create.cshtml" />
     <Content Include="Areas\SecureSite\Views\Distributor\Delete.cshtml" />
@@ -835,6 +821,30 @@
     <Content Include="Areas\SecureSite\Views\Attribute\_Details.cshtml" />
     <Content Include="Areas\SecureSite\Views\Attribute\_Edit.cshtml" />
     <Content Include="Areas\SecureSite\Views\Shared\_LayoutEmpty.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Category\DisplayTemplates\Category.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Category\EditorTemplates\Category.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Country\DisplayTemplates\Country.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Country\EditorTemplates\Country.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Category\Create.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Category\Delete.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Category\Details.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Category\Edit.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Country\Create.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Country\Delete.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Country\Details.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Country\Edit.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Culture\DisplayTemplates\Culture.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Culture\EditorTemplates\Culture.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Shared\_Validation.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Distributor\DisplayTemplates\Distributor.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Distributor\EditorTemplates\Distributor.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Model\DisplayTemplates\Model.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Model\EditorTemplates\Model.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Package\DisplayTemplates\Package.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Package\EditorTemplates\Package.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Serie\DisplayTemplates\Serie.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Serie\EditorTemplates\Serie.cshtml" />
+    <None Include="Scripts\jquery.livefilter-1.0\README.md" />
     <None Include="Scripts\jquery.panelslider-0.1.1\README.md" />
     <Content Include="Views\Amplifiers\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -884,9 +894,11 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_InstallBanner.cshtml" />
     <Content Include="Views\Install\Index.cshtml" />
-    <Content Include="Views\Public\Distributors.cshtml" />
     <Content Include="Views\Processors\DisplayTemplates\Serie.cshtml" />
     <Content Include="Views\Processors\DisplayTemplates\Serie_TacModules.cshtml" />
+    <Content Include="Views\Distributor\Index.cshtml" />
+    <Content Include="Views\Distributor\DisplayTemplates\Distributor.cshtml" />
+    <Content Include="Views\Distributor\DisplayTemplates\Country.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
@@ -905,7 +917,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>17162</DevelopmentServerPort>
+          <DevelopmentServerPort>2500</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

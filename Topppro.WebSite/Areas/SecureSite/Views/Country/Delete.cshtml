@@ -14,22 +14,7 @@
 <fieldset>
     <legend>@Ent_CountryResource._Caption</legend>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Name)
-        @Html.TextBoxFor(model => model.Name, new { @class = "form-control", style = "width:400px;", id = "disabledInput", disabled = "disabled" })
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Priority)
-        @Html.TextBoxFor(model => model.Priority, new { @class = "form-control", style = "width:400px;", id = "disabledInput", disabled = "disabled" })
-    </div>
-
-    <div class="display-label">
-        @Html.DisplayNameFor(model => model.Enabled)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Enabled)
-    </div>
+    @Html.DisplayForModel()
 
 </fieldset>
 @using (Html.BeginForm())

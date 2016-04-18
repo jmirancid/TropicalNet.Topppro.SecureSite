@@ -1,7 +1,7 @@
 -- SQL Manager Lite for SQL Server 4.0.1.44515
 -- ---------------------------------------
 -- Host      : (local)
--- Database  : ToppproNew
+-- Database  : tropi23_topppro_net
 -- Version   : Microsoft SQL Server  10.50.1600.1
 
 
@@ -713,3 +713,4 @@ ADD CONSTRAINT Package_Parent_Product_FK FOREIGN KEY (ParentProductId)
   ON UPDATE NO ACTION
   ON DELETE NO ACTION
 GO
+

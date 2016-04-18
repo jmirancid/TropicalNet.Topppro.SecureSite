@@ -1,8 +1,8 @@
 ﻿-- SQL Manager Lite for SQL Server 4.0.1.44515
 -- ---------------------------------------
--- Host      : 209.200.224.115
+-- Host      : 74.50.26.196\MSSQLSERVER2012
 -- Database  : tropi23_topppro_net
--- Version   : Microsoft SQL Server  9.00.5069.00
+-- Version   : Microsoft SQL Server  11.0.5058.0
 
 
 --
@@ -145,7 +145,7 @@ GO
 
 INSERT INTO dbo.Serie (SerieId, Name)
 VALUES 
-  (25, N'Modules')
+  (25, N'TAC Modules')
 GO
 
 INSERT INTO dbo.Serie (SerieId, Name)
@@ -223,6 +223,16 @@ VALUES
   (40, N'X Passive')
 GO
 
+INSERT INTO dbo.Serie (SerieId, Name)
+VALUES 
+  (41, N'USB Modules')
+GO
+
+INSERT INTO dbo.Serie (SerieId, Name)
+VALUES 
+  (42, N'DANTE Module')
+GO
+
 COMMIT
 GO
 
@@ -297,267 +307,277 @@ GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (1, 1, 1, 5, 1, 110, 1)
+  (1, 1, 1, 5, 1, 135, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (2, 1, 2, 5, 1, 30, 1)
+  (2, 1, 2, 5, 1, 35, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (3, 1, 3, 4, 1, 50, 1)
+  (3, 1, 3, 4, 1, 75, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (4, 1, 4, 5, 1, 60, 1)
+  (4, 1, 4, 5, 1, 85, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (5, 1, 5, 5, 1, 70, 1)
+  (5, 1, 5, 5, 1, 95, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (6, 1, 6, 5, 1, 130, 1)
+  (6, 1, 6, 5, 1, 155, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (7, 1, 7, 1, 1, 90, 1)
+  (7, 1, 7, 1, 1, 115, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (8, 1, 8, 1, 1, 140, 1)
+  (8, 1, 8, 1, 1, 165, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (9, 1, 9, 5, 1, 80, 1)
+  (9, 1, 9, 5, 1, 105, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (11, 2, 11, 5, 1, 10, 1)
+  (11, 2, 11, 5, 1, 14, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (12, 2, 12, 5, 1, 20, 1)
+  (12, 2, 12, 5, 1, 25, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (13, 2, 13, 4, 1, 30, 1)
+  (13, 2, 13, 4, 1, 35, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (14, 3, 14, 5, 1, 10, 1)
+  (14, 3, 14, 5, 1, 14, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (15, 3, 15, 5, 1, 20, 1)
+  (15, 3, 15, 5, 1, 25, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (16, 3, 16, 3, 1, 30, 1)
+  (16, 3, 16, 3, 1, 35, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (17, 4, 17, 5, 1, 30, 1)
+  (17, 4, 17, 5, 1, 35, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (18, 4, 18, 5, 1, 10, 1)
+  (18, 4, 18, 5, 1, 14, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (19, 1, 19, 5, 1, 40, 1)
+  (19, 1, 19, 5, 1, 45, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (20, 8, 20, 5, 1, 40, 1)
+  (20, 8, 20, 5, 1, 45, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (21, 5, 21, 5, 1, 20, 1)
+  (21, 5, 21, 5, 1, 25, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (22, 5, 22, 5, 0, 30, 0)
+  (22, 5, 22, 5, 0, 35, 0)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (23, 5, 23, 5, 0, 40, 0)
+  (23, 5, 23, 5, 0, 45, 0)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (24, 6, 24, 5, 1, 30, 1)
+  (24, 6, 24, 5, 1, 35, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (25, 6, 25, 5, 1, 20, 1)
+  (25, 6, 25, 5, 1, 25, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (26, 1, 40, 5, 1, 115, 1)
+  (26, 1, 40, 5, 1, 143, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (27, 8, 4, 5, 1, 20, 0)
+  (27, 8, 4, 5, 1, 25, 0)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (28, 7, 10, 4, 1, 10, 1)
+  (28, 7, 10, 4, 1, 14, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (29, 7, 9, 5, 1, 20, 1)
+  (29, 7, 9, 5, 1, 25, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (30, 7, 13, 5, 1, 30, 1)
+  (30, 7, 13, 5, 1, 35, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (31, 7, 22, 5, 1, 40, 0)
+  (31, 7, 22, 5, 1, 45, 0)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (32, 7, 23, 5, 1, 50, 0)
+  (32, 7, 23, 5, 1, 75, 0)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (34, 8, 28, 4, 1, 20, 1)
+  (34, 8, 28, 4, 1, 25, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (35, 8, 1, 5, 1, 30, 1)
+  (35, 8, 1, 5, 1, 35, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (36, 8, 29, 4, 1, 40, 1)
+  (36, 8, 29, 4, 1, 45, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (37, 8, 26, 5, 1, 50, 1)
+  (37, 8, 26, 5, 1, 75, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (38, 8, 27, 5, 1, 60, 1)
+  (38, 8, 27, 5, 1, 85, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (39, 8, 30, 5, 1, 70, 1)
+  (39, 8, 30, 5, 1, 95, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (40, 8, 21, 5, 1, 80, 1)
+  (40, 8, 21, 5, 1, 105, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (41, 8, 31, 5, 1, 90, 1)
+  (41, 8, 31, 5, 1, 5, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (42, 8, 24, 5, 1, 100, 1)
+  (42, 8, 24, 5, 1, 50, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (43, 8, 3, 4, 1, 110, 1)
+  (43, 8, 3, 4, 1, 135, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (44, 8, 32, 5, 1, 120, 1)
+  (44, 8, 32, 5, 1, 145, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (45, 5, 33, 5, 1, 10, 1)
+  (45, 5, 33, 5, 1, 14, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (46, 7, 33, 5, 1, 60, 1)
+  (46, 7, 33, 5, 1, 85, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (47, 8, 15, 5, 1, 10, 1)
+  (47, 8, 15, 5, 1, 14, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (48, 8, 25, 5, 0, 10, 1)
+  (48, 8, 25, 5, 0, 14, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (50, 1, 34, 1, 1, 100, 1)
+  (50, 1, 34, 1, 1, 125, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (51, 4, 35, 1, 1, 20, 1)
+  (51, 4, 35, 1, 1, 25, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (52, 1, 36, 5, 1, 10, 1)
+  (52, 1, 36, 5, 1, 14, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (53, 1, 37, 5, 1, 20, 1)
+  (53, 1, 37, 5, 1, 25, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (54, 1, 38, 5, 1, 120, 1)
+  (54, 1, 38, 5, 1, 145, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (55, 6, 39, 5, 1, 10, 1)
+  (55, 6, 39, 5, 1, 14, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
 VALUES 
-  (57, 8, 9, 5, 1, 150, 1)
+  (57, 8, 9, 5, 1, 175, 1)
+GO
+
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
+VALUES 
+  (58, 6, 41, 5, 1, 30, 1)
+GO
+
+INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
+VALUES 
+  (59, 6, 42, 5, 1, 15, 1)
 GO
 
 COMMIT
@@ -1363,7 +1383,7 @@ GO
 
 INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
 VALUES 
-  (158, 2, N'KS218', N'ks218', NULL, 1, N'18"')
+  (158, 2, N'KS218', N'ks218', NULL, 0, N'18"')
 GO
 
 INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
@@ -1413,7 +1433,7 @@ GO
 
 INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
 VALUES 
-  (168, 3, N'T20', N't20', NULL, 0, N'20ch')
+  (168, 3, N'T20', N't20', N'T20 eng-spa1103.pdf', 0, N'20ch')
 GO
 
 INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
@@ -1563,12 +1583,12 @@ GO
 
 INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
 VALUES 
-  (198, 0, N'CS-WM', N'cs-wm', NULL, 0, NULL)
+  (198, 0, N'CS-WM', N'cs-wm', N'CS-WM CS-WSL user manual.pdf', 0, NULL)
 GO
 
 INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
 VALUES 
-  (199, 0, N'CS-WSL', N'cs-wsl', NULL, 0, NULL)
+  (199, 0, N'CS-WSL', N'cs-wsl', N'CS-WM CS-WSL user manual.pdf', 0, NULL)
 GO
 
 INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
@@ -1603,7 +1623,7 @@ GO
 
 INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
 VALUES 
-  (209, 1, N'TPS 16A.UB', N'tps16a.ub', N'(TPS 16P 16AM.UB 16A.UB TOPP PRO_V1.0).pdf', 0, N'6.5"')
+  (209, 1, N'TPS 16AP', N'tps16ap', N'(TPS 16P 16AM.UB 16A.UB TOPP PRO_V1.0).pdf', 0, N'6.5"')
 GO
 
 INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
@@ -1614,6 +1634,31 @@ GO
 INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
 VALUES 
   (211, 1, N'TPS 16AM.UB', N'tps16am.ub', N'(TPS 16P 16AM.UB 16A.UB TOPP PRO_V1.0).pdf', 0, N'6.5"')
+GO
+
+INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
+VALUES 
+  (212, 0, N'T32USB', N't32usb', N'(T32USB-EXP_V1.0.pdf', 0, NULL)
+GO
+
+INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
+VALUES 
+  (213, 0, N'D32USB', N'd32usb', N'(D32USB_V1.0.pdf', 0, NULL)
+GO
+
+INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
+VALUES 
+  (215, 0, N'KTX', N'ktx', N'(KTX - KRX TOPP PRO_V1.0) User Manual.pdf', 0, NULL)
+GO
+
+INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
+VALUES 
+  (216, 0, N'KRX', N'krx', N'(KTX - KRX TOPP PRO_V1.0) User Manual.pdf', 0, NULL)
+GO
+
+INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
+VALUES 
+  (1214, 0, N'T-DANTE', N't-dante', N'T-DANTE user manual.pdf', 0, NULL)
 GO
 
 COMMIT
@@ -1634,972 +1679,997 @@ GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (1, 52, 1, 1, 10, 1)
+  (1, 52, 1, 1, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (2, 52, 2, 1, 20, 1)
+  (2, 52, 2, 1, 142, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (3, 52, 3, 1, 30, 1)
+  (3, 52, 3, 1, 172, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (4, 52, 4, 1, 40, 1)
+  (4, 52, 4, 1, 182, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (5, 52, 5, 1, 50, 1)
+  (5, 52, 5, 1, 192, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (6, 1, 6, 1, 10, 1)
+  (6, 1, 6, 1, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (7, 1, 7, 1, 20, 1)
+  (7, 1, 7, 1, 142, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (8, 1, 8, 1, 30, 1)
+  (8, 1, 8, 1, 172, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (9, 1, 9, 1, 40, 1)
+  (9, 1, 9, 1, 182, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (10, 1, 10, 1, 50, 1)
+  (10, 1, 10, 1, 192, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (11, 1, 11, 1, 60, 1)
+  (11, 1, 11, 1, 202, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (12, 1, 12, 1, 70, 1)
+  (12, 1, 12, 1, 212, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (13, 1, 158, 0, 80, 1)
+  (13, 1, 158, 1, 222, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (14, 52, 18, 1, 60, 1)
+  (14, 52, 18, 1, 202, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (15, 52, 19, 1, 70, 1)
+  (15, 52, 19, 1, 212, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (16, 52, 20, 1, 80, 1)
+  (16, 52, 20, 1, 222, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (17, 52, 21, 1, 90, 1)
+  (17, 52, 21, 1, 232, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (18, 52, 22, 1, 100, 1)
+  (18, 52, 22, 1, 242, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (19, 2, 161, 1, 10, 1)
+  (19, 2, 161, 1, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (20, 2, 162, 1, 20, 1)
+  (20, 2, 162, 1, 142, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (21, 2, 163, 1, 30, 1)
+  (21, 2, 163, 1, 172, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (22, 2, 164, 1, 40, 1)
+  (22, 2, 164, 1, 182, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (23, 3, 31, 1, 10, 1)
+  (23, 3, 31, 1, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (24, 3, 32, 1, 20, 1)
+  (24, 3, 32, 1, 142, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (25, 3, 33, 1, 30, 1)
+  (25, 3, 33, 1, 172, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (26, 3, 34, 1, 40, 1)
+  (26, 3, 34, 1, 182, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (27, 54, 36, 1, 10, 1)
+  (27, 54, 36, 1, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (28, 54, 37, 1, 20, 1)
+  (28, 54, 37, 1, 142, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (29, 54, 38, 1, 30, 1)
+  (29, 54, 38, 1, 6, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (30, 54, 39, 1, 40, 1)
+  (30, 54, 39, 1, 182, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (31, 4, 41, 1, 10, 1)
+  (31, 4, 41, 1, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (32, 4, 42, 1, 20, 1)
+  (32, 4, 42, 1, 142, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (33, 4, 43, 1, 30, 1)
+  (33, 4, 43, 1, 172, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (34, 4, 44, 1, 40, 1)
+  (34, 4, 44, 1, 182, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (35, 5, 45, 1, 10, 1)
+  (35, 5, 45, 1, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (36, 5, 46, 1, 20, 1)
+  (36, 5, 46, 1, 142, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (37, 6, 47, 1, 10, 1)
+  (37, 6, 47, 1, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (38, 6, 48, 1, 20, 1)
+  (38, 6, 48, 1, 142, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (39, 6, 49, 1, 30, 1)
+  (39, 6, 49, 1, 172, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (40, 6, 50, 1, 40, 1)
+  (40, 6, 50, 1, 182, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (41, 6, 51, 1, 50, 1)
+  (41, 6, 51, 1, 192, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (42, 6, 53, 1, 60, 1)
+  (42, 6, 53, 1, 202, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (43, 7, 62, 1, 10, 1)
+  (43, 7, 62, 1, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (44, 8, 160, 1, 10, 1)
+  (44, 8, 160, 1, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (53, 11, 72, 1, 10, 1)
+  (53, 11, 72, 1, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (54, 11, 73, 1, 20, 1)
+  (54, 11, 73, 1, 142, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (55, 11, 74, 1, 30, 1)
+  (55, 11, 74, 1, 172, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (56, 11, 75, 1, 40, 1)
+  (56, 11, 75, 1, 182, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (57, 11, 76, 1, 50, 1)
+  (57, 11, 76, 1, 192, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (58, 11, 77, 1, 60, 1)
+  (58, 11, 77, 1, 202, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (59, 11, 78, 1, 70, 1)
+  (59, 11, 78, 1, 212, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (60, 12, 79, 1, 10, 1)
+  (60, 12, 79, 1, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (61, 13, 80, 1, 10, 1)
+  (61, 13, 80, 1, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (62, 13, 81, 1, 20, 1)
+  (62, 13, 81, 1, 142, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (63, 13, 82, 1, 30, 1)
+  (63, 13, 82, 1, 172, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (64, 13, 83, 1, 40, 1)
+  (64, 13, 83, 1, 182, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (65, 13, 84, 1, 50, 1)
+  (65, 13, 84, 1, 192, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (66, 13, 85, 1, 60, 1)
+  (66, 13, 85, 1, 202, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (67, 14, 86, 1, 10, 1)
+  (67, 14, 86, 1, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (68, 14, 168, 0, 5, 1)
+  (68, 14, 168, 0, 7, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (69, 15, 87, 1, 10, 1)
+  (69, 15, 87, 1, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (70, 15, 88, 1, 20, 1)
+  (70, 15, 88, 1, 142, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (71, 15, 89, 1, 30, 1)
+  (71, 15, 89, 1, 172, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (72, 15, 90, 1, 40, 1)
+  (72, 15, 90, 1, 182, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (73, 15, 91, 1, 50, 1)
+  (73, 15, 91, 1, 192, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (74, 15, 92, 1, 60, 1)
+  (74, 15, 92, 1, 202, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (75, 15, 93, 1, 70, 1)
+  (75, 15, 93, 1, 212, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (76, 15, 94, 1, 80, 1)
+  (76, 15, 94, 1, 222, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (77, 15, 95, 1, 90, 1)
+  (77, 15, 95, 1, 232, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (78, 15, 96, 1, 100, 1)
+  (78, 15, 96, 1, 242, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (79, 15, 98, 1, 110, 1)
+  (79, 15, 98, 1, 252, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (80, 15, 99, 1, 120, 1)
+  (80, 15, 99, 1, 262, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (81, 16, 102, 1, 10, 1)
+  (81, 16, 102, 1, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (82, 16, 103, 1, 20, 1)
+  (82, 16, 103, 1, 142, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (83, 16, 104, 1, 30, 1)
+  (83, 16, 104, 1, 172, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (84, 16, 105, 1, 40, 1)
+  (84, 16, 105, 1, 182, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (85, 16, 106, 1, 50, 1)
+  (85, 16, 106, 1, 192, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (86, 16, 107, 1, 60, 1)
+  (86, 16, 107, 1, 202, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (87, 17, 110, 1, 10, 1)
+  (87, 17, 110, 1, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (88, 18, 112, 1, 10, 1)
+  (88, 18, 112, 1, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (89, 18, 113, 1, 20, 1)
+  (89, 18, 113, 1, 142, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (90, 19, 159, 1, 10, 1)
+  (90, 19, 159, 1, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (91, 20, 114, 1, 10, 1)
+  (91, 20, 114, 1, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (92, 20, 115, 1, 20, 1)
+  (92, 20, 115, 1, 142, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (93, 20, 116, 1, 30, 1)
+  (93, 20, 116, 1, 172, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (94, 21, 118, 1, 10, 1)
+  (94, 21, 118, 1, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (95, 21, 121, 1, 20, 1)
+  (95, 21, 121, 1, 142, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (96, 21, 165, 1, 30, 1)
+  (96, 21, 165, 1, 172, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (97, 21, 166, 1, 40, 1)
+  (97, 21, 166, 1, 182, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (98, 21, 167, 1, 50, 1)
+  (98, 21, 167, 1, 192, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (99, 21, 123, 1, 60, 1)
+  (99, 21, 123, 1, 202, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (100, 21, 124, 1, 70, 1)
+  (100, 21, 124, 1, 212, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (101, 45, 125, 1, 10, 1)
+  (101, 45, 125, 1, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (102, 23, 126, 1, 10, 0)
+  (102, 23, 126, 1, 52, 0)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (103, 23, 127, 1, 20, 0)
+  (103, 23, 127, 1, 142, 0)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (104, 24, 128, 0, 10, 0)
+  (104, 24, 128, 0, 52, 0)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (105, 24, 130, 1, 20, 1)
+  (105, 24, 130, 1, 142, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (106, 24, 131, 1, 30, 1)
+  (106, 24, 131, 1, 172, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (107, 24, 132, 1, 40, 1)
+  (107, 24, 132, 1, 182, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (108, 24, 133, 1, 50, 1)
+  (108, 24, 133, 1, 192, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (109, 24, 134, 1, 60, 1)
+  (109, 24, 134, 1, 202, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (110, 24, 135, 1, 70, 1)
+  (110, 24, 135, 1, 212, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (111, 24, 136, 1, 80, 1)
+  (111, 24, 136, 1, 222, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (112, 24, 137, 1, 90, 1)
+  (112, 24, 137, 1, 232, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (113, 24, 138, 1, 100, 1)
+  (113, 24, 138, 1, 242, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (114, 24, 139, 1, 110, 1)
+  (114, 24, 139, 1, 252, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (115, 24, 140, 1, 120, 1)
+  (115, 24, 140, 1, 262, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (116, 24, 141, 1, 130, 1)
+  (116, 24, 141, 1, 272, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (117, 24, 142, 1, 140, 1)
+  (117, 24, 142, 1, 282, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (118, 25, 143, 0, 10, 1)
+  (118, 25, 143, 0, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (119, 25, 144, 0, 20, 1)
+  (119, 25, 144, 0, 142, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (120, 25, 145, 0, 30, 1)
+  (120, 25, 145, 0, 172, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (121, 25, 146, 0, 40, 1)
+  (121, 25, 146, 0, 182, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (122, 25, 147, 0, 50, 0)
+  (122, 25, 147, 0, 192, 0)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (123, 25, 148, 0, 60, 1)
+  (123, 25, 148, 0, 202, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (124, 25, 149, 0, 70, 1)
+  (124, 25, 149, 0, 212, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (125, 25, 150, 0, 80, 0)
+  (125, 25, 150, 0, 222, 0)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (126, 25, 151, 0, 90, 0)
+  (126, 25, 151, 0, 232, 0)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (127, 28, 66, 1, 10, 1)
+  (127, 28, 66, 1, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (128, 28, 67, 1, 20, 1)
+  (128, 28, 67, 1, 142, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (129, 28, 68, 1, 30, 1)
+  (129, 28, 68, 1, 172, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (130, 28, 69, 1, 40, 1)
+  (130, 28, 69, 1, 182, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (131, 28, 70, 1, 50, 1)
+  (131, 28, 70, 1, 192, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (132, 28, 71, 1, 60, 1)
+  (132, 28, 71, 1, 202, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (135, 30, 83, 1, 10, 1)
+  (135, 30, 83, 1, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (136, 31, 125, 1, 10, 0)
+  (136, 31, 125, 1, 52, 0)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (137, 32, 126, 1, 10, 0)
+  (137, 32, 126, 1, 52, 0)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (138, 32, 127, 1, 20, 0)
+  (138, 32, 127, 1, 142, 0)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (139, 47, 97, 1, 10, 1)
+  (139, 47, 97, 1, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (140, 15, 100, 1, 135, 1)
+  (140, 15, 100, 1, 277, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (141, 15, 101, 1, 140, 1)
+  (141, 15, 101, 1, 282, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (142, 34, 23, 1, 10, 1)
+  (142, 34, 23, 1, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (143, 34, 24, 1, 20, 1)
+  (143, 34, 24, 1, 142, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (144, 34, 25, 1, 30, 1)
+  (144, 34, 25, 1, 172, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (145, 34, 26, 1, 40, 1)
+  (145, 34, 26, 1, 182, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (146, 34, 27, 1, 50, 1)
+  (146, 34, 27, 1, 192, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (147, 34, 28, 1, 60, 1)
+  (147, 34, 28, 1, 202, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (148, 34, 29, 1, 70, 1)
+  (148, 34, 29, 1, 212, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (149, 34, 30, 1, 80, 1)
+  (149, 34, 30, 1, 222, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (150, 35, 13, 1, 10, 1)
+  (150, 35, 13, 1, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (151, 35, 14, 1, 20, 1)
+  (151, 35, 14, 1, 142, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (152, 35, 15, 1, 30, 1)
+  (152, 35, 15, 1, 172, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (153, 35, 16, 1, 40, 1)
+  (153, 35, 16, 1, 182, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (154, 35, 17, 1, 50, 1)
+  (154, 35, 17, 1, 192, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (155, 36, 54, 1, 10, 1)
+  (155, 36, 54, 1, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (156, 36, 55, 1, 20, 1)
+  (156, 36, 55, 1, 142, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (157, 36, 56, 1, 30, 1)
+  (157, 36, 56, 1, 172, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (158, 36, 57, 1, 40, 1)
+  (158, 36, 57, 1, 182, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (159, 36, 58, 1, 50, 1)
+  (159, 36, 58, 1, 192, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (160, 36, 59, 1, 60, 1)
+  (160, 36, 59, 1, 202, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (161, 36, 60, 1, 70, 1)
+  (161, 36, 60, 1, 212, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (162, 36, 61, 1, 80, 1)
+  (162, 36, 61, 1, 222, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (163, 37, 152, 1, 10, 1)
+  (163, 37, 152, 1, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (164, 37, 153, 1, 20, 1)
+  (164, 37, 153, 1, 142, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (165, 37, 154, 1, 30, 1)
+  (165, 37, 154, 1, 172, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (166, 37, 155, 1, 40, 1)
+  (166, 37, 155, 1, 182, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (167, 38, 156, 1, 10, 1)
+  (167, 38, 156, 1, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (168, 39, 117, 1, 10, 1)
+  (168, 39, 117, 1, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (169, 40, 119, 1, 10, 1)
+  (169, 40, 119, 1, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (170, 40, 120, 1, 20, 1)
+  (170, 40, 120, 1, 142, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (171, 40, 122, 1, 30, 1)
+  (171, 40, 122, 1, 172, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (172, 41, 108, 1, 10, 1)
+  (172, 41, 108, 1, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (173, 41, 109, 1, 20, 1)
+  (173, 41, 109, 1, 142, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (174, 42, 129, 1, 10, 0)
+  (174, 42, 129, 1, 52, 0)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (175, 43, 35, 1, 10, 1)
+  (175, 43, 35, 1, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (176, 43, 40, 1, 20, 1)
+  (176, 43, 40, 1, 142, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (177, 44, 63, 1, 10, 1)
+  (177, 44, 63, 1, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (180, 45, 126, 1, 20, 1)
+  (180, 45, 126, 1, 142, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (181, 45, 127, 1, 30, 1)
+  (181, 45, 127, 1, 172, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (182, 46, 125, 1, 10, 1)
+  (182, 46, 125, 1, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (183, 46, 126, 1, 20, 1)
+  (183, 46, 126, 1, 142, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (184, 46, 127, 1, 30, 1)
+  (184, 46, 127, 1, 172, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (185, 53, 195, 1, 10, 1)
+  (185, 53, 195, 1, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (186, 53, 196, 1, 20, 1)
+  (186, 53, 196, 1, 142, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (187, 55, 197, 0, 100, 1)
+  (187, 55, 197, 0, 242, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (189, 55, 198, 0, 110, 1)
+  (189, 55, 198, 0, 252, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (190, 55, 199, 0, 120, 1)
+  (190, 55, 199, 0, 262, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (191, 24, 129, 1, 150, 1)
+  (191, 24, 129, 1, 292, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (192, 42, 128, 1, 20, 1)
+  (192, 42, 128, 1, 142, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (193, 48, 150, 0, 10, 1)
+  (193, 48, 150, 0, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (194, 50, 200, 1, 10, 1)
+  (194, 50, 200, 1, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (195, 51, 201, 1, 10, 1)
+  (195, 51, 201, 1, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (213, 26, 202, 1, 10, 1)
+  (213, 26, 202, 1, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (214, 26, 206, 1, 20, 1)
+  (214, 26, 206, 1, 160, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (215, 26, 207, 1, 30, 1)
+  (215, 26, 207, 1, 130, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (216, 26, 208, 1, 40, 1)
+  (216, 26, 208, 1, 110, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (217, 9, 209, 1, 20, 1)
+  (217, 9, 209, 1, 142, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (218, 29, 209, 1, 20, 1)
+  (218, 29, 209, 1, 142, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (219, 9, 210, 1, 10, 1)
+  (219, 9, 210, 1, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (220, 29, 210, 1, 10, 1)
+  (220, 29, 210, 1, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (221, 57, 65, 1, 10, 1)
+  (221, 57, 65, 1, 52, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (222, 57, 64, 1, 20, 1)
+  (222, 57, 64, 1, 142, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (223, 9, 211, 1, 30, 1)
+  (223, 9, 211, 1, 172, 1)
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
 VALUES 
-  (224, 29, 211, 1, 30, 1)
+  (224, 29, 211, 1, 172, 1)
+GO
+
+INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
+VALUES 
+  (225, 58, 212, 0, 40, 1)
+GO
+
+INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
+VALUES 
+  (226, 58, 213, 0, 30, 1)
+GO
+
+INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
+VALUES 
+  (228, 45, 215, 1, 200, 1)
+GO
+
+INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
+VALUES 
+  (229, 45, 216, 1, 210, 1)
+GO
+
+INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
+VALUES 
+  (1227, 59, 1214, 1, 20, 1)
 GO
 
 COMMIT
@@ -21916,7 +21986,7 @@ GO
 
 INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (4060, 200, 1, N'AMP Power Output', N'800W Continuous, Bi-AMP (Class D-650W LF, Class AB-150W HF), 1600W Peak', 100, 1)
+  (4060, 200, 1, N'AMP Power Output', N'1600W Program, 3200W Peak', 100, 1)
 GO
 
 INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
@@ -21926,7 +21996,7 @@ GO
 
 INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (4062, 200, 1, N'Dsp Presets', N'Flat/HF +3dB / User (Customer Sound)', 120, 1)
+  (4062, 200, 1, N'Dsp Presets', N'Flat / HF +3dB / User (<span style="color: #000000;">Custom </span>Sound)', 120, 1)
 GO
 
 INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
@@ -22476,7 +22546,7 @@ GO
 
 INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (4173, 209, 1, N'Model Active:', N'TPS 16A.UB', 10, 1)
+  (4173, 209, 1, N'Model Active:', N'TPS 16AP', 10, 1)
 GO
 
 INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
@@ -22642,6 +22712,111 @@ GO
 INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
   (4204, 211, 1, N'Volume:', N'1.24CFT', 180, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4205, 215, 1, N'Oscillation mode', N'PLL UHF SYNTHESIZED', 10, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4206, 215, 1, N'Frequency band', N'UHF 470-960MHz. Dependent on applicable country regulations', 20, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4207, 215, 1, N'Frequency response', N'50Hz-15KHZ (&plusmn;3dB)', 30, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4208, 215, 1, N'Frequency stability', N'&plusmn;0,005% (-10 - 50)', 40, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4209, 215, 1, N'T.H.D.', N'1KHz&lt;0,8%', 50, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4210, 215, 1, N'Modulation mode', N'FM (F3E)', 60, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4211, 215, 1, N'Dynamic', N'&gt;90dB', 70, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4212, 215, 1, N'R/F output power', N'10mW', 80, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4213, 215, 1, N'Max. Deviation', N'36KHz', 90, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4214, 215, 1, N'Power supply', N'DC 1.5V', 100, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4215, 216, 1, N'Channel', N'Multi-Channel, up to 10 frequency presets for each frequency bands', 10, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4216, 216, 1, N'Frequency band', N'UHF 470-960MHz. Dependent on applicable country regulations', 20, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4217, 216, 1, N'Receiver Type', N'PLL UHF SYNTHESIZED', 30, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4218, 216, 1, N'Frequency response', N'50Hz-15KHZ (&plusmn;3dB)', 40, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4219, 216, 1, N'Frequency stability', N'&plusmn;0,005% (-10 - 50)', 50, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4220, 216, 1, N'T.H.D.', N'1KHz&lt;0.8%', 60, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4221, 216, 1, N'Modulation Mode', N'FM (F3E)', 70, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4222, 216, 1, N'S/N Ratio', N'&gt;90dB', 80, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4223, 216, 1, N'R/F sensitivity', N'-100dBm / 12dB SINAD', 90, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4224, 216, 1, N'Balance output', N'1V, 40KHz deviation', 100, 1)
+GO
+
+INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (4225, 216, 1, N'Power supply', N'DC 1.5V', 110, 1)
 GO
 
 COMMIT
@@ -23667,947 +23842,897 @@ GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (203, 86, 1, N'', N'Fully Expandable: DMX LAN / DMX WM', 20, 1)
+  (203, 86, 1, NULL, N'Fully Expandable: DMX LAN / DMX WM', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (204, 86, 1, N'', N'Free Control App for Mobile Devices', 30, 1)
+  (204, 86, 1, NULL, N'Free Control App for Mobile Devices', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (205, 87, 1, N'', N'1 Precision mono input Mic/Line with combo jack, Stereo Input', 10, 1)
+  (205, 87, 1, NULL, N'1 Precision mono input Mic/Line with combo jack, Stereo Input', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (206, 87, 1, N'', N'Monitor Output', 20, 1)
+  (206, 87, 1, NULL, N'Monitor Output', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (207, 87, 1, N'', N'2 band EQ', 30, 1)
+  (207, 87, 1, NULL, N'2 band EQ', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (208, 88, 1, N'', N'2 Precision mono input Mic/Line with combo jack, Stereo Input', 10, 1)
+  (208, 88, 1, NULL, N'2 Precision mono input Mic/Line with combo jack, Stereo Input', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (209, 88, 1, N'', N'Monitor Output', 20, 1)
+  (209, 88, 1, NULL, N'Monitor Output', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (210, 88, 1, N'', N'Bluetooth Player Function', 30, 1)
+  (210, 88, 1, NULL, N'Bluetooth Player Function', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (211, 89, 1, N'', N'5 Input Mixer', 10, 1)
+  (211, 89, 1, NULL, N'5 Input Mixer', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (212, 89, 1, N'', N'1 Mic/Line input', 20, 1)
+  (212, 89, 1, NULL, N'1 Mic/Line input', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (213, 89, 1, N'', N'2 Stereo Line inputs', 30, 1)
+  (213, 89, 1, NULL, N'2 Stereo Line inputs', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (214, 90, 1, N'', N'6 Input Mixer', 10, 1)
+  (214, 90, 1, NULL, N'6 Input Mixer', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (215, 90, 1, N'', N'2 MIC/Line inputs', 20, 1)
+  (215, 90, 1, NULL, N'2 MIC/Line inputs', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (216, 90, 1, N'', N'2 Stereo Line Inputs', 30, 1)
+  (216, 90, 1, NULL, N'2 Stereo Line Inputs', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (217, 91, 1, N'', N'10 Input Mixer', 10, 1)
+  (217, 91, 1, NULL, N'10 Input Mixer', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (218, 91, 1, N'', N'2 MIC/Line inputs', 20, 1)
+  (218, 91, 1, NULL, N'2 MIC/Line inputs', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (219, 91, 1, N'', N'4 Stereo Line Inputs', 30, 1)
+  (219, 91, 1, NULL, N'4 Stereo Line Inputs', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (220, 92, 1, N'', N'12 Input Mixer', 10, 1)
+  (220, 92, 1, NULL, N'12 Input Mixer', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (221, 92, 1, N'', N'4 MIC/Line inputs', 20, 1)
+  (221, 92, 1, NULL, N'4 MIC/Line inputs', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (222, 92, 1, N'', N'4 Stereo Line Inputs', 30, 1)
+  (222, 92, 1, NULL, N'4 Stereo Line Inputs', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (223, 93, 1, N'', N'6 Input Mixer', 10, 1)
+  (223, 93, 1, NULL, N'6 Input Mixer', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (224, 93, 1, N'', N'2 MIC/Line inputs - 2 Stereo Line Inputs', 20, 1)
+  (224, 93, 1, NULL, N'2 MIC/Line inputs - 2 Stereo Line Inputs', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (225, 93, 1, N'', N'24-bit Digital FX Processor / 100 Presets', 30, 1)
+  (225, 93, 1, NULL, N'24-bit Digital FX Processor / 100 Presets', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (226, 94, 1, N'', N'12 Input Mixer', 10, 1)
+  (226, 94, 1, NULL, N'12 Input Mixer', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (227, 94, 1, N'', N'4 MIC/Line inputs - 4 Stereo Line Inputs', 20, 1)
+  (227, 94, 1, NULL, N'4 MIC/Line inputs - 4 Stereo Line Inputs', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (228, 94, 1, N'', N'24-bit Digital FX Processor / 100 Presets', 30, 1)
+  (228, 94, 1, NULL, N'24-bit Digital FX Processor / 100 Presets', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (229, 95, 1, N'', N'12 Input Mixer', 10, 1)
+  (229, 95, 1, NULL, N'12 Input Mixer', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (230, 95, 1, N'', N'6 MIC/Line inputs - 2 Stereo Line Inputs', 20, 1)
+  (230, 95, 1, NULL, N'6 MIC/Line inputs - 2 Stereo Line Inputs', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (231, 95, 1, N'', N'24-bit Digital FX Processor / 100 Presets', 30, 1)
+  (231, 95, 1, NULL, N'24-bit Digital FX Processor / 100 Presets', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (232, 96, 1, N'', N'14 Input Mixer', 10, 1)
+  (232, 96, 1, NULL, N'14 Input Mixer', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (233, 96, 1, N'', N'8 MIC/Line inputs - 2 Stereo Line Inputs', 20, 1)
+  (233, 96, 1, NULL, N'8 MIC/Line inputs - 2 Stereo Line Inputs', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (234, 96, 1, N'', N'24-bit Digital FX Processor / 100 Presets', 30, 1)
+  (234, 96, 1, NULL, N'24-bit Digital FX Processor / 100 Presets', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (235, 98, 1, N'', N'16 Input Mixer', 10, 1)
+  (235, 98, 1, NULL, N'16 Input Mixer', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (236, 98, 1, N'', N'10 MIC/Line inputs - 6 Stereo Line Inputs', 20, 1)
+  (236, 98, 1, NULL, N'10 MIC/Line inputs - 6 Stereo Line Inputs', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (237, 98, 1, N'', N'USB I/O - Expansion slots for: 24-bit FX & Graaphic EQ', 30, 1)
+  (237, 98, 1, NULL, N'USB I/O - Expansion slots for: 24-bit FX & Graaphic EQ', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (238, 99, 1, N'', N'24 Input Mixer', 10, 1)
+  (238, 99, 1, NULL, N'24 Input Mixer', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (239, 99, 1, N'', N'18 MIC/Line inputs - 6 Stereo Line Inputs', 20, 1)
+  (239, 99, 1, NULL, N'18 MIC/Line inputs - 6 Stereo Line Inputs', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (240, 99, 1, N'', N'USB I/O - Expansion slots for: 24-bit FX & Graaphic EQ', 30, 1)
+  (240, 99, 1, NULL, N'USB I/O - Expansion slots for: 24-bit FX & Graaphic EQ', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (241, 100, 1, N'', N'24 Input Mixer', 10, 1)
+  (241, 100, 1, NULL, N'24 Input Mixer', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (242, 100, 1, N'', N'24 Inputs / 18 XLR Mic Pres', 20, 1)
+  (242, 100, 1, NULL, N'24 Inputs / 18 XLR Mic Pres', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (243, 100, 1, N'', N'USB I/O - Expansion slots for: 24-bit FX & Graaphic EQ', 30, 1)
+  (243, 100, 1, NULL, N'USB I/O - Expansion slots for: 24-bit FX & Graaphic EQ', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (244, 101, 1, N'', N'32 Inputs / 4 Subgroups / A & B Matrix', 10, 1)
+  (244, 101, 1, NULL, N'32 Inputs / 4 Subgroups / A & B Matrix', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (245, 101, 1, N'', N'26 XLR Mic Pres - 6 Aux Sends', 20, 1)
+  (245, 101, 1, NULL, N'26 XLR Mic Pres - 6 Aux Sends', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (246, 101, 1, N'', N'USB I/O - Expansion slots for: 24-bit FX & Graaphic EQ', 30, 1)
+  (246, 101, 1, NULL, N'USB I/O - Expansion slots for: 24-bit FX & Graaphic EQ', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (247, 102, 1, N'', N'10 Inputs - 8  XLR', 10, 1)
+  (247, 102, 1, NULL, N'10 Inputs - 8  XLR', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (248, 102, 1, N'', N'24bit Digital FX - 100 Presets - 4 Module Bays', 20, 1)
+  (248, 102, 1, NULL, N'24bit Digital FX - 100 Presets - 4 Module Bays', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (249, 102, 1, N'', N'2200W Program STEREO', 30, 1)
+  (249, 102, 1, NULL, N'2200W Program STEREO', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (250, 103, 1, N'', N'14 Inputs - 9  XLR', 10, 1)
+  (250, 103, 1, NULL, N'14 Inputs - 9  XLR', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (251, 103, 1, N'', N'Up to TWO Digital FX - 1  Module Bay', 20, 1)
+  (251, 103, 1, NULL, N'Up to TWO Digital FX - 1  Module Bay', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (252, 103, 1, N'', N'2000W Program STEREO', 30, 1)
+  (252, 103, 1, NULL, N'2000W Program STEREO', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (253, 104, 1, N'', N'10 Inputs - 7  XLR', 10, 1)
+  (253, 104, 1, NULL, N'10 Inputs - 7  XLR', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (254, 104, 1, N'', N'Digital FX - 1  Module Bay', 20, 1)
+  (254, 104, 1, NULL, N'Digital FX - 1  Module Bay', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (255, 104, 1, N'', N'1600W Program STEREO', 30, 1)
+  (255, 104, 1, NULL, N'1600W Program STEREO', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (256, 105, 1, N'', N'10 Inputs - 8  XLR', 10, 1)
+  (256, 105, 1, NULL, N'10 Inputs - 8  XLR', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (257, 105, 1, N'', N'Digital FX - 1  Module Bay', 20, 1)
+  (257, 105, 1, NULL, N'Digital FX - 1  Module Bay', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (258, 105, 1, N'', N'600W Program MONO', 30, 1)
+  (258, 105, 1, NULL, N'600W Program MONO', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (259, 106, 1, N'', N'8 Inputs - 6  XLR', 10, 1)
+  (259, 106, 1, NULL, N'8 Inputs - 6  XLR', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (260, 106, 1, N'', N'Digital FX - 1  Module Bay', 20, 1)
+  (260, 106, 1, NULL, N'Digital FX - 1  Module Bay', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (261, 106, 1, N'', N'600W Program MONO', 30, 1)
+  (261, 106, 1, NULL, N'600W Program MONO', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (262, 107, 1, N'', N'6 Inputs - 4  XLR', 10, 1)
+  (262, 107, 1, NULL, N'6 Inputs - 4  XLR', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (263, 107, 1, N'', N'Digital FX - 1  Module Bay', 20, 1)
+  (263, 107, 1, NULL, N'Digital FX - 1  Module Bay', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (264, 107, 1, N'', N'400W Program MONO', 30, 1)
+  (264, 107, 1, NULL, N'400W Program MONO', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (265, 110, 1, N'', N'8000W SYSTEM PROGRAM POWER', 10, 1)
+  (265, 110, 1, NULL, N'8000W SYSTEM PROGRAM POWER', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (266, 110, 1, N'', N'Coaxial Design', 20, 1)
+  (266, 110, 1, NULL, N'Coaxial Design', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (267, 110, 1, N'', N'131dB Max SPL!', 30, 1)
+  (267, 110, 1, NULL, N'131dB Max SPL!', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (268, 113, 1, N'', N'1600W SYSTEM PROGRAM POWER', 10, 1)
+  (268, 113, 1, NULL, N'1600W SYSTEM PROGRAM POWER', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (269, 113, 1, N'', N'Available in Black or White', 20, 1)
+  (269, 113, 1, NULL, N'Available in Black or White', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (270, 113, 1, N'', N'126dB Max SPL!', 30, 1)
+  (270, 113, 1, NULL, N'126dB Max SPL!', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (271, 112, 1, N'', N'2800W SYSTEM PROGRAM POWER', 10, 1)
+  (271, 112, 1, NULL, N'2800W SYSTEM PROGRAM POWER', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (272, 112, 1, N'', N'Available in Black or White', 20, 1)
+  (272, 112, 1, NULL, N'Available in Black or White', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (273, 112, 1, N'', N'130dB Max SPL!', 30, 1)
+  (273, 112, 1, NULL, N'130dB Max SPL!', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (274, 159, 1, N'', N'500W PEAK POWER', 10, 1)
+  (274, 159, 1, NULL, N'500W PEAK POWER', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (275, 159, 1, N'', N'15" Woofer - 1" Neodymium Driver', 20, 1)
+  (275, 159, 1, NULL, N'15" Woofer - 1" Neodymium Driver', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (276, 159, 1, N'', N'Built in MP3 USB / Bluetooth!', 30, 1)
+  (276, 159, 1, NULL, N'Built in MP3 USB / Bluetooth!', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (277, 114, 1, N'', N'ALL IN ONE BOX COMBO!', 10, 1)
+  (277, 114, 1, NULL, N'ALL IN ONE BOX COMBO!', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (278, 114, 1, N'', N'One TPM 8250MKII Mixer + Two TPS115 NEO Speakers', 20, 1)
+  (278, 114, 1, NULL, N'One TPM 8250MKII Mixer + Two TPS115 NEO Speakers', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (279, 114, 1, N'', N'600W Program MONO', 30, 1)
+  (279, 114, 1, NULL, N'600W Program MONO', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (280, 115, 1, N'', N'ALL IN ONE BOX COMBO!', 10, 1)
+  (280, 115, 1, NULL, N'ALL IN ONE BOX COMBO!', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (281, 115, 1, N'', N'One TPM 6250MKII Mixer + Two TPS112 NEO Speakers', 20, 1)
+  (281, 115, 1, NULL, N'One TPM 6250MKII Mixer + Two TPS112 NEO Speakers', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (282, 115, 1, N'', N'600W Program MONO', 30, 1)
+  (282, 115, 1, NULL, N'600W Program MONO', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (283, 116, 1, N'', N'ALL IN ONE BOX COMBO!', 10, 1)
+  (283, 116, 1, NULL, N'ALL IN ONE BOX COMBO!', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (284, 116, 1, N'', N'One TPM 4200FX Mixer + Two TPS G10 Speakers', 20, 1)
+  (284, 116, 1, NULL, N'One TPM 4200FX Mixer + Two TPS G10 Speakers', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (285, 116, 1, N'', N'400W Program MONO', 30, 1)
+  (285, 116, 1, NULL, N'400W Program MONO', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (286, 118, 1, N'', N'UHF Diversity System', 10, 1)
+  (286, 118, 1, NULL, N'UHF Diversity System', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (287, 118, 1, N'', N'LTHSGT Pack includes beltpack, Headset, mic Lavalier and Guitar Cable', 20, 1)
+  (287, 118, 1, NULL, N'LTHSGT Pack includes beltpack, Headset, mic Lavalier and Guitar Cable', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (288, 118, 1, N'', N'', 30, 0)
+  (289, 121, 1, NULL, N'PLL UHF Synthesized System', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (289, 121, 1, N'', N'PLL UHF Synthesized System', 10, 1)
+  (290, 121, 1, NULL, N'144 Frequencies!', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (290, 121, 1, N'', N'144 Frequencies!', 20, 1)
+  (291, 121, 1, NULL, N'Premium Capsule & Balanced Out', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (291, 121, 1, N'', N'Premium Capsule & Balanced Out', 30, 1)
+  (292, 165, 1, NULL, N'PLL UHF Synthesized System', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (292, 165, 1, N'', N'PLL UHF Synthesized System', 10, 1)
+  (293, 165, 1, NULL, N'100 Frequencies & UHF Diversity!', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (293, 165, 1, N'', N'100 Frequencies & UHF Diversity!', 20, 1)
+  (294, 165, 1, NULL, N'Up to 300ft Range!', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (294, 165, 1, N'', N'Up to 300ft Range!', 30, 1)
+  (295, 166, 1, NULL, N'PLL UHF Synthesized System', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (295, 166, 1, N'', N'PLL UHF Synthesized System', 10, 1)
+  (296, 166, 1, NULL, N'100 Frequencies & LCD Display!', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (296, 166, 1, N'', N'100 Frequencies & LCD Display!', 20, 1)
+  (297, 166, 1, NULL, N'Up to 8h of use with 2 "AA" batteries', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (297, 166, 1, N'', N'Up to 8h of use with 2 "AA" batteries', 30, 1)
+  (298, 167, 1, NULL, N'PLL UHF Synthesized System', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (298, 167, 1, N'', N'PLL UHF Synthesized System', 10, 1)
+  (299, 167, 1, NULL, N'101 Frequencies per Channel & LCD Display!', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (299, 167, 1, N'', N'101 Frequencies per Channel & LCD Display!', 20, 1)
+  (300, 167, 1, NULL, N'Intelligent Recognition & ID Lock', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (300, 167, 1, N'', N'Intelligent Recognition & ID Lock', 30, 1)
+  (301, 123, 1, NULL, N'Non-Diversity VHF System', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (301, 123, 1, N'', N'Non-Diversity VHF System', 10, 1)
+  (302, 123, 1, NULL, N'Quartz controlled fixed frequency', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (302, 123, 1, N'', N'Quartz controlled fixed frequency', 20, 1)
+  (303, 123, 1, NULL, N'FM (F3E) Modulation', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (303, 123, 1, N'', N'FM (F3E) Modulation', 30, 1)
+  (304, 124, 1, NULL, N'Diversity VHF System', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (304, 124, 1, N'', N'Diversity VHF System', 10, 1)
+  (305, 124, 1, NULL, N'Quartz controlled fixed frequency', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (305, 124, 1, N'', N'Quartz controlled fixed frequency', 20, 1)
+  (306, 124, 1, NULL, N'FM (F3E) Modulation', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (306, 124, 1, N'', N'FM (F3E) Modulation', 30, 1)
+  (307, 125, 1, NULL, N'Bluetooth Vl.1+EDR', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (307, 125, 1, N'', N'Bluetooth Vl.1+EDR', 10, 1)
+  (308, 125, 1, NULL, N'More than 20 meters transmit distance in open  place', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (308, 125, 1, N'', N'More than 20 meters transmit distance in open  place', 20, 1)
+  (309, 125, 1, NULL, N'With LED Display', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (309, 125, 1, N'', N'With LED Display', 30, 1)
+  (310, 126, 1, NULL, N'Transmitter Operating Band: ISM 2.4GHz free band', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (310, 126, 1, N'', N'Transmitter Operating Band: ISM 2.4GHz free band', 10, 1)
+  (311, 126, 1, NULL, N'GFSK digital modulation/demodulation', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (311, 126, 1, N'', N'GFSK digital modulation/demodulation', 20, 1)
+  (312, 126, 1, NULL, N'External antenna, 30 meters transmit distance in open place', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (312, 126, 1, N'', N'External antenna, 30 meters transmit distance in open place', 30, 1)
+  (313, 127, 1, NULL, N'Receiver or Multi receiver Operating Band: ISM 2.4GHz free band', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (313, 127, 1, N'', N'Receiver or Multi receiver Operating Band: ISM 2.4GHz free band', 10, 1)
+  (314, 127, 1, NULL, N'GFSK digital modulation/demodulation', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (314, 127, 1, N'', N'GFSK digital modulation/demodulation', 20, 1)
+  (315, 127, 1, NULL, N'External antenna, 30 meters transmit distance in open place', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (315, 127, 1, N'', N'External antenna, 30 meters transmit distance in open place', 30, 1)
+  (316, 128, 1, NULL, N'Digital Signal Processor', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (316, 128, 1, N'', N'Digital Signal Processor', 10, 1)
+  (317, 128, 1, NULL, N'24-bit sigma-delta converters / 48 kHz Sampling Rates', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (317, 128, 1, N'', N'24-bit sigma-delta converters / 48 kHz Sampling Rates', 20, 1)
+  (318, 128, 1, NULL, N'1 Rack Unit', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (318, 128, 1, N'', N'1 Rack Unit', 30, 1)
+  (319, 130, 1, NULL, N'Crossover 2 and 3 way stereo', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (319, 130, 1, N'', N'Crossover 2 and 3 way stereo', 10, 1)
+  (320, 130, 1, NULL, N'4 way mono crossover', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (320, 130, 1, N'', N'4 way mono crossover', 20, 1)
+  (321, 130, 1, NULL, N'1 Rack Unit', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (321, 130, 1, N'', N'1 Rack Unit', 30, 1)
+  (322, 131, 1, NULL, N'Compressor / Limiter / Gate', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (322, 131, 1, N'', N'Compressor / Limiter / Gate', 10, 1)
+  (323, 131, 1, NULL, N'Smart ratio control Expander', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (323, 131, 1, N'', N'Smart ratio control Expander', 20, 1)
+  (324, 131, 1, NULL, N'1 Rack Unit', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (324, 131, 1, N'', N'1 Rack Unit', 30, 1)
+  (325, 132, 1, NULL, N'2 x 15 Band Graphic Equalizer', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (325, 132, 1, N'', N'2 x 15 Band Graphic Equalizer', 10, 1)
+  (326, 132, 1, NULL, N'In / Out XLR & TRS', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (326, 132, 1, N'', N'In / Out XLR & TRS', 20, 1)
+  (327, 132, 1, NULL, N'2 Rack Units', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (327, 132, 1, N'', N'2 Rack Units', 30, 1)
+  (328, 133, 1, NULL, N'2 x 31 Band Graphic Equalizer', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (328, 133, 1, N'', N'2 x 31 Band Graphic Equalizer', 10, 1)
+  (329, 133, 1, NULL, N'In / Out XLR & TRS', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (329, 133, 1, N'', N'In / Out XLR & TRS', 20, 1)
+  (330, 133, 1, NULL, N'2 Rack Units', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (330, 133, 1, N'', N'2 Rack Units', 30, 1)
+  (331, 134, 1, NULL, N'2 x 31 Band Graphic Equalizer', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (331, 134, 1, N'', N'2 x 31 Band Graphic Equalizer', 10, 1)
+  (332, 134, 1, NULL, N'In / Out XLR & TRS / Subwoofer out', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (332, 134, 1, N'', N'In / Out XLR & TRS / Subwoofer out', 20, 1)
+  (333, 134, 1, NULL, N'2 Rack Units', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (333, 134, 1, N'', N'2 Rack Units', 30, 1)
+  (334, 135, 1, NULL, N'Microphone Preamplifier', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (334, 135, 1, N'', N'Microphone Preamplifier', 10, 1)
+  (335, 135, 1, NULL, N'6 Channel, Servo Balanced Input', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (335, 135, 1, N'', N'6 Channel, Servo Balanced Input', 20, 1)
+  (336, 135, 1, NULL, N'4 Meter LEDs', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (336, 135, 1, N'', N'4 Meter LEDs', 30, 1)
+  (337, 136, 1, NULL, N'Microphone Preamplifier', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (337, 136, 1, N'', N'Microphone Preamplifier', 10, 1)
+  (338, 136, 1, NULL, N'4 Channel, Servo Balanced Input', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (338, 136, 1, N'', N'4 Channel, Servo Balanced Input', 20, 1)
+  (339, 136, 1, NULL, N'5 Meter LEDs', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (339, 136, 1, N'', N'5 Meter LEDs', 30, 1)
+  (340, 137, 1, NULL, N'Stereo Tube Preamplifier', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (340, 137, 1, N'', N'Stereo Tube Preamplifier', 10, 1)
+  (341, 137, 1, NULL, N'Input & Output Type: 2 XLR and 1/4" TRS', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (341, 137, 1, N'', N'Input & Output Type: 2 XLR and 1/4" TRS', 20, 1)
+  (342, 137, 1, NULL, N'Output Impedance: Balanced / Unbalalanced', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (342, 137, 1, N'', N'Output Impedance: Balanced / Unbalalanced', 30, 1)
+  (343, 138, 1, NULL, N'Active Direct Box', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (343, 138, 1, N'', N'Active Direct Box', 10, 1)
+  (344, 138, 1, NULL, N'1/4" TRS or XLR', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (344, 138, 1, N'', N'1/4" TRS or XLR', 20, 1)
+  (345, 138, 1, NULL, N'Power source: 9V Battery or 48V Phantom Power', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (345, 138, 1, N'', N'Power source: 9V Battery or 48V Phantom Power', 30, 1)
+  (346, 139, 1, NULL, N'Passive Direct lnjection Box', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (346, 139, 1, N'', N'Passive Direct lnjection Box', 10, 1)
+  (347, 139, 1, NULL, N'ln: 1/4" TRS Electronically Unbalanced', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (347, 139, 1, N'', N'ln: 1/4" TRS Electronically Unbalanced', 20, 1)
+  (348, 139, 1, NULL, N'Out: Electronically Balanced XLR', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (348, 139, 1, N'', N'Out: Electronically Balanced XLR', 30, 1)
+  (349, 140, 1, NULL, N'Power Conditiones', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (349, 140, 1, N'', N'Power Conditiones', 10, 1)
+  (350, 140, 1, NULL, N'8 Sockets / Ampere & Voltage meter', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (350, 140, 1, N'', N'8 Sockets / Ampere & Voltage meter', 20, 1)
+  (351, 140, 1, NULL, N'1 Rack Unit', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (351, 140, 1, N'', N'1 Rack Unit', 30, 1)
+  (352, 141, 1, NULL, N'Mixer, Splitter Processor', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (352, 141, 1, N'', N'Mixer, Splitter Processor', 10, 1)
+  (353, 141, 1, NULL, N'2 inputs, 6+2 outputs splitter', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (353, 141, 1, N'', N'2 inputs, 6+2 outputs splitter', 20, 1)
+  (354, 141, 1, NULL, N'1 Rack Unit', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (354, 141, 1, N'', N'1 Rack Unit', 30, 1)
+  (355, 142, 1, NULL, N'Feedback Terminator', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (355, 142, 1, N'', N'Feedback Terminator', 10, 1)
+  (356, 142, 1, NULL, N'Electronically Balanced / Unbalanced, RF filter suppressor', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (356, 142, 1, N'', N'Electronically Balanced / Unbalanced, RF filter suppressor', 20, 1)
+  (357, 142, 1, NULL, N'1 Rack Unit', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (357, 142, 1, N'', N'1 Rack Unit', 30, 1)
+  (358, 143, 1, NULL, N'Displays track number on display', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (358, 143, 1, N'', N'Displays track number on display', 10, 1)
+  (359, 143, 1, NULL, N'For use in Expansion Slot', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (359, 143, 1, N'', N'For use in Expansion Slot', 20, 1)
+  (361, 144, 1, NULL, N'Displays song title on display', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (360, 143, 1, N'', N'', 30, 0)
+  (362, 144, 1, NULL, N'For use in Expansion Slot', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (361, 144, 1, N'', N'Displays song title on display', 10, 1)
+  (364, 145, 1, NULL, N'Records sounds to an USB key', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (362, 144, 1, N'', N'For use in Expansion Slot', 20, 1)
+  (365, 145, 1, NULL, N'For use in Expansion Slot', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (363, 144, 1, N'', N'', 30, 0)
+  (367, 146, 1, NULL, N'Bluetooth Audio Receiver', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (364, 145, 1, N'', N'Records sounds to an USB key', 10, 1)
+  (368, 146, 1, NULL, N'For use in Expansion Slot', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (365, 145, 1, N'', N'For use in Expansion Slot', 20, 1)
+  (370, 147, 1, NULL, N'2.4GHz Digital Wireless Receiver', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (366, 145, 1, N'', N'', 30, 0)
+  (371, 147, 1, NULL, N'For use in Expansion Slot', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (367, 146, 1, N'', N'Bluetooth Audio Receiver', 10, 1)
+  (373, 148, 1, NULL, N'24-Bit FX Processor', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (368, 146, 1, N'', N'For use in Expansion Slot', 20, 1)
+  (374, 148, 1, NULL, N'For use in Expansion Slot', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (369, 146, 1, N'', N'', 30, 0)
+  (376, 149, 1, NULL, N'9 Band Graphic EQ', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (370, 147, 1, N'', N'2.4GHz Digital Wireless Receiver', 10, 1)
+  (377, 149, 1, NULL, N'For use in Expansion Slot', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (371, 147, 1, N'', N'For use in Expansion Slot', 20, 1)
+  (379, 150, 1, NULL, N'Microphone Preamplifier', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (372, 147, 1, N'', N'', 30, 0)
+  (380, 150, 1, NULL, N'For use in Expansion Slot', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (373, 148, 1, N'', N'24-Bit FX Processor', 10, 1)
+  (382, 151, 1, NULL, N'Ethernet Module', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (374, 148, 1, N'', N'For use in Expansion Slot', 20, 1)
+  (383, 151, 1, NULL, N'For use in Expansion Slot', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (375, 148, 1, N'', N'', 30, 0)
+  (385, 62, 1, NULL, N'Professional line array system', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (376, 149, 1, N'', N'9 Band Graphic EQ', 10, 1)
+  (386, 62, 1, NULL, N'Ideal for médium to large indoor venues and small to medium outdoor applications', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (377, 149, 1, N'', N'For use in Expansion Slot', 20, 1)
+  (387, 62, 1, NULL, N'Offers a 100º horizontal & 7.5º vertical coverage pattern', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (378, 149, 1, N'', N'', 30, 0)
+  (388, 86, 1, NULL, N'Powerfull DSP & Instant Recall', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (379, 150, 1, N'', N'Microphone Preamplifier', 10, 1)
+  (389, 168, 1, NULL, N'7” LCD Touch Screen', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (380, 150, 1, N'', N'For use in Expansion Slot', 20, 1)
+  (390, 168, 1, NULL, N'Real Motorized Fader', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (381, 150, 1, N'', N'', 30, 0)
-GO
-
-INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
-VALUES 
-  (382, 151, 1, N'', N'Ethernet Module', 10, 1)
-GO
-
-INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
-VALUES 
-  (383, 151, 1, N'', N'For use in Expansion Slot', 20, 1)
-GO
-
-INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
-VALUES 
-  (384, 151, 1, N'', N'', 30, 0)
-GO
-
-INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
-VALUES 
-  (385, 62, 1, N'', N'Professional line array system', 10, 1)
-GO
-
-INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
-VALUES 
-  (386, 62, 1, N'', N'Ideal for médium to large indoor venues and small to medium outdoor applications', 20, 1)
-GO
-
-INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
-VALUES 
-  (387, 62, 1, N'', N'Offers a 100º horizontal & 7.5º vertical coverage pattern', 30, 1)
-GO
-
-INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
-VALUES 
-  (388, 86, 1, N'', N'Powerfull DSP & Instant Recall', 10, 1)
-GO
-
-INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
-VALUES 
-  (389, 168, 1, N'', N'7” LCD Touch Screen', 10, 1)
-GO
-
-INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
-VALUES 
-  (390, 168, 1, N'', N'Real Motorized Fader', 20, 1)
-GO
-
-INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
-VALUES 
-  (391, 168, 1, N'', N'30 DSP Channels', 30, 1)
+  (391, 168, 1, NULL, N'30 DSP Channels', 30, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
@@ -24642,52 +24767,37 @@ GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (398, 197, 1, N'', N'CS-LAN Ethernet Module', 10, 1)
+  (398, 197, 1, NULL, N'CS-LAN Ethernet Module', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (399, 197, 1, N'', N'For use in Expansion Slot', 20, 1)
+  (399, 197, 1, NULL, N'For use in Expansion Slot', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (400, 197, 1, N'', N'', 30, 0)
+  (401, 198, 1, NULL, N'CS-WM Wireless Master Module', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (401, 198, 1, N'', N'CS-WM Wireless Master Module', 10, 1)
+  (402, 198, 1, NULL, N'For use in Expansion Slot', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (402, 198, 1, N'', N'For use in Expansion Slot', 20, 1)
+  (404, 199, 1, NULL, N'CS-WSL Wireless Slave Module', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (403, 198, 1, N'', N'', 30, 0)
+  (405, 199, 1, NULL, N'For use in Expansion Slot', 20, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
-  (404, 199, 1, N'', N'CS-WSL Wireless Slave Module', 10, 1)
-GO
-
-INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
-VALUES 
-  (405, 199, 1, N'', N'For use in Expansion Slot', 20, 1)
-GO
-
-INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
-VALUES 
-  (406, 199, 1, N'', N'', 30, 0)
-GO
-
-INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
-VALUES 
-  (407, 200, 1, N'Power', N'800W Continuous, 1600W Peak', 10, 1)
+  (407, 200, 1, N'Power', N'1600W Program, 3200W Peak', 10, 1)
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
@@ -24823,6 +24933,66 @@ GO
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
   (435, 211, 1, N'TRANSDUCER HIGH:', N'1" Neodymium Tweeter', 30, 1)
+GO
+
+INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (436, 212, 1, NULL, N'For use in T20 Expansion Slot', 10, 1)
+GO
+
+INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (437, 212, 1, NULL, N'USB Module to transmit audio data', 20, 1)
+GO
+
+INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (438, 213, 1, NULL, N'For use in DMX24.4 Expansion Slot', 10, 1)
+GO
+
+INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (439, 213, 1, NULL, N'USB Module to transmit audio data', 20, 1)
+GO
+
+INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (440, 215, 1, N'Transmitter', N'Connects to Output', 10, 1)
+GO
+
+INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (441, 215, 1, N'UHF', N'Low Latency', 20, 1)
+GO
+
+INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (442, 215, 1, N'Range', N'Up to 300ft', 30, 1)
+GO
+
+INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (443, 216, 1, N'Receiver', N'to Speaker Input', 10, 1)
+GO
+
+INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (444, 216, 1, N'UHF', N'Low Latency', 20, 1)
+GO
+
+INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (445, 216, 1, N'Range', N'Up to 300ft', 30, 1)
+GO
+
+INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (1440, 1214, 1, N'For', N'use in T20 Expansion Slot', 10, 1)
+GO
+
+INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
+VALUES 
+  (1441, 1214, 1, N'Up', N'to 32x32 channels at 48kHz', 20, 1)
 GO
 
 COMMIT
@@ -25106,127 +25276,560 @@ ALTER TABLE dbo.Product
 WITH CHECK CHECK CONSTRAINT Model_Product_FK
 GO
 
-
-
-
-
-
-DELETE FROM dbo.Distributor
-GO
-DELETE FROM dbo.Country
-GO
-
+--
+-- Data for table dbo.Country  (LIMIT 0,500)
+--
 
 SET IDENTITY_INSERT dbo.Country ON
 GO
 
-INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (1,'Worldwide',10,1)
-INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (2,'Andorra',20,1)
-INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (3,'Aruba',30,1)
-INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (4,'Bahamas',40,1)
-INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (5,'Barbados',50,1)
-INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (6,'Belize',60,1)
-INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (7,'Bolivia',70,1)
-INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (8,'Cayman',80,1)
-INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (9,'Chile',90,1)
-INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (10,'Colombia',100,1)
-INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (11,'Costa Rica',110,1)
-INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (12,'Curacao',120,1)
-INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (13,'Ecuador',130,1)
-INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (14,'El Salvador',140,1)
-INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (15,'Guadaloupe',150,1)
-INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (16,'Guyana',160,1)
-INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (17,'Grenada',170,1)
-INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (18,'Haiti',180,1)
-INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (19,'Honduras',190,1)
-INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (20,'Indonesia',200,1)
-INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (21,'Italy',210,1)
-INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (22,'Jamaica',220,1)
-INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (23,'Korea',230,1)
-INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (24,'Malaysia',240,1)
-INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (25,'Mexico',250,1)
-INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (26,'Myanmar',260,1)
-INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (27,'Nicaragua',270,1)
-INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (28,'Nigeria',280,1)
-INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (29,'Philippines',290,1)
-INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (30,'República Dominicana',300,1)
-INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (31,'St. Lucia',310,1)
-INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (32,'St. Maarten',320,1)
-INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (33,'Spain',330,1)
-INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (34,'Suriname',340,1)
-INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (35,'Trinidad',350,1)
-INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (36,'Turkey',360,1)
-INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled) values (37,'Vietnam',370,1)
+BEGIN TRANSACTION
+GO
+
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled)
+VALUES 
+  (1, N'Worldwide', 10, 1)
+GO
+
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled)
+VALUES 
+  (2, N'Andorra', 20, 1)
+GO
+
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled)
+VALUES 
+  (3, N'Aruba', 30, 1)
+GO
+
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled)
+VALUES 
+  (4, N'Bahamas', 40, 1)
+GO
+
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled)
+VALUES 
+  (5, N'Barbados', 50, 1)
+GO
+
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled)
+VALUES 
+  (6, N'Belize', 60, 1)
+GO
+
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled)
+VALUES 
+  (7, N'Bolivia', 70, 1)
+GO
+
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled)
+VALUES 
+  (8, N'Cayman', 80, 1)
+GO
+
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled)
+VALUES 
+  (9, N'Chile', 90, 1)
+GO
+
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled)
+VALUES 
+  (10, N'Colombia', 100, 1)
+GO
+
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled)
+VALUES 
+  (11, N'Costa Rica', 110, 1)
+GO
+
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled)
+VALUES 
+  (12, N'Curacao', 120, 1)
+GO
+
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled)
+VALUES 
+  (13, N'Ecuador', 130, 1)
+GO
+
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled)
+VALUES 
+  (14, N'El Salvador', 140, 1)
+GO
+
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled)
+VALUES 
+  (15, N'Guadaloupe', 150, 1)
+GO
+
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled)
+VALUES 
+  (16, N'Guyana', 160, 1)
+GO
+
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled)
+VALUES 
+  (17, N'Grenada', 170, 1)
+GO
+
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled)
+VALUES 
+  (18, N'Haiti', 180, 1)
+GO
+
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled)
+VALUES 
+  (19, N'Honduras', 190, 1)
+GO
+
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled)
+VALUES 
+  (20, N'Indonesia', 200, 1)
+GO
+
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled)
+VALUES 
+  (21, N'Italy', 210, 1)
+GO
+
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled)
+VALUES 
+  (22, N'Jamaica', 220, 1)
+GO
+
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled)
+VALUES 
+  (23, N'Korea', 230, 1)
+GO
+
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled)
+VALUES 
+  (24, N'Malaysia', 240, 1)
+GO
+
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled)
+VALUES 
+  (25, N'Mexico', 250, 1)
+GO
+
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled)
+VALUES 
+  (26, N'Myanmar', 260, 1)
+GO
+
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled)
+VALUES 
+  (27, N'Nicaragua', 270, 1)
+GO
+
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled)
+VALUES 
+  (28, N'Nigeria', 280, 1)
+GO
+
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled)
+VALUES 
+  (29, N'Philippines', 290, 1)
+GO
+
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled)
+VALUES 
+  (30, N'República Dominicana', 300, 1)
+GO
+
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled)
+VALUES 
+  (31, N'St. Lucia', 310, 1)
+GO
+
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled)
+VALUES 
+  (32, N'St. Maarten', 320, 1)
+GO
+
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled)
+VALUES 
+  (33, N'Spain', 330, 1)
+GO
+
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled)
+VALUES 
+  (34, N'Suriname', 340, 1)
+GO
+
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled)
+VALUES 
+  (35, N'Trinidad', 350, 1)
+GO
+
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled)
+VALUES 
+  (36, N'Turkey', 360, 1)
+GO
+
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled)
+VALUES 
+  (37, N'Vietnam', 370, 1)
+GO
+
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled)
+VALUES 
+  (38, N'Lebanon', 235, 1)
+GO
+
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled)
+VALUES 
+  (39, N'Rusia Federation', 305, 1)
+GO
+
+INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled)
+VALUES 
+  (40, N'Saudi Arabia', 308, 1)
+GO
+
+COMMIT
 GO
 
 SET IDENTITY_INSERT dbo.Country OFF
 GO
 
+--
+-- Data for table dbo.Distributor  (LIMIT 0,500)
+--
+
 SET IDENTITY_INSERT dbo.Distributor ON
 GO
 
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (1,1,1,'TOPP PRO Worldwide Distribution Contact','Allen Chen<br>Sales Manager<br><br>No.1, Lane 17, Sec. 2, Hanshi W. Road<br>Taichung, Taiwan<br>Ph. +886-4-22313737 ext. 122<br>Fax. +886-4-22346757<br>E-mail. allenchen@sekaku.com',10,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (2,1,1,'Tropical Music Export Enterprises, INC.','Exclusive Latin America Distribution<br><br>6850 S.W. 81 Terrace<br>Miami, FL. 33143<br>Ph. 305-740-7454<br>Fax. 305-740-7456',20,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (3,2,1,'PRO MUSICA ANDORRA','Avinguda Copríncep De Gaulle, 4. AD700<br>Escaldes-Engordany<br>Principat d''Andorra<br>Ph. +376 864 845<br>Fax. +376 860 790<br>E-mail. promusicaandorra@gmail.com<br>Laurent Liard<br>Cel. +376 334 069<br>www.promusicaandorra.com',30,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (4,3,1,'CLIFFIX MUSICAL INSTRUMENTS N.V.','San Barbola 4-E<br>Aruba<br>Ph. 297-582-9660',30,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (5,4,1,'AMN Enterprises Limited','2221 Town Centre Mall<br>Nassau<br>Bahamas<br>Ph. 242-356-5971',40,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (6,5,1,'A & B MUSIC SUPPLIES','12 Webster Industrial Park<br>Wildey<br>St. Michael BB14006<br>Barbados<br>Ph. 246-430-1100',50,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (7,5,1,'WEST RILEY ELECTRONICS COMPANY LIMITED','City Centre Mall<br>Chapel Street, Bridgetown<br>Barbados<br>Ph. 264-431-0109',60,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (8,6,1,'Covenant Books & Music Supply','15 Guanacastle Park St<br>Belmopan, Cayo District<br>Belize<br>Ph. 501-610-1517',70,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (9,6,1,'MIDWAY LTD.','Box 580<br>Spanish Look Out<br>Belize<br>Ph. 501-823-0095',80,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (10,6,1,'KOREA ELECTRONICS','77 Freetown Road<br>Cinderella Plaza, Belize City<br>Belize<br>Ph. 501-224-4763',90,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (11,6,1,'CY''S MUSIC & SOUVEMIRS','13 West Collet Canal, Belize City<br>Belize<br>Ph. 501-227-2777',100,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (12,7,1,'RCF MUSIC','Cochabamba<br>Bolivia<br>Ph. 591-4-4284851',110,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (13,8,1,'MYLES MUSIC EMPORIUM','Barnett Building<br># 24 Huldah Ave., Georgetown<br>Grand Cayman<br>Ph. 345-949-1753',120,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (14,9,1,'CASA AMARILLA','San Diego 140, Santiago<br>Chile<br>Ph. 56-2-6983483',130,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (15,9,1,'CY V MUSIC LIMITADA','Zona Franca Iquique Chile<br>Manzana 14 Galpón 9 Recinto Amurallado, Iquique<br>Chile<br>Ph. 56-978834788',140,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (16,10,1,'TROPICAL MUSIC COLOMBIA SAS','Transversal 93 # 53-32 Interior 11<br>Parque Empresarial El Dorado-Alamos Norte<br>Bogotá - Colombia<br>Ph. 2431233<br>Cel. 3138183850<br>E-mail. guillermo@tropicalmusic.com',150,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (17,10,1,'EL IMPERIO ELECTRONICO','Carrera 9 No. 20-52<br>Santa Fe de Bogotá<br>Ph. 57-1-284-5060',160,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (18,10,1,'SONIDO EN VIVO','Calle 8 B # 65-191 of 222<br>Centro empresarial Puerto Seco<br>Ph. 57-4-444-5808',170,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (19,10,1,'MEMO ELECTRONICS','Cra 6 # 15-89. Cali<br>Colombia<br>Ph. 57-318-310-0972',180,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (20,10,1,'ELECTROCOSAS CALI','Carrera 6a # 16-34<br>Santiago de Cali - Valle del Cauca<br>Colombia<br>Ph. 57-2-880-2885',190,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (21,11,1,'BANSBACH INSTRUMENTOS MUSICALES','Avenida 1 Calle 11, San Jose<br>Costa Rica<br>Ph. 506-2-5227601',200,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (22,11,1,'AMERICAN MUSIC','Guadalupe de Goicoechea frente al Liceo Napoleón Quesada, San Jose<br>Costa Rica<br>Ph. 506-2-2215800<br>E-mail. ventas@americanmusiccr.com',210,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (23,12,1,'L''AMIGA','Heerenstraat 19<br>Curacao<br>Ph. 599-9-461-1681',220,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (24,12,1,'INSTRUCUR','Kayudaweg 11<br>Willemstad<br>Curacao<br>Ph. 599-9-465-7356',230,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (25,13,1,'IMRELEVSA','P. Icaza 715 y Boyacá<br>Edificio Gémini Piso. 1 Dto. B1<br>Guayaquil<br>Ecuador<br>Ph. 593-423-07750',240,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (26,14,1,'ELECTRONICA 2001','Calle Arce 635, San Salvador<br>El Salvador<br>Ph. 503-2-523-2001',250,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (27,14,1,'SOCIEDAD COOPERATIVA SACERDOTAL LTDA. ARS.','4ta. Avenida Sur # 125, San Salvador<br>El Salvador<br>Ph. 503-2-221-5266',260,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (28,15,1,'NUMBER ONE ELECTRONIQUE','Imm. Le Parc II - La Rocade<br>971142<br>Abymes<br>Guadaloupe<br>Ph. 590-590-82-9020',270,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (29,16,1,'CENTRAL ELECTRONICS','67-68 Lacytown, Georgetown<br>Guyana<br>Ph. 592-225-8725',280,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (30,16,1,'D.P.& H. NEHAUL GENERAL STORE','Vigilance E.C.D.<br>Guyana<br>Ph. 592-274-0424',290,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (31,17,1,'D & D SOUNDS','Frequente<br>St. Georges<br>Grenada<br>Ph. 473-440-4867',300,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (32,18,1,'BIKINI SOUND','Rue B. Sylvan Chalet #210<br>Port De Paix<br>Haiti<br>Ph. 509-268-9942',310,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (33,18,1,'SOUND & CD SELECTION','340, Rte De Delmas (Coin Del. 40 B)<br>Delmas<br>Haiti<br>Ph. 786-629-7163',320,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (34,19,1,'ALMACEN PAJARO AZUL','3ra.Avenida 11 Calle Sur Oeste<br>San Pedro Sula, Honduras. CA.<br>Ph. 504-2-5523091',330,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (35,20,1,'TANGO GROUP','JL. Sun Yat Sen NO.56 Medan-20215,<br>North Sumatra - Indonesia<br>Mr. Robin Huang<br>Email. robin.tango@ymail.com<br>Ph. +6281 2602 0799',340,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (36,21,1,'GRISBY MUSIC','a Division of the Eko Music Group S.p.A.<br><br>Via O. Pigini, 8<br>62017 Montelupone (MC)<br>Italy<br>Ph. +39-07332271<br>Fax. +39-0733227250<br>Email. grisby@ekomusicgroup.com',350,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (37,22,1,'GOLD MART MANDEVILLE LTD','Shop G3 Superplus Center<br>25-27 Manchester Road<br>Mandeville, Jamaica<br>Ph. 876-902-5694',360,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (38,22,1,'QUALITY EQUIPMENT','4 Derry More Rd., Kingston 10<br>Jamaica<br>Ph. 876-960-3096',370,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (39,22,1,'THE MUSIC MART','27 Constant Spring Road, Kingston 10<br>Jamaica<br>Ph. 876-926-4687',380,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (40,23,1,'MIDI LAND','Mr. Lee Young-Duk<br>Email. daw@hanmail.net<br>Ph. +82-2763-5680',390,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (41,24,1,'UNION','1295, Jalan Baru, 13700 Prai. P.W.,<br>GPenang, Malaysia<br>Mr. Henry Ch''ngn<br>Email. henry@union.com.my<br>Ph. +604-3903620',400,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (42,25,1,'HERMES MUSIC, SA de CV','Daniel Tejas<br>Ejecutivo de ventas<br>Ph. (55) 5203 0018<br>Ph. (55) 5531 3085<br>Ph. (55) 5531 7099<br>Ext. 5503<br>Cel. 55-2653-4383<br>Email. daniel.tejas@omega-music.mx<br>Skype. daniel-tejas@hotmail.com',410,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (43,26,1,'GREAT ELECTROMOTIVE','Mr. Tin Chen<br>Email. ttnelectronic@gmail.com<br>Ph. +95-1395-548',420,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (44,27,1,'INSTRUMENTOS MUSICALES LA VOZ - NICARAGUA','Avenida Principal De Altamira # 490<br>De Sinsa Ceramica 75 Varas al Norte, Managua<br>Nicaragua<br>Ph. 505-2-2787225',430,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (45,28,1,'AMBU-BEST NIGERIA LIMITED','ABB20B,Alaba Int''l Market Ojo- Lagos<br>Nigeria<br>Mr. Ambrose Alí<br>Email. Ambubest@yahoo.com<br>Ph. +234-803 325 7526',440,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (46,29,1,'BASSHEAD MARKETING','11 G. Araneta Ave QC<br>Metro Manila , Philippines<br>Mr. Marcel Yu<br>Email. marcel_basshead@yahoo.com<br>Ph. +632-716-5355',450,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (47,30,1,'DANILO MUSIC','Av. 30 de marzo #121, Sto. Domingo<br>República Dominicana<br>Ph. 809-685-4600',460,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (48,31,1,'SHOP & SAVE','Bean Field<br>Vieux-Fort<br>St. Lucia<br>Ph. 758-454-6493',470,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (49,32,1,'CLASSIC ELECTRONICS','33, Back St., Phillipsburg<br>St. Maarten<br>Ph. 599-542-7919',480,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (50,32,1,'BERGEE ELECTRONIC ENT.','A.J.C. Brouwers Rd. #26, Cay Hill<br>St. Maarten<br>Ph. 599-544-2242',490,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (51,33,1,'SOUND LIGHT SPAIN S L','Fernando Abad<br>Ph. +34 691680209<br>Email. fernando@soundlightspain.com<br>Ezequiel Mayoral<br>Ph. +34 666670554<br>Email. ezequiel@soundlightspain.com<br>Office contact: Jessica Cruces<br>Ph. +34 638626631<br>Email. comercial@soundlightspain.com<br>Ph. (55) 5531 7099<br>www.soundlightspain.com',500,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (52,34,1,'C.K.M.','Zwartenovenbrug Street #46, Paramaribo<br>Suriname<br>Ph. 597-420-855',510,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (53,34,1,'NATRAJ PRO AUDIO','Keizer Str # 52, Paramaribo<br>Suriname<br>Ph. 597-425-676',520,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (54,34,1,'CHEUNG''S SOUND & VISION','P.O. Box 890, Paramaribo<br>Suriname<br>Ph. 597-47-9888',530,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (55,35,1,'DOUBLE AA ELECTRONIC LTD.','No. 38 De Vertuile Street, Woodbrook<br>Port of Spain<br>Trinidad<br>Ph. 868-622-1022',540,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (56,35,1,'SIMON''S MUSICAL SUPPLIES','59 St. Vincent Street<br>Port of Spain<br>Trinidad<br>Ph. 868-625-6412',550,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (57,35,1,'DEAN & DIANE ELECTRONICS','8 Cacan Deen Road<br>Felicity<br>Chaguanas<br>Trinidad<br>Ph. 868-671-3440',560,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (58,36,1,'EKiNGEN','Evren Mah. Halkali Cad., Asli Sok., No.31-33<br>Gunesli, Istanbul, Turkey<br>Mr. Eyup Ekingen<br>Email. eyup@ekingen.com.tr<br>Ph. +90-212 651 81 91',570,1)
-INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled) values (59,37,1,'TAN HUNG DUNG CO., LTD','Showroom: No.259 No.7 Street. Binh Tri Dong B ward,<br>Binh Tan Dist, Ho Chi Minh City, Vietnam<br>ATTN: Mr. Vo Van Dung<br>Email. tanhungdung@gmail.com<br>Ph. +84-903829728',580,1)
+BEGIN TRANSACTION
+GO
 
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (1, 1, 1, N'TOPP PRO Worldwide Distribution Contact', N'Allen Chen<br>Sales Manager<br><br>No.1, Lane 17, Sec. 2, Hanshi W. Road<br>Taichung, Taiwan<br>Ph. +886-4-22313737 ext. 122<br>Fax. +886-4-22346757<br>E-mail. allenchen@sekaku.com', 10, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (2, 1, 1, N'Tropical Music Export Enterprises, INC.', N'Exclusive Latin America Distribution<br><br>6850 S.W. 81 Terrace<br>Miami, FL. 33143<br>Ph. 305-740-7454<br>Fax. 305-740-7456', 20, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (3, 2, 1, N'PRO MUSICA ANDORRA', N'Avinguda Copríncep De Gaulle, 4. AD700<br>Escaldes-Engordany<br>Principat d''Andorra<br>Ph. +376 864 845<br>Fax. +376 860 790<br>E-mail. promusicaandorra@gmail.com<br>Laurent Liard<br>Cel. +376 334 069<br>www.promusicaandorra.com', 30, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (4, 3, 1, N'CLIFFIX MUSICAL INSTRUMENTS N.V.', N'San Barbola 4-E<br>Aruba<br>Ph. 297-582-9660', 30, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (5, 4, 1, N'AMN Enterprises Limited', N'2221 Town Centre Mall<br>Nassau<br>Bahamas<br>Ph. 242-356-5971', 40, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (6, 5, 1, N'A & B MUSIC SUPPLIES', N'12 Webster Industrial Park<br>Wildey<br>St. Michael BB14006<br>Barbados<br>Ph. 246-430-1100', 50, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (7, 5, 1, N'WEST RILEY ELECTRONICS COMPANY LIMITED', N'City Centre Mall<br>Chapel Street, Bridgetown<br>Barbados<br>Ph. 264-431-0109', 60, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (8, 6, 1, N'Covenant Books & Music Supply', N'15 Guanacastle Park St<br>Belmopan, Cayo District<br>Belize<br>Ph. 501-610-1517', 70, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (9, 6, 1, N'MIDWAY LTD.', N'Box 580<br>Spanish Look Out<br>Belize<br>Ph. 501-823-0095', 80, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (10, 6, 1, N'KOREA ELECTRONICS', N'77 Freetown Road<br>Cinderella Plaza, Belize City<br>Belize<br>Ph. 501-224-4763', 90, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (11, 6, 1, N'CY''S MUSIC & SOUVEMIRS', N'13 West Collet Canal, Belize City<br>Belize<br>Ph. 501-227-2777', 100, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (12, 7, 1, N'RCF MUSIC', N'Cochabamba<br>Bolivia<br>Ph. 591-4-4284851', 110, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (13, 8, 1, N'MYLES MUSIC EMPORIUM', N'Barnett Building<br># 24 Huldah Ave., Georgetown<br>Grand Cayman<br>Ph. 345-949-1753', 120, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (14, 9, 1, N'CASA AMARILLA', N'San Diego 140, Santiago<br>Chile<br>Ph. 56-2-6983483', 130, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (15, 9, 1, N'CY V MUSIC LIMITADA', N'Zona Franca Iquique Chile<br>Manzana 14 Galpón 9 Recinto Amurallado, Iquique<br>Chile<br>Ph. 56-978834788', 140, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (16, 10, 1, N'TROPICAL MUSIC COLOMBIA SAS', N'Transversal 93 # 53-32 Interior 11<br>Parque Empresarial El Dorado-Alamos Norte<br>Bogotá - Colombia<br>Ph. 2431233<br>Cel. 3138183850<br>E-mail. guillermo@tropicalmusic.com', 150, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (17, 10, 1, N'EL IMPERIO ELECTRONICO', N'Carrera 9 No. 20-52<br>Santa Fe de Bogotá<br>Ph. 57-1-284-5060', 160, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (18, 10, 1, N'SONIDO EN VIVO', N'Calle 8 B # 65-191 of 222<br>Centro empresarial Puerto Seco<br>Ph. 57-4-444-5808', 170, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (19, 10, 1, N'MEMO ELECTRONICS', N'Cra 6 # 15-89. Cali<br>Colombia<br>Ph. 57-318-310-0972', 180, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (20, 10, 1, N'ELECTROCOSAS CALI', N'Carrera 6a # 16-34<br>Santiago de Cali - Valle del Cauca<br>Colombia<br>Ph. 57-2-880-2885', 190, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (21, 11, 1, N'BANSBACH INSTRUMENTOS MUSICALES', N'Avenida 1 Calle 11, San Jose<br>Costa Rica<br>Ph. 506-2-5227601', 200, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (22, 11, 1, N'AMERICAN MUSIC', N'Guadalupe de Goicoechea frente al Liceo Napoleón Quesada, San Jose<br>Costa Rica<br>Ph. 506-2-2215800<br>E-mail. ventas@americanmusiccr.com', 210, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (23, 12, 1, N'L''AMIGA', N'Heerenstraat 19<br>Curacao<br>Ph. 599-9-461-1681', 220, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (24, 12, 1, N'INSTRUCUR', N'Kayudaweg 11<br>Willemstad<br>Curacao<br>Ph. 599-9-465-7356', 230, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (25, 13, 1, N'IMRELEVSA', N'P. Icaza 715 y Boyacá<br>Edificio Gémini Piso. 1 Dto. B1<br>Guayaquil<br>Ecuador<br>Ph. 593-423-07750', 240, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (26, 14, 1, N'ELECTRONICA 2001', N'Calle Arce 635, San Salvador<br>El Salvador<br>Ph. 503-2-523-2001', 250, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (27, 14, 1, N'SOCIEDAD COOPERATIVA SACERDOTAL LTDA. ARS.', N'4ta. Avenida Sur # 125, San Salvador<br>El Salvador<br>Ph. 503-2-221-5266', 260, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (28, 15, 1, N'NUMBER ONE ELECTRONIQUE', N'Imm. Le Parc II - La Rocade<br>971142<br>Abymes<br>Guadaloupe<br>Ph. 590-590-82-9020', 270, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (29, 16, 1, N'CENTRAL ELECTRONICS', N'67-68 Lacytown, Georgetown<br>Guyana<br>Ph. 592-225-8725', 280, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (30, 16, 1, N'D.P.& H. NEHAUL GENERAL STORE', N'Vigilance E.C.D.<br>Guyana<br>Ph. 592-274-0424', 290, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (31, 17, 1, N'D & D SOUNDS', N'Frequente<br>St. Georges<br>Grenada<br>Ph. 473-440-4867', 300, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (32, 18, 1, N'BIKINI SOUND', N'Rue B. Sylvan Chalet #210<br>Port De Paix<br>Haiti<br>Ph. 509-268-9942', 310, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (33, 18, 1, N'SOUND & CD SELECTION', N'340, Rte De Delmas (Coin Del. 40 B)<br>Delmas<br>Haiti<br>Ph. 786-629-7163', 320, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (34, 19, 1, N'ALMACEN PAJARO AZUL', N'3ra.Avenida 11 Calle Sur Oeste<br>San Pedro Sula, Honduras. CA.<br>Ph. 504-2-5523091', 330, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (35, 20, 1, N'TANGO GROUP', N'JL. Sun Yat Sen NO.56 Medan-20215,<br>North Sumatra - Indonesia<br>Mr. Robin Huang<br>Email. robin.tango@ymail.com<br>Ph. +6281 2602 0799', 340, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (36, 21, 1, N'GRISBY MUSIC', N'a Division of the Eko Music Group S.p.A.<br><br>Via O. Pigini, 8<br>62017 Montelupone (MC)<br>Italy<br>Ph. +39-07332271<br>Fax. +39-0733227250<br>Email. grisby@ekomusicgroup.com', 350, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (37, 22, 1, N'GOLD MART MANDEVILLE LTD', N'Shop G3 Superplus Center<br>25-27 Manchester Road<br>Mandeville, Jamaica<br>Ph. 876-902-5694', 360, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (38, 22, 1, N'QUALITY EQUIPMENT', N'4 Derry More Rd., Kingston 10<br>Jamaica<br>Ph. 876-960-3096', 370, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (39, 22, 1, N'THE MUSIC MART', N'27 Constant Spring Road, Kingston 10<br>Jamaica<br>Ph. 876-926-4687', 380, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (40, 23, 1, N'MIDI LAND', N'Mr. Lee Young-Duk<br>Email. daw@hanmail.net<br>Ph. +82-2763-5680', 390, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (41, 24, 1, N'UNION', N'1295, Jalan Baru, 13700 Prai. P.W.,<br>GPenang, Malaysia<br>Mr. Henry Ch''ngn<br>Email. henry@union.com.my<br>Ph. +604-3903620', 400, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (42, 25, 1, N'HERMES MUSIC, SA de CV', N'Daniel Tejas<br>Ejecutivo de ventas<br>Ph. (55) 5203 0018<br>Ph. (55) 5531 3085<br>Ph. (55) 5531 7099<br>Ext. 5503<br>Cel. 55-2653-4383<br>Email. daniel.tejas@omega-music.mx<br>Skype. daniel-tejas@hotmail.com', 410, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (43, 26, 1, N'GREAT ELECTROMOTIVE', N'Mr. Tin Chen<br>Email. ttnelectronic@gmail.com<br>Ph. +95-1395-548', 420, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (44, 27, 1, N'INSTRUMENTOS MUSICALES LA VOZ - NICARAGUA', N'Avenida Principal De Altamira # 490<br>De Sinsa Ceramica 75 Varas al Norte, Managua<br>Nicaragua<br>Ph. 505-2-2787225', 430, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (45, 28, 1, N'AMBU-BEST NIGERIA LIMITED', N'ABB20B,Alaba Int''l Market Ojo- Lagos<br>Nigeria<br>Mr. Ambrose Alí<br>Email. Ambubest@yahoo.com<br>Ph. +234-803 325 7526', 440, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (46, 29, 1, N'BASSHEAD MARKETING', N'11 G. Araneta Ave QC<br>Metro Manila , Philippines<br>Mr. Marcel Yu<br>Email. marcel_basshead@yahoo.com<br>Ph. +632-716-5355', 450, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (47, 30, 1, N'DANILO MUSIC', N'Av. 30 de marzo #121, Sto. Domingo<br>República Dominicana<br>Ph. 809-685-4600', 460, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (48, 31, 1, N'SHOP & SAVE', N'Bean Field<br>Vieux-Fort<br>St. Lucia<br>Ph. 758-454-6493', 470, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (49, 32, 1, N'CLASSIC ELECTRONICS', N'33, Back St., Phillipsburg<br>St. Maarten<br>Ph. 599-542-7919', 480, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (50, 32, 1, N'BERGEE ELECTRONIC ENT.', N'A.J.C. Brouwers Rd. #26, Cay Hill<br>St. Maarten<br>Ph. 599-544-2242', 490, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (51, 33, 1, N'SOUND LIGHT SPAIN S L', N'Fernando Abad<br>Ph. +34 691680209<br>Email. fernando@soundlightspain.com<br>Ezequiel Mayoral<br>Ph. +34 666670554<br>Email. ezequiel@soundlightspain.com<br>Office contact: Jessica Cruces<br>Ph. +34 638626631<br>Email. comercial@soundlightspain.com<br>Ph. (55) 5531 7099<br>www.soundlightspain.com', 500, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (52, 34, 1, N'C.K.M.', N'Zwartenovenbrug Street #46, Paramaribo<br>Suriname<br>Ph. 597-420-855', 510, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (53, 34, 1, N'NATRAJ PRO AUDIO', N'Keizer Str # 52, Paramaribo<br>Suriname<br>Ph. 597-425-676', 520, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (54, 34, 1, N'CHEUNG''S SOUND & VISION', N'P.O. Box 890, Paramaribo<br>Suriname<br>Ph. 597-47-9888', 530, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (55, 35, 1, N'DOUBLE AA ELECTRONIC LTD.', N'No. 38 De Vertuile Street, Woodbrook<br>Port of Spain<br>Trinidad<br>Ph. 868-622-1022', 540, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (56, 35, 1, N'SIMON''S MUSICAL SUPPLIES', N'59 St. Vincent Street<br>Port of Spain<br>Trinidad<br>Ph. 868-625-6412', 550, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (57, 35, 1, N'DEAN & DIANE ELECTRONICS', N'8 Cacan Deen Road<br>Felicity<br>Chaguanas<br>Trinidad<br>Ph. 868-671-3440', 560, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (58, 36, 1, N'EKiNGEN', N'Evren Mah. Halkali Cad., Asli Sok., No.31-33<br>Gunesli, Istanbul, Turkey<br>Mr. Eyup Ekingen<br>Email. eyup@ekingen.com.tr<br>Ph. +90-212 651 81 91', 570, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (59, 37, 1, N'TAN HUNG DUNG CO., LTD', N'Showroom: No.259 No.7 Street. Binh Tri Dong B ward,<br>Binh Tan Dist, Ho Chi Minh City, Vietnam<br>ATTN: Mr. Vo Van Dung<br>Email. tanhungdung@gmail.com<br>Ph. +84-903829728', 580, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (60, 38, 1, N'AZARCO ELECTRONICS', N'Dora-Highway, Dedeyan Center - Bloc (A)<br>
+Lebanon<br>
+Att: Mr. Fouad Azar<br>
+<abbr title="Phone">Mob.</abbr> +961-70 337370<br>
+Email. <a href="mailto:azar_co@idm.net.lb">azar_co@idm.net.lb</a><br>
+<a href="http://www.azarco.net" target="_blank">www.azarco.net</a>', 395, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (61, 39, 1, N'DYNATONE MUSIC COMPANY', N'64-4, Dmitrovskoye shosse<br>
+Moscow, Russia<br>
+Email. <a href="mailto:isabitov@dynatone.ru">isabitov@dynatone.ru</a><br>
+<abbr title="Phone">Ph.</abbr> +7 495 215-5522<br>
+<a href="http://dynatone.ru/" target="_blank">http://dynatone.ru/</a>', 465, 1)
+GO
+
+INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
+VALUES 
+  (62, 40, 1, N'DIGITAL TOPS EST.', N'Mr. Rashid H Altherwi<br>
+Ksa – Jeddah<br>
+
+King fahad Street, Al-Sharafyah<br>
+<abbr title="Phone">Ph.</abbr> +966-12-65555332<br>
+
+Mobile: +966-555528723<br>
+<a href="http://www.dte.sa/" target="_blank">http://www.dte.sa/</a>', 468, 1)
+GO
+
+COMMIT
 GO
 
 SET IDENTITY_INSERT dbo.Distributor OFF
 GO
-

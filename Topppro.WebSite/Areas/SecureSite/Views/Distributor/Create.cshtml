@@ -1,11 +1,27 @@
 ﻿@using Framework.MVC.Resources
-@using Framework.MVC.Extensions
 @using Topppro.Entities.Resources
 
 @model Topppro.Entities.Distributor
 
 @{
     ViewBag.Title = PersistanceResource.Create;
+}
+
+@section Styles
+{
+    <style type="text/css">
+        .tooltip-inner
+        {
+            max-width: 300px;
+            padding: 0;
+        }
+        .tooltip-alert
+        {
+            padding: 8px 10px;
+            font-weight: bolder;
+            color: #A94442;
+        }
+    </style>
 }
 
 <h2>@PersistanceResource.Create</h2>
@@ -15,43 +31,7 @@
     <fieldset>
         <legend>@Ent_AttributeResource._Caption</legend>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.CountryId)
-            @Html.DropDownListFor(model => model.CountryId, null, PersistanceResource.Selection, new { @class = "form-control", style = "width:400px;" })
-            @Html.ValidationMessageFor(model => model.CountryId)
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.CultureId)
-            @Html.DropDownListFor(model => model.CultureId, null, PersistanceResource.Selection, new { @class = "form-control", style = "width:400px;" })
-            @Html.ValidationMessageFor(model => model.CultureId)
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Name)
-            @Html.TextBoxFor(model => model.Name, new { @class = "form-control", style = "width:400px;" })
-            @Html.ValidationMessageFor(model => model.Name)
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Detail)
-            @Html.TinyMceFor(model => model.Detail, TinyMcePresets.Lite)
-            @Html.ValidationMessageFor(model => model.Detail)
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Priority)
-            @Html.TextBoxFor(model => model.Priority, new { @class = "form-control", style = "width:400px;" })
-            @Html.ValidationMessageFor(model => model.Priority)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Enabled)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Enabled)
-            @Html.ValidationMessageFor(model => model.Enabled)
-        </div>
+        @Html.EditorForModel()
 
         <p>
             <input class="btn btn-primary" type="submit" value="@PersistanceResource.Save" />
@@ -63,9 +43,9 @@
     @Html.ActionLink("Back to List", "Index")
 </div>
 
-@section Scripts {
-    <script src="@Url.Content("~/Areas/SecureSite/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
-    <script src="@Url.Content("~/Areas/SecureSite/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+@section Scripts 
+{
     <script src="@Url.Content("~/Areas/SecureSite/Scripts/tinymce/tinymce.min.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Areas/SecureSite/Scripts/tinymce/jquery.tinymce.min.js")" type="text/javascript"></script>
+    @Html.Partial("_Validation")
 }

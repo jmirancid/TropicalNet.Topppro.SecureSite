@@ -198,6 +198,11 @@ ul.products li > a
     color: #cccccc;
 }
 
+h2
+{
+    font-weight: lighter;
+}
+
 h4.bluetooth
 {
     text-align: center;
@@ -207,8 +212,8 @@ h4.bluetooth
 
 h4.modules
 {
-    text-align:center;
-    font-weight:lighter;
+    text-align: center;
+    font-weight: lighter;
     margin: 5px 0 25px;
 }
 
@@ -274,16 +279,18 @@ table
     display: none;
 }
 
-.slide-panel > h2
-{
-    font-weight: lighter;
-}
-
 .slide-panel > ul.compare-list
 {
     margin: 10px 0 15px;
     list-style-type: none;
     list-style-position: inside;
+}
+
+hr
+{
+    border: 0;
+    height: 1px;
+    margin-top: 8px;
 }
 
 abbr

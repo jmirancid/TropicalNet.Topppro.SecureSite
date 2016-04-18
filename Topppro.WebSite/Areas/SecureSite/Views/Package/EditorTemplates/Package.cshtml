@@ -1,0 +1,28 @@
+﻿@using Framework.MVC.Resources
+@using Framework.MVC.Extensions
+
+@model Topppro.Entities.Package
+
+<div class="form-group">
+    @Html.LabelFor(model => model.ParentProductId)
+    @Html.DropDownListFor(model  => model.ParentProductId, null, PersistanceResource.Selection)
+    @Html.ValidationMessageFor(model => model.ParentProductId)
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.ChildProductId)
+    @Html.DropDownListFor(model => model.ChildProductId, null, PersistanceResource.Selection)
+    @Html.ValidationMessageFor(model => model.ChildProductId)
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.Priority)
+    @Html.EditorFor(model => model.Priority)
+</div>
+
+<div class="checkbox">
+    <label>
+        @Html.CheckBoxFor(m => m.Enabled)
+        @Html.DisplayNameFor(m => m.Enabled)
+    </label>
+</div>

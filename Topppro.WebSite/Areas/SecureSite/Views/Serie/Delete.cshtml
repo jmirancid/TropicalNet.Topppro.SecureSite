@@ -14,19 +14,7 @@
 <fieldset>
     <legend>@Ent_SerieResource._Caption</legend>
 
-    <!--
-    <div class="display-label">
-        @Html.DisplayNameFor(model => model.Name)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Name)
-    </div>
-    -->
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Name)
-        @Html.TextBoxFor(model => model.Name, new { @class = "form-control", style = "width:400px;", id = "disabledInput", disabled = "disabled" })
-    </div>
+    @Html.DisplayFor(m => Model)
 
 </fieldset>
 @using (Html.BeginForm())

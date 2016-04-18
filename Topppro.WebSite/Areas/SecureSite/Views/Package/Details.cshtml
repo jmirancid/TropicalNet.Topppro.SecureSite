@@ -1,5 +1,4 @@
 ﻿@using Framework.MVC.Resources
-@using Framework.MVC.Extensions
 @using Topppro.Entities.Resources
 
 @model Topppro.Entities.Package
@@ -13,33 +12,7 @@
 <fieldset>
     <legend>@Ent_PackageResource._Caption</legend>
 
-    <div class="display-label">
-        @Html.DisplayNameFor(model => model.ParentProductId)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.ParentProduct.Name)
-    </div>
-
-    <div class="display-label">
-        @Html.DisplayNameFor(model => model.ChildProductId)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.ChildProduct.Name)
-    </div>
-
-    <div class="display-label">
-        @Html.DisplayNameFor(model => model.Priority)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Priority)
-    </div>
-
-    <div class="display-label">
-        @Html.DisplayNameFor(model => model.Enabled)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Enabled)
-    </div>
+    @Html.DisplayForModel()
 
 </fieldset>
 <p>

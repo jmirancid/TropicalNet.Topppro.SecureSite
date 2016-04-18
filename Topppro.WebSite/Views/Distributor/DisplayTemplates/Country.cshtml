@@ -1,0 +1,11 @@
+﻿@using Topppro.WebSite.Extensions
+
+@model Topppro.Entities.Country
+
+<div class="country-group">
+    <h2>@Model.Name</h2>
+    <hr class="bg-green" />
+    <br />
+    @Html.DisplayFor(m => m.Distributor)
+    <br />
+</div>

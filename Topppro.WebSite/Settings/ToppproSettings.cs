@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Web;
+﻿using System.Configuration;
 
 namespace Topppro.WebSite.Settings
 {
@@ -44,6 +40,19 @@ namespace Topppro.WebSite.Settings
                     _download = ConfigurationManager.GetSection("download") as DownloadSettings;
 
                 return _download;
+            }
+        }
+
+        private static DistributorSettings _distributor;
+
+        public static DistributorSettings Distributor
+        {
+            get
+            {
+                if (_distributor == null)
+                    _distributor = ConfigurationManager.GetSection("distributor") as DistributorSettings;
+
+                return _distributor;
             }
         }
     }
@@ -103,6 +112,23 @@ namespace Topppro.WebSite.Settings
         {
             get { return (string)this["root"]; }
             set { this["root"] = value; }
+        }
+    }
+
+    public class DistributorSettings : ConfigurationSection
+    {
+        [ConfigurationProperty("root", IsRequired = true)]
+        public string Root
+        {
+            get { return (string)this["root"]; }
+            set { this["root"] = value; }
+        }
+
+        [ConfigurationProperty("none", IsRequired = true)]
+        public string None
+        {
+            get { return (string)this["none"]; }
+            set { this["none"] = value; }
         }
     }
 }
