@@ -15,8 +15,7 @@ namespace Topppro.WebSite.Controllers
         {
             var entities =
                 _bizCountry.Value
-                    .AllHavingDistributors(Topppro.Context.Current.Culture.TwoLetterISOLanguageName)
-                        .OrderBy(x => x.Priority);
+                    .AllHavingDistributors(Topppro.Context.Current.Culture.TwoLetterISOLanguageName);
 
             return View(entities);
         }
