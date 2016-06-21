@@ -3,15 +3,9 @@
 
 @model IEnumerable<Topppro.Entities.Bullet>
 
-<p>
-    @Ajax.ActionLink(PersistanceResource.Create, "Create", "Bullet", new { id = ViewBag.ProductId },
-        new AjaxOptions()
-        {
-            HttpMethod = "Get",
-            UpdateTargetId = "bullet-modal-content",
-            OnSuccess = "$.validator.unobtrusive.parse($('#bullet-modal-content')); $('#bullet-modal').modal({ show: true });"
-        })
-</p>
+@{
+    Html.RenderAction("Toolbar", "Bullet", new { id = ViewBag.ProductId });
+}
 
 <table class="table table-striped table-bordered table-hover" id="bullet-list">
     <thead>

@@ -4,6 +4,11 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using Topppro.Business.Definitions;
+using Framework.IO.Office;
+using System.IO;
+using Framework.Common.Extensions;
+using System.Web;
+using Topppro.WebSite.Areas.SecureSite.Models;
 
 namespace Topppro.WebSite.Areas.SecureSite.Controllers
 {
@@ -102,6 +107,14 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
             ViewBag.ProductId = id;
 
             return PartialView("_Index", entities);
+        }
+
+        [ChildActionOnly]
+        public ActionResult Toolbar(int id)
+        {
+            ViewBag.ProductId = id;
+
+            return PartialView("_Toolbar");
         }
 
         public ActionResult Create(int id)
@@ -228,6 +241,61 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
                 Response.StatusCode = (int)HttpStatusCode.InternalServerError;
                 return Content(ex.Message);
             }
+        }
+
+        public ActionResult Export(int id)
+        {
+            try
+            {
+                var entities =
+                    base.Business.Value.AllBy(e => e.ProductId == id)
+                        .OrderBy(e => e.Priority);
+
+                var product =
+                    _bizProduct.Value.Get(id);
+
+                var excel =
+                    new Excel();
+
+                var stream =
+                    new MemoryStream();
+
+                excel.Load(entities);
+                excel.SaveAs(stream);
+
+                var content = 
+                    new System.Net.Mime.ContentDisposition()
+                    {
+                        FileName = 
+                            string.Format("{0}_{1}.xlsx", product.Name.ToSeoSlug(), typeof(Topppro.Entities.Bullet).Name),
+
+                        Inline = false
+                    };
+                
+                Response.AppendHeader("Content-Disposition", content.ToString());
+                return File(stream.ToArray(), System.Net.Mime.MediaTypeNames.Application.Octet, string.Format("{0}_{1}.xlsx", product.Name.ToSeoSlug(), typeof(Topppro.Entities.Bullet).Name));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+                //Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                //return Content(ex.Message);
+            }
+        }
+
+
+        public ActionResult Import(int id)
+        {
+            var model =
+                new ImportModel() { EntityId = id };
+
+            return PartialView("_Import", model);
+        }
+
+        [HttpPost]
+        public ActionResult Import(ImportModel model)
+        {
+            return null;
         }
 
         public override void CreateGetPrerender(Topppro.Entities.Bullet entity = null)

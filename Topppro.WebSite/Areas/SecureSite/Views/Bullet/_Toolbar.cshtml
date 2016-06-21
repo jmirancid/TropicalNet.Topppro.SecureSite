@@ -1,0 +1,27 @@
+﻿@using Framework.MVC.Resources
+
+<p>
+    <div class="btn-group" role="group" aria-label="toolbar">
+        @Ajax.ActionLink(PersistanceResource.Create, "Create", "Bullet", new { id = ViewBag.ProductId },
+        new AjaxOptions()
+        {
+            HttpMethod = "Get",
+            UpdateTargetId = "bullet-modal-content",
+            OnSuccess = "$.validator.unobtrusive.parse(data); $('#bullet-modal').modal({ show: true });"
+        }, new { @class = "btn btn-primary", @role = "button" })
+        
+        @*
+
+        @Html.ActionLink(PersistanceResource.Export, "Export", "Bullet", new { id = ViewBag.ProductId }, new { @class = "btn btn-warning", @role = "button" })
+        
+        @Ajax.ActionLink(PersistanceResource.Import, "Import", "Bullet", new { id = ViewBag.ProductId },
+        new AjaxOptions()
+        {
+            HttpMethod = "Get",
+            UpdateTargetId = "bullet-modal-content",
+            OnSuccess = "$.validator.unobtrusive.parse(data); $('#bullet-modal').modal({ show: true });"
+        }, new { @class = "btn btn-success", @role = "button" })
+
+        *@
+    </div>
+</p>

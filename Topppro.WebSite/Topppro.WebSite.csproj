@@ -120,6 +120,7 @@
     <Compile Include="Areas\SecureSite\Controllers\ProductController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\SerieController.cs" />
     <Compile Include="Areas\SecureSite\Extensions\HtmlHelperExtensions.cs" />
+    <Compile Include="Areas\SecureSite\Models\ImportModel.cs" />
     <Compile Include="Areas\SecureSite\Resources\MenuResource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -588,6 +589,10 @@
       <Project>{E0371FF6-0E27-490C-A8A9-A6D55716F6D3}</Project>
       <Name>Framework.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\TropicalNet.Framework\trunk\Framework.IO\Framework.IO.csproj">
+      <Project>{494E3C6C-0992-4370-804A-97BCACB03C05}</Project>
+      <Name>Framework.IO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\TropicalNet.Framework\trunk\Framework.MVC\Framework.MVC.csproj">
       <Project>{D3B17ABC-8FA3-4A2E-BA06-66B50FF68C8E}</Project>
       <Name>Framework.MVC</Name>
@@ -814,12 +819,6 @@
     <Content Include="Areas\SecureSite\Views\Bullet\_Create.cshtml" />
     <Content Include="Areas\SecureSite\Views\Bullet\EditorTemplates\Bullet.cshtml" />
     <Content Include="Areas\SecureSite\Views\Bullet\_Edit.cshtml" />
-    <Content Include="Areas\SecureSite\Views\Attribute\DisplayTemplates\Attribute.cshtml" />
-    <Content Include="Areas\SecureSite\Views\Attribute\EditorTemplates\Attribute.cshtml" />
-    <Content Include="Areas\SecureSite\Views\Attribute\_Index.cshtml" />
-    <Content Include="Areas\SecureSite\Views\Attribute\_Create.cshtml" />
-    <Content Include="Areas\SecureSite\Views\Attribute\_Details.cshtml" />
-    <Content Include="Areas\SecureSite\Views\Attribute\_Edit.cshtml" />
     <Content Include="Areas\SecureSite\Views\Shared\_LayoutEmpty.cshtml" />
     <Content Include="Areas\SecureSite\Views\Category\DisplayTemplates\Category.cshtml" />
     <Content Include="Areas\SecureSite\Views\Category\EditorTemplates\Category.cshtml" />
@@ -844,6 +843,18 @@
     <Content Include="Areas\SecureSite\Views\Package\EditorTemplates\Package.cshtml" />
     <Content Include="Areas\SecureSite\Views\Serie\DisplayTemplates\Serie.cshtml" />
     <Content Include="Areas\SecureSite\Views\Serie\EditorTemplates\Serie.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Attribute\DisplayTemplates\Attribute.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Attribute\EditorTemplates\Attribute.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Attribute\_Create.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Attribute\_Details.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Attribute\_Edit.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Attribute\_Index.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Bullet\_Import.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Shared\EditorTemplates\ImportModel.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Shared\_Toolbar.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Cache\_Toolbar.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Bullet\_Toolbar.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Attribute\_Toolbar.cshtml" />
     <None Include="Scripts\jquery.livefilter-1.0\README.md" />
     <None Include="Scripts\jquery.panelslider-0.1.1\README.md" />
     <Content Include="Views\Amplifiers\Index.cshtml" />

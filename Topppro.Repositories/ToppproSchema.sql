@@ -1,8 +1,8 @@
 -- SQL Manager Lite for SQL Server 4.0.1.44515
 -- ---------------------------------------
--- Host      : (local)
+-- Host      : 74.50.26.196\MSSQLSERVER2012
 -- Database  : tropi23_topppro_net
--- Version   : Microsoft SQL Server  10.50.1600.1
+-- Version   : Microsoft SQL Server  11.0.5058.0
 
 
 --
@@ -14,19 +14,19 @@ IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Assn_CategorySeri
 GO
 
 --
--- Dropping table Category : 
---
-
-IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Category') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
-  DROP TABLE dbo.Category
-GO
-
---
 -- Dropping table Serie : 
 --
 
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Serie') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
   DROP TABLE dbo.Serie
+GO
+
+--
+-- Dropping table Category : 
+--
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Category') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+  DROP TABLE dbo.Category
 GO
 
 --
@@ -134,14 +134,43 @@ IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'Assn_CategorySeri
 GO
 
 --
--- Definition for table Category : 
+-- Definition for user topppro_user_net : 
 --
 
-CREATE TABLE dbo.Category (
-  CategoryId int IDENTITY(1, 1) NOT NULL,
-  Name varchar(50) COLLATE Modern_Spanish_CI_AS NOT NULL
-)
-ON [PRIMARY]
+IF NOT EXISTS (SELECT * FROM dbo.sysusers WHERE name = N'topppro_user_net')
+BEGIN
+  CREATE USER topppro_user_net
+    FOR LOGIN [topppro_user_net]
+    WITH DEFAULT_SCHEMA = topppro_user_net
+END
+GO
+
+--
+-- Definition for user tropi23_user_net : 
+--
+
+IF NOT EXISTS (SELECT * FROM dbo.sysusers WHERE name = N'tropi23_user_net')
+BEGIN
+  CREATE USER tropi23_user_net
+    FOR LOGIN [tropi23_user_net]
+    WITH DEFAULT_SCHEMA = tropi23_user_net
+END
+GO
+
+--
+-- Definition for schema topppro_user_net : 
+--
+
+CREATE SCHEMA topppro_user_net
+  AUTHORIZATION [topppro_user_net]
+GO
+
+--
+-- Definition for schema tropi23_user_net : 
+--
+
+CREATE SCHEMA tropi23_user_net
+  AUTHORIZATION [tropi23_user_net]
 GO
 
 --
@@ -150,7 +179,18 @@ GO
 
 CREATE TABLE dbo.Serie (
   SerieId int IDENTITY(1, 1) NOT NULL,
-  Name varchar(50) COLLATE Modern_Spanish_CI_AS NOT NULL
+  Name varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL
+)
+ON [PRIMARY]
+GO
+
+--
+-- Definition for table Category : 
+--
+
+CREATE TABLE dbo.Category (
+  CategoryId int IDENTITY(1, 1) NOT NULL,
+  Name varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL
 )
 ON [PRIMARY]
 GO
@@ -177,7 +217,7 @@ GO
 
 CREATE TABLE dbo.Model (
   ModelId int IDENTITY(1, 1) NOT NULL,
-  Name varchar(50) COLLATE Modern_Spanish_CI_AS NOT NULL
+  Name varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL
 )
 ON [PRIMARY]
 GO
@@ -189,9 +229,9 @@ GO
 CREATE TABLE dbo.Product (
   ProductId int IDENTITY(1, 1) NOT NULL,
   ModelId int NOT NULL,
-  Name varchar(100) COLLATE Modern_Spanish_CI_AS NOT NULL,
-  Folder varchar(50) COLLATE Modern_Spanish_CI_AS NULL,
-  Manual varchar(50) COLLATE Modern_Spanish_CI_AS NULL,
+  Name varchar(100) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+  Folder varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+  Manual varchar(255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
   Draft bit NOT NULL,
   Badge varchar(6) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
 )
@@ -219,8 +259,8 @@ GO
 
 CREATE TABLE dbo.Culture (
   CultureId int IDENTITY(1, 1) NOT NULL,
-  Name varchar(50) COLLATE Modern_Spanish_CI_AS NOT NULL,
-  Code varchar(2) COLLATE Modern_Spanish_CI_AS NOT NULL
+  Name varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+  Code varchar(2) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL
 )
 ON [PRIMARY]
 GO
@@ -233,8 +273,8 @@ CREATE TABLE dbo.Attribute (
   AttributeId int IDENTITY(1, 1) NOT NULL,
   ProductId int NOT NULL,
   CultureId int NOT NULL,
-  Name varchar(150) COLLATE Modern_Spanish_CI_AS NOT NULL,
-  Value varchar(8000) COLLATE Modern_Spanish_CI_AS NOT NULL,
+  Name varchar(150) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+  Value varchar(max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
   Priority int NULL,
   Enabled bit NOT NULL
 )
@@ -249,8 +289,8 @@ CREATE TABLE dbo.Bullet (
   BulletId int IDENTITY(1, 1) NOT NULL,
   ProductId int NOT NULL,
   CultureId int NOT NULL,
-  Name varchar(150) COLLATE Modern_Spanish_CI_AS NOT NULL,
-  Value varchar(8000) COLLATE Modern_Spanish_CI_AS NOT NULL,
+  Name varchar(150) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+  Value varchar(max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
   Priority int NULL,
   Enabled bit NOT NULL
 )
@@ -263,7 +303,7 @@ GO
 
 CREATE TABLE dbo.Country (
   CountryId int IDENTITY(1, 1) NOT NULL,
-  Name varchar(150) COLLATE Modern_Spanish_CI_AS NOT NULL,
+  Name varchar(150) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
   Priority int NULL,
   Enabled bit NOT NULL
 )
@@ -278,8 +318,8 @@ CREATE TABLE dbo.Distributor (
   DistributorId int IDENTITY(1, 1) NOT NULL,
   CountryId int NOT NULL,
   CultureId int NOT NULL,
-  Name varchar(150) COLLATE Modern_Spanish_CI_AS NOT NULL,
-  Detail varchar(8000) COLLATE Modern_Spanish_CI_AS NOT NULL,
+  Name varchar(150) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+  Detail varchar(max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
   Priority int NULL,
   Enabled bit NOT NULL
 )
@@ -319,14 +359,14 @@ BEGIN
   SET NOCOUNT ON;
 
   UPDATE dbo.Assn_CategorySerie
-  SET Priority = Priority + 1
+  SET Priority = Priority + 10
   WHERE
-  	Priority >= @Priority
+  	Priority >= (@Priority * 10)
   
   INSERT INTO dbo.Assn_CategorySerie
   	(CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, [Enabled])
   VALUES
-  	(@CategoryId, @SerieId, 5, 1, @Priority, 1)
+  	(@CategoryId, @SerieId, 5, 1, @Priority * 10, 1)
   
   SET @Id = SCOPE_IDENTITY()
   
@@ -349,12 +389,12 @@ BEGIN
   /* Procedure body */
   
   UPDATE dbo.Assn_CategorySerie
-  SET Priority = Priority + 1
+  SET Priority = Priority + 10
   WHERE
-  	Priority >= @Priority
+  	Priority >= (@Priority * 10)
     
   UPDATE dbo.Assn_CategorySerie
-  SET Priority = @Priority
+  SET Priority = @Priority * 10
   WHERE
   	AssnCategorySerieId = @AssnCategorySerieId
   
@@ -380,14 +420,14 @@ BEGIN
   SET NOCOUNT ON;
 
   UPDATE dbo.Assn_CategorySerieProduct
-  SET Priority = Priority + 1
+  SET Priority = Priority + 10
   WHERE
-  	Priority >= @Priority
+  	Priority >= (@Priority * 10)
   
   INSERT INTO dbo.Assn_CategorySerieProduct
   	(AssnCategorySerieId, ProductId, AllowCompare, Priority, [Enabled])
   VALUES
-  	(@AssnCategorySerieId, @ProductId, 1, @Priority, 1)
+  	(@AssnCategorySerieId, @ProductId, 1, @Priority * 10, 1)
   
   SET @Id = SCOPE_IDENTITY()
     
@@ -411,12 +451,12 @@ BEGIN
   SET NOCOUNT ON;
   
   UPDATE dbo.Assn_CategorySerieProduct
-  SET Priority = Priority + 1
+  SET Priority = Priority + 10
   WHERE
-  	Priority >= @Priority
+  	Priority >= (@Priority * 10)
     
   UPDATE dbo.Assn_CategorySerieProduct
-  SET Priority = @Priority
+  SET Priority = @Priority * 10
   WHERE
   	AssnCategorySerieProductId = @AssnCategorySerieProductId
 END
@@ -426,9 +466,9 @@ GO
 -- Definition for indices : 
 --
 
-ALTER TABLE dbo.Category
-ADD CONSTRAINT Category_PK 
-PRIMARY KEY CLUSTERED (CategoryId)
+ALTER TABLE dbo.Serie
+ADD CONSTRAINT Serie_PK 
+PRIMARY KEY CLUSTERED (SerieId)
 WITH (
   PAD_INDEX = OFF,
   IGNORE_DUP_KEY = OFF,
@@ -438,9 +478,9 @@ WITH (
 ON [PRIMARY]
 GO
 
-ALTER TABLE dbo.Serie
-ADD CONSTRAINT Serie_PK 
-PRIMARY KEY CLUSTERED (SerieId)
+ALTER TABLE dbo.Category
+ADD CONSTRAINT Category_PK 
+PRIMARY KEY CLUSTERED (CategoryId)
 WITH (
   PAD_INDEX = OFF,
   IGNORE_DUP_KEY = OFF,
@@ -713,4 +753,5 @@ ADD CONSTRAINT Package_Parent_Product_FK FOREIGN KEY (ParentProductId)
   ON UPDATE NO ACTION
   ON DELETE NO ACTION
 GO
+
 

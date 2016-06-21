@@ -42,6 +42,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Repositories", ".
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Cache", "..\..\TropicalNet.Framework\trunk\Framework.Cache\Framework.Cache.csproj", "{78450449-BF0A-4ED3-96FE-622DF252AD27}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.IO", "..\..\TropicalNet.Framework\trunk\Framework.IO\Framework.IO.csproj", "{494E3C6C-0992-4370-804A-97BCACB03C05}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Topppro.vsmdi
@@ -140,6 +142,12 @@ Global
 		{78450449-BF0A-4ED3-96FE-622DF252AD27}.Release|Any CPU.Build.0 = Release|Any CPU
 		{78450449-BF0A-4ED3-96FE-622DF252AD27}.Stage|Any CPU.ActiveCfg = Release|Any CPU
 		{78450449-BF0A-4ED3-96FE-622DF252AD27}.Stage|Any CPU.Build.0 = Release|Any CPU
+		{494E3C6C-0992-4370-804A-97BCACB03C05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{494E3C6C-0992-4370-804A-97BCACB03C05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{494E3C6C-0992-4370-804A-97BCACB03C05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{494E3C6C-0992-4370-804A-97BCACB03C05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{494E3C6C-0992-4370-804A-97BCACB03C05}.Stage|Any CPU.ActiveCfg = Release|Any CPU
+		{494E3C6C-0992-4370-804A-97BCACB03C05}.Stage|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -161,6 +169,7 @@ Global
 		{D3B17ABC-8FA3-4A2E-BA06-66B50FF68C8E} = {F931DB9F-1A66-4997-B17F-81A842AEFC74}
 		{D538E6EF-CB4C-4B72-9CB6-A9C081914CDD} = {F931DB9F-1A66-4997-B17F-81A842AEFC74}
 		{78450449-BF0A-4ED3-96FE-622DF252AD27} = {F931DB9F-1A66-4997-B17F-81A842AEFC74}
+		{494E3C6C-0992-4370-804A-97BCACB03C05} = {F931DB9F-1A66-4997-B17F-81A842AEFC74}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35

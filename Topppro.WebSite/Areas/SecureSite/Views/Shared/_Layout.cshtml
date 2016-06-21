@@ -19,6 +19,14 @@
         @Html.Menu()
         <div id="page-wrapper" >
             <div id="page-inner">
+            
+            @RenderSection("Title", false)
+            @if (!IsSectionDefined("Title"))
+            {
+                <h2>@ViewBag.Title</h2>
+            }
+            
+            @RenderSection("Toolbar", false)
             @RenderBody()
             </div>
         </div>

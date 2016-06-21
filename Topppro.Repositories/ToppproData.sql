@@ -20,9 +20,6 @@ GO
 SET IDENTITY_INSERT dbo.Serie ON
 GO
 
-BEGIN TRANSACTION
-GO
-
 INSERT INTO dbo.Serie (SerieId, Name)
 VALUES 
   (1, N'KS')
@@ -233,9 +230,6 @@ VALUES
   (42, N'DANTE Module')
 GO
 
-COMMIT
-GO
-
 SET IDENTITY_INSERT dbo.Serie OFF
 GO
 
@@ -244,9 +238,6 @@ GO
 --
 
 SET IDENTITY_INSERT dbo.Category ON
-GO
-
-BEGIN TRANSACTION
 GO
 
 INSERT INTO dbo.Category (CategoryId, Name)
@@ -289,9 +280,6 @@ VALUES
   (8, N'Legacy Products')
 GO
 
-COMMIT
-GO
-
 SET IDENTITY_INSERT dbo.Category OFF
 GO
 
@@ -300,9 +288,6 @@ GO
 --
 
 SET IDENTITY_INSERT dbo.Assn_CategorySerie ON
-GO
-
-BEGIN TRANSACTION
 GO
 
 INSERT INTO dbo.Assn_CategorySerie (AssnCategorySerieId, CategoryId, SerieId, ItemsPerLine, AllowCompare, Priority, Enabled)
@@ -580,9 +565,6 @@ VALUES
   (59, 6, 42, 5, 1, 15, 1)
 GO
 
-COMMIT
-GO
-
 SET IDENTITY_INSERT dbo.Assn_CategorySerie OFF
 GO
 
@@ -593,32 +575,29 @@ GO
 SET IDENTITY_INSERT dbo.Product ON
 GO
 
-BEGIN TRANSACTION
+INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
+VALUES 
+  (1, 1, N'KS CS8A', N'kscs8a', N'(KS-CS SERIES TOPP PRO_V1.2).pdf', 0, N'8"')
 GO
 
 INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
 VALUES 
-  (1, 1, N'KS CS8A', N'kscs8a', N'(KS-CS SERIES TOPP PRO_V1-0).pdf', 0, N'8"')
+  (2, 1, N'KS CS10A', N'kscs10a', N'(KS-CS SERIES TOPP PRO_V1.2).pdf', 0, N'10"')
 GO
 
 INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
 VALUES 
-  (2, 1, N'KS CS10A', N'kscs10a', N'(KS-CS SERIES TOPP PRO_V1-0).pdf', 0, N'10"')
+  (3, 1, N'KS CS12A', N'kscs12a', N'(KS-CS SERIES TOPP PRO_V1.2).pdf', 0, N'12"')
 GO
 
 INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
 VALUES 
-  (3, 1, N'KS CS12A', N'kscs12a', N'(KS-CS SERIES TOPP PRO_V1-0).pdf', 0, N'12"')
+  (4, 1, N'KS CS15A', N'kscs15a', N'(KS-CS SERIES TOPP PRO_V1.2).pdf', 0, N'15"')
 GO
 
 INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
 VALUES 
-  (4, 1, N'KS CS15A', N'kscs15a', N'(KS-CS SERIES TOPP PRO_V1-0).pdf', 0, N'15"')
-GO
-
-INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
-VALUES 
-  (5, 1, N'KS CS215A', N'kscs215a', N'(KS-CS SERIES TOPP PRO_V1-0).pdf', 0, N'15"')
+  (5, 1, N'KS CS215A', N'kscs215a', N'(KS-CS SERIES TOPP PRO_V1.2).pdf', 0, N'15"')
 GO
 
 INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
@@ -683,17 +662,17 @@ GO
 
 INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
 VALUES 
-  (18, 1, N'KS15A SUB', N'ks15a-sub', N'KS SERIES NEW TOPP PRO_V1-1.pdf', 0, N'15"')
+  (18, 1, N'KS15A SUB', N'ks15a-sub', N'(KS-CS SERIES TOPP PRO_V1.2).pdf', 0, N'15"')
 GO
 
 INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
 VALUES 
-  (19, 1, N'KS18A SUB', N'ks18a-sub', N'KS SERIES NEW TOPP PRO_V1-1.pdf', 0, N'18"')
+  (19, 1, N'KS18A SUB', N'ks18a-sub', N'(KS-CS SERIES TOPP PRO_V1.2).pdf', 0, N'18"')
 GO
 
 INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
 VALUES 
-  (20, 1, N'KS218A SUB', N'ks218a-sub', N'KS SERIES NEW TOPP PRO_V1-1.pdf', 0, N'18"')
+  (20, 1, N'KS218A SUB', N'ks218a-sub', N'(KS ARRAY TOPP PRO_V1.1).pdf', 0, N'18"')
 GO
 
 INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
@@ -1593,7 +1572,7 @@ GO
 
 INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
 VALUES 
-  (200, 1, N'KS-T28A', N'kst28a', N'(KS ARRAY TOPP PRO_V1.0) English Users Manual.pdf', 0, N'8"')
+  (200, 1, N'KS-T28A', N'kst28a', N'(KS ARRAY TOPP PRO_V1.1).pdf', 0, N'8"')
 GO
 
 INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
@@ -1661,7 +1640,19 @@ VALUES
   (1214, 0, N'T-DANTE', N't-dante', N'T-DANTE user manual.pdf', 0, NULL)
 GO
 
-COMMIT
+INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
+VALUES 
+  (2214, 1, N'KDRIVE 2154A', N'k-drive2154a', N'(K-DRIVE 2154A TOPP PRO_V1.0).pdf', 0, NULL)
+GO
+
+INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
+VALUES 
+  (2215, 1, N'KS21A', N'ks21a', N'(KS-CS SERIES TOPP PRO_V1.2).pdf', 0, NULL)
+GO
+
+INSERT INTO dbo.Product (ProductId, ModelId, Name, Folder, Manual, Draft, Badge)
+VALUES 
+  (2216, 1, N'KS-LT118A SUB', N'ks-lt118a sub', N'(KS ARRAY TOPP PRO_V1.1).pdf', 0, NULL)
 GO
 
 SET IDENTITY_INSERT dbo.Product OFF
@@ -1672,9 +1663,6 @@ GO
 --
 
 SET IDENTITY_INSERT dbo.Assn_CategorySerieProduct ON
-GO
-
-BEGIN TRANSACTION
 GO
 
 INSERT INTO dbo.Assn_CategorySerieProduct (AssnCategorySerieProductId, AssnCategorySerieId, ProductId, AllowCompare, Priority, Enabled)
@@ -2672,9 +2660,6 @@ VALUES
   (1227, 59, 1214, 1, 20, 1)
 GO
 
-COMMIT
-GO
-
 SET IDENTITY_INSERT dbo.Assn_CategorySerieProduct OFF
 GO
 
@@ -2683,9 +2668,6 @@ GO
 --
 
 SET IDENTITY_INSERT dbo.Culture ON
-GO
-
-BEGIN TRANSACTION
 GO
 
 INSERT INTO dbo.Culture (CultureId, Name, Code)
@@ -2698,9 +2680,6 @@ VALUES
   (2, N'Spanish', N'sp')
 GO
 
-COMMIT
-GO
-
 SET IDENTITY_INSERT dbo.Culture OFF
 GO
 
@@ -2709,9 +2688,6 @@ GO
 --
 
 SET IDENTITY_INSERT dbo.Attribute ON
-GO
-
-BEGIN TRANSACTION
 GO
 
 INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
@@ -5214,15 +5190,9 @@ VALUES
   (1078, 70, 1, N'BT Frequency Range', N'2400 ~ 2500MHz', 50, 1)
 GO
 
-COMMIT
-GO
-
 --
 -- Data for table dbo.Attribute  (LIMIT 500,500)
 --
-
-BEGIN TRANSACTION
-GO
 
 INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
@@ -9318,15 +9288,9 @@ VALUES
 </table>', 120, 1)
 GO
 
-COMMIT
-GO
-
 --
 -- Data for table dbo.Attribute  (LIMIT 1000,500)
 --
-
-BEGIN TRANSACTION
-GO
 
 INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
@@ -12483,15 +12447,9 @@ VALUES
   (2087, 119, 1, N'Carrier Frequency', N'UHF 780 - 960 MHz', 330, 0)
 GO
 
-COMMIT
-GO
-
 --
 -- Data for table dbo.Attribute  (LIMIT 1500,500)
 --
-
-BEGIN TRANSACTION
-GO
 
 INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
@@ -14993,15 +14951,9 @@ VALUES
   (2587, 161, 1, N'Power Supply', N'110V-240V ~50/60Hz', 130, 1)
 GO
 
-COMMIT
-GO
-
 --
 -- Data for table dbo.Attribute  (LIMIT 2000,500)
 --
-
-BEGIN TRANSACTION
-GO
 
 INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
@@ -17503,15 +17455,9 @@ VALUES
   (3177, 120, 1, N'Carrier Frequency', N'UHF 798~827 MHz', 30, 0)
 GO
 
-COMMIT
-GO
-
 --
 -- Data for table dbo.Attribute  (LIMIT 2500,500)
 --
-
-BEGIN TRANSACTION
-GO
 
 INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
@@ -20064,15 +20010,9 @@ VALUES
   (3677, 49, 1, N'Input Connector', N'1 x NL4 (Pin 1 +; Pin 1-) 2 x 1/4" Jack', 90, 1)
 GO
 
-COMMIT
-GO
-
 --
 -- Data for table dbo.Attribute  (LIMIT 3000,500)
 --
-
-BEGIN TRANSACTION
-GO
 
 INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
@@ -22574,15 +22514,9 @@ VALUES
   (4178, 210, 1, N'Sensitivity:', N'110dB Max', 50, 1)
 GO
 
-COMMIT
-GO
-
 --
 -- Data for table dbo.Attribute  (LIMIT 3500,500)
 --
-
-BEGIN TRANSACTION
-GO
 
 INSERT INTO dbo.Attribute (AttributeId, ProductId, CultureId, Name, Value, Priority, Enabled)
 VALUES 
@@ -22819,9 +22753,6 @@ VALUES
   (4225, 216, 1, N'Power supply', N'DC 1.5V', 110, 1)
 GO
 
-COMMIT
-GO
-
 SET IDENTITY_INSERT dbo.Attribute OFF
 GO
 
@@ -22830,9 +22761,6 @@ GO
 --
 
 SET IDENTITY_INSERT dbo.Bullet ON
-GO
-
-BEGIN TRANSACTION
 GO
 
 INSERT INTO dbo.Bullet (BulletId, ProductId, CultureId, Name, Value, Priority, Enabled)
@@ -24995,285 +24923,7 @@ VALUES
   (1441, 1214, 1, N'Up', N'to 32x32 channels at 48kHz', 20, 1)
 GO
 
-COMMIT
-GO
-
 SET IDENTITY_INSERT dbo.Bullet OFF
-GO
-
---
--- Data for table dbo.Model  (LIMIT 0,500)
---
-
-SET IDENTITY_INSERT dbo.Model ON
-GO
-
-BEGIN TRANSACTION
-GO
-
-INSERT INTO dbo.Model (ModelId, Name)
-VALUES 
-  (0, N'NA')
-GO
-
-INSERT INTO dbo.Model (ModelId, Name)
-VALUES 
-  (1, N'Active')
-GO
-
-INSERT INTO dbo.Model (ModelId, Name)
-VALUES 
-  (2, N'Passive')
-GO
-
-INSERT INTO dbo.Model (ModelId, Name)
-VALUES 
-  (3, N'Digital')
-GO
-
-INSERT INTO dbo.Model (ModelId, Name)
-VALUES 
-  (4, N'USB')
-GO
-
-INSERT INTO dbo.Model (ModelId, Name)
-VALUES 
-  (5, N'Digital FX')
-GO
-
-INSERT INTO dbo.Model (ModelId, Name)
-VALUES 
-  (6, N'4-BUS MIXER')
-GO
-
-INSERT INTO dbo.Model (ModelId, Name)
-VALUES 
-  (7, N'10 Inputs')
-GO
-
-INSERT INTO dbo.Model (ModelId, Name)
-VALUES 
-  (8, N'14 Inputs')
-GO
-
-INSERT INTO dbo.Model (ModelId, Name)
-VALUES 
-  (9, N'6 Inputs')
-GO
-
-INSERT INTO dbo.Model (ModelId, Name)
-VALUES 
-  (10, N'Coaxial')
-GO
-
-INSERT INTO dbo.Model (ModelId, Name)
-VALUES 
-  (11, N'Combo')
-GO
-
-INSERT INTO dbo.Model (ModelId, Name)
-VALUES 
-  (12, N'Blue tooth')
-GO
-
-INSERT INTO dbo.Model (ModelId, Name)
-VALUES 
-  (13, N'Compact Design')
-GO
-
-INSERT INTO dbo.Model (ModelId, Name)
-VALUES 
-  (14, N'USB I/O')
-GO
-
-INSERT INTO dbo.Model (ModelId, Name)
-VALUES 
-  (15, N'NEW DESIGN')
-GO
-
-COMMIT
-GO
-
-SET IDENTITY_INSERT dbo.Model OFF
-GO
-
---
--- Data for table dbo.Package  (LIMIT 0,500)
---
-
-SET IDENTITY_INSERT dbo.Package ON
-GO
-
-BEGIN TRANSACTION
-GO
-
-INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
-VALUES 
-  (1, 62, 169, 10, 1)
-GO
-
-INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
-VALUES 
-  (2, 62, 170, 20, 1)
-GO
-
-INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
-VALUES 
-  (3, 110, 171, 10, 1)
-GO
-
-INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
-VALUES 
-  (4, 110, 172, 20, 1)
-GO
-
-INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
-VALUES 
-  (5, 112, 173, 10, 1)
-GO
-
-INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
-VALUES 
-  (6, 112, 174, 20, 1)
-GO
-
-INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
-VALUES 
-  (7, 113, 175, 10, 1)
-GO
-
-INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
-VALUES 
-  (8, 113, 176, 20, 1)
-GO
-
-INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
-VALUES 
-  (9, 114, 105, 10, 1)
-GO
-
-INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
-VALUES 
-  (10, 114, 48, 20, 1)
-GO
-
-INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
-VALUES 
-  (11, 115, 106, 10, 1)
-GO
-
-INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
-VALUES 
-  (12, 115, 48, 20, 1)
-GO
-
-INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
-VALUES 
-  (13, 116, 107, 10, 1)
-GO
-
-INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
-VALUES 
-  (14, 116, 177, 20, 1)
-GO
-
-INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
-VALUES 
-  (15, 118, 178, 10, 1)
-GO
-
-INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
-VALUES 
-  (16, 118, 179, 20, 1)
-GO
-
-INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
-VALUES 
-  (17, 118, 180, 30, 1)
-GO
-
-INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
-VALUES 
-  (18, 121, 181, 10, 1)
-GO
-
-INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
-VALUES 
-  (19, 121, 182, 20, 1)
-GO
-
-INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
-VALUES 
-  (20, 121, 183, 30, 1)
-GO
-
-INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
-VALUES 
-  (21, 165, 184, 10, 1)
-GO
-
-INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
-VALUES 
-  (22, 165, 185, 20, 1)
-GO
-
-INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
-VALUES 
-  (23, 166, 186, 10, 1)
-GO
-
-INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
-VALUES 
-  (24, 166, 187, 20, 1)
-GO
-
-INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
-VALUES 
-  (25, 167, 188, 10, 1)
-GO
-
-INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
-VALUES 
-  (26, 167, 189, 20, 1)
-GO
-
-INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
-VALUES 
-  (27, 119, 190, 10, 1)
-GO
-
-INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
-VALUES 
-  (28, 119, 191, 20, 1)
-GO
-
-INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
-VALUES 
-  (29, 119, 192, 30, 1)
-GO
-
-INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
-VALUES 
-  (30, 120, 193, 10, 1)
-GO
-
-INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
-VALUES 
-  (31, 120, 194, 20, 1)
-GO
-
-COMMIT
-GO
-
-SET IDENTITY_INSERT dbo.Package OFF
-GO
-
---
--- Enable foreign keys
---
-
-ALTER TABLE dbo.Product
-WITH CHECK CHECK CONSTRAINT Model_Product_FK
 GO
 
 --
@@ -25281,9 +24931,6 @@ GO
 --
 
 SET IDENTITY_INSERT dbo.Country ON
-GO
-
-BEGIN TRANSACTION
 GO
 
 INSERT INTO dbo.Country (CountryId, Name, Priority, Enabled)
@@ -25486,9 +25133,6 @@ VALUES
   (40, N'Saudi Arabia', 308, 1)
 GO
 
-COMMIT
-GO
-
 SET IDENTITY_INSERT dbo.Country OFF
 GO
 
@@ -25497,9 +25141,6 @@ GO
 --
 
 SET IDENTITY_INSERT dbo.Distributor ON
-GO
-
-BEGIN TRANSACTION
 GO
 
 INSERT INTO dbo.Distributor (DistributorId, CountryId, CultureId, Name, Detail, Priority, Enabled)
@@ -25828,8 +25469,269 @@ Mobile: +966-555528723<br>
 <a href="http://www.dte.sa/" target="_blank">http://www.dte.sa/</a>', 468, 1)
 GO
 
-COMMIT
-GO
-
 SET IDENTITY_INSERT dbo.Distributor OFF
 GO
+
+--
+-- Data for table dbo.Model  (LIMIT 0,500)
+--
+
+SET IDENTITY_INSERT dbo.Model ON
+GO
+
+INSERT INTO dbo.Model (ModelId, Name)
+VALUES 
+  (0, N'NA')
+GO
+
+INSERT INTO dbo.Model (ModelId, Name)
+VALUES 
+  (1, N'Active')
+GO
+
+INSERT INTO dbo.Model (ModelId, Name)
+VALUES 
+  (2, N'Passive')
+GO
+
+INSERT INTO dbo.Model (ModelId, Name)
+VALUES 
+  (3, N'Digital')
+GO
+
+INSERT INTO dbo.Model (ModelId, Name)
+VALUES 
+  (4, N'USB')
+GO
+
+INSERT INTO dbo.Model (ModelId, Name)
+VALUES 
+  (5, N'Digital FX')
+GO
+
+INSERT INTO dbo.Model (ModelId, Name)
+VALUES 
+  (6, N'4-BUS MIXER')
+GO
+
+INSERT INTO dbo.Model (ModelId, Name)
+VALUES 
+  (7, N'10 Inputs')
+GO
+
+INSERT INTO dbo.Model (ModelId, Name)
+VALUES 
+  (8, N'14 Inputs')
+GO
+
+INSERT INTO dbo.Model (ModelId, Name)
+VALUES 
+  (9, N'6 Inputs')
+GO
+
+INSERT INTO dbo.Model (ModelId, Name)
+VALUES 
+  (10, N'Coaxial')
+GO
+
+INSERT INTO dbo.Model (ModelId, Name)
+VALUES 
+  (11, N'Combo')
+GO
+
+INSERT INTO dbo.Model (ModelId, Name)
+VALUES 
+  (12, N'Blue tooth')
+GO
+
+INSERT INTO dbo.Model (ModelId, Name)
+VALUES 
+  (13, N'Compact Design')
+GO
+
+INSERT INTO dbo.Model (ModelId, Name)
+VALUES 
+  (14, N'USB I/O')
+GO
+
+INSERT INTO dbo.Model (ModelId, Name)
+VALUES 
+  (15, N'NEW DESIGN')
+GO
+
+SET IDENTITY_INSERT dbo.Model OFF
+GO
+
+--
+-- Data for table dbo.Package  (LIMIT 0,500)
+--
+
+SET IDENTITY_INSERT dbo.Package ON
+GO
+
+INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
+VALUES 
+  (1, 62, 169, 10, 1)
+GO
+
+INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
+VALUES 
+  (2, 62, 170, 20, 1)
+GO
+
+INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
+VALUES 
+  (3, 110, 171, 10, 1)
+GO
+
+INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
+VALUES 
+  (4, 110, 172, 20, 1)
+GO
+
+INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
+VALUES 
+  (5, 112, 173, 10, 1)
+GO
+
+INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
+VALUES 
+  (6, 112, 174, 20, 1)
+GO
+
+INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
+VALUES 
+  (7, 113, 175, 10, 1)
+GO
+
+INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
+VALUES 
+  (8, 113, 176, 20, 1)
+GO
+
+INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
+VALUES 
+  (9, 114, 105, 10, 1)
+GO
+
+INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
+VALUES 
+  (10, 114, 48, 20, 1)
+GO
+
+INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
+VALUES 
+  (11, 115, 106, 10, 1)
+GO
+
+INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
+VALUES 
+  (12, 115, 48, 20, 1)
+GO
+
+INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
+VALUES 
+  (13, 116, 107, 10, 1)
+GO
+
+INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
+VALUES 
+  (14, 116, 177, 20, 1)
+GO
+
+INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
+VALUES 
+  (15, 118, 178, 10, 1)
+GO
+
+INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
+VALUES 
+  (16, 118, 179, 20, 1)
+GO
+
+INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
+VALUES 
+  (17, 118, 180, 30, 1)
+GO
+
+INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
+VALUES 
+  (18, 121, 181, 10, 1)
+GO
+
+INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
+VALUES 
+  (19, 121, 182, 20, 1)
+GO
+
+INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
+VALUES 
+  (20, 121, 183, 30, 1)
+GO
+
+INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
+VALUES 
+  (21, 165, 184, 10, 1)
+GO
+
+INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
+VALUES 
+  (22, 165, 185, 20, 1)
+GO
+
+INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
+VALUES 
+  (23, 166, 186, 10, 1)
+GO
+
+INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
+VALUES 
+  (24, 166, 187, 20, 1)
+GO
+
+INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
+VALUES 
+  (25, 167, 188, 10, 1)
+GO
+
+INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
+VALUES 
+  (26, 167, 189, 20, 1)
+GO
+
+INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
+VALUES 
+  (27, 119, 190, 10, 1)
+GO
+
+INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
+VALUES 
+  (28, 119, 191, 20, 1)
+GO
+
+INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
+VALUES 
+  (29, 119, 192, 30, 1)
+GO
+
+INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
+VALUES 
+  (30, 120, 193, 10, 1)
+GO
+
+INSERT INTO dbo.Package (PackageId, ParentProductId, ChildProductId, Priority, Enabled)
+VALUES 
+  (31, 120, 194, 20, 1)
+GO
+
+SET IDENTITY_INSERT dbo.Package OFF
+GO
+
+--
+-- Enable foreign keys
+--
+
+ALTER TABLE dbo.Product
+WITH CHECK CHECK CONSTRAINT Model_Product_FK
+GO
+

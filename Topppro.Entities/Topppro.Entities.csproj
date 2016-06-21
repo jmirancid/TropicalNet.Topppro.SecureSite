@@ -47,6 +47,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -189,6 +190,10 @@
     <ProjectReference Include="..\..\..\TropicalNet.Framework\trunk\Framework.Entities\Framework.Entities.csproj">
       <Project>{9489546F-974D-469B-804B-60DB8A53DF5E}</Project>
       <Name>Framework.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\TropicalNet.Framework\trunk\Framework.IO\Framework.IO.csproj">
+      <Project>{494E3C6C-0992-4370-804A-97BCACB03C05}</Project>
+      <Name>Framework.IO</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

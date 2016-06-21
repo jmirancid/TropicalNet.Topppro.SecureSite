@@ -1,5 +1,6 @@
 ﻿@using Framework.MVC.Resources
 @using Framework.MVC.Extensions
+@using Topppro.WebSite.Areas.SecureSite.Extensions
 
 @model IEnumerable<Framework.Cache.Entities.CacheEntry>
 
@@ -11,12 +12,9 @@
     <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Areas/SecureSite/Scripts/dataTables/dataTables.bootstrap.css")" />
 }
 
-<h2>@PersistanceResource.Index</h2>
-
-<p>
-    @Ajax.ActionLink(PersistanceResource.Clear, "Clear", null, null,
-        new AjaxOptions() { HttpMethod = "Post", Confirm = PersistanceResource.Delete_Message, OnSuccess = "location.reload(true);" })
-</p>
+@section Toolbar {
+    @Html.Toolbar()
+}
 
 <table class="table table-striped table-bordered table-hover" id="data">
     <thead>

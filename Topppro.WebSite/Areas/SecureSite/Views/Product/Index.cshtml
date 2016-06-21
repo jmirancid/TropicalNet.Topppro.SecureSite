@@ -1,6 +1,6 @@
 ﻿@using Framework.MVC.Resources
 @using Framework.MVC.Extensions
-@using Topppro.Entities.Resources
+@using Topppro.WebSite.Areas.SecureSite.Extensions
 
 @model IEnumerable<Topppro.Entities.Product>
 
@@ -12,11 +12,9 @@
     <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Areas/SecureSite/Scripts/dataTables/dataTables.bootstrap.css")" />
 }
 
-<h2>@PersistanceResource.Index</h2>
-
-<p>
-    @Html.ActionLink(PersistanceResource.Create, "Create")
-</p>
+@section Toolbar {
+    @Html.Toolbar()
+}
 
 <table class="table table-striped table-bordered table-hover" id="data">
     <thead>

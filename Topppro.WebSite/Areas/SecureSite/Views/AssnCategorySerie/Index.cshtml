@@ -90,9 +90,11 @@
     </style>
 }
 
-<h2>@PersistanceResource.Index</h2>
-<h5>@Ent_AssnCategorySerieResource._Caption</h5>
-<hr />
+@section Title {
+    <h2>@PersistanceResource.Index</h2>
+    <h5>@Ent_AssnCategorySerieResource._Caption</h5>
+    <hr />
+}
 
 <div class="row">
 	<div class="col-md-3 col-sm-3">
@@ -128,7 +130,7 @@
                                     <div class="btn-group btn-group-xs pull-right">
                                         @Html.ActionLink(string.Format("{0} ({1})", Ent_ProductResource._Caption, assn.Assn_CategorySerieProduct.Count), null, "AssnCategorySerieProduct", 
                                             new { id = assn.Id },
-                                         new { @class = "btn btn-success", @title = string.Format("{0} ({1})", Ent_ProductResource._Caption, assn.Assn_CategorySerieProduct.Count) })
+                                            new { @class = "btn btn-success", @title = string.Format("{0} ({1})", Ent_ProductResource._Caption, assn.Assn_CategorySerieProduct.Count) })
                                         @Ajax.ActionLink(PersistanceResource.Edit, "Edit", null, 
                                             new { id = assn.Id },
                                             new AjaxOptions() { HttpMethod = "Get", UpdateTargetId = "dialog-assn-form", OnSuccess = "$.validator.unobtrusive.parse($('#dialog-assn-form')); $('#dialog-assn').modal({ show: true });" },
@@ -164,7 +166,7 @@
 
 @section Scripts {
     @Html.Partial("_Validation")
-    <script src="@Url.Content("~/Ar4eas/SecureSite/Scripts/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Areas/SecureSite/Scripts/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
     <script type="text/javascript">
 
         var el;

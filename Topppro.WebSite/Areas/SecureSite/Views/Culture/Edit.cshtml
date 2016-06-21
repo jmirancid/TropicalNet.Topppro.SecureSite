@@ -7,8 +7,7 @@
     ViewBag.Title = PersistanceResource.Edit;
 }
 
-@section Styles
-{
+@section Styles {
     <style type="text/css">
         .tooltip-inner
         {
@@ -23,8 +22,6 @@
         }
     </style>
 }
-
-<h2>@PersistanceResource.Edit</h2>
 
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)

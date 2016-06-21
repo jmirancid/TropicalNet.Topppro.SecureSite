@@ -1,0 +1,23 @@
+﻿@using Framework.MVC.Resources
+
+<p>
+    <div class="btn-group" role="group" aria-label="toolbar">
+        @Ajax.ActionLink(PersistanceResource.Create, "Create", "Attribute", new { id = ViewBag.ProductId },
+        new AjaxOptions()
+        {
+            HttpMethod = "Get",
+            UpdateTargetId = "attribute-modal-content",
+            OnSuccess = "$.validator.unobtrusive.parse(data); $('#attribute-modal').modal({ show: true });"
+        }, new { @class = "btn btn-primary", @role = "button" })
+        
+       @* @Html.ActionLink(PersistanceResource.Export, "Export", "Attribute", new { id = ViewBag.ProductId }, new { @class = "btn btn-warning", @role = "button" })
+        
+        @Ajax.ActionLink(PersistanceResource.Import, "Import", "Attribute", new { id = ViewBag.ProductId },
+        new AjaxOptions()
+        {
+            HttpMethod = "Get",
+            UpdateTargetId = "attribute-modal-content",
+            OnSuccess = "$.validator.unobtrusive.parse(data); $('#attribute-modal').modal({ show: true });"
+        }, new { @class = "btn btn-success", @role = "button" })*@
+    </div>
+</p>

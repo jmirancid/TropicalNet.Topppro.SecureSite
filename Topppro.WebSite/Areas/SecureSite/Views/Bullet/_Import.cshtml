@@ -1,0 +1,29 @@
+﻿@using Framework.MVC.Resources
+@using Topppro.Entities.Resources
+
+@model Topppro.WebSite.Areas.SecureSite.Models.ImportModel
+
+@using (Html.BeginForm("Import", "Bullet", FormMethod.Post, new {enctype="multipart/form-data"}))
+{
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="@PersistanceResource.Close">
+            <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">@PersistanceResource.Import</h4>
+        <small>@Ent_BulletResource._Caption</small>
+    </div>
+    <div class="modal-body">
+        @Html.ValidationSummary(true)
+        
+        <fieldset>
+            @Html.EditorFor(model => model)
+        </fieldset>
+    </div>
+    <div class="modal-footer">
+        <div id="modal-loader" class="pull-left text-primary" style="display: none;">
+            <i class="fa fa-circle-o-notch fa-spin fa-2x fa-fw"></i>
+        </div>
+        <button type="button" class="btn btn-default" data-dismiss="modal">
+            @PersistanceResource.Close</button>
+        <input class="btn btn-primary" type="submit" value="@PersistanceResource.Save" />
+    </div>
+}
