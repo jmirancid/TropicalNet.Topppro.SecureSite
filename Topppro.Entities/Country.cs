@@ -2,6 +2,7 @@
 using Framework.Entities;
 using Framework.Entities.Resources;
 using Topppro.Entities.Resources;
+using System;
 
 namespace Topppro.Entities
 {
@@ -26,5 +27,12 @@ namespace Topppro.Entities
         [Display(Name = "Entity_Name", ResourceType = typeof(Ent_CountryResource))]
         [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Ent_ValidationResource))]
         public string Name { get; set; }
+
+        [Display(Name = "Entity_Priority", ResourceType = typeof(Ent_CountryResource))]
+        public Nullable<int> Priority { get; set; }
+
+        [Display(Name = "Entity_Enabled", ResourceType = typeof(Ent_CountryResource))]
+        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Ent_ValidationResource))]
+        public bool Enabled { get; set; }
     }
 }

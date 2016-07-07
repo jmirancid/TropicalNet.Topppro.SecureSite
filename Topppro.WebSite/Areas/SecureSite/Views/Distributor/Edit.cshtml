@@ -1,5 +1,6 @@
 ﻿@using Framework.MVC.Resources
 @using Topppro.Entities.Resources
+@using Topppro.WebSite.Areas.SecureSite.Extensions
 
 @model Topppro.Entities.Distributor
 
@@ -7,28 +8,14 @@
     ViewBag.Title = PersistanceResource.Edit;
 }
 
-@section Styles {
-    <style type="text/css">
-        .tooltip-inner
-        {
-            max-width: 300px;
-            padding: 0;
-        }
-        .tooltip-alert
-        {
-            padding: 8px 10px;
-            font-weight: bolder;
-            color: #A94442;
-        }
-    </style>
-}
-
 @using (Html.BeginForm()) {
-    @Html.ValidationSummary(true)
+    @Html.ValidationSummary(true, null, new { @class = "alert alert-danger" })
     <fieldset>
         <legend>@Ent_DistributorResource._Caption</legend>
 
         @Html.HiddenFor(model => model.Id)
+        @Html.ValidationMessageFor(model => model.Id)
+
         @Html.EditorForModel()
 
         <p>
@@ -45,5 +32,5 @@
 {
     <script src="@Url.Content("~/Areas/SecureSite/Scripts/tinymce/tinymce.min.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Areas/SecureSite/Scripts/tinymce/jquery.tinymce.min.js")" type="text/javascript"></script>
-    @Html.Partial("_Validation")
+    @Html.Validator()
 }

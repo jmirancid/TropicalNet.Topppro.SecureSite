@@ -78,14 +78,14 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
 
         public override void CreateGetPrerender(Topppro.Entities.Distributor entity = null)
         {
-            ViewBag.CountryId = new SelectList(this._bizCountry.Value.All(), "CountryId", "Name");
-            ViewBag.CultureId = new SelectList(this._bizCulture.Value.All(), "CultureId", "Name");
+            ViewBag.Countries = new SelectList(this._bizCountry.Value.All(), "CountryId", "Name");
+            ViewBag.Cultures = new SelectList(this._bizCulture.Value.All(), "CultureId", "Name");
         }
 
         public override void EditGetPrerender(Topppro.Entities.Distributor entity)
         {
-            ViewBag.CountryId = new SelectList(this._bizCountry.Value.All(), "CountryId", "Name", entity.CountryId);
-            ViewBag.CultureId = new SelectList(this._bizCulture.Value.All(), "CultureId", "Name", entity.CultureId);
+            ViewBag.Countries = new SelectList(this._bizCountry.Value.All(), "CountryId", "Name", entity.CountryId);
+            ViewBag.Cultures = new SelectList(this._bizCulture.Value.All(), "CultureId", "Name", entity.CultureId);
         }
     }
 }

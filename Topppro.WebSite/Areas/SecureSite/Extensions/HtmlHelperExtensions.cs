@@ -17,5 +17,10 @@ namespace Topppro.WebSite.Areas.SecureSite.Extensions
             return htmlHelper.Partial("_Toolbar");
         }
 
+        public static MvcHtmlString Validator(
+            this HtmlHelper htmlHelper)
+        {
+            return htmlHelper.Partial("_Validator");
+        }
     }
 }

@@ -116,8 +116,7 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
                 var entity =
                     new Topppro.Entities.Attribute()
                     {
-                        ProductId = id,
-                        Value = string.Empty
+                        ProductId = id
                     };
 
                 CreateGetPrerender();
@@ -237,17 +236,17 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
 
         public override void CreateGetPrerender(Topppro.Entities.Attribute entity = null)
         {
-            ViewBag.CultureId = new SelectList(this._bizCulture.Value.All(), "CultureId", "Name");
+            ViewBag.Cultures = new SelectList(this._bizCulture.Value.All(), "CultureId", "Name");
         }
 
         public override void DetailsGetPrerender(Topppro.Entities.Attribute entity)
         {
-            ViewBag.CultureId = new SelectList(this._bizCulture.Value.All(), "CultureId", "Name", entity.CultureId);
+            ViewBag.Cultures = new SelectList(this._bizCulture.Value.All(), "CultureId", "Name", entity.CultureId);
         }
 
         public override void EditGetPrerender(Topppro.Entities.Attribute entity)
         {
-            ViewBag.CultureId = new SelectList(this._bizCulture.Value.All(), "CultureId", "Name", entity.CultureId);
+            ViewBag.Cultures = new SelectList(this._bizCulture.Value.All(), "CultureId", "Name", entity.CultureId);
         }
     }
 }

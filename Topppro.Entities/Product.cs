@@ -39,7 +39,6 @@ namespace Topppro.Entities
         public string Manual { get; set; }
 
         [Display(Name = "Entity_Draft", ResourceType = typeof(Ent_ProductResource))]
-        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Ent_ValidationResource))]
         public bool Draft { get; set; }
     }
 }

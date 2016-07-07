@@ -1,14 +1,10 @@
 ﻿@using Framework.MVC.Resources
+@using Topppro.Entities.Resources
 
 <p>
     <div class="btn-group" role="group" aria-label="toolbar">
-        @Ajax.ActionLink(PersistanceResource.Create, "Create", "Bullet", new { id = ViewBag.ProductId },
-        new AjaxOptions()
-        {
-            HttpMethod = "Get",
-            UpdateTargetId = "bullet-modal-content",
-            OnSuccess = "$.validator.unobtrusive.parse(data); $('#bullet-modal').modal({ show: true });"
-        }, new { @class = "btn btn-primary", @role = "button" })
+        @Html.ActionLink(PersistanceResource.Create, "Create", "Bullet", new { id = ViewBag.ProductId },
+            new { @class = "btn btn-primary editor-dialog", @role = "button", @type = "type-warning", @title = string.Format("{0} {1}", PersistanceResource.Create, Ent_BulletResource._Caption) })
         
         @*
 
@@ -25,3 +21,4 @@
         *@
     </div>
 </p>
+

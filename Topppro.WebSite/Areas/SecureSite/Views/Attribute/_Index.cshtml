@@ -1,5 +1,6 @@
 ﻿@using Framework.MVC.Resources
 @using Framework.MVC.Extensions
+@using Topppro.Entities.Resources
 
 @model IEnumerable<Topppro.Entities.Attribute>
 
@@ -41,18 +42,8 @@
     </tbody>
 </table>
 
-@* Modal Box CRUD *@
-<div id="attribute-modal" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div id="attribute-modal-content" class="modal-content">
-        </div>
-    </div>
-</div>
-
 <script type="text/javascript">
     $(document).ready(function () {
-
-        var el;
 
         $('#attribute-list').dataTable({
             aoColumns: [
@@ -72,9 +63,9 @@
                         bSortable: false,
                         mRender: function (o) {
 
-                            var tpl = '@Ajax.ActionLink(PersistanceResource.Edit, "Edit", "Attribute", new { id = 0 }, new AjaxOptions() { HttpMethod = "Get", UpdateTargetId = "attribute-modal-content", OnSuccess = "$('#attribute-modal').modal({ show: true });" }, new { onclick = "el = $(this).closest('tr');" }) |' +
-                                      '@Ajax.ActionLink(PersistanceResource.Details, "Details", "Attribute", new { id = 0 }, new AjaxOptions() { HttpMethod = "Get", UpdateTargetId = "attribute-modal-content", OnSuccess = "$('#attribute-modal').modal({ show: true });" }) |' +
-                                      '@Ajax.ActionLink(PersistanceResource.Delete, "Delete", "Attribute", new { id = 0 }, new AjaxOptions() { HttpMethod = "Post", Confirm = PersistanceResource.Delete_Message, OnSuccess = "$('#attribute-list').dataTable().fnDeleteRow(el);" }, new { onclick = "el = $(this).closest('tr');" })';
+                            var tpl = '@Html.ActionLink(PersistanceResource.Edit, "Edit", "Attribute", new { id = 0 }, new { @class = "editor-dialog", @role = "button", @type = "type-success", @title = string.Format("{0} {1}", PersistanceResource.Edit, Ent_AttributeResource._Caption) }) | ' +
+                                      '@Html.ActionLink(PersistanceResource.Details, "Details", "Attribute", new { id = 0 }, new { @class = "display-dialog", @role = "button", @type = "type-success", @title = string.Format("{0} {1}", PersistanceResource.Details, Ent_AttributeResource._Caption) }) | ' +
+                                      '@Ajax.ActionLink(PersistanceResource.Delete, "Delete", "Attribute", new { id = 0 }, new AjaxOptions() { HttpMethod = "Post", Confirm = PersistanceResource.Delete_Message, OnSuccess = "$('#attribute-list').dataTable().fnDeleteRow(el);" }, new { @role = "button", @onclick = "el = $(this).closest('tr');" })';
 
                             return tpl.replace(/0/g, o);
                         }
@@ -82,8 +73,5 @@
                 ]
         });
 
-        $('#attribute-modal').on('hide.bs.modal', function (e) {
-            tinyMCE.editors = [];
-        })
     });
 </script>

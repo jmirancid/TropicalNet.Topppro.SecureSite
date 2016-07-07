@@ -6,29 +6,11 @@
 @using (Ajax.BeginForm("Edit", "Bullet", null,
         new AjaxOptions()
         {
-            LoadingElementId = "modal-loader",
-            OnSuccess = "$('#bullet-list').dataTable().fnUpdate(data, el[0]); $('#bullet-modal').modal('hide');"
+            OnSuccess = "$('#bullet-list').dataTable().fnUpdate(data, el[0]); $('.bootstrap-dialog').modal('hide');"
         }))
 {
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="@PersistanceResource.Close">
-            <span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">@PersistanceResource.Create</h4>
-        <small>@Ent_BulletResource._Caption</small>
-    </div>
-    <div class="modal-body">
-        @Html.ValidationSummary(true)
-        
-        <fieldset>
-            @Html.EditorFor(model => Model)
-        </fieldset>
-    </div>
-    <div class="modal-footer">
-        <div id="modal-loader" class="pull-left text-primary" style="display: none;">
-            <i class="fa fa-circle-o-notch fa-spin fa-2x fa-fw"></i>
-        </div>
-        <button type="button" class="btn btn-default" data-dismiss="modal">
-            @PersistanceResource.Close</button>
-        <input class="btn btn-primary" type="submit" value="@PersistanceResource.Save" />
-    </div>
+    @Html.ValidationSummary(true, null, new { @class = "alert alert-danger" })
+    <fieldset>
+        @Html.EditorForModel()
+    </fieldset>
 }

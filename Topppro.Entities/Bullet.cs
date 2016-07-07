@@ -52,7 +52,6 @@ namespace Topppro.Entities
         public Nullable<int> Priority { get; set; }
 
         [Display(Name = "Entity_Enabled", ResourceType = typeof(Ent_BulletResource))]
-        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Ent_ValidationResource))]
         public bool Enabled { get; set; }
     }
 }

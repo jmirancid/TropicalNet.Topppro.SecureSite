@@ -351,6 +351,8 @@ namespace Topppro.WebSite.Extensions
             return htmlHelper.Partial("_PreloadedImages", param);
         }
 
+        #region Private Members
+
         private static string ResolveTemplate<TModel>(
             string controller_vpath, string controller_path, string template_name)
         {
@@ -381,5 +383,6 @@ namespace Topppro.WebSite.Extensions
             return null;
         }
 
+        #endregion
     }
 }

@@ -77,40 +77,6 @@ namespace Topppro.Entities
     	//[XmlElement("Attributes", typeof(Collection<Attribute>))]
         private ICollection<Attribute> _attributes;
     
-    	//[XmlElement("Bullet", typeof(Collection<Bullet>))]
-        public virtual ICollection<Bullet> Bullet
-        {
-            get
-            {
-                if (_bullet == null)
-                {
-                    var newCollection = new FixupCollection<Bullet>();
-                    newCollection.CollectionChanged += FixupBullet;
-                    _bullet = newCollection;
-                }
-                return _bullet;
-            }
-            set
-            {
-                if (!ReferenceEquals(_bullet, value))
-                {
-                    var previousValue = _bullet as FixupCollection<Bullet>;
-                    if (previousValue != null)
-                    {
-                        previousValue.CollectionChanged -= FixupBullet;
-                    }
-                    _bullet = value;
-                    var newValue = value as FixupCollection<Bullet>;
-                    if (newValue != null)
-                    {
-                        newValue.CollectionChanged += FixupBullet;
-                    }
-                }
-            }
-        }
-    	//[XmlElement("Bullet", typeof(Collection<Bullet>))]
-        private ICollection<Bullet> _bullet;
-    
     	//[XmlElement("Distributor", typeof(Collection<Distributor>))]
         public virtual ICollection<Distributor> Distributor
         {
@@ -144,6 +110,40 @@ namespace Topppro.Entities
         }
     	//[XmlElement("Distributor", typeof(Collection<Distributor>))]
         private ICollection<Distributor> _distributor;
+    
+    	//[XmlElement("Bullet", typeof(Collection<Bullet>))]
+        public virtual ICollection<Bullet> Bullet
+        {
+            get
+            {
+                if (_bullet == null)
+                {
+                    var newCollection = new FixupCollection<Bullet>();
+                    newCollection.CollectionChanged += FixupBullet;
+                    _bullet = newCollection;
+                }
+                return _bullet;
+            }
+            set
+            {
+                if (!ReferenceEquals(_bullet, value))
+                {
+                    var previousValue = _bullet as FixupCollection<Bullet>;
+                    if (previousValue != null)
+                    {
+                        previousValue.CollectionChanged -= FixupBullet;
+                    }
+                    _bullet = value;
+                    var newValue = value as FixupCollection<Bullet>;
+                    if (newValue != null)
+                    {
+                        newValue.CollectionChanged += FixupBullet;
+                    }
+                }
+            }
+        }
+    	//[XmlElement("Bullet", typeof(Collection<Bullet>))]
+        private ICollection<Bullet> _bullet;
 
         #endregion
         #region Association Fixup
@@ -170,28 +170,6 @@ namespace Topppro.Entities
             }
         }
     
-        private void FixupBullet(object sender, NotifyCollectionChangedEventArgs e)
-        {
-            if (e.NewItems != null)
-            {
-                foreach (Bullet item in e.NewItems)
-                {
-                    item.Culture = this;
-                }
-            }
-    
-            if (e.OldItems != null)
-            {
-                foreach (Bullet item in e.OldItems)
-                {
-                    if (ReferenceEquals(item.Culture, this))
-                    {
-                        item.Culture = null;
-                    }
-                }
-            }
-        }
-    
         private void FixupDistributor(object sender, NotifyCollectionChangedEventArgs e)
         {
             if (e.NewItems != null)
@@ -205,6 +183,28 @@ namespace Topppro.Entities
             if (e.OldItems != null)
             {
                 foreach (Distributor item in e.OldItems)
+                {
+                    if (ReferenceEquals(item.Culture, this))
+                    {
+                        item.Culture = null;
+                    }
+                }
+            }
+        }
+    
+        private void FixupBullet(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (e.NewItems != null)
+            {
+                foreach (Bullet item in e.NewItems)
+                {
+                    item.Culture = this;
+                }
+            }
+    
+            if (e.OldItems != null)
+            {
+                foreach (Bullet item in e.OldItems)
                 {
                     if (ReferenceEquals(item.Culture, this))
                     {

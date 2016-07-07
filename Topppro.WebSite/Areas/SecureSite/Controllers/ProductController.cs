@@ -77,14 +77,14 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
 
         public override void CreateGetPrerender(Product entity = null)
         {
-            ViewBag.ModelId = new SelectList(this._bizModel.Value.All(), "ModelId", "Name");
-            ViewBag.Manual = new SelectList(this.GetManuals());
+            ViewBag.Models = new SelectList(this._bizModel.Value.All(), "ModelId", "Name");
+            ViewBag.Manuals = new SelectList(this.GetManuals());
         }
 
         public override void EditGetPrerender(Product entity)
         {
-            ViewBag.ModelId = new SelectList(this._bizModel.Value.All(), "ModelId", "Name", entity.ModelId);
-            ViewBag.Manual = new SelectList(this.GetManuals(), entity.Manual);
+            ViewBag.Models = new SelectList(this._bizModel.Value.All(), "ModelId", "Name", entity.ModelId);
+            ViewBag.Manuals = new SelectList(this.GetManuals(), entity.Manual);
         }
 
         private IEnumerable<string> GetManuals()

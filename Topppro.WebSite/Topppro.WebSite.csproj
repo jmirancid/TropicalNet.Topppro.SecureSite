@@ -235,6 +235,10 @@
     <Content Include="Areas\SecureSite\Scripts\dataTables\images\sort_desc.png" />
     <Content Include="Areas\SecureSite\Scripts\dataTables\images\sort_desc_disabled.png" />
     <Content Include="Areas\SecureSite\Scripts\dataTables\jquery.dataTables.js" />
+    <Content Include="Areas\SecureSite\Scripts\bootstrap-dialog\bootstrap-dialog.css" />
+    <Content Include="Areas\SecureSite\Scripts\bootstrap-dialog\bootstrap-dialog.min.css" />
+    <Content Include="Areas\SecureSite\Scripts\bootstrap-dialog\bootstrap-dialog.js" />
+    <Content Include="Areas\SecureSite\Scripts\bootstrap-dialog\bootstrap-dialog.min.js" />
     <Content Include="Areas\SecureSite\Scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="Areas\SecureSite\Scripts\jquery-1.10.2.js" />
     <Content Include="Areas\SecureSite\Scripts\jquery-1.10.2.min.js" />
@@ -244,6 +248,7 @@
     <Content Include="Areas\SecureSite\Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Areas\SecureSite\Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Areas\SecureSite\Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Areas\SecureSite\Scripts\jquery.validate.bootstrap.js" />
     <Content Include="Areas\SecureSite\Scripts\jquery.validate.js" />
     <Content Include="Areas\SecureSite\Scripts\jquery.validate.min.js" />
     <Content Include="Areas\SecureSite\Scripts\jquery.validate.unobtrusive.js" />
@@ -834,7 +839,6 @@
     <Content Include="Areas\SecureSite\Views\Country\Edit.cshtml" />
     <Content Include="Areas\SecureSite\Views\Culture\DisplayTemplates\Culture.cshtml" />
     <Content Include="Areas\SecureSite\Views\Culture\EditorTemplates\Culture.cshtml" />
-    <Content Include="Areas\SecureSite\Views\Shared\_Validation.cshtml" />
     <Content Include="Areas\SecureSite\Views\Distributor\DisplayTemplates\Distributor.cshtml" />
     <Content Include="Areas\SecureSite\Views\Distributor\EditorTemplates\Distributor.cshtml" />
     <Content Include="Areas\SecureSite\Views\Model\DisplayTemplates\Model.cshtml" />
@@ -855,6 +859,7 @@
     <Content Include="Areas\SecureSite\Views\Cache\_Toolbar.cshtml" />
     <Content Include="Areas\SecureSite\Views\Bullet\_Toolbar.cshtml" />
     <Content Include="Areas\SecureSite\Views\Attribute\_Toolbar.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Shared\_Validator.cshtml" />
     <None Include="Scripts\jquery.livefilter-1.0\README.md" />
     <None Include="Scripts\jquery.panelslider-0.1.1\README.md" />
     <Content Include="Views\Amplifiers\Index.cshtml" />

@@ -6,13 +6,13 @@
 <div class="form-group">
     @Html.LabelFor(model => model.Name)
     @Html.TextBoxFor(model => model.Name, new { @class = "form-control", style = "width:400px;" })
-    @Html.ValidationMessageFor(model => model.Name)
+    @Html.ValidationMessageFor(model => model.Name, null, new { @class = "label label-danger" })
 </div>
 
 <div class="form-group">
     @Html.LabelFor(model => model.ModelId)
-    @Html.DropDownListFor(model => model.ModelId, null, PersistanceResource.Selection, new { @class = "form-control", style = "width:400px;" })
-    @Html.ValidationMessageFor(model => model.ModelId)
+    @Html.DropDownListFor(model => model.ModelId, (IEnumerable<SelectListItem>)ViewBag.Models, PersistanceResource.Selection, new { @class = "form-control", style = "width:400px;" })
+    @Html.ValidationMessageFor(model => model.ModelId, null, new { @class = "label label-danger" })
 </div>
 
 <div class="form-group">
@@ -22,13 +22,14 @@
 
 <div class="form-group">
     @Html.LabelFor(model => model.Manual)
-    @Html.DropDownListFor(model => model.Manual, null, PersistanceResource.Selection, new { @class = "form-control", style = "width:400px;" })
+    @Html.DropDownListFor(model => model.Manual, (IEnumerable<SelectListItem>)ViewBag.Manuals, PersistanceResource.Selection, new { @class = "form-control", style = "width:400px;" })
 </div>
 
 <div class="checkbox">
     <label>
-        @Html.CheckBoxFor(m => m.Draft)
-        @Html.DisplayNameFor(m => m.Draft)
+        @Html.CheckBoxFor(model => model.Draft)
+        @Html.DisplayNameFor(model => model.Draft)
+        @Html.ValidationMessageFor(model => model.Draft)
     </label>
 </div>
 

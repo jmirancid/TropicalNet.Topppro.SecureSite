@@ -96,12 +96,6 @@ namespace Topppro.Repositories
         }
         private ObjectSet<Serie> _serie;
     
-        public ObjectSet<Bullet> Bullet
-        {
-            get { return _bullet  ?? (_bullet = CreateObjectSet<Bullet>("Bullet")); }
-        }
-        private ObjectSet<Bullet> _bullet;
-    
         public ObjectSet<Country> Country
         {
             get { return _country  ?? (_country = CreateObjectSet<Country>("Country")); }
@@ -113,6 +107,12 @@ namespace Topppro.Repositories
             get { return _distributor  ?? (_distributor = CreateObjectSet<Distributor>("Distributor")); }
         }
         private ObjectSet<Distributor> _distributor;
+    
+        public ObjectSet<Bullet> Bullet
+        {
+            get { return _bullet  ?? (_bullet = CreateObjectSet<Bullet>("Bullet")); }
+        }
+        private ObjectSet<Bullet> _bullet;
 
         #endregion
     
