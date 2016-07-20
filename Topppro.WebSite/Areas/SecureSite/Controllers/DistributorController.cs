@@ -76,6 +76,18 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
                 }, JsonRequestBehavior.AllowGet);
         }
 
+        [ValidateInput(false)]
+        public override ActionResult Create(Entities.Distributor entity)
+        {
+            return base.Create(entity);
+        }
+
+        [ValidateInput(false)]
+        public override ActionResult Edit(Entities.Distributor entity)
+        {
+            return base.Edit(entity);
+        }
+
         public override void CreateGetPrerender(Topppro.Entities.Distributor entity = null)
         {
             ViewBag.Countries = new SelectList(this._bizCountry.Value.All(), "CountryId", "Name");

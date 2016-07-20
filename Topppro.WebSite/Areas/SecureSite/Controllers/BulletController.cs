@@ -137,6 +137,7 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
             }
         }
 
+        [ValidateInput(false)]
         public override ActionResult Create(Topppro.Entities.Bullet entity)
         {
             if (ModelState.IsValid)
@@ -197,6 +198,7 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
             }
         }
 
+        [ValidateInput(false)]
         public override ActionResult Edit(Topppro.Entities.Bullet entity)
         {
             if (ModelState.IsValid)
