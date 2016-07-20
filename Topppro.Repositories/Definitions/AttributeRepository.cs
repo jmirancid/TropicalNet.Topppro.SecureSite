@@ -1,4 +1,6 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using Topppro.Interfaces.Repositories;
 
@@ -6,6 +8,29 @@ namespace Topppro.Repositories.Definitions
 {
     public class AttributeRepository : Repository<Topppro.Entities.Attribute>, IAttributeRepository
     {
+        public void CreateOrUpdate(Topppro.Entities.Attribute entity)
+        {
+            this.CreateOrUpdate(new List<Topppro.Entities.Attribute>() { entity });
+        }
+
+        public void CreateOrUpdate(IEnumerable<Topppro.Entities.Attribute> entities)
+        {
+            foreach (var e in entities)
+            {
+                if (e.Id != 0)
+                {
+                    Context.Attribute.Attach(e);
+                    Context.ObjectStateManager.ChangeObjectState(e, EntityState.Modified);
+                }
+                else
+                {
+                    Context.Attribute.AddObject(e);
+                }
+            }
+
+            Context.SaveChanges();
+        }
+
         public override IQueryable<Topppro.Entities.Attribute> All()
         {
             return Context.Attribute

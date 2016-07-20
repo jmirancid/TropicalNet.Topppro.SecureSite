@@ -6,5 +6,5 @@
 <div class="form-group">
     @Html.LabelFor(model => model.File)
     @Html.TextBoxFor(model => model.File, new { @type = "file" })
-    @Html.ValidationMessageFor(model => model.File)
+    @Html.ValidationMessageFor(model => model.File, null, new { @class = "label label-danger" })
 </div>

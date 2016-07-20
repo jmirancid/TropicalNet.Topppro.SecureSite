@@ -37,7 +37,7 @@
             <tr>
                 <td>@Html.DisplayFor(modelItem => item.Culture.Name)</td>
                 <td>@Html.DisplayFor(modelItem => item.Name)</td>
-                <td>@Html.DisplayFor(modelItem => item.Value)</td>
+                <td>@Html.Raw(item.Value)</td>
                 <td>@Html.DisplayFor(modelItem => item.Priority)</td>
                 <td>@item.Enabled.ToString().ToLower()</td>
                 <td class="center">@Html.DisplayFor(modelItem => item.Id)</td>

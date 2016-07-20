@@ -2,22 +2,12 @@
 @using Topppro.Entities.Resources
 
 <p>
-    <div class="btn-group" role="group" aria-label="toolbar">
-        @Html.ActionLink(PersistanceResource.Create, "Create", "Attribute", new { id = ViewBag.ProductId },
-            new { @class = "btn btn-primary editor-dialog", @role = "button", @type = "type-success", @title = string.Format("{0} {1}", PersistanceResource.Create, Ent_AttributeResource._Caption) })
+    @Html.ActionLink(PersistanceResource.Create, "Create", "Attribute", new { id = ViewBag.ProductId },
+        new { @class = "btn btn-primary editor-dialog", @role = "button", @type = "type-warning", @title = string.Format("{0} {1}", PersistanceResource.Create, Ent_AttributeResource._Caption) })
         
-        @*
-
-        @Html.ActionLink(PersistanceResource.Export, "Export", "Bullet", new { id = ViewBag.ProductId }, new { @class = "btn btn-warning", @role = "button" })
+    @Html.ActionLink(PersistanceResource.Export, "Export", "Attribute", new { id = ViewBag.ProductId }, 
+        new { @class = "btn btn-warning", @role = "button" })
         
-        @Ajax.ActionLink(PersistanceResource.Import, "Import", "Bullet", new { id = ViewBag.ProductId },
-        new AjaxOptions()
-        {
-            HttpMethod = "Get",
-            UpdateTargetId = "bullet-modal-content",
-            OnSuccess = "$.validator.unobtrusive.parse(data); $('#bullet-modal').modal({ show: true });"
-        }, new { @class = "btn btn-success", @role = "button" })
-
-        *@
-    </div>
+    @Html.ActionLink(PersistanceResource.Import, "Import", "Attribute", new { id = ViewBag.ProductId },
+                new { @class = "btn btn-success import-dialog", @role = "button", @type = "type-success", @title = string.Format("{0} {1}", PersistanceResource.Import, Ent_AttributeResource._Caption), @refresh = "#attribute-list" })
 </p>

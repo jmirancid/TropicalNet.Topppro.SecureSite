@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using System.Web.Routing;
 using Topppro.WebSite.Filters;
 
@@ -76,6 +77,19 @@ namespace Topppro.WebSite
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+        }
+
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            Exception ex = Server.GetLastError();
+
+            /*if (ex is HttpRequestValidationException)
+            {
+                Response.Clear();
+                Response.StatusCode = 200;
+                Response.Write(@"[html]");
+                Response.End();
+            }*/
         }
     }
 }

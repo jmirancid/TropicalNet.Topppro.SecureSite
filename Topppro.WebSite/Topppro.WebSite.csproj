@@ -245,6 +245,8 @@
     <Content Include="Areas\SecureSite\Scripts\jquery-ui-1.10.4-i18n.min.js" />
     <Content Include="Areas\SecureSite\Scripts\jquery-ui-1.10.4.js" />
     <Content Include="Areas\SecureSite\Scripts\jquery-ui-1.10.4.min.js" />
+    <Content Include="Areas\SecureSite\Scripts\jquery.form.js" />
+    <Content Include="Areas\SecureSite\Scripts\jquery.form.min.js" />
     <Content Include="Areas\SecureSite\Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Areas\SecureSite\Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Areas\SecureSite\Scripts\jquery.validate-vsdoc.js" />
@@ -860,6 +862,7 @@
     <Content Include="Areas\SecureSite\Views\Bullet\_Toolbar.cshtml" />
     <Content Include="Areas\SecureSite\Views\Attribute\_Toolbar.cshtml" />
     <Content Include="Areas\SecureSite\Views\Shared\_Validator.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Attribute\_Import.cshtml" />
     <None Include="Scripts\jquery.livefilter-1.0\README.md" />
     <None Include="Scripts\jquery.panelslider-0.1.1\README.md" />
     <Content Include="Views\Amplifiers\Index.cshtml" />

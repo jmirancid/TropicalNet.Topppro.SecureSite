@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
-using Topppro.Business.Definitions;
-using Framework.IO.Office;
-using System.IO;
 using Framework.Common.Extensions;
-using System.Web;
+using Framework.IO.Office;
+using Topppro.Business.Definitions;
 using Topppro.WebSite.Areas.SecureSite.Models;
 
 namespace Topppro.WebSite.Areas.SecureSite.Controllers
@@ -262,39 +261,70 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
                 excel.Load(entities);
                 excel.SaveAs(stream);
 
-                var content = 
+                var content =
                     new System.Net.Mime.ContentDisposition()
                     {
-                        FileName = 
+                        FileName =
                             string.Format("{0}_{1}.xlsx", product.Name.ToSeoSlug(), typeof(Topppro.Entities.Bullet).Name),
 
                         Inline = false
                     };
-                
+
                 Response.AppendHeader("Content-Disposition", content.ToString());
                 return File(stream.ToArray(), System.Net.Mime.MediaTypeNames.Application.Octet, string.Format("{0}_{1}.xlsx", product.Name.ToSeoSlug(), typeof(Topppro.Entities.Bullet).Name));
             }
             catch (Exception ex)
             {
                 throw ex;
+
                 //Response.StatusCode = (int)HttpStatusCode.InternalServerError;
                 //return Content(ex.Message);
             }
         }
 
-
         public ActionResult Import(int id)
         {
-            var model =
-                new ImportModel() { EntityId = id };
+            try
+            {
+                var model =
+                    new ImportModel() { EntityId = id };
 
-            return PartialView("_Import", model);
+                return PartialView("_Import", model);
+            }
+            catch (Exception ex)
+            {
+                Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                return Content(ex.Message);
+            }
         }
 
         [HttpPost]
         public ActionResult Import(ImportModel model)
         {
-            return null;
+            try
+            {
+                var excel =
+                    new Excel(model.File.InputStream);
+
+                var import =
+                    excel.ToList<Topppro.Entities.Bullet>(1);
+
+                import.ToList()
+                    .ForEach(b => { b.ProductId = model.EntityId; });
+
+                base.Business.Value.CreateOrUpdate(import);
+
+                return Json(import.Select(b =>
+                        new object[] { this._bizCulture.Value.Get(b.CultureId).Name, b.Name, b.Value, b.Priority, b.Enabled, b.Id }
+                    ));
+            }
+            catch (Exception ex)
+            {
+                //throw ex;
+
+                Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                return Content(ex.Message);
+            }
         }
 
         public override void CreateGetPrerender(Topppro.Entities.Bullet entity = null)

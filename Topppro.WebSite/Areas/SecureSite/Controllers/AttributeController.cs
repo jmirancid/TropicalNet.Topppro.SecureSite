@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
+using Framework.Common.Extensions;
+using Framework.IO.Office;
 using Topppro.Business.Definitions;
+using Topppro.WebSite.Areas.SecureSite.Models;
 
 namespace Topppro.WebSite.Areas.SecureSite.Controllers
 {
@@ -142,7 +146,7 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
                         this._bizCulture.Value.Get(entity.CultureId);
 
                     Response.StatusCode = (int)HttpStatusCode.OK;
-                    return Json(new object[] { entity.Culture.Name, entity.Name, entity.Priority, entity.Enabled, entity.Id });
+                    return Json(new object[] { entity.Culture.Name, entity.Name, entity.Value, entity.Priority, entity.Enabled, entity.Id });
                 }
                 catch (Exception ex)
                 {
@@ -202,7 +206,7 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
                         this._bizCulture.Value.Get(entity.CultureId);
 
                     Response.StatusCode = (int)HttpStatusCode.OK;
-                    return Json(new object[] { entity.Culture.Name, entity.Name, entity.Priority, entity.Enabled, entity.Id });
+                    return Json(new object[] { entity.Culture.Name, entity.Name, entity.Value, entity.Priority, entity.Enabled, entity.Id });
                 }
                 catch (Exception ex)
                 {
@@ -229,6 +233,92 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
             }
             catch (Exception ex)
             {
+                Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                return Content(ex.Message);
+            }
+        }
+
+        public ActionResult Export(int id)
+        {
+            try
+            {
+                var entities =
+                    base.Business.Value.AllBy(e => e.ProductId == id)
+                        .OrderBy(e => e.Priority);
+
+                var product =
+                    _bizProduct.Value.Get(id);
+
+                var excel =
+                    new Excel();
+
+                var stream =
+                    new MemoryStream();
+
+                excel.Load(entities);
+                excel.SaveAs(stream);
+
+                var content =
+                    new System.Net.Mime.ContentDisposition()
+                    {
+                        FileName =
+                            string.Format("{0}_{1}.xlsx", product.Name.ToSeoSlug(), typeof(Topppro.Entities.Attribute).Name),
+
+                        Inline = false
+                    };
+
+                Response.AppendHeader("Content-Disposition", content.ToString());
+                return File(stream.ToArray(), System.Net.Mime.MediaTypeNames.Application.Octet, string.Format("{0}_{1}.xlsx", product.Name.ToSeoSlug(), typeof(Topppro.Entities.Attribute).Name));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+
+                //Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                //return Content(ex.Message);
+            }
+        }
+
+        public ActionResult Import(int id)
+        {
+            try
+            {
+                var model =
+                    new ImportModel() { EntityId = id };
+
+                return PartialView("_Import", model);
+            }
+            catch (Exception ex)
+            {
+                Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                return Content(ex.Message);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult Import(ImportModel model)
+        {
+            try
+            {
+                var excel =
+                    new Excel(model.File.InputStream);
+
+                var import =
+                    excel.ToList<Topppro.Entities.Attribute>(1);
+
+                import.ToList()
+                    .ForEach(b => { b.ProductId = model.EntityId; });
+
+                base.Business.Value.CreateOrUpdate(import);
+
+                return Json(import.Select(b =>
+                        new object[] { this._bizCulture.Value.Get(b.CultureId).Name, b.Name, b.Value, b.Priority, b.Enabled, b.Id }
+                    ));
+            }
+            catch (Exception ex)
+            {
+                //throw ex;
+
                 Response.StatusCode = (int)HttpStatusCode.InternalServerError;
                 return Content(ex.Message);
             }
