@@ -3,50 +3,15 @@
 
 @model Topppro.Entities.Assn_CategorySerie
 
-<div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span></button>
-    <h4 class="modal-title">@Model.Category.Name</h4>
-    <small>@Model.Serie.Name</small>
-</div>
-<div class="modal-body">
-    @Html.ValidationSummary(true)
+
+@using (Ajax.BeginForm("Edit", null, null,
+        new AjaxOptions()
+        {
+            OnSuccess = "el.replaceWith(data); $('.bootstrap-dialog').modal('hide');"
+        }))
+{
+    @Html.ValidationSummary(true, null, new { @class = "alert alert-danger" })
     <fieldset>
-        @Html.HiddenFor(model => model.Id)
-        @Html.HiddenFor(model => model.CategoryId)
-        @Html.HiddenFor(model => model.SerieId)
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ItemsPerLine)
-            @Html.TextBoxFor(model => model.ItemsPerLine, new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.ItemsPerLine)
-        </div>
-        
-        <div class="form-group">
-            @Html.LabelFor(model => model.Priority)
-            @Html.TextBoxFor(model => model.Priority, new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.Priority)
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.AllowCompare)
-            <div class="checkbox">
-                <label>@Html.EditorFor(model => model.AllowCompare)</label>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Enabled)
-            <div class="checkbox">
-                <label>@Html.EditorFor(model => model.Enabled)</label>
-            </div>
-        </div>
+        @Html.EditorForModel("AssnCategorySerie")
     </fieldset>
-</div>
-<div class="modal-footer">
-    <div id="modal-loader" class="pull-left text-primary" style="display:none;">
-        <i class="fa fa-circle-o-notch fa-spin fa-2x fa-fw"></i></div>
-    <button type="button" class="btn btn-default" data-dismiss="modal">
-        Close</button>
-    <input class="btn btn-primary" type="submit" value="@PersistanceResource.Save" />
-</div>
+}

@@ -52,19 +52,15 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
                 {
                     EditPost(entity);
 
-                    return new HttpStatusCodeResult(200);
+                    EditGetPrerender(entity);
+
+                    return PartialView("_Render", entity);
                 }
                 catch (Exception ex)
                 {
                     ModelState.AddModelError("", ex.Message);
                 }
             }
-
-            entity.Category =
-                this._bizCategory.Value.Get(entity.CategoryId);
-
-            entity.Serie =
-                this._bizSerie.Value.Get(entity.SerieId);
 
             EditGetPrerender(entity);
 
@@ -97,7 +93,7 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
                 var entity =
                     this.Business.Value.Get(id);
 
-                return PartialView("_Insert", entity);
+                return PartialView("_Render", entity);
             }
             catch (Exception ex)
             {
@@ -122,11 +118,11 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
 
         public override void EditGetPrerender(Assn_CategorySerie entity)
         {
-            ViewBag.CategoryId =
-                new SelectList(this._bizCategory.Value.All(), "CategoryId", "Name", entity.CategoryId);
+            entity.Category =
+                this._bizCategory.Value.Get(entity.CategoryId);
 
-            ViewBag.SerieId =
-                new SelectList(this._bizSerie.Value.All(), "SerieId", "Name", entity.SerieId);
+            entity.Serie =
+                this._bizSerie.Value.Get(entity.SerieId);
         }
     }
 }

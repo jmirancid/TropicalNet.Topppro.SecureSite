@@ -208,6 +208,7 @@
     <Content Include="Areas\SecureSite\Content\Images\4.png" />
     <Content Include="Areas\SecureSite\Content\Images\find_user.png" />
     <Content Include="Areas\SecureSite\Content\Styles\bootstrap.css" />
+    <Content Include="Areas\SecureSite\Content\Styles\custom-list.css" />
     <Content Include="Areas\SecureSite\Content\Styles\custom.css" />
     <Content Include="Areas\SecureSite\Content\Styles\font-awesome.css" />
     <Content Include="Areas\SecureSite\Content\Styles\themes\base\images\animated-overlay.gif" />
@@ -566,6 +567,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Customers\Views\Shared\" />
+    <Folder Include="Areas\SecureSite\Views\AssnCategorySerieProduct\EditorTemplates\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -811,7 +813,6 @@
     <Content Include="Areas\SecureSite\Views\Distributor\Index.cshtml" />
     <Content Include="Areas\SecureSite\Views\AssnCategorySerieProduct\_Edit.cshtml" />
     <Content Include="Areas\SecureSite\Views\AssnCategorySerieProduct\_Insert.cshtml" />
-    <Content Include="Areas\SecureSite\Views\AssnCategorySerie\_Insert.cshtml" />
     <Content Include="Areas\SecureSite\Views\Cache\Index.cshtml" />
     <Content Include="Areas\SecureSite\Views\Cache\Delete.cshtml" />
     <Content Include="Areas\SecureSite\Views\Cache\DisplayTemplates\CacheEntry.cshtml" />
@@ -863,6 +864,8 @@
     <Content Include="Areas\SecureSite\Views\Attribute\_Toolbar.cshtml" />
     <Content Include="Areas\SecureSite\Views\Shared\_Validator.cshtml" />
     <Content Include="Areas\SecureSite\Views\Attribute\_Import.cshtml" />
+    <Content Include="Areas\SecureSite\Views\AssnCategorySerie\EditorTemplates\AssnCategorySerie.cshtml" />
+    <Content Include="Areas\SecureSite\Views\AssnCategorySerie\_Render.cshtml" />
     <None Include="Scripts\jquery.livefilter-1.0\README.md" />
     <None Include="Scripts\jquery.panelslider-0.1.1\README.md" />
     <Content Include="Views\Amplifiers\Index.cshtml" />
