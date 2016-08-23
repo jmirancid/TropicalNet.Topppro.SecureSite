@@ -59,16 +59,15 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
                 {
                     EditPost(entity);
 
-                    return new HttpStatusCodeResult(200);
+                    EditGetPrerender(entity);
+
+                    return PartialView("_Render", entity);
                 }
                 catch (Exception ex)
                 {
                     ModelState.AddModelError("", ex.Message);
                 }
             }
-
-            entity.Assn_CategorySerie =
-                this._bizAssnCategorySerie.Value.Get(entity.AssnCategorySerieId);
 
             EditGetPrerender(entity);
 
@@ -101,7 +100,7 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
                 var entity =
                     this.Business.Value.Get(id);
 
-                return PartialView("_Insert", entity);
+                return PartialView("_Render", entity);
             }
             catch (Exception ex)
             {
@@ -126,8 +125,11 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
 
         public override void EditGetPrerender(Assn_CategorySerieProduct entity)
         {
-            ViewBag.ProductId =
-                new SelectList(this._bizProduct.Value.All().OrderBy(p => p.Name), "ProductId", "Name", entity.ProductId);
+            entity.Assn_CategorySerie =
+                this._bizAssnCategorySerie.Value.Get(entity.AssnCategorySerieId);
+
+            entity.Product =
+                this._bizProduct.Value.Get(entity.ProductId);
         }
     }
 }

@@ -2,6 +2,7 @@
 @using Framework.MVC.Resources
 @using Topppro.Entities.Resources
 @using Topppro.WebSite.Extensions
+@using Topppro.WebSite.Areas.SecureSite.Extensions
 
 @model Topppro.Entities.Assn_CategorySerie
 
@@ -10,55 +11,13 @@
 }
 
 @section Styles {
+    <link href="@Url.Content("~/Areas/SecureSite/Content/Styles/custom-thumb.css")" rel="stylesheet" type="text/css" />
+    <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Areas/SecureSite/Scripts/bootstrap-dialog/bootstrap-dialog.min.css")" />
     <link href="@Url.Content("~/Areas/SecureSite/Content/Styles/themes/base/jquery-ui-1.10.4.min.css")" rel="stylesheet" type="text/css" />
     <style type="text/css">
-        ol
+        .modal-backdrop 
         {
-            counter-reset: li;
-            margin-left: 0;
-            padding-left: 0;
-        }
-        ol > li
-        {
-            position: relative;
-            margin: 0 0 6px 0;
-            padding: 4px 8px;
-            list-style: none;
-            border-top: 2px solid #666;
-            background: #c6c6c6;
-            display: inline-block;
-        }
-        li img
-        {
-            padding: 0 0 6px 0;
-        }
-        ol > li:before
-        {
-            content: counter(li);
-            counter-increment: li;
-            position: absolute;
-            top: -2px;
-            left: 0;
-            -moz-box-sizing: border-box;
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-            width: 2em;
-            
-            margin-right: 8px;
-            padding: 4px;
-            border-top: 2px solid #666;
-            color: #fff;
-            background: #666;
-            font-weight: bold;
-            text-align: center;
-        }
-        li ol, li ul
-        {
-            margin-top: 6px;
-        }
-        ol ol li:last-child
-        {
-            margin-bottom: 0;
+            z-index: -1 !important;
         }
         .ui-state-highlight
         {
@@ -68,22 +27,6 @@
         {
             padding: 2px;
             margin-bottom: 5px;
-        }
-        .modal-header
-        {
-            background-color: #800000;
-            color: #ffffff;
-        }
-        .tooltip-inner
-        {
-            max-width: 300px;
-            padding: 0;
-        }
-        .tooltip-alert
-        {
-            padding: 8px 10px;
-            font-weight: bolder;
-            color: #A94442;
         }
     </style>
 }
@@ -120,20 +63,7 @@
                 <ol class="sortable" data-id="@Model.Id" style="min-height: 20px;">
                 @foreach (var assn in Model.Assn_CategorySerieProduct.OrderBy(a => a.Priority))
                 {
-                    <li data-id="@assn.Id">
-                        <img src="@assn.Product.GetThumbs().FirstOrDefault(t => !t.Contains("up"))" alt="@assn.Product.Name" />
-                        <br /><b>@assn.Product.Name</b>
-                        <div class="btn-group btn-group-xs pull-right">
-                            @Ajax.ActionLink(PersistanceResource.Edit, "Edit", null, 
-                                new { id = assn.Id },
-                                new AjaxOptions() { HttpMethod = "Get", UpdateTargetId = "dialog-assn-form", OnSuccess = "$.validator.unobtrusive.parse($('#dialog-assn-form')); $('#dialog-assn').modal({ show: true });" },
-                                new { @class = "btn btn-warning", @title = PersistanceResource.Edit })
-                            @Ajax.ActionLink(PersistanceResource.Delete, "Delete", null,
-                                new { id = assn.Id },
-                                new AjaxOptions() { HttpMethod = "Post", Confirm = PersistanceResource.Delete_Message, OnSuccess = "el.remove();" },
-                                new { @class = "btn btn-danger", @title = PersistanceResource.Delete, @onclick = "el = $(this).parents('li');" })
-                        </div>
-                    </li>
+                    @Html.Partial("_Render", assn)
                 }
                 </ol>
             </div>
@@ -144,24 +74,16 @@
 	</div>
 </div>
 
-@*Modal Window Editor*@
-<div id="dialog-assn" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            @using (Ajax.BeginForm("Edit", null,
-                new AjaxOptions() { UpdateTargetId = "dialog-assn-form", LoadingElementId = "modal-loader", OnSuccess = "$('#dialog-assn').modal('hide');" }, new { @id = "dialog-assn-form" }))
-            {
-            }
-        </div>
-    </div>
-</div>
-
 @section Scripts {
-    @Html.Partial("_Validation")
     <script src="@Url.Content("~/Areas/SecureSite/Scripts/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Areas/SecureSite/Scripts/bootstrap-dialog/bootstrap-dialog.min.js")" type="text/javascript"></script>
+    @Html.Validator()
+
     <script type="text/javascript">
 
         var el;
+
+        $.ajaxSetup({ async: false });
 
         $(document).ajaxError(function (event, xhr, settings, error) {
             alert(xhr.statusText);
@@ -201,6 +123,59 @@
                     ui.item.removeClass();
                 }
             }).disableSelection();
+
+            $(document).on('click', 'a.editor-dialog', function (e) {
+                e.preventDefault();
+
+                var obj =
+                    $(this);
+
+                el =
+                    $(this).parents('ol > li');
+
+                BootstrapDialog.show({
+                    type: obj.attr('type'),
+                    title: obj.attr('title'),
+                    message: function (dialog) {
+                        var content =
+                            $('<div></div>').load(obj.attr('href'));
+
+                        return content;
+                    },
+                    buttons: [{
+                        label: '@PersistanceResource.Close',
+                        cssClass: 'btn-default',
+                        action: function (dialog) {
+                            dialog.close();
+                        }
+                    }, {
+                        label: '@PersistanceResource.Save',
+                        cssClass: 'btn-primary',
+                        action: function (dialog) {
+
+                            var button =
+                                this;
+
+                            var form =
+                                dialog.getModalBody().find('form');
+
+                            if (form.valid()) {
+                                button.disable();
+                                button.spin();
+
+                                form.submit();
+                            }
+                        }
+                    }],
+                    onshown: function (dialog) {
+
+                        var form =
+                            dialog.getModalBody().find('form');
+
+                        $.validator.unobtrusive.parse(form);
+                    }
+                });
+            })
         });
     </script>
 }
