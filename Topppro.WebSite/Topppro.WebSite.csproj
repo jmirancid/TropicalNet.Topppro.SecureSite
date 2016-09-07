@@ -615,6 +615,10 @@
       <Project>{D3B17ABC-8FA3-4A2E-BA06-66B50FF68C8E}</Project>
       <Name>Framework.MVC</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\TropicalNet.Framework\trunk\Framework.Security\Framework.Security.csproj">
+      <Project>{D95F89F4-FCD8-4BBD-8C30-8A518A815952}</Project>
+      <Name>Framework.Security</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Topppro.Business\Topppro.Business.csproj">
       <Project>{4F16A269-29C7-4B3C-9AE1-97E0DD74AADB}</Project>
       <Name>Topppro.Business</Name>

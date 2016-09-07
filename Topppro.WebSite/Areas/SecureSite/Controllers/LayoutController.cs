@@ -2,7 +2,7 @@
 
 namespace Topppro.WebSite.Areas.SecureSite.Controllers
 {
-    [Framework.MVC.Attributes.Authorize(LoginUrl = "~/SecureSite/Account/LogOn", Roles = "Administrators")]
+    [Framework.Security.Attributes.Authorize(LoginUrl = "~/SecureSite/Account/LogOn", Roles = "Administrators")]
     public class LayoutController<TEntity, TBusiness> : 
         PersistanceController<TEntity, TBusiness>
         where TEntity : class, new()

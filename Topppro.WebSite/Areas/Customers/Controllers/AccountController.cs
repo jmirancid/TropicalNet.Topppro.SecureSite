@@ -39,7 +39,7 @@ namespace Topppro.WebSite.Areas.Customers.Controllers
             return View(model);
         }
 
-        [Framework.MVC.Attributes.Authorize(LoginUrl = "~/Customers/Account/LogOn", Roles = "Customers")]
+        [Framework.Security.Attributes.Authorize(LoginUrl = "~/Customers/Account/LogOn", Roles = "Customers")]
         public ActionResult LogOff()
         {
             FormsAuthentication.SignOut();

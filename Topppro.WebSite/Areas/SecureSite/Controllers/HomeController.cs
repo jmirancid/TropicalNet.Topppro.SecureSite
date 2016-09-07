@@ -2,8 +2,9 @@
 
 namespace Topppro.WebSite.Areas.SecureSite.Controllers
 {
-    [Framework.MVC.Attributes.Authorize(LoginUrl = "~/SecureSite/Account/LogOn", Roles = "Administrators")]
-    public class HomeController : Controller
+    [Framework.Security.Attributes.Authorize(LoginUrl = "~/SecureSite/Account/LogOn", Roles = "Administrators")]
+    public class HomeController : 
+        Controller
     {
         public ActionResult Index()
         {
