@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Topppro.Entities.Resources {
+namespace Topppro.WebSite.Areas.SecureSite.Resources {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace Topppro.Entities.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Ent_DistributorResource {
+    public class DashboardResource {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Ent_DistributorResource() {
+        internal DashboardResource() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Topppro.Entities.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Topppro.Entities.Resources.Ent_DistributorResource", typeof(Ent_DistributorResource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Topppro.WebSite.Areas.SecureSite.Resources.DashboardResource", typeof(DashboardResource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,65 +61,65 @@ namespace Topppro.Entities.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Distributor.
+        ///   Looks up a localized string similar to Dashboard.
         /// </summary>
-        public static string _Caption {
+        public static string _Title {
             get {
-                return ResourceManager.GetString("_Caption", resourceCulture);
+                return ResourceManager.GetString("_Title", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Country.
+        ///   Looks up a localized string similar to Distributors.
         /// </summary>
-        public static string Entity_Country {
+        public static string Distributors {
             get {
-                return ResourceManager.GetString("Entity_Country", resourceCulture);
+                return ResourceManager.GetString("Distributors", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Culture.
+        ///   Looks up a localized string similar to Products.
         /// </summary>
-        public static string Entity_Culture {
+        public static string Products {
             get {
-                return ResourceManager.GetString("Entity_Culture", resourceCulture);
+                return ResourceManager.GetString("Products", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Detail.
+        ///   Looks up a localized string similar to Series.
         /// </summary>
-        public static string Entity_Detail {
+        public static string Series {
             get {
-                return ResourceManager.GetString("Entity_Detail", resourceCulture);
+                return ResourceManager.GetString("Series", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enabled.
+        ///   Looks up a localized string similar to Total.
         /// </summary>
-        public static string Entity_Enabled {
+        public static string Total {
             get {
-                return ResourceManager.GetString("Entity_Enabled", resourceCulture);
+                return ResourceManager.GetString("Total", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Name.
+        ///   Looks up a localized string similar to Unassigned.
         /// </summary>
-        public static string Entity_Name {
+        public static string Unassigned {
             get {
-                return ResourceManager.GetString("Entity_Name", resourceCulture);
+                return ResourceManager.GetString("Unassigned", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Priority.
+        ///   Looks up a localized string similar to Welcome {0}, Love to see you back..
         /// </summary>
-        public static string Entity_Priority {
+        public static string Wellcome {
             get {
-                return ResourceManager.GetString("Entity_Priority", resourceCulture);
+                return ResourceManager.GetString("Wellcome", resourceCulture);
             }
         }
     }

@@ -113,6 +113,7 @@
     <Compile Include="Areas\SecureSite\Controllers\CategoryController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\CountryController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\CultureController.cs" />
+    <Compile Include="Areas\SecureSite\Controllers\DashboardController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\DistributorController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\LayoutController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\ModelController.cs" />
@@ -120,7 +121,13 @@
     <Compile Include="Areas\SecureSite\Controllers\ProductController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\SerieController.cs" />
     <Compile Include="Areas\SecureSite\Extensions\HtmlHelperExtensions.cs" />
-    <Compile Include="Areas\SecureSite\Models\ImportModel.cs" />
+    <Compile Include="Areas\SecureSite\Models\DashboardModels.cs" />
+    <Compile Include="Areas\SecureSite\Models\IOModels.cs" />
+    <Compile Include="Areas\SecureSite\Resources\DashboardResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DashboardResource.resx</DependentUpon>
+    </Compile>
     <Compile Include="Areas\SecureSite\Resources\MenuResource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -209,6 +216,7 @@
     <Content Include="Areas\SecureSite\Content\Images\find_user.png" />
     <Content Include="Areas\SecureSite\Content\Styles\bootstrap.css" />
     <Content Include="Areas\SecureSite\Content\Styles\custom-list.css" />
+    <Content Include="Areas\SecureSite\Content\Styles\custom-style.css" />
     <Content Include="Areas\SecureSite\Content\Styles\custom-thumb.css" />
     <Content Include="Areas\SecureSite\Content\Styles\custom.css" />
     <Content Include="Areas\SecureSite\Content\Styles\font-awesome.css" />
@@ -568,6 +576,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Customers\Views\Shared\" />
+    <Folder Include="Areas\SecureSite\Views\Dashboard\DisplayTemplates\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -653,6 +662,10 @@
     <Content Include="Areas\SecureSite\Views\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Areas\SecureSite\Resources\DashboardResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>DashboardResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Areas\SecureSite\Resources\MenuResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>MenuResource.Designer.cs</LastGenOutput>
@@ -867,6 +880,8 @@
     <Content Include="Areas\SecureSite\Views\AssnCategorySerie\_Render.cshtml" />
     <Content Include="Areas\SecureSite\Views\AssnCategorySerieProduct\EditorTemplates\AssnCategorySerieProduct.cshtml" />
     <Content Include="Areas\SecureSite\Views\AssnCategorySerieProduct\_Render.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Product\Unassigned.cshtml" />
     <None Include="Scripts\jquery.livefilter-1.0\README.md" />
     <None Include="Scripts\jquery.panelslider-0.1.1\README.md" />
     <Content Include="Views\Amplifiers\Index.cshtml" />

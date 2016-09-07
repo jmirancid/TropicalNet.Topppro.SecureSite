@@ -75,6 +75,14 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
                 }, JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult Unassigned()
+        {
+            var model =
+                this.Business.Value.AllBy(x => !x.ChildInPackages.Any() && !x.Assn_CategorySerieProduct.Any());
+
+            return View(model);
+        }
+
         public override void CreateGetPrerender(Product entity = null)
         {
             ViewBag.Models = new SelectList(this._bizModel.Value.All(), "ModelId", "Name");

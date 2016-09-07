@@ -26,7 +26,7 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "Dashboard");
                     }
                 }
                 else

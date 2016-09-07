@@ -117,25 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Entity_Country" xml:space="preserve">
-    <value>Country</value>
+  <data name="Distributors" xml:space="preserve">
+    <value>Distributors</value>
   </data>
-  <data name="Entity_Culture" xml:space="preserve">
-    <value>Culture</value>
+  <data name="Products" xml:space="preserve">
+    <value>Products</value>
   </data>
-  <data name="Entity_Detail" xml:space="preserve">
-    <value>Detail</value>
+  <data name="Series" xml:space="preserve">
+    <value>Series</value>
   </data>
-  <data name="Entity_Enabled" xml:space="preserve">
-    <value>Enabled</value>
+  <data name="Total" xml:space="preserve">
+    <value>Total</value>
   </data>
-  <data name="Entity_Name" xml:space="preserve">
-    <value>Name</value>
+  <data name="Unassigned" xml:space="preserve">
+    <value>Unassigned</value>
   </data>
-  <data name="Entity_Priority" xml:space="preserve">
-    <value>Priority</value>
+  <data name="Wellcome" xml:space="preserve">
+    <value>Welcome {0}, Love to see you back.</value>
+    <comment>{0} = username</comment>
   </data>
-  <data name="_Caption" xml:space="preserve">
-    <value>Distributor</value>
+  <data name="_Title" xml:space="preserve">
+    <value>Dashboard</value>
   </data>
 </root>

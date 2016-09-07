@@ -7,9 +7,11 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Welcome to ASP.NET MVC SecureSite AREA!";
+            return RedirectToAction("Index", "Dashboard");
 
-            return View();
+            //ViewBag.Message = "Welcome to ASP.NET MVC SecureSite AREA!";
+
+            //return View();
         }
 
         public ActionResult About()
