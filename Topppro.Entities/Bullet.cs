@@ -38,15 +38,17 @@ namespace Topppro.Entities
         [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Ent_ValidationResource))]
         public int CultureId { get; set; }
 
+        [AllowHtml]
+        [DataType(DataType.MultilineText)]
         [Import(Order = 2), Export(Order = 2)]
         [Display(Name = "Entity_Name", ResourceType = typeof(Ent_BulletResource))]
+        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Ent_ValidationResource))]
         public string Name { get; set; }
 
         [AllowHtml]
         [DataType(DataType.MultilineText)]
         [Import(Order = 3), Export(Order = 3)]
         [Display(Name = "Entity_Value", ResourceType = typeof(Ent_BulletResource))]
-        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Ent_ValidationResource))]
         public string Value { get; set; }
 
         [Import(Order = 4), Export(Order = 4)]

@@ -54,12 +54,6 @@ namespace Topppro.Repositories
         }
         private ObjectSet<Assn_CategorySerieProduct> _assn_CategorySerieProduct;
     
-        public ObjectSet<Attribute> Attribute
-        {
-            get { return _attribute  ?? (_attribute = CreateObjectSet<Attribute>("Attribute")); }
-        }
-        private ObjectSet<Attribute> _attribute;
-    
         public ObjectSet<Category> Category
         {
             get { return _category  ?? (_category = CreateObjectSet<Category>("Category")); }
@@ -113,6 +107,12 @@ namespace Topppro.Repositories
             get { return _bullet  ?? (_bullet = CreateObjectSet<Bullet>("Bullet")); }
         }
         private ObjectSet<Bullet> _bullet;
+    
+        public ObjectSet<Attribute> Attribute
+        {
+            get { return _attribute  ?? (_attribute = CreateObjectSet<Attribute>("Attribute")); }
+        }
+        private ObjectSet<Attribute> _attribute;
 
         #endregion
     

@@ -128,6 +128,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DashboardResource.resx</DependentUpon>
     </Compile>
+    <Compile Include="Areas\SecureSite\Resources\HelpResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HelpResource.resx</DependentUpon>
+    </Compile>
     <Compile Include="Areas\SecureSite\Resources\MenuResource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -669,6 +674,10 @@
     <EmbeddedResource Include="Areas\SecureSite\Resources\DashboardResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>DashboardResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\SecureSite\Resources\HelpResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>HelpResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Areas\SecureSite\Resources\MenuResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

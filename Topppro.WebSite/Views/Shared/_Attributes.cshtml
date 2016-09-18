@@ -7,7 +7,7 @@
     @foreach (var attr in Model)
     {
         <tr>
-        @if (string.IsNullOrWhiteSpace(attr.Value))
+        @if (attr.Value.IsEmpty())
         {
             <td colspan="2" align="center">@attr.Name</td>
         }

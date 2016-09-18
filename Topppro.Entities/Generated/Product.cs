@@ -112,40 +112,6 @@ namespace Topppro.Entities
     	//[XmlElement("Assn_CategorySerieProduct", typeof(Collection<Assn_CategorySerieProduct>))]
         private ICollection<Assn_CategorySerieProduct> _assn_CategorySerieProduct;
     
-    	//[XmlElement("Attributes", typeof(Collection<Attribute>))]
-        public virtual ICollection<Attribute> Attributes
-        {
-            get
-            {
-                if (_attributes == null)
-                {
-                    var newCollection = new FixupCollection<Attribute>();
-                    newCollection.CollectionChanged += FixupAttributes;
-                    _attributes = newCollection;
-                }
-                return _attributes;
-            }
-            set
-            {
-                if (!ReferenceEquals(_attributes, value))
-                {
-                    var previousValue = _attributes as FixupCollection<Attribute>;
-                    if (previousValue != null)
-                    {
-                        previousValue.CollectionChanged -= FixupAttributes;
-                    }
-                    _attributes = value;
-                    var newValue = value as FixupCollection<Attribute>;
-                    if (newValue != null)
-                    {
-                        newValue.CollectionChanged += FixupAttributes;
-                    }
-                }
-            }
-        }
-    	//[XmlElement("Attributes", typeof(Collection<Attribute>))]
-        private ICollection<Attribute> _attributes;
-    
         public virtual Model Model
         {
             get { return _model; }
@@ -262,6 +228,40 @@ namespace Topppro.Entities
         }
     	//[XmlElement("Bullets", typeof(Collection<Bullet>))]
         private ICollection<Bullet> _bullets;
+    
+    	//[XmlElement("Attributes", typeof(Collection<Attribute>))]
+        public virtual ICollection<Attribute> Attributes
+        {
+            get
+            {
+                if (_attributes == null)
+                {
+                    var newCollection = new FixupCollection<Attribute>();
+                    newCollection.CollectionChanged += FixupAttributes;
+                    _attributes = newCollection;
+                }
+                return _attributes;
+            }
+            set
+            {
+                if (!ReferenceEquals(_attributes, value))
+                {
+                    var previousValue = _attributes as FixupCollection<Attribute>;
+                    if (previousValue != null)
+                    {
+                        previousValue.CollectionChanged -= FixupAttributes;
+                    }
+                    _attributes = value;
+                    var newValue = value as FixupCollection<Attribute>;
+                    if (newValue != null)
+                    {
+                        newValue.CollectionChanged += FixupAttributes;
+                    }
+                }
+            }
+        }
+    	//[XmlElement("Attributes", typeof(Collection<Attribute>))]
+        private ICollection<Attribute> _attributes;
 
         #endregion
         #region Association Fixup
@@ -299,28 +299,6 @@ namespace Topppro.Entities
             if (e.OldItems != null)
             {
                 foreach (Assn_CategorySerieProduct item in e.OldItems)
-                {
-                    if (ReferenceEquals(item.Product, this))
-                    {
-                        item.Product = null;
-                    }
-                }
-            }
-        }
-    
-        private void FixupAttributes(object sender, NotifyCollectionChangedEventArgs e)
-        {
-            if (e.NewItems != null)
-            {
-                foreach (Attribute item in e.NewItems)
-                {
-                    item.Product = this;
-                }
-            }
-    
-            if (e.OldItems != null)
-            {
-                foreach (Attribute item in e.OldItems)
                 {
                     if (ReferenceEquals(item.Product, this))
                     {
@@ -387,6 +365,28 @@ namespace Topppro.Entities
             if (e.OldItems != null)
             {
                 foreach (Bullet item in e.OldItems)
+                {
+                    if (ReferenceEquals(item.Product, this))
+                    {
+                        item.Product = null;
+                    }
+                }
+            }
+        }
+    
+        private void FixupAttributes(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (e.NewItems != null)
+            {
+                foreach (Attribute item in e.NewItems)
+                {
+                    item.Product = this;
+                }
+            }
+    
+            if (e.OldItems != null)
+            {
+                foreach (Attribute item in e.OldItems)
                 {
                     if (ReferenceEquals(item.Product, this))
                     {

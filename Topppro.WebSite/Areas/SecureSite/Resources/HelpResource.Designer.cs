@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Topppro.Entities.Resources {
+namespace Topppro.WebSite.Areas.SecureSite.Resources {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace Topppro.Entities.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Ent_BulletResource {
+    public class HelpResource {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Ent_BulletResource() {
+        internal HelpResource() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Topppro.Entities.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Topppro.Entities.Resources.Ent_BulletResource", typeof(Ent_BulletResource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Topppro.WebSite.Areas.SecureSite.Resources.HelpResource", typeof(HelpResource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,74 +61,20 @@ namespace Topppro.Entities.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bullet.
+        ///   Looks up a localized string similar to &lt;b&gt;NOTA:&lt;/b&gt; Para crear un atributo separador, escribir el valor en el campo {0}, dejando el campo {1} vacío..
         /// </summary>
-        public static string _Caption {
+        public static string Attribute_Help {
             get {
-                return ResourceManager.GetString("_Caption", resourceCulture);
+                return ResourceManager.GetString("Attribute_Help", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Culture.
+        ///   Looks up a localized string similar to &lt;b&gt;NOTA:&lt;/b&gt; Para utilizar solo un bullet, escribir el valor en el campo {0}, dejando el campo {1} vacío..
         /// </summary>
-        public static string Entity_Culture {
+        public static string Bullet_Help {
             get {
-                return ResourceManager.GetString("Entity_Culture", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Enabled.
-        /// </summary>
-        public static string Entity_Enabled {
-            get {
-                return ResourceManager.GetString("Entity_Enabled", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Name.
-        /// </summary>
-        public static string Entity_Name {
-            get {
-                return ResourceManager.GetString("Entity_Name", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Priority.
-        /// </summary>
-        public static string Entity_Priority {
-            get {
-                return ResourceManager.GetString("Entity_Priority", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Product.
-        /// </summary>
-        public static string Entity_Product {
-            get {
-                return ResourceManager.GetString("Entity_Product", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Raw.
-        /// </summary>
-        public static string Entity_Raw {
-            get {
-                return ResourceManager.GetString("Entity_Raw", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Value.
-        /// </summary>
-        public static string Entity_Value {
-            get {
-                return ResourceManager.GetString("Entity_Value", resourceCulture);
+                return ResourceManager.GetString("Bullet_Help", resourceCulture);
             }
         }
     }

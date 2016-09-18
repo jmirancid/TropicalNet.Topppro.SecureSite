@@ -9,12 +9,12 @@
 
 <div class="form-group">
     @Html.LabelFor(model => model.Name)
-    @Html.TextBoxFor(model => model.Name, new { @class = "form-control", style = "width:400px;", disabled = "disabled" })
+    @Html.TextAreaFor(model => model.Name, new { @class = "form-control", style = "width:400px;", disabled = "disabled" })
 </div>
 
 <div class="form-group">
     @Html.LabelFor(model => model.Value)
-    @Html.TinyMceFor(model => model.Value, TinyMcePresets.ReadOnly)
+    @Html.TextAreaFor(model => model.Value, new { @class = "form-control", style = "width:400px;", disabled = "disabled" })
 </div>
 
 <div class="form-group">
