@@ -43,40 +43,6 @@ namespace Topppro.Entities
         #endregion
         #region Navigation Properties
     
-    	//[XmlElement("Attributes", typeof(Collection<Attribute>))]
-        public virtual ICollection<Attribute> Attributes
-        {
-            get
-            {
-                if (_attributes == null)
-                {
-                    var newCollection = new FixupCollection<Attribute>();
-                    newCollection.CollectionChanged += FixupAttributes;
-                    _attributes = newCollection;
-                }
-                return _attributes;
-            }
-            set
-            {
-                if (!ReferenceEquals(_attributes, value))
-                {
-                    var previousValue = _attributes as FixupCollection<Attribute>;
-                    if (previousValue != null)
-                    {
-                        previousValue.CollectionChanged -= FixupAttributes;
-                    }
-                    _attributes = value;
-                    var newValue = value as FixupCollection<Attribute>;
-                    if (newValue != null)
-                    {
-                        newValue.CollectionChanged += FixupAttributes;
-                    }
-                }
-            }
-        }
-    	//[XmlElement("Attributes", typeof(Collection<Attribute>))]
-        private ICollection<Attribute> _attributes;
-    
     	//[XmlElement("Distributor", typeof(Collection<Distributor>))]
         public virtual ICollection<Distributor> Distributor
         {
@@ -144,31 +110,43 @@ namespace Topppro.Entities
         }
     	//[XmlElement("Bullet", typeof(Collection<Bullet>))]
         private ICollection<Bullet> _bullet;
-
-        #endregion
-        #region Association Fixup
     
-        private void FixupAttributes(object sender, NotifyCollectionChangedEventArgs e)
+    	//[XmlElement("Attribute", typeof(Collection<Attribute>))]
+        public virtual ICollection<Attribute> Attribute
         {
-            if (e.NewItems != null)
+            get
             {
-                foreach (Attribute item in e.NewItems)
+                if (_attribute == null)
                 {
-                    item.Culture = this;
+                    var newCollection = new FixupCollection<Attribute>();
+                    newCollection.CollectionChanged += FixupAttribute;
+                    _attribute = newCollection;
                 }
+                return _attribute;
             }
-    
-            if (e.OldItems != null)
+            set
             {
-                foreach (Attribute item in e.OldItems)
+                if (!ReferenceEquals(_attribute, value))
                 {
-                    if (ReferenceEquals(item.Culture, this))
+                    var previousValue = _attribute as FixupCollection<Attribute>;
+                    if (previousValue != null)
                     {
-                        item.Culture = null;
+                        previousValue.CollectionChanged -= FixupAttribute;
+                    }
+                    _attribute = value;
+                    var newValue = value as FixupCollection<Attribute>;
+                    if (newValue != null)
+                    {
+                        newValue.CollectionChanged += FixupAttribute;
                     }
                 }
             }
         }
+    	//[XmlElement("Attribute", typeof(Collection<Attribute>))]
+        private ICollection<Attribute> _attribute;
+
+        #endregion
+        #region Association Fixup
     
         private void FixupDistributor(object sender, NotifyCollectionChangedEventArgs e)
         {
@@ -205,6 +183,28 @@ namespace Topppro.Entities
             if (e.OldItems != null)
             {
                 foreach (Bullet item in e.OldItems)
+                {
+                    if (ReferenceEquals(item.Culture, this))
+                    {
+                        item.Culture = null;
+                    }
+                }
+            }
+        }
+    
+        private void FixupAttribute(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (e.NewItems != null)
+            {
+                foreach (Attribute item in e.NewItems)
+                {
+                    item.Culture = this;
+                }
+            }
+    
+            if (e.OldItems != null)
+            {
+                foreach (Attribute item in e.OldItems)
                 {
                     if (ReferenceEquals(item.Culture, this))
                     {
