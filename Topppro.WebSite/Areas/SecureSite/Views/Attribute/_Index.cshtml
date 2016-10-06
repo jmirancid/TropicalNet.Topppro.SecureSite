@@ -56,12 +56,14 @@
                     null,
                     null,
                     {
-                        mRender: function (o) {
+                        mRender: function (o, t, r) {
 
-                            if (JSON.parse(o) === true)
-                                return '@Html.CheckBox("enabled", true, new { disabled = "disabled" })';
-                            else
-                                return '@Html.CheckBox("enabled", false, new { disabled = "disabled" })';
+                            var tpl = '@Html.CheckBox("enabled", true, new { data_id = 0 })';
+
+                            if (JSON.parse(o) === false)
+                                tpl = '@Html.CheckBox("enabled", false, new { data_id = 0 })';
+
+                            return tpl.replace(/0/g, r[5]);
                         }
                     },
                     {
@@ -76,6 +78,14 @@
                         }
                     }
                 ]
+        });
+
+        $('#attribute-list tbody').on('change', '#enabled', function(e) {
+            
+            var o =
+                $(e.target);
+
+            $.post('@Url.Action("Toggle", "Attribute")', { id: o.data('id') });
         });
 
     });

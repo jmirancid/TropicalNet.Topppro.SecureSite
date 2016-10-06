@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web.Mvc;
 using Topppro.Business.Definitions;
 
@@ -86,6 +87,29 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
         public override ActionResult Edit(Entities.Distributor entity)
         {
             return base.Edit(entity);
+        }
+
+        [HttpPost]
+        public ActionResult Toggle(int id)
+        {
+            try
+            {
+                var entity =
+                    this.Business.Value.Get(id);
+
+                entity.Enabled =
+                    !entity.Enabled;
+
+                this.Business.Value.Update(entity);
+
+                return new HttpStatusCodeResult((int)HttpStatusCode.OK);
+            }
+            catch (Exception ex)
+            {
+                //throw ex;
+                Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                return Content(ex.Message);
+            }
         }
 
         public override void CreateGetPrerender(Topppro.Entities.Distributor entity = null)

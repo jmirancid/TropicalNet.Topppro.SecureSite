@@ -329,6 +329,29 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
             }
         }
 
+        [HttpPost]
+        public ActionResult Toggle(int id)
+        {
+            try
+            {
+                var entity =
+                    this.Business.Value.Get(id);
+
+                entity.Enabled =
+                    !entity.Enabled;
+
+                this.Business.Value.Update(entity);
+
+                return new HttpStatusCodeResult((int)HttpStatusCode.OK);
+            }
+            catch (Exception ex)
+            {
+                //throw ex;
+                Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                return Content(ex.Message);
+            }
+        }
+
         public override void CreateGetPrerender(Topppro.Entities.Bullet entity = null)
         {
             ViewBag.Cultures = new SelectList(this._bizCulture.Value.All(), "CultureId", "Name");

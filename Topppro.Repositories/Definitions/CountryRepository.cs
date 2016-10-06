@@ -12,7 +12,7 @@ namespace Topppro.Repositories.Definitions
             var dbQuery = Context.Country
                                 .Include(c => c.Distributor)
                                 .Include(c => c.Distributor.Select(d => d.Culture))
-                                .Where(c => c.Distributor.Any())
+                                .Where(c => c.Distributor.Any(d => d.Enabled))
                                 .OrderBy(c => c.Priority)
                                 .Select(c => new
                                 {

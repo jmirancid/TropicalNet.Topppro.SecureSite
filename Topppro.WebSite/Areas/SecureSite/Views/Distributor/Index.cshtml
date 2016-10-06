@@ -45,7 +45,13 @@
     <script type="text/javascript" src="@Url.Content("~/Areas/SecureSite/Scripts/dataTables/jquery.dataTables.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Areas/SecureSite/Scripts/dataTables/dataTables.bootstrap.js")"></script>
     <script type="text/javascript">
+
+        $(document).ajaxError(function (event, xhr, settings, error) {
+            alert(xhr.responseText);
+        });
+
         $(document).ready(function () {
+
             $('#data').dataTable({
                 bProcessing: true,
                 bServerSide: true,
@@ -58,11 +64,14 @@
                     { mDataProp: 'Priority' },
                     {
                         mDataProp: 'Enabled',
-                        mRender: function (o) {
-                            if (o === true)
-                                return '@Html.CheckBox("enabled", true, new { disabled = "disabled" })';
-                            else
-                                return '@Html.CheckBox("enabled", false, new { disabled = "disabled" })';
+                        mRender: function (o, t, r) {
+
+                            var tpl = '@Html.CheckBox("enabled", true, new { data_id = 0 })';
+
+                            if (o === false)
+                                tpl = '@Html.CheckBox("enabled", false, new { data_id = 0 })';
+
+                            return tpl.replace(/0/g, r.Id);
                         }
                     },
                     {
@@ -77,6 +86,14 @@
                         }
                     }
                 ]
+            });
+
+            $('#data tbody').on('change', '#enabled', function (e) {
+
+                var o =
+                    $(e.target);
+
+                $.post('@Url.Action("Toggle", "Distributor")', { id: o.data('id') });
             });
         });
     </script>
