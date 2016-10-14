@@ -73,6 +73,30 @@ namespace Topppro.Entities
             get;
             set;
         }
+    
+        public virtual bool InheritManual
+        {
+            get;
+            set;
+        }
+    
+        public virtual bool InheritHiRes
+        {
+            get;
+            set;
+        }
+    
+        public virtual bool InheritBullet
+        {
+            get;
+            set;
+        }
+    
+        public virtual bool InheritAttribute
+        {
+            get;
+            set;
+        }
 
         #endregion
         #region Navigation Properties

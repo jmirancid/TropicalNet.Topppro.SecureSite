@@ -16,6 +16,9 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
         private Lazy<ProductBusiness> _bizProduct =
             new Lazy<ProductBusiness>();
 
+        private Lazy<PackageBusiness> _bizPackage =
+            new Lazy<PackageBusiness>();
+
         private Lazy<SerieBusiness> _bizSerie =
             new Lazy<SerieBusiness>();
 
@@ -28,6 +31,7 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
                 new DashboardModel();
 
             model.Summary.Products = this._bizProduct.Value.Count();
+            model.Summary.Packages = this._bizPackage.Value.Count();
             model.Summary.Series = this._bizSerie.Value.Count();
             model.Summary.Distributors = this._bizDistributor.Value.Count();
 

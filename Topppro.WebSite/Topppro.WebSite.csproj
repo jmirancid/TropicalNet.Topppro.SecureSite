@@ -581,7 +581,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Customers\Views\Shared\" />
-    <Folder Include="Areas\SecureSite\Views\Dashboard\DisplayTemplates\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -816,11 +815,6 @@
     <None Include="Areas\SecureSite\Scripts\tinymce\skins\xenmce\fonts\readme.md" />
     <None Include="Areas\SecureSite\Scripts\tinymce\skins\xenmce\skin.json" />
     <Content Include="Areas\SecureSite\Views\AssnCategorySerieProduct\Index.cshtml" />
-    <Content Include="Areas\SecureSite\Views\Package\Index.cshtml" />
-    <Content Include="Areas\SecureSite\Views\Package\Details.cshtml" />
-    <Content Include="Areas\SecureSite\Views\Package\Delete.cshtml" />
-    <Content Include="Areas\SecureSite\Views\Package\Create.cshtml" />
-    <Content Include="Areas\SecureSite\Views\Package\Edit.cshtml" />
     <Content Include="Areas\SecureSite\Views\Shared\_Menu.cshtml" />
     <Content Include="Content\Fonts\Humanst521BT-Light.eot" />
     <Content Include="Content\Fonts\Humanst521BT-Light.otf" />
@@ -895,6 +889,11 @@
     <Content Include="Areas\SecureSite\Views\AssnCategorySerieProduct\_Render.cshtml" />
     <Content Include="Areas\SecureSite\Views\Dashboard\Index.cshtml" />
     <Content Include="Areas\SecureSite\Views\Product\Unassigned.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Package\_Index.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Package\_Create.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Package\_Edit.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Package\_Details.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Package\_Toolbar.cshtml" />
     <None Include="Scripts\jquery.livefilter-1.0\README.md" />
     <None Include="Scripts\jquery.panelslider-0.1.1\README.md" />
     <Content Include="Views\Amplifiers\Index.cshtml" />

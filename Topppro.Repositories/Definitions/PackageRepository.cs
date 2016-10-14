@@ -14,6 +14,14 @@ namespace Topppro.Repositories.Definitions
                         .Include(p => p.ChildProduct);
         }
 
+        public override IQueryable<Package> AllBy(System.Linq.Expressions.Expression<System.Func<Package, bool>> predicate)
+        {
+            return Context.Package
+                        .Include(p => p.ParentProduct)
+                        .Include(p => p.ChildProduct)
+                        .Where(predicate);
+        }
+
         public override Package Get(int id)
         {
             return Context.Package

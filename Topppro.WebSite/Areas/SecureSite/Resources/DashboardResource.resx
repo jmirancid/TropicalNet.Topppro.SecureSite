@@ -120,6 +120,9 @@
   <data name="Distributors" xml:space="preserve">
     <value>Distributors</value>
   </data>
+  <data name="Packages" xml:space="preserve">
+    <value>Packages</value>
+  </data>
   <data name="Products" xml:space="preserve">
     <value>Products</value>
   </data>

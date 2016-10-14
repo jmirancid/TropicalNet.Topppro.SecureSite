@@ -12,7 +12,7 @@
     <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Areas/SecureSite/Scripts/dataTables/dataTables.bootstrap.css")" />
     <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Areas/SecureSite/Scripts/bootstrap-dialog/bootstrap-dialog.min.css")" />
     <style type="text/css">
-        .modal-backdrop 
+        .modal-backdrop
         {
             z-index: -1 !important;
         }
@@ -28,6 +28,9 @@
     </li>
     <li>
         <a href="#attribute" data-toggle="tab" aria-expanded="false">@Ent_AttributeResource._Caption</a>
+    </li>
+    <li>
+        <a href="#package" data-toggle="tab" aria-expanded="false">@Ent_PackageResource._Caption</a>
     </li>
 </ul>
 
@@ -53,6 +56,9 @@
     </div>
     <div class="tab-pane fade" id="attribute">
         @Html.Action("Index", "Attribute", new { id = Model.Id })
+    </div>
+    <div class="tab-pane fade" id="package">
+        @Html.Action("Index", "Package", new { id = Model.Id })
     </div>
 </div>
 

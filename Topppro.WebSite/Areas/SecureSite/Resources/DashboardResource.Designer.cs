@@ -79,6 +79,15 @@ namespace Topppro.WebSite.Areas.SecureSite.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Packages.
+        /// </summary>
+        public static string Packages {
+            get {
+                return ResourceManager.GetString("Packages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Products.
         /// </summary>
         public static string Products {

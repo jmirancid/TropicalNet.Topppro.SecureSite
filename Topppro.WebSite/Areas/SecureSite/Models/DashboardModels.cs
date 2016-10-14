@@ -27,6 +27,9 @@ namespace Topppro.WebSite.Areas.SecureSite.Models
         [Display(Name="Products", ResourceType= typeof(Topppro.WebSite.Areas.SecureSite.Resources.DashboardResource))]
         public int Products { get; set; }
 
+        [Display(Name = "Packages", ResourceType = typeof(Topppro.WebSite.Areas.SecureSite.Resources.DashboardResource))]
+        public int Packages { get; set; }
+
         [Display(Name = "Series", ResourceType = typeof(Topppro.WebSite.Areas.SecureSite.Resources.DashboardResource))]
         public int Series { get; set; }
 

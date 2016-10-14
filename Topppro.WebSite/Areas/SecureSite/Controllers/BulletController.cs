@@ -111,7 +111,8 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
         [ChildActionOnly]
         public ActionResult Toolbar(int id)
         {
-            ViewBag.ProductId = id;
+            ViewBag.ProductId = 
+                id;
 
             return PartialView("_Toolbar");
         }

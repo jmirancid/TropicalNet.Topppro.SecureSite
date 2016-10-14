@@ -123,6 +123,18 @@
   <data name="Entity_Enabled" xml:space="preserve">
     <value>Enabled</value>
   </data>
+  <data name="Entity_InheritAttribute" xml:space="preserve">
+    <value>Include Attribute</value>
+  </data>
+  <data name="Entity_InheritBullet" xml:space="preserve">
+    <value>Include Bullet</value>
+  </data>
+  <data name="Entity_InheritHiRes" xml:space="preserve">
+    <value>Include HiRes</value>
+  </data>
+  <data name="Entity_InheritManual" xml:space="preserve">
+    <value>Include Manual</value>
+  </data>
   <data name="Entity_ParentProduct" xml:space="preserve">
     <value>Parent Product</value>
   </data>

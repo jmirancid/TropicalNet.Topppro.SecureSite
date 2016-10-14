@@ -168,6 +168,10 @@
           <Property Name="PackageId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="ParentProductId" Type="int" Nullable="false" />
           <Property Name="ChildProductId" Type="int" Nullable="false" />
+          <Property Name="InheritManual" Type="bit" Nullable="false" />
+          <Property Name="InheritHiRes" Type="bit" Nullable="false" />
+          <Property Name="InheritBullet" Type="bit" Nullable="false" />
+          <Property Name="InheritAttribute" Type="bit" Nullable="false" />
           <Property Name="Priority" Type="int" />
           <Property Name="Enabled" Type="bit" Nullable="false" />
         </EntityType>
@@ -522,6 +526,10 @@
           <Property Type="Boolean" Name="Enabled" Nullable="false" />
           <NavigationProperty Name="ChildProduct" Relationship="ToppproModel.Package_Child_Product_FK" FromRole="Package" ToRole="Product" />
           <NavigationProperty Name="ParentProduct" Relationship="ToppproModel.Package_Parent_Product_FK" FromRole="Package" ToRole="Product" />
+          <Property Type="Boolean" Name="InheritManual" Nullable="false" />
+          <Property Type="Boolean" Name="InheritHiRes" Nullable="false" />
+          <Property Type="Boolean" Name="InheritBullet" Nullable="false" />
+          <Property Type="Boolean" Name="InheritAttribute" Nullable="false" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -816,6 +824,10 @@
           <EntitySetMapping Name="Package">
             <EntityTypeMapping TypeName="ToppproModel.Package">
               <MappingFragment StoreEntitySet="Package">
+                <ScalarProperty Name="InheritAttribute" ColumnName="InheritAttribute" />
+                <ScalarProperty Name="InheritBullet" ColumnName="InheritBullet" />
+                <ScalarProperty Name="InheritHiRes" ColumnName="InheritHiRes" />
+                <ScalarProperty Name="InheritManual" ColumnName="InheritManual" />
                 <ScalarProperty Name="Enabled" ColumnName="Enabled" />
                 <ScalarProperty Name="Priority" ColumnName="Priority" />
                 <ScalarProperty Name="ChildProductId" ColumnName="ChildProductId" />
