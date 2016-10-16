@@ -180,24 +180,14 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
             }
         }
 
-        [HttpPost]
-        public ActionResult Toggle(int id)
+        public override ActionResult Toggle(int id, string propertyName)
         {
             try
             {
-                var entity =
-                    this.Business.Value.Get(id);
-
-                entity.Enabled =
-                    !entity.Enabled;
-
-                this.Business.Value.Update(entity);
-
-                return new HttpStatusCodeResult((int)HttpStatusCode.OK);
+                return base.Toggle(id, propertyName);
             }
             catch (Exception ex)
             {
-                //throw ex;
                 Response.StatusCode = (int)HttpStatusCode.InternalServerError;
                 return Content(ex.Message);
             }

@@ -55,10 +55,10 @@
                     {
                         mRender: function (o, t, r) {
 
-                            var tpl = '@Html.CheckBox("inheritattribute", true, new { data_id = 0 })';
+                            var tpl = '@Html.CheckBox(Html.NameFor(model => model.InheritAttribute).ToString(), true, new { data_id = 0 })';
 
                             if (JSON.parse(o) === false)
-                                tpl = '@Html.CheckBox("inheritattribute", false, new { data_id = 0 })';
+                                tpl = '@Html.CheckBox(Html.NameFor(model => model.InheritAttribute).ToString(), false, new { data_id = 0 })';
 
                             return tpl.replace(/0/g, r[5]);
                         }
@@ -66,10 +66,10 @@
                     {
                         mRender: function (o, t, r) {
 
-                            var tpl = '@Html.CheckBox("inherithires", true, new { data_id = 0 })';
+                            var tpl = '@Html.CheckBox(Html.NameFor(model => model.InheritHiRes).ToString(), true, new { data_id = 0 })';
 
                             if (JSON.parse(o) === false)
-                                tpl = '@Html.CheckBox("inherithires", false, new { data_id = 0 })';
+                                tpl = '@Html.CheckBox(Html.NameFor(model => model.InheritHiRes).ToString(), false, new { data_id = 0 })';
 
                             return tpl.replace(/0/g, r[5]);
                         }
@@ -78,10 +78,10 @@
                     {
                         mRender: function (o, t, r) {
 
-                            var tpl = '@Html.CheckBox("enabled", true, new { data_id = 0 })';
+                            var tpl = '@Html.CheckBox(Html.NameFor(model => model.Enabled).ToString(), true, new { data_id = 0 })';
 
                             if (JSON.parse(o) === false)
-                                tpl = '@Html.CheckBox("enabled", false, new { data_id = 0 })';
+                                tpl = '@Html.CheckBox(Html.NameFor(model => model.Enabled).ToString(), false, new { data_id = 0 })';
 
                             return tpl.replace(/0/g, r[5]);
                         }
@@ -100,12 +100,13 @@
                 ]
         });
 
-        $('#package-list tbody').on('change', '#enabled', function(e) {
+        $('#package-list tbody').on('change', 'input[type=checkbox]', function(e) {
             
             var o =
-                $(e.target);
+                $(this);
 
-            $.post('@Url.Action("Toggle", "Package")', { id: o.data('id') });
+            $.post('@Url.Action("Toggle", "Package")',
+                { id: o.data('id'), propertyName: o.attr('name') });
         });
     })
 </script>

@@ -58,10 +58,10 @@
                     {
                         mRender: function (o, t, r) {
 
-                            var tpl = '@Html.CheckBox("enabled", true, new { data_id = 0 })';
+                            var tpl = '@Html.CheckBox(Html.NameFor(model => model.Enabled).ToString(), true, new { data_id = 0 })';
 
                             if (JSON.parse(o) === false)
-                                tpl = '@Html.CheckBox("enabled", false, new { data_id = 0 })';
+                                tpl = '@Html.CheckBox(Html.NameFor(model => model.Enabled).ToString(), false, new { data_id = 0 })';
 
                             return tpl.replace(/0/g, r[5]);
                         }
@@ -80,12 +80,13 @@
                 ]
         });
 
-        $('#bullet-list tbody').on('change', '#enabled', function(e) {
+        $('#bullet-list tbody').on('change', 'input[type=checkbox]', function(e) {
             
             var o =
-                $(e.target);
+                $(this);
 
-            $.post('@Url.Action("Toggle", "Bullet")', { id: o.data('id') });
+            $.post('@Url.Action("Toggle", "Bullet")',
+                { id: o.data('id'), propertyName: o.attr('name') });
         });
     })
 </script>
