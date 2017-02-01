@@ -55,6 +55,19 @@ namespace Topppro.WebSite.Settings
                 return _distributor;
             }
         }
+
+        private static RedirectSettings _redirect;
+
+        public static RedirectSettings Redirect
+        {
+            get
+            {
+                if (_redirect == null)
+                    _redirect = ConfigurationManager.GetSection("redirect") as RedirectSettings;
+
+                return _redirect;
+            }
+        }
     }
 
     public class ProductSettings : ConfigurationSection
@@ -129,6 +142,71 @@ namespace Topppro.WebSite.Settings
         {
             get { return (string)this["none"]; }
             set { this["none"] = value; }
+        }
+    }
+
+    public class RedirectSettings : ConfigurationSection
+    {
+        [ConfigurationProperty("enabled", IsRequired = true)]
+        public bool Enabled
+        {
+            get { return (bool)this["enabled"]; }
+            set { this["enabled"] = value; }
+        }
+
+        [ConfigurationProperty("service", IsRequired = true)]
+        public string Service
+        {
+            get { return (string)this["service"]; }
+            set { this["service"] = value; }
+        }
+
+        [ConfigurationProperty("rules")]
+        [ConfigurationCollection(typeof(RuleCollection), AddItemName = "add")]
+        public RuleCollection Rules { get { return (RuleCollection)base["rules"]; } }
+
+        public class RuleCollection : ConfigurationElementCollection
+        {
+            protected override ConfigurationElement CreateNewElement()
+            {
+                return new RuleElement();
+            }
+
+            protected override object GetElementKey(ConfigurationElement element)
+            {
+                return ((RuleElement)element).Name;
+            }
+        }
+
+        public class RuleElement : ConfigurationElement
+        {
+            [ConfigurationProperty("name", IsRequired = true)]
+            public string Name
+            {
+                get { return (string)this["name"]; }
+                set { this["name"] = value; }
+            }
+
+            [ConfigurationProperty("country", IsRequired = false)]
+            public string Country
+            {
+                get { return (string)this["country"]; }
+                set { this["country"] = value; }
+            }
+
+            [ConfigurationProperty("region", IsRequired = false)]
+            public string Region
+            {
+                get { return (string)this["region"]; }
+                set { this["region"] = value; }
+            }
+
+            [ConfigurationProperty("goto", IsRequired = true)]
+            public string GoTo
+            {
+                get { return (string)this["goto"]; }
+                set { this["goto"] = value; }
+            }
         }
     }
 }

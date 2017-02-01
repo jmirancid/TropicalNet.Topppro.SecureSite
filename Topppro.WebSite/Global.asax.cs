@@ -1,7 +1,13 @@
 ﻿using System;
 using System.Web.Mvc;
 using System.Web.Routing;
+using System.Web.WebPages;
 using Topppro.WebSite.Filters;
+using Topppro.WebSite.Settings;
+using System.Net;
+using System.IO;
+using System.Web;
+using System.Linq;
 
 namespace Topppro.WebSite
 {
@@ -90,6 +96,36 @@ namespace Topppro.WebSite
                 Response.Write(@"[html]");
                 Response.End();
             }*/
+        }
+
+        protected void Session_Start(object sender, EventArgs e)
+        {
+            if (ToppproSettings.Redirect.Enabled)
+            {
+                var response =
+                    (string)null;
+
+                using (var client = new WebClient())
+                {
+                    response = 
+                        client.DownloadString(string.Format(ToppproSettings.Redirect.Service, HttpContext.Current.Request.UserHostAddress));
+                }
+
+                foreach (Topppro.WebSite.Settings.RedirectSettings.RuleElement rule in ToppproSettings.Redirect.Rules)
+                {
+                    if (rule.Country.IsEmpty() == false
+                        && rule.Country.Split(',').Any(s => response.Contains(s)))
+                    {
+                        HttpContext.Current.Response.Redirect(rule.GoTo, true);
+                    }
+
+                    if (rule.Region.IsEmpty() == false
+                        && rule.Region.Split(',').Any(s => response.Contains(s)))
+                    {
+                        HttpContext.Current.Response.Redirect(rule.GoTo, true);
+                    }
+                }
+            }
         }
     }
 }
