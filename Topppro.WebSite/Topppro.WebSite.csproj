@@ -387,6 +387,7 @@
     <Content Include="Content\Images\appstore-apps.jpg" />
     <Content Include="Content\Images\back-bottom.jpg" />
     <Content Include="Content\Images\back-top.jpg" />
+    <Content Include="Content\Images\background.jpg" />
     <Content Include="Content\Images\bluetoth-certificates-up.jpg" />
     <Content Include="Content\Images\bluetoth-certificates.jpg" />
     <Content Include="Content\Images\bottom.jpg" />
@@ -427,6 +428,7 @@
     <Content Include="Content\Images\loading.gif" />
     <Content Include="Content\Images\manual-bottom.jpg" />
     <Content Include="Content\Images\manual-top.jpg" />
+    <Content Include="Content\Images\menu.jpg" />
     <Content Include="Content\Images\menu_r1_c1.jpg" />
     <Content Include="Content\Images\menu_r1_c10.jpg" />
     <Content Include="Content\Images\menu_r1_c3.jpg" />

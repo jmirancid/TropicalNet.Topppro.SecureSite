@@ -6,7 +6,7 @@
     ViewBag.Keywords = ViewBag.Keywords ?? "Music Gear,Music,Gear,Gear Music,Music Top Gear,the Gear ,Gear for,Music,the,for,usefull,user, audio gaer, mixers, processors, mic, wireless systems, speakers, loudspeakers, subwoofer, pa, packs, installation, mp3, eq, monitor, professional, audio music, audio equipment, audio soft,alfa,ready 15, metro, trx, tma, mx, tpm,drive,ark,ma,tps,dpm,teq";
 }
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>@ViewBag.Title</title>
@@ -21,7 +21,7 @@
     @RenderSection("Styles", false)
     @Html.GoogleAnalytics()
 </head>
-<body>
+<body style="background-image: url('@Url.Content("~/Content/Images/background.jpg")');">
     <div class="page">
         <div id="header">
             @Html.Menu()

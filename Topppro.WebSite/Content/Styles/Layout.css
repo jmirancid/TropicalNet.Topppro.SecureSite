@@ -13,7 +13,10 @@ html
 body
 {
     font-family: 'Humanst521BT-Light' , Sans-Serif;
-    background-color: #F0EFF0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position:center;
+    background-size: cover;
     height: 100%;
 }
 
