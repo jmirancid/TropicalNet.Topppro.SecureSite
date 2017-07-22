@@ -10,5 +10,10 @@ namespace Topppro.WebSite.Controllers
             return View();
         }
 
+        [OutputCache(CacheProfile = "Long")]
+        public ActionResult Landing()
+        {
+            return View("World");
+        }
     }
 }

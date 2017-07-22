@@ -34,11 +34,11 @@
             <End Role="Culture" EntitySet="Culture" />
             <End Role="Bullet" EntitySet="Bullet" />
           </AssociationSet>
-          <AssociationSet Name="FK__Distribut__Count__2739D489" Association="ToppproModel.Store.FK__Distribut__Count__2739D489">
+          <AssociationSet Name="FK__Distribut__Count__25869641" Association="ToppproModel.Store.FK__Distribut__Count__25869641">
             <End Role="Country" EntitySet="Country" />
             <End Role="Distributor" EntitySet="Distributor" />
           </AssociationSet>
-          <AssociationSet Name="FK__Distribut__Cultu__282DF8C2" Association="ToppproModel.Store.FK__Distribut__Cultu__282DF8C2">
+          <AssociationSet Name="FK__Distribut__Cultu__267ABA7A" Association="ToppproModel.Store.FK__Distribut__Cultu__267ABA7A">
             <End Role="Culture" EntitySet="Culture" />
             <End Role="Distributor" EntitySet="Distributor" />
           </AssociationSet>
@@ -150,7 +150,7 @@
           <Property Name="CountryId" Type="int" Nullable="false" />
           <Property Name="CultureId" Type="int" Nullable="false" />
           <Property Name="Name" Type="varchar" Nullable="false" MaxLength="150" />
-          <Property Name="Detail" Type="varchar" Nullable="false" />
+          <Property Name="Detail" Type="varchar(max)" Nullable="false" />
           <Property Name="Priority" Type="int" />
           <Property Name="Enabled" Type="bit" Nullable="false" />
         </EntityType>
@@ -168,12 +168,12 @@
           <Property Name="PackageId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="ParentProductId" Type="int" Nullable="false" />
           <Property Name="ChildProductId" Type="int" Nullable="false" />
+          <Property Name="Priority" Type="int" />
+          <Property Name="Enabled" Type="bit" Nullable="false" />
           <Property Name="InheritManual" Type="bit" Nullable="false" />
           <Property Name="InheritHiRes" Type="bit" Nullable="false" />
           <Property Name="InheritBullet" Type="bit" Nullable="false" />
           <Property Name="InheritAttribute" Type="bit" Nullable="false" />
-          <Property Name="Priority" Type="int" />
-          <Property Name="Enabled" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -181,18 +181,19 @@
           </Key>
           <Property Name="ProductId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="ModelId" Type="int" Nullable="false" />
-          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="100" />
-          <Property Name="Folder" Type="varchar" MaxLength="50" />
-          <Property Name="Manual" Type="varchar" MaxLength="50" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="Folder" Type="varchar" MaxLength="80" />
+          <Property Name="Manual" Type="varchar" MaxLength="80" />
           <Property Name="Draft" Type="bit" Nullable="false" />
           <Property Name="Badge" Type="varchar" MaxLength="6" />
+          <Property Name="Software" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Serie">
           <Key>
             <PropertyRef Name="SerieId" />
           </Key>
           <Property Name="SerieId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="80" />
         </EntityType>
         <Association Name="Assn_CategorySerie_Assn_CategorySerieProduct_FK">
           <End Role="Assn_CategorySerie" Type="ToppproModel.Store.Assn_CategorySerie" Multiplicity="1" />
@@ -242,7 +243,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Distribut__Count__2739D489">
+        <Association Name="FK__Distribut__Count__25869641">
           <End Role="Country" Type="ToppproModel.Store.Country" Multiplicity="1" />
           <End Role="Distributor" Type="ToppproModel.Store.Distributor" Multiplicity="*" />
           <ReferentialConstraint>
@@ -254,7 +255,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Distribut__Cultu__282DF8C2">
+        <Association Name="FK__Distribut__Cultu__267ABA7A">
           <End Role="Culture" Type="ToppproModel.Store.Culture" Multiplicity="1" />
           <End Role="Distributor" Type="ToppproModel.Store.Distributor" Multiplicity="*" />
           <ReferentialConstraint>
@@ -548,6 +549,7 @@
           <Property Type="String" Name="Badge" MaxLength="6" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Bullets" Relationship="ToppproModel.Product_Bullet_FK" FromRole="Product" ToRole="Bullet" />
           <NavigationProperty Name="Attributes" Relationship="ToppproModel.Product_Attribute_FK" FromRole="Product" ToRole="Attribute" />
+          <Property Type="Boolean" Name="Software" Nullable="false" />
         </EntityType>
         <EntityType Name="Serie">
           <Key>
@@ -839,6 +841,7 @@
           <EntitySetMapping Name="Product">
             <EntityTypeMapping TypeName="ToppproModel.Product">
               <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="Software" ColumnName="Software" />
                 <ScalarProperty Name="Badge" ColumnName="Badge" />
                 <ScalarProperty Name="Draft" ColumnName="Draft" />
                 <ScalarProperty Name="Manual" ColumnName="Manual" />

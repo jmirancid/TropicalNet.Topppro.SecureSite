@@ -132,6 +132,9 @@
   <data name="Entity_Name" xml:space="preserve">
     <value>Name</value>
   </data>
+  <data name="Entity_Software" xml:space="preserve">
+    <value>Software</value>
+  </data>
   <data name="_Caption" xml:space="preserve">
     <value>Product</value>
   </data>

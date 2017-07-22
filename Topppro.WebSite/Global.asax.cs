@@ -30,6 +30,13 @@ namespace Topppro.WebSite
                 new[] { "Topppro.WebSite.Controllers" };
 
             routes.MapRoute(
+                name: "Landing", // Route name
+                url: "", // URL with parameters
+                defaults: new { controller = "Home", action = "Landing" }, // Parameter defaults
+                namespaces: namespaces
+            );
+
+            routes.MapRoute(
                 name: "Compare", // Route name
                 url: "{culture}/{controller}/{lid}_{lname}_VS_{rid}_{rname}", // URL with parameters
                 defaults: new { culture = Topppro.Context.Current.Culture.TwoLetterISOLanguageName, action = "Compare" }, // Parameter defaults

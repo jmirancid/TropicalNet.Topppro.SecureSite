@@ -37,3 +37,11 @@
     @Html.LabelFor(model => model.Badge)
     @Html.TextBoxFor(model => model.Badge, new { @class = "form-control", style = "width:400px;" })
 </div>
+
+<div class="checkbox">
+    <label>
+        @Html.CheckBoxFor(model => model.Software)
+        @Html.DisplayNameFor(model => model.Software)
+        @Html.ValidationMessageFor(model => model.Software)
+    </label>
+</div>

@@ -74,6 +74,12 @@ namespace Topppro.Entities
             get;
             set;
         }
+    
+        public virtual bool Software
+        {
+            get;
+            set;
+        }
 
         #endregion
         #region Navigation Properties
