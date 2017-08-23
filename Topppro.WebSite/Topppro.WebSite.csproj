@@ -957,7 +957,6 @@
     <Content Include="Views\Shared\Detail.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Product.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Product_Dmx244.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\Product_T20.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Serie.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Serie_Kst28a.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Serie_Ready12cx.cshtml" />
