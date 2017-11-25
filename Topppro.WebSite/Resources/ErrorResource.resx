@@ -121,6 +121,6 @@
     <value>We apologize for your inconvenience, but this request could not be processed.</value>
   </data>
   <data name="Title" xml:space="preserve">
-    <value>That's an error.</value>
+    <value>Ops!</value>
   </data>
 </root>

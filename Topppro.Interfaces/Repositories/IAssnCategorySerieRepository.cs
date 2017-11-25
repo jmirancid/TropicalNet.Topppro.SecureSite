@@ -12,6 +12,6 @@ namespace Topppro.Interfaces.Repositories
 
         Topppro.Entities.Assn_CategorySerie GetWithProducts(int id);
 
-        IQueryable<Topppro.Entities.Assn_CategorySerie> AllByWithRefs(System.Linq.Expressions.Expression<System.Func<Entities.Assn_CategorySerie, bool>> predicate);
+        IQueryable<Topppro.Entities.Assn_CategorySerie> AllByWithRefs(System.Linq.Expressions.Expression<System.Func<Entities.Assn_CategorySerie, bool>> predicate, string cultureCode);
     }
 }

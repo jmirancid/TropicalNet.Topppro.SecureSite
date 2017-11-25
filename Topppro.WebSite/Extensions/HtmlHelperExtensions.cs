@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Mvc.Html;
 using System.Web.Script.Serialization;
 using Framework.Common.Extensions;
+using Topppro.WebSite.Resources;
 
 namespace Topppro.WebSite.Extensions
 {
@@ -207,11 +208,11 @@ namespace Topppro.WebSite.Extensions
             a.Attributes.Add("href", htmlHelper.ViewData.Model.Product.GetManual());
             a.Attributes.Add("target", "_blank");
             a.Attributes.Add("onmouseout", "MM_swapImgRestore()");
-            a.Attributes.Add("onmouseover", "MM_swapImage('Manual','','" + urlHelper.Content("~/Content/Images/manual-top.jpg") + "',1)");
+            a.Attributes.Add("onmouseover", "MM_swapImage('Manual','','" + urlHelper.Content(ImageResource.Manual_Top) + "',1)");
             a.MergeAttributes(htmlAttributes);
 
             var img = new TagBuilder("img");
-            img.Attributes.Add("src", urlHelper.Content("~/Content/Images/manual-bottom.jpg"));
+            img.Attributes.Add("src", urlHelper.Content(ImageResource.Manual_Bottom));
             img.Attributes.Add("alt", "user manual");
             img.Attributes.Add("id", "Manual");
             img.Attributes.Add("name", "Manual");
@@ -248,11 +249,11 @@ namespace Topppro.WebSite.Extensions
             var a = new TagBuilder("a");
             a.Attributes.Add("href", urlHelper.RouteUrl("HiRes", new { controller = htmlHelper.ViewContext.RouteData.Values["controller"], id = htmlHelper.ViewData.Model.Id, name = htmlHelper.ViewData.Model.Product.Name.ToSeoSlug() }));
             a.Attributes.Add("onmouseout", "MM_swapImgRestore()");
-            a.Attributes.Add("onmouseover", "MM_swapImage('HiRes','','" + urlHelper.Content("~/Content/Images/hires-top.jpg") + "',1)");
+            a.Attributes.Add("onmouseover", "MM_swapImage('HiRes','','" + urlHelper.Content(ImageResource.HiRes_Top) + "',1)");
             a.MergeAttributes(htmlAttributes);
 
             var img = new TagBuilder("img");
-            img.Attributes.Add("src", urlHelper.Content("~/Content/Images/hires-bottom.jpg"));
+            img.Attributes.Add("src", urlHelper.Content(ImageResource.HiRes_Bottom));
             img.Attributes.Add("alt", "images");
             img.Attributes.Add("id", "HiRes");
             img.Attributes.Add("name", "HiRes");
@@ -287,11 +288,11 @@ namespace Topppro.WebSite.Extensions
             a.Attributes.Add("href", urlHelper.RouteUrl("Default", new { controller = "Public", action = "Software" }));
             a.Attributes.Add("target", "_top");
             a.Attributes.Add("onmouseout", "MM_swapImgRestore()");
-            a.Attributes.Add("onmouseover", "MM_swapImage('Software','','" + urlHelper.Content("~/Content/Images/software-top.jpg") + "',1)");
+            a.Attributes.Add("onmouseover", "MM_swapImage('Software','','" + urlHelper.Content(ImageResource.Software_Top) + "',1)");
             a.MergeAttributes(htmlAttributes);
 
             var img = new TagBuilder("img");
-            img.Attributes.Add("src", urlHelper.Content("~/Content/Images/software-bottom.jpg"));
+            img.Attributes.Add("src", urlHelper.Content(ImageResource.Software_Bottom));
             img.Attributes.Add("alt", "software");
             img.Attributes.Add("id", "Software");
             img.Attributes.Add("name", "Software");
@@ -325,12 +326,12 @@ namespace Topppro.WebSite.Extensions
             var a = new TagBuilder("a");
             a.Attributes.Add("href", href);
             a.Attributes.Add("onmouseout", "MM_swapImgRestore()");
-            a.Attributes.Add("onmouseover", "MM_swapImage('Back','','" + urlHelper.Content("~/Content/Images/back-top.jpg") + "',1)");
+            a.Attributes.Add("onmouseover", "MM_swapImage('Back','','" + urlHelper.Content(ImageResource.Back_Top) + "',1)");
             a.MergeAttributes(htmlAttributes);
 
             var img = new TagBuilder("img");
-            img.Attributes.Add("src", urlHelper.Content("~/Content/Images/back-bottom.jpg"));
-            img.Attributes.Add("alt", "back");
+            img.Attributes.Add("src", urlHelper.Content(ImageResource.Back_Bottom));
+            img.Attributes.Add("alt", GeneralResource.Back);
             img.Attributes.Add("id", "Back");
             img.Attributes.Add("name", "Back");
             img.Attributes.Add("width", "100");

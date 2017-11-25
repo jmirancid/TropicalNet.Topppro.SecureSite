@@ -10,12 +10,12 @@ namespace Topppro.WebSite.Controllers
         protected Lazy<CountryBusiness> _bizCountry =
             new Lazy<CountryBusiness>();
 
-        [OutputCache(CacheProfile = "Long")]
+        [OutputCache(CacheProfile = "Long", VaryByParam = "culture")]
         public ActionResult Index()
         {
             var entities =
                 _bizCountry.Value
-                    .AllHavingDistributors(Topppro.Context.Current.Culture.TwoLetterISOLanguageName);
+                    .AllHavingDistributors("en");
 
             return View(entities);
         }

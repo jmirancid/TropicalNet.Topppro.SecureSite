@@ -154,6 +154,7 @@
     <Compile Include="Extensions\CountryExtensions.cs" />
     <Compile Include="Extensions\HtmlHelperExtensions.cs" />
     <Compile Include="Extensions\ProductExtensions.cs" />
+    <Compile Include="Extensions\UrlHelperExtensions.cs" />
     <Compile Include="Filters\LocalizationFilterAttribute.cs" />
     <Compile Include="Areas\SecureSite\Controllers\AccountController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\HomeController.cs" />
@@ -169,45 +170,100 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AccountResource.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\AccountResource.es.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AccountResource.es.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\CompareResource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CompareResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\CompareResource.es.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CompareResource.es.resx</DependentUpon>
     </Compile>
     <Compile Include="Resources\ErrorResource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ErrorResource.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\ErrorResource.es.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ErrorResource.es.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\GeneralResource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GeneralResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\GeneralResource.es.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GeneralResource.es.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\ImageResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ImageResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\ImageResource.es.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ImageResource.es.resx</DependentUpon>
     </Compile>
     <Compile Include="Resources\MixersResource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MixersResource.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\MixersResource.es.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MixersResource.es.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\PacksResource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PacksResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\PacksResource.es.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PacksResource.es.resx</DependentUpon>
     </Compile>
     <Compile Include="Resources\ProcessorsResource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ProcessorsResource.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\ProcessorsResource.es.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProcessorsResource.es.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\PublicResource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PublicResource.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\PublicResource.es.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PublicResource.es.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\SpeakersResource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SpeakersResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\SpeakersResource.es.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SpeakersResource.es.resx</DependentUpon>
     </Compile>
     <Compile Include="Settings\ToppproSettings.cs" />
   </ItemGroup>
@@ -407,6 +463,82 @@
     <Content Include="Content\Images\cs3.jpg" />
     <Content Include="Content\Images\custom-sound-banner.jpg" />
     <Content Include="Content\Images\dmx244-livemixing.jpg" />
+    <Content Include="Content\Images\es\amps-slider-1-es.jpg" />
+    <Content Include="Content\Images\es\amps-slider-2-es.jpg" />
+    <Content Include="Content\Images\es\amps-slider-3-es.jpg" />
+    <Content Include="Content\Images\es\appstore-apps-es.jpg" />
+    <Content Include="Content\Images\es\appstore-apps-up-es.jpg" />
+    <Content Include="Content\Images\es\back-bottom-es.jpg" />
+    <Content Include="Content\Images\es\back-top-es.jpg" />
+    <Content Include="Content\Images\es\bluetoth-certificates-es.jpg" />
+    <Content Include="Content\Images\es\bluetoth-certificates-up-es.jpg" />
+    <Content Include="Content\Images\es\bottom-es.jpg" />
+    <Content Include="Content\Images\es\catalog-download-es.jpg" />
+    <Content Include="Content\Images\es\catalog-download-up-es.jpg" />
+    <Content Include="Content\Images\es\cs-appstore-es.jpg" />
+    <Content Include="Content\Images\es\cs-slider-1-es.jpg" />
+    <Content Include="Content\Images\es\cs-slider-2-es.jpg" />
+    <Content Include="Content\Images\es\cs-slider-3-es.jpg" />
+    <Content Include="Content\Images\es\cs-slider-4-es.jpg" />
+    <Content Include="Content\Images\es\cs-slider-5-es.jpg" />
+    <Content Include="Content\Images\es\cs-slider-6-es.jpg" />
+    <Content Include="Content\Images\es\cs-sound-es.jpg" />
+    <Content Include="Content\Images\es\cs-sound-up-es.jpg" />
+    <Content Include="Content\Images\es\cs1-es.jpg" />
+    <Content Include="Content\Images\es\cs2-es.jpg" />
+    <Content Include="Content\Images\es\cs3-es.jpg" />
+    <Content Include="Content\Images\es\hires-bottom-es.jpg" />
+    <Content Include="Content\Images\es\hires-top-es.jpg" />
+    <Content Include="Content\Images\es\install-slider-1-es.jpg" />
+    <Content Include="Content\Images\es\install-slider-2-es.jpg" />
+    <Content Include="Content\Images\es\install-slider-3-es.jpg" />
+    <Content Include="Content\Images\es\install-slider-4-es.jpg" />
+    <Content Include="Content\Images\es\install-slider-5-es.jpg" />
+    <Content Include="Content\Images\es\intro-1-es.jpg" />
+    <Content Include="Content\Images\es\intro-2-es.jpg" />
+    <Content Include="Content\Images\es\intro-3-es.jpg" />
+    <Content Include="Content\Images\es\intro-4-es.jpg" />
+    <Content Include="Content\Images\es\intro-5-es.jpg" />
+    <Content Include="Content\Images\es\intro-6-es.jpg" />
+    <Content Include="Content\Images\es\intro-7-es.jpg" />
+    <Content Include="Content\Images\es\manual-bottom-es.jpg" />
+    <Content Include="Content\Images\es\manual-top-es.jpg" />
+    <Content Include="Content\Images\es\menu-es.jpg" />
+    <Content Include="Content\Images\es\menu_r6_c1-es.jpg" />
+    <Content Include="Content\Images\es\menu_r6_c1-up-es.jpg" />
+    <Content Include="Content\Images\es\menu_r6_c10-es.jpg" />
+    <Content Include="Content\Images\es\menu_r6_c10-up-es.jpg" />
+    <Content Include="Content\Images\es\menu_r6_c11-es.jpg" />
+    <Content Include="Content\Images\es\menu_r6_c11-up-es.jpg" />
+    <Content Include="Content\Images\es\menu_r6_c12-es.jpg" />
+    <Content Include="Content\Images\es\menu_r6_c12-up-es.jpg" />
+    <Content Include="Content\Images\es\menu_r6_c2-es.jpg" />
+    <Content Include="Content\Images\es\menu_r6_c2-up-es.jpg" />
+    <Content Include="Content\Images\es\menu_r6_c5-es.jpg" />
+    <Content Include="Content\Images\es\menu_r6_c5-up-es.jpg" />
+    <Content Include="Content\Images\es\menu_r6_c7-es.jpg" />
+    <Content Include="Content\Images\es\menu_r6_c7-up-es.jpg" />
+    <Content Include="Content\Images\es\menu_r6_c8-es.jpg" />
+    <Content Include="Content\Images\es\menu_r6_c8-up-es.jpg" />
+    <Content Include="Content\Images\es\menu_r6_c9-es.jpg" />
+    <Content Include="Content\Images\es\menu_r6_c9-up-es.jpg" />
+    <Content Include="Content\Images\es\mx-v2-es.jpg" />
+    <Content Include="Content\Images\es\mx-v2-up-es.jpg" />
+    <Content Include="Content\Images\es\mx244-app-es.jpg" />
+    <Content Include="Content\Images\es\software-bottom-es.jpg" />
+    <Content Include="Content\Images\es\software-top-es.jpg" />
+    <Content Include="Content\Images\es\soho-slider-1-es.jpg" />
+    <Content Include="Content\Images\es\soho-slider-2-es.jpg" />
+    <Content Include="Content\Images\es\soho-slider-3-es.jpg" />
+    <Content Include="Content\Images\es\soho-slider-4-es.jpg" />
+    <Content Include="Content\Images\es\t20-slider-1-es.jpg" />
+    <Content Include="Content\Images\es\t20-slider-2-es.jpg" />
+    <Content Include="Content\Images\es\t20-slider-3-es.jpg" />
+    <Content Include="Content\Images\es\tma54bzt-es.jpg" />
+    <Content Include="Content\Images\es\tma54bzt-up-es.jpg" />
+    <Content Include="Content\Images\es\wireless-slider-1-es.jpg" />
+    <Content Include="Content\Images\es\wireless-slider-2-es.jpg" />
+    <Content Include="Content\Images\es\wireless-slider-3-es.jpg" />
     <Content Include="Content\Images\glyphicons-halflings-white.png" />
     <Content Include="Content\Images\glyphicons-halflings.png" />
     <Content Include="Content\Images\grey.jpg" />
@@ -473,6 +605,7 @@
     <Content Include="Content\Images\map_r9_c11.jpg" />
     <Content Include="Content\Images\map_r9_c12.jpg" />
     <Content Include="Content\Images\map_r9_c5.jpg" />
+    <Content Include="Content\Images\menu-en.jpg" />
     <Content Include="Content\Images\menu.jpg" />
     <Content Include="Content\Images\menu_r1_c1.jpg" />
     <Content Include="Content\Images\menu_r1_c10.jpg" />
@@ -623,6 +756,7 @@
     </Content>
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
@@ -729,21 +863,49 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>MenuResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\AccountResource.es.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AccountResource.es.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\AccountResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AccountResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CompareResource.es.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CompareResource.es.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\CompareResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>CompareResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ErrorResource.es.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ErrorResource.es.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\ErrorResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ErrorResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\GeneralResource.es.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GeneralResource.es.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\GeneralResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>GeneralResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ImageResource.es.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ImageResource.es.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ImageResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ImageResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\MixersResource.es.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MixersResource.es.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\MixersResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -753,13 +915,29 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>PacksResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\PacksResource.es.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>PacksResource.es.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ProcessorsResource.es.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ProcessorsResource.es.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\ProcessorsResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ProcessorsResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\PublicResource.es.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>PublicResource.es.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\PublicResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>PublicResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\SpeakersResource.es.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SpeakersResource.es.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\SpeakersResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

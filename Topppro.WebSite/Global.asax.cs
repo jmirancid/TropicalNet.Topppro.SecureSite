@@ -80,6 +80,7 @@ namespace Topppro.WebSite
                 name: "Default", // Route name
                 url: "{culture}/{controller}/{action}/{id}", // URL with parameters
                 defaults: new { culture = Topppro.Context.Current.Culture.TwoLetterISOLanguageName, controller = "Home", action = "Index", id = UrlParameter.Optional }, // Parameter defaults
+                constraints: new { culture = "[a-zA-Z]{2}" },
                 namespaces: namespaces
             );
         }

@@ -1,4 +1,6 @@
-﻿@model IEnumerable<Topppro.Entities.Country>
+﻿@using Topppro.WebSite.Resources
+
+@model IEnumerable<Topppro.Entities.Country>
 
 @{
     ViewBag.Title = ":: Topp Pro Professional Audio Gear - Distributors ::";
@@ -30,7 +32,7 @@
 <div style="text-align:right;">
     <div class="m-input-prepend m-input-append">
         <span class="add-on m-btn black"><i class="icon-search icon-white">&nbsp;</i></span>
-        @Html.TextBox("search", null, new { id="search", @class = "m-wrap m-ctrl-medium", placeholder = "Search..."})
+        @Html.TextBox("search", null, new { id="search", @class = "m-wrap m-ctrl-medium", placeholder = GeneralResource.Search })
     </div>
 </div>
 

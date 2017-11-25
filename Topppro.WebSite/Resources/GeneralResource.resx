@@ -126,6 +126,9 @@
   <data name="HiRes_Pics" xml:space="preserve">
     <value>Hi-Res Pics</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
   <data name="User_Manual" xml:space="preserve">
     <value>User Manual</value>
   </data>

@@ -117,10 +117,64 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Audio_Editor" xml:space="preserve">
+    <value>Audio Editor</value>
+  </data>
+  <data name="Digital_Audio_Processor" xml:space="preserve">
+    <value>Digital Audio Processor</value>
+  </data>
+  <data name="Digital_Mixer" xml:space="preserve">
+    <value>Digital Mixer</value>
+  </data>
+  <data name="Digital_Signal_Processor" xml:space="preserve">
+    <value>Digital Signal Processor</value>
+  </data>
+  <data name="Firmware_Release" xml:space="preserve">
+    <value>Firmware Release</value>
+  </data>
+  <data name="Firmware_Update" xml:space="preserve">
+    <value>Firmware Update</value>
+  </data>
+  <data name="Modules" xml:space="preserve">
+    <value>Modules</value>
+  </data>
+  <data name="PC_Editor_For_Windows" xml:space="preserve">
+    <value>PC Editor for Windows</value>
+  </data>
+  <data name="Professional_Line_Array_System" xml:space="preserve">
+    <value>Professional Line Array System</value>
+  </data>
+  <data name="Programable_Realtime_DSMS" xml:space="preserve">
+    <value>Programmable Realtime Digital Speaker Management System</value>
+  </data>
+  <data name="Software" xml:space="preserve">
+    <value>Software</value>
+  </data>
+  <data name="Software_CL4" xml:space="preserve">
+    <value>CL-4 Software</value>
+  </data>
+  <data name="Software_Firmware_Update_Instructions" xml:space="preserve">
+    <value>Firmware Update Instructions</value>
+  </data>
+  <data name="Software_IPad_IPhone_App" xml:space="preserve">
+    <value>iPad &amp; iPhone Control App</value>
+  </data>
   <data name="Software_Usb_Driver_MacOS" xml:space="preserve">
     <value>USB Driver For Mac OS</value>
   </data>
   <data name="Software_Usb_Driver_MacOS_Quote" xml:space="preserve">
     <value>Please check if you have the USB driver installed before applying the T20 software update. Your Mac will not detect the T20 if you don't have this driver installed.&lt;br/&gt;Please download the driver, install it and restart your Mac. Now you can go ahead with the software update.</value>
+  </data>
+  <data name="Software_Usb_Driver_Windows" xml:space="preserve">
+    <value>USB Driver for Windows</value>
+  </data>
+  <data name="Softwere_Download" xml:space="preserve">
+    <value>Download from here the most recent firmware and software to control your Topp Pro Hardware</value>
+  </data>
+  <data name="Update_For_MacOS" xml:space="preserve">
+    <value>Update For Mac OS</value>
+  </data>
+  <data name="Update_For_Windows" xml:space="preserve">
+    <value>Update For Windows</value>
   </data>
 </root>

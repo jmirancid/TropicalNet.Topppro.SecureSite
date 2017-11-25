@@ -13,7 +13,37 @@ namespace Topppro.WebSite.Extensions
     {
         public static IEnumerable<string> GetHeader(this Product source)
         {
-            return GetAssets(source, ToppproSettings.Product.Header);
+            //return GetAssets(source, ToppproSettings.Product.Header);
+            string folderName = ToppproSettings.Product.Header;
+            string cultureCode = Context.Current.Culture.TwoLetterISOLanguageName;
+
+            if (source.Folder == null) return Enumerable.Empty<string>();
+
+            var key = string.Format("{0}_{1}_{2}", source.Folder, folderName, cultureCode);
+
+            var cached = WebCache.Get(key);
+
+            if (cached == null)
+            {
+                string asset_vpath = Path.Combine(ToppproSettings.Product.Root, source.Folder, folderName);
+
+                string asset_path =
+                    HttpContext.Current.Server.MapPath(asset_vpath);
+
+                DirectoryInfo asset_folder = new DirectoryInfo(asset_path);
+
+                if (!asset_folder.Exists)
+                    return null;
+
+                cached = asset_folder.GetFiles()
+                                .Where(f => Path.GetFileNameWithoutExtension(f.Name).Contains(cultureCode))
+                                .Select(f => UrlHelper.GenerateContentUrl(Path.Combine(asset_vpath, f.Name), new HttpContextWrapper(HttpContext.Current)));
+
+                WebCache.Set(key, cached);
+            }
+
+            return cached;
+
         }
 
         public static IEnumerable<string> GetThumbs(this Product source)

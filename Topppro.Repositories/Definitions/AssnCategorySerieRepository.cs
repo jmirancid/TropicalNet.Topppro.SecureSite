@@ -56,7 +56,7 @@ namespace Topppro.Repositories.Definitions
                         .Include(e => e.Serie);
         }
 
-        public IQueryable<Assn_CategorySerie> AllByWithRefs(Expression<Func<Assn_CategorySerie, bool>> predicate)
+        public IQueryable<Assn_CategorySerie> AllByWithRefs(Expression<Func<Assn_CategorySerie, bool>> predicate, string cultureCode)
         {
             var dbquery = Context.Assn_CategorySerie
                             .Include(a => a.Category)
@@ -75,7 +75,7 @@ namespace Topppro.Repositories.Definitions
                                 Assn_Products = a.Assn_CategorySerieProduct.Where(b => b.Enabled).OrderBy(b => b.Priority),
                                 Products = a.Assn_CategorySerieProduct.Select(b => b.Product),
                                 Models = a.Assn_CategorySerieProduct.Select(b => b.Product.Model),
-                                Bullets = a.Assn_CategorySerieProduct.Select(b => b.Product.Bullets.Where(c => c.Enabled).OrderBy(c => c.Priority))
+                                Bullets = a.Assn_CategorySerieProduct.Select(b => b.Product.Bullets.Where(c => c.Culture.Code == cultureCode && c.Enabled).OrderBy(c => c.Priority))
                             });
 
             return dbquery.AsEnumerable().Select(n => n.a).AsQueryable();

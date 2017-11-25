@@ -1,4 +1,6 @@
-﻿@{
+﻿@using Topppro.WebSite.Resources
+
+@{
     ViewBag.Title = ":: Topp Pro Professional Audio Gear - Custom Sound ::";
 }
 
@@ -12,11 +14,11 @@
 }
 
 <div style="text-align: center;">
-    <img src="@Url.Content("~/Content/Images/cs1.jpg")" alt=""
+    <img src="@Url.Content(ImageResource.Cs_1)" alt=""
         width="999" height="1294" />
     <a href="@Url.RouteUrl("Default", new { controller = "Public", action = "Software" })">
-        <img src="@Url.Content("~/Content/Images/cs2.jpg")" alt=""
+        <img src="@Url.Content(ImageResource.Cs_2)" alt=""
         width="999" height="1114" /></a>
-    <img src="@Url.Content("~/Content/Images/cs3.jpg")" alt=""
+    <img src="@Url.Content(ImageResource.Cs_3)" alt=""
         width="999" height="1183" />
 </div>

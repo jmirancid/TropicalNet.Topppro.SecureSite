@@ -1,0 +1,366 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Amp_Slider_1" xml:space="preserve">
+    <value>~/Content/Images/amps-slider-1.jpg</value>
+  </data>
+  <data name="Amp_Slider_2" xml:space="preserve">
+    <value>~/Content/Images/amps-slider-2.jpg</value>
+  </data>
+  <data name="Amp_Slider_3" xml:space="preserve">
+    <value>~/Content/Images/amps-slider-3.jpg</value>
+  </data>
+  <data name="AppStore_Apps" xml:space="preserve">
+    <value>~/Content/Images/appstore-apps.jpg</value>
+  </data>
+  <data name="AppStore_Apps_Up" xml:space="preserve">
+    <value>~/Content/Images/appstore-apps-up.jpg</value>
+  </data>
+  <data name="Back_Bottom" xml:space="preserve">
+    <value>~/Content/Images/back-bottom.jpg</value>
+  </data>
+  <data name="Back_Top" xml:space="preserve">
+    <value>~/Content/Images/back-top.jpg</value>
+  </data>
+  <data name="Bluetooth_Certificates" xml:space="preserve">
+    <value>~/Content/Images/bluetoth-certificates.jpg</value>
+  </data>
+  <data name="Bluetooth_Certificates_Up" xml:space="preserve">
+    <value>~/Content/Images/bluetoth-certificates-up.jpg</value>
+  </data>
+  <data name="Bottom" xml:space="preserve">
+    <value>~/Content/Images/bottom.jpg</value>
+  </data>
+  <data name="Catalog_Download" xml:space="preserve">
+    <value>~/Content/Images/catalog-download.jpg</value>
+  </data>
+  <data name="Catalog_Download_Up" xml:space="preserve">
+    <value>~/Content/Images/catalog-download-up.jpg</value>
+  </data>
+  <data name="Cs_1" xml:space="preserve">
+    <value>~/Content/Images/cs1.jpg</value>
+  </data>
+  <data name="Cs_2" xml:space="preserve">
+    <value>~/Content/Images/cs2.jpg</value>
+  </data>
+  <data name="Cs_3" xml:space="preserve">
+    <value>~/Content/Images/cs3.jpg</value>
+  </data>
+  <data name="Cs_AppStore" xml:space="preserve">
+    <value>~/Content/Images/cs-appstore.jpg</value>
+  </data>
+  <data name="Cs_Slider_1" xml:space="preserve">
+    <value>~/Content/Images/cs-slider-1.jpg</value>
+  </data>
+  <data name="Cs_Slider_2" xml:space="preserve">
+    <value>~/Content/Images/cs-slider-2.jpg</value>
+  </data>
+  <data name="Cs_Slider_3" xml:space="preserve">
+    <value>~/Content/Images/cs-slider-3.jpg</value>
+  </data>
+  <data name="Cs_Slider_4" xml:space="preserve">
+    <value>~/Content/Images/cs-slider-4.jpg</value>
+  </data>
+  <data name="Cs_Slider_5" xml:space="preserve">
+    <value>~/Content/Images/cs-slider-5.jpg</value>
+  </data>
+  <data name="Cs_Slider_6" xml:space="preserve">
+    <value>~/Content/Images/cs-slider-6.jpg</value>
+  </data>
+  <data name="Cs_Sound" xml:space="preserve">
+    <value>~/Content/Images/cs-sound.jpg</value>
+  </data>
+  <data name="Cs_Sound_Up" xml:space="preserve">
+    <value>~/Content/Images/cs-sound-up.jpg</value>
+  </data>
+  <data name="HiRes_Bottom" xml:space="preserve">
+    <value>~/Content/Images/hires-bottom.jpg</value>
+  </data>
+  <data name="HiRes_Top" xml:space="preserve">
+    <value>~/Content/Images/hires-top.jpg</value>
+  </data>
+  <data name="Install_Slider_1" xml:space="preserve">
+    <value>~/Content/Images/install-slider-1.jpg</value>
+  </data>
+  <data name="Install_Slider_2" xml:space="preserve">
+    <value>~/Content/Images/install-slider-2.jpg</value>
+  </data>
+  <data name="Install_Slider_3" xml:space="preserve">
+    <value>~/Content/Images/install-slider-3.jpg</value>
+  </data>
+  <data name="Install_Slider_4" xml:space="preserve">
+    <value>~/Content/Images/install-slider-4.jpg</value>
+  </data>
+  <data name="Install_Slider_5" xml:space="preserve">
+    <value>~/Content/Images/install-slider-5.jpg</value>
+  </data>
+  <data name="Intro_1" xml:space="preserve">
+    <value>~/Content/Images/intro-1.jpg</value>
+  </data>
+  <data name="Intro_2" xml:space="preserve">
+    <value>~/Content/Images/intro-2.jpg</value>
+  </data>
+  <data name="Intro_3" xml:space="preserve">
+    <value>~/Content/Images/intro-3.jpg</value>
+  </data>
+  <data name="Intro_4" xml:space="preserve">
+    <value>~/Content/Images/intro-4.jpg</value>
+  </data>
+  <data name="Intro_5" xml:space="preserve">
+    <value>~/Content/Images/intro-5.jpg</value>
+  </data>
+  <data name="Intro_6" xml:space="preserve">
+    <value>~/Content/Images/intro-6.jpg</value>
+  </data>
+  <data name="Intro_7" xml:space="preserve">
+    <value>~/Content/Images/intro-7.jpg</value>
+  </data>
+  <data name="Manual_Bottom" xml:space="preserve">
+    <value>~/Content/Images/manual-bottom.jpg</value>
+  </data>
+  <data name="Manual_Top" xml:space="preserve">
+    <value>~/Content/Images/manual-top.jpg</value>
+  </data>
+  <data name="Menu" xml:space="preserve">
+    <value>~/Content/Images/menu-en.jpg</value>
+  </data>
+  <data name="Menu_R6_C1" xml:space="preserve">
+    <value>~/Content/Images/menu_r6_c1.jpg</value>
+  </data>
+  <data name="Menu_R6_C10" xml:space="preserve">
+    <value>~/Content/Images/menu_r6_c10.jpg</value>
+  </data>
+  <data name="Menu_R6_C10_Up" xml:space="preserve">
+    <value>~/Content/Images/menu_r6_c10-up.jpg</value>
+  </data>
+  <data name="Menu_R6_C11" xml:space="preserve">
+    <value>~/Content/Images/menu_r6_c11.jpg</value>
+  </data>
+  <data name="Menu_R6_C11_Up" xml:space="preserve">
+    <value>~/Content/Images/menu_r6_c11-up.jpg</value>
+  </data>
+  <data name="Menu_R6_C12" xml:space="preserve">
+    <value>~/Content/Images/menu_r6_c12.jpg</value>
+  </data>
+  <data name="Menu_R6_C12_Up" xml:space="preserve">
+    <value>~/Content/Images/menu_r6_c12-up.jpg</value>
+  </data>
+  <data name="Menu_R6_C1_Up" xml:space="preserve">
+    <value>~/Content/Images/menu_r6_c1-up.jpg</value>
+  </data>
+  <data name="Menu_R6_C2" xml:space="preserve">
+    <value>~/Content/Images/menu_r6_c2.jpg</value>
+  </data>
+  <data name="Menu_R6_C2_Up" xml:space="preserve">
+    <value>~/Content/Images/menu_r6_c2-up.jpg</value>
+  </data>
+  <data name="Menu_R6_C3" xml:space="preserve">
+    <value>~/Content/Images/menu_r6_c3.jpg</value>
+  </data>
+  <data name="Menu_R6_C3_Up" xml:space="preserve">
+    <value>~/Content/Images/menu_r6_c3-up.jpg</value>
+  </data>
+  <data name="Menu_R6_C4" xml:space="preserve">
+    <value>~/Content/Images/menu_r6_c4.jpg</value>
+  </data>
+  <data name="Menu_R6_C4_Up" xml:space="preserve">
+    <value>~/Content/Images/menu_r6_c4-up.jpg</value>
+  </data>
+  <data name="Menu_R6_C5" xml:space="preserve">
+    <value>~/Content/Images/menu_r6_c5.jpg</value>
+  </data>
+  <data name="Menu_R6_C5_Up" xml:space="preserve">
+    <value>~/Content/Images/menu_r6_c5-up.jpg</value>
+  </data>
+  <data name="Menu_R6_C6" xml:space="preserve">
+    <value>~/Content/Images/menu_r6_c6.jpg</value>
+  </data>
+  <data name="Menu_R6_C6_Up" xml:space="preserve">
+    <value>~/Content/Images/menu_r6_c6-up.jpg</value>
+  </data>
+  <data name="Menu_R6_C7" xml:space="preserve">
+    <value>~/Content/Images/menu_r6_c7.jpg</value>
+  </data>
+  <data name="Menu_R6_C7_Up" xml:space="preserve">
+    <value>~/Content/Images/menu_r6_c7-up.jpg</value>
+  </data>
+  <data name="Menu_R6_C8" xml:space="preserve">
+    <value>~/Content/Images/menu_r6_c8.jpg</value>
+  </data>
+  <data name="Menu_R6_C8_Up" xml:space="preserve">
+    <value>~/Content/Images/menu_r6_c8-up.jpg</value>
+  </data>
+  <data name="Menu_R6_C9" xml:space="preserve">
+    <value>~/Content/Images/menu_r6_c9.jpg</value>
+  </data>
+  <data name="Menu_R6_C9_Up" xml:space="preserve">
+    <value>~/Content/Images/menu_r6_c9-up.jpg</value>
+  </data>
+  <data name="Mx244_App" xml:space="preserve">
+    <value>~/Content/Images/mx244-app.jpg</value>
+  </data>
+  <data name="Mx_V2" xml:space="preserve">
+    <value>~/Content/Images/mx-v2.jpg</value>
+  </data>
+  <data name="Mx_V2_Up" xml:space="preserve">
+    <value>~/Content/Images/mx-v2-up.jpg</value>
+  </data>
+  <data name="Software_Bottom" xml:space="preserve">
+    <value>~/Content/Images/software-bottom.jpg</value>
+  </data>
+  <data name="Software_Top" xml:space="preserve">
+    <value>~/Content/Images/software-top.jpg</value>
+  </data>
+  <data name="Soho_Slider_1" xml:space="preserve">
+    <value>~/Content/Images/soho-slider-1.jpg</value>
+  </data>
+  <data name="Soho_Slider_2" xml:space="preserve">
+    <value>~/Content/Images/soho-slider-2.jpg</value>
+  </data>
+  <data name="Soho_Slider_3" xml:space="preserve">
+    <value>~/Content/Images/soho-slider-3.jpg</value>
+  </data>
+  <data name="Soho_Slider_4" xml:space="preserve">
+    <value>~/Content/Images/soho-slider-4.jpg</value>
+  </data>
+  <data name="T20_Slider_1" xml:space="preserve">
+    <value>~/Content/Images/t20-slider-1.jpg</value>
+  </data>
+  <data name="T20_Slider_2" xml:space="preserve">
+    <value>~/Content/Images/t20-slider-2.jpg</value>
+  </data>
+  <data name="T20_Slider_3" xml:space="preserve">
+    <value>~/Content/Images/t20-slider-3.jpg</value>
+  </data>
+  <data name="Tma54bzt" xml:space="preserve">
+    <value>~/Content/Images/tma54bzt.jpg</value>
+  </data>
+  <data name="Tma54bzt_Up" xml:space="preserve">
+    <value>~/Content/Images/tma54bzt-up.jpg</value>
+  </data>
+  <data name="Wireless_Slider_1" xml:space="preserve">
+    <value>~/Content/Images/wireless-slider-1.jpg</value>
+  </data>
+  <data name="Wireless_Slider_2" xml:space="preserve">
+    <value>~/Content/Images/wireless-slider-2.jpg</value>
+  </data>
+  <data name="Wireless_Slider_3" xml:space="preserve">
+    <value>~/Content/Images/wireless-slider-2.jpg</value>
+  </data>
+</root>

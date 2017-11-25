@@ -14,7 +14,7 @@ namespace Topppro.WebSite.Controllers
                 (int)Enum.Parse(typeof(Topppro.Entities.Category_Enum), controller);
 
             var entities =
-                base._bizAssnCategorySerie.Value.AllByWithRefs(n => n.CategoryId == categoryId && n.Enabled)
+                base._bizAssnCategorySerie.Value.AllByWithRefs(n => n.CategoryId == categoryId && n.Enabled, Context.Current.Culture.TwoLetterISOLanguageName)
                 .OrderBy(n => n.Serie.Name);
 
             ViewBag.Title =

@@ -21,14 +21,14 @@ namespace Topppro.WebSite.Controllers
         protected readonly Lazy<AttributeBusiness> _bizAttribute =
             new Lazy<AttributeBusiness>();
 
-        [OutputCache(CacheProfile = "Short")]
+        [OutputCache(CacheProfile = "Short", VaryByParam = "culture")]
         public virtual ActionResult Index(string controller)
         {
             var categoryId =
                 (int)Enum.Parse(typeof(Topppro.Entities.Category_Enum), controller);
 
             var entities =
-                this._bizAssnCategorySerie.Value.AllByWithRefs(n => n.CategoryId == categoryId && n.Enabled);
+                this._bizAssnCategorySerie.Value.AllByWithRefs(n => n.CategoryId == categoryId && n.Enabled, Context.Current.Culture.TwoLetterISOLanguageName);
 
             ViewBag.Title =
                 string.Format(":: Topp Pro Professional Audio {0} ::", controller);
@@ -43,7 +43,7 @@ namespace Topppro.WebSite.Controllers
             return View(entities);
         }
 
-        [OutputCache(CacheProfile = "Short")]
+        [OutputCache(CacheProfile = "Short", VaryByParam = "culture")]
         public virtual ActionResult Detail(string controller, int id, string name)
         {
             var entity = this._bizAssnCategorySerieProduct.Value
@@ -67,7 +67,7 @@ namespace Topppro.WebSite.Controllers
             return View(entity);
         }
 
-        [OutputCache(CacheProfile = "Mini")]
+        [OutputCache(CacheProfile = "Mini", VaryByParam = "culture")]
         public virtual ActionResult Compare(string controller, int lid, string lname, int rid, string rname)
         {
             var entities =

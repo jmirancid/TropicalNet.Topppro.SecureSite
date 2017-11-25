@@ -1,4 +1,5 @@
 ﻿@using Topppro.Entities
+@using Topppro.WebSite.Resources
 
 <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Scripts/jssor.slider-19.0/jssor.slider.css")" />
 <div id="intro_banner" style="position: relative; width: 1000px; height: 481px; overflow: hidden;">
@@ -16,25 +17,25 @@
         height: 481px; overflow: hidden;">
         <div>
             <a u="image" href="@Url.RouteUrl("Detail", new { controller = Category_Enum.Mixers.ToString(), id = 68, name = "t20" })">
-                <img src2="@Url.Content("~/Content/Images/intro-1.jpg")" alt="" border="0"/></a></div>
+                <img src2="@Url.Content(ImageResource.Intro_1)" alt="" border="0"/></a></div>
         <div>
             <a u="image" href="@Url.RouteUrl("Catalog", new { controller = Category_Enum.Wireless.ToString() })">
-                <img src2="@Url.Content("~/Content/Images/intro-2.jpg")" alt=""/></a></div>
+                <img src2="@Url.Content(ImageResource.Intro_2)" alt=""/></a></div>
         <div>
             <a u="image" href="@Url.RouteUrl("Catalog", new { controller = Category_Enum.Wireless.ToString() })">
-                <img src2="@Url.Content("~/Content/Images/intro-3.jpg")" alt=""/></a></div>
+                <img src2="@Url.Content(ImageResource.Intro_3)" alt=""/></a></div>
         <div>
             <a u="image" href="@Url.RouteUrl("Catalog", new { controller = Category_Enum.Speakers.ToString() })#x cs">
-                <img src2="@Url.Content("~/Content/Images/intro-4.jpg")" alt=""/></a></div>
+                <img src2="@Url.Content(ImageResource.Intro_4)" alt=""/></a></div>
         <div>
             <a u="image" href="@Url.RouteUrl("Catalog", new { controller = Category_Enum.Speakers.ToString() })">
-                <img src2="@Url.Content("~/Content/Images/intro-5.jpg")" alt=""/></a></div>
+                <img src2="@Url.Content(ImageResource.Intro_5)" alt=""/></a></div>
         <div>
             <a u="image" href="https://itunes.apple.com/en/app/t20i/id950579631?mt=8" target="_blank">
-                <img src2="@Url.Content("~/Content/Images/intro-6.jpg")" alt=""/></a></div>
+                <img src2="@Url.Content(ImageResource.Intro_6)" alt=""/></a></div>
         <div>
             <a u="image" href="@Url.RouteUrl("Detail", new { controller = Category_Enum.Speakers.ToString(), id = 194, name = "ks-t28a" })">
-                <img src2="@Url.Content("~/Content/Images/intro-7.jpg")" alt=""/></a></div>
+                <img src2="@Url.Content(ImageResource.Intro_7)" alt=""/></a></div>
     </div>
     <!-- Arrow Left -->
     <span u="arrowleft" class="jssorarrowl" style="top: 123px; left: 8px;">
