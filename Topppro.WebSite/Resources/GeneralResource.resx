@@ -129,6 +129,9 @@
   <data name="Search" xml:space="preserve">
     <value>Search</value>
   </data>
+  <data name="Topppro_Catalog" xml:space="preserve">
+    <value>~/Content/Downloads/topppro-en.pdf</value>
+  </data>
   <data name="User_Manual" xml:space="preserve">
     <value>User Manual</value>
   </data>

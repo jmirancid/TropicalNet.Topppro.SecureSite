@@ -126,6 +126,9 @@
   <data name="HiRes_Pics" xml:space="preserve">
     <value>Imágenes Hi Res</value>
   </data>
+  <data name="Topppro_Catalog" xml:space="preserve">
+    <value>~/Content/Downloads/topppro-es.pdf</value>
+  </data>
   <data name="User_Manual" xml:space="preserve">
     <value>Manual de Usuario</value>
   </data>

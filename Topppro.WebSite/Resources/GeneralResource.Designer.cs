@@ -97,6 +97,15 @@ namespace Topppro.WebSite.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ~/Content/Downloads/topppro-en.pdf.
+        /// </summary>
+        public static string Topppro_Catalog {
+            get {
+                return ResourceManager.GetString("Topppro_Catalog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to User Manual.
         /// </summary>
         public static string User_Manual {
