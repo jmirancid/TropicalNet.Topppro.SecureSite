@@ -135,6 +135,9 @@
   <data name="Firmware_Update" xml:space="preserve">
     <value>Actualizacion Firmware</value>
   </data>
+  <data name="Legacy_Product_Software" xml:space="preserve">
+    <value>Software de Productos Discontinuos</value>
+  </data>
   <data name="Modules" xml:space="preserve">
     <value>Módulos</value>
   </data>

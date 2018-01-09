@@ -115,6 +115,15 @@ namespace Topppro.WebSite.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Legacy Product Software.
+        /// </summary>
+        public static string Legacy_Product_Software {
+            get {
+                return ResourceManager.GetString("Legacy_Product_Software", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Modules.
         /// </summary>
         public static string Modules {
