@@ -132,8 +132,14 @@
   <data name="Firmware_Release" xml:space="preserve">
     <value>Firmware Release</value>
   </data>
+  <data name="Firmware_Release_Notes" xml:space="preserve">
+    <value>Firmware Release Notes</value>
+  </data>
   <data name="Firmware_Update" xml:space="preserve">
     <value>Firmware Update</value>
+  </data>
+  <data name="Firmware_Utility_Mac" xml:space="preserve">
+    <value>Utility Tool For Firmware Update (iOS)</value>
   </data>
   <data name="Legacy_Product_Software" xml:space="preserve">
     <value>Legacy Product Software</value>
@@ -173,6 +179,9 @@
   </data>
   <data name="Softwere_Download" xml:space="preserve">
     <value>Download from here the most recent firmware and software to control your Topp Pro Hardware</value>
+  </data>
+  <data name="T32_Software_Usb_Driver_Windows" xml:space="preserve">
+    <value>T32 USB Driver for Windows</value>
   </data>
   <data name="Update_For_MacOS" xml:space="preserve">
     <value>Update For Mac OS</value>

@@ -106,11 +106,29 @@ namespace Topppro.WebSite.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Firmware Release Notes.
+        /// </summary>
+        public static string Firmware_Release_Notes {
+            get {
+                return ResourceManager.GetString("Firmware_Release_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Firmware Update.
         /// </summary>
         public static string Firmware_Update {
             get {
                 return ResourceManager.GetString("Firmware_Update", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Utility Tool For Firmware Update (iOS).
+        /// </summary>
+        public static string Firmware_Utility_Mac {
+            get {
+                return ResourceManager.GetString("Firmware_Utility_Mac", resourceCulture);
             }
         }
         
@@ -228,6 +246,15 @@ namespace Topppro.WebSite.Resources {
         public static string Softwere_Download {
             get {
                 return ResourceManager.GetString("Softwere_Download", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to T32 USB Driver for Windows.
+        /// </summary>
+        public static string T32_Software_Usb_Driver_Windows {
+            get {
+                return ResourceManager.GetString("T32_Software_Usb_Driver_Windows", resourceCulture);
             }
         }
         
