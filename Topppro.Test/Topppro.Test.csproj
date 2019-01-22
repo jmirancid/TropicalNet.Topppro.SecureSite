@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\AssnCategorySerieProductBusinessTest.cs" />
+    <Compile Include="Business\AssnDownloadCultureBusinessTest.cs" />
     <Compile Include="Business\AttributeBusinessTest.cs" />
     <Compile Include="Business\BusinessTest.cs" />
     <Compile Include="Business\CategoryBusinessTest.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="Business\CountryBusinessTest.cs" />
     <Compile Include="Business\CultureBusinessTest.cs" />
     <Compile Include="Business\DistributorBusinessTest.cs" />
+    <Compile Include="Business\DownloadBusinessTest.cs" />
     <Compile Include="Business\ModelBusinessTest.cs" />
     <Compile Include="Business\PackageBusinessTest.cs" />
     <Compile Include="Business\ProductBusinessTest.cs" />

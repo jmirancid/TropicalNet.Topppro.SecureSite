@@ -64,16 +64,21 @@
     <Compile Include="Assn_CategorySerieProduct.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Assn_DownloadCulture.cs" />
     <Compile Include="Attribute.cs" />
     <Compile Include="Bullet.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="Country.cs" />
     <Compile Include="Culture.cs" />
     <Compile Include="Distributor.cs" />
+    <Compile Include="Download.cs" />
     <Compile Include="Generated\Assn_CategorySerie.cs">
       <DependentUpon>Templates.tt</DependentUpon>
     </Compile>
     <Compile Include="Generated\Assn_CategorySerieProduct.cs">
+      <DependentUpon>Templates.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Generated\Assn_DownloadCulture.cs">
       <DependentUpon>Templates.tt</DependentUpon>
     </Compile>
     <Compile Include="Generated\Attribute.cs">
@@ -92,6 +97,9 @@
       <DependentUpon>Templates.tt</DependentUpon>
     </Compile>
     <Compile Include="Generated\Distributor.cs">
+      <DependentUpon>Templates.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Generated\Download.cs">
       <DependentUpon>Templates.tt</DependentUpon>
     </Compile>
     <Compile Include="Generated\Model.cs">
@@ -119,6 +127,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Ent_AssnCategorySerieProductResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Ent_AssnDownloadCultureResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ent_AssnDownloadCultureResource.resx</DependentUpon>
     </Compile>
     <Compile Include="Resources\Ent_AttributeResource.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -154,6 +167,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Ent_DistributorResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Ent_DownloadResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ent_DownloadResource.resx</DependentUpon>
     </Compile>
     <Compile Include="Resources\Ent_ModelResource.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -201,6 +219,10 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Ent_AssnCategorySerieProductResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Ent_AssnDownloadCultureResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Ent_AssnDownloadCultureResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Ent_AttributeResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Ent_AttributeResource.Designer.cs</LastGenOutput>
@@ -228,6 +250,10 @@
     <EmbeddedResource Include="Resources\Ent_DistributorResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Ent_DistributorResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Ent_DownloadResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Ent_DownloadResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Ent_ModelResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

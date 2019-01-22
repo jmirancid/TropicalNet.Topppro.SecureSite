@@ -144,6 +144,40 @@ namespace Topppro.Entities
         }
     	//[XmlElement("Attribute", typeof(Collection<Attribute>))]
         private ICollection<Attribute> _attribute;
+    
+    	//[XmlElement("Assn_DownloadCulture", typeof(Collection<Assn_DownloadCulture>))]
+        public virtual ICollection<Assn_DownloadCulture> Assn_DownloadCulture
+        {
+            get
+            {
+                if (_assn_DownloadCulture == null)
+                {
+                    var newCollection = new FixupCollection<Assn_DownloadCulture>();
+                    newCollection.CollectionChanged += FixupAssn_DownloadCulture;
+                    _assn_DownloadCulture = newCollection;
+                }
+                return _assn_DownloadCulture;
+            }
+            set
+            {
+                if (!ReferenceEquals(_assn_DownloadCulture, value))
+                {
+                    var previousValue = _assn_DownloadCulture as FixupCollection<Assn_DownloadCulture>;
+                    if (previousValue != null)
+                    {
+                        previousValue.CollectionChanged -= FixupAssn_DownloadCulture;
+                    }
+                    _assn_DownloadCulture = value;
+                    var newValue = value as FixupCollection<Assn_DownloadCulture>;
+                    if (newValue != null)
+                    {
+                        newValue.CollectionChanged += FixupAssn_DownloadCulture;
+                    }
+                }
+            }
+        }
+    	//[XmlElement("Assn_DownloadCulture", typeof(Collection<Assn_DownloadCulture>))]
+        private ICollection<Assn_DownloadCulture> _assn_DownloadCulture;
 
         #endregion
         #region Association Fixup
@@ -205,6 +239,28 @@ namespace Topppro.Entities
             if (e.OldItems != null)
             {
                 foreach (Attribute item in e.OldItems)
+                {
+                    if (ReferenceEquals(item.Culture, this))
+                    {
+                        item.Culture = null;
+                    }
+                }
+            }
+        }
+    
+        private void FixupAssn_DownloadCulture(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (e.NewItems != null)
+            {
+                foreach (Assn_DownloadCulture item in e.NewItems)
+                {
+                    item.Culture = this;
+                }
+            }
+    
+            if (e.OldItems != null)
+            {
+                foreach (Assn_DownloadCulture item in e.OldItems)
                 {
                     if (ReferenceEquals(item.Culture, this))
                     {

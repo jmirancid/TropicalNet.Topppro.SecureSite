@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Definitions\AssnCategorySerieProductBusiness.cs" />
+    <Compile Include="Definitions\AssnDownloadCultureBusiness.cs" />
     <Compile Include="Definitions\AttributeBusiness.cs" />
     <Compile Include="Definitions\BulletBusiness.cs" />
     <Compile Include="Definitions\CategoryBusiness.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Definitions\CountryBusiness.cs" />
     <Compile Include="Definitions\CultureBusiness.cs" />
     <Compile Include="Definitions\DistributorBusiness.cs" />
+    <Compile Include="Definitions\DownloadBusiness.cs" />
     <Compile Include="Definitions\ModelBusiness.cs" />
     <Compile Include="Definitions\PackageBusiness.cs" />
     <Compile Include="Definitions\ProductBusiness.cs" />

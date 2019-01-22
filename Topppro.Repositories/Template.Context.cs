@@ -23,19 +23,19 @@ namespace Topppro.Repositories
         public ToppproEntities()
             : base(ConnectionString, ContainerName)
         {
-            this.ContextOptions.LazyLoadingEnabled = true;
+            this.ContextOptions.LazyLoadingEnabled = false;
         }
     
         public ToppproEntities(string connectionString)
             : base(connectionString, ContainerName)
         {
-            this.ContextOptions.LazyLoadingEnabled = true;
+            this.ContextOptions.LazyLoadingEnabled = false;
         }
     
         public ToppproEntities(EntityConnection connection)
             : base(connection, ContainerName)
         {
-            this.ContextOptions.LazyLoadingEnabled = true;
+            this.ContextOptions.LazyLoadingEnabled = false;
         }
     
         #endregion
@@ -113,6 +113,18 @@ namespace Topppro.Repositories
             get { return _attribute  ?? (_attribute = CreateObjectSet<Attribute>("Attribute")); }
         }
         private ObjectSet<Attribute> _attribute;
+    
+        public ObjectSet<Assn_DownloadCulture> Assn_DownloadCulture
+        {
+            get { return _assn_DownloadCulture  ?? (_assn_DownloadCulture = CreateObjectSet<Assn_DownloadCulture>("Assn_DownloadCulture")); }
+        }
+        private ObjectSet<Assn_DownloadCulture> _assn_DownloadCulture;
+    
+        public ObjectSet<Download> Download
+        {
+            get { return _download  ?? (_download = CreateObjectSet<Download>("Download")); }
+        }
+        private ObjectSet<Download> _download;
 
         #endregion
     

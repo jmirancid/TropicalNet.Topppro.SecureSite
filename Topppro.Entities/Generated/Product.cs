@@ -268,6 +268,40 @@ namespace Topppro.Entities
         }
     	//[XmlElement("Attributes", typeof(Collection<Attribute>))]
         private ICollection<Attribute> _attributes;
+    
+    	//[XmlElement("Download", typeof(Collection<Download>))]
+        public virtual ICollection<Download> Download
+        {
+            get
+            {
+                if (_download == null)
+                {
+                    var newCollection = new FixupCollection<Download>();
+                    newCollection.CollectionChanged += FixupDownload;
+                    _download = newCollection;
+                }
+                return _download;
+            }
+            set
+            {
+                if (!ReferenceEquals(_download, value))
+                {
+                    var previousValue = _download as FixupCollection<Download>;
+                    if (previousValue != null)
+                    {
+                        previousValue.CollectionChanged -= FixupDownload;
+                    }
+                    _download = value;
+                    var newValue = value as FixupCollection<Download>;
+                    if (newValue != null)
+                    {
+                        newValue.CollectionChanged += FixupDownload;
+                    }
+                }
+            }
+        }
+    	//[XmlElement("Download", typeof(Collection<Download>))]
+        private ICollection<Download> _download;
 
         #endregion
         #region Association Fixup
@@ -393,6 +427,28 @@ namespace Topppro.Entities
             if (e.OldItems != null)
             {
                 foreach (Attribute item in e.OldItems)
+                {
+                    if (ReferenceEquals(item.Product, this))
+                    {
+                        item.Product = null;
+                    }
+                }
+            }
+        }
+    
+        private void FixupDownload(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (e.NewItems != null)
+            {
+                foreach (Download item in e.NewItems)
+                {
+                    item.Product = this;
+                }
+            }
+    
+            if (e.OldItems != null)
+            {
+                foreach (Download item in e.OldItems)
                 {
                     if (ReferenceEquals(item.Product, this))
                     {

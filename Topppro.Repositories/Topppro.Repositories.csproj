@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Definitions\AssnCategorySerieProductRepository.cs" />
+    <Compile Include="Definitions\AssnDownloadCultureRepository.cs" />
     <Compile Include="Definitions\AttributeRepository.cs" />
     <Compile Include="Definitions\BulletRepository.cs" />
     <Compile Include="Definitions\CategoryRepository.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="Definitions\CountryRepository.cs" />
     <Compile Include="Definitions\CultureRepository.cs" />
     <Compile Include="Definitions\DistributorRepository.cs" />
+    <Compile Include="Definitions\DownloadRepository.cs" />
     <Compile Include="Definitions\ModelRepository.cs" />
     <Compile Include="Definitions\PackageRepository.cs" />
     <Compile Include="Definitions\ProductRepository.cs" />
