@@ -59,7 +59,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\TropicalNet.Framework\trunk\Framework.Context\Framework.Context.csproj">
+    <ProjectReference Include="..\..\..\..\TropicalNet.Framework\trunk\Framework.Context\Framework.Context.csproj">
       <Project>{C9207BCB-85AB-46A5-B553-63ABF8A0AD0F}</Project>
       <Name>Framework.Context</Name>
     </ProjectReference>

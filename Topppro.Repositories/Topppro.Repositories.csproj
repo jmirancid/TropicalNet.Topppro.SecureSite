@@ -86,15 +86,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\TropicalNet.Framework\trunk\Framework.Entities\Framework.Entities.csproj">
+    <ProjectReference Include="..\..\..\..\TropicalNet.Framework\trunk\Framework.Entities\Framework.Entities.csproj">
       <Project>{9489546F-974D-469B-804B-60DB8A53DF5E}</Project>
       <Name>Framework.Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\TropicalNet.Framework\trunk\Framework.Interfaces\Framework.Interfaces.csproj">
+    <ProjectReference Include="..\..\..\..\TropicalNet.Framework\trunk\Framework.Interfaces\Framework.Interfaces.csproj">
       <Project>{E0371FF6-0E27-490C-A8A9-A6D55716F6D3}</Project>
       <Name>Framework.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\TropicalNet.Framework\trunk\Framework.Repositories\Framework.Repositories.csproj">
+    <ProjectReference Include="..\..\..\..\TropicalNet.Framework\trunk\Framework.Repositories\Framework.Repositories.csproj">
       <Project>{D538E6EF-CB4C-4B72-9CB6-A9C081914CDD}</Project>
       <Name>Framework.Repositories</Name>
     </ProjectReference>
