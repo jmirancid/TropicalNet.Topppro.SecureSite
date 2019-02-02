@@ -673,6 +673,24 @@ namespace Topppro.WebSite.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ~/Content/Images/modules-slider-1.jpg.
+        /// </summary>
+        public static string Processors_Slider_1 {
+            get {
+                return ResourceManager.GetString("Processors_Slider_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~/Content/Images/modules-slider-2.jpg.
+        /// </summary>
+        public static string Processors_Slider_2 {
+            get {
+                return ResourceManager.GetString("Processors_Slider_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ~/Content/Images/software-bottom.jpg.
         /// </summary>
         public static string Software_Bottom {
@@ -786,15 +804,6 @@ namespace Topppro.WebSite.Resources {
         public static string Wireless_Slider_2 {
             get {
                 return ResourceManager.GetString("Wireless_Slider_2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ~/Content/Images/wireless-slider-2.jpg.
-        /// </summary>
-        public static string Wireless_Slider_3 {
-            get {
-                return ResourceManager.GetString("Wireless_Slider_3", resourceCulture);
             }
         }
     }

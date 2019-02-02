@@ -321,6 +321,12 @@
   <data name="Mx_V2_Up" xml:space="preserve">
     <value>~/Content/Images/es/mx-v2-up-es.jpg</value>
   </data>
+  <data name="Processors_Slider_1" xml:space="preserve">
+    <value>~/Content/Images/es/modules-slider-1-es.jpg</value>
+  </data>
+  <data name="Processors_Slider_2" xml:space="preserve">
+    <value>~/Content/Images/es/modules-slider-2-es.jpg</value>
+  </data>
   <data name="Software_Bottom" xml:space="preserve">
     <value>~/Content/Images/es/software-bottom-es.jpg</value>
   </data>
@@ -358,9 +364,6 @@
     <value>~/Content/Images/es/wireless-slider-1-es.jpg</value>
   </data>
   <data name="Wireless_Slider_2" xml:space="preserve">
-    <value>~/Content/Images/es/wireless-slider-2-es.jpg</value>
-  </data>
-  <data name="Wireless_Slider_3" xml:space="preserve">
     <value>~/Content/Images/es/wireless-slider-2-es.jpg</value>
   </data>
 </root>
