@@ -46,6 +46,9 @@
     <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Framework.Context">
+      <HintPath>..\Framework\Framework.Context.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -57,12 +60,6 @@
   <ItemGroup>
     <Compile Include="Current.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\TropicalNet.Framework\trunk\Framework.Context\Framework.Context.csproj">
-      <Project>{C9207BCB-85AB-46A5-B553-63ABF8A0AD0F}</Project>
-      <Name>Framework.Context</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

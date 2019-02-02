@@ -130,6 +130,12 @@ namespace Topppro.WebSite.Extensions
             return htmlHelper.Partial("_InstallBanner");
         }
 
+        public static MvcHtmlString ProcessorsBanner(
+            this HtmlHelper htmlHelper)
+        {
+            return htmlHelper.Partial("_ProcessorsBanner");
+        }
+
         public static MvcHtmlString WirelessBanner(
             this HtmlHelper htmlHelper)
         {

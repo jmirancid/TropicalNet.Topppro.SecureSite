@@ -46,6 +46,12 @@
     <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Framework.Entities">
+      <HintPath>..\Framework\Framework.Entities.dll</HintPath>
+    </Reference>
+    <Reference Include="Framework.IO">
+      <HintPath>..\Framework\Framework.IO.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -203,16 +209,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\TropicalNet.Framework\trunk\Framework.Entities\Framework.Entities.csproj">
-      <Project>{9489546F-974D-469B-804B-60DB8A53DF5E}</Project>
-      <Name>Framework.Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\TropicalNet.Framework\trunk\Framework.IO\Framework.IO.csproj">
-      <Project>{494E3C6C-0992-4370-804A-97BCACB03C05}</Project>
-      <Name>Framework.IO</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Ent_AssnCategorySerieProductResource.resx">

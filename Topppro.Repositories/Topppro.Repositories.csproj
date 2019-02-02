@@ -50,6 +50,15 @@
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="Framework.Entities">
+      <HintPath>..\Framework\Framework.Entities.dll</HintPath>
+    </Reference>
+    <Reference Include="Framework.Interfaces">
+      <HintPath>..\Framework\Framework.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Framework.Repositories">
+      <HintPath>..\Framework\Framework.Repositories.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -86,18 +95,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\TropicalNet.Framework\trunk\Framework.Entities\Framework.Entities.csproj">
-      <Project>{9489546F-974D-469B-804B-60DB8A53DF5E}</Project>
-      <Name>Framework.Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\TropicalNet.Framework\trunk\Framework.Interfaces\Framework.Interfaces.csproj">
-      <Project>{E0371FF6-0E27-490C-A8A9-A6D55716F6D3}</Project>
-      <Name>Framework.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\TropicalNet.Framework\trunk\Framework.Repositories\Framework.Repositories.csproj">
-      <Project>{D538E6EF-CB4C-4B72-9CB6-A9C081914CDD}</Project>
-      <Name>Framework.Repositories</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Topppro.Entities\Topppro.Entities.csproj">
       <Project>{B8BC3FB7-0FAF-45C6-99EC-845CF87A20E2}</Project>
       <Name>Topppro.Entities</Name>
