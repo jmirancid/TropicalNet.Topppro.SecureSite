@@ -46,6 +46,12 @@
     <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Framework.Entities">
+      <HintPath>..\Framework\Framework.Entities.dll</HintPath>
+    </Reference>
+    <Reference Include="Framework.IO">
+      <HintPath>..\Framework\Framework.IO.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -261,16 +267,6 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Ent_SerieResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\TropicalNet.Framework\trunk\Framework.Entities\Framework.Entities.csproj">
-      <Project>{9489546F-974D-469B-804B-60DB8A53DF5E}</Project>
-      <Name>Framework.Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\TropicalNet.Framework\trunk\Framework.IO\Framework.IO.csproj">
-      <Project>{494E3C6C-0992-4370-804A-97BCACB03C05}</Project>
-      <Name>Framework.IO</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
