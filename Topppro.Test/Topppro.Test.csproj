@@ -86,7 +86,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\AssnCategorySerieProductBusinessTest.cs" />
-    <Compile Include="Business\AssnDownloadCultureBusinessTest.cs" />
     <Compile Include="Business\AttributeBusinessTest.cs" />
     <Compile Include="Business\BusinessTest.cs" />
     <Compile Include="Business\CategoryBusinessTest.cs" />

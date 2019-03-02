@@ -10,7 +10,8 @@ namespace Topppro.Repositories.Definitions
         public override IQueryable<Entities.Download> All()
         {
             return Context.Download
-                        .Include(a => a.Product);
+                        .Include(a => a.Product)
+                        .Include(a => a.Culture);
         }
 
         public override IQueryable<Entities.Download> AllBy(
@@ -18,6 +19,7 @@ namespace Topppro.Repositories.Definitions
         {
             return Context.Download
                         .Include(a => a.Product)
+                        .Include(a => a.Culture)
                         .Where(predicate);
         }
 
@@ -25,6 +27,7 @@ namespace Topppro.Repositories.Definitions
         {
             return Context.Download
                         .Include(a => a.Product)
+                        .Include(a => a.Culture)
                         .Skip(skip)
                         .Take(take);
         }
@@ -34,6 +37,7 @@ namespace Topppro.Repositories.Definitions
         {
             return Context.Download
                         .Include(a => a.Product)
+                        .Include(a => a.Culture)
                         .Where(predicate)
                         .Skip(skip)
                         .Take(take);
@@ -43,6 +47,7 @@ namespace Topppro.Repositories.Definitions
         {
             return Context.Download
                         .Include(a => a.Product)
+                        .Include(a => a.Culture)
                         .SingleOrDefault(a => a.DownloadId == id);
         }
     }

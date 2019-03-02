@@ -114,12 +114,6 @@ namespace Topppro.Repositories
         }
         private ObjectSet<Attribute> _attribute;
     
-        public ObjectSet<Assn_DownloadCulture> Assn_DownloadCulture
-        {
-            get { return _assn_DownloadCulture  ?? (_assn_DownloadCulture = CreateObjectSet<Assn_DownloadCulture>("Assn_DownloadCulture")); }
-        }
-        private ObjectSet<Assn_DownloadCulture> _assn_DownloadCulture;
-    
         public ObjectSet<Download> Download
         {
             get { return _download  ?? (_download = CreateObjectSet<Download>("Download")); }

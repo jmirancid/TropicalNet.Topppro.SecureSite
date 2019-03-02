@@ -32,6 +32,9 @@
     <li>
         <a href="#package" data-toggle="tab" aria-expanded="false">@Ent_PackageResource._Caption</a>
     </li>
+    <li>
+        <a href="#download" data-toggle="tab" aria-expanded="false">@Ent_DownloadResource._Caption</a>
+    </li>
 </ul>
 
 <div class="tab-content">
@@ -59,6 +62,9 @@
     </div>
     <div class="tab-pane fade" id="package">
         @Html.Action("Index", "Package", new { id = Model.Id })
+    </div>
+    <div class="tab-pane fade" id="download">
+        @Html.Action("Index", "Download", new { id = Model.Id })
     </div>
 </div>
 

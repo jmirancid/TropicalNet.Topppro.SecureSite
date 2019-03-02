@@ -274,10 +274,8 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
             }
             catch (Exception ex)
             {
-                throw ex;
-
-                //Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-                //return Content(ex.Message);
+                Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                return Content(ex.Message);
             }
         }
 
@@ -319,8 +317,6 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
             }
             catch (Exception ex)
             {
-                //throw ex;
-
                 Response.StatusCode = (int)HttpStatusCode.InternalServerError;
                 return Content(ex.Message);
             }
@@ -342,11 +338,6 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
         public override void CreateGetPrerender(Topppro.Entities.Attribute entity = null)
         {
             ViewBag.Cultures = new SelectList(this._bizCulture.Value.All(), "CultureId", "Name");
-        }
-
-        public override void DetailsGetPrerender(Topppro.Entities.Attribute entity)
-        {
-            ViewBag.Cultures = new SelectList(this._bizCulture.Value.All(), "CultureId", "Name", entity.CultureId);
         }
 
         public override void EditGetPrerender(Topppro.Entities.Attribute entity)

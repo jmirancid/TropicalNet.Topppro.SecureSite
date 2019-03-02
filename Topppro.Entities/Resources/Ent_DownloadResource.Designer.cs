@@ -70,11 +70,38 @@ namespace Topppro.Entities.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Culture.
+        /// </summary>
+        public static string Entity_Culture {
+            get {
+                return ResourceManager.GetString("Entity_Culture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        public static string Entity_Description {
+            get {
+                return ResourceManager.GetString("Entity_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enabled.
         /// </summary>
         public static string Entity_Enabled {
             get {
                 return ResourceManager.GetString("Entity_Enabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string Entity_Name {
+            get {
+                return ResourceManager.GetString("Entity_Name", resourceCulture);
             }
         }
         

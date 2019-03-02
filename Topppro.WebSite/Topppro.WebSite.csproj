@@ -139,6 +139,7 @@
     <Compile Include="Areas\SecureSite\Controllers\CultureController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\DashboardController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\DistributorController.cs" />
+    <Compile Include="Areas\SecureSite\Controllers\DownloadController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\LayoutController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\ModelController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\PackageController.cs" />
@@ -350,6 +351,7 @@
     <Content Include="Areas\SecureSite\Scripts\jquery.validate.min.js" />
     <Content Include="Areas\SecureSite\Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Areas\SecureSite\Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Areas\SecureSite\Scripts\knockout-3.4.2.js" />
     <Content Include="Areas\SecureSite\Scripts\metisMenu\jquery.metisMenu.js" />
     <Content Include="Areas\SecureSite\Scripts\MicrosoftAjax.debug.js" />
     <Content Include="Areas\SecureSite\Scripts\MicrosoftAjax.js" />
@@ -584,6 +586,7 @@
     <Content Include="Content\Images\intro-2.jpg" />
     <Content Include="Content\Images\intro-3.jpg" />
     <Content Include="Content\Images\intro-4.jpg" />
+    <Content Include="Content\Images\intro-5.jpg" />
     <Content Include="Content\Images\intro-6.jpg" />
     <Content Include="Content\Images\intro-7.jpg" />
     <Content Include="Content\Images\loading.gif" />
@@ -691,6 +694,7 @@
     <Content Include="Content\Images\software-top.jpg" />
     <Content Include="Content\Images\soho-slider-1.jpg" />
     <Content Include="Content\Images\soho-slider-2.jpg" />
+    <Content Include="Content\Images\soho-slider-3.jpg" />
     <Content Include="Content\Images\soho-slider-4.jpg" />
     <Content Include="Content\Images\spacer.gif" />
     <Content Include="Content\Images\syncfusion-icons-white.png" />
@@ -777,6 +781,7 @@
     <Content Include="Scripts\jssor.slider-19.0\jssor.slider.min.js" />
     <Content Include="Scripts\jssor.slider-19.0\MIT-LICENSE.txt" />
     <Content Include="Scripts\jssor.slider-19.0\readme.txt" />
+    <Content Include="Scripts\knockout-3.4.2.js" />
     <Content Include="Scripts\MM_functions.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -1118,6 +1123,13 @@
     <Content Include="Areas\SecureSite\Views\Package\_Edit.cshtml" />
     <Content Include="Areas\SecureSite\Views\Package\_Details.cshtml" />
     <Content Include="Areas\SecureSite\Views\Package\_Toolbar.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Download\DisplayTemplates\Download.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Download\EditorTemplates\Download.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Download\_Create.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Download\_Details.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Download\_Edit.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Download\_Index.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Download\_Toolbar.cshtml" />
     <None Include="Scripts\jquery.livefilter-1.0\README.md" />
     <None Include="Scripts\jquery.panelslider-0.1.1\README.md" />
     <Content Include="Views\Amplifiers\Index.cshtml" />

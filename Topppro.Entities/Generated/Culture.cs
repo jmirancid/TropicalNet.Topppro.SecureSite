@@ -145,39 +145,39 @@ namespace Topppro.Entities
     	//[XmlElement("Attribute", typeof(Collection<Attribute>))]
         private ICollection<Attribute> _attribute;
     
-    	//[XmlElement("Assn_DownloadCulture", typeof(Collection<Assn_DownloadCulture>))]
-        public virtual ICollection<Assn_DownloadCulture> Assn_DownloadCulture
+    	//[XmlElement("Download", typeof(Collection<Download>))]
+        public virtual ICollection<Download> Download
         {
             get
             {
-                if (_assn_DownloadCulture == null)
+                if (_download == null)
                 {
-                    var newCollection = new FixupCollection<Assn_DownloadCulture>();
-                    newCollection.CollectionChanged += FixupAssn_DownloadCulture;
-                    _assn_DownloadCulture = newCollection;
+                    var newCollection = new FixupCollection<Download>();
+                    newCollection.CollectionChanged += FixupDownload;
+                    _download = newCollection;
                 }
-                return _assn_DownloadCulture;
+                return _download;
             }
             set
             {
-                if (!ReferenceEquals(_assn_DownloadCulture, value))
+                if (!ReferenceEquals(_download, value))
                 {
-                    var previousValue = _assn_DownloadCulture as FixupCollection<Assn_DownloadCulture>;
+                    var previousValue = _download as FixupCollection<Download>;
                     if (previousValue != null)
                     {
-                        previousValue.CollectionChanged -= FixupAssn_DownloadCulture;
+                        previousValue.CollectionChanged -= FixupDownload;
                     }
-                    _assn_DownloadCulture = value;
-                    var newValue = value as FixupCollection<Assn_DownloadCulture>;
+                    _download = value;
+                    var newValue = value as FixupCollection<Download>;
                     if (newValue != null)
                     {
-                        newValue.CollectionChanged += FixupAssn_DownloadCulture;
+                        newValue.CollectionChanged += FixupDownload;
                     }
                 }
             }
         }
-    	//[XmlElement("Assn_DownloadCulture", typeof(Collection<Assn_DownloadCulture>))]
-        private ICollection<Assn_DownloadCulture> _assn_DownloadCulture;
+    	//[XmlElement("Download", typeof(Collection<Download>))]
+        private ICollection<Download> _download;
 
         #endregion
         #region Association Fixup
@@ -248,11 +248,11 @@ namespace Topppro.Entities
             }
         }
     
-        private void FixupAssn_DownloadCulture(object sender, NotifyCollectionChangedEventArgs e)
+        private void FixupDownload(object sender, NotifyCollectionChangedEventArgs e)
         {
             if (e.NewItems != null)
             {
-                foreach (Assn_DownloadCulture item in e.NewItems)
+                foreach (Download item in e.NewItems)
                 {
                     item.Culture = this;
                 }
@@ -260,7 +260,7 @@ namespace Topppro.Entities
     
             if (e.OldItems != null)
             {
-                foreach (Assn_DownloadCulture item in e.OldItems)
+                foreach (Download item in e.OldItems)
                 {
                     if (ReferenceEquals(item.Culture, this))
                     {

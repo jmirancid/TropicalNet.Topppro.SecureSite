@@ -45,7 +45,36 @@ namespace Topppro.Entities
         }
         private int _productId;
     
+        public virtual int CultureId
+        {
+            get { return _cultureId; }
+            set
+            {
+                if (_cultureId != value)
+                {
+                    if (Culture != null && Culture.CultureId != value)
+                    {
+                        Culture = null;
+                    }
+                    _cultureId = value;
+                }
+            }
+        }
+        private int _cultureId;
+    
         public virtual string Resource
+        {
+            get;
+            set;
+        }
+    
+        public virtual string Name
+        {
+            get;
+            set;
+        }
+    
+        public virtual string Description
         {
             get;
             set;
@@ -66,39 +95,20 @@ namespace Topppro.Entities
         #endregion
         #region Navigation Properties
     
-    	//[XmlElement("Assn_DownloadCulture", typeof(Collection<Assn_DownloadCulture>))]
-        public virtual ICollection<Assn_DownloadCulture> Assn_DownloadCulture
+        public virtual Culture Culture
         {
-            get
-            {
-                if (_assn_DownloadCulture == null)
-                {
-                    var newCollection = new FixupCollection<Assn_DownloadCulture>();
-                    newCollection.CollectionChanged += FixupAssn_DownloadCulture;
-                    _assn_DownloadCulture = newCollection;
-                }
-                return _assn_DownloadCulture;
-            }
+            get { return _culture; }
             set
             {
-                if (!ReferenceEquals(_assn_DownloadCulture, value))
+                if (!ReferenceEquals(_culture, value))
                 {
-                    var previousValue = _assn_DownloadCulture as FixupCollection<Assn_DownloadCulture>;
-                    if (previousValue != null)
-                    {
-                        previousValue.CollectionChanged -= FixupAssn_DownloadCulture;
-                    }
-                    _assn_DownloadCulture = value;
-                    var newValue = value as FixupCollection<Assn_DownloadCulture>;
-                    if (newValue != null)
-                    {
-                        newValue.CollectionChanged += FixupAssn_DownloadCulture;
-                    }
+                    var previousValue = _culture;
+                    _culture = value;
+                    FixupCulture(previousValue);
                 }
             }
         }
-    	//[XmlElement("Assn_DownloadCulture", typeof(Collection<Assn_DownloadCulture>))]
-        private ICollection<Assn_DownloadCulture> _assn_DownloadCulture;
+        private Culture _culture;
     
         public virtual Product Product
         {
@@ -118,6 +128,26 @@ namespace Topppro.Entities
         #endregion
         #region Association Fixup
     
+        private void FixupCulture(Culture previousValue)
+        {
+            if (previousValue != null && previousValue.Download.Contains(this))
+            {
+                previousValue.Download.Remove(this);
+            }
+    
+            if (Culture != null)
+            {
+                if (!Culture.Download.Contains(this))
+                {
+                    Culture.Download.Add(this);
+                }
+                if (CultureId != Culture.CultureId)
+                {
+                    CultureId = Culture.CultureId;
+                }
+            }
+        }
+    
         private void FixupProduct(Product previousValue)
         {
             if (previousValue != null && previousValue.Download.Contains(this))
@@ -134,28 +164,6 @@ namespace Topppro.Entities
                 if (ProductId != Product.ProductId)
                 {
                     ProductId = Product.ProductId;
-                }
-            }
-        }
-    
-        private void FixupAssn_DownloadCulture(object sender, NotifyCollectionChangedEventArgs e)
-        {
-            if (e.NewItems != null)
-            {
-                foreach (Assn_DownloadCulture item in e.NewItems)
-                {
-                    item.Download = this;
-                }
-            }
-    
-            if (e.OldItems != null)
-            {
-                foreach (Assn_DownloadCulture item in e.OldItems)
-                {
-                    if (ReferenceEquals(item.Download, this))
-                    {
-                        item.Download = null;
-                    }
                 }
             }
         }
