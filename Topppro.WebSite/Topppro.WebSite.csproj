@@ -1125,7 +1125,6 @@
     <Content Include="Views\Mixers\DisplayTemplates\Serie_Mx.cshtml" />
     <Content Include="Views\Mixers\DisplayTemplates\Serie_MxDigital.cshtml" />
     <Content Include="Views\Packs\DisplayTemplates\Serie_I4k.cshtml" />
-    <Content Include="Views\Packs\DisplayTemplates\Serie_Soho.cshtml" />
     <Content Include="Views\Processors\Index.cshtml" />
     <Content Include="Views\Public\Bluetooth.cshtml" />
     <Content Include="Views\Public\CustomSound.cshtml" />
@@ -1173,6 +1172,7 @@
     <Content Include="Views\Home\World.cshtml" />
     <Content Include="Views\Speakers\DisplayTemplates\Serie_KsHd.cshtml" />
     <Content Include="Views\Shared\_ProcessorsBanner.cshtml" />
+    <Content Include="Views\Packs\Index.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
