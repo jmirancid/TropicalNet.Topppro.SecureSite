@@ -74,6 +74,7 @@
     <Compile Include="Definitions\CultureBusiness.cs" />
     <Compile Include="Definitions\DistributorBusiness.cs" />
     <Compile Include="Definitions\DownloadBusiness.cs" />
+    <Compile Include="Definitions\DownloadTypeBusiness.cs" />
     <Compile Include="Definitions\ModelBusiness.cs" />
     <Compile Include="Definitions\PackageBusiness.cs" />
     <Compile Include="Definitions\ProductBusiness.cs" />

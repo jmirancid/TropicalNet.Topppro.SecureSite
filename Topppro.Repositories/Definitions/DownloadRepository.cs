@@ -11,7 +11,8 @@ namespace Topppro.Repositories.Definitions
         {
             return Context.Download
                         .Include(a => a.Product)
-                        .Include(a => a.Culture);
+                        .Include(a => a.Culture)
+                        .Include(a => a.DownloadType);
         }
 
         public override IQueryable<Entities.Download> AllBy(
@@ -20,6 +21,7 @@ namespace Topppro.Repositories.Definitions
             return Context.Download
                         .Include(a => a.Product)
                         .Include(a => a.Culture)
+                        .Include(a => a.DownloadType)
                         .Where(predicate);
         }
 
@@ -28,6 +30,7 @@ namespace Topppro.Repositories.Definitions
             return Context.Download
                         .Include(a => a.Product)
                         .Include(a => a.Culture)
+                        .Include(a => a.DownloadType)
                         .Skip(skip)
                         .Take(take);
         }
@@ -38,6 +41,7 @@ namespace Topppro.Repositories.Definitions
             return Context.Download
                         .Include(a => a.Product)
                         .Include(a => a.Culture)
+                        .Include(a => a.DownloadType)
                         .Where(predicate)
                         .Skip(skip)
                         .Take(take);
@@ -48,6 +52,7 @@ namespace Topppro.Repositories.Definitions
             return Context.Download
                         .Include(a => a.Product)
                         .Include(a => a.Culture)
+                        .Include(a => a.DownloadType)
                         .SingleOrDefault(a => a.DownloadId == id);
         }
     }

@@ -28,23 +28,6 @@ namespace Topppro.Entities
             set;
         }
     
-        public virtual int ProductId
-        {
-            get { return _productId; }
-            set
-            {
-                if (_productId != value)
-                {
-                    if (Product != null && Product.ProductId != value)
-                    {
-                        Product = null;
-                    }
-                    _productId = value;
-                }
-            }
-        }
-        private int _productId;
-    
         public virtual int CultureId
         {
             get { return _cultureId; }
@@ -62,11 +45,39 @@ namespace Topppro.Entities
         }
         private int _cultureId;
     
-        public virtual string Resource
+        public virtual int ProductId
         {
-            get;
-            set;
+            get { return _productId; }
+            set
+            {
+                if (_productId != value)
+                {
+                    if (Product != null && Product.ProductId != value)
+                    {
+                        Product = null;
+                    }
+                    _productId = value;
+                }
+            }
         }
+        private int _productId;
+    
+        public virtual int DownloadTypeId
+        {
+            get { return _downloadTypeId; }
+            set
+            {
+                if (_downloadTypeId != value)
+                {
+                    if (DownloadType != null && DownloadType.DownloadTypeId != value)
+                    {
+                        DownloadType = null;
+                    }
+                    _downloadTypeId = value;
+                }
+            }
+        }
+        private int _downloadTypeId;
     
         public virtual string Name
         {
@@ -75,6 +86,12 @@ namespace Topppro.Entities
         }
     
         public virtual string Description
+        {
+            get;
+            set;
+        }
+    
+        public virtual string Resource
         {
             get;
             set;
@@ -110,6 +127,21 @@ namespace Topppro.Entities
         }
         private Culture _culture;
     
+        public virtual DownloadType DownloadType
+        {
+            get { return _downloadType; }
+            set
+            {
+                if (!ReferenceEquals(_downloadType, value))
+                {
+                    var previousValue = _downloadType;
+                    _downloadType = value;
+                    FixupDownloadType(previousValue);
+                }
+            }
+        }
+        private DownloadType _downloadType;
+    
         public virtual Product Product
         {
             get { return _product; }
@@ -144,6 +176,26 @@ namespace Topppro.Entities
                 if (CultureId != Culture.CultureId)
                 {
                     CultureId = Culture.CultureId;
+                }
+            }
+        }
+    
+        private void FixupDownloadType(DownloadType previousValue)
+        {
+            if (previousValue != null && previousValue.Download.Contains(this))
+            {
+                previousValue.Download.Remove(this);
+            }
+    
+            if (DownloadType != null)
+            {
+                if (!DownloadType.Download.Contains(this))
+                {
+                    DownloadType.Download.Add(this);
+                }
+                if (DownloadTypeId != DownloadType.DownloadTypeId)
+                {
+                    DownloadTypeId = DownloadType.DownloadTypeId;
                 }
             }
         }

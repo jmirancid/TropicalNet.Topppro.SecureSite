@@ -72,6 +72,7 @@
     <Compile Include="Repositories\ICultureRepository.cs" />
     <Compile Include="Repositories\IDistributorRepository.cs" />
     <Compile Include="Repositories\IDownloadRepository.cs" />
+    <Compile Include="Repositories\IDownloadTypeRepository.cs" />
     <Compile Include="Repositories\IModelRepository.cs" />
     <Compile Include="Repositories\IPackageRepository.cs" />
     <Compile Include="Repositories\IProductRepository.cs" />

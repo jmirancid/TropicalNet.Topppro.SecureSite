@@ -123,6 +123,9 @@
   <data name="Entity_Description" xml:space="preserve">
     <value>Description</value>
   </data>
+  <data name="Entity_DownloadType" xml:space="preserve">
+    <value>Type</value>
+  </data>
   <data name="Entity_Enabled" xml:space="preserve">
     <value>Enabled</value>
   </data>

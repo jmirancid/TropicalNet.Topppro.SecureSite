@@ -119,6 +119,12 @@ namespace Topppro.Repositories
             get { return _download  ?? (_download = CreateObjectSet<Download>("Download")); }
         }
         private ObjectSet<Download> _download;
+    
+        public ObjectSet<DownloadType> DownloadType
+        {
+            get { return _downloadType  ?? (_downloadType = CreateObjectSet<DownloadType>("DownloadType")); }
+        }
+        private ObjectSet<DownloadType> _downloadType;
 
         #endregion
     

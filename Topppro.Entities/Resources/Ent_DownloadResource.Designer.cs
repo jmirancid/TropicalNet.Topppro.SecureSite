@@ -88,6 +88,15 @@ namespace Topppro.Entities.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Type.
+        /// </summary>
+        public static string Entity_DownloadType {
+            get {
+                return ResourceManager.GetString("Entity_DownloadType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enabled.
         /// </summary>
         public static string Entity_Enabled {

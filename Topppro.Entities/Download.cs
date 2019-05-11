@@ -31,12 +31,15 @@ namespace Topppro.Entities
         [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Ent_ValidationResource))]
         public int CultureId { get; set; }
 
+        [Display(Name = "Entity_DownloadType", ResourceType = typeof(Ent_DownloadResource))]
+        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Ent_ValidationResource))]
+        public int DownloadTypeId { get; set; }
+
         [Display(Name = "Entity_Resource", ResourceType = typeof(Ent_DownloadResource))]
         [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Ent_ValidationResource))]
         public string Resource { get; set; }
 
         [Display(Name = "Entity_Name", ResourceType = typeof(Ent_DownloadResource))]
-        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Ent_ValidationResource))]
         public string Name { get; set; }
 
         [Display(Name = "Entity_Description", ResourceType = typeof(Ent_DownloadResource))]
