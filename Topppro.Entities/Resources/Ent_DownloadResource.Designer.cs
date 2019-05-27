@@ -88,15 +88,6 @@ namespace Topppro.Entities.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Type.
-        /// </summary>
-        public static string Entity_DownloadType {
-            get {
-                return ResourceManager.GetString("Entity_DownloadType", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Enabled.
         /// </summary>
         public static string Entity_Enabled {
@@ -106,11 +97,29 @@ namespace Topppro.Entities.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to External Resource ?.
+        /// </summary>
+        public static string Entity_External {
+            get {
+                return ResourceManager.GetString("Entity_External", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Name.
         /// </summary>
         public static string Entity_Name {
             get {
                 return ResourceManager.GetString("Entity_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Platform.
+        /// </summary>
+        public static string Entity_Platform {
+            get {
+                return ResourceManager.GetString("Entity_Platform", resourceCulture);
             }
         }
         

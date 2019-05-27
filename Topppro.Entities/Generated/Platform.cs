@@ -18,11 +18,11 @@ using System.Xml.Serialization;
 namespace Topppro.Entities
 {
     [Serializable]
-    public partial class DownloadType
+    public partial class Platform
     {
         #region Primitive Properties
     
-        public virtual int DownloadTypeId
+        public virtual int PlatformId
         {
             get;
             set;
@@ -37,50 +37,50 @@ namespace Topppro.Entities
         #endregion
         #region Navigation Properties
     
-    	//[XmlElement("Download", typeof(Collection<Download>))]
-        public virtual ICollection<Download> Download
+    	//[XmlElement("Downloads", typeof(Collection<Download>))]
+        public virtual ICollection<Download> Downloads
         {
             get
             {
-                if (_download == null)
+                if (_downloads == null)
                 {
                     var newCollection = new FixupCollection<Download>();
-                    newCollection.CollectionChanged += FixupDownload;
-                    _download = newCollection;
+                    newCollection.CollectionChanged += FixupDownloads;
+                    _downloads = newCollection;
                 }
-                return _download;
+                return _downloads;
             }
             set
             {
-                if (!ReferenceEquals(_download, value))
+                if (!ReferenceEquals(_downloads, value))
                 {
-                    var previousValue = _download as FixupCollection<Download>;
+                    var previousValue = _downloads as FixupCollection<Download>;
                     if (previousValue != null)
                     {
-                        previousValue.CollectionChanged -= FixupDownload;
+                        previousValue.CollectionChanged -= FixupDownloads;
                     }
-                    _download = value;
+                    _downloads = value;
                     var newValue = value as FixupCollection<Download>;
                     if (newValue != null)
                     {
-                        newValue.CollectionChanged += FixupDownload;
+                        newValue.CollectionChanged += FixupDownloads;
                     }
                 }
             }
         }
-    	//[XmlElement("Download", typeof(Collection<Download>))]
-        private ICollection<Download> _download;
+    	//[XmlElement("Downloads", typeof(Collection<Download>))]
+        private ICollection<Download> _downloads;
 
         #endregion
         #region Association Fixup
     
-        private void FixupDownload(object sender, NotifyCollectionChangedEventArgs e)
+        private void FixupDownloads(object sender, NotifyCollectionChangedEventArgs e)
         {
             if (e.NewItems != null)
             {
                 foreach (Download item in e.NewItems)
                 {
-                    item.DownloadType = this;
+                    item.Platform = this;
                 }
             }
     
@@ -88,9 +88,9 @@ namespace Topppro.Entities
             {
                 foreach (Download item in e.OldItems)
                 {
-                    if (ReferenceEquals(item.DownloadType, this))
+                    if (ReferenceEquals(item.Platform, this))
                     {
-                        item.DownloadType = null;
+                        item.Platform = null;
                     }
                 }
             }

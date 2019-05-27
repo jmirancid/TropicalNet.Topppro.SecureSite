@@ -82,7 +82,7 @@ namespace Topppro.Repositories.Definitions
                         .Skip(skip).Take(take);
         }
 
-        public Assn_CategorySerieProduct GetWithAttributesByCulture(int id, string cultureCode)
+        public Assn_CategorySerieProduct GetByCulture(int id, string cultureCode)
         {
             var dbQuery = Context.Assn_CategorySerieProduct
                                 .Include(a => a.Assn_CategorySerie)
@@ -91,6 +91,8 @@ namespace Topppro.Repositories.Definitions
                                 .Include(a => a.Product)
                                 .Include(a => a.Product.Attributes)
                                 .Include(a => a.Product.Attributes.Select(b => b.Culture))
+                                .Include(a => a.Product.Downloads)
+                                .Include(a => a.Product.Downloads.Select(b => b.Culture))
                                 .Include(a => a.Product.ParentInPackages)
                                 .Include(a => a.Product.ParentInPackages.Select(c => c.ChildProduct))
                                 .Include(a => a.Product.ParentInPackages.Select(d => d.ChildProduct.Attributes))
@@ -104,6 +106,7 @@ namespace Topppro.Repositories.Definitions
                                     Category = a.Assn_CategorySerie.Category,
                                     Product = a.Product,
                                     Attributes = a.Product.Attributes.Where(b => b.Culture.Code == cultureCode && b.Enabled).OrderBy(b => b.Priority),
+                                    Downloads = a.Product.Downloads.Where(b =>b.Culture.Code == cultureCode && b.Enabled).OrderBy(b => b.Priority),
                                     ParentInPackages = a.Product.ParentInPackages,
                                     ParentInPackages_Child = a.Product.ParentInPackages.Select(c => c.ChildProduct),
                                     ParentInPackages_Child_Attributes = a.Product.ParentInPackages.Select(d => d.ChildProduct.Attributes.Where(e => e.Culture.Code == cultureCode && e.Enabled).OrderBy(e => e.Priority))
@@ -113,7 +116,7 @@ namespace Topppro.Repositories.Definitions
         }
 
 
-        public System.Collections.Generic.IEnumerable<Assn_CategorySerieProduct> GetWithAttributesByCulture(int[] id, string cultureCode)
+        public System.Collections.Generic.IEnumerable<Assn_CategorySerieProduct> GetByCulture(int[] id, string cultureCode)
         {
             var dbQuery = Context.Assn_CategorySerieProduct
                                 .Include(a => a.Assn_CategorySerie)
@@ -122,6 +125,8 @@ namespace Topppro.Repositories.Definitions
                                 .Include(a => a.Product)
                                 .Include(a => a.Product.Attributes)
                                 .Include(a => a.Product.Attributes.Select(b => b.Culture))
+                                .Include(a => a.Product.Downloads)
+                                .Include(a => a.Product.Downloads.Select(b => b.Culture))
                                 .Include(a => a.Product.ParentInPackages)
                                 .Include(a => a.Product.ParentInPackages.Select(c => c.ChildProduct))
                                 .Include(a => a.Product.ParentInPackages.Select(d => d.ChildProduct.Attributes))
@@ -135,6 +140,7 @@ namespace Topppro.Repositories.Definitions
                                     Category = a.Assn_CategorySerie.Category,
                                     Product = a.Product,
                                     Attributes = a.Product.Attributes.Where(b => b.Culture.Code == cultureCode && b.Enabled).OrderBy(b => b.Priority),
+                                    Downloads = a.Product.Downloads.Where(b => b.Culture.Code == cultureCode && b.Enabled).OrderBy(b => b.Priority),
                                     ParentInPackages = a.Product.ParentInPackages,
                                     ParentInPackages_Child = a.Product.ParentInPackages.Select(c => c.ChildProduct),
                                     ParentInPackages_Child_Attributes = a.Product.ParentInPackages.Select(d => d.ChildProduct.Attributes.Where(e => e.Culture.Code == cultureCode && e.Enabled).OrderBy(e => e.Priority))

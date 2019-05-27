@@ -81,7 +81,7 @@
     <Compile Include="Definitions\CultureRepository.cs" />
     <Compile Include="Definitions\DistributorRepository.cs" />
     <Compile Include="Definitions\DownloadRepository.cs" />
-    <Compile Include="Definitions\DownloadTypeRepository.cs" />
+    <Compile Include="Definitions\PlatformRepository.cs" />
     <Compile Include="Definitions\ModelRepository.cs" />
     <Compile Include="Definitions\PackageRepository.cs" />
     <Compile Include="Definitions\ProductRepository.cs" />

@@ -21,6 +21,9 @@ namespace Topppro.WebSite.Controllers
         protected readonly Lazy<AttributeBusiness> _bizAttribute =
             new Lazy<AttributeBusiness>();
 
+        protected readonly Lazy<DownloadBusiness> _bizDownload =
+            new Lazy<DownloadBusiness>();
+
         [OutputCache(CacheProfile = "Short", VaryByParam = "culture")]
         public virtual ActionResult Index(string controller)
         {
@@ -47,7 +50,7 @@ namespace Topppro.WebSite.Controllers
         public virtual ActionResult Detail(string controller, int id, string name)
         {
             var entity = this._bizAssnCategorySerieProduct.Value
-                                .GetWithAttributesByCulture(id, Topppro.Context.Current.Culture.TwoLetterISOLanguageName);
+                                .GetByCulture(id, Topppro.Context.Current.Culture.TwoLetterISOLanguageName);
 
             ViewBag.Title =
                 string.Format(":: Topp Pro {0} ::", entity.Product.Name.ToUpper());
@@ -67,11 +70,26 @@ namespace Topppro.WebSite.Controllers
             return View(entity);
         }
 
+        [OutputCache(CacheProfile = "Short", VaryByParam = "id")]
+        public virtual ActionResult Downloads(string controller, int id, string name)
+        {
+            var entity =
+                this._bizAssnCategorySerieProduct.Value.Get(id);
+
+            entity.Product.Downloads =
+                this._bizDownload.Value.AllBy(x => x.ProductId == entity.Product.Id && x.Culture.Code == Topppro.Context.Current.Culture.TwoLetterISOLanguageName).ToList();
+
+            ViewBag.Title =
+                string.Format(":: Topp Pro {0} Downloads ::", entity.Product.Name.ToUpper());
+
+            return View(entity);
+        }
+
         [OutputCache(CacheProfile = "Mini", VaryByParam = "culture")]
         public virtual ActionResult Compare(string controller, int lid, string lname, int rid, string rname)
         {
             var entities =
-                this._bizAssnCategorySerieProduct.Value.GetWithAttributesByCulture(new int[] { lid, rid }, Topppro.Context.Current.Culture.TwoLetterISOLanguageName);
+                this._bizAssnCategorySerieProduct.Value.GetByCulture(new int[] { lid, rid }, Topppro.Context.Current.Culture.TwoLetterISOLanguageName);
 
             var model = 
                 Tuple.Create(entities.FirstOrDefault(), entities.LastOrDefault());

@@ -17,14 +17,14 @@ namespace Topppro.Business.Definitions
             Repository.Value.Reorder(assnCategorySerieProductId, priority);
         }
 
-        public Topppro.Entities.Assn_CategorySerieProduct GetWithAttributesByCulture(int id, string cultureCode)
+        public Topppro.Entities.Assn_CategorySerieProduct GetByCulture(int id, string cultureCode)
         {
-            return Repository.Value.GetWithAttributesByCulture(id, cultureCode);
+            return Repository.Value.GetByCulture(id, cultureCode);
         }
 
-        public IEnumerable<Topppro.Entities.Assn_CategorySerieProduct> GetWithAttributesByCulture(int[] id, string cultureCode)
+        public IEnumerable<Topppro.Entities.Assn_CategorySerieProduct> GetByCulture(int[] id, string cultureCode)
         {
-            return Repository.Value.GetWithAttributesByCulture(id, cultureCode);
+            return Repository.Value.GetByCulture(id, cultureCode);
         }
     }
 }

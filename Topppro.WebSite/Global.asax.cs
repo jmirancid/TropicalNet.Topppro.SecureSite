@@ -61,6 +61,14 @@ namespace Topppro.WebSite
             );
 
             routes.MapRoute(
+                name: "Downloads", // Route name
+                url: "{culture}/{controller}/{id}_{name}/Downloads", // URL with parameters
+                defaults: new { culture = Topppro.Context.Current.Culture.TwoLetterISOLanguageName, action = "Downloads" }, // Parameter defaults
+                constraints: new { culture = "[a-zA-Z]{2}" },
+                namespaces: namespaces
+            );
+
+            routes.MapRoute(
                 name: "Detail", // Route name
                 url: "{culture}/{controller}/{id}_{name}", // URL with parameters
                 defaults: new { culture = Topppro.Context.Current.Culture.TwoLetterISOLanguageName, action = "Detail" }, // Parameter defaults

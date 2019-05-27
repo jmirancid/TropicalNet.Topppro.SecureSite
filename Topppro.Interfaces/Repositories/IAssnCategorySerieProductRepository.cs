@@ -10,8 +10,8 @@ namespace Topppro.Interfaces.Repositories
 
         void Reorder(int assnCategorySerieProductId, int priority);
 
-        Topppro.Entities.Assn_CategorySerieProduct GetWithAttributesByCulture(int id, string cultureCode);
+        Topppro.Entities.Assn_CategorySerieProduct GetByCulture(int id, string cultureCode);
 
-        IEnumerable<Topppro.Entities.Assn_CategorySerieProduct> GetWithAttributesByCulture(int[] id, string cultureCode);
+        IEnumerable<Topppro.Entities.Assn_CategorySerieProduct> GetByCulture(int[] id, string cultureCode);
     }
 }

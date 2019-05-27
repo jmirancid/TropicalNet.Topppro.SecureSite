@@ -77,7 +77,6 @@
     <Compile Include="Culture.cs" />
     <Compile Include="Distributor.cs" />
     <Compile Include="Download.cs" />
-    <Compile Include="Enums.cs" />
     <Compile Include="Generated\Assn_CategorySerie.cs">
       <DependentUpon>Templates.tt</DependentUpon>
     </Compile>
@@ -105,13 +104,13 @@
     <Compile Include="Generated\Download.cs">
       <DependentUpon>Templates.tt</DependentUpon>
     </Compile>
-    <Compile Include="Generated\DownloadType.cs">
-      <DependentUpon>Templates.tt</DependentUpon>
-    </Compile>
     <Compile Include="Generated\Model.cs">
       <DependentUpon>Templates.tt</DependentUpon>
     </Compile>
     <Compile Include="Generated\Package.cs">
+      <DependentUpon>Templates.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Generated\Platform.cs">
       <DependentUpon>Templates.tt</DependentUpon>
     </Compile>
     <Compile Include="Generated\Product.cs">

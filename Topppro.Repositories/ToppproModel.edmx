@@ -15,9 +15,9 @@
           <EntitySet Name="Culture" EntityType="ToppproModel.Store.Culture" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Distributor" EntityType="ToppproModel.Store.Distributor" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Download" EntityType="ToppproModel.Store.Download" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="DownloadType" EntityType="ToppproModel.Store.DownloadType" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Model" EntityType="ToppproModel.Store.Model" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Package" EntityType="ToppproModel.Store.Package" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Platform" EntityType="ToppproModel.Store.Platform" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Product" EntityType="ToppproModel.Store.Product" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Serie" EntityType="ToppproModel.Store.Serie" store:Type="Tables" Schema="dbo" />
           <AssociationSet Name="Assn_CategorySerie_Assn_CategorySerieProduct_FK" Association="ToppproModel.Store.Assn_CategorySerie_Assn_CategorySerieProduct_FK">
@@ -48,8 +48,8 @@
             <End Role="Culture" EntitySet="Culture" />
             <End Role="Download" EntitySet="Download" />
           </AssociationSet>
-          <AssociationSet Name="FK_Download_DownloadType" Association="ToppproModel.Store.FK_Download_DownloadType">
-            <End Role="DownloadType" EntitySet="DownloadType" />
+          <AssociationSet Name="FK_Download_Platform" Association="ToppproModel.Store.FK_Download_Platform">
+            <End Role="Platform" EntitySet="Platform" />
             <End Role="Download" EntitySet="Download" />
           </AssociationSet>
           <AssociationSet Name="FK_Download_Product" Association="ToppproModel.Store.FK_Download_Product">
@@ -175,19 +175,13 @@
           <Property Name="DownloadId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="CultureId" Type="int" Nullable="false" />
           <Property Name="ProductId" Type="int" Nullable="false" />
-          <Property Name="DownloadTypeId" Type="int" Nullable="false" />
+          <Property Name="PlatformId" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="150" />
           <Property Name="Description" Type="nvarchar" MaxLength="450" />
-          <Property Name="Resource" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="External" Type="bit" Nullable="false" />
+          <Property Name="Resource" Type="nvarchar" Nullable="false" MaxLength="1024" />
           <Property Name="Priority" Type="int" />
           <Property Name="Enabled" Type="bit" Nullable="false" />
-        </EntityType>
-        <EntityType Name="DownloadType">
-          <Key>
-            <PropertyRef Name="DownloadTypeId" />
-          </Key>
-          <Property Name="DownloadTypeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Model">
           <Key>
@@ -209,6 +203,13 @@
           <Property Name="InheritHiRes" Type="bit" Nullable="false" />
           <Property Name="InheritBullet" Type="bit" Nullable="false" />
           <Property Name="InheritAttribute" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Platform">
+          <Key>
+            <PropertyRef Name="PlatformId" />
+          </Key>
+          <Property Name="PlatformId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -314,15 +315,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Download_DownloadType">
-          <End Role="DownloadType" Type="ToppproModel.Store.DownloadType" Multiplicity="1" />
+        <Association Name="FK_Download_Platform">
+          <End Role="Platform" Type="ToppproModel.Store.Platform" Multiplicity="1" />
           <End Role="Download" Type="ToppproModel.Store.Download" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="DownloadType">
-              <PropertyRef Name="DownloadTypeId" />
+            <Principal Role="Platform">
+              <PropertyRef Name="PlatformId" />
             </Principal>
             <Dependent Role="Download">
-              <PropertyRef Name="DownloadTypeId" />
+              <PropertyRef Name="PlatformId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -531,14 +532,14 @@
             <End Role="Product" EntitySet="Product" />
             <End Role="Attribute" EntitySet="Attribute" />
           </AssociationSet>
+          <EntitySet Name="Platform" EntityType="ToppproModel.Platform" />
           <EntitySet Name="Download" EntityType="ToppproModel.Download" />
-          <EntitySet Name="DownloadType" EntityType="ToppproModel.DownloadType" />
           <AssociationSet Name="FK_Download_Culture" Association="ToppproModel.FK_Download_Culture">
             <End Role="Culture" EntitySet="Culture" />
             <End Role="Download" EntitySet="Download" />
           </AssociationSet>
-          <AssociationSet Name="FK_Download_DownloadType" Association="ToppproModel.FK_Download_DownloadType">
-            <End Role="DownloadType" EntitySet="DownloadType" />
+          <AssociationSet Name="FK_Download_Platform" Association="ToppproModel.FK_Download_Platform">
+            <End Role="Platform" EntitySet="Platform" />
             <End Role="Download" EntitySet="Download" />
           </AssociationSet>
           <AssociationSet Name="FK_Download_Product" Association="ToppproModel.FK_Download_Product">
@@ -589,10 +590,10 @@
           <Property Type="Int32" Name="CultureId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Code" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Distributor" Relationship="ToppproModel.FK__Distribut__Cultu__282DF8C2" FromRole="Culture" ToRole="Distributor" />
-          <NavigationProperty Name="Bullet" Relationship="ToppproModel.Culture_Bullet_FK" FromRole="Culture" ToRole="Bullet" />
-          <NavigationProperty Name="Attribute" Relationship="ToppproModel.Culture_Attribute_FK" FromRole="Culture" ToRole="Attribute" />
-          <NavigationProperty Name="Download" Relationship="ToppproModel.FK_Download_Culture" FromRole="Culture" ToRole="Download" />
+          <NavigationProperty Name="Distributors" Relationship="ToppproModel.FK__Distribut__Cultu__282DF8C2" FromRole="Culture" ToRole="Distributor" />
+          <NavigationProperty Name="Bullets" Relationship="ToppproModel.Culture_Bullet_FK" FromRole="Culture" ToRole="Bullet" />
+          <NavigationProperty Name="Attributes" Relationship="ToppproModel.Culture_Attribute_FK" FromRole="Culture" ToRole="Attribute" />
+          <NavigationProperty Name="Downloads" Relationship="ToppproModel.FK_Download_Culture" FromRole="Culture" ToRole="Download" />
         </EntityType>
         <EntityType Name="Model">
           <Key>
@@ -636,7 +637,7 @@
           <NavigationProperty Name="Bullets" Relationship="ToppproModel.Product_Bullet_FK" FromRole="Product" ToRole="Bullet" />
           <NavigationProperty Name="Attributes" Relationship="ToppproModel.Product_Attribute_FK" FromRole="Product" ToRole="Attribute" />
           <Property Type="Boolean" Name="Software" Nullable="false" />
-          <NavigationProperty Name="Download" Relationship="ToppproModel.FK_Download_Product" FromRole="Product" ToRole="Download" />
+          <NavigationProperty Name="Downloads" Relationship="ToppproModel.FK_Download_Product" FromRole="Product" ToRole="Download" />
         </EntityType>
         <EntityType Name="Serie">
           <Key>
@@ -738,7 +739,7 @@
           <Property Type="String" Name="Name" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Type="Int32" Name="Priority" />
           <Property Type="Boolean" Name="Enabled" Nullable="false" />
-          <NavigationProperty Name="Distributor" Relationship="ToppproModel.FK__Distribut__Count__2739D489" FromRole="Country" ToRole="Distributor" />
+          <NavigationProperty Name="Distributors" Relationship="ToppproModel.FK__Distribut__Count__2739D489" FromRole="Country" ToRole="Distributor" />
         </EntityType>
         <EntityType Name="Distributor">
           <Key>
@@ -854,6 +855,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Platform">
+          <Key>
+            <PropertyRef Name="PlatformId" />
+          </Key>
+          <Property Type="Int32" Name="PlatformId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Downloads" Relationship="ToppproModel.FK_Download_Platform" FromRole="Platform" ToRole="Download" />
+        </EntityType>
         <EntityType Name="Download">
           <Key>
             <PropertyRef Name="DownloadId" />
@@ -861,23 +870,16 @@
           <Property Type="Int32" Name="DownloadId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="Int32" Name="CultureId" Nullable="false" />
           <Property Type="Int32" Name="ProductId" Nullable="false" />
-          <Property Type="Int32" Name="DownloadTypeId" Nullable="false" />
+          <Property Type="Int32" Name="PlatformId" Nullable="false" />
           <Property Type="String" Name="Name" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Description" MaxLength="450" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Resource" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="External" Nullable="false" />
+          <Property Type="String" Name="Resource" Nullable="false" MaxLength="1024" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="Priority" />
           <Property Type="Boolean" Name="Enabled" Nullable="false" />
           <NavigationProperty Name="Culture" Relationship="ToppproModel.FK_Download_Culture" FromRole="Download" ToRole="Culture" />
-          <NavigationProperty Name="DownloadType" Relationship="ToppproModel.FK_Download_DownloadType" FromRole="Download" ToRole="DownloadType" />
+          <NavigationProperty Name="Platform" Relationship="ToppproModel.FK_Download_Platform" FromRole="Download" ToRole="Platform" />
           <NavigationProperty Name="Product" Relationship="ToppproModel.FK_Download_Product" FromRole="Download" ToRole="Product" />
-        </EntityType>
-        <EntityType Name="DownloadType">
-          <Key>
-            <PropertyRef Name="DownloadTypeId" />
-          </Key>
-          <Property Type="Int32" Name="DownloadTypeId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Download" Relationship="ToppproModel.FK_Download_DownloadType" FromRole="DownloadType" ToRole="Download" />
         </EntityType>
         <Association Name="FK_Download_Culture">
           <End Type="ToppproModel.Culture" Role="Culture" Multiplicity="1" />
@@ -891,15 +893,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Download_DownloadType">
-          <End Type="ToppproModel.DownloadType" Role="DownloadType" Multiplicity="1" />
+        <Association Name="FK_Download_Platform">
+          <End Type="ToppproModel.Platform" Role="Platform" Multiplicity="1" />
           <End Type="ToppproModel.Download" Role="Download" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="DownloadType">
-              <PropertyRef Name="DownloadTypeId" />
+            <Principal Role="Platform">
+              <PropertyRef Name="PlatformId" />
             </Principal>
             <Dependent Role="Download">
-              <PropertyRef Name="DownloadTypeId" />
+              <PropertyRef Name="PlatformId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1061,26 +1063,27 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Platform">
+            <EntityTypeMapping TypeName="ToppproModel.Platform">
+              <MappingFragment StoreEntitySet="Platform">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PlatformId" ColumnName="PlatformId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Download">
             <EntityTypeMapping TypeName="ToppproModel.Download">
               <MappingFragment StoreEntitySet="Download">
                 <ScalarProperty Name="Enabled" ColumnName="Enabled" />
                 <ScalarProperty Name="Priority" ColumnName="Priority" />
                 <ScalarProperty Name="Resource" ColumnName="Resource" />
+                <ScalarProperty Name="External" ColumnName="External" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="DownloadTypeId" ColumnName="DownloadTypeId" />
+                <ScalarProperty Name="PlatformId" ColumnName="PlatformId" />
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
                 <ScalarProperty Name="CultureId" ColumnName="CultureId" />
                 <ScalarProperty Name="DownloadId" ColumnName="DownloadId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DownloadType">
-            <EntityTypeMapping TypeName="ToppproModel.DownloadType">
-              <MappingFragment StoreEntitySet="DownloadType">
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="DownloadTypeId" ColumnName="DownloadTypeId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1137,14 +1140,14 @@
           <ConnectorPoint PointX="3" PointY="9.9228417966514826" />
         </AssociationConnector>
         <AssociationConnector Association="ToppproModel.Package_Child_Product_FK" >
-          <ConnectorPoint PointX="4.47576923076923" PointY="11.90330078125" />
-          <ConnectorPoint PointX="4.875" PointY="12.302531550480769" />
-          <ConnectorPoint PointX="4.875" PointY="21.817047526041669" />
-          <ConnectorPoint PointX="5.25" PointY="21.817047526041669" />
+          <ConnectorPoint PointX="4.5" PointY="11.872145935096153" />
+          <ConnectorPoint PointX="4.96875" PointY="12.340895935096153" />
+          <ConnectorPoint PointX="4.96875" PointY="21.002271763020836" />
+          <ConnectorPoint PointX="5.25" PointY="21.002271763020836" />
         </AssociationConnector>
         <AssociationConnector Association="ToppproModel.Package_Parent_Product_FK" >
-          <ConnectorPoint PointX="4.5" PointY="11.829453627403847" />
-          <ConnectorPoint PointX="4.9375" PointY="12.266953627403847" />
+          <ConnectorPoint PointX="4.5" PointY="11.877915165865385" />
+          <ConnectorPoint PointX="4.9375" PointY="12.315415165865385" />
           <ConnectorPoint PointX="4.9375" PointY="21.817047526041669" />
           <ConnectorPoint PointX="5.25" PointY="21.817047526041669" />
         </AssociationConnector>
@@ -1153,31 +1156,29 @@
         <AssociationConnector Association="ToppproModel.FK__Distribut__Count__2739D489" >
           <ConnectorPoint PointX="4.5" PointY="25.032306692307689" />
           <ConnectorPoint PointX="4.90625" PointY="24.626056692307689" />
-          <ConnectorPoint PointX="4.90625" PointY="13.322735609512328" />
-          <ConnectorPoint PointX="5.25" PointY="13.322735609512328" />
+          <ConnectorPoint PointX="4.90625" PointY="13.368571389005979" />
+          <ConnectorPoint PointX="5.25" PointY="13.368571389005979" />
         </AssociationConnector>
         <AssociationConnector Association="ToppproModel.FK__Distribut__Cultu__282DF8C2" >
-          <ConnectorPoint PointX="4.5" PointY="14.281312466214498" />
-          <ConnectorPoint PointX="4.791666666666667" PointY="14.281312466214498" />
-          <ConnectorPoint PointX="5.020833333333333" PointY="14.281312466214498" />
-          <ConnectorPoint PointX="5.25" PointY="14.281312466214498" />
+          <ConnectorPoint PointX="4.5" PointY="14.304230355961323" />
+          <ConnectorPoint PointX="4.822916666666667" PointY="14.304230355961323" />
+          <ConnectorPoint PointX="5.052083333333333" PointY="14.304230355961323" />
+          <ConnectorPoint PointX="5.25" PointY="14.304230355961323" />
         </AssociationConnector>
         <EntityTypeShape EntityType="ToppproModel.Bullet" Width="1.5" PointX="5.25" PointY="8.5" Height="2.749492187499996" />
         <AssociationConnector Association="ToppproModel.Culture_Bullet_FK" >
           <ConnectorPoint PointX="4.47576923076923" PointY="12.75" />
           <ConnectorPoint PointX="4.90625" PointY="12.319519230769231" />
-          <ConnectorPoint PointX="4.90625" PointY="10.332969488889694" />
-          <ConnectorPoint PointX="5.25" PointY="10.332969488889694" />
+          <ConnectorPoint PointX="4.90625" PointY="10.332997349077694" />
+          <ConnectorPoint PointX="5.25" PointY="10.332997349077694" />
         </AssociationConnector>
         <AssociationConnector Association="ToppproModel.Product_Bullet_FK" >
-          <ConnectorPoint PointX="4.5" PointY="9.3539847444448476" />
-          <ConnectorPoint PointX="5.25" PointY="9.3539847444448476" />
+          <ConnectorPoint PointX="4.5" PointY="9.3539986745388468" />
+          <ConnectorPoint PointX="5.25" PointY="9.3539986745388468" />
         </AssociationConnector>
         <EntityTypeShape EntityType="ToppproModel.Attribute" Width="1.5" PointX="8.25" PointY="8.5" Height="2.749492187499996" />
         <AssociationConnector Association="ToppproModel.Culture_Attribute_FK" >
           <ConnectorPoint PointX="4.5" PointY="12.791537461538463" />
-          <ConnectorPoint PointX="4.8160744349011209" PointY="12.475463026637339" />
-          <ConnectorPoint PointX="4.9964255650988791" PointY="12.295111896439583" />
           <ConnectorPoint PointX="5.015625" PointY="12.275912461538461" />
           <ConnectorPoint PointX="5.015625" PointY="11.624492187499996" />
           <ConnectorPoint PointX="7.875" PointY="11.624492187499996" />
@@ -1187,35 +1188,31 @@
           <ConnectorPoint PointX="4.5" PointY="11.695720407451921" />
           <ConnectorPoint PointX="4.822916666666667" PointY="11.695720407451921" />
           <ConnectorPoint PointX="4.989583333333333" PointY="11.695720407451921" />
-          <ConnectorPoint PointX="8.5572934166666652" PointY="11.695720407451921" />
-          <ConnectorPoint PointX="8.7239600833333331" PointY="11.695720407451921" />
           <ConnectorPoint PointX="9.0312525" PointY="11.695720407451921" />
           <ConnectorPoint PointX="9.0312525" PointY="11.249492187499996" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="ToppproModel.Download" Width="1.5" PointX="8.25" PointY="12.875" Height="3.3263964843750031" />
-        <EntityTypeShape EntityType="ToppproModel.DownloadType" Width="1.5" PointX="6" PointY="16.75" Height="1.5956835937500031" />
+        <EntityTypeShape EntityType="ToppproModel.Platform" Width="1.5" PointX="6" PointY="16.75" Height="1.5956835937500031" />
+        <EntityTypeShape EntityType="ToppproModel.Download" Width="1.5" PointX="8.25" PointY="12.375" Height="3.5186979166666674" />
         <AssociationConnector Association="ToppproModel.FK_Download_Culture" >
           <ConnectorPoint PointX="3.75" PointY="15.114889322916666" />
-          <ConnectorPoint PointX="3.75" PointY="15.7566943359375" />
-          <ConnectorPoint PointX="4.791666666666667" PointY="15.7566943359375" />
-          <ConnectorPoint PointX="5.020833333333333" PointY="15.7566943359375" />
-          <ConnectorPoint PointX="8.25" PointY="15.7566943359375" />
+          <ConnectorPoint PointX="3.75" PointY="15.602845052083332" />
+          <ConnectorPoint PointX="4.822916666666667" PointY="15.602845052083332" />
+          <ConnectorPoint PointX="5.052083333333333" PointY="15.602845052083332" />
+          <ConnectorPoint PointX="8.25" PointY="15.602845052083332" />
         </AssociationConnector>
-        <AssociationConnector Association="ToppproModel.FK_Download_DownloadType" >
-          <ConnectorPoint PointX="7.5" PointY="17.547841796875" />
-          <ConnectorPoint PointX="9" PointY="17.547841796875" />
-          <ConnectorPoint PointX="9" PointY="16.201396484375003" />
+        <AssociationConnector Association="ToppproModel.FK_Download_Platform" >
+          <ConnectorPoint PointX="7.15625" PointY="16.75" />
+          <ConnectorPoint PointX="7.15625" PointY="15.779523984374993" />
+          <ConnectorPoint PointX="8.25" PointY="15.779523984374993" />
         </AssociationConnector>
         <AssociationConnector Association="ToppproModel.FK_Download_Product" >
-          <ConnectorPoint PointX="4.5" PointY="10.983092448170806" />
-          <ConnectorPoint PointX="4.822916666666667" PointY="10.983092448170806" />
-          <ConnectorPoint PointX="4.989583333333333" PointY="10.983092448170806" />
-          <ConnectorPoint PointX="5.125" PointY="10.983092448170806" />
-          <ConnectorPoint PointX="5.125" PointY="11.499492187499996" />
-          <ConnectorPoint PointX="7.916666666666667" PointY="11.499492187499996" />
-          <ConnectorPoint PointX="8.0833333333333339" PointY="11.499492187499996" />
-          <ConnectorPoint PointX="8.64062675" PointY="11.499492187499996" />
-          <ConnectorPoint PointX="8.64062675" PointY="12.875" />
+          <ConnectorPoint PointX="4.5" PointY="11.866376704326923" />
+          <ConnectorPoint PointX="4.8125" PointY="12.178876704326923" />
+          <ConnectorPoint PointX="4.8125" PointY="12" />
+          <ConnectorPoint PointX="4.822916666666667" PointY="11.999999999999998" />
+          <ConnectorPoint PointX="5.098958333333333" PointY="12" />
+          <ConnectorPoint PointX="7.875" PointY="12" />
+          <ConnectorPoint PointX="8.25" PointY="12.375" />
         </AssociationConnector>
         </Diagram>
     </Diagrams>

@@ -124,16 +124,16 @@ namespace Topppro.Entities
     
         private void FixupCountry(Country previousValue)
         {
-            if (previousValue != null && previousValue.Distributor.Contains(this))
+            if (previousValue != null && previousValue.Distributors.Contains(this))
             {
-                previousValue.Distributor.Remove(this);
+                previousValue.Distributors.Remove(this);
             }
     
             if (Country != null)
             {
-                if (!Country.Distributor.Contains(this))
+                if (!Country.Distributors.Contains(this))
                 {
-                    Country.Distributor.Add(this);
+                    Country.Distributors.Add(this);
                 }
                 if (CountryId != Country.CountryId)
                 {
@@ -144,16 +144,16 @@ namespace Topppro.Entities
     
         private void FixupCulture(Culture previousValue)
         {
-            if (previousValue != null && previousValue.Distributor.Contains(this))
+            if (previousValue != null && previousValue.Distributors.Contains(this))
             {
-                previousValue.Distributor.Remove(this);
+                previousValue.Distributors.Remove(this);
             }
     
             if (Culture != null)
             {
-                if (!Culture.Distributor.Contains(this))
+                if (!Culture.Distributors.Contains(this))
                 {
-                    Culture.Distributor.Add(this);
+                    Culture.Distributors.Add(this);
                 }
                 if (CultureId != Culture.CultureId)
                 {

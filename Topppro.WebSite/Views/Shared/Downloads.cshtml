@@ -1,0 +1,58 @@
+﻿@using Framework.Common.Extensions
+@using Topppro.WebSite.Resources
+@using Topppro.WebSite.Extensions
+           
+@section Styles {
+    <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/m-forms.min.css")" />
+    <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/m-icons.min.css")" />
+    <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/m-buttons.min.css")" />
+    <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/font-awesome.min.css")" />
+}
+
+@model Topppro.Entities.Assn_CategorySerieProduct
+
+@{
+    var group = 
+        Model.Product.Downloads.GroupBy(x => x.Platform, (k, v) => new { key = k, list = v });
+}
+
+<h4>@Model.Assn_CategorySerie.Serie.Name.ToUpper() Series</h4>
+<div class="title">
+    <h1>@Model.Product.Name.ToUpper()</h1>
+</div>
+<br /><br />
+
+<h2 style="font-weight: lighter;color: #646369;">
+    @PublicResource.Softwere_Download</h2>
+    <br /><br />
+    
+<table width="100%">
+    <tbody>
+        <tr>
+            @foreach (var p in group)
+            {
+                <td class="center">
+                    <div class="title">
+                        <h1 class="@p.key.Color()"><i class="@p.key.Icon()"></i> @p.key.Name</h1>
+                    </div>
+                    <br />
+                    <ul style="list-style-type:none;">
+                    @foreach (var d in p.list)
+                    {
+                        <li>
+                            <a href="@Url.Content(d.Resource)" class="m-btn rnd @p.key.ButtonColor()" target="_blank" title="@d.Description">@d.Name</a></li>
+                    }
+                    </ul>
+                </td>
+            }
+        </tr>
+    </tbody>
+</table>
+<br /><br />
+
+<div style="margin-bottom:30px;">
+    @Html.Manual()
+    
+    @Html.Back(Url.RouteUrl("Detail", new { controller = ViewContext.RouteData.Values["controller"], id = Model.Id, name = Model.Product.Name.ToSeoSlug() }), new { style = "float:right;" })
+    <br style="clear: both;" />
+</div>

@@ -31,9 +31,12 @@ namespace Topppro.Entities
         [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Ent_ValidationResource))]
         public int CultureId { get; set; }
 
-        [Display(Name = "Entity_DownloadType", ResourceType = typeof(Ent_DownloadResource))]
+        [Display(Name = "Entity_Platform", ResourceType = typeof(Ent_DownloadResource))]
         [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Ent_ValidationResource))]
-        public int DownloadTypeId { get; set; }
+        public int PlatformId { get; set; }
+
+        [Display(Name = "Entity_External", ResourceType = typeof(Ent_DownloadResource))]
+        public bool External { get; set; }
 
         [Display(Name = "Entity_Resource", ResourceType = typeof(Ent_DownloadResource))]
         [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Ent_ValidationResource))]

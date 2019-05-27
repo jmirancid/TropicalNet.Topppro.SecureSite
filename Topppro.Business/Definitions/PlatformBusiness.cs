@@ -4,7 +4,7 @@ using Topppro.Interfaces.Repositories;
 
 namespace Topppro.Business.Definitions
 {
-    public class DownloadTypeBusiness : Business<DownloadType, IDownloadTypeRepository>
+    public class PlatformBusiness : Business<Platform, IPlatformRepository>
     {
     }
 }

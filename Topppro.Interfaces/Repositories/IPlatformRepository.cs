@@ -3,7 +3,7 @@ using Topppro.Entities;
 
 namespace Topppro.Interfaces.Repositories
 {
-    public interface IDownloadTypeRepository : IRepository<DownloadType>
+    public interface IPlatformRepository : IRepository<Platform>
     {
     }
 }

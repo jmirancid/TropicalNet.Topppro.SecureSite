@@ -114,17 +114,17 @@ namespace Topppro.Repositories
         }
         private ObjectSet<Attribute> _attribute;
     
+        public ObjectSet<Platform> Platform
+        {
+            get { return _platform  ?? (_platform = CreateObjectSet<Platform>("Platform")); }
+        }
+        private ObjectSet<Platform> _platform;
+    
         public ObjectSet<Download> Download
         {
             get { return _download  ?? (_download = CreateObjectSet<Download>("Download")); }
         }
         private ObjectSet<Download> _download;
-    
-        public ObjectSet<DownloadType> DownloadType
-        {
-            get { return _downloadType  ?? (_downloadType = CreateObjectSet<DownloadType>("DownloadType")); }
-        }
-        private ObjectSet<DownloadType> _downloadType;
 
         #endregion
     

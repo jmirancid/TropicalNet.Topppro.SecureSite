@@ -124,16 +124,16 @@ namespace Topppro.Entities
     
         private void FixupCulture(Culture previousValue)
         {
-            if (previousValue != null && previousValue.Bullet.Contains(this))
+            if (previousValue != null && previousValue.Bullets.Contains(this))
             {
-                previousValue.Bullet.Remove(this);
+                previousValue.Bullets.Remove(this);
             }
     
             if (Culture != null)
             {
-                if (!Culture.Bullet.Contains(this))
+                if (!Culture.Bullets.Contains(this))
                 {
-                    Culture.Bullet.Add(this);
+                    Culture.Bullets.Add(this);
                 }
                 if (CultureId != Culture.CultureId)
                 {

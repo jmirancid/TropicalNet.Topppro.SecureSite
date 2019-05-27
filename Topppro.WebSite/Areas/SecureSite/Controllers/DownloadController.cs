@@ -17,8 +17,8 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
         private readonly Lazy<CultureBusiness> _bizCulture =
             new Lazy<CultureBusiness>();
 
-        private readonly Lazy<DownloadTypeBusiness> _bizDownloadType =
-            new Lazy<DownloadTypeBusiness>();
+        private readonly Lazy<PlatformBusiness> _bizPlatform =
+            new Lazy<PlatformBusiness>();
 
         #region NonAction
 
@@ -205,14 +205,14 @@ namespace Topppro.WebSite.Areas.SecureSite.Controllers
         {
             ViewBag.Cultures = new SelectList(this._bizCulture.Value.All(), "CultureId", "Name");
             ViewBag.Resources = new SelectList(this.GetResources());
-            ViewBag.DownloadTypes = new SelectList(this._bizDownloadType.Value.All(), "DownloadTypeId", "Name");
+            ViewBag.Platforms = new SelectList(this._bizPlatform.Value.All(), "PlatformId", "Name");
         }
 
         public override void EditGetPrerender(Topppro.Entities.Download entity)
         {
             ViewBag.Cultures = new SelectList(this._bizCulture.Value.All(), "CultureId", "Name", entity.CultureId);
             ViewBag.Resources = new SelectList(this.GetResources());
-            ViewBag.DownloadTypes = new SelectList(this._bizDownloadType.Value.All(), "DownloadTypeId", "Name");
+            ViewBag.Platforms = new SelectList(this._bizPlatform.Value.All(), "PlatformId", "Name", entity.PlatformId);
         }
 
         private IEnumerable<string> GetResources()

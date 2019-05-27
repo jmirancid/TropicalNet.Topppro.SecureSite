@@ -62,22 +62,22 @@ namespace Topppro.Entities
         }
         private int _productId;
     
-        public virtual int DownloadTypeId
+        public virtual int PlatformId
         {
-            get { return _downloadTypeId; }
+            get { return _platformId; }
             set
             {
-                if (_downloadTypeId != value)
+                if (_platformId != value)
                 {
-                    if (DownloadType != null && DownloadType.DownloadTypeId != value)
+                    if (Platform != null && Platform.PlatformId != value)
                     {
-                        DownloadType = null;
+                        Platform = null;
                     }
-                    _downloadTypeId = value;
+                    _platformId = value;
                 }
             }
         }
-        private int _downloadTypeId;
+        private int _platformId;
     
         public virtual string Name
         {
@@ -86,6 +86,12 @@ namespace Topppro.Entities
         }
     
         public virtual string Description
+        {
+            get;
+            set;
+        }
+    
+        public virtual bool External
         {
             get;
             set;
@@ -127,20 +133,20 @@ namespace Topppro.Entities
         }
         private Culture _culture;
     
-        public virtual DownloadType DownloadType
+        public virtual Platform Platform
         {
-            get { return _downloadType; }
+            get { return _platform; }
             set
             {
-                if (!ReferenceEquals(_downloadType, value))
+                if (!ReferenceEquals(_platform, value))
                 {
-                    var previousValue = _downloadType;
-                    _downloadType = value;
-                    FixupDownloadType(previousValue);
+                    var previousValue = _platform;
+                    _platform = value;
+                    FixupPlatform(previousValue);
                 }
             }
         }
-        private DownloadType _downloadType;
+        private Platform _platform;
     
         public virtual Product Product
         {
@@ -162,16 +168,16 @@ namespace Topppro.Entities
     
         private void FixupCulture(Culture previousValue)
         {
-            if (previousValue != null && previousValue.Download.Contains(this))
+            if (previousValue != null && previousValue.Downloads.Contains(this))
             {
-                previousValue.Download.Remove(this);
+                previousValue.Downloads.Remove(this);
             }
     
             if (Culture != null)
             {
-                if (!Culture.Download.Contains(this))
+                if (!Culture.Downloads.Contains(this))
                 {
-                    Culture.Download.Add(this);
+                    Culture.Downloads.Add(this);
                 }
                 if (CultureId != Culture.CultureId)
                 {
@@ -180,38 +186,38 @@ namespace Topppro.Entities
             }
         }
     
-        private void FixupDownloadType(DownloadType previousValue)
+        private void FixupPlatform(Platform previousValue)
         {
-            if (previousValue != null && previousValue.Download.Contains(this))
+            if (previousValue != null && previousValue.Downloads.Contains(this))
             {
-                previousValue.Download.Remove(this);
+                previousValue.Downloads.Remove(this);
             }
     
-            if (DownloadType != null)
+            if (Platform != null)
             {
-                if (!DownloadType.Download.Contains(this))
+                if (!Platform.Downloads.Contains(this))
                 {
-                    DownloadType.Download.Add(this);
+                    Platform.Downloads.Add(this);
                 }
-                if (DownloadTypeId != DownloadType.DownloadTypeId)
+                if (PlatformId != Platform.PlatformId)
                 {
-                    DownloadTypeId = DownloadType.DownloadTypeId;
+                    PlatformId = Platform.PlatformId;
                 }
             }
         }
     
         private void FixupProduct(Product previousValue)
         {
-            if (previousValue != null && previousValue.Download.Contains(this))
+            if (previousValue != null && previousValue.Downloads.Contains(this))
             {
-                previousValue.Download.Remove(this);
+                previousValue.Downloads.Remove(this);
             }
     
             if (Product != null)
             {
-                if (!Product.Download.Contains(this))
+                if (!Product.Downloads.Contains(this))
                 {
-                    Product.Download.Add(this);
+                    Product.Downloads.Add(this);
                 }
                 if (ProductId != Product.ProductId)
                 {

@@ -94,23 +94,17 @@
         });
 
 
-        function onChange_DownloadType(el) {
-            var v = el.options[el.selectedIndex].value;
+        function onChange_External(el) {
+            var v = el.checked;
             var s = $('#select_Resource');
             var i = $('#input_Resource');
 
-            switch (v) {
-
-                case '@((int)Enums.DownloadType.Windows)':
-                case '@((int)Enums.DownloadType.Mac)':
-                    s.removeAttr('disabled').show();
-                    i.attr('disabled', 'disabled').hide();
-                    break;
-                case '@((int)Enums.DownloadType.Android)':
-                case '@((int)Enums.DownloadType.IOS_App)':
-                    s.attr('disabled', 'disabled').hide();
-                    i.removeAttr('disabled').show();
-                    break;
+            if (v) { // External
+                s.attr('disabled', 'disabled').hide();
+                i.removeAttr('disabled').show();
+            } else { // Local
+                s.removeAttr('disabled').show();
+                i.attr('disabled', 'disabled').hide();
             }
         }
 
