@@ -26,6 +26,7 @@ namespace Topppro.WebSite.Controllers
             return View();
         }
 
+        [NonAction]
         [OutputCache(CacheProfile = "Long", VaryByParam = "culture")]
         public ActionResult Software()
         {

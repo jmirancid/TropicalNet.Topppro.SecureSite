@@ -113,14 +113,5 @@ namespace Topppro.Entities.Resources {
                 return ResourceManager.GetString("Entity_Name", resourceCulture);
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Software.
-        /// </summary>
-        public static string Entity_Software {
-            get {
-                return ResourceManager.GetString("Entity_Software", resourceCulture);
-            }
-        }
     }
 }

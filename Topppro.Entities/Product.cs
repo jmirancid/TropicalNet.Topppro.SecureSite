@@ -40,8 +40,5 @@ namespace Topppro.Entities
 
         [Display(Name = "Entity_Draft", ResourceType = typeof(Ent_ProductResource))]
         public bool Draft { get; set; }
-
-        [Display(Name = "Entity_Software", ResourceType = typeof(Ent_ProductResource))]
-        public bool Software { get; set; }
     }
 }

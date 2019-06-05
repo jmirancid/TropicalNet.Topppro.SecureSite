@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web.Mvc;
 using Topppro.Business.Definitions;
 using Topppro.WebSite.Extensions;
+using Framework.Common.Extensions;
 
 namespace Topppro.WebSite.Controllers
 {
@@ -70,7 +71,7 @@ namespace Topppro.WebSite.Controllers
             return View(entity);
         }
 
-        [OutputCache(CacheProfile = "Short", VaryByParam = "id")]
+        [OutputCache(CacheProfile = "Short", VaryByParam = "culture")]
         public virtual ActionResult Downloads(string controller, int id, string name)
         {
             var entity =
@@ -79,6 +80,10 @@ namespace Topppro.WebSite.Controllers
             entity.Product.Downloads =
                 this._bizDownload.Value.AllBy(x => x.ProductId == entity.Product.Id && x.Culture.Code == Topppro.Context.Current.Culture.TwoLetterISOLanguageName).ToList();
 
+            if (entity.Product.Downloads.IsEmpty())
+                entity.Product.Downloads =
+                    this._bizDownload.Value.AllBy(x => x.ProductId == entity.Product.Id && x.Culture.Code == "en").ToList();
+            
             ViewBag.Title =
                 string.Format(":: Topp Pro {0} Downloads ::", entity.Product.Name.ToUpper());
 

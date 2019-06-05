@@ -317,6 +317,36 @@ address
     text-align: center;
 }
 
+.left 
+{
+    text-align: left;
+}
+
+.right
+{
+    text-align: right;
+}
+
+.top
+{
+    vertical-align: top;
+}
+
+.bottom
+{
+    vertical-align: bottom;
+}
+
+.middle
+{
+    vertical-align: middle;
+}
+
+.m-btn.black-stripe
+{
+    border-left:3px solid #555
+}
+
 .bg-blue
 {
     background-color:  #4d90fe !important;

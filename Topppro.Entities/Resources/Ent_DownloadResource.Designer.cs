@@ -61,7 +61,7 @@ namespace Topppro.Entities.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Download.
+        ///   Looks up a localized string similar to Downloads.
         /// </summary>
         public static string _Caption {
             get {

@@ -1,6 +1,7 @@
 ﻿@using Framework.Common.Extensions
 @using Topppro.WebSite.Resources
 @using Topppro.WebSite.Extensions
+@using Topppro.WebSite.Settings
            
 @section Styles {
     <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/m-forms.min.css")" />
@@ -26,12 +27,12 @@
     @PublicResource.Softwere_Download</h2>
     <br /><br />
     
-<table width="100%">
+<table width="85%" style="margin: auto;">
     <tbody>
         <tr>
             @foreach (var p in group)
             {
-                <td class="center">
+                <td class="center top">
                     <div class="title">
                         <h1 class="@p.key.Color()"><i class="@p.key.Icon()"></i> @p.key.Name</h1>
                     </div>
@@ -39,8 +40,12 @@
                     <ul style="list-style-type:none;">
                     @foreach (var d in p.list)
                     {
-                        <li>
-                            <a href="@Url.Content(d.Resource)" class="m-btn rnd @p.key.ButtonColor()" target="_blank" title="@d.Description">@d.Name</a></li>
+                        var link =
+                            d.External ? d.Resource : Url.Content(Path.Combine(ToppproSettings.Download.Root, d.Resource));
+                        
+                        <li class="center">
+                            <a href="@link" class="m-btn @p.key.ButtonColor()" target="_blank" title="@d.Description">@d.Name</a>
+                        </li>
                     }
                     </ul>
                 </td>
@@ -50,7 +55,7 @@
 </table>
 <br /><br />
 
-<div style="margin-bottom:30px;">
+<div style="margin-bottom:80px;margin-top:250px;">
     @Html.Manual()
     
     @Html.Back(Url.RouteUrl("Detail", new { controller = ViewContext.RouteData.Values["controller"], id = Model.Id, name = Model.Product.Name.ToSeoSlug() }), new { style = "float:right;" })
