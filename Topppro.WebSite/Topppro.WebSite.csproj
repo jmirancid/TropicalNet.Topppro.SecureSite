@@ -1190,7 +1190,7 @@
     <Content Include="Views\Distributor\DisplayTemplates\Country.cshtml" />
     <Content Include="Views\Home\World.cshtml" />
     <Content Include="Views\Speakers\DisplayTemplates\Serie_KsHd.cshtml" />
-    <Content Include="Views\Shared\_ProcessorsBanner.cshtml" />
+    <Content Include="Views\Shared\_ProcessorsBanner.csht
     <Content Include="Views\Shared\Downloads.cshtml" />
     <Content Include="Views\Packs\Index.cshtml" />
   </ItemGroup>
