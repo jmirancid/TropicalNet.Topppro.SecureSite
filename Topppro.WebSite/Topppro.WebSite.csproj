@@ -139,6 +139,7 @@
     <Compile Include="Areas\SecureSite\Controllers\CultureController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\DashboardController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\DistributorController.cs" />
+    <Compile Include="Areas\SecureSite\Controllers\DownloadController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\LayoutController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\ModelController.cs" />
     <Compile Include="Areas\SecureSite\Controllers\PackageController.cs" />
@@ -177,6 +178,7 @@
     <Compile Include="Controllers\WirelessController.cs" />
     <Compile Include="Extensions\CountryExtensions.cs" />
     <Compile Include="Extensions\HtmlHelperExtensions.cs" />
+    <Compile Include="Extensions\PlatformExtensions.cs" />
     <Compile Include="Extensions\ProductExtensions.cs" />
     <Compile Include="Extensions\UrlHelperExtensions.cs" />
     <Compile Include="Filters\LocalizationFilterAttribute.cs" />
@@ -350,6 +352,7 @@
     <Content Include="Areas\SecureSite\Scripts\jquery.validate.min.js" />
     <Content Include="Areas\SecureSite\Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Areas\SecureSite\Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Areas\SecureSite\Scripts\knockout-3.4.2.js" />
     <Content Include="Areas\SecureSite\Scripts\metisMenu\jquery.metisMenu.js" />
     <Content Include="Areas\SecureSite\Scripts\MicrosoftAjax.debug.js" />
     <Content Include="Areas\SecureSite\Scripts\MicrosoftAjax.js" />
@@ -453,6 +456,7 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="Content\Downloads\Readme.txt" />
+    <Content Include="Content\Fonts\fontawesome-webfont.svg" />
     <Content Include="Content\Fonts\Humanst521BT-Light.svg" />
     <Content Include="Content\Fonts\Humanst521BT-Roman.svg" />
     <Content Include="Content\Images\1.-TAC-BT2.1B-EPLCertificate.jpg" />
@@ -584,6 +588,7 @@
     <Content Include="Content\Images\intro-2.jpg" />
     <Content Include="Content\Images\intro-3.jpg" />
     <Content Include="Content\Images\intro-4.jpg" />
+    <Content Include="Content\Images\intro-5.jpg" />
     <Content Include="Content\Images\intro-6.jpg" />
     <Content Include="Content\Images\intro-7.jpg" />
     <Content Include="Content\Images\loading.gif" />
@@ -691,6 +696,7 @@
     <Content Include="Content\Images\software-top.jpg" />
     <Content Include="Content\Images\soho-slider-1.jpg" />
     <Content Include="Content\Images\soho-slider-2.jpg" />
+    <Content Include="Content\Images\soho-slider-3.jpg" />
     <Content Include="Content\Images\soho-slider-4.jpg" />
     <Content Include="Content\Images\spacer.gif" />
     <Content Include="Content\Images\syncfusion-icons-white.png" />
@@ -716,6 +722,7 @@
     <Content Include="Content\Others\favicon.ico" />
     <Content Include="Content\Others\intro.swf" />
     <Content Include="Content\Products\Readme.txt" />
+    <Content Include="Content\Styles\font-awesome.min.css" />
     <Content Include="Content\Styles\Fonts.css" />
     <Content Include="Content\Styles\Layout.css" />
     <Content Include="Content\Styles\m-buttons.min.css" />
@@ -777,6 +784,7 @@
     <Content Include="Scripts\jssor.slider-19.0\jssor.slider.min.js" />
     <Content Include="Scripts\jssor.slider-19.0\MIT-LICENSE.txt" />
     <Content Include="Scripts\jssor.slider-19.0\readme.txt" />
+    <Content Include="Scripts\knockout-3.4.2.js" />
     <Content Include="Scripts\MM_functions.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -1118,6 +1126,17 @@
     <Content Include="Areas\SecureSite\Views\Package\_Edit.cshtml" />
     <Content Include="Areas\SecureSite\Views\Package\_Details.cshtml" />
     <Content Include="Areas\SecureSite\Views\Package\_Toolbar.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Download\DisplayTemplates\Download.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Download\EditorTemplates\Download.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Download\_Create.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Download\_Details.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Download\_Edit.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Download\_Index.cshtml" />
+    <Content Include="Areas\SecureSite\Views\Download\_Toolbar.cshtml" />
+    <Content Include="Content\Fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\Fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\Fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\Fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery.livefilter-1.0\README.md" />
     <None Include="Scripts\jquery.panelslider-0.1.1\README.md" />
     <Content Include="Views\Amplifiers\Index.cshtml" />
@@ -1171,7 +1190,8 @@
     <Content Include="Views\Distributor\DisplayTemplates\Country.cshtml" />
     <Content Include="Views\Home\World.cshtml" />
     <Content Include="Views\Speakers\DisplayTemplates\Serie_KsHd.cshtml" />
-    <Content Include="Views\Shared\_ProcessorsBanner.cshtml" />
+    <Content Include="Views\Shared\_ProcessorsBanner.csht
+    <Content Include="Views\Shared\Downloads.cshtml" />
     <Content Include="Views\Packs\Index.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
@@ -1191,7 +1211,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>2500</DevelopmentServerPort>
+          <DevelopmentServerPort>45884</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

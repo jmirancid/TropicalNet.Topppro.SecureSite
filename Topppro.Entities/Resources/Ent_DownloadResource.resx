@@ -117,8 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Entity_Culture" xml:space="preserve">
+    <value>Culture</value>
+  </data>
+  <data name="Entity_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
   <data name="Entity_Enabled" xml:space="preserve">
     <value>Enabled</value>
+  </data>
+  <data name="Entity_External" xml:space="preserve">
+    <value>External Resource ?</value>
+  </data>
+  <data name="Entity_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Entity_Platform" xml:space="preserve">
+    <value>Platform</value>
   </data>
   <data name="Entity_Priority" xml:space="preserve">
     <value>Priority</value>
@@ -130,6 +145,6 @@
     <value>Resource</value>
   </data>
   <data name="_Caption" xml:space="preserve">
-    <value>Download</value>
+    <value>Downloads</value>
   </data>
 </root>

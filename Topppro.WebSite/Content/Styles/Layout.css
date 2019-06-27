@@ -73,7 +73,7 @@ label
 
 #header
 {
-    height: 173px;
+    height: 174px;
 }
 
 #main
@@ -312,22 +312,97 @@ address
     margin: .625rem 0;
 }
 
+.center
+{
+    text-align: center;
+}
+
+.left 
+{
+    text-align: left;
+}
+
+.right
+{
+    text-align: right;
+}
+
+.top
+{
+    vertical-align: top;
+}
+
+.bottom
+{
+    vertical-align: bottom;
+}
+
+.middle
+{
+    vertical-align: middle;
+}
+
+.m-btn.black-stripe
+{
+    border-left:3px solid #555
+}
+
+.bg-blue
+{
+    background-color:  #4d90fe !important;
+}
+
+.bg-red
+{
+    background-color: #d84a38 !important;
+}
+
+.bg-purple
+{
+    background-color: #852b99 !important;
+}
+
 .bg-green
 {
-    background-color: #35aa47;
+    background-color: #35aa47 !important;
 }
 
 .bg-orange
 {
-    background-color: #E85122;
+    background-color: #E85122 !important;
+}
+
+.bg-black
+{
+    background-color: #555 !important;
+}
+
+.blue
+{
+    color: #4d90fe !important;
+}
+
+.red
+{
+    color: #d84a38 !important;
+}
+
+.purple
+{
+    color: #852b99 !important;
 }
 
 .green
 {
-    color: #35aa47;
+    color: #35aa47 !important;
 }
 
 .orange
 {
-    color: #E85122;
+    color: #E85122 !important;
+}
+
+.black
+{
+    color: #555 !important;
 }

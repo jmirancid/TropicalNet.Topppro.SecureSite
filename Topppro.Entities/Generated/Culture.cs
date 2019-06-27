@@ -43,146 +43,146 @@ namespace Topppro.Entities
         #endregion
         #region Navigation Properties
     
-    	//[XmlElement("Distributor", typeof(Collection<Distributor>))]
-        public virtual ICollection<Distributor> Distributor
+    	//[XmlElement("Distributors", typeof(Collection<Distributor>))]
+        public virtual ICollection<Distributor> Distributors
         {
             get
             {
-                if (_distributor == null)
+                if (_distributors == null)
                 {
                     var newCollection = new FixupCollection<Distributor>();
-                    newCollection.CollectionChanged += FixupDistributor;
-                    _distributor = newCollection;
+                    newCollection.CollectionChanged += FixupDistributors;
+                    _distributors = newCollection;
                 }
-                return _distributor;
+                return _distributors;
             }
             set
             {
-                if (!ReferenceEquals(_distributor, value))
+                if (!ReferenceEquals(_distributors, value))
                 {
-                    var previousValue = _distributor as FixupCollection<Distributor>;
+                    var previousValue = _distributors as FixupCollection<Distributor>;
                     if (previousValue != null)
                     {
-                        previousValue.CollectionChanged -= FixupDistributor;
+                        previousValue.CollectionChanged -= FixupDistributors;
                     }
-                    _distributor = value;
+                    _distributors = value;
                     var newValue = value as FixupCollection<Distributor>;
                     if (newValue != null)
                     {
-                        newValue.CollectionChanged += FixupDistributor;
+                        newValue.CollectionChanged += FixupDistributors;
                     }
                 }
             }
         }
-    	//[XmlElement("Distributor", typeof(Collection<Distributor>))]
-        private ICollection<Distributor> _distributor;
+    	//[XmlElement("Distributors", typeof(Collection<Distributor>))]
+        private ICollection<Distributor> _distributors;
     
-    	//[XmlElement("Bullet", typeof(Collection<Bullet>))]
-        public virtual ICollection<Bullet> Bullet
+    	//[XmlElement("Bullets", typeof(Collection<Bullet>))]
+        public virtual ICollection<Bullet> Bullets
         {
             get
             {
-                if (_bullet == null)
+                if (_bullets == null)
                 {
                     var newCollection = new FixupCollection<Bullet>();
-                    newCollection.CollectionChanged += FixupBullet;
-                    _bullet = newCollection;
+                    newCollection.CollectionChanged += FixupBullets;
+                    _bullets = newCollection;
                 }
-                return _bullet;
+                return _bullets;
             }
             set
             {
-                if (!ReferenceEquals(_bullet, value))
+                if (!ReferenceEquals(_bullets, value))
                 {
-                    var previousValue = _bullet as FixupCollection<Bullet>;
+                    var previousValue = _bullets as FixupCollection<Bullet>;
                     if (previousValue != null)
                     {
-                        previousValue.CollectionChanged -= FixupBullet;
+                        previousValue.CollectionChanged -= FixupBullets;
                     }
-                    _bullet = value;
+                    _bullets = value;
                     var newValue = value as FixupCollection<Bullet>;
                     if (newValue != null)
                     {
-                        newValue.CollectionChanged += FixupBullet;
+                        newValue.CollectionChanged += FixupBullets;
                     }
                 }
             }
         }
-    	//[XmlElement("Bullet", typeof(Collection<Bullet>))]
-        private ICollection<Bullet> _bullet;
+    	//[XmlElement("Bullets", typeof(Collection<Bullet>))]
+        private ICollection<Bullet> _bullets;
     
-    	//[XmlElement("Attribute", typeof(Collection<Attribute>))]
-        public virtual ICollection<Attribute> Attribute
+    	//[XmlElement("Attributes", typeof(Collection<Attribute>))]
+        public virtual ICollection<Attribute> Attributes
         {
             get
             {
-                if (_attribute == null)
+                if (_attributes == null)
                 {
                     var newCollection = new FixupCollection<Attribute>();
-                    newCollection.CollectionChanged += FixupAttribute;
-                    _attribute = newCollection;
+                    newCollection.CollectionChanged += FixupAttributes;
+                    _attributes = newCollection;
                 }
-                return _attribute;
+                return _attributes;
             }
             set
             {
-                if (!ReferenceEquals(_attribute, value))
+                if (!ReferenceEquals(_attributes, value))
                 {
-                    var previousValue = _attribute as FixupCollection<Attribute>;
+                    var previousValue = _attributes as FixupCollection<Attribute>;
                     if (previousValue != null)
                     {
-                        previousValue.CollectionChanged -= FixupAttribute;
+                        previousValue.CollectionChanged -= FixupAttributes;
                     }
-                    _attribute = value;
+                    _attributes = value;
                     var newValue = value as FixupCollection<Attribute>;
                     if (newValue != null)
                     {
-                        newValue.CollectionChanged += FixupAttribute;
+                        newValue.CollectionChanged += FixupAttributes;
                     }
                 }
             }
         }
-    	//[XmlElement("Attribute", typeof(Collection<Attribute>))]
-        private ICollection<Attribute> _attribute;
+    	//[XmlElement("Attributes", typeof(Collection<Attribute>))]
+        private ICollection<Attribute> _attributes;
     
-    	//[XmlElement("Assn_DownloadCulture", typeof(Collection<Assn_DownloadCulture>))]
-        public virtual ICollection<Assn_DownloadCulture> Assn_DownloadCulture
+    	//[XmlElement("Downloads", typeof(Collection<Download>))]
+        public virtual ICollection<Download> Downloads
         {
             get
             {
-                if (_assn_DownloadCulture == null)
+                if (_downloads == null)
                 {
-                    var newCollection = new FixupCollection<Assn_DownloadCulture>();
-                    newCollection.CollectionChanged += FixupAssn_DownloadCulture;
-                    _assn_DownloadCulture = newCollection;
+                    var newCollection = new FixupCollection<Download>();
+                    newCollection.CollectionChanged += FixupDownloads;
+                    _downloads = newCollection;
                 }
-                return _assn_DownloadCulture;
+                return _downloads;
             }
             set
             {
-                if (!ReferenceEquals(_assn_DownloadCulture, value))
+                if (!ReferenceEquals(_downloads, value))
                 {
-                    var previousValue = _assn_DownloadCulture as FixupCollection<Assn_DownloadCulture>;
+                    var previousValue = _downloads as FixupCollection<Download>;
                     if (previousValue != null)
                     {
-                        previousValue.CollectionChanged -= FixupAssn_DownloadCulture;
+                        previousValue.CollectionChanged -= FixupDownloads;
                     }
-                    _assn_DownloadCulture = value;
-                    var newValue = value as FixupCollection<Assn_DownloadCulture>;
+                    _downloads = value;
+                    var newValue = value as FixupCollection<Download>;
                     if (newValue != null)
                     {
-                        newValue.CollectionChanged += FixupAssn_DownloadCulture;
+                        newValue.CollectionChanged += FixupDownloads;
                     }
                 }
             }
         }
-    	//[XmlElement("Assn_DownloadCulture", typeof(Collection<Assn_DownloadCulture>))]
-        private ICollection<Assn_DownloadCulture> _assn_DownloadCulture;
+    	//[XmlElement("Downloads", typeof(Collection<Download>))]
+        private ICollection<Download> _downloads;
 
         #endregion
         #region Association Fixup
     
-        private void FixupDistributor(object sender, NotifyCollectionChangedEventArgs e)
+        private void FixupDistributors(object sender, NotifyCollectionChangedEventArgs e)
         {
             if (e.NewItems != null)
             {
@@ -204,7 +204,7 @@ namespace Topppro.Entities
             }
         }
     
-        private void FixupBullet(object sender, NotifyCollectionChangedEventArgs e)
+        private void FixupBullets(object sender, NotifyCollectionChangedEventArgs e)
         {
             if (e.NewItems != null)
             {
@@ -226,7 +226,7 @@ namespace Topppro.Entities
             }
         }
     
-        private void FixupAttribute(object sender, NotifyCollectionChangedEventArgs e)
+        private void FixupAttributes(object sender, NotifyCollectionChangedEventArgs e)
         {
             if (e.NewItems != null)
             {
@@ -248,11 +248,11 @@ namespace Topppro.Entities
             }
         }
     
-        private void FixupAssn_DownloadCulture(object sender, NotifyCollectionChangedEventArgs e)
+        private void FixupDownloads(object sender, NotifyCollectionChangedEventArgs e)
         {
             if (e.NewItems != null)
             {
-                foreach (Assn_DownloadCulture item in e.NewItems)
+                foreach (Download item in e.NewItems)
                 {
                     item.Culture = this;
                 }
@@ -260,7 +260,7 @@ namespace Topppro.Entities
     
             if (e.OldItems != null)
             {
-                foreach (Assn_DownloadCulture item in e.OldItems)
+                foreach (Download item in e.OldItems)
                 {
                     if (ReferenceEquals(item.Culture, this))
                     {

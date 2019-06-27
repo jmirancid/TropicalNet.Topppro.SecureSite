@@ -108,7 +108,7 @@ namespace Topppro.Test.Business
         [TestMethod]
         public void Can_GetWithAttributesByCulture()
         {
-            var list = bizEntity.Value.GetWithAttributesByCulture(new int[] { 1, 2 }, "en");
+            var list = bizEntity.Value.GetByCulture(new int[] { 1, 2 }, "en");
 
             Assert.AreEqual<int>(2, list.Count());
 

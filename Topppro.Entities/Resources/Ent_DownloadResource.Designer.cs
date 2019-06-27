@@ -61,11 +61,29 @@ namespace Topppro.Entities.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Download.
+        ///   Looks up a localized string similar to Downloads.
         /// </summary>
         public static string _Caption {
             get {
                 return ResourceManager.GetString("_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Culture.
+        /// </summary>
+        public static string Entity_Culture {
+            get {
+                return ResourceManager.GetString("Entity_Culture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        public static string Entity_Description {
+            get {
+                return ResourceManager.GetString("Entity_Description", resourceCulture);
             }
         }
         
@@ -75,6 +93,33 @@ namespace Topppro.Entities.Resources {
         public static string Entity_Enabled {
             get {
                 return ResourceManager.GetString("Entity_Enabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to External Resource ?.
+        /// </summary>
+        public static string Entity_External {
+            get {
+                return ResourceManager.GetString("Entity_External", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string Entity_Name {
+            get {
+                return ResourceManager.GetString("Entity_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Platform.
+        /// </summary>
+        public static string Entity_Platform {
+            get {
+                return ResourceManager.GetString("Entity_Platform", resourceCulture);
             }
         }
         

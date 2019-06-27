@@ -287,11 +287,14 @@ namespace Topppro.WebSite.Extensions
         public static MvcHtmlString Software(
             this HtmlHelper<Topppro.Entities.Assn_CategorySerieProduct> htmlHelper, IDictionary<string, object> htmlAttributes)
         {
+            if (htmlHelper.ViewData.Model.Product.Downloads.IsEmpty())
+                return null;
+
             var urlHelper =
                 new UrlHelper(htmlHelper.ViewContext.RequestContext);
 
             var a = new TagBuilder("a");
-            a.Attributes.Add("href", urlHelper.RouteUrl("Default", new { controller = "Public", action = "Software" }));
+            a.Attributes.Add("href", urlHelper.RouteUrl("Downloads", new { controller = htmlHelper.ViewContext.RouteData.Values["controller"], id = htmlHelper.ViewData.Model.Id, name = htmlHelper.ViewData.Model.Product.Name.ToSeoSlug() }));
             a.Attributes.Add("target", "_top");
             a.Attributes.Add("onmouseout", "MM_swapImgRestore()");
             a.Attributes.Add("onmouseover", "MM_swapImage('Software','','" + urlHelper.Content(ImageResource.Software_Top) + "',1)");

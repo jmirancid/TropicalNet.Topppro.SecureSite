@@ -49,44 +49,44 @@ namespace Topppro.Entities
         #endregion
         #region Navigation Properties
     
-    	//[XmlElement("Distributor", typeof(Collection<Distributor>))]
-        public virtual ICollection<Distributor> Distributor
+    	//[XmlElement("Distributors", typeof(Collection<Distributor>))]
+        public virtual ICollection<Distributor> Distributors
         {
             get
             {
-                if (_distributor == null)
+                if (_distributors == null)
                 {
                     var newCollection = new FixupCollection<Distributor>();
-                    newCollection.CollectionChanged += FixupDistributor;
-                    _distributor = newCollection;
+                    newCollection.CollectionChanged += FixupDistributors;
+                    _distributors = newCollection;
                 }
-                return _distributor;
+                return _distributors;
             }
             set
             {
-                if (!ReferenceEquals(_distributor, value))
+                if (!ReferenceEquals(_distributors, value))
                 {
-                    var previousValue = _distributor as FixupCollection<Distributor>;
+                    var previousValue = _distributors as FixupCollection<Distributor>;
                     if (previousValue != null)
                     {
-                        previousValue.CollectionChanged -= FixupDistributor;
+                        previousValue.CollectionChanged -= FixupDistributors;
                     }
-                    _distributor = value;
+                    _distributors = value;
                     var newValue = value as FixupCollection<Distributor>;
                     if (newValue != null)
                     {
-                        newValue.CollectionChanged += FixupDistributor;
+                        newValue.CollectionChanged += FixupDistributors;
                     }
                 }
             }
         }
-    	//[XmlElement("Distributor", typeof(Collection<Distributor>))]
-        private ICollection<Distributor> _distributor;
+    	//[XmlElement("Distributors", typeof(Collection<Distributor>))]
+        private ICollection<Distributor> _distributors;
 
         #endregion
         #region Association Fixup
     
-        private void FixupDistributor(object sender, NotifyCollectionChangedEventArgs e)
+        private void FixupDistributors(object sender, NotifyCollectionChangedEventArgs e)
         {
             if (e.NewItems != null)
             {

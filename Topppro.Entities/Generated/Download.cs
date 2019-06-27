@@ -28,6 +28,23 @@ namespace Topppro.Entities
             set;
         }
     
+        public virtual int CultureId
+        {
+            get { return _cultureId; }
+            set
+            {
+                if (_cultureId != value)
+                {
+                    if (Culture != null && Culture.CultureId != value)
+                    {
+                        Culture = null;
+                    }
+                    _cultureId = value;
+                }
+            }
+        }
+        private int _cultureId;
+    
         public virtual int ProductId
         {
             get { return _productId; }
@@ -44,6 +61,41 @@ namespace Topppro.Entities
             }
         }
         private int _productId;
+    
+        public virtual int PlatformId
+        {
+            get { return _platformId; }
+            set
+            {
+                if (_platformId != value)
+                {
+                    if (Platform != null && Platform.PlatformId != value)
+                    {
+                        Platform = null;
+                    }
+                    _platformId = value;
+                }
+            }
+        }
+        private int _platformId;
+    
+        public virtual string Name
+        {
+            get;
+            set;
+        }
+    
+        public virtual string Description
+        {
+            get;
+            set;
+        }
+    
+        public virtual bool External
+        {
+            get;
+            set;
+        }
     
         public virtual string Resource
         {
@@ -66,39 +118,35 @@ namespace Topppro.Entities
         #endregion
         #region Navigation Properties
     
-    	//[XmlElement("Assn_DownloadCulture", typeof(Collection<Assn_DownloadCulture>))]
-        public virtual ICollection<Assn_DownloadCulture> Assn_DownloadCulture
+        public virtual Culture Culture
         {
-            get
-            {
-                if (_assn_DownloadCulture == null)
-                {
-                    var newCollection = new FixupCollection<Assn_DownloadCulture>();
-                    newCollection.CollectionChanged += FixupAssn_DownloadCulture;
-                    _assn_DownloadCulture = newCollection;
-                }
-                return _assn_DownloadCulture;
-            }
+            get { return _culture; }
             set
             {
-                if (!ReferenceEquals(_assn_DownloadCulture, value))
+                if (!ReferenceEquals(_culture, value))
                 {
-                    var previousValue = _assn_DownloadCulture as FixupCollection<Assn_DownloadCulture>;
-                    if (previousValue != null)
-                    {
-                        previousValue.CollectionChanged -= FixupAssn_DownloadCulture;
-                    }
-                    _assn_DownloadCulture = value;
-                    var newValue = value as FixupCollection<Assn_DownloadCulture>;
-                    if (newValue != null)
-                    {
-                        newValue.CollectionChanged += FixupAssn_DownloadCulture;
-                    }
+                    var previousValue = _culture;
+                    _culture = value;
+                    FixupCulture(previousValue);
                 }
             }
         }
-    	//[XmlElement("Assn_DownloadCulture", typeof(Collection<Assn_DownloadCulture>))]
-        private ICollection<Assn_DownloadCulture> _assn_DownloadCulture;
+        private Culture _culture;
+    
+        public virtual Platform Platform
+        {
+            get { return _platform; }
+            set
+            {
+                if (!ReferenceEquals(_platform, value))
+                {
+                    var previousValue = _platform;
+                    _platform = value;
+                    FixupPlatform(previousValue);
+                }
+            }
+        }
+        private Platform _platform;
     
         public virtual Product Product
         {
@@ -118,44 +166,62 @@ namespace Topppro.Entities
         #endregion
         #region Association Fixup
     
-        private void FixupProduct(Product previousValue)
+        private void FixupCulture(Culture previousValue)
         {
-            if (previousValue != null && previousValue.Download.Contains(this))
+            if (previousValue != null && previousValue.Downloads.Contains(this))
             {
-                previousValue.Download.Remove(this);
+                previousValue.Downloads.Remove(this);
             }
     
-            if (Product != null)
+            if (Culture != null)
             {
-                if (!Product.Download.Contains(this))
+                if (!Culture.Downloads.Contains(this))
                 {
-                    Product.Download.Add(this);
+                    Culture.Downloads.Add(this);
                 }
-                if (ProductId != Product.ProductId)
+                if (CultureId != Culture.CultureId)
                 {
-                    ProductId = Product.ProductId;
+                    CultureId = Culture.CultureId;
                 }
             }
         }
     
-        private void FixupAssn_DownloadCulture(object sender, NotifyCollectionChangedEventArgs e)
+        private void FixupPlatform(Platform previousValue)
         {
-            if (e.NewItems != null)
+            if (previousValue != null && previousValue.Downloads.Contains(this))
             {
-                foreach (Assn_DownloadCulture item in e.NewItems)
-                {
-                    item.Download = this;
-                }
+                previousValue.Downloads.Remove(this);
             }
     
-            if (e.OldItems != null)
+            if (Platform != null)
             {
-                foreach (Assn_DownloadCulture item in e.OldItems)
+                if (!Platform.Downloads.Contains(this))
                 {
-                    if (ReferenceEquals(item.Download, this))
-                    {
-                        item.Download = null;
-                    }
+                    Platform.Downloads.Add(this);
+                }
+                if (PlatformId != Platform.PlatformId)
+                {
+                    PlatformId = Platform.PlatformId;
+                }
+            }
+        }
+    
+        private void FixupProduct(Product previousValue)
+        {
+            if (previousValue != null && previousValue.Downloads.Contains(this))
+            {
+                previousValue.Downloads.Remove(this);
+            }
+    
+            if (Product != null)
+            {
+                if (!Product.Downloads.Contains(this))
+                {
+                    Product.Downloads.Add(this);
+                }
+                if (ProductId != Product.ProductId)
+                {
+                    ProductId = Product.ProductId;
                 }
             }
         }
