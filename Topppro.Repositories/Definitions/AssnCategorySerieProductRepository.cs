@@ -106,7 +106,7 @@ namespace Topppro.Repositories.Definitions
                                     Category = a.Assn_CategorySerie.Category,
                                     Product = a.Product,
                                     Attributes = a.Product.Attributes.Where(b => b.Culture.Code == cultureCode && b.Enabled).OrderBy(b => b.Priority),
-                                    Downloads = a.Product.Downloads.Where(b =>b.Culture.Code == cultureCode && b.Enabled).OrderBy(b => b.Priority),
+                                    Downloads = a.Product.Downloads.Where(b => b.Enabled).OrderBy(b => b.Priority),
                                     ParentInPackages = a.Product.ParentInPackages,
                                     ParentInPackages_Child = a.Product.ParentInPackages.Select(c => c.ChildProduct),
                                     ParentInPackages_Child_Attributes = a.Product.ParentInPackages.Select(d => d.ChildProduct.Attributes.Where(e => e.Culture.Code == cultureCode && e.Enabled).OrderBy(e => e.Priority))
