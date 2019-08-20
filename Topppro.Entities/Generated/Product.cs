@@ -76,6 +76,7 @@ namespace Topppro.Entities
         }
 
         #endregion
+
         #region Navigation Properties
     
     	//[XmlElement("Assn_CategorySerieProduct", typeof(Collection<Assn_CategorySerieProduct>))]
@@ -298,6 +299,7 @@ namespace Topppro.Entities
         private ICollection<Download> _downloads;
 
         #endregion
+
         #region Association Fixup
     
         private void FixupModel(Model previousValue)
@@ -453,5 +455,6 @@ namespace Topppro.Entities
         }
 
         #endregion
+
     }
 }

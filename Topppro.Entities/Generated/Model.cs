@@ -35,6 +35,7 @@ namespace Topppro.Entities
         }
 
         #endregion
+
         #region Navigation Properties
     
     	//[XmlElement("Products", typeof(Collection<Product>))]
@@ -72,6 +73,7 @@ namespace Topppro.Entities
         private ICollection<Product> _products;
 
         #endregion
+
         #region Association Fixup
     
         private void FixupProducts(object sender, NotifyCollectionChangedEventArgs e)
@@ -97,5 +99,6 @@ namespace Topppro.Entities
         }
 
         #endregion
+
     }
 }

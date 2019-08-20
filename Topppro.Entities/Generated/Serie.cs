@@ -35,6 +35,7 @@ namespace Topppro.Entities
         }
 
         #endregion
+
         #region Navigation Properties
     
     	//[XmlElement("Assn_CategorySerie", typeof(Collection<Assn_CategorySerie>))]
@@ -72,6 +73,7 @@ namespace Topppro.Entities
         private ICollection<Assn_CategorySerie> _assn_CategorySerie;
 
         #endregion
+
         #region Association Fixup
     
         private void FixupAssn_CategorySerie(object sender, NotifyCollectionChangedEventArgs e)
@@ -97,5 +99,6 @@ namespace Topppro.Entities
         }
 
         #endregion
+
     }
 }

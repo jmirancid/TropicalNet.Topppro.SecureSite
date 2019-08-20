@@ -87,6 +87,7 @@ namespace Topppro.Entities
         }
 
         #endregion
+
         #region Navigation Properties
     
         public virtual Culture Culture
@@ -120,6 +121,7 @@ namespace Topppro.Entities
         private Product _product;
 
         #endregion
+
         #region Association Fixup
     
         private void FixupCulture(Culture previousValue)
@@ -163,5 +165,6 @@ namespace Topppro.Entities
         }
 
         #endregion
+
     }
 }

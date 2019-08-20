@@ -78,11 +78,15 @@ namespace Topppro.WebSite.Controllers
                 this._bizAssnCategorySerieProduct.Value.Get(id);
 
             entity.Product.Downloads =
-                this._bizDownload.Value.AllBy(x => x.ProductId == entity.Product.Id && x.Culture.Code == Topppro.Context.Current.Culture.TwoLetterISOLanguageName).ToList();
+                this._bizDownload.Value.AllBy(x => x.ProductId == entity.Product.Id && x.Culture.Code == Topppro.Context.Current.Culture.TwoLetterISOLanguageName)
+                .OrderBy(x => x.Platform.Priority).ThenBy(x => x.Priority)
+                .ToList();
 
             if (entity.Product.Downloads.IsEmpty())
                 entity.Product.Downloads =
-                    this._bizDownload.Value.AllBy(x => x.ProductId == entity.Product.Id && x.Culture.Code == "en").ToList();
+                    this._bizDownload.Value.AllBy(x => x.ProductId == entity.Product.Id && x.Culture.Code == "en")
+                    .OrderBy(x => x.Platform.Priority).ThenBy(x => x.Priority)
+                    .ToList();
             
             ViewBag.Title =
                 string.Format(":: Topp Pro {0} Downloads ::", entity.Product.Name.ToUpper());

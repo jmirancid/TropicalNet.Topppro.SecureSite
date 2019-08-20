@@ -81,6 +81,7 @@ namespace Topppro.Entities
         }
 
         #endregion
+
         #region Navigation Properties
     
         public virtual Assn_CategorySerie Assn_CategorySerie
@@ -114,6 +115,7 @@ namespace Topppro.Entities
         private Product _product;
 
         #endregion
+
         #region Association Fixup
     
         private void FixupAssn_CategorySerie(Assn_CategorySerie previousValue)
@@ -157,5 +159,6 @@ namespace Topppro.Entities
         }
 
         #endregion
+
     }
 }

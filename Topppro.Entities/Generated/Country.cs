@@ -47,6 +47,7 @@ namespace Topppro.Entities
         }
 
         #endregion
+
         #region Navigation Properties
     
     	//[XmlElement("Distributors", typeof(Collection<Distributor>))]
@@ -84,6 +85,7 @@ namespace Topppro.Entities
         private ICollection<Distributor> _distributors;
 
         #endregion
+
         #region Association Fixup
     
         private void FixupDistributors(object sender, NotifyCollectionChangedEventArgs e)
@@ -109,5 +111,6 @@ namespace Topppro.Entities
         }
 
         #endregion
+
     }
 }

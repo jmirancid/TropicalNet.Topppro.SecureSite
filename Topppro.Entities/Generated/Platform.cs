@@ -33,8 +33,15 @@ namespace Topppro.Entities
             get;
             set;
         }
+    
+        public virtual Nullable<int> Priority
+        {
+            get;
+            set;
+        }
 
         #endregion
+
         #region Navigation Properties
     
     	//[XmlElement("Downloads", typeof(Collection<Download>))]
@@ -72,6 +79,7 @@ namespace Topppro.Entities
         private ICollection<Download> _downloads;
 
         #endregion
+
         #region Association Fixup
     
         private void FixupDownloads(object sender, NotifyCollectionChangedEventArgs e)
@@ -97,5 +105,6 @@ namespace Topppro.Entities
         }
 
         #endregion
+
     }
 }

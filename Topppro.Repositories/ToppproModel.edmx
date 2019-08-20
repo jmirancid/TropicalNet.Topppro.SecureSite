@@ -4,92 +4,12 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="ToppproModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-        <EntityContainer Name="ToppproModelStoreContainer">
-          <EntitySet Name="Assn_CategorySerie" EntityType="ToppproModel.Store.Assn_CategorySerie" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Assn_CategorySerieProduct" EntityType="ToppproModel.Store.Assn_CategorySerieProduct" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Attribute" EntityType="ToppproModel.Store.Attribute" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Bullet" EntityType="ToppproModel.Store.Bullet" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Category" EntityType="ToppproModel.Store.Category" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Country" EntityType="ToppproModel.Store.Country" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Culture" EntityType="ToppproModel.Store.Culture" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Distributor" EntityType="ToppproModel.Store.Distributor" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Download" EntityType="ToppproModel.Store.Download" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Model" EntityType="ToppproModel.Store.Model" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Package" EntityType="ToppproModel.Store.Package" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Platform" EntityType="ToppproModel.Store.Platform" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Product" EntityType="ToppproModel.Store.Product" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Serie" EntityType="ToppproModel.Store.Serie" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="Assn_CategorySerie_Assn_CategorySerieProduct_FK" Association="ToppproModel.Store.Assn_CategorySerie_Assn_CategorySerieProduct_FK">
-            <End Role="Assn_CategorySerie" EntitySet="Assn_CategorySerie" />
-            <End Role="Assn_CategorySerieProduct" EntitySet="Assn_CategorySerieProduct" />
-          </AssociationSet>
-          <AssociationSet Name="Category_Ass_CategorySerie_FK" Association="ToppproModel.Store.Category_Ass_CategorySerie_FK">
-            <End Role="Category" EntitySet="Category" />
-            <End Role="Assn_CategorySerie" EntitySet="Assn_CategorySerie" />
-          </AssociationSet>
-          <AssociationSet Name="Culture_Attribute_FK" Association="ToppproModel.Store.Culture_Attribute_FK">
-            <End Role="Culture" EntitySet="Culture" />
-            <End Role="Attribute" EntitySet="Attribute" />
-          </AssociationSet>
-          <AssociationSet Name="Culture_Bullet_FK" Association="ToppproModel.Store.Culture_Bullet_FK">
-            <End Role="Culture" EntitySet="Culture" />
-            <End Role="Bullet" EntitySet="Bullet" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Distribut__Count__25869641" Association="ToppproModel.Store.FK__Distribut__Count__25869641">
-            <End Role="Country" EntitySet="Country" />
-            <End Role="Distributor" EntitySet="Distributor" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Distribut__Cultu__267ABA7A" Association="ToppproModel.Store.FK__Distribut__Cultu__267ABA7A">
-            <End Role="Culture" EntitySet="Culture" />
-            <End Role="Distributor" EntitySet="Distributor" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Download_Culture" Association="ToppproModel.Store.FK_Download_Culture">
-            <End Role="Culture" EntitySet="Culture" />
-            <End Role="Download" EntitySet="Download" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Download_Platform" Association="ToppproModel.Store.FK_Download_Platform">
-            <End Role="Platform" EntitySet="Platform" />
-            <End Role="Download" EntitySet="Download" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Download_Product" Association="ToppproModel.Store.FK_Download_Product">
-            <End Role="Product" EntitySet="Product" />
-            <End Role="Download" EntitySet="Download" />
-          </AssociationSet>
-          <AssociationSet Name="Model_Product_FK" Association="ToppproModel.Store.Model_Product_FK">
-            <End Role="Model" EntitySet="Model" />
-            <End Role="Product" EntitySet="Product" />
-          </AssociationSet>
-          <AssociationSet Name="Package_Child_Product_FK" Association="ToppproModel.Store.Package_Child_Product_FK">
-            <End Role="Product" EntitySet="Product" />
-            <End Role="Package" EntitySet="Package" />
-          </AssociationSet>
-          <AssociationSet Name="Package_Parent_Product_FK" Association="ToppproModel.Store.Package_Parent_Product_FK">
-            <End Role="Product" EntitySet="Product" />
-            <End Role="Package" EntitySet="Package" />
-          </AssociationSet>
-          <AssociationSet Name="Product_Assn_CategorySerieProduct_FK" Association="ToppproModel.Store.Product_Assn_CategorySerieProduct_FK">
-            <End Role="Product" EntitySet="Product" />
-            <End Role="Assn_CategorySerieProduct" EntitySet="Assn_CategorySerieProduct" />
-          </AssociationSet>
-          <AssociationSet Name="Product_Attribute_FK" Association="ToppproModel.Store.Product_Attribute_FK">
-            <End Role="Product" EntitySet="Product" />
-            <End Role="Attribute" EntitySet="Attribute" />
-          </AssociationSet>
-          <AssociationSet Name="Product_Bullet_FK" Association="ToppproModel.Store.Product_Bullet_FK">
-            <End Role="Product" EntitySet="Product" />
-            <End Role="Bullet" EntitySet="Bullet" />
-          </AssociationSet>
-          <AssociationSet Name="Serie_Assn_CategorySerie_FK" Association="ToppproModel.Store.Serie_Assn_CategorySerie_FK">
-            <End Role="Serie" EntitySet="Serie" />
-            <End Role="Assn_CategorySerie" EntitySet="Assn_CategorySerie" />
-          </AssociationSet>
-        </EntityContainer>
+    <Schema Namespace="ToppproModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityType Name="Assn_CategorySerie">
           <Key>
             <PropertyRef Name="AssnCategorySerieId" />
           </Key>
-          <Property Name="AssnCategorySerieId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AssnCategorySerieId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CategoryId" Type="int" Nullable="false" />
           <Property Name="SerieId" Type="int" Nullable="false" />
           <Property Name="ItemsPerLine" Type="int" />
@@ -101,7 +21,7 @@
           <Key>
             <PropertyRef Name="AssnCategorySerieProductId" />
           </Key>
-          <Property Name="AssnCategorySerieProductId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AssnCategorySerieProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="AssnCategorySerieId" Type="int" Nullable="false" />
           <Property Name="ProductId" Type="int" Nullable="false" />
           <Property Name="AllowCompare" Type="bit" Nullable="false" />
@@ -112,7 +32,7 @@
           <Key>
             <PropertyRef Name="AttributeId" />
           </Key>
-          <Property Name="AttributeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AttributeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ProductId" Type="int" Nullable="false" />
           <Property Name="CultureId" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
@@ -124,7 +44,7 @@
           <Key>
             <PropertyRef Name="BulletId" />
           </Key>
-          <Property Name="BulletId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BulletId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ProductId" Type="int" Nullable="false" />
           <Property Name="CultureId" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
@@ -136,15 +56,15 @@
           <Key>
             <PropertyRef Name="CategoryId" />
           </Key>
-          <Property Name="CategoryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Country">
           <Key>
             <PropertyRef Name="CountryId" />
           </Key>
-          <Property Name="CountryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="CountryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="150" Nullable="false" />
           <Property Name="Priority" Type="int" />
           <Property Name="Enabled" Type="bit" Nullable="false" />
         </EntityType>
@@ -152,18 +72,18 @@
           <Key>
             <PropertyRef Name="CultureId" />
           </Key>
-          <Property Name="CultureId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
-          <Property Name="Code" Type="varchar" Nullable="false" MaxLength="2" />
+          <Property Name="CultureId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="2" Nullable="false" />
         </EntityType>
         <EntityType Name="Distributor">
           <Key>
             <PropertyRef Name="DistributorId" />
           </Key>
-          <Property Name="DistributorId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DistributorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CountryId" Type="int" Nullable="false" />
           <Property Name="CultureId" Type="int" Nullable="false" />
-          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="Name" Type="varchar" MaxLength="150" Nullable="false" />
           <Property Name="Detail" Type="varchar(max)" Nullable="false" />
           <Property Name="Priority" Type="int" />
           <Property Name="Enabled" Type="bit" Nullable="false" />
@@ -172,14 +92,14 @@
           <Key>
             <PropertyRef Name="DownloadId" />
           </Key>
-          <Property Name="DownloadId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DownloadId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CultureId" Type="int" Nullable="false" />
           <Property Name="ProductId" Type="int" Nullable="false" />
           <Property Name="PlatformId" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="150" />
           <Property Name="Description" Type="nvarchar" MaxLength="450" />
           <Property Name="External" Type="bit" Nullable="false" />
-          <Property Name="Resource" Type="nvarchar" Nullable="false" MaxLength="1024" />
+          <Property Name="Resource" Type="nvarchar" MaxLength="1024" Nullable="false" />
           <Property Name="Priority" Type="int" />
           <Property Name="Enabled" Type="bit" Nullable="false" />
         </EntityType>
@@ -187,14 +107,14 @@
           <Key>
             <PropertyRef Name="ModelId" />
           </Key>
-          <Property Name="ModelId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ModelId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Package">
           <Key>
             <PropertyRef Name="PackageId" />
           </Key>
-          <Property Name="PackageId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PackageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ParentProductId" Type="int" Nullable="false" />
           <Property Name="ChildProductId" Type="int" Nullable="false" />
           <Property Name="Priority" Type="int" />
@@ -208,16 +128,17 @@
           <Key>
             <PropertyRef Name="PlatformId" />
           </Key>
-          <Property Name="PlatformId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PlatformId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Priority" Type="int" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
             <PropertyRef Name="ProductId" />
           </Key>
-          <Property Name="ProductId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ModelId" Type="int" Nullable="false" />
-          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="Name" Type="varchar" MaxLength="150" Nullable="false" />
           <Property Name="Folder" Type="varchar" MaxLength="80" />
           <Property Name="Manual" Type="varchar" MaxLength="80" />
           <Property Name="Draft" Type="bit" Nullable="false" />
@@ -227,12 +148,12 @@
           <Key>
             <PropertyRef Name="SerieId" />
           </Key>
-          <Property Name="SerieId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="80" />
+          <Property Name="SerieId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="80" Nullable="false" />
         </EntityType>
         <Association Name="Assn_CategorySerie_Assn_CategorySerieProduct_FK">
-          <End Role="Assn_CategorySerie" Type="ToppproModel.Store.Assn_CategorySerie" Multiplicity="1" />
-          <End Role="Assn_CategorySerieProduct" Type="ToppproModel.Store.Assn_CategorySerieProduct" Multiplicity="*" />
+          <End Role="Assn_CategorySerie" Type="Self.Assn_CategorySerie" Multiplicity="1" />
+          <End Role="Assn_CategorySerieProduct" Type="Self.Assn_CategorySerieProduct" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Assn_CategorySerie">
               <PropertyRef Name="AssnCategorySerieId" />
@@ -243,8 +164,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Category_Ass_CategorySerie_FK">
-          <End Role="Category" Type="ToppproModel.Store.Category" Multiplicity="1" />
-          <End Role="Assn_CategorySerie" Type="ToppproModel.Store.Assn_CategorySerie" Multiplicity="*" />
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Assn_CategorySerie" Type="Self.Assn_CategorySerie" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Category">
               <PropertyRef Name="CategoryId" />
@@ -255,8 +176,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Culture_Attribute_FK">
-          <End Role="Culture" Type="ToppproModel.Store.Culture" Multiplicity="1" />
-          <End Role="Attribute" Type="ToppproModel.Store.Attribute" Multiplicity="*" />
+          <End Role="Culture" Type="Self.Culture" Multiplicity="1" />
+          <End Role="Attribute" Type="Self.Attribute" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Culture">
               <PropertyRef Name="CultureId" />
@@ -267,8 +188,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Culture_Bullet_FK">
-          <End Role="Culture" Type="ToppproModel.Store.Culture" Multiplicity="1" />
-          <End Role="Bullet" Type="ToppproModel.Store.Bullet" Multiplicity="*" />
+          <End Role="Culture" Type="Self.Culture" Multiplicity="1" />
+          <End Role="Bullet" Type="Self.Bullet" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Culture">
               <PropertyRef Name="CultureId" />
@@ -279,8 +200,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Distribut__Count__25869641">
-          <End Role="Country" Type="ToppproModel.Store.Country" Multiplicity="1" />
-          <End Role="Distributor" Type="ToppproModel.Store.Distributor" Multiplicity="*" />
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
+          <End Role="Distributor" Type="Self.Distributor" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Country">
               <PropertyRef Name="CountryId" />
@@ -291,8 +212,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Distribut__Cultu__267ABA7A">
-          <End Role="Culture" Type="ToppproModel.Store.Culture" Multiplicity="1" />
-          <End Role="Distributor" Type="ToppproModel.Store.Distributor" Multiplicity="*" />
+          <End Role="Culture" Type="Self.Culture" Multiplicity="1" />
+          <End Role="Distributor" Type="Self.Distributor" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Culture">
               <PropertyRef Name="CultureId" />
@@ -303,8 +224,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Download_Culture">
-          <End Role="Culture" Type="ToppproModel.Store.Culture" Multiplicity="1" />
-          <End Role="Download" Type="ToppproModel.Store.Download" Multiplicity="*" />
+          <End Role="Culture" Type="Self.Culture" Multiplicity="1" />
+          <End Role="Download" Type="Self.Download" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Culture">
               <PropertyRef Name="CultureId" />
@@ -315,8 +236,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Download_Platform">
-          <End Role="Platform" Type="ToppproModel.Store.Platform" Multiplicity="1" />
-          <End Role="Download" Type="ToppproModel.Store.Download" Multiplicity="*" />
+          <End Role="Platform" Type="Self.Platform" Multiplicity="1" />
+          <End Role="Download" Type="Self.Download" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Platform">
               <PropertyRef Name="PlatformId" />
@@ -327,8 +248,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Download_Product">
-          <End Role="Product" Type="ToppproModel.Store.Product" Multiplicity="1" />
-          <End Role="Download" Type="ToppproModel.Store.Download" Multiplicity="*" />
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="Download" Type="Self.Download" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Product">
               <PropertyRef Name="ProductId" />
@@ -339,8 +260,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Model_Product_FK">
-          <End Role="Model" Type="ToppproModel.Store.Model" Multiplicity="1" />
-          <End Role="Product" Type="ToppproModel.Store.Product" Multiplicity="*" />
+          <End Role="Model" Type="Self.Model" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Model">
               <PropertyRef Name="ModelId" />
@@ -351,8 +272,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Package_Child_Product_FK">
-          <End Role="Product" Type="ToppproModel.Store.Product" Multiplicity="1" />
-          <End Role="Package" Type="ToppproModel.Store.Package" Multiplicity="*" />
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="Package" Type="Self.Package" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Product">
               <PropertyRef Name="ProductId" />
@@ -363,8 +284,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Package_Parent_Product_FK">
-          <End Role="Product" Type="ToppproModel.Store.Product" Multiplicity="1" />
-          <End Role="Package" Type="ToppproModel.Store.Package" Multiplicity="*" />
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="Package" Type="Self.Package" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Product">
               <PropertyRef Name="ProductId" />
@@ -375,8 +296,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Product_Assn_CategorySerieProduct_FK">
-          <End Role="Product" Type="ToppproModel.Store.Product" Multiplicity="1" />
-          <End Role="Assn_CategorySerieProduct" Type="ToppproModel.Store.Assn_CategorySerieProduct" Multiplicity="*" />
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="Assn_CategorySerieProduct" Type="Self.Assn_CategorySerieProduct" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Product">
               <PropertyRef Name="ProductId" />
@@ -387,8 +308,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Product_Attribute_FK">
-          <End Role="Product" Type="ToppproModel.Store.Product" Multiplicity="1" />
-          <End Role="Attribute" Type="ToppproModel.Store.Attribute" Multiplicity="*" />
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="Attribute" Type="Self.Attribute" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Product">
               <PropertyRef Name="ProductId" />
@@ -399,8 +320,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Product_Bullet_FK">
-          <End Role="Product" Type="ToppproModel.Store.Product" Multiplicity="1" />
-          <End Role="Bullet" Type="ToppproModel.Store.Bullet" Multiplicity="*" />
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="Bullet" Type="Self.Bullet" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Product">
               <PropertyRef Name="ProductId" />
@@ -411,8 +332,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Serie_Assn_CategorySerie_FK">
-          <End Role="Serie" Type="ToppproModel.Store.Serie" Multiplicity="1" />
-          <End Role="Assn_CategorySerie" Type="ToppproModel.Store.Assn_CategorySerie" Multiplicity="*" />
+          <End Role="Serie" Type="Self.Serie" Multiplicity="1" />
+          <End Role="Assn_CategorySerie" Type="Self.Assn_CategorySerie" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Serie">
               <PropertyRef Name="SerieId" />
@@ -442,6 +363,86 @@
           <Parameter Name="AssnCategorySerieProductId" Type="int" Mode="In" />
           <Parameter Name="Priority" Type="int" Mode="In" />
         </Function>
+        <EntityContainer Name="ToppproModelStoreContainer">
+          <EntitySet Name="Assn_CategorySerie" EntityType="Self.Assn_CategorySerie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Assn_CategorySerieProduct" EntityType="Self.Assn_CategorySerieProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Attribute" EntityType="Self.Attribute" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bullet" EntityType="Self.Bullet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Culture" EntityType="Self.Culture" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Distributor" EntityType="Self.Distributor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Download" EntityType="Self.Download" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Model" EntityType="Self.Model" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Package" EntityType="Self.Package" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Platform" EntityType="Self.Platform" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Serie" EntityType="Self.Serie" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="Assn_CategorySerie_Assn_CategorySerieProduct_FK" Association="Self.Assn_CategorySerie_Assn_CategorySerieProduct_FK">
+            <End Role="Assn_CategorySerie" EntitySet="Assn_CategorySerie" />
+            <End Role="Assn_CategorySerieProduct" EntitySet="Assn_CategorySerieProduct" />
+          </AssociationSet>
+          <AssociationSet Name="Category_Ass_CategorySerie_FK" Association="Self.Category_Ass_CategorySerie_FK">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Assn_CategorySerie" EntitySet="Assn_CategorySerie" />
+          </AssociationSet>
+          <AssociationSet Name="Culture_Attribute_FK" Association="Self.Culture_Attribute_FK">
+            <End Role="Culture" EntitySet="Culture" />
+            <End Role="Attribute" EntitySet="Attribute" />
+          </AssociationSet>
+          <AssociationSet Name="Culture_Bullet_FK" Association="Self.Culture_Bullet_FK">
+            <End Role="Culture" EntitySet="Culture" />
+            <End Role="Bullet" EntitySet="Bullet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Distribut__Count__25869641" Association="Self.FK__Distribut__Count__25869641">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="Distributor" EntitySet="Distributor" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Distribut__Cultu__267ABA7A" Association="Self.FK__Distribut__Cultu__267ABA7A">
+            <End Role="Culture" EntitySet="Culture" />
+            <End Role="Distributor" EntitySet="Distributor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Download_Culture" Association="Self.FK_Download_Culture">
+            <End Role="Culture" EntitySet="Culture" />
+            <End Role="Download" EntitySet="Download" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Download_Platform" Association="Self.FK_Download_Platform">
+            <End Role="Platform" EntitySet="Platform" />
+            <End Role="Download" EntitySet="Download" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Download_Product" Association="Self.FK_Download_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Download" EntitySet="Download" />
+          </AssociationSet>
+          <AssociationSet Name="Model_Product_FK" Association="Self.Model_Product_FK">
+            <End Role="Model" EntitySet="Model" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="Package_Child_Product_FK" Association="Self.Package_Child_Product_FK">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Package" EntitySet="Package" />
+          </AssociationSet>
+          <AssociationSet Name="Package_Parent_Product_FK" Association="Self.Package_Parent_Product_FK">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Package" EntitySet="Package" />
+          </AssociationSet>
+          <AssociationSet Name="Product_Assn_CategorySerieProduct_FK" Association="Self.Product_Assn_CategorySerieProduct_FK">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Assn_CategorySerieProduct" EntitySet="Assn_CategorySerieProduct" />
+          </AssociationSet>
+          <AssociationSet Name="Product_Attribute_FK" Association="Self.Product_Attribute_FK">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Attribute" EntitySet="Attribute" />
+          </AssociationSet>
+          <AssociationSet Name="Product_Bullet_FK" Association="Self.Product_Bullet_FK">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Bullet" EntitySet="Bullet" />
+          </AssociationSet>
+          <AssociationSet Name="Serie_Assn_CategorySerie_FK" Association="Self.Serie_Assn_CategorySerie_FK">
+            <End Role="Serie" EntitySet="Serie" />
+            <End Role="Assn_CategorySerie" EntitySet="Assn_CategorySerie" />
+          </AssociationSet>
+        </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -531,18 +532,18 @@
             <End Role="Product" EntitySet="Product" />
             <End Role="Attribute" EntitySet="Attribute" />
           </AssociationSet>
-          <EntitySet Name="Platform" EntityType="ToppproModel.Platform" />
           <EntitySet Name="Download" EntityType="ToppproModel.Download" />
           <AssociationSet Name="FK_Download_Culture" Association="ToppproModel.FK_Download_Culture">
             <End Role="Culture" EntitySet="Culture" />
             <End Role="Download" EntitySet="Download" />
           </AssociationSet>
-          <AssociationSet Name="FK_Download_Platform" Association="ToppproModel.FK_Download_Platform">
-            <End Role="Platform" EntitySet="Platform" />
-            <End Role="Download" EntitySet="Download" />
-          </AssociationSet>
           <AssociationSet Name="FK_Download_Product" Association="ToppproModel.FK_Download_Product">
             <End Role="Product" EntitySet="Product" />
+            <End Role="Download" EntitySet="Download" />
+          </AssociationSet>
+          <EntitySet Name="Platform" EntityType="ToppproModel.Platform" />
+          <AssociationSet Name="FK_Download_Platform" Association="ToppproModel.FK_Download_Platform">
+            <End Role="Platform" EntitySet="Platform" />
             <End Role="Download" EntitySet="Download" />
           </AssociationSet>
           </EntityContainer>
@@ -624,9 +625,9 @@
           </Key>
           <Property Type="Int32" Name="ProductId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="Int32" Name="ModelId" Nullable="false" />
-          <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Folder" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Manual" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Folder" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Manual" MaxLength="80" FixedLength="false" Unicode="false" />
           <Property Type="Boolean" Name="Draft" Nullable="false" />
           <NavigationProperty Name="Assn_CategorySerieProduct" Relationship="ToppproModel.Product_Assn_CategorySerieProduct_FK" FromRole="Product" ToRole="Assn_CategorySerieProduct" />
           <NavigationProperty Name="Model" Relationship="ToppproModel.Model_Product_FK" FromRole="Product" ToRole="Model" />
@@ -642,7 +643,7 @@
             <PropertyRef Name="SerieId" />
           </Key>
           <Property Type="Int32" Name="SerieId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Assn_CategorySerie" Relationship="ToppproModel.Serie_Assn_CategorySerie_FK" FromRole="Serie" ToRole="Assn_CategorySerie" />
         </EntityType>
         <Association Name="Assn_CategorySerie_Assn_CategorySerieProduct_FK">
@@ -747,7 +748,7 @@
           <Property Type="Int32" Name="CountryId" Nullable="false" />
           <Property Type="Int32" Name="CultureId" Nullable="false" />
           <Property Type="String" Name="Name" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Detail" Nullable="false" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Detail" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Type="Int32" Name="Priority" />
           <Property Type="Boolean" Name="Enabled" Nullable="false" />
           <NavigationProperty Name="Country" Relationship="ToppproModel.FK__Distribut__Count__2739D489" FromRole="Distributor" ToRole="Country" />
@@ -853,14 +854,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Platform">
-          <Key>
-            <PropertyRef Name="PlatformId" />
-          </Key>
-          <Property Type="Int32" Name="PlatformId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Downloads" Relationship="ToppproModel.FK_Download_Platform" FromRole="Platform" ToRole="Download" />
-        </EntityType>
         <EntityType Name="Download">
           <Key>
             <PropertyRef Name="DownloadId" />
@@ -876,8 +869,8 @@
           <Property Type="Int32" Name="Priority" />
           <Property Type="Boolean" Name="Enabled" Nullable="false" />
           <NavigationProperty Name="Culture" Relationship="ToppproModel.FK_Download_Culture" FromRole="Download" ToRole="Culture" />
-          <NavigationProperty Name="Platform" Relationship="ToppproModel.FK_Download_Platform" FromRole="Download" ToRole="Platform" />
           <NavigationProperty Name="Product" Relationship="ToppproModel.FK_Download_Product" FromRole="Download" ToRole="Product" />
+          <NavigationProperty Name="Platform" Relationship="ToppproModel.FK_Download_Platform" FromRole="Download" ToRole="Platform" />
         </EntityType>
         <Association Name="FK_Download_Culture">
           <End Type="ToppproModel.Culture" Role="Culture" Multiplicity="1" />
@@ -891,18 +884,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Download_Platform">
-          <End Type="ToppproModel.Platform" Role="Platform" Multiplicity="1" />
-          <End Type="ToppproModel.Download" Role="Download" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Platform">
-              <PropertyRef Name="PlatformId" />
-            </Principal>
-            <Dependent Role="Download">
-              <PropertyRef Name="PlatformId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Download_Product">
           <End Type="ToppproModel.Product" Role="Product" Multiplicity="1" />
           <End Type="ToppproModel.Download" Role="Download" Multiplicity="*" />
@@ -912,6 +893,27 @@
             </Principal>
             <Dependent Role="Download">
               <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Platform">
+          <Key>
+            <PropertyRef Name="PlatformId" />
+          </Key>
+          <Property Name="PlatformId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Priority" Type="Int32" />
+          <NavigationProperty Name="Downloads" Relationship="ToppproModel.FK_Download_Platform" FromRole="Platform" ToRole="Download" />
+        </EntityType>
+        <Association Name="FK_Download_Platform">
+          <End Type="ToppproModel.Platform" Role="Platform" Multiplicity="1" />
+          <End Type="ToppproModel.Download" Role="Download" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Platform">
+              <PropertyRef Name="PlatformId" />
+            </Principal>
+            <Dependent Role="Download">
+              <PropertyRef Name="PlatformId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1060,14 +1062,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Platform">
-            <EntityTypeMapping TypeName="ToppproModel.Platform">
-              <MappingFragment StoreEntitySet="Platform">
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="PlatformId" ColumnName="PlatformId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Download">
             <EntityTypeMapping TypeName="ToppproModel.Download">
               <MappingFragment StoreEntitySet="Download">
@@ -1081,6 +1075,15 @@
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
                 <ScalarProperty Name="CultureId" ColumnName="CultureId" />
                 <ScalarProperty Name="DownloadId" ColumnName="DownloadId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Platform">
+            <EntityTypeMapping TypeName="ToppproModel.Platform">
+              <MappingFragment StoreEntitySet="Platform">
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PlatformId" ColumnName="PlatformId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1101,6 +1104,7 @@
         <DesignerProperty Name="EnablePluralization" Value="False" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->
@@ -1192,7 +1196,6 @@
           <ConnectorPoint PointX="9" PointY="8.2818284230769237" />
           <ConnectorPoint PointX="9" PointY="8.5" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="ToppproModel.Platform" Width="1.5" PointX="6" PointY="16.75" Height="1.5956835937500031" />
         <EntityTypeShape EntityType="ToppproModel.Download" Width="1.5" PointX="8.25" PointY="12.375" Height="3.5186979166666674" />
         <AssociationConnector Association="ToppproModel.FK_Download_Culture" >
           <ConnectorPoint PointX="3.75" PointY="15.114889322916666" />
@@ -1200,11 +1203,6 @@
           <ConnectorPoint PointX="4.822916666666667" PointY="15.60284505208333" />
           <ConnectorPoint PointX="5.130208333333333" PointY="15.602845052083332" />
           <ConnectorPoint PointX="8.25" PointY="15.602845052083332" />
-        </AssociationConnector>
-        <AssociationConnector Association="ToppproModel.FK_Download_Platform" >
-          <ConnectorPoint PointX="7.15625" PointY="16.75" />
-          <ConnectorPoint PointX="7.15625" PointY="15.779523984374993" />
-          <ConnectorPoint PointX="8.25" PointY="15.779523984374993" />
         </AssociationConnector>
         <AssociationConnector Association="ToppproModel.FK_Download_Product" >
           <ConnectorPoint PointX="4.5" PointY="11.674075272035255" />
@@ -1215,6 +1213,8 @@
           <ConnectorPoint PointX="7.875" PointY="12" />
           <ConnectorPoint PointX="8.25" PointY="12.375" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="ToppproModel.Platform" Width="1.5" PointX="5.375" PointY="0.875" />
+        <AssociationConnector Association="ToppproModel.FK_Download_Platform" />
         </Diagram>
     </Diagrams>
   </Designer>

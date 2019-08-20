@@ -116,6 +116,7 @@ namespace Topppro.Entities
         }
 
         #endregion
+
         #region Navigation Properties
     
         public virtual Culture Culture
@@ -133,21 +134,6 @@ namespace Topppro.Entities
         }
         private Culture _culture;
     
-        public virtual Platform Platform
-        {
-            get { return _platform; }
-            set
-            {
-                if (!ReferenceEquals(_platform, value))
-                {
-                    var previousValue = _platform;
-                    _platform = value;
-                    FixupPlatform(previousValue);
-                }
-            }
-        }
-        private Platform _platform;
-    
         public virtual Product Product
         {
             get { return _product; }
@@ -162,8 +148,24 @@ namespace Topppro.Entities
             }
         }
         private Product _product;
+    
+        public virtual Platform Platform
+        {
+            get { return _platform; }
+            set
+            {
+                if (!ReferenceEquals(_platform, value))
+                {
+                    var previousValue = _platform;
+                    _platform = value;
+                    FixupPlatform(previousValue);
+                }
+            }
+        }
+        private Platform _platform;
 
         #endregion
+
         #region Association Fixup
     
         private void FixupCulture(Culture previousValue)
@@ -182,26 +184,6 @@ namespace Topppro.Entities
                 if (CultureId != Culture.CultureId)
                 {
                     CultureId = Culture.CultureId;
-                }
-            }
-        }
-    
-        private void FixupPlatform(Platform previousValue)
-        {
-            if (previousValue != null && previousValue.Downloads.Contains(this))
-            {
-                previousValue.Downloads.Remove(this);
-            }
-    
-            if (Platform != null)
-            {
-                if (!Platform.Downloads.Contains(this))
-                {
-                    Platform.Downloads.Add(this);
-                }
-                if (PlatformId != Platform.PlatformId)
-                {
-                    PlatformId = Platform.PlatformId;
                 }
             }
         }
@@ -225,7 +207,28 @@ namespace Topppro.Entities
                 }
             }
         }
+    
+        private void FixupPlatform(Platform previousValue)
+        {
+            if (previousValue != null && previousValue.Downloads.Contains(this))
+            {
+                previousValue.Downloads.Remove(this);
+            }
+    
+            if (Platform != null)
+            {
+                if (!Platform.Downloads.Contains(this))
+                {
+                    Platform.Downloads.Add(this);
+                }
+                if (PlatformId != Platform.PlatformId)
+                {
+                    PlatformId = Platform.PlatformId;
+                }
+            }
+        }
 
         #endregion
+
     }
 }

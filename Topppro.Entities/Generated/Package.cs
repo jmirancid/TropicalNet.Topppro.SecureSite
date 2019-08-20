@@ -99,6 +99,7 @@ namespace Topppro.Entities
         }
 
         #endregion
+
         #region Navigation Properties
     
         public virtual Product ChildProduct
@@ -132,6 +133,7 @@ namespace Topppro.Entities
         private Product _parentProduct;
 
         #endregion
+
         #region Association Fixup
     
         private void FixupChildProduct(Product previousValue)
@@ -175,5 +177,6 @@ namespace Topppro.Entities
         }
 
         #endregion
+
     }
 }

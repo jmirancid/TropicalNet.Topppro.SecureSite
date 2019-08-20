@@ -87,6 +87,7 @@ namespace Topppro.Entities
         }
 
         #endregion
+
         #region Navigation Properties
     
         public virtual Country Country
@@ -120,6 +121,7 @@ namespace Topppro.Entities
         private Culture _culture;
 
         #endregion
+
         #region Association Fixup
     
         private void FixupCountry(Country previousValue)
@@ -163,5 +165,6 @@ namespace Topppro.Entities
         }
 
         #endregion
+
     }
 }
