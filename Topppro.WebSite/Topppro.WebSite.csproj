@@ -725,6 +725,10 @@
     <Content Include="Content\Images\tma54bzt-up.jpg" />
     <Content Include="Content\Images\tma54bzt.jpg" />
     <Content Include="Content\Images\topp-error.jpg" />
+    <Content Include="Content\Images\videos-bottom-es.jpg" />
+    <Content Include="Content\Images\videos-bottom.jpg" />
+    <Content Include="Content\Images\videos-top-es.jpg" />
+    <Content Include="Content\Images\videos-top.jpg" />
     <Content Include="Content\Images\wireless-slider-1.jpg" />
     <Content Include="Content\Images\wireless-slider-2.jpg" />
     <Content Include="Content\Images\wireless-slider-3.jpg" />
