@@ -21,6 +21,13 @@
         </a>
     }
 
+    @if (Model.ProductId == 11216)
+    {   // DM24.8
+        <a href="@Url.Content("~/Content/Downloads/DM24.8 Movie - Voiceover.mp4")" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Videos','','@Url.Content("~/Content/Images/videos-bottom.jpg")',1)">
+            <img src="@Url.Content("~/Content/Images/videos-top.jpg")" alt="videos" id="Videos" name="Videos" height="100" width="100" border="0" />
+        </a>
+    }
+
     @if (Model.ProductId == 5214)
     {   // T2208
         <a href="@Url.Content("~/Content/Downloads/T2208 Movie - Voiceover.mp4")" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Videos','','@Url.Content("~/Content/Images/videos-bottom.jpg")',1)">
