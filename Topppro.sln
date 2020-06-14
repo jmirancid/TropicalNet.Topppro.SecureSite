@@ -10,6 +10,13 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Topppro.Business", "Topppro.Business\Topppro.Business.csproj", "{4F16A269-29C7-4B3C-9AE1-97E0DD74AADB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{F931DB9F-1A66-4997-B17F-81A842AEFC74}"
+	ProjectSection(SolutionItems) = preProject
+		Framework\xFNet.Business.dll = Framework\xFNet.Business.dll
+		Framework\xFNet.Common.dll = Framework\xFNet.Common.dll
+		Framework\xFNet.Entities.dll = Framework\xFNet.Entities.dll
+		Framework\xFNet.Interfaces.dll = Framework\xFNet.Interfaces.dll
+		Framework\xFNet.Repositories.EF6.dll = Framework\xFNet.Repositories.EF6.dll
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Topppro.Interfaces", "Topppro.Interfaces\Topppro.Interfaces.csproj", "{468C85B0-1393-4F0D-86C2-C1C18D13346C}"
 EndProject
