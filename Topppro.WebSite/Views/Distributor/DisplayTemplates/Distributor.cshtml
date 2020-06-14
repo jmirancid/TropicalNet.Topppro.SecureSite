@@ -1,9 +1,0 @@
-﻿@using Topppro.WebSite.Extensions
-
-@model Topppro.Entities.Distributor
-
-<address style="background-image: url('@Model.Country.GetFlag()');background-repeat: no-repeat;">
-    <strong>@Model.Name</strong><br />
-    @Html.Raw(Model.Detail)
-</address>
-<br />
