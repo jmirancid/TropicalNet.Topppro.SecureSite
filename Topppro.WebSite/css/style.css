@@ -1,0 +1,104 @@
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+main > .container {
+    padding: 60px 15px 0;
+}
+
+.top {
+    background: url(../images/header.jpg) center no-repeat;
+    background-size: cover;
+}
+
+.bottom{
+    background: url(../images/footer.jpg) center no-repeat;
+    background-size: cover;
+}
+
+.catalog {
+    background: url(../images/catalogo.jpg) center right no-repeat;
+    background-size: cover;
+}
+
+/*INDEX*/
+span.card-title {
+    font-size: 0.9em;
+}
+
+@media (min-width: 576px) {
+    .card-deck .card {
+        margin-right: 5px;
+        margin-left: 5px;
+
+    }
+}
+
+.card-body {
+    padding: 0.6rem;
+}
+
+.carousel-caption {
+    bottom: 60px;
+}
+
+.carousel-inner {
+    max-height: 465px;
+}
+
+/*PRODUCT LIST*/
+.list-group-item {
+	width: 95%;
+	margin: 1% !important;
+}
+
+@media (min-width: 576px) {
+	.list-group-item {
+		width: 47%;
+		margin: 5px 1.5% !important;
+	}
+}
+
+@media (min-width: 768px) {
+	.list-group-item {
+		width: 31.333%;
+		margin: 5px 1% !important;
+	}
+}
+
+@media (min-width: 992px) {
+	.list-group-item {
+		width: 18%;
+		margin: 5px 1% !important;
+	}
+}
+/*-*/
+/*DISTRIBUTORS*/
+address{
+    font-size: 0.8em;
+}
+/*-*/
+.footer > .container {
+    padding-right: 15px;
+    padding-left: 15px;
+    font-size: 0.8em;
+}
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
