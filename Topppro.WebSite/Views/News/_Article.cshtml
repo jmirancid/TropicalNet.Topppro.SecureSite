@@ -1,0 +1,21 @@
+﻿@using Topppro.WebSite.Models
+
+@model Article
+
+<div class="row my-3">
+    <div class="col-3">
+        <img src="@Model.Image" class="img-fluid" alt="@Model.Title">
+    </div>
+    <div class="col-9">
+        <div class="media">
+            <div class="media-body">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">@Model.Title</h5>
+                    <small>@Model.Date</small>
+                </div>
+                <p class="mb-1">@Model.Content</p>
+                <small>@Model.Info</small>
+            </div>
+        </div>
+    </div>
+</div>
