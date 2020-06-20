@@ -1,16 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{B8BC3FB7-0FAF-45C6-99EC-845CF87A20E2}</ProjectGuid>
+    <ProjectGuid>{7788B508-E851-4A22-8B60-4F22A2BD5AC6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Topppro.Entities</RootNamespace>
     <AssemblyName>Topppro.Entities</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -30,46 +29,26 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Stage|AnyCPU'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\Stage\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <CodeAnalysisLogFile>bin\Debug\Topppro.Entities.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
-    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
-    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <CodeAnalysisRuleSetDirectories>;e:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
-    <CodeAnalysisRuleDirectories>;e:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
-    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
-  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Framework.Entities">
-      <HintPath>..\Framework\Framework.Entities.dll</HintPath>
-    </Reference>
-    <Reference Include="Framework.IO">
-      <HintPath>..\Framework\Framework.IO.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web.Mvc, Version=3.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="xFNet.Common">
+      <HintPath>..\Framework\xFNet.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="xFNet.Entities">
+      <HintPath>..\Framework\xFNet.Entities.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assn_CategorySerie.cs" />
-    <Compile Include="Assn_CategorySerieProduct.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="Assn_CategorySerieProduct.cs" />
     <Compile Include="Attribute.cs" />
     <Compile Include="Bullet.cs" />
     <Compile Include="Category.cs" />
@@ -78,192 +57,68 @@
     <Compile Include="Distributor.cs" />
     <Compile Include="Download.cs" />
     <Compile Include="Generated\Assn_CategorySerie.cs">
-      <DependentUpon>Templates.tt</DependentUpon>
+      <DependentUpon>Template.Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="Generated\Assn_CategorySerieProduct.cs">
-      <DependentUpon>Templates.tt</DependentUpon>
+      <DependentUpon>Template.Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="Generated\Attribute.cs">
-      <DependentUpon>Templates.tt</DependentUpon>
+      <DependentUpon>Template.Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="Generated\Bullet.cs">
-      <DependentUpon>Templates.tt</DependentUpon>
+      <DependentUpon>Template.Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="Generated\Category.cs">
-      <DependentUpon>Templates.tt</DependentUpon>
+      <DependentUpon>Template.Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="Generated\Country.cs">
-      <DependentUpon>Templates.tt</DependentUpon>
+      <DependentUpon>Template.Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="Generated\Culture.cs">
-      <DependentUpon>Templates.tt</DependentUpon>
+      <DependentUpon>Template.Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="Generated\Distributor.cs">
-      <DependentUpon>Templates.tt</DependentUpon>
+      <DependentUpon>Template.Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="Generated\Download.cs">
-      <DependentUpon>Templates.tt</DependentUpon>
+      <DependentUpon>Template.Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="Generated\Model.cs">
-      <DependentUpon>Templates.tt</DependentUpon>
+      <DependentUpon>Template.Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="Generated\Package.cs">
-      <DependentUpon>Templates.tt</DependentUpon>
+      <DependentUpon>Template.Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="Generated\Platform.cs">
-      <DependentUpon>Templates.tt</DependentUpon>
+      <DependentUpon>Template.Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="Generated\Product.cs">
-      <DependentUpon>Templates.tt</DependentUpon>
+      <DependentUpon>Template.Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="Generated\Serie.cs">
-      <DependentUpon>Templates.tt</DependentUpon>
+      <DependentUpon>Template.Entities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Generated\Templates.cs">
+    <Compile Include="Generated\Template.Entities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Templates.tt</DependentUpon>
+      <DependentUpon>Template.Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model.cs" />
     <Compile Include="Package.cs" />
+    <Compile Include="Platform.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resources\Ent_AssnCategorySerieProductResource.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Ent_AssnCategorySerieProductResource.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\Ent_AttributeResource.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Ent_AttributeResource.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\Ent_BulletResource.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Ent_BulletResource.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\Ent_CategoryResource.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Ent_CategoryResource.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\Ent_AssnCategorySerieResource.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Ent_AssnCategorySerieResource.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\Ent_CountryResource.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Ent_CountryResource.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\Ent_CultureResource.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Ent_CultureResource.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\Ent_DistributorResource.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Ent_DistributorResource.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\Ent_DownloadResource.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Ent_DownloadResource.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\Ent_ModelResource.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Ent_ModelResource.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\Ent_PackageResource.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Ent_PackageResource.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\Ent_ProductResource.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Ent_ProductResource.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\Ent_SerieResource.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Ent_SerieResource.resx</DependentUpon>
-    </Compile>
     <Compile Include="Serie.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Generated\Templates.tt">
+    <Content Include="Generated\Template.Entities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Templates.cs</LastGenOutput>
-    </None>
+      <LastGenOutput>Template.Entities.cs</LastGenOutput>
+      <CustomToolNamespace>Topppro.Entities</CustomToolNamespace>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Ent_AssnCategorySerieProductResource.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Ent_AssnCategorySerieProductResource.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Ent_AttributeResource.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Ent_AttributeResource.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Ent_BulletResource.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Ent_BulletResource.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Ent_CategoryResource.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Ent_CategoryResource.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Ent_AssnCategorySerieResource.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Ent_AssnCategorySerieResource.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Ent_CountryResource.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Ent_CountryResource.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Ent_CultureResource.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Ent_CultureResource.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Ent_DistributorResource.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Ent_DistributorResource.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Ent_DownloadResource.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Ent_DownloadResource.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Ent_ModelResource.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Ent_ModelResource.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Ent_PackageResource.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Ent_PackageResource.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Ent_ProductResource.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Ent_ProductResource.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Ent_SerieResource.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Ent_SerieResource.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

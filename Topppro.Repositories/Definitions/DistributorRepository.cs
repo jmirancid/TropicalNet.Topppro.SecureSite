@@ -4,7 +4,8 @@ using Topppro.Interfaces.Repositories;
 
 namespace Topppro.Repositories.Definitions
 {
-    public class DistributorRepository : Repository<Topppro.Entities.Distributor>, IDistributorRepository
+    public class DistributorRepository : 
+        Repository<Topppro.Entities.Distributor>, IDistributorRepository
     {
         public override IQueryable<Topppro.Entities.Distributor> All()
         {
@@ -13,8 +14,7 @@ namespace Topppro.Repositories.Definitions
                         .Include(a => a.Culture);
         }
 
-        public override IQueryable<Entities.Distributor> AllBy(
-            System.Linq.Expressions.Expression<System.Func<Entities.Distributor, bool>> predicate)
+        public override IQueryable<Topppro.Entities.Distributor> AllBy(System.Linq.Expressions.Expression<System.Func<Topppro.Entities.Distributor, bool>> predicate)
         {
             return Context.Distributor
                         .Include(a => a.Country)
@@ -22,7 +22,7 @@ namespace Topppro.Repositories.Definitions
                         .Where(predicate);
         }
 
-        public override IQueryable<Entities.Distributor> Filter(int skip, int take)
+        public override IQueryable<Topppro.Entities.Distributor> Filter(int skip, int take)
         {
             return Context.Distributor
                         .Include(a => a.Country)
@@ -32,7 +32,7 @@ namespace Topppro.Repositories.Definitions
                         .Take(take);
         }
 
-        public override IQueryable<Entities.Distributor> FilterBy(int skip, int take, System.Linq.Expressions.Expression<System.Func<Entities.Distributor, bool>> predicate)
+        public override IQueryable<Topppro.Entities.Distributor> FilterBy(int skip, int take, System.Linq.Expressions.Expression<System.Func<Topppro.Entities.Distributor, bool>> predicate)
         {
             return Context.Distributor
                         .Include(a => a.Country)
@@ -43,7 +43,7 @@ namespace Topppro.Repositories.Definitions
                         .Take(take);
         }
 
-        public override Entities.Distributor Get(int id)
+        public override Topppro.Entities.Distributor Get(object id)
         {
             return Context.Distributor
                         .Include(a => a.Country)

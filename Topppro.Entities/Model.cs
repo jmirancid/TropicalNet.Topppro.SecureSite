@@ -1,14 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
-using Framework.Entities;
-using Framework.Entities.Resources;
-using Topppro.Entities.Resources;
+﻿using xFNet.Common.Extensions;
+using xFNet.Entities;
 
 namespace Topppro.Entities
 {
-    [MetadataType(typeof(Model_Metadata))]
-    public partial class Model : BaseEntity
+    public partial class Model : Entity
     {
-        public override int Id
+        public override object Id
         {
             get
             {
@@ -16,7 +13,7 @@ namespace Topppro.Entities
             }
             set
             {
-                this.ModelId = value;
+                this.ModelId = value.To<int>();
             }
         }
     }
@@ -35,12 +32,5 @@ namespace Topppro.Entities
         _6_Inputs = 9,
         Coaxial = 10,
         Combo = 11
-    }
-
-    public class Model_Metadata
-    {
-        [Display(Name = "Entity_Name", ResourceType = typeof(Ent_ModelResource))]
-        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Ent_ValidationResource))]
-        public string Name { get; set; }
     }
 }

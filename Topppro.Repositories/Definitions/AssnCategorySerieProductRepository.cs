@@ -1,36 +1,13 @@
 ﻿using System.Data.Entity;
-using System.Data.Objects;
 using System.Linq;
-using Topppro.Entities;
 using Topppro.Interfaces.Repositories;
 
 namespace Topppro.Repositories.Definitions
 {
     public class AssnCategorySerieProductRepository
-        : Repository<Assn_CategorySerieProduct>, IAssnCategorySerieProductRepository
+        : Repository<Topppro.Entities.Assn_CategorySerieProduct>, IAssnCategorySerieProductRepository
     {
-        public int Insert(int assnCategorySerieId, int productId, int priority)
-        {
-            var output =
-                new ObjectParameter("Id", typeof(int));
-
-            Context.ExecuteFunction("Assn_CategorySerieProduct_Insert",
-                new ObjectParameter("AssnCategorySerieId", assnCategorySerieId),
-                new ObjectParameter("ProductId", productId),
-                new ObjectParameter("Priority", priority),
-                output);
-
-            return (int)output.Value;
-        }
-
-        public void Reorder(int assnCategorySerieProductId, int priority)
-        {
-            Context.ExecuteFunction("Assn_CategorySerieProduct_Reorder",
-                new ObjectParameter("AssnCategorySerieProductId", assnCategorySerieProductId),
-                new ObjectParameter("Priority", priority));
-        }
-
-        public override IQueryable<Assn_CategorySerieProduct> All()
+        public override IQueryable<Topppro.Entities.Assn_CategorySerieProduct> All()
         {
             return Context.Assn_CategorySerieProduct
                         .Include(e => e.Assn_CategorySerie.Category)
@@ -38,8 +15,7 @@ namespace Topppro.Repositories.Definitions
                         .Include(e => e.Product);
         }
 
-        public override IQueryable<Assn_CategorySerieProduct> AllBy(
-            System.Linq.Expressions.Expression<System.Func<Assn_CategorySerieProduct, bool>> predicate)
+        public override IQueryable<Topppro.Entities.Assn_CategorySerieProduct> AllBy(System.Linq.Expressions.Expression<System.Func<Topppro.Entities.Assn_CategorySerieProduct, bool>> predicate)
         {
             return Context.Assn_CategorySerieProduct
                         .Include(e => e.Assn_CategorySerie.Category)
@@ -48,7 +24,7 @@ namespace Topppro.Repositories.Definitions
                         .Where(predicate);
         }
 
-        public override Assn_CategorySerieProduct Get(int id)
+        public override Topppro.Entities.Assn_CategorySerieProduct Get(object id)
         {
             return Context.Assn_CategorySerieProduct
                         .Include(e => e.Assn_CategorySerie.Category)
@@ -59,7 +35,7 @@ namespace Topppro.Repositories.Definitions
                         .SingleOrDefault(e => e.AssnCategorySerieProductId == id);
         }
 
-        public override IQueryable<Assn_CategorySerieProduct> Filter(int skip, int take)
+        public override IQueryable<Topppro.Entities.Assn_CategorySerieProduct> Filter(int skip, int take)
         {
             return Context.Assn_CategorySerieProduct
                         .Include(a => a.Assn_CategorySerie)
@@ -70,7 +46,7 @@ namespace Topppro.Repositories.Definitions
                         .Skip(skip).Take(take);
         }
 
-        public override IQueryable<Assn_CategorySerieProduct> FilterBy(int skip, int take, System.Linq.Expressions.Expression<System.Func<Assn_CategorySerieProduct, bool>> predicate)
+        public override IQueryable<Topppro.Entities.Assn_CategorySerieProduct> FilterBy(int skip, int take, System.Linq.Expressions.Expression<System.Func<Topppro.Entities.Assn_CategorySerieProduct, bool>> predicate)
         {
             return Context.Assn_CategorySerieProduct
                         .Include(a => a.Assn_CategorySerie)
@@ -82,7 +58,7 @@ namespace Topppro.Repositories.Definitions
                         .Skip(skip).Take(take);
         }
 
-        public Assn_CategorySerieProduct GetByCulture(int id, string cultureCode)
+        public Topppro.Entities.Assn_CategorySerieProduct GetByCulture(int id, string cultureCode)
         {
             var dbQuery = Context.Assn_CategorySerieProduct
                                 .Include(a => a.Assn_CategorySerie)
@@ -116,7 +92,7 @@ namespace Topppro.Repositories.Definitions
         }
 
 
-        public System.Collections.Generic.IEnumerable<Assn_CategorySerieProduct> GetByCulture(int[] id, string cultureCode)
+        public System.Collections.Generic.IEnumerable<Topppro.Entities.Assn_CategorySerieProduct> GetByCulture(int[] id, string cultureCode)
         {
             var dbQuery = Context.Assn_CategorySerieProduct
                                 .Include(a => a.Assn_CategorySerie)
@@ -146,7 +122,7 @@ namespace Topppro.Repositories.Definitions
                                     ParentInPackages_Child_Attributes = a.Product.ParentInPackages.Select(d => d.ChildProduct.Attributes.Where(e => e.Culture.Code == cultureCode && e.Enabled).OrderBy(e => e.Priority))
                                 });
 
-            return dbQuery.AsEnumerable().Select(n => n.a);
+            return dbQuery.AsEnumerable().Select(n => n.a).AsQueryable();
         }
     }
 }

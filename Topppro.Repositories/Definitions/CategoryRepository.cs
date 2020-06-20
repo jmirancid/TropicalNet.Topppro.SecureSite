@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using Topppro.Interfaces.Repositories;
 
 namespace Topppro.Repositories.Definitions
 {
-    public class CategoryRepository : Repository<Topppro.Entities.Category>, ICategoryRepository
+    public class CategoryRepository : 
+        Repository<Topppro.Entities.Category>, ICategoryRepository
     {
         public IQueryable<Topppro.Entities.Category> AllWithSeries()
         {

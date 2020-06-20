@@ -1,9 +1,10 @@
-﻿using Topppro.Entities;
-using Framework.Interfaces.Repositories;
+﻿using xFNet.Interfaces.Repositories;
 
 namespace Topppro.Interfaces.Repositories
 {
-    public interface IDistributorRepository : IRepository<Distributor>
+    public interface IDistributorRepository : 
+        IRepository<Topppro.Entities.Distributor>
     {
+
     }
 }

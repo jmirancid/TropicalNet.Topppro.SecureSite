@@ -1,28 +1,26 @@
 ﻿using System;
-using System.Data.Entity;
 using System.Linq;
-using System.Linq.Expressions;
-using Topppro.Entities;
 using Topppro.Interfaces.Repositories;
 
 namespace Topppro.Repositories.Definitions
 {
-    public class ProductRepository : Repository<Product>, IProductRepository
+    public class ProductRepository : 
+        Repository<Topppro.Entities.Product>, IProductRepository
     {
-        public override IQueryable<Product> All()
+        public override IQueryable<Topppro.Entities.Product> All()
         {
             return Context.Product
                         .Include(p => p.Model);
         }
 
-        public override IQueryable<Product> AllBy(Expression<Func<Product, bool>> predicate)
+        public override IQueryable<Topppro.Entities.Product> AllBy(System.Linq.Expressions.Expression<Func<Topppro.Entities.Product, bool>> predicate)
         {
             return Context.Product
                         .Include(p => p.Model)
                         .Where(predicate);
         }
 
-        public override IQueryable<Product> Filter(int skip, int take)
+        public override IQueryable<Topppro.Entities.Product> Filter(int skip, int take)
         {
             return Context.Product
                         .Include(p => p.Model)
@@ -30,7 +28,7 @@ namespace Topppro.Repositories.Definitions
                         .Skip(skip).Take(take);
         }
 
-        public override IQueryable<Product> FilterBy(int skip, int take, Expression<Func<Product, bool>> predicate)
+        public override IQueryable<Topppro.Entities.Product> FilterBy(int skip, int take, System.Linq.Expressions.Expression<Func<Topppro.Entities.Product, bool>> predicate)
         {
             return Context.Product
                         .Include(p => p.Model)
@@ -39,7 +37,7 @@ namespace Topppro.Repositories.Definitions
                         .Skip(skip).Take(take);
         }
 
-        public override Product Get(int id)
+        public override Topppro.Entities.Product Get(object id)
         {
             return Context.Product
                         .Include(p => p.Model)

@@ -1,13 +1,10 @@
-﻿using System.Collections.Generic;
-using Framework.Interfaces.Repositories;
-using Topppro.Entities;
+﻿using xFNet.Interfaces.Repositories;
 
 namespace Topppro.Interfaces.Repositories
 {
-    public interface IAttributeRepository : IRepository<Attribute>
+    public interface IAttributeRepository : 
+        IRepository<Topppro.Entities.Attribute>
     {
-        void CreateOrUpdate(Attribute entity);
 
-        void CreateOrUpdate(IEnumerable<Attribute> entities);
     }
 }

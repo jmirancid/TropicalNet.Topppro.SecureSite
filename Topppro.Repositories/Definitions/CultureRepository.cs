@@ -1,9 +1,10 @@
-﻿using Topppro.Entities;
-using Topppro.Interfaces.Repositories;
+﻿using Topppro.Interfaces.Repositories;
 
 namespace Topppro.Repositories.Definitions
 {
-    public class CultureRepository : Repository<Culture>, ICultureRepository
+    public class CultureRepository : 
+        Repository<Topppro.Entities.Culture>, ICultureRepository
     {
+
     }
 }

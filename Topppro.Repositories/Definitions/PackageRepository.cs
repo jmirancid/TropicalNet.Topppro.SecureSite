@@ -5,7 +5,8 @@ using Topppro.Interfaces.Repositories;
 
 namespace Topppro.Repositories.Definitions
 {
-    public class PackageRepository : Repository<Package>, IPackageRepository
+    public class PackageRepository : 
+        Repository<Topppro.Entities.Package>, IPackageRepository
     {
         public override IQueryable<Package> All()
         {
@@ -14,7 +15,7 @@ namespace Topppro.Repositories.Definitions
                         .Include(p => p.ChildProduct);
         }
 
-        public override IQueryable<Package> AllBy(System.Linq.Expressions.Expression<System.Func<Package, bool>> predicate)
+        public override IQueryable<Topppro.Entities.Package> AllBy(System.Linq.Expressions.Expression<System.Func<Topppro.Entities.Package, bool>> predicate)
         {
             return Context.Package
                         .Include(p => p.ParentProduct)
@@ -22,7 +23,7 @@ namespace Topppro.Repositories.Definitions
                         .Where(predicate);
         }
 
-        public override Package Get(int id)
+        public override Package Get(object id)
         {
             return Context.Package
                         .Include(p => p.ParentProduct)
