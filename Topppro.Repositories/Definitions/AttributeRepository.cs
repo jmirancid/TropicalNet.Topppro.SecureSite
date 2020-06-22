@@ -8,6 +8,14 @@ namespace Topppro.Repositories.Definitions
     public class AttributeRepository : 
         Repository<Topppro.Entities.Attribute>, IAttributeRepository
     {
+        public AttributeRepository() { }
+
+        public AttributeRepository(ToppproEntities context) :
+            base(context)
+        {
+
+        }
+
         public override IQueryable<Topppro.Entities.Attribute> All()
         {
             return Context.Attribute
@@ -49,7 +57,7 @@ namespace Topppro.Repositories.Definitions
             return Context.Attribute
                         .Include(a => a.Product)
                         .Include(a => a.Culture)
-                        .SingleOrDefault(a => a.AttributeId == id);
+                        .SingleOrDefault(a => a.AttributeId.Equals(id));
         }
     }
 }

@@ -1,13 +1,22 @@
 ﻿using System.Linq;
+using Topppro.Interfaces.Business;
 using Topppro.Interfaces.Repositories;
 using xFNet.Business;
 
 namespace Topppro.Business.Definitions
 {
     public class AssnCategorySerieBusiness :
-        Business<Topppro.Entities.Assn_CategorySerie, IAssnCategorySerieRepository>
+        Business<Topppro.Entities.Assn_CategorySerie, IAssnCategorySerieRepository>, IAssnCategorySerieBusiness
     {
-        public Topppro.Entities.Assn_CategorySerie GetWithProducts(int id)
+        public AssnCategorySerieBusiness() { }
+
+        public AssnCategorySerieBusiness(IAssnCategorySerieRepository repository) :
+            base(repository)
+        {
+
+        }
+
+        public Topppro.Entities.Assn_CategorySerie GetWithProducts(object id)
         {
             return base.Repository.GetWithProducts(id);
         }

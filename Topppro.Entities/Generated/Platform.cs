@@ -17,7 +17,7 @@ namespace Topppro.Entities
         //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Platform()
         {
-            this.Download = new HashSet<Download>();
+            this.Downloads = new HashSet<Download>();
         }
     
         public int PlatformId { get; set; }
@@ -25,6 +25,6 @@ namespace Topppro.Entities
         public Nullable<int> Priority { get; set; }
     
         //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Download> Download { get; set; }
+        public virtual ICollection<Download> Downloads { get; set; }
     }
 }

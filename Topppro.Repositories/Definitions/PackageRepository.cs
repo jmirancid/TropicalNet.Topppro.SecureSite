@@ -8,6 +8,14 @@ namespace Topppro.Repositories.Definitions
     public class PackageRepository : 
         Repository<Topppro.Entities.Package>, IPackageRepository
     {
+        public PackageRepository() { }
+
+        public PackageRepository(ToppproEntities context) :
+            base(context)
+        {
+
+        }
+
         public override IQueryable<Package> All()
         {
             return Context.Package
@@ -28,7 +36,7 @@ namespace Topppro.Repositories.Definitions
             return Context.Package
                         .Include(p => p.ParentProduct)
                         .Include(p => p.ChildProduct)
-                        .SingleOrDefault(p => p.PackageId == id);
+                        .SingleOrDefault(p => p.PackageId.Equals(id));
         }
     }
 }

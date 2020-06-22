@@ -7,6 +7,14 @@ namespace Topppro.Repositories.Definitions
     public class DistributorRepository : 
         Repository<Topppro.Entities.Distributor>, IDistributorRepository
     {
+        public DistributorRepository() { }
+
+        public DistributorRepository(ToppproEntities context) :
+            base(context)
+        {
+
+        }
+
         public override IQueryable<Topppro.Entities.Distributor> All()
         {
             return Context.Distributor
@@ -48,7 +56,7 @@ namespace Topppro.Repositories.Definitions
             return Context.Distributor
                         .Include(a => a.Country)
                         .Include(a => a.Culture)
-                        .SingleOrDefault(a => a.DistributorId == id);
+                        .SingleOrDefault(a => a.DistributorId.Equals(id));
         }
     }
 }

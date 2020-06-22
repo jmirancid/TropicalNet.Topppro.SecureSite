@@ -8,6 +8,14 @@ namespace Topppro.Repositories.Definitions
     public class BulletRepository : 
         Repository<Topppro.Entities.Bullet>, IBulletRepository
     {
+        public BulletRepository() { }
+
+        public BulletRepository(ToppproEntities context) :
+            base(context)
+        {
+
+        }
+
         public override IQueryable<Topppro.Entities.Bullet> All()
         {
             return Context.Bullet
@@ -44,7 +52,7 @@ namespace Topppro.Repositories.Definitions
             return Context.Bullet
                         .Include(e => e.Product)
                         .Include(e => e.Culture)
-                        .SingleOrDefault(e => e.BulletId == id);
+                        .SingleOrDefault(e => e.BulletId.Equals(id));
         }
     }
 }

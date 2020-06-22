@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using Topppro.Interfaces.Repositories;
 
@@ -7,6 +8,14 @@ namespace Topppro.Repositories.Definitions
     public class ProductRepository : 
         Repository<Topppro.Entities.Product>, IProductRepository
     {
+        public ProductRepository() { }
+
+        public ProductRepository(ToppproEntities context) :
+            base(context)
+        {
+
+        }
+
         public override IQueryable<Topppro.Entities.Product> All()
         {
             return Context.Product
@@ -41,7 +50,7 @@ namespace Topppro.Repositories.Definitions
         {
             return Context.Product
                         .Include(p => p.Model)
-                        .SingleOrDefault(p => p.ProductId == id);
+                        .SingleOrDefault(p => p.ProductId.Equals(id));
         }
     }
 }

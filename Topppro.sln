@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Topppro.Entities", "Topppro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Topppro.Business", "Topppro.Business\Topppro.Business.csproj", "{43FE7D4D-0D10-484E-87D3-8695148C85C2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Topppro.Test", "Topppro.Test\Topppro.Test.csproj", "{5D357D98-E4CB-49EA-98E4-AAB710E2EC5C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -68,6 +70,12 @@ Global
 		{43FE7D4D-0D10-484E-87D3-8695148C85C2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{43FE7D4D-0D10-484E-87D3-8695148C85C2}.Stage|Any CPU.ActiveCfg = Release|Any CPU
 		{43FE7D4D-0D10-484E-87D3-8695148C85C2}.Stage|Any CPU.Build.0 = Release|Any CPU
+		{5D357D98-E4CB-49EA-98E4-AAB710E2EC5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D357D98-E4CB-49EA-98E4-AAB710E2EC5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D357D98-E4CB-49EA-98E4-AAB710E2EC5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D357D98-E4CB-49EA-98E4-AAB710E2EC5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D357D98-E4CB-49EA-98E4-AAB710E2EC5C}.Stage|Any CPU.ActiveCfg = Release|Any CPU
+		{5D357D98-E4CB-49EA-98E4-AAB710E2EC5C}.Stage|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -79,6 +87,7 @@ Global
 		{7A427E5D-17F5-493E-956C-A08F80595F40} = {A0CDEFBE-327F-4005-8D8F-2BD7C200B7D8}
 		{7788B508-E851-4A22-8B60-4F22A2BD5AC6} = {A0CDEFBE-327F-4005-8D8F-2BD7C200B7D8}
 		{43FE7D4D-0D10-484E-87D3-8695148C85C2} = {A0CDEFBE-327F-4005-8D8F-2BD7C200B7D8}
+		{5D357D98-E4CB-49EA-98E4-AAB710E2EC5C} = {A0CDEFBE-327F-4005-8D8F-2BD7C200B7D8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35

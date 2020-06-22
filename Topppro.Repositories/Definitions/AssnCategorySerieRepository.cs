@@ -9,12 +9,20 @@ namespace Topppro.Repositories.Definitions
     public class AssnCategorySerieRepository :
          Repository<Topppro.Entities.Assn_CategorySerie>, IAssnCategorySerieRepository
     {
+        public AssnCategorySerieRepository() { }
+
+        public AssnCategorySerieRepository(ToppproEntities context) :
+            base(context)
+        {
+
+        }
+
         public override Topppro.Entities.Assn_CategorySerie Get(object id)
         {
             return Context.Assn_CategorySerie
                         .Include(e => e.Category)
                         .Include(e => e.Serie)
-                        .SingleOrDefault(e => e.AssnCategorySerieId == id);
+                        .SingleOrDefault(e => e.AssnCategorySerieId.Equals(id));
         }
 
         public Topppro.Entities.Assn_CategorySerie GetWithProducts(object id)
@@ -23,7 +31,7 @@ namespace Topppro.Repositories.Definitions
                         .Include(e => e.Category)
                         .Include(e => e.Serie)
                         .Include(e => e.Assn_CategorySerieProduct.Select(a => a.Product))
-                        .SingleOrDefault(e => e.AssnCategorySerieId == id);
+                        .SingleOrDefault(e => e.AssnCategorySerieId.Equals(id));
         }
 
         public override IQueryable<Topppro.Entities.Assn_CategorySerie> All()

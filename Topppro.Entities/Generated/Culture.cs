@@ -17,10 +17,10 @@ namespace Topppro.Entities
         //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Culture()
         {
-            this.Attribute = new HashSet<Attribute>();
-            this.Bullet = new HashSet<Bullet>();
-            this.Distributor = new HashSet<Distributor>();
-            this.Download = new HashSet<Download>();
+            this.Attributes = new HashSet<Attribute>();
+            this.Bullets = new HashSet<Bullet>();
+            this.Distributors = new HashSet<Distributor>();
+            this.Downloads = new HashSet<Download>();
         }
     
         public int CultureId { get; set; }
@@ -28,12 +28,12 @@ namespace Topppro.Entities
         public string Code { get; set; }
     
         //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Attribute> Attribute { get; set; }
+        public virtual ICollection<Attribute> Attributes { get; set; }
         //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Bullet> Bullet { get; set; }
+        public virtual ICollection<Bullet> Bullets { get; set; }
         //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Distributor> Distributor { get; set; }
+        public virtual ICollection<Distributor> Distributors { get; set; }
         //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Download> Download { get; set; }
+        public virtual ICollection<Download> Downloads { get; set; }
     }
 }

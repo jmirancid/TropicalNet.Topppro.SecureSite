@@ -46,6 +46,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business\IAssnCategorySerieBusiness.cs" />
+    <Compile Include="Business\IAssnCategorySerieProductBusiness.cs" />
+    <Compile Include="Business\IAttributeBusiness.cs" />
+    <Compile Include="Business\IBulletBusiness.cs" />
+    <Compile Include="Business\ICategoryBusiness.cs" />
+    <Compile Include="Business\ICountryBusiness.cs" />
+    <Compile Include="Business\ICultureBusiness.cs" />
+    <Compile Include="Business\IDistributorBusiness.cs" />
+    <Compile Include="Business\IDownloadBusiness.cs" />
+    <Compile Include="Business\IModelBusiness.cs" />
+    <Compile Include="Business\IPackageBusiness.cs" />
+    <Compile Include="Business\IPlatformBusiness.cs" />
+    <Compile Include="Business\IProductBusiness.cs" />
+    <Compile Include="Business\ISerieBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IAssnCategorySerieProductRepository.cs" />
     <Compile Include="Repositories\IAssnCategorySerieRepository.cs" />
@@ -68,5 +82,6 @@
       <Name>Topppro.Entities</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

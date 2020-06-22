@@ -6,8 +6,8 @@ namespace Topppro.Interfaces.Repositories
     public interface IAssnCategorySerieProductRepository :
         IRepository<Topppro.Entities.Assn_CategorySerieProduct>
     {
-        Topppro.Entities.Assn_CategorySerieProduct GetByCulture(int id, string cultureCode);
+        Topppro.Entities.Assn_CategorySerieProduct GetByCulture(object id, string cultureCode);
 
-        IEnumerable<Topppro.Entities.Assn_CategorySerieProduct> GetByCulture(int[] id, string cultureCode);
+        IEnumerable<Topppro.Entities.Assn_CategorySerieProduct> GetByCulture(object[] id, string cultureCode);
     }
 }

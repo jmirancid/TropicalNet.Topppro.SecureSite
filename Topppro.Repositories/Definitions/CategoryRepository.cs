@@ -7,6 +7,14 @@ namespace Topppro.Repositories.Definitions
     public class CategoryRepository : 
         Repository<Topppro.Entities.Category>, ICategoryRepository
     {
+        public CategoryRepository() { }
+
+        public CategoryRepository(ToppproEntities context) :
+            base(context)
+        {
+
+        }
+
         public IQueryable<Topppro.Entities.Category> AllWithSeries()
         {
             return Context.Category

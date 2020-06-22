@@ -24,7 +24,7 @@ namespace Topppro.Entities
         public bool InheritBullet { get; set; }
         public bool InheritAttribute { get; set; }
     
-        public virtual Product Product { get; set; }
-        public virtual Product Product1 { get; set; }
+        public virtual Product ChildProduct { get; set; }
+        public virtual Product ParentProduct { get; set; }
     }
 }

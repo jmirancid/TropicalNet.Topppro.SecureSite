@@ -8,6 +8,13 @@ namespace Topppro.Repositories.Definitions
     public class DownloadRepository : 
         Repository<Topppro.Entities.Download>, IDownloadRepository
     {
+        public DownloadRepository() { }
+
+        public DownloadRepository(ToppproEntities context)
+        {
+
+        }
+
         public override IQueryable<Topppro.Entities.Download> All()
         {
             return Context.Download
@@ -52,7 +59,7 @@ namespace Topppro.Repositories.Definitions
                         .Include(a => a.Product)
                         .Include(a => a.Culture)
                         .Include(a => a.Platform)
-                        .SingleOrDefault(a => a.DownloadId == id);
+                        .SingleOrDefault(a => a.DownloadId.Equals(id));
         }
     }
 }

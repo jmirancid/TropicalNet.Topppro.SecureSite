@@ -7,6 +7,14 @@ namespace Topppro.Repositories.Definitions
     public class AssnCategorySerieProductRepository
         : Repository<Topppro.Entities.Assn_CategorySerieProduct>, IAssnCategorySerieProductRepository
     {
+        public AssnCategorySerieProductRepository() { }
+
+        public AssnCategorySerieProductRepository(ToppproEntities context) :
+            base(context)
+        {
+
+        }
+
         public override IQueryable<Topppro.Entities.Assn_CategorySerieProduct> All()
         {
             return Context.Assn_CategorySerieProduct
@@ -30,9 +38,9 @@ namespace Topppro.Repositories.Definitions
                         .Include(e => e.Assn_CategorySerie.Category)
                         .Include(e => e.Assn_CategorySerie.Serie)
                         .Include(e => e.Product)
-                        .Include(a => a.Product.ParentInPackages)
-                        .Include(a => a.Product.ParentInPackages.Select(c => c.ChildProduct))
-                        .SingleOrDefault(e => e.AssnCategorySerieProductId == id);
+                        //.Include(a => a.Product.)
+                        //.Include(a => a.Product.ParentInPackages.Select(c => c.ChildProduct))
+                        .SingleOrDefault(e => e.AssnCategorySerieProductId.Equals(id));
         }
 
         public override IQueryable<Topppro.Entities.Assn_CategorySerieProduct> Filter(int skip, int take)
@@ -58,7 +66,7 @@ namespace Topppro.Repositories.Definitions
                         .Skip(skip).Take(take);
         }
 
-        public Topppro.Entities.Assn_CategorySerieProduct GetByCulture(int id, string cultureCode)
+        public Topppro.Entities.Assn_CategorySerieProduct GetByCulture(object id, string cultureCode)
         {
             var dbQuery = Context.Assn_CategorySerieProduct
                                 .Include(a => a.Assn_CategorySerie)
@@ -69,11 +77,11 @@ namespace Topppro.Repositories.Definitions
                                 .Include(a => a.Product.Attributes.Select(b => b.Culture))
                                 .Include(a => a.Product.Downloads)
                                 .Include(a => a.Product.Downloads.Select(b => b.Culture))
-                                .Include(a => a.Product.ParentInPackages)
-                                .Include(a => a.Product.ParentInPackages.Select(c => c.ChildProduct))
-                                .Include(a => a.Product.ParentInPackages.Select(d => d.ChildProduct.Attributes))
-                                .Include(a => a.Product.ParentInPackages.Select(e => e.ChildProduct.Attributes.Select(f => f.Culture)))
-                                .Where(a => a.AssnCategorySerieProductId == id && a.Enabled && !a.Product.Draft)
+                                //.Include(a => a.Product.ParentInPackages)
+                                //.Include(a => a.Product.ParentInPackages.Select(c => c.ChildProduct))
+                                //.Include(a => a.Product.ParentInPackages.Select(d => d.ChildProduct.Attributes))
+                                //.Include(a => a.Product.ParentInPackages.Select(e => e.ChildProduct.Attributes.Select(f => f.Culture)))
+                                .Where(a => a.AssnCategorySerieProductId.Equals(id) && a.Enabled && !a.Product.Draft)
                                 .Select(a => new
                                 {
                                     a,
@@ -83,16 +91,16 @@ namespace Topppro.Repositories.Definitions
                                     Product = a.Product,
                                     Attributes = a.Product.Attributes.Where(b => b.Culture.Code == cultureCode && b.Enabled).OrderBy(b => b.Priority),
                                     Downloads = a.Product.Downloads.Where(b => b.Enabled).OrderBy(b => b.Priority),
-                                    ParentInPackages = a.Product.ParentInPackages,
-                                    ParentInPackages_Child = a.Product.ParentInPackages.Select(c => c.ChildProduct),
-                                    ParentInPackages_Child_Attributes = a.Product.ParentInPackages.Select(d => d.ChildProduct.Attributes.Where(e => e.Culture.Code == cultureCode && e.Enabled).OrderBy(e => e.Priority))
+                                    //ParentInPackages = a.Product.ParentInPackages,
+                                    //ParentInPackages_Child = a.Product.ParentInPackages.Select(c => c.ChildProduct),
+                                    //ParentInPackages_Child_Attributes = a.Product.ParentInPackages.Select(d => d.ChildProduct.Attributes.Where(e => e.Culture.Code == cultureCode && e.Enabled).OrderBy(e => e.Priority))
                                 });
 
             return dbQuery.AsEnumerable().Select(n => n.a).FirstOrDefault();
         }
 
 
-        public System.Collections.Generic.IEnumerable<Topppro.Entities.Assn_CategorySerieProduct> GetByCulture(int[] id, string cultureCode)
+        public System.Collections.Generic.IEnumerable<Topppro.Entities.Assn_CategorySerieProduct> GetByCulture(object[] id, string cultureCode)
         {
             var dbQuery = Context.Assn_CategorySerieProduct
                                 .Include(a => a.Assn_CategorySerie)
@@ -103,10 +111,10 @@ namespace Topppro.Repositories.Definitions
                                 .Include(a => a.Product.Attributes.Select(b => b.Culture))
                                 .Include(a => a.Product.Downloads)
                                 .Include(a => a.Product.Downloads.Select(b => b.Culture))
-                                .Include(a => a.Product.ParentInPackages)
-                                .Include(a => a.Product.ParentInPackages.Select(c => c.ChildProduct))
-                                .Include(a => a.Product.ParentInPackages.Select(d => d.ChildProduct.Attributes))
-                                .Include(a => a.Product.ParentInPackages.Select(e => e.ChildProduct.Attributes.Select(f => f.Culture)))
+                                //.Include(a => a.Product.ParentInPackages)
+                                //.Include(a => a.Product.ParentInPackages.Select(c => c.ChildProduct))
+                                //.Include(a => a.Product.ParentInPackages.Select(d => d.ChildProduct.Attributes))
+                                //.Include(a => a.Product.ParentInPackages.Select(e => e.ChildProduct.Attributes.Select(f => f.Culture)))
                                 .Where(a => id.Contains(a.AssnCategorySerieProductId) && a.Enabled && !a.Product.Draft)
                                 .Select(a => new
                                 {
@@ -117,9 +125,9 @@ namespace Topppro.Repositories.Definitions
                                     Product = a.Product,
                                     Attributes = a.Product.Attributes.Where(b => b.Culture.Code == cultureCode && b.Enabled).OrderBy(b => b.Priority),
                                     Downloads = a.Product.Downloads.Where(b => b.Culture.Code == cultureCode && b.Enabled).OrderBy(b => b.Priority),
-                                    ParentInPackages = a.Product.ParentInPackages,
-                                    ParentInPackages_Child = a.Product.ParentInPackages.Select(c => c.ChildProduct),
-                                    ParentInPackages_Child_Attributes = a.Product.ParentInPackages.Select(d => d.ChildProduct.Attributes.Where(e => e.Culture.Code == cultureCode && e.Enabled).OrderBy(e => e.Priority))
+                                    //ParentInPackages = a.Product.ParentInPackages,
+                                    //ParentInPackages_Child = a.Product.ParentInPackages.Select(c => c.ChildProduct),
+                                    //ParentInPackages_Child_Attributes = a.Product.ParentInPackages.Select(d => d.ChildProduct.Attributes.Where(e => e.Culture.Code == cultureCode && e.Enabled).OrderBy(e => e.Priority))
                                 });
 
             return dbQuery.AsEnumerable().Select(n => n.a).AsQueryable();

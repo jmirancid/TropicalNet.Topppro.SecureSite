@@ -500,7 +500,7 @@
           <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Priority" Type="Int32" />
           <Property Name="Enabled" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Distributor" Relationship="Self.FK__Distribut__Count__7F2BE32F" FromRole="Country" ToRole="Distributor" />
+          <NavigationProperty Name="Distributors" Relationship="Self.FK__Distribut__Count__7F2BE32F" FromRole="Country" ToRole="Distributor" />
         </EntityType>
         <EntityType Name="Culture">
           <Key>
@@ -509,10 +509,10 @@
           <Property Name="CultureId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Code" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Attribute" Relationship="Self.Culture_Attribute_FK" FromRole="Culture" ToRole="Attribute" />
-          <NavigationProperty Name="Bullet" Relationship="Self.Culture_Bullet_FK" FromRole="Culture" ToRole="Bullet" />
-          <NavigationProperty Name="Distributor" Relationship="Self.FK__Distribut__Cultu__00200768" FromRole="Culture" ToRole="Distributor" />
-          <NavigationProperty Name="Download" Relationship="Self.FK_Download_Culture" FromRole="Culture" ToRole="Download" />
+          <NavigationProperty Name="Attributes" Relationship="Self.Culture_Attribute_FK" FromRole="Culture" ToRole="Attribute" />
+          <NavigationProperty Name="Bullets" Relationship="Self.Culture_Bullet_FK" FromRole="Culture" ToRole="Bullet" />
+          <NavigationProperty Name="Distributors" Relationship="Self.FK__Distribut__Cultu__00200768" FromRole="Culture" ToRole="Distributor" />
+          <NavigationProperty Name="Downloads" Relationship="Self.FK_Download_Culture" FromRole="Culture" ToRole="Download" />
         </EntityType>
         <EntityType Name="Distributor">
           <Key>
@@ -552,7 +552,7 @@
           </Key>
           <Property Name="ModelId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Product" Relationship="Self.Model_Product_FK" FromRole="Model" ToRole="Product" />
+          <NavigationProperty Name="Products" Relationship="Self.Model_Product_FK" FromRole="Model" ToRole="Product" />
         </EntityType>
         <EntityType Name="Package">
           <Key>
@@ -567,8 +567,8 @@
           <Property Name="InheritHiRes" Type="Boolean" Nullable="false" />
           <Property Name="InheritBullet" Type="Boolean" Nullable="false" />
           <Property Name="InheritAttribute" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Product" Relationship="Self.Package_Child_Product_FK" FromRole="Package" ToRole="Product" />
-          <NavigationProperty Name="Product1" Relationship="Self.Package_Parent_Product_FK" FromRole="Package" ToRole="Product" />
+          <NavigationProperty Name="ChildProduct" Relationship="Self.Package_Child_Product_FK" FromRole="Package" ToRole="Product" />
+          <NavigationProperty Name="ParentProduct" Relationship="Self.Package_Parent_Product_FK" FromRole="Package" ToRole="Product" />
         </EntityType>
         <EntityType Name="Platform">
           <Key>
@@ -577,7 +577,7 @@
           <Property Name="PlatformId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Priority" Type="Int32" />
-          <NavigationProperty Name="Download" Relationship="Self.FK_Download_Platform" FromRole="Platform" ToRole="Download" />
+          <NavigationProperty Name="Downloads" Relationship="Self.FK_Download_Platform" FromRole="Platform" ToRole="Download" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -591,12 +591,12 @@
           <Property Name="Draft" Type="Boolean" Nullable="false" />
           <Property Name="Badge" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Assn_CategorySerieProduct" Relationship="Self.Product_Assn_CategorySerieProduct_FK" FromRole="Product" ToRole="Assn_CategorySerieProduct" />
-          <NavigationProperty Name="Attribute" Relationship="Self.Product_Attribute_FK" FromRole="Product" ToRole="Attribute" />
-          <NavigationProperty Name="Bullet" Relationship="Self.Product_Bullet_FK" FromRole="Product" ToRole="Bullet" />
-          <NavigationProperty Name="Download" Relationship="Self.FK_Download_Product" FromRole="Product" ToRole="Download" />
+          <NavigationProperty Name="Attributes" Relationship="Self.Product_Attribute_FK" FromRole="Product" ToRole="Attribute" />
+          <NavigationProperty Name="Bullets" Relationship="Self.Product_Bullet_FK" FromRole="Product" ToRole="Bullet" />
+          <NavigationProperty Name="Downloads" Relationship="Self.FK_Download_Product" FromRole="Product" ToRole="Download" />
           <NavigationProperty Name="Model" Relationship="Self.Model_Product_FK" FromRole="Product" ToRole="Model" />
-          <NavigationProperty Name="Package" Relationship="Self.Package_Child_Product_FK" FromRole="Product" ToRole="Package" />
-          <NavigationProperty Name="Package1" Relationship="Self.Package_Parent_Product_FK" FromRole="Product" ToRole="Package" />
+          <NavigationProperty Name="Parents" Relationship="Self.Package_Child_Product_FK" FromRole="Product" ToRole="Package" />
+          <NavigationProperty Name="Childs" Relationship="Self.Package_Parent_Product_FK" FromRole="Product" ToRole="Package" />
         </EntityType>
         <EntityType Name="Serie">
           <Key>

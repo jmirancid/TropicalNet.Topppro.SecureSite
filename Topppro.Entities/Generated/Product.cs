@@ -18,11 +18,11 @@ namespace Topppro.Entities
         public Product()
         {
             this.Assn_CategorySerieProduct = new HashSet<Assn_CategorySerieProduct>();
-            this.Attribute = new HashSet<Attribute>();
-            this.Bullet = new HashSet<Bullet>();
-            this.Download = new HashSet<Download>();
-            this.Package = new HashSet<Package>();
-            this.Package1 = new HashSet<Package>();
+            this.Attributes = new HashSet<Attribute>();
+            this.Bullets = new HashSet<Bullet>();
+            this.Downloads = new HashSet<Download>();
+            this.Parents = new HashSet<Package>();
+            this.Childs = new HashSet<Package>();
         }
     
         public int ProductId { get; set; }
@@ -36,15 +36,15 @@ namespace Topppro.Entities
         //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Assn_CategorySerieProduct> Assn_CategorySerieProduct { get; set; }
         //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Attribute> Attribute { get; set; }
+        public virtual ICollection<Attribute> Attributes { get; set; }
         //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Bullet> Bullet { get; set; }
+        public virtual ICollection<Bullet> Bullets { get; set; }
         //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Download> Download { get; set; }
+        public virtual ICollection<Download> Downloads { get; set; }
         public virtual Model Model { get; set; }
         //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Package> Package { get; set; }
+        public virtual ICollection<Package> Parents { get; set; }
         //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Package> Package1 { get; set; }
+        public virtual ICollection<Package> Childs { get; set; }
     }
 }

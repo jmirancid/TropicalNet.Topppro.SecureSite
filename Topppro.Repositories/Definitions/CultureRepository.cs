@@ -2,9 +2,15 @@
 
 namespace Topppro.Repositories.Definitions
 {
-    public class CultureRepository : 
+    public class CultureRepository :
         Repository<Topppro.Entities.Culture>, ICultureRepository
     {
+        public CultureRepository() { }
 
+        public CultureRepository(ToppproEntities context) :
+            base(context)
+        {
+
+        }
     }
 }

@@ -17,7 +17,7 @@ namespace Topppro.Entities
         //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Country()
         {
-            this.Distributor = new HashSet<Distributor>();
+            this.Distributors = new HashSet<Distributor>();
         }
     
         public int CountryId { get; set; }
@@ -26,6 +26,6 @@ namespace Topppro.Entities
         public bool Enabled { get; set; }
     
         //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Distributor> Distributor { get; set; }
+        public virtual ICollection<Distributor> Distributors { get; set; }
     }
 }

@@ -7,6 +7,14 @@ namespace Topppro.Repositories.Definitions
     public class CountryRepository : 
         Repository<Topppro.Entities.Country>, ICountryRepository
     {
+        public CountryRepository() { }
+
+        public CountryRepository(ToppproEntities context) :
+            base(context)
+        {
+
+        }
+
         public IQueryable<Topppro.Entities.Country> AllHavingDistributors(string cultureCode)
         {
             var dbQuery = Context.Country

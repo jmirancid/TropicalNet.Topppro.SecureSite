@@ -1,13 +1,22 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Topppro.Interfaces.Business;
 using Topppro.Interfaces.Repositories;
 using xFNet.Business;
 
 namespace Topppro.Business.Definitions
 {
     public class AttributeBusiness : 
-        Business<Topppro.Entities.Attribute, IAttributeRepository>
+        Business<Topppro.Entities.Attribute, IAttributeRepository>, IAttributeBusiness
     {
+        public AttributeBusiness() { }
+
+        public AttributeBusiness(IAttributeRepository repository) :
+            base(repository)
+        {
+
+        }
+
         public override IEnumerable<Topppro.Entities.Attribute> Filter(int skip, int take)
         {
             return base.Filter(skip, take).ToList();
