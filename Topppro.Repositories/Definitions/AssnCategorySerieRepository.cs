@@ -2,6 +2,7 @@
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
+using Topppro.Entities;
 using Topppro.Interfaces.Repositories;
 
 namespace Topppro.Repositories.Definitions
@@ -39,6 +40,22 @@ namespace Topppro.Repositories.Definitions
             return Context.Assn_CategorySerie
                         .Include(e => e.Category)
                         .Include(e => e.Serie);
+        }
+
+        /// <summary>
+        /// USED:
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
+        public override IQueryable<Assn_CategorySerie> AllBy(Expression<Func<Assn_CategorySerie, bool>> predicate)
+        {
+            var dbquery = Context.Assn_CategorySerie
+                .Include(a => a.Serie)
+                .Include(a => a.Assn_CategorySerieProduct.Select(b => b.Product))
+                .Where(predicate)
+                .OrderBy(a => a.Priority);
+
+            return dbquery;
         }
 
         public IQueryable<Topppro.Entities.Assn_CategorySerie> AllByWithRefs(Expression<Func<Topppro.Entities.Assn_CategorySerie, bool>> predicate, string cultureCode)

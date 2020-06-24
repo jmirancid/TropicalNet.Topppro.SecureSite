@@ -1,0 +1,51 @@
+﻿@using Topppro.Entities
+
+@model IEnumerable<Assn_CategorySerie>
+
+<div class="container">
+
+@foreach (var x in Model)
+{
+    <!-- SERIE-->
+    <div class="row">
+        <div class="col">
+            <div class="pb-2 mt-4 mb-2 border-bottom">
+                <h1 id="digital-mixers">@x.Serie.Name</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <ul class="list-group list-group-horizontal align-items-stretch flex-wrap">
+            @foreach (var y in x.Assn_CategorySerieProduct)
+            {
+                <!-- PRODUCT -->
+                <li class="list-group-item border-0">
+                    <div class="card text-primary text-center border-0 my-3">
+                        <div class="card-body">
+                            <p class="card-text">@y.Product.Name</p>
+                        </div>
+                        <img src="list/ks18sub.jpg" class="card-img-bottom img-fluid rounded-0">
+                        <hr class="bg-primary" />
+                        <a href="product.html" class="stretched-link"></a>
+                    </div>
+                </li>
+            }
+            </ul>
+        </div>
+    </div>
+    <!-- /LIST -->
+}
+
+</div>
+
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col">
+            <div class="jumbotron catalog rounded-0">
+                <p>Download here our 2020<br>Catalog Line Product</p>
+                <a class="btn btn-primary btn-lg" href="#" role="button">Download Now !</a>
+            </div>
+        </div>
+    </div>
+</div>
