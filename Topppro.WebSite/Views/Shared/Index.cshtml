@@ -1,9 +1,8 @@
-﻿@using Topppro.Entities
+﻿@using xFNet.Common.Extensions;
 
-@model IEnumerable<Assn_CategorySerie>
+@model IEnumerable<Topppro.Entities.Assn_CategorySerie>
 
 <div class="container">
-
 @foreach (var x in Model)
 {
     <!-- SERIE-->
@@ -27,7 +26,7 @@
                         </div>
                         <img src="list/ks18sub.jpg" class="card-img-bottom img-fluid rounded-0">
                         <hr class="bg-primary" />
-                        <a href="product.html" class="stretched-link"></a>
+                        <a href="@Url.Action("Detail", ViewContext.RouteData.Values["controller"].ToString(), new { id = y.Id, name = y.Product.Name.ToSeoSlug() })" class="stretched-link"></a>
                     </div>
                 </li>
             }
@@ -36,16 +35,5 @@
     </div>
     <!-- /LIST -->
 }
-
 </div>
-
-<div class="container">
-    <div class="row justify-content-md-center">
-        <div class="col">
-            <div class="jumbotron catalog rounded-0">
-                <p>Download here our 2020<br>Catalog Line Product</p>
-                <a class="btn btn-primary btn-lg" href="#" role="button">Download Now !</a>
-            </div>
-        </div>
-    </div>
-</div>
+@Html.Partial("_Catalog")

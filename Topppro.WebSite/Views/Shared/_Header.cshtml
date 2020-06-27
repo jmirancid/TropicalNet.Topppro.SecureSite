@@ -1,6 +1,164 @@
 ﻿<!-- HEADER -->
 <header>
-    @Html.Partial("_Menu")
+    <!-- NAV BAR_MENU -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="@Url.Action("", "Home")">
+                <div class="col-3 col-md-2">
+                    <img src="~/images/topp-logo.png" class="img-fluid d-inline-block" alt="">
+                    <h4 class="d-inline-block font-weight-bold ml-2">Topp Pro Audio</h4>
+                </div>
+            </a>
+
+            <!-- //TODO: mejorar el alineaminto del navbar-toggler -->
+            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown menu-area">
+                        <a class="nav-link text-white dropdown-toggle" href="" id="mega-one" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Products
+                        </a>
+                        <div class="dropdown-menu mega-area" aria-labelledby="mega-one">
+                            <div class="row">
+                                <div class="col-sm-6 col-lg-2">
+                                    <h5>Mixers<br>Digital Mixers</h5>
+                                    <a href="list.html#digital-mixers" class="dropdown-item">DM32.16</a>
+                                    <a href="list.html#digital-mixers" class="dropdown-item">DM24.8</a>
+                                    <a href="list.html#digital-mixers" class="dropdown-item">T2208</a>
+                                    <a href="list.html#digital-mixers" class="dropdown-item">DM24Rack</a>
+                                    <a href="list.html#digital-mixers" class="dropdown-item">DR16.4</a>
+                                    <a href="list.html#digital-mixers" class="dropdown-item">DIO24 Digital Dante Snake</a>
+                                    <h5 class="mt-3">Compact Mixers</h5>
+                                    <a href="list.html#compact-mixers" class="dropdown-item">MXi Series</a>
+                                    <h5 class="mt-3">Powered Mixers</h5>
+                                    <a href="list.html#powered-mixers" class="dropdown-item">TPM Series</a>
+                                </div>
+                                <div class="col-sm-6 col-lg-2">
+                                    <h5>Speakers</h5>
+                                    <h5>Active</h5>
+                                    <a href="#" class="dropdown-item">KS HD Series</a>
+                                    <a href="#" class="dropdown-item">KS CS Series</a>
+                                    <a href="#" class="dropdown-item">MAXX Subs</a>
+                                    <a href="#" class="dropdown-item">KS CMA Series</a>
+                                    <a href="#" class="dropdown-item">MA Series</a>
+                                    <a href="#" class="dropdown-item">Avanti Series</a>
+                                    <a href="#" class="dropdown-item">Forza Series</a>
+                                    <a href="#" class="dropdown-item">X C5 Series</a>
+                                    <a href="#" class="dropdown-item">X Series</a>
+                                    <a href="#" class="dropdown-item">i Series</a>
+                                    <h5>Passive</h5>
+                                    <a href="#" class="dropdown-item">X3 Series</a>
+                                    <a href="#" class="dropdown-item">Swift 25</a>
+                                    <a href="#" class="dropdown-item">FLX Series</a>
+                                    <a href="#" class="dropdown-item">Forza Series</a>
+                                    <a href="#" class="dropdown-item">KS Series</a>
+                                    <a href="#" class="dropdown-item">X Series</a>
+                                    <a href="#" class="dropdown-item">i Series</a>
+                                    <a href="#" class="dropdown-item">NEO Series</a>
+                                </div>
+                                <div class="col-sm-6 col-lg-2">
+                                    <h5>Systems</h5>
+                                    <a href="#" class="dropdown-item">APX Professional Line Array</a>
+                                    <a href="#" class="dropdown-item">KS-ARRAY Line Array</a>
+                                    <a href="#" class="dropdown-item">Swift 25 Line Array</a>
+                                    <a href="#" class="dropdown-item">FLX3 Line Array</a>
+                                    <a href="#" class="dropdown-item">Event 2K</a>
+                                    <a href="#" class="dropdown-item">Event 4K</a>
+                                    <a href="#" class="dropdown-item">VA</a>
+                                    <a href="#" class="dropdown-item">Soho V8</a>
+                                    <a href="#" class="dropdown-item">Soho V8 Plus</a>
+                                    <a href="#" class="dropdown-item">FLX 5 System</a>
+                                    <a href="#" class="dropdown-item">FLX 3 System</a>
+                                    <h5 class="mt-3">Wireless<br>Systems</h5>
+                                    <a href="#" class="dropdown-item">Wireless Audio</a>
+                                    <a href="#" class="dropdown-item">TMW Series</a>
+                                </div>
+                                <div class="col-sm-6 col-lg-2">
+                                    <h5>Amplifiers</h5>
+                                    <a href="#" class="dropdown-item">TRX Series</a>
+                                    <a href="#" class="dropdown-item">TDX Series</a>
+                                    <a href="#" class="dropdown-item">TD Series</a>
+                                    <h5 class="mt-3">Modules<br>Processors</h5>
+                                    <a href="#" class="dropdown-item">Dante</a>
+                                    <a href="#" class="dropdown-item">USB</a>
+                                    <a href="#" class="dropdown-item">CS</a>
+                                    <a href="#" class="dropdown-item">TAC</a>
+                                    <a href="#" class="dropdown-item">Processors</a>
+                                </div>
+                                <div class="col-sm-6 col-lg-2">
+                                    <h5>Install</h5>
+                                    <a href="#" class="dropdown-item">TMA 54BZT</a>
+                                    <a href="#" class="dropdown-item">Airport</a>
+                                    <a href="#" class="dropdown-item">TPS16</a>
+                                    <h5 class="mt-3">Legacy<br>Models</h5>
+                                </div>
+                                <div class="col-sm-6 col-lg-2">
+                                    <!--<img src="xhon-dang-wDQFdqKCA9I-unsplash.jpg" alt="" width="100%">
+                                    <img src="brian-erickson-QuKXvAenkhE-unsplash.jpg" alt="" width="100%">
+                                    <img src="michele-tardivo-JVV61-lSBaw-unsplash.jpg" alt="" width="100%">-->
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="@Url.Action("", "News")">News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="distributors.html">Distributors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="@Url.Action("", "Home")">Home</a>
+                    </li>
+                    <!--<li class="nav-item dropdown menu-area">
+                        <a class="nav-link dropdown-toggle" href="" id="mega-two" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Features
+                        </a>
+                        <div class="dropdown-menu mega-area" aria-labelledby="mega-two">
+                            <div class="row">
+                                <div class="col-sm-6 col-lg-3">
+                                    <h5>Image</h5>
+                                    <img src="nikolai-chernichenko-qFl7dkulMpE-unsplash.jpg" alt="" width="100%">
+                                </div>
+                                <div class="col-sm-6 col-lg-3">
+                                    <h5>Marketplace we Work</h5>
+                                    <a href="#" class="dropdown-item">Themeforest</a>
+                                    <a href="#" class="dropdown-item">Codester</a>
+                                    <a href="#" class="dropdown-item">Cretive Commons</a>
+                                </div>
+                                <div class="col-sm-6 col-lg-3">
+                                    <h5>IT Consulting</h5>
+                                    <a href="#" class="dropdown-item">Information Technolgy</a>
+                                    <a href="#" class="dropdown-item">Consulting offerings</a>
+                                    <a href="#" class="dropdown-item">Fast Delivery</a>
+                                </div>
+                                <div class="col-sm-6 col-lg-3">
+                                    <h5>Tags</h5>
+                                    <p>
+                                        <span class="badge badge-secondary">Web Design</span>
+                                        <span class="badge badge-secondary">Marketing</span>
+                                        <span class="badge badge-secondary">Graphic Design</span>
+                                        <span class="badge badge-secondary">Consulting</span>
+                                        <span class="badge badge-secondary">Template</span>
+                                        <span class="badge badge-secondary">Joomla</span>
+                                        <span class="badge badge-secondary">WordPress</span>
+                                        <span class="badge badge-secondary">ThemeForest</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>-->
+                </ul>
+                <!--<form class="form-inline mt-2 mt-md-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>-->
+            </div>
+
+        </div>
+    </nav>
+    <!-- /NAV BAR_MENU -->
     <div class="jumbotron top rounded-0 mb-3"></div>
 </header>
 <!-- /HEADER -->

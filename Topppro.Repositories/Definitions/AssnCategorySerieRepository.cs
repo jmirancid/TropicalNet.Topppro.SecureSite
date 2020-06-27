@@ -18,6 +18,11 @@ namespace Topppro.Repositories.Definitions
 
         }
 
+        /// <summary>
+        /// REM
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public override Topppro.Entities.Assn_CategorySerie Get(object id)
         {
             return Context.Assn_CategorySerie
@@ -26,6 +31,11 @@ namespace Topppro.Repositories.Definitions
                         .SingleOrDefault(e => e.AssnCategorySerieId.Equals(id));
         }
 
+        /// <summary>
+        /// REM
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public Topppro.Entities.Assn_CategorySerie GetWithProducts(object id)
         {
             return Context.Assn_CategorySerie
@@ -35,6 +45,10 @@ namespace Topppro.Repositories.Definitions
                         .SingleOrDefault(e => e.AssnCategorySerieId.Equals(id));
         }
 
+        /// <summary>
+        /// REM
+        /// </summary>
+        /// <returns></returns>
         public override IQueryable<Topppro.Entities.Assn_CategorySerie> All()
         {
             return Context.Assn_CategorySerie
@@ -42,22 +56,33 @@ namespace Topppro.Repositories.Definitions
                         .Include(e => e.Serie);
         }
 
-        /// <summary>
-        /// USED:
-        /// </summary>
-        /// <param name="predicate"></param>
-        /// <returns></returns>
         public override IQueryable<Assn_CategorySerie> AllBy(Expression<Func<Assn_CategorySerie, bool>> predicate)
         {
-            var dbquery = Context.Assn_CategorySerie
-                .Include(a => a.Serie)
-                .Include(a => a.Assn_CategorySerieProduct.Select(b => b.Product))
+            var dbquery = 
+                
+                Context.Assn_CategorySerie
+                    .Include(e => e.Serie)
+                    .Include(e => e.Assn_CategorySerieProduct)
+                    .Include(e => e.Assn_CategorySerieProduct.Select(b => b.Product))
                 .Where(predicate)
-                .OrderBy(a => a.Priority);
+                .OrderBy(e => e.Priority)
+                .Select(e => new
+                {
+                    e,
+                    Serie = e.Serie,
+                    Assn_CategorySerieProduct = e.Assn_CategorySerieProduct.Where(b => b.Enabled).OrderBy(b => b.Priority),
+                    Products = e.Assn_CategorySerieProduct.Select(b => b.Product)
+                });
 
-            return dbquery;
+            return dbquery.AsEnumerable().Select(n => n.e).AsQueryable(); ;
         }
 
+        /// <summary>
+        /// TODO: REM
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <param name="cultureCode"></param>
+        /// <returns></returns>
         public IQueryable<Topppro.Entities.Assn_CategorySerie> AllByWithRefs(Expression<Func<Topppro.Entities.Assn_CategorySerie, bool>> predicate, string cultureCode)
         {
             var dbquery = Context.Assn_CategorySerie

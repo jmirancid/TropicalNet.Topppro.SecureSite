@@ -1,0 +1,58 @@
+﻿
+@model Topppro.Entities.Assn_CategorySerieProduct
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <span class="text-muted">@Model.Assn_CategorySerie.Category.Name.ToUpper()<br>@Model.Assn_CategorySerie.Serie.Name</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="pb-2 mt-4 mb-4 text-primary border-bottom">
+                <h1>@Model.Product.Name</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-4 justify-content-md-start">
+        <div class="col">
+            <div class="card mb-3 border-0">
+                <div class="row no-gutters">
+                    <div class="col-md-1">
+                        <a href="#" class="btn btn-primary rounded-0 btn-sm btn-block">Hi-Res</a>
+                        <a href="#" class="btn btn-info rounded-0 btn-sm btn-block">Manual</a>
+                        <a href="#" class="btn btn-secondary rounded-0 btn-sm btn-block">Software</a>
+                    </div>
+                    <div class="col-md-5">
+                        <img src="product/imran-creator-rdSVCVG0acU-unsplash.jpg" class="card-img rounded-0" alt="">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card-body pt-0">
+                            <ul class="list-unstyled">
+                                @foreach (var x in Model.Product.Bullets)
+                                {
+                                <li>@x.Value</li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-4">
+        <div class="col">
+            <table class="table text-center table-striped table-bordered table-sm">
+                <tbody>
+                    @foreach (var x in Model.Product.Attributes)
+                    {
+                    <tr>
+                        <td>@x.Name</td>
+                        <td>@x.Value</td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -106,6 +106,10 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Topppro.Context\Topppro.Context.csproj">
+      <Project>{50088bee-0728-475e-83fe-c23fa471f7fd}</Project>
+      <Name>Topppro.Context</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Topppro.Entities\Topppro.Entities.csproj">
       <Project>{7788b508-e851-4a22-8b60-4f22a2bd5ac6}</Project>
       <Name>Topppro.Entities</Name>
