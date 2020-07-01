@@ -1,4 +1,5 @@
-﻿
+﻿@using Topppro.WebSite.Extensions;
+
 @model Topppro.Entities.Assn_CategorySerieProduct
 
 <div class="container">
@@ -20,11 +21,11 @@
                 <div class="row no-gutters">
                     <div class="col-md-1">
                         <a href="#" class="btn btn-primary rounded-0 btn-sm btn-block">Hi-Res</a>
-                        <a href="#" class="btn btn-info rounded-0 btn-sm btn-block">Manual</a>
+                        <a href="@Model.Product.GetManual()" target="_blank" class="btn btn-info rounded-0 btn-sm btn-block">Manual</a>
                         <a href="#" class="btn btn-secondary rounded-0 btn-sm btn-block">Software</a>
                     </div>
                     <div class="col-md-5">
-                        <img src="product/imran-creator-rdSVCVG0acU-unsplash.jpg" class="card-img rounded-0" alt="">
+                        <img src="@Model.Product.GetMain()" class="card-img rounded-0" alt="">
                     </div>
                     <div class="col-md-6">
                         <div class="card-body pt-0">

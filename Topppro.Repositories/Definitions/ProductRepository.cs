@@ -15,13 +15,21 @@ namespace Topppro.Repositories.Definitions
         {
 
         }
-
+        /// <summary>
+        /// TODO: REM
+        /// </summary>
+        /// <returns></returns>
         public override IQueryable<Topppro.Entities.Product> All()
         {
             return Context.Product
                         .Include(p => p.Model);
         }
 
+        /// <summary>
+        /// REM
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
         public override IQueryable<Topppro.Entities.Product> AllBy(System.Linq.Expressions.Expression<Func<Topppro.Entities.Product, bool>> predicate)
         {
             return Context.Product
@@ -29,6 +37,12 @@ namespace Topppro.Repositories.Definitions
                         .Where(predicate);
         }
 
+        /// <summary>
+        /// REM
+        /// </summary>
+        /// <param name="skip"></param>
+        /// <param name="take"></param>
+        /// <returns></returns>
         public override IQueryable<Topppro.Entities.Product> Filter(int skip, int take)
         {
             return Context.Product
@@ -37,6 +51,13 @@ namespace Topppro.Repositories.Definitions
                         .Skip(skip).Take(take);
         }
 
+        /// <summary>
+        /// REM
+        /// </summary>
+        /// <param name="skip"></param>
+        /// <param name="take"></param>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
         public override IQueryable<Topppro.Entities.Product> FilterBy(int skip, int take, System.Linq.Expressions.Expression<Func<Topppro.Entities.Product, bool>> predicate)
         {
             return Context.Product
@@ -46,6 +67,11 @@ namespace Topppro.Repositories.Definitions
                         .Skip(skip).Take(take);
         }
 
+        /// <summary>
+        /// REM
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public override Topppro.Entities.Product Get(object id)
         {
             return Context.Product

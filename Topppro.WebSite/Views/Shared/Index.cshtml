@@ -1,4 +1,5 @@
-﻿@using xFNet.Common.Extensions;
+﻿@using Topppro.WebSite.Extensions;
+@using xFNet.Common.Extensions;
 
 @model IEnumerable<Topppro.Entities.Assn_CategorySerie>
 
@@ -24,7 +25,7 @@
                         <div class="card-body">
                             <p class="card-text">@y.Product.Name</p>
                         </div>
-                        <img src="list/ks18sub.jpg" class="card-img-bottom img-fluid rounded-0">
+                        <img src="@y.Product.GetThumb()" class="card-img-bottom img-fluid rounded-0">
                         <hr class="bg-primary" />
                         <a href="@Url.Action("Detail", ViewContext.RouteData.Values["controller"].ToString(), new { id = y.Id, name = y.Product.Name.ToSeoSlug() })" class="stretched-link"></a>
                     </div>
