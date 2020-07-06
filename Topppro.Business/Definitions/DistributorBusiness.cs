@@ -16,15 +16,5 @@ namespace Topppro.Business.Definitions
         {
 
         }
-
-        public override IEnumerable<Topppro.Entities.Distributor> Filter(int skip, int take)
-        {
-            return base.Filter(skip, take).ToList();
-        }
-
-        public override IEnumerable<Topppro.Entities.Distributor> FilterBy(int skip, int take, System.Linq.Expressions.Expression<System.Func<Topppro.Entities.Distributor, bool>> predicate)
-        {
-            return base.FilterBy(skip, take, predicate).ToList();
-        }
     }
 }

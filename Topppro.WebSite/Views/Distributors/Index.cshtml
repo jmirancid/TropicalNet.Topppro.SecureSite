@@ -1,0 +1,38 @@
+﻿@using Topppro.WebSite.Extensions;
+
+@model IEnumerable<Topppro.Entities.Distributor>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="pb-2 mt-4 mb-4 border-bottom d-flex justify-content-between">
+                <h1 class="mb-1 d-inline-block">Distributors</h1>
+                <small class="mt-auto mb-auto">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-secondary">Search</button>
+                        </div>
+                        <input type="text" class="form-control">
+                    </div>
+                </small>
+            </div>
+        </div>
+    </div>
+
+    <div class="row row-cols-3">
+        @foreach (var d in Model)
+        {
+        <div class="col">
+            <div class="card mb-3">
+                <img src="@d.GetImage()" class="card-img-top" alt="@d.Country.Name">
+                <div class="card-body">
+                    <address>
+                        <strong>@d.Name</strong><br>
+                        @Html.Raw(d.Detail)
+                    </address>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</div>

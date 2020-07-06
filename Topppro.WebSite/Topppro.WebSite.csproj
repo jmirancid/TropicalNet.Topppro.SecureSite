@@ -158,6 +158,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
+    <Compile Include="Controllers\DistributorsController.cs" />
     <Compile Include="Controllers\WirelessController.cs" />
     <Compile Include="Controllers\ProcessorsController.cs" />
     <Compile Include="Controllers\SystemsController.cs" />
@@ -169,6 +170,7 @@
     <Compile Include="Controllers\SpeakersController.cs" />
     <Compile Include="Controllers\MixersController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Extensions\DistributorExtensions.cs" />
     <Compile Include="Extensions\HtmlHelperExtensions.cs" />
     <Compile Include="Extensions\ProductExtensions.cs" />
     <Compile Include="Global.asax.cs">
@@ -189,6 +191,18 @@
     <Content Include="images\amplifiers.jpg" />
     <Content Include="images\catalogo.jpg" />
     <Content Include="images\distributors.jpg" />
+    <Content Include="images\distributors\ad.jpg" />
+    <Content Include="images\distributors\aw.jpg" />
+    <Content Include="images\distributors\bb.jpg" />
+    <Content Include="images\distributors\bo.jpg" />
+    <Content Include="images\distributors\bs.jpg" />
+    <Content Include="images\distributors\bz.jpg" />
+    <Content Include="images\distributors\co.jpg" />
+    <Content Include="images\distributors\cr.jpg" />
+    <Content Include="images\distributors\cw.jpg" />
+    <Content Include="images\distributors\ky.jpg" />
+    <Content Include="images\distributors\saudi-arabia.jpg" />
+    <Content Include="images\distributors\worldwide.jpg" />
     <Content Include="images\footer.jpg" />
     <Content Include="images\header.jpg" />
     <Content Include="images\install.jpg" />
@@ -232,6 +246,7 @@
     <Content Include="Views\Shared\Index.cshtml" />
     <Content Include="Views\Shared\_Catalog.cshtml" />
     <Content Include="Views\Shared\Detail.cshtml" />
+    <Content Include="Views\Distributors\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -245,6 +260,10 @@
     <ProjectReference Include="..\Topppro.Business\Topppro.Business.csproj">
       <Project>{43fe7d4d-0d10-484e-87d3-8695148c85c2}</Project>
       <Name>Topppro.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Topppro.Context\Topppro.Context.csproj">
+      <Project>{50088bee-0728-475e-83fe-c23fa471f7fd}</Project>
+      <Name>Topppro.Context</Name>
     </ProjectReference>
     <ProjectReference Include="..\Topppro.Entities\Topppro.Entities.csproj">
       <Project>{7788b508-e851-4a22-8b60-4f22a2bd5ac6}</Project>
