@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Topppro.Interfaces.Business;
+﻿using Topppro.Interfaces.Business;
 using Topppro.Interfaces.Repositories;
 using xFNet.Business;
 
@@ -14,11 +13,6 @@ namespace Topppro.Business.Definitions
             base(repository)
         {
 
-        }
-
-        public IEnumerable<Topppro.Entities.Country> AllHavingDistributors(string cultureCode)
-        {
-            return base.Repository.AllHavingDistributors(cultureCode);
         }
     }
 }

@@ -23,7 +23,7 @@ namespace Topppro.Entities
         Speakers = 1,
         Amplifiers = 2,
         Mixers = 3,
-        Packs = 4,
+        Systems = 4,
         Wireless = 5,
         Processors = 6,
         Install = 7,

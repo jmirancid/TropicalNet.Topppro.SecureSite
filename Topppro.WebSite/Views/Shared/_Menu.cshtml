@@ -1,0 +1,61 @@
+﻿
+@model IEnumerable<Topppro.Entities.Assn_CategorySerie>
+
+<a class="nav-link text-white dropdown-toggle" href="" id="mega-one" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Products
+</a>
+<div class="dropdown-menu mega-area" aria-labelledby="mega-one">
+    <div class="row">
+        <div class="col-sm-6 col-lg-2">
+            <h5>Mixers</h5>
+            @foreach (var s in Model.Where(x => x.CategoryId == (int)Topppro.Entities.Category_Enum.Mixers))
+            {
+            <a href="list.html#digital-mixers" class="dropdown-item">@s.Serie.Name</a>
+            }
+        </div>
+        <div class="col-sm-6 col-lg-2">
+            <h5>Speakers</h5>
+            @foreach (var s in Model.Where(x => x.CategoryId == (int)Topppro.Entities.Category_Enum.Speakers))
+            {
+            <a href="list.html#digital-mixers" class="dropdown-item">@s.Serie.Name</a>
+            }
+        </div>
+        <div class="col-sm-6 col-lg-2">
+            <h5>Systems</h5>
+            @foreach (var s in Model.Where(x => x.CategoryId == (int)Topppro.Entities.Category_Enum.Systems))
+            {
+            <a href="list.html#digital-mixers" class="dropdown-item">@s.Serie.Name</a>
+            }
+            <h5 class="mt-3">Wireless<br>Systems</h5>
+            @foreach (var s in Model.Where(x => x.CategoryId == (int)Topppro.Entities.Category_Enum.Wireless))
+            {
+            <a href="list.html#digital-mixers" class="dropdown-item">@s.Serie.Name</a>
+            }
+        </div>
+        <div class="col-sm-6 col-lg-2">
+            <h5>Amplifiers</h5>
+            @foreach (var s in Model.Where(x => x.CategoryId == (int)Topppro.Entities.Category_Enum.Amplifiers))
+            {
+            <a href="list.html#digital-mixers" class="dropdown-item">@s.Serie.Name</a>
+            }
+            <h5 class="mt-3">Modules<br>Processors</h5>
+            @foreach (var s in Model.Where(x => x.CategoryId == (int)Topppro.Entities.Category_Enum.Processors))
+            {
+            <a href="list.html#digital-mixers" class="dropdown-item">@s.Serie.Name</a>
+            }
+        </div>
+        <div class="col-sm-6 col-lg-2">
+            <h5>Install</h5>
+            @foreach (var s in Model.Where(x => x.CategoryId == (int)Topppro.Entities.Category_Enum.Install))
+            {
+            <a href="list.html#digital-mixers" class="dropdown-item">@s.Serie.Name</a>
+            }
+            <h5 class="mt-3">Legacy<br>Models</h5>
+        </div>
+        <div class="col-sm-6 col-lg-2">
+            <!--<img src="xhon-dang-wDQFdqKCA9I-unsplash.jpg" alt="" width="100%">
+            <img src="brian-erickson-QuKXvAenkhE-unsplash.jpg" alt="" width="100%">
+            <img src="michele-tardivo-JVV61-lSBaw-unsplash.jpg" alt="" width="100%">-->
+        </div>
+    </div>
+</div>

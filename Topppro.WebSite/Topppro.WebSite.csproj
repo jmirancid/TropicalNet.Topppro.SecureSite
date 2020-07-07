@@ -159,6 +159,7 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="Controllers\DistributorsController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\WirelessController.cs" />
     <Compile Include="Controllers\ProcessorsController.cs" />
     <Compile Include="Controllers\SystemsController.cs" />
@@ -247,6 +248,7 @@
     <Content Include="Views\Shared\_Catalog.cshtml" />
     <Content Include="Views\Shared\Detail.cshtml" />
     <Content Include="Views\Distributors\Index.cshtml" />
+    <Content Include="Views\Shared\_Menu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
