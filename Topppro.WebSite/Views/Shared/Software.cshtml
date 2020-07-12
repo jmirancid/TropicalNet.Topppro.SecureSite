@@ -16,12 +16,15 @@
     </div>
     <div class="row">
         <div class="col">
-            <div class="pb-2 mt-4 mb-4 text-primary border-bottom">
+            <div class="pb-2 mt-4 mb-4 text-primary border-bottom d-flex justify-content-between">
                 <h1>@Model.Product.Name</h1>
+                <small class="mt-auto mb-auto">
+                    <a href="@Url.Action("Detail", new { id = Model.Id, name = Model.Product.Name })" class="btn text-secondary border-secondary rounded-0 btn-sm">Back</a>
+                </small>
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row mb-4">
         <div class="col">
             <div class="card-deck mb-3 text-center">
                 @foreach (var p in group)
@@ -31,16 +34,20 @@
                         <h4 class="my-0 font-weight-normal @p.key.TextColor()"><i class="@p.key.Icon()"></i> @p.key.Name</h4>
                     </div>
                     <div class="card-body text-left">
-                    @foreach (var s in p.list)
-                    {
-                        if (s.Description.IsEmpty() == false)
-                        { <small class="text-muted">* @s.Description</small> }
+                        @foreach (var s in p.list)
+                        {
+                        if (s.Description.IsEmpty() == false) {<small class="text-muted">* @s.Description</small> }
                         <a href="@s.GetResource()" class="btn btn-lg btn-block @p.key.BackgroundColor() text-white">@s.Name</a>
                     }
                     </div>
                 </div>
                 }
             </div>
+        </div>
+    </div>
+    <div class="row mb-4">
+        <div class="col text-center">
+            <a href="@Url.Action("Detail", new { id = Model.Id, name = Model.Product.Name })" class="btn text-secondary border-secondary rounded-0 btn-sm">Back</a>
         </div>
     </div>
 </div>
