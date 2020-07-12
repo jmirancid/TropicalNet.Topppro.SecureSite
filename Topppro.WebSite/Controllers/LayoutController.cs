@@ -53,7 +53,7 @@ namespace Topppro.WebSite.Controllers
         //[OutputCache(CacheProfile = "Short", VaryByParam = "culture")]
         public virtual ActionResult Detail(string controller, int id, string name)
         {
-            var entity = this.BizCategorySerieProduct.Get(id);
+            var entity = this.BizCategorySerieProduct.GetForDetail(id);
 
             ViewBag.Title =
                 string.Format(":: Topp Pro {0} ::", entity.Product.Name.ToUpper());
@@ -73,23 +73,13 @@ namespace Topppro.WebSite.Controllers
         }
 
         //[OutputCache(CacheProfile = "Short", VaryByParam = "culture")]
-        public virtual ActionResult Downloads(string controller, int id, string name)
+        public virtual ActionResult Software(string controller, int id, string name)
         {
-            var entity = this.BizCategorySerieProduct.Get(id);
-
-            //entity.Product.Downloads =
-            //    this._bizDownload.Value.AllBy(x => x.ProductId == entity.Product.Id && x.Culture.Code == Topppro.Context.Current.Culture.TwoLetterISOLanguageName)
-            //    .OrderBy(x => x.Platform.Priority).ThenBy(x => x.Priority)
-            //    .ToList();
-
-            //if (entity.Product.Downloads.IsEmpty())
-            //    entity.Product.Downloads =
-            //        this._bizDownload.Value.AllBy(x => x.ProductId == entity.Product.Id && x.Culture.Code == "en")
-            //        .OrderBy(x => x.Platform.Priority).ThenBy(x => x.Priority)
-            //        .ToList();
+            var entity = 
+                this.BizCategorySerieProduct.GetForSoftware(id);
 
             ViewBag.Title =
-                string.Format(":: Topp Pro {0} Downloads ::", entity.Product.Name.ToUpper());
+                string.Format(":: Topp Pro {0} Software ::", entity.Product.Name.ToUpper());
 
             return View(entity);
         }

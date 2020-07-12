@@ -17,4 +17,12 @@ namespace Topppro.Entities
             }
         }
     }
+
+    public enum Platform_Enum
+    {
+        Windows = 1,
+        Mac = 2,
+        IOS = 3,
+        Android = 4
+    }
 }

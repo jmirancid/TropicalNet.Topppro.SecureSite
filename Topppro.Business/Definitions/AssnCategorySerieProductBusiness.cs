@@ -1,4 +1,5 @@
-﻿using Topppro.Interfaces.Business;
+﻿using Topppro.Entities;
+using Topppro.Interfaces.Business;
 using Topppro.Interfaces.Repositories;
 using xFNet.Business;
 
@@ -13,6 +14,16 @@ namespace Topppro.Business.Definitions
             base(repository)
         {
 
+        }
+
+        public Assn_CategorySerieProduct GetForDetail(object id)
+        {
+            return base.Repository.GetForDetail(id);
+        }
+
+        public Assn_CategorySerieProduct GetForSoftware(object id)
+        {
+            return base.Repository.GetForSoftware(id);
         }
     }
 }

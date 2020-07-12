@@ -172,7 +172,9 @@
     <Compile Include="Controllers\MixersController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Extensions\DistributorExtensions.cs" />
+    <Compile Include="Extensions\DownloadExtensions.cs" />
     <Compile Include="Extensions\HtmlHelperExtensions.cs" />
+    <Compile Include="Extensions\PlatformExtensions.cs" />
     <Compile Include="Extensions\ProductExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -249,6 +251,8 @@
     <Content Include="Views\Shared\Detail.cshtml" />
     <Content Include="Views\Distributors\Index.cshtml" />
     <Content Include="Views\Shared\_Menu.cshtml" />
+    <Content Include="Views\Shared\_Slider.cshtml" />
+    <Content Include="Views\Shared\Software.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

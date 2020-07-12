@@ -13,16 +13,25 @@ namespace Topppro.WebSite.Extensions
     {
         public static string GetThumb(this Product source)
         {
+#if DEBUG
+            return "https://picsum.photos/128";
+#endif
             return GetAssets(source, ToppproSettings.Product.Thumb).FirstOrDefault();
         }
 
         public static string GetMain(this Product source)
         {
+#if DEBUG
+            return "https://picsum.photos/460/300";
+#endif
             return GetAssets(source, ToppproSettings.Product.Main).FirstOrDefault();
         }
 
         public static IEnumerable<string> GetHiRes(this Product source)
         {
+#if DEBUG
+            return new string[] { "https://picsum.photos/200" };
+#endif
             return GetAssets(source, ToppproSettings.Product.HiRes);
         }
 
@@ -37,19 +46,10 @@ namespace Topppro.WebSite.Extensions
             return UrlHelper.GenerateContentUrl(Path.Combine(ToppproSettings.Manual.Root, source.Manual), new HttpContextWrapper(HttpContext.Current));
         }
 
-        #region Cache Assets
-
-
-
-        #endregion
-
         #region Private Members
 
         private static IEnumerable<string> GetAssets(Product source, string folderName, bool useCache = true)
         {
-#if DEBUG
-            return Enumerable.Empty<string>();
-#endif
             if (source.Folder == null) return Enumerable.Empty<string>();
 
             var key = string.Format("{0}_{1}", source.Folder, folderName);

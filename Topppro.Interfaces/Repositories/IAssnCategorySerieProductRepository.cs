@@ -5,6 +5,8 @@ namespace Topppro.Interfaces.Repositories
     public interface IAssnCategorySerieProductRepository :
         IRepository<Topppro.Entities.Assn_CategorySerieProduct>
     {
+        Topppro.Entities.Assn_CategorySerieProduct GetForDetail(object id);
 
+        Topppro.Entities.Assn_CategorySerieProduct GetForSoftware(object id);
     }
 }
