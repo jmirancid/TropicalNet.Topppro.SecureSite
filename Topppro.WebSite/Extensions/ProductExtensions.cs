@@ -14,7 +14,7 @@ namespace Topppro.WebSite.Extensions
         public static string GetThumb(this Product source)
         {
 #if DEBUG
-            return "https://picsum.photos/128";
+            return "https://picsum.photos/128?random=1";
 #endif
             return GetAssets(source, ToppproSettings.Product.Thumb).FirstOrDefault();
         }
@@ -22,7 +22,7 @@ namespace Topppro.WebSite.Extensions
         public static string GetMain(this Product source)
         {
 #if DEBUG
-            return "https://picsum.photos/460/300";
+            return "https://picsum.photos/460/300?random=1";
 #endif
             return GetAssets(source, ToppproSettings.Product.Main).FirstOrDefault();
         }
@@ -30,7 +30,7 @@ namespace Topppro.WebSite.Extensions
         public static IEnumerable<string> GetHiRes(this Product source)
         {
 #if DEBUG
-            return new string[] { "https://picsum.photos/200" };
+            return new string[] { "https://picsum.photos/1920/1280?random=1", "https://picsum.photos/1920/1280?random=2", "https://picsum.photos/1920/1280?random=3" };
 #endif
             return GetAssets(source, ToppproSettings.Product.HiRes);
         }

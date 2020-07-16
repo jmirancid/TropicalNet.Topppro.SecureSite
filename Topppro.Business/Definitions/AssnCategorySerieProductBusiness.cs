@@ -25,5 +25,10 @@ namespace Topppro.Business.Definitions
         {
             return base.Repository.GetForSoftware(id);
         }
+
+        public Assn_CategorySerieProduct GetForHiRes(object id)
+        {
+            return base.Repository.GetForHiRes(id);
+        }
     }
 }

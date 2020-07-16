@@ -8,5 +8,7 @@ namespace Topppro.Interfaces.Repositories
         Topppro.Entities.Assn_CategorySerieProduct GetForDetail(object id);
 
         Topppro.Entities.Assn_CategorySerieProduct GetForSoftware(object id);
+
+        Topppro.Entities.Assn_CategorySerieProduct GetForHiRes(object id);
     }
 }

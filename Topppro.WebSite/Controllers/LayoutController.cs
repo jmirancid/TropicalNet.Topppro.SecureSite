@@ -30,7 +30,7 @@ namespace Topppro.WebSite.Controllers
             this.BizProduct = bizProduct;
         }
 
-        //[OutputCache(CacheProfile = "Short", VaryByParam = "culture")]
+        //[OutputCache(CacheProfile = "Medium", VaryByParam = "culture")]
         public virtual ActionResult Index(string controller)
         {
             var categoryId =
@@ -50,7 +50,18 @@ namespace Topppro.WebSite.Controllers
             return View(entities);
         }
 
-        //[OutputCache(CacheProfile = "Short", VaryByParam = "culture")]
+        //[OutputCache(CacheProfile = "Long")]
+        public virtual ActionResult HiRes(string controller, int id, string name)
+        {
+            var entity = this.BizCategorySerieProduct.GetForHiRes(id);
+
+            ViewBag.Title =
+                string.Format(":: Topp Pro {0} HiRes ::", entity.Product.Name.ToUpper());
+
+            return View(entity);
+        }
+
+        //[OutputCache(CacheProfile = "Long", VaryByParam = "culture")]
         public virtual ActionResult Detail(string controller, int id, string name)
         {
             var entity = this.BizCategorySerieProduct.GetForDetail(id);
@@ -61,18 +72,7 @@ namespace Topppro.WebSite.Controllers
             return View(entity);
         }
 
-        //[OutputCache(CacheProfile = "Short")]
-        public virtual ActionResult HiRes(string controller, int id, string name)
-        {
-            var entity = this.BizCategorySerieProduct.Get(id);
-
-            ViewBag.Title =
-                string.Format(":: Topp Pro {0} HiRes ::", entity.Product.Name.ToUpper());
-
-            return View(entity);
-        }
-
-        //[OutputCache(CacheProfile = "Short", VaryByParam = "culture")]
+        //[OutputCache(CacheProfile = "Long", VaryByParam = "culture")]
         public virtual ActionResult Software(string controller, int id, string name)
         {
             var entity = 

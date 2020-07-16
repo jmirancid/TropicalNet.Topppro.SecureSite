@@ -23,7 +23,7 @@
             <div class="card mb-3 border-0">
                 <div class="row no-gutters">
                     <div class="col-md-1">
-                        <a href="#" class="btn btn-primary rounded-0 btn-sm btn-block">Hi-Res</a>
+                        <a href="@Url.Action("HiRes", new { id = Model.Id, name = Model.Product.Name })" class="btn btn-primary rounded-0 btn-sm btn-block">Hi-Res</a>
                         <a href="@Model.Product.GetManual()" target="_blank" class="btn btn-info rounded-0 btn-sm btn-block">Manual</a>
                         <a href="@Url.Action("Software", new { id = Model.Id, name = Model.Product.Name })" class="btn btn-secondary rounded-0 btn-sm btn-block">Software</a>
                     </div>

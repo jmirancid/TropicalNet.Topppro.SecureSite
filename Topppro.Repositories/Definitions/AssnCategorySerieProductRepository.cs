@@ -70,5 +70,19 @@ namespace Topppro.Repositories.Definitions
 
             return dbQuery.AsEnumerable().Select(n => n.e).SingleOrDefault();
         }
+
+        public Topppro.Entities.Assn_CategorySerieProduct GetForHiRes(object id)
+        {
+            var dbQuery =
+
+               Context.Assn_CategorySerieProduct
+                   .Include(e => e.Assn_CategorySerie)
+                   .Include(e => e.Assn_CategorySerie.Serie)
+                   .Include(e => e.Assn_CategorySerie.Category)
+                   .Include(e => e.Product)
+                   .Where(e => e.AssnCategorySerieProductId == (int)id && e.Enabled && e.Product.Draft == false);
+
+            return dbQuery.SingleOrDefault();
+        }
     }
 }

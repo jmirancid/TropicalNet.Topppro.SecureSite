@@ -1,0 +1,32 @@
+﻿@using Topppro.WebSite.Extensions;
+
+@model Topppro.Entities.Assn_CategorySerieProduct
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <span class="text-muted">@Model.Assn_CategorySerie.Category.Name.ToUpper()<br>@Model.Assn_CategorySerie.Serie.Name</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="pb-2 mt-4 mb-4 text-primary border-bottom d-flex justify-content-between">
+                <h1>@Model.Product.Name</h1>
+                <small class="mt-auto mb-auto">
+                    <a href="@Url.Action("Detail", new { id = Model.Id, name = Model.Product.Name })" class="btn text-secondary border-secondary rounded-0 btn-sm">Back</a>
+                </small>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-4">
+    @foreach (var path in Model.Product.GetHiRes())
+    {
+        <img src="@path" class="img-fluid mb-4" alt="@Model.Product.Name">
+    }
+    </div>
+    <div class="row mb-4">
+        <div class="col text-center">
+            <a href="@Url.Action("Detail", new { id = Model.Id, name = Model.Product.Name })" class="btn text-secondary border-secondary rounded-0 btn-sm">Back</a>
+        </div>
+    </div>
+</div>
