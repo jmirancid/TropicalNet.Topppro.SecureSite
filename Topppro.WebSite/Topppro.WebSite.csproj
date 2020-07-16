@@ -171,7 +171,6 @@
     <Compile Include="Controllers\SpeakersController.cs" />
     <Compile Include="Controllers\MixersController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
-    <Compile Include="Extensions\DistributorExtensions.cs" />
     <Compile Include="Extensions\DownloadExtensions.cs" />
     <Compile Include="Extensions\HtmlHelperExtensions.cs" />
     <Compile Include="Extensions\PlatformExtensions.cs" />
@@ -194,18 +193,6 @@
     <Content Include="images\amplifiers.jpg" />
     <Content Include="images\catalogo.jpg" />
     <Content Include="images\distributors.jpg" />
-    <Content Include="images\distributors\ad.jpg" />
-    <Content Include="images\distributors\aw.jpg" />
-    <Content Include="images\distributors\bb.jpg" />
-    <Content Include="images\distributors\bo.jpg" />
-    <Content Include="images\distributors\bs.jpg" />
-    <Content Include="images\distributors\bz.jpg" />
-    <Content Include="images\distributors\co.jpg" />
-    <Content Include="images\distributors\cr.jpg" />
-    <Content Include="images\distributors\cw.jpg" />
-    <Content Include="images\distributors\ky.jpg" />
-    <Content Include="images\distributors\saudi-arabia.jpg" />
-    <Content Include="images\distributors\worldwide.jpg" />
     <Content Include="images\footer.jpg" />
     <Content Include="images\header.jpg" />
     <Content Include="images\install.jpg" />
