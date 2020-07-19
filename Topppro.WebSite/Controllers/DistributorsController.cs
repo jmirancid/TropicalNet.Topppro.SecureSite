@@ -14,7 +14,7 @@ namespace Topppro.WebSite.Controllers
             this.BizDistributor = bizDistributor;
         }
 
-        // GET: Distributors
+        [OutputCache(CacheProfile = "Long")]
         public ActionResult Index()
         {
             var entities = 

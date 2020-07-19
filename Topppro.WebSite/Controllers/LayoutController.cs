@@ -10,27 +10,15 @@ namespace Topppro.WebSite.Controllers
 
         protected IAssnCategorySerieBusiness BizCategorySerie { get; private set; }
 
-        /// <summary>
-        /// TODO: REMOVE
-        /// </summary>
-        protected IProductBusiness BizProduct { get; private set; }
-
-        /// <summary>
-        /// TODO: CAN DO IN A INCLUDE
-        /// </summary>
-        protected IDownloadBusiness BizDownload { get; private set; }
-
         public LayoutController() { }
 
-        public LayoutController(IAssnCategorySerieProductBusiness bizCategorySerieProduct, IAssnCategorySerieBusiness bizCategorySerie, IProductBusiness bizProduct, IDownloadBusiness bizDownload)
+        public LayoutController(IAssnCategorySerieProductBusiness bizCategorySerieProduct, IAssnCategorySerieBusiness bizCategorySerie)
         {
             this.BizCategorySerieProduct = bizCategorySerieProduct;
             this.BizCategorySerie = bizCategorySerie;
-            this.BizDownload = bizDownload;
-            this.BizProduct = bizProduct;
         }
 
-        //[OutputCache(CacheProfile = "Medium", VaryByParam = "culture")]
+        [OutputCache(CacheProfile = "Medium")]
         public virtual ActionResult Index(string controller)
         {
             var categoryId =
@@ -42,26 +30,10 @@ namespace Topppro.WebSite.Controllers
             ViewBag.Title =
                 string.Format(":: Topp Pro Professional Audio {0} ::", controller);
 
-            // Load images on app start and cached
-            //foreach (var entity in entities)
-                //foreach (var assn in entity.Assn_CategorySerieProduct)
-                    //ViewBag.PreloadedImages = assn.Product.GetThumbs().Concat((IEnumerable<string>)ViewBag.PreloadedImages);
-
             return View(entities);
         }
 
-        //[OutputCache(CacheProfile = "Long")]
-        public virtual ActionResult HiRes(string controller, int id, string name)
-        {
-            var entity = this.BizCategorySerieProduct.GetForHiRes(id);
-
-            ViewBag.Title =
-                string.Format(":: Topp Pro {0} HiRes ::", entity.Product.Name.ToUpper());
-
-            return View(entity);
-        }
-
-        //[OutputCache(CacheProfile = "Long", VaryByParam = "culture")]
+        [OutputCache(CacheProfile = "Long")]
         public virtual ActionResult Detail(string controller, int id, string name)
         {
             var entity = this.BizCategorySerieProduct.GetForDetail(id);
@@ -72,7 +44,18 @@ namespace Topppro.WebSite.Controllers
             return View(entity);
         }
 
-        //[OutputCache(CacheProfile = "Long", VaryByParam = "culture")]
+        [OutputCache(CacheProfile = "Long")]
+        public virtual ActionResult HiRes(string controller, int id, string name)
+        {
+            var entity = this.BizCategorySerieProduct.GetForHiRes(id);
+
+            ViewBag.Title =
+                string.Format(":: Topp Pro {0} HiRes ::", entity.Product.Name.ToUpper());
+
+            return View(entity);
+        }
+
+        [OutputCache(CacheProfile = "Long")]
         public virtual ActionResult Software(string controller, int id, string name)
         {
             var entity = 

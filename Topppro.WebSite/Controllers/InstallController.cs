@@ -6,8 +6,8 @@ namespace Topppro.WebSite.Controllers
     {
         public InstallController() { }
 
-        public InstallController(IAssnCategorySerieProductBusiness bizCategorySerieProduct, IAssnCategorySerieBusiness bizCategorySerie, IProductBusiness bizProduct, IDownloadBusiness bizDownload) :
-            base(bizCategorySerieProduct, bizCategorySerie, bizProduct, bizDownload)
+        public InstallController(IAssnCategorySerieProductBusiness bizCategorySerieProduct, IAssnCategorySerieBusiness bizCategorySerie) :
+            base(bizCategorySerieProduct, bizCategorySerie)
         {
 
         }

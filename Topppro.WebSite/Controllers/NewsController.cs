@@ -8,7 +8,7 @@ namespace Topppro.WebSite.Controllers
 {
     public class NewsController : Controller
     {
-        // GET: News
+        [OutputCache(CacheProfile = "Long")]
         public ActionResult Index()
         {
             return View();

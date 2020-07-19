@@ -6,8 +6,8 @@ namespace Topppro.WebSite.Controllers
     {
         public SpeakersController() { }
 
-        public SpeakersController(IAssnCategorySerieProductBusiness bizCategorySerieProduct, IAssnCategorySerieBusiness bizCategorySerie, IProductBusiness bizProduct, IDownloadBusiness bizDownload) :
-            base(bizCategorySerieProduct, bizCategorySerie, bizProduct, bizDownload)
+        public SpeakersController(IAssnCategorySerieProductBusiness bizCategorySerieProduct, IAssnCategorySerieBusiness bizCategorySerie) :
+            base(bizCategorySerieProduct, bizCategorySerie)
         {
 
         }

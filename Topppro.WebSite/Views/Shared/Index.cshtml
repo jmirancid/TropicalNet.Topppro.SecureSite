@@ -17,7 +17,7 @@
     <div class="row">
         <div class="col">
             <div class="pb-2 mt-4 mb-2 border-bottom">
-                <h1 id="digital-mixers">@x.Serie.Name</h1>
+                <h1 id="@x.Serie.Name.ToSeoSlug()">@x.Serie.Name</h1>
             </div>
         </div>
     </div>
@@ -33,7 +33,7 @@
                                 <p class="card-text">@y.Product.Name</p>
                             </div>
                             <img src="@y.Product.GetThumb()" class="card-img-bottom img-fluid rounded-0">
-                            <a href="@Url.Action("Detail", ViewContext.RouteData.Values["controller"].ToString(), new { id = y.Id, name = y.Product.Name.ToSeoSlug() })" class="stretched-link"></a>
+                            <a href="@Url.Action("Detail", new { id = y.Id, name = y.Product.Name.ToSeoSlug().ToUpper() })" class="stretched-link"></a>
                         </div>
                     </li>
                 }
