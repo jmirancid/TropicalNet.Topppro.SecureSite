@@ -1,5 +1,8 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
+using Topppro.Entities;
 using Topppro.Interfaces.Repositories;
 
 namespace Topppro.Repositories.Definitions
@@ -13,6 +16,21 @@ namespace Topppro.Repositories.Definitions
             base(context)
         {
 
+        }
+
+        //TODO: Include as a paramenter the posibiliti to add an include list and not have to oaverride allby
+        public override IQueryable<Assn_CategorySerieProduct> AllBy(Expression<Func<Assn_CategorySerieProduct, bool>> predicate)
+        {
+            var dbQuery =
+
+                Context.Assn_CategorySerieProduct
+                    .Include(e => e.Assn_CategorySerie)
+                    .Include(e => e.Assn_CategorySerie.Serie)
+                    .Include(e => e.Product)
+                    .Include(e => e.Product.Model)
+                    .Where(predicate);
+
+            return dbQuery;
         }
 
         public Topppro.Entities.Assn_CategorySerieProduct GetForDetail(object id)

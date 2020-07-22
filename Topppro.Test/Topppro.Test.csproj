@@ -76,6 +76,7 @@
     <Compile Include="Business\BusinessTest.cs" />
     <Compile Include="Business\CategoryBusinessTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AssnCategorySerieProductRepositoryTest.cs" />
     <Compile Include="Repositories\CategoryRepositoryTest.cs" />
     <Compile Include="Repositories\RepositoryTest.cs" />
   </ItemGroup>

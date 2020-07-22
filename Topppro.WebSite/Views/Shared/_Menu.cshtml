@@ -1,5 +1,36 @@
-﻿
-@model IEnumerable<Topppro.Entities.Assn_CategorySerie>
+﻿@using xFNet.Common.Extensions;
+
+@model IEnumerable<Topppro.Entities.Assn_CategorySerieProduct>
+
+@{ 
+    var mixers = Model
+        .Where(x => x.Assn_CategorySerie.CategoryId == (int)Topppro.Entities.Category_Enum.Mixers)
+        .GroupBy(x => x.Product.Model, (model, assn) => new { model = model, series = assn.OrderBy(y => y.Priority).Select(y => y.Assn_CategorySerie.Serie).Distinct() });
+
+    var speakers = Model
+        .Where(x => x.Assn_CategorySerie.CategoryId == (int)Topppro.Entities.Category_Enum.Speakers)
+        .GroupBy(x => x.Product.Model, (model, assn) => new { model = model, series = assn.OrderBy(y => y.Priority).Select(y => y.Assn_CategorySerie.Serie).Distinct() });
+
+    var systems = Model
+        .Where(x => x.Assn_CategorySerie.CategoryId == (int)Topppro.Entities.Category_Enum.Systems)
+        .OrderBy(x => x.Priority).Select(x => x.Assn_CategorySerie.Serie).Distinct();
+
+    var wireless = Model
+        .Where(x => x.Assn_CategorySerie.CategoryId == (int)Topppro.Entities.Category_Enum.Wireless)
+        .OrderBy(x => x.Priority).Select(x => x.Assn_CategorySerie.Serie).Distinct();
+
+    var amplifiers = Model
+        .Where(x => x.Assn_CategorySerie.CategoryId == (int)Topppro.Entities.Category_Enum.Amplifiers)
+        .OrderBy(x => x.Priority).Select(x => x.Assn_CategorySerie.Serie).Distinct();
+
+    var processors = Model
+        .Where(x => x.Assn_CategorySerie.CategoryId == (int)Topppro.Entities.Category_Enum.Processors)
+        .OrderBy(x => x.Priority).Select(x => x.Assn_CategorySerie.Serie).Distinct();
+
+    var install = Model
+        .Where(x => x.Assn_CategorySerie.CategoryId == (int)Topppro.Entities.Category_Enum.Install)
+        .OrderBy(x => x.Priority).Select(x => x.Assn_CategorySerie.Serie).Distinct();
+}
 
 <a class="nav-link text-white dropdown-toggle" href="" id="mega-one" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Products
@@ -8,49 +39,47 @@
     <div class="row">
         <div class="col-sm-6 col-lg-2">
             <h5>Mixers</h5>
-            @foreach (var s in Model.Where(x => x.CategoryId == (int)Topppro.Entities.Category_Enum.Mixers))
+            @foreach (var g in mixers)
             {
-            <a href="list.html#digital-mixers" class="dropdown-item">@s.Serie.Name</a>
+            <h5 class="mt-3">@g.model.Name</h5>
+                foreach (var s in g.series)
+                { <a href="@Url.Action("", "Mixers")#@s.Name.ToSeoSlug()" class="dropdown-item">@s.Name.ToUpper()</a> }
             }
         </div>
         <div class="col-sm-6 col-lg-2">
             <h5>Speakers</h5>
-            @foreach (var s in Model.Where(x => x.CategoryId == (int)Topppro.Entities.Category_Enum.Speakers))
+            <div class="row row-cols-2">
+            @foreach (var g in speakers)
             {
-            <a href="list.html#digital-mixers" class="dropdown-item">@s.Serie.Name</a>
+            <div class="col">
+            <h5 class="mt-3">@g.model.Name</h5>
+                @foreach (var s in g.series)
+                { <a href="@Url.Action("", "Speakers")#@s.Name.ToSeoSlug()" class="dropdown-item">@s.Name.ToUpper()</a> }
+            </div>
             }
+            </div>
         </div>
-        <div class="col-sm-6 col-lg-2">
+        <div class="offset-sm-4 offset-lg-1 col-sm-6 col-lg-2">
             <h5>Systems</h5>
-            @foreach (var s in Model.Where(x => x.CategoryId == (int)Topppro.Entities.Category_Enum.Systems))
-            {
-            <a href="list.html#digital-mixers" class="dropdown-item">@s.Serie.Name</a>
-            }
+                @foreach (var s in systems)
+                { <a href="@Url.Action("", "Systems")#@s.Name.ToSeoSlug()" class="dropdown-item">@s.Name.ToUpper()</a> }
             <h5 class="mt-3">Wireless<br>Systems</h5>
-            @foreach (var s in Model.Where(x => x.CategoryId == (int)Topppro.Entities.Category_Enum.Wireless))
-            {
-            <a href="list.html#digital-mixers" class="dropdown-item">@s.Serie.Name</a>
-            }
+                @foreach (var s in wireless)
+                { <a href="@Url.Action("", "Wireless")#@s.Name.ToSeoSlug()" class="dropdown-item">@s.Name.ToUpper()</a> }
         </div>
         <div class="col-sm-6 col-lg-2">
             <h5>Amplifiers</h5>
-            @foreach (var s in Model.Where(x => x.CategoryId == (int)Topppro.Entities.Category_Enum.Amplifiers))
-            {
-            <a href="list.html#digital-mixers" class="dropdown-item">@s.Serie.Name</a>
-            }
+                @foreach (var s in amplifiers)
+                { <a href="@Url.Action("", "Amplifiers")#@s.Name.ToSeoSlug()" class="dropdown-item">@s.Name.ToUpper()</a> }
             <h5 class="mt-3">Modules<br>Processors</h5>
-            @foreach (var s in Model.Where(x => x.CategoryId == (int)Topppro.Entities.Category_Enum.Processors))
-            {
-            <a href="list.html#digital-mixers" class="dropdown-item">@s.Serie.Name</a>
-            }
+                @foreach (var s in processors)
+                { <a href="@Url.Action("", "Processors")#@s.Name.ToSeoSlug()" class="dropdown-item">@s.Name.ToUpper()</a> }
         </div>
         <div class="col-sm-6 col-lg-2">
             <h5>Install</h5>
-            @foreach (var s in Model.Where(x => x.CategoryId == (int)Topppro.Entities.Category_Enum.Install))
-            {
-            <a href="list.html#digital-mixers" class="dropdown-item">@s.Serie.Name</a>
-            }
-            <h5 class="mt-3">Legacy<br>Models</h5>
+                @foreach (var s in install)
+                { <a href="@Url.Action("", "Install")#@s.Name.ToSeoSlug()" class="dropdown-item">@s.Name.ToUpper()</a> }
+            <a href="@Url.Action("", "Legacy")" class="dropdown-item"><h5 class="mt-3">Legacy<br>Models</h5></a>
         </div>
         <div class="col-sm-6 col-lg-2">
             <!--<img src="xhon-dang-wDQFdqKCA9I-unsplash.jpg" alt="" width="100%">
