@@ -6,6 +6,7 @@ using System.Web.Helpers;
 using System.Web.Mvc;
 using Topppro.Entities;
 using Topppro.WebSite.Configuration;
+using xFNet.Common.Extensions;
 
 namespace Topppro.WebSite.Extensions
 {
@@ -16,7 +17,7 @@ namespace Topppro.WebSite.Extensions
 #if DEBUG
             return "https://picsum.photos/128?random=1";
 #endif
-            return GetAssets(source, ToppproSettings.Product.Thumb).FirstOrDefault();
+            return GetAssets(source, ToppproSettings.Product.Thumb, ToppproSettings.Product.Default).FirstOrDefault();
         }
 
         public static string GetMain(this Product source)
@@ -24,7 +25,7 @@ namespace Topppro.WebSite.Extensions
 #if DEBUG
             return "https://picsum.photos/460/300?random=1";
 #endif
-            return GetAssets(source, ToppproSettings.Product.Main).FirstOrDefault();
+            return GetAssets(source, ToppproSettings.Product.Main, ToppproSettings.Product.Default).FirstOrDefault();
         }
 
         public static IEnumerable<string> GetHiRes(this Product source)
@@ -48,9 +49,15 @@ namespace Topppro.WebSite.Extensions
 
         #region Private Members
 
-        private static IEnumerable<string> GetAssets(Product source, string folderName, bool useCache = true)
+        private static IEnumerable<string> GetAssets(Product source, string folderName, string defaultImage = null, bool useCache = true)
         {
-            if (source.Folder == null) return Enumerable.Empty<string>();
+            if (source.Folder == null)
+            {
+                if (defaultImage.IsEmpty())
+                    return Enumerable.Empty<string>();
+
+                return new string[] { defaultImage };
+            }
 
             var key = string.Format("{0}_{1}", source.Folder, folderName);
 
@@ -66,7 +73,12 @@ namespace Topppro.WebSite.Extensions
                 DirectoryInfo asset_folder = new DirectoryInfo(asset_path);
 
                 if (asset_folder.Exists == false)
-                    return null;
+                {
+                    if (defaultImage.IsEmpty())
+                        return Enumerable.Empty<string>();
+
+                    return new string[] { defaultImage };
+                }
 
                 cached = asset_folder.GetFiles().Select(f => Path.Combine(asset_vpath, f.Name));
 

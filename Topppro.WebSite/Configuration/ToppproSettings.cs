@@ -86,6 +86,13 @@ namespace Topppro.WebSite.Configuration
             get { return (string)this["hires"]; }
             set { this["hires"] = value; }
         }
+
+        [ConfigurationProperty("default", IsRequired = true)]
+        public string Default
+        {
+            get { return (string)this["default"]; }
+            set { this["default"] = value; }
+        }
     }
 
     public class ManualConfigurationSection : ConfigurationSection

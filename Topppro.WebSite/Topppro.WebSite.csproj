@@ -204,6 +204,7 @@
     <Content Include="images\slide-speaker.jpg" />
     <Content Include="images\speakers.jpg" />
     <Content Include="images\systems.jpg" />
+    <Content Include="images\topp-error.jpg" />
     <Content Include="images\topp-logo.png" />
     <Content Include="images\wireless.jpg" />
     <Content Include="Scripts\jquery-3.3.1.js" />

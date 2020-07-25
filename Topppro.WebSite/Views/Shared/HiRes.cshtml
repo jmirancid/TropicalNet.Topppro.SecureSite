@@ -20,10 +20,18 @@
         </div>
     </div>
     <div class="row mb-4">
-    @foreach (var path in Model.Product.GetHiRes())
-    {
-        <img src="@path" class="img-fluid mb-4" alt="@Model.Product.Name">
-    }
+        @foreach (var path in Model.Product.GetHiRes())
+        {
+            <img src="@path" class="img-fluid mb-4" alt="@Model.Product.Name">
+        }
+
+        @foreach (var child in Model.Product.Childs)
+        {
+        foreach (var path in child.ChildProduct.GetHiRes())
+        {
+            <img src="@path" class="img-fluid mb-4" alt="@Model.Product.Name">
+        }
+        }
     </div>
     <div class="row mb-4">
         <div class="col text-center">

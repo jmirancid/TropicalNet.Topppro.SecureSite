@@ -19,6 +19,7 @@ namespace Topppro.Repositories.Definitions
         }
 
         //TODO: Include as a paramenter the posibiliti to add an include list and not have to oaverride allby
+        // Used in Menu
         public override IQueryable<Assn_CategorySerieProduct> AllBy(Expression<Func<Assn_CategorySerieProduct, bool>> predicate)
         {
             var dbQuery =
@@ -42,9 +43,10 @@ namespace Topppro.Repositories.Definitions
                     .Include(e => e.Assn_CategorySerie.Serie)
                     .Include(e => e.Assn_CategorySerie.Category)
                     .Include(e => e.Product)
-                    .Include(a => a.Product.Bullets)
-                    .Include(a => a.Product.Attributes)
-                    //.Include(a => a.Product.ParentInPackages.Select(c => c.ChildProduct))
+                    .Include(e => e.Product.Bullets)
+                    .Include(e => e.Product.Attributes)
+                    .Include(e => e.Product.Childs)
+                    .Include(e => e.Product.Childs.Select(x => x.ChildProduct))
                     .Include(a => a.Product.Downloads)
                     .Where(e => e.AssnCategorySerieProductId == (int)id && e.Enabled && e.Product.Draft == false)
                     .Select(e => new
@@ -56,9 +58,9 @@ namespace Topppro.Repositories.Definitions
                         Product = e.Product,
                         Bullets = e.Product.Bullets.Where(x => x.Culture.Code == Topppro.Context.Current.Culture.TwoLetterISOLanguageName && x.Enabled).OrderBy(x => x.Priority),
                         Attributes = e.Product.Attributes.Where(x => x.Culture.Code == Topppro.Context.Current.Culture.TwoLetterISOLanguageName && x.Enabled).OrderBy(x => x.Priority),
-                        //ParentInPackages = a.Product.ParentInPackages,
-                        //ParentInPackages_Child = a.Product.ParentInPackages.Select(c => c.ChildProduct),
-                        //ParentInPackages_Child_Attributes = a.Product.ParentInPackages.Select(d => d.ChildProduct.Attributes.Where(e => e.Culture.Code == cultureCode && e.Enabled).OrderBy(e => e.Priority))
+                        Childs = e.Product.Childs,
+                        Childs_Products = e.Product.Childs.Select(c => c.ChildProduct),
+                        Childs_Attributes = e.Product.Childs.Select(c => c.ChildProduct.Attributes.Where(x => x.Culture.Code == Topppro.Context.Current.Culture.TwoLetterISOLanguageName && x.Enabled).OrderBy(x => x.Priority)),
                         Downloads = e.Product.Downloads.Where(x => x.Culture.Code == Topppro.Context.Current.Culture.TwoLetterISOLanguageName && x.Enabled).OrderBy(x => x.Priority)
                     });
 
@@ -100,6 +102,8 @@ namespace Topppro.Repositories.Definitions
                    .Include(e => e.Assn_CategorySerie.Serie)
                    .Include(e => e.Assn_CategorySerie.Category)
                    .Include(e => e.Product)
+                   .Include(e => e.Product.Childs)
+                   .Include(e => e.Product.Childs.Select(x => x.ChildProduct))
                    .Where(e => e.AssnCategorySerieProductId == (int)id && e.Enabled && e.Product.Draft == false);
 
             return dbQuery.SingleOrDefault();

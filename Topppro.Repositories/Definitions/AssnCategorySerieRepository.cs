@@ -18,6 +18,7 @@ namespace Topppro.Repositories.Definitions
 
         }
 
+        //TODO: Used in Index
         public override IQueryable<Assn_CategorySerie> AllBy(Expression<Func<Assn_CategorySerie, bool>> predicate)
         {
             var dbquery = 
