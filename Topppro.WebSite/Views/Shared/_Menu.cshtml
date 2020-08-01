@@ -5,7 +5,8 @@
 @{ 
     var mixers = Model
         .Where(x => x.Assn_CategorySerie.CategoryId == (int)Topppro.Entities.Category_Enum.Mixers)
-        .GroupBy(x => x.Product.Model, (model, assn) => new { model = model, series = assn.OrderBy(y => y.Priority).Select(y => y.Assn_CategorySerie.Serie).Distinct() });
+        .GroupBy(x => x.Product.Model, (model, assn) => new { model = model, series = assn.OrderBy(y => y.Priority).Select(y => y.Assn_CategorySerie.Serie).Distinct() })
+        .OrderBy(x => x.model.Id);
 
     var speakers = Model
         .Where(x => x.Assn_CategorySerie.CategoryId == (int)Topppro.Entities.Category_Enum.Speakers)
@@ -79,7 +80,7 @@
             <h5>Install</h5>
                 @foreach (var s in install)
                 { <a href="@Url.Action("", "Install")#@s.Name.ToSeoSlug()" class="dropdown-item">@s.Name.ToUpper()</a> }
-            <a href="@Url.Action("", "Legacy")" class="dropdown-item"><h5 class="mt-3">Legacy<br>Models</h5></a>
+			<h5 class="mt-3"><a href="@Url.Action("", "Legacy")" class="link-unstyled">Legacy<br>Models</a></h5>
         </div>
         <div class="col-sm-6 col-lg-2">
             <!--<img src="xhon-dang-wDQFdqKCA9I-unsplash.jpg" alt="" width="100%">
