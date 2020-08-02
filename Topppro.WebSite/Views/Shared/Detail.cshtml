@@ -25,47 +25,82 @@
                 <div class="row no-gutters">
                     <div class="col-md-1">
                         @if (Model.Product.GetHiRes().IsEmpty() == false)
-                        { <a href="@Url.Action("HiRes", new { id = Model.Id, name = Model.Product.Name.ToSeoSlug().ToUpper() })" class="btn btn-primary rounded-0 btn-sm btn-block">Hi-Res</a> }
-                        
+                        {<a href="@Url.Action("HiRes", new { id = Model.Id, name = Model.Product.Name.ToSeoSlug().ToUpper() })" class="btn btn-primary rounded-0 btn-sm btn-block">Hi-Res</a>}
+
                         @if (Model.Product.GetManual().IsEmpty() == false)
-                        { <a href="@Model.Product.GetManual()" target="_blank" class="btn btn-info rounded-0 btn-sm btn-block">Manual</a> }
-                        
+                        {<a href="@Model.Product.GetManual()" target="_blank" class="btn btn-info rounded-0 btn-sm btn-block">Manual</a>}
+
                         @if (Model.Product.Downloads.IsEmpty() == false)
-                        { <a href="@Url.RouteUrl("Software", new { id = Model.Id, name = Model.Product.Name.ToSeoSlug().ToUpper() })" class="btn btn-secondary rounded-0 btn-sm btn-block">Software</a> }
+                        {<a href="@Url.RouteUrl("Software", new { id = Model.Id, name = Model.Product.Name.ToSeoSlug().ToUpper() })" class="btn btn-secondary rounded-0 btn-sm btn-block">Software</a>}
                     </div>
                     <div class="col-md-5">
                         <img src="@Model.Product.GetMain()" class="card-img rounded-0" alt="">
                     </div>
                     <div class="col-md-6">
                         <div class="card-body pt-0">
+                            @*Main Bullets*@
                             <ul class="list-unstyled">
-                                @foreach (var x in Model.Product.Bullets)
-                                {
-                                    <li>@x.Name</li>
-                                    <li>@x.Value</li>
-                                }
+                            @foreach (var x in Model.Product.Bullets)
+                            {
+                                <li>@x.Name</li>
+                                <li>@x.Value</li>
+                            }
                             </ul>
+
+
+                            @*Child Attributes*@
+                            @foreach (var child in Model.Product.Childs)
+                            {
+                            <ul class="list-unstyled">
+                            @foreach (var x in child.ChildProduct.Bullets)
+                            {
+                                <li>@x.Name</li>
+                                <li>@x.Value</li>
+                            }
+                            </ul>
+                            }
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    @*Main Attributes*@
     <div class="row mb-4">
         <div class="col">
             <table class="table text-center table-striped table-bordered table-sm">
                 <tbody>
                     @foreach (var x in Model.Product.Attributes)
                     {
-                        <tr>
-                            <td>@x.Name</td>
-                            <td>@Html.Raw(x.Value)</td>
-                        </tr>
+                    <tr>
+                        <td>@x.Name</td>
+                        <td>@Html.Raw(x.Value)</td>
+                    </tr>
                     }
                 </tbody>
             </table>
         </div>
     </div>
+
+    @*Child Attributes*@
+    @foreach (var child in Model.Product.Childs)
+    {
+    <div class="row mb-4">
+        <div class="col">
+            <table class="table text-center table-striped table-bordered table-sm">
+                <tbody>
+                    @foreach (var x in child.ChildProduct.Attributes)
+                    {
+                    <tr>
+                        <td>@x.Name</td>
+                        <td>@Html.Raw(x.Value)</td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    }
     <div class="row mb-4">
         <div class="col text-center">
             <a href="@Url.Action("Index")#@Model.Assn_CategorySerie.Serie.Name.ToSeoSlug()" class="btn text-secondary border-secondary rounded-0 btn-sm">Back</a>
