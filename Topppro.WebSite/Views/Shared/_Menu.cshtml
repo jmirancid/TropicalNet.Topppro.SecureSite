@@ -60,7 +60,7 @@
             }
             </div>
         </div>
-        <div class="offset-sm-4 col-sm-6 col-lg-2">
+        <div class="col-sm-6 col-lg-2">
             <h5>Systems</h5>
                 @foreach (var s in systems)
                 { <a href="@Url.Action("", "Systems")#@s.Name.ToSeoSlug()" class="dropdown-item">@s.Name.ToUpper()</a> }
