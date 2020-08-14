@@ -18,9 +18,13 @@ namespace Topppro.Repositories.Definitions
 
         }
 
+        #region WebSite
+
         public override IQueryable<Distributor> AllBy(Expression<Func<Distributor, bool>> predicate)
         {
             return Context.Distributor.Include(x => x.Country).Where(predicate).OrderBy(x => x.Priority);
         }
+
+        #endregion
     }
 }

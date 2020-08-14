@@ -6,7 +6,6 @@ using System.Web.Helpers;
 using System.Web.Hosting;
 using Topppro.Entities;
 using Topppro.Interfaces.Business;
-using Topppro.WebSite.Configuration;
 using xFNet.Common.Extensions;
 
 namespace Topppro.WebSite
@@ -24,10 +23,10 @@ namespace Topppro.WebSite
 
             Parallel.ForEach(products, e =>
             {
-                CacheAssets(e, ToppproSettings.Product.Thumb);
-                CacheAssets(e, ToppproSettings.Product.Main);
+                CacheAssets(e, Topppro.Configuration.Current.Product.Thumb);
+                CacheAssets(e, Topppro.Configuration.Current.Product.Main);
                 //e.GetManual();
-                CacheAssets(e, ToppproSettings.Product.HiRes);
+                CacheAssets(e, Topppro.Configuration.Current.Product.HiRes);
             });
         }
 
@@ -35,7 +34,7 @@ namespace Topppro.WebSite
         {
             string key = string.Format("{0}_{1}", source.Folder, folderName);
 
-            string asset_vpath = Path.Combine(ToppproSettings.Product.Root, source.Folder, folderName);
+            string asset_vpath = Path.Combine(Topppro.Configuration.Current.Product.Root, source.Folder, folderName);
 
             string asset_path =
                 HostingEnvironment.MapPath(asset_vpath);

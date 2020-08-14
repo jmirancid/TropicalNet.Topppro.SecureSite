@@ -5,7 +5,6 @@ using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
 using Topppro.Entities;
-using Topppro.WebSite.Configuration;
 using xFNet.Common.Extensions;
 
 namespace Topppro.WebSite.Extensions
@@ -17,7 +16,7 @@ namespace Topppro.WebSite.Extensions
 #if DEBUG
             return "https://picsum.photos/128?random=1";
 #endif
-            return GetAssets(source, ToppproSettings.Product.Thumb, ToppproSettings.Product.Default).FirstOrDefault();
+            return GetAssets(source, Topppro.Configuration.Current.Product.Thumb, Topppro.Configuration.Current.Product.Default).FirstOrDefault();
         }
 
         public static string GetMain(this Product source)
@@ -25,7 +24,7 @@ namespace Topppro.WebSite.Extensions
 #if DEBUG
             return "https://picsum.photos/460/300?random=1";
 #endif
-            return GetAssets(source, ToppproSettings.Product.Main, ToppproSettings.Product.Default).FirstOrDefault();
+            return GetAssets(source, Topppro.Configuration.Current.Product.Main, Topppro.Configuration.Current.Product.Default).FirstOrDefault();
         }
 
         public static IEnumerable<string> GetHiRes(this Product source)
@@ -33,7 +32,7 @@ namespace Topppro.WebSite.Extensions
 #if DEBUG
             return new string[] { "https://picsum.photos/1920/1280?random=1", "https://picsum.photos/1920/1280?random=2", "https://picsum.photos/1920/1280?random=3" };
 #endif
-            return GetAssets(source, ToppproSettings.Product.HiRes);
+            return GetAssets(source, Topppro.Configuration.Current.Product.HiRes);
         }
 
         public static string GetManual(this Product source)
@@ -44,7 +43,7 @@ namespace Topppro.WebSite.Extensions
             if (string.IsNullOrWhiteSpace(source.Manual))
                 return null;
 
-            return UrlHelper.GenerateContentUrl(Path.Combine(ToppproSettings.Manual.Root, source.Manual), new HttpContextWrapper(HttpContext.Current));
+            return UrlHelper.GenerateContentUrl(Path.Combine(Topppro.Configuration.Current.Manual.Root, source.Manual), new HttpContextWrapper(HttpContext.Current));
         }
 
         #region Private Members
@@ -65,7 +64,7 @@ namespace Topppro.WebSite.Extensions
 
             if (cached == null)
             {
-                string asset_vpath = Path.Combine(ToppproSettings.Product.Root, source.Folder, folderName);
+                string asset_vpath = Path.Combine(Topppro.Configuration.Current.Product.Root, source.Folder, folderName);
 
                 string asset_path =
                     HttpContext.Current.Server.MapPath(asset_vpath);

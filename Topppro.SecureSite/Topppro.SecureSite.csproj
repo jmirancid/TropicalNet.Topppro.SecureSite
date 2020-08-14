@@ -9,12 +9,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{5E026DA3-EB08-4118-81AB-F3C0A92A7CDB}</ProjectGuid>
+    <ProjectGuid>{4B7C4A4B-66BB-44B0-8EF0-8D5E6A47C130}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Topppro.WebSite</RootNamespace>
-    <AssemblyName>Topppro.WebSite</AssemblyName>
+    <RootNamespace>Topppro.SecureSite</RootNamespace>
+    <AssemblyName>Topppro.SecureSite</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -129,8 +129,7 @@
     <Reference Include="xFNet.Business">
       <HintPath>..\Framework\xFNet.Business.dll</HintPath>
     </Reference>
-    <Reference Include="xFNet.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="xFNet.Common">
       <HintPath>..\Framework\xFNet.Common.dll</HintPath>
     </Reference>
     <Reference Include="xFNet.Entities">
@@ -151,65 +150,25 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\ProductAssets.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
-    <Compile Include="Controllers\DistributorsController.cs" />
-    <Compile Include="Controllers\MenuController.cs" />
-    <Compile Include="Controllers\WirelessController.cs" />
-    <Compile Include="Controllers\ProcessorsController.cs" />
-    <Compile Include="Controllers\SystemsController.cs" />
-    <Compile Include="Controllers\LegacyController.cs" />
-    <Compile Include="Controllers\InstallController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LayoutController.cs" />
-    <Compile Include="Controllers\AmplifiersController.cs" />
-    <Compile Include="Controllers\SpeakersController.cs" />
-    <Compile Include="Controllers\MixersController.cs" />
-    <Compile Include="Controllers\NewsController.cs" />
-    <Compile Include="Extensions\DownloadExtensions.cs" />
-    <Compile Include="Extensions\HtmlHelperExtensions.cs" />
-    <Compile Include="Extensions\PlatformExtensions.cs" />
-    <Compile Include="Extensions\ProductExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Article.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="css\mega-menu.css" />
-    <Content Include="css\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
-    <Content Include="images\amplifiers.jpg" />
-    <Content Include="images\catalogo.jpg" />
-    <Content Include="images\distributors.jpg" />
-    <Content Include="images\footer.jpg" />
-    <Content Include="images\header.jpg" />
-    <Content Include="images\install.jpg" />
-    <Content Include="images\legacy.jpg" />
-    <Content Include="images\mixers.jpg" />
-    <Content Include="images\modules.jpg" />
-    <Content Include="images\slide-apx.jpg" />
-    <Content Include="images\slide-console.jpg" />
-    <Content Include="images\slide-speaker.jpg" />
-    <Content Include="images\speakers.jpg" />
-    <Content Include="images\systems.jpg" />
-    <Content Include="images\topp-error.jpg" />
-    <Content Include="images\topp-logo.png" />
-    <Content Include="images\wireless.jpg" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.plugin.livefilter.js" />
-    <Content Include="Scripts\jquery.plugin.livefilter.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -226,28 +185,17 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\_Header.cshtml" />
-    <Content Include="Views\Shared\_Footer.cshtml" />
-    <Content Include="Views\News\Index.cshtml" />
-    <Content Include="Views\News\_Article.cshtml" />
     <Content Include="unity.config" />
-    <Content Include="Views\Shared\Index.cshtml" />
-    <Content Include="Views\Shared\_Catalog.cshtml" />
-    <Content Include="Views\Shared\Detail.cshtml" />
-    <Content Include="Views\Distributors\Index.cshtml" />
-    <Content Include="Views\Shared\_Menu.cshtml" />
-    <Content Include="Views\Shared\_Slider.cshtml" />
-    <Content Include="Views\Shared\Software.cshtml" />
-    <Content Include="Views\Shared\HiRes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
@@ -259,10 +207,6 @@
     <ProjectReference Include="..\Topppro.Configuration\Topppro.Configuration.csproj">
       <Project>{e312e50b-fe66-4ba3-9af9-42a1265ca931}</Project>
       <Name>Topppro.Configuration</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Topppro.Context\Topppro.Context.csproj">
-      <Project>{50088bee-0728-475e-83fe-c23fa471f7fd}</Project>
-      <Name>Topppro.Context</Name>
     </ProjectReference>
     <ProjectReference Include="..\Topppro.Entities\Topppro.Entities.csproj">
       <Project>{7788b508-e851-4a22-8b60-4f22a2bd5ac6}</Project>
@@ -293,9 +237,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>1338</DevelopmentServerPort>
+          <DevelopmentServerPort>32587</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:45884/</IISUrl>
+          <IISUrl>http://localhost:32587/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

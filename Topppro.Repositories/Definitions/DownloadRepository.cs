@@ -15,6 +15,8 @@ namespace Topppro.Repositories.Definitions
 
         }
 
+        #region WebSite
+
         public override IQueryable<Topppro.Entities.Download> AllBy(System.Linq.Expressions.Expression<Func<Topppro.Entities.Download, bool>> predicate)
         {
             return Context.Download
@@ -23,5 +25,7 @@ namespace Topppro.Repositories.Definitions
                         .Include(a => a.Platform)
                         .Where(predicate);
         }
+
+        #endregion
     }
 }

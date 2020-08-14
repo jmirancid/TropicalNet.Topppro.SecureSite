@@ -2,7 +2,6 @@
 using System.Web;
 using System.Web.Mvc;
 using Topppro.Entities;
-using Topppro.WebSite.Configuration;
 
 namespace Topppro.WebSite.Extensions
 {
@@ -16,7 +15,7 @@ namespace Topppro.WebSite.Extensions
             if (string.IsNullOrWhiteSpace(source.Resource))
                 return null;
 
-            return UrlHelper.GenerateContentUrl(Path.Combine(ToppproSettings.Download.Root, source.Resource), new HttpContextWrapper(HttpContext.Current));
+            return UrlHelper.GenerateContentUrl(Path.Combine(Topppro.Configuration.Current.Download.Root, source.Resource), new HttpContextWrapper(HttpContext.Current));
         }
     }
 }

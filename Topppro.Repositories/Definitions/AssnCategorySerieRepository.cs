@@ -18,6 +18,8 @@ namespace Topppro.Repositories.Definitions
 
         }
 
+        #region WebSite
+
         //TODO: Used in Index
         public override IQueryable<Assn_CategorySerie> AllBy(Expression<Func<Assn_CategorySerie, bool>> predicate)
         {
@@ -40,5 +42,7 @@ namespace Topppro.Repositories.Definitions
 
             return dbquery.AsEnumerable().Select(n => n.e).AsQueryable(); ;
         }
+
+        #endregion
     }
 }

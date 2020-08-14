@@ -16,6 +16,8 @@ namespace Topppro.Business.Definitions
 
         }
 
+        #region WebSite
+
         public Assn_CategorySerieProduct GetForDetail(object id)
         {
             return base.Repository.GetForDetail(id);
@@ -30,5 +32,7 @@ namespace Topppro.Business.Definitions
         {
             return base.Repository.GetForHiRes(id);
         }
+
+        #endregion
     }
 }

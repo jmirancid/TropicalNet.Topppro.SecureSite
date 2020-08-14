@@ -18,6 +18,8 @@ namespace Topppro.Repositories.Definitions
 
         }
 
+        #region WebSite
+
         //TODO: Include as a paramenter the posibiliti to add an include list and not have to oaverride allby
         // Used in Menu
         public override IQueryable<Assn_CategorySerieProduct> AllBy(Expression<Func<Assn_CategorySerieProduct, bool>> predicate)
@@ -111,5 +113,7 @@ namespace Topppro.Repositories.Definitions
 
             return dbQuery.SingleOrDefault();
         }
+
+        #endregion
     }
 }
