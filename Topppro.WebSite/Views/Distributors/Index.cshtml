@@ -11,7 +11,7 @@
                         <div class="input-group-prepend">
                             <button class="btn btn-secondary">Search</button>
                         </div>
-                        <input type="text" class="form-control">
+                        <input id="search" type="text" class="form-control">
                     </div>
                 </small>
             </div>
@@ -21,17 +21,26 @@
     <div class="row row-cols-3">
         @foreach (var d in Model)
         {
-        <div class="col">
-            <div class="card mb-3">
-                <div class="card-header text-white bg-primary">@d.Country.Name</div>
-                <div class="card-body">
-                    <address>
-                        <strong>@d.Name</strong>
-                        <p>@Html.Raw(d.Detail)</p>
-                    </address>
+            <div class="col">
+                <div class="card mb-3">
+                    <div class="card-header text-white bg-primary">@d.Country.Name</div>
+                    <div class="card-body">
+                        <address>
+                            <strong>@d.Name</strong>
+                            <p>@Html.Raw(d.Detail)</p>
+                        </address>
+                    </div>
                 </div>
             </div>
-        </div>
         }
     </div>
 </div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            $('#search').livefilter({ selector: 'div.card' });
+        });
+    </script>
+}

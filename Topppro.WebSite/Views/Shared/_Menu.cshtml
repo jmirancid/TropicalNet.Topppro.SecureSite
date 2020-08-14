@@ -44,7 +44,7 @@
             {
             <h5 class="mt-3">@g.model.Name</h5>
                 foreach (var s in g.series)
-                { <a href="@Url.Action("", "Mixers")#@s.Name.ToSeoSlug()" class="dropdown-item">@s.Name.ToUpper()</a> }
+                { <a href="@Url.Action("", "Mixers")#@s.Name.ToSeoSlug()" class="dropdown-item pl-0">@s.Name.ToUpper()</a> }
             }
         </div>
         <div class="col-sm-6 col-lg-2">
@@ -55,7 +55,7 @@
             <div class="col">
             <h5 class="mt-3">@g.model.Name</h5>
                 @foreach (var s in g.series)
-                { <a href="@Url.Action("", "Speakers")#@s.Name.ToSeoSlug()" class="dropdown-item">@s.Name.ToUpper()</a> }
+                { <a href="@Url.Action("", "Speakers")#@s.Name.ToSeoSlug()" class="dropdown-item pl-0">@s.Name.ToUpper()</a> }
             </div>
             }
             </div>
@@ -63,24 +63,24 @@
         <div class="col-sm-6 col-lg-2">
             <h5>Systems</h5>
                 @foreach (var s in systems)
-                { <a href="@Url.Action("", "Systems")#@s.Name.ToSeoSlug()" class="dropdown-item">@s.Name.ToUpper()</a> }
-            <h5 class="mt-3">Wireless<br>Systems</h5>
+                { <a href="@Url.Action("", "Systems")#@s.Name.ToSeoSlug()" class="dropdown-item pl-0">@s.Name.ToUpper()</a> }
+            <h5 class="mt-3">Wireless Systems</h5>
                 @foreach (var s in wireless)
-                { <a href="@Url.Action("", "Wireless")#@s.Name.ToSeoSlug()" class="dropdown-item">@s.Name.ToUpper()</a> }
+                { <a href="@Url.Action("", "Wireless")#@s.Name.ToSeoSlug()" class="dropdown-item pl-0">@s.Name.ToUpper()</a> }
         </div>
         <div class="col-sm-6 col-lg-2">
             <h5>Amplifiers</h5>
                 @foreach (var s in amplifiers)
-                { <a href="@Url.Action("", "Amplifiers")#@s.Name.ToSeoSlug()" class="dropdown-item">@s.Name.ToUpper()</a> }
-            <h5 class="mt-3">Modules<br>Processors</h5>
+                { <a href="@Url.Action("", "Amplifiers")#@s.Name.ToSeoSlug()" class="dropdown-item pl-0">@s.Name.ToUpper()</a> }
+            <h5 class="mt-3">Modules Processors</h5>
                 @foreach (var s in processors)
-                { <a href="@Url.Action("", "Processors")#@s.Name.ToSeoSlug()" class="dropdown-item">@s.Name.ToUpper()</a> }
+                { <a href="@Url.Action("", "Processors")#@s.Name.ToSeoSlug()" class="dropdown-item pl-0">@s.Name.ToUpper()</a> }
         </div>
         <div class="col-sm-6 col-lg-2">
             <h5>Install</h5>
                 @foreach (var s in install)
-                { <a href="@Url.Action("", "Install")#@s.Name.ToSeoSlug()" class="dropdown-item">@s.Name.ToUpper()</a> }
-			<h5 class="mt-3"><a href="@Url.Action("", "Legacy")" class="link-unstyled">Legacy<br>Models</a></h5>
+                { <a href="@Url.Action("", "Install")#@s.Name.ToSeoSlug()" class="dropdown-item pl-0">@s.Name.ToUpper()</a> }
+			<h5 class="mt-3"><a href="@Url.Action("", "Legacy")" class="link-unstyled">Legacy Models</a></h5>
         </div>
     </div>
 </div>
