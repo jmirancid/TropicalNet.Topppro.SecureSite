@@ -1,33 +1,41 @@
-﻿@using Framework.Common.Extensions
-@using Topppro.WebSite.Resources
-@using Topppro.WebSite.Extensions
+﻿@using Topppro.WebSite.Extensions;
+@using xFNet.Common.Extensions;
 
 @model Topppro.Entities.Assn_CategorySerieProduct
 
-<h4>@Model.Assn_CategorySerie.Serie.Name.ToUpper() Series</h4>
-<div class="title">
-    <h1>@Model.Product.Name.ToUpper()</h1>
-</div>
-
-@foreach (var src_image in Model.Product.GetHiRes().OrderBy(i => i))
-{
-    <img src="@src_image" alt="@ViewBag.Title" style="position: relative; left: -18px;" />
-}
-
-@foreach (var package in Model.Product.ParentInPackages)
-{
-    if (!package.ChildProduct.GetHiRes().IsEmpty())
-    {
-        foreach (var src_image in package.ChildProduct.GetHiRes().OrderBy(i => i))
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <span class="text-muted">@Model.Assn_CategorySerie.Category.Name.ToUpper()<br>@Model.Assn_CategorySerie.Serie.Name</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="pb-2 mt-4 mb-4 text-primary border-bottom d-flex justify-content-between">
+                <h1>@Model.Product.Name</h1>
+                <small class="mt-auto mb-auto">
+                    <a href="@Url.Action("Detail", new { id = Model.Id, name = Model.Product.Name.ToSeoSlug().ToUpper() })" class="btn text-secondary border-secondary rounded-0 btn-sm">Back</a>
+                </small>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-4">
+        @foreach (var path in Model.Product.GetHiRes())
         {
-            <img src="@src_image" alt="@ViewBag.Title" style="position: relative; left: -18px;" />
+            <img src="@path" class="img-fluid mb-4" alt="@Model.Product.Name">
         }
-    }
-}
 
-<div style="margin-bottom:30px;">
-    @Html.Manual()
-    
-    @Html.Back(Url.RouteUrl("Detail", new { controller = ViewContext.RouteData.Values["controller"], id = Model.Id, name = Model.Product.Name.ToSeoSlug() }), new { style = "float:right;" })
-    <br style="clear: both;" />
+        @foreach (var child in Model.Product.Childs)
+        {
+        foreach (var path in child.ChildProduct.GetHiRes())
+        {
+            <img src="@path" class="img-fluid mb-4" alt="@Model.Product.Name">
+        }
+        }
+    </div>
+    <div class="row mb-4">
+        <div class="col text-center">
+            <a href="@Url.Action("Detail", new { id = Model.Id, name = Model.Product.Name.ToSeoSlug().ToUpper() })" class="btn text-secondary border-secondary rounded-0 btn-sm">Back</a>
+        </div>
+    </div>
 </div>

@@ -1,16 +1,18 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Framework.Business.Definitions;
+﻿using Topppro.Interfaces.Business;
 using Topppro.Interfaces.Repositories;
+using xFNet.Business;
 
 namespace Topppro.Business.Definitions
 {
-    public class CategoryBusiness : Business<Topppro.Entities.Category, ICategoryRepository>
+    public class CategoryBusiness : 
+        Business<Topppro.Entities.Category, ICategoryRepository>, ICategoryBusiness
     {
-        public IEnumerable<Topppro.Entities.Category> AllWithSeries()
+        public CategoryBusiness() { }
+
+        public CategoryBusiness(ICategoryRepository repository) :
+            base(repository)
         {
-            return Repository.Value.AllWithSeries().ToList();
+
         }
     }
 }
-

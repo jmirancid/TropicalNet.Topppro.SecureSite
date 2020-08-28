@@ -1,9 +1,10 @@
-﻿using Topppro.Entities;
-using Framework.Interfaces.Repositories;
+﻿using xFNet.Interfaces.Repositories;
 
 namespace Topppro.Interfaces.Repositories
 {
-    public interface ICultureRepository : IRepository<Culture>
+    public interface ICultureRepository : 
+        IRepository<Topppro.Entities.Culture>
     {
+
     }
 }

@@ -1,10 +1,18 @@
-﻿using Framework.Business.Definitions;
-using Topppro.Entities;
+﻿using Topppro.Interfaces.Business;
 using Topppro.Interfaces.Repositories;
+using xFNet.Business;
 
 namespace Topppro.Business.Definitions
 {
-    public class PlatformBusiness : Business<Platform, IPlatformRepository>
+    public class PlatformBusiness : 
+        Business<Topppro.Entities.Platform, IPlatformRepository>, IPlatformBusiness
     {
+        public PlatformBusiness() { }
+
+        public PlatformBusiness(IPlatformRepository repository) :
+            base(repository)
+        {
+
+        }
     }
 }

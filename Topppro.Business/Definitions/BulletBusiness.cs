@@ -1,20 +1,18 @@
-﻿using System.Collections.Generic;
-using Framework.Business.Definitions;
-using Topppro.Entities;
+﻿using Topppro.Interfaces.Business;
 using Topppro.Interfaces.Repositories;
+using xFNet.Business;
 
 namespace Topppro.Business.Definitions
 {
-    public class BulletBusiness : Business<Bullet, IBulletRepository>
+    public class BulletBusiness : 
+        Business<Topppro.Entities.Bullet, IBulletRepository>, IBulletBusiness
     {
-        public void CreateOrUpdate(Bullet entity)
-        {
-            this.Repository.Value.CreateOrUpdate(entity);
-        }
+        public BulletBusiness() { }
 
-        public void CreateOrUpdate(IEnumerable<Bullet> entities)
+        public BulletBusiness(IBulletRepository repository) :
+            base(repository)
         {
-            this.Repository.Value.CreateOrUpdate(entities);
+
         }
     }
 }

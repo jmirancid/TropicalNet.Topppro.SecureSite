@@ -1,14 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
-using Framework.Entities;
-using Framework.Entities.Resources;
-using Topppro.Entities.Resources;
+﻿using xFNet.Common.Extensions;
+using xFNet.Entities;
 
 namespace Topppro.Entities
 {
-    [MetadataType(typeof(Serie_Metadata))]
-    public partial class Serie : BaseEntity
+    public partial class Serie : Entity
     {
-        public override int Id
+        public override object Id
         {
             get
             {
@@ -16,16 +13,8 @@ namespace Topppro.Entities
             }
             set
             {
-                SerieId = value;
+                SerieId = value.To<int>();
             }
         }
     }
-
-    public class Serie_Metadata
-    {
-        [Display(Name = "Entity_Name", ResourceType = typeof(Ent_SerieResource))]
-        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Ent_ValidationResource))]
-        public string Name { get; set; }
-    }
-
 }

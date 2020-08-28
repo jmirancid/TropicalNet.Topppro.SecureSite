@@ -1,32 +1,95 @@
-﻿@using Topppro.Entities
-@using Topppro.WebSite.Extensions
-@using Topppro.WebSite.Resources
-
-@section Styles {
-    <style type="text/css">
-        #main
-        {
-            padding: 0 0 91px;
-        }
-		.page { min-height: 0 }
-    </style>
-}
-
-<table width="1000" border="0" cellspacing="0" cellpadding="0" bgcolor="#000000">
-    <tr>
-        <td colspan="5">
-            @Html.Intro()
-        </td>
-    </tr>
-</table>
-<table width="999" border="0" align="center" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
-    <tbody>
-        <tr>
-            <td>
-                <a href="@Url.Content(GeneralResource.Topppro_Catalog)" target="_blank">
-                    <img src="@Url.Content(ImageResource.Catalog_Download)"
-                        alt="Download Catalog Line Products" border="0" /></a>
-            </td>
-        </tr>
-    </tbody>
-</table>
+﻿<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-sm-6">
+            <div class="row mb-3">
+                <div class="col">
+                    <div class="card-deck">
+                        <div class="card rounded-0 text-white text-right bg-primary">
+                            <img src="~/images/mixers.jpg" class="card-img-top rounded-0" alt="mixers">
+                            <div class="card-body">
+                                <span class="card-title">Mixers</span>
+                                <a href="@Url.Action("", "Mixers")" class="stretched-link"></a>
+                            </div>
+                        </div>
+                        <div class="card rounded-0 text-white text-right bg-primary">
+                            <img src="~/images/speakers.jpg" class="card-img-top rounded-0" alt="speakers">
+                            <div class="card-body">
+                                <span class="card-title">Speakers</span>
+                                <a href="@Url.Action("", "Speakers")" class="stretched-link"></a>
+                            </div>
+                        </div>
+                        <div class="card rounded-0 text-white text-right bg-primary">
+                            <img src="~/images/systems.jpg" class="card-img-top rounded-0" alt="systems">
+                            <div class="card-body">
+                                <span class="card-title">Systems</span>
+                                <a href="@Url.Action("", "Systems")" class="stretched-link"></a>
+                            </div>
+                        </div>
+                        <div class="card rounded-0 text-white text-right bg-primary">
+                            <img src="~/images/wireless.jpg" class="card-img-top rounded-0" alt="wirelss systems">
+                            <div class="card-body">
+                                <span class="card-title">Wireless Systems</span>
+                                <a href="@Url.Action("","Wireless")" class="stretched-link"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="card-deck">
+                        <div class="card rounded-0 text-white text-right bg-primary">
+                            <img src="~/images/amplifiers.jpg" class="card-img-top rounded-0" alt="power amplifiers">
+                            <div class="card-body">
+                                <span class="card-title">Power Amplifiers</span>
+                                <a href="@Url.Action("", "Amplifiers")" class="stretched-link"></a>
+                            </div>
+                        </div>
+                        <div class="card rounded-0 text-white text-right bg-primary">
+                            <img src="~/images/modules.jpg" class="card-img-top rounded-0" alt="modules processors">
+                            <div class="card-body">
+                                <span class="card-title">Modules Processors</span>
+                                <a href="@Url.Action("", "Processors")" class="stretched-link"></a>
+                            </div>
+                        </div>
+                        <div class="card rounded-0 text-white text-right bg-primary">
+                            <img src="~/images/install.jpg" class="card-img-top rounded-0" alt="install">
+                            <div class="card-body">
+                                <span class="card-title">Install</span>
+                                <a href="@Url.Action("", "Install")" class="stretched-link"></a>
+                            </div>
+                        </div>
+                        <div class="card rounded-0 text-white text-right bg-primary">
+                            <img src="~/images/legacy.jpg" class="card-img-top rounded-0" alt="legacy models">
+                            <div class="card-body">
+                                <span class="card-title">Legacy Models</span>
+                                <a href="@Url.Action("", "Legacy")" class="stretched-link"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="row">
+                <div class="col-12">
+                    <div class="card-deck">
+                        <div class="card rounded-0 text-white text-right bg-primary mb-3">
+                            <img src="index/distributors-index.jpg" class="card-img-top rounded-0" alt="...">
+                            <div class="card-body">
+                                <span class="card-title">Distributors</span>
+                                <a href="distributors.html" class="stretched-link"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+        </div>
+        <div class="col-lg-4 col-sm-6">
+            <div class="row">
+                <div class="col">
+                    @Html.Partial("_Slider")
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@Html.Partial("_Catalog")

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Topppro.Entities;
+﻿using Topppro.Entities;
 
 namespace Topppro.WebSite.Extensions
 {
@@ -10,44 +6,58 @@ namespace Topppro.WebSite.Extensions
     {
         public static string Icon(this Platform source)
         {
-            if (source.PlatformId == 1) // Windows
+            if (source.PlatformId == (int)Platform_Enum.Windows) // Windows
                 return "fa fa-windows";
 
-            if (source.PlatformId == 2) // Mac
+            if (source.PlatformId == (int)Platform_Enum.Mac) // Mac
                 return "fa fa-apple";
 
-            if (source.PlatformId == 3) // IOS App
+            if (source.PlatformId == (int)Platform_Enum.IOS) // IOS App
                 return "fa fa-mobile";
 
             return "fa fa-android"; // Android
         }
 
-        public static string Color(this Platform source)
+        public static string TextColor(this Platform source)
         {
-            if (source.PlatformId == 1) // Windows
-                return "blue";
+            if (source.PlatformId == (int)Platform_Enum.Windows) // Windows
+                return "text-primary";
 
-            if (source.PlatformId == 2) // Mac
-                return "red";
+            if (source.PlatformId == (int)Platform_Enum.Mac) // Mac
+                return "text-danger";
 
-            if (source.PlatformId == 3) // IOS App
-                return "black";
+            if (source.PlatformId == (int)Platform_Enum.IOS) // IOS App
+                return "text-secondary";
 
-            return "green"; // Android
+            return "text-success"; // Android
         }
 
-        public static string ButtonColor(this Platform source)
+        public static string BackgroundColor(this Platform source)
         {
-            if (source.PlatformId == 1) // Windows
-                return "blue-stripe";
+            if (source.PlatformId == (int)Platform_Enum.Windows) // Windows
+                return "bg-primary";
 
-            if (source.PlatformId == 2) // Mac
-                return "red-stripe";
+            if (source.PlatformId == (int)Platform_Enum.Mac) // Mac
+                return "bg-danger";
 
-            if (source.PlatformId == 3) // IOS App
-                return "black-stripe";
+            if (source.PlatformId == (int)Platform_Enum.IOS) // IOS App
+                return "bg-secondary";
 
-            return "green-stripe"; // Android
+            return "bg-success"; // Android
+        }
+
+        public static string BorderColor(this Platform source)
+        {
+            if (source.PlatformId == (int)Platform_Enum.Windows) // Windows
+                return "border-primary";
+
+            if (source.PlatformId == (int)Platform_Enum.Mac) // Mac
+                return "border-danger";
+
+            if (source.PlatformId == (int)Platform_Enum.IOS) // IOS App
+                return "border-secondary";
+
+            return "border-success"; // Android
         }
     }
 }

@@ -1,51 +1,10 @@
-﻿@using Framework.Common.Extensions
-@using Topppro.WebSite.Resources
-@using Topppro.WebSite.Extensions
-
-@model IEnumerable<Topppro.Entities.Assn_CategorySerieProduct>
-
-<ul class="products">
-@foreach (var assn in Model)
-{
-    <li>
-        <div class="product-item">
-            <a href="@(assn.Product.Draft ? 
-                        "javascript:void(0)" : 
-                        Url.RouteUrl("Detail", new { controller = ViewContext.RouteData.Values["controller"], id = assn.Id, name = assn.Product.Name.ToSeoSlug() }))"
-                        onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('@(string.Format("Image{0}", assn.Id))','','@(assn.Product.GetThumbs().Where(t => t.Contains("up")).DefaultIfEmpty<string>(GeneralResource.Default_Coming_Soon).First())',1)">
-                <span class="product_badge left">@assn.Product.Name.ToUpper()</span>
-                @if (!assn.Product.Badge.IsEmpty())
-                {
-                    <span class="product_badge right">
-                        <big>@assn.Product.Badge</big><small>@assn.Product.Model.Name.ToUpper()</small>
-                    </span>
-                }
-                <img src="@(assn.Product.GetThumbs().Where(t => !t.Contains("up")).DefaultIfEmpty<string>(GeneralResource.Default_Coming_Soon).First())" alt="@assn.Product.Name" name="@(string.Format("Image{0}", assn.Id))"
-                    width="173" height="143" border="0" id="@(string.Format("Image{0}", assn.Id))" />
-                <ul class="highlights">
-                    @foreach (var bullet in assn.Product.Bullets)
-                    {
-                        if (bullet.Value.IsEmpty())
-                        {
-                            <li><span>@bullet.Name</span></li>
-                        }
-                        else
-                        {
-                            <li><span>@bullet.Name: @bullet.Value</span></li>
-                        }
-                    }
-                </ul>
-            </a>
+﻿<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col">
+            <div class="jumbotron catalog rounded-0">
+                <p>Download here our 2020<br>Catalog Line Product</p>
+                <a class="btn btn-primary btn-lg" href="#" role="button">Download Now !</a>
+            </div>
         </div>
-        <div style="border:1px solid #487B31; width:100%; height:2px; background-color:#487B31;"></div>
-        @if (assn.AllowCompare && assn.Assn_CategorySerie.AllowCompare)
-        {
-        <div class="product-compare">
-            <input type="checkbox" id="@assn.Product.Folder" value="@assn.Id" data-text="@assn.Product.Name.ToSeoSlug()" />
-            <label for="@assn.Product.Folder">@CompareResource.Add</label>
-        </div>
-        }
-    </li>
-}
-</ul>
-
+    </div>
+</div>

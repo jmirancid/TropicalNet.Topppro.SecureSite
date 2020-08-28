@@ -1,13 +1,10 @@
-﻿using System.Collections.Generic;
-using Framework.Interfaces.Repositories;
-using Topppro.Entities;
+﻿using xFNet.Interfaces.Repositories;
 
 namespace Topppro.Interfaces.Repositories
 {
-    public interface IBulletRepository : IRepository<Bullet>
+    public interface IBulletRepository : 
+        IRepository<Topppro.Entities.Bullet>
     {
-        void CreateOrUpdate(Bullet entity);
 
-        void CreateOrUpdate(IEnumerable<Bullet> entities);
     }
 }

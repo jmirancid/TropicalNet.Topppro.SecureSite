@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using Topppro.Interfaces.Business;
 
 namespace Topppro.WebSite.Controllers
 {
     public class ProcessorsController : LayoutController
     {
-        public ActionResult Modules_HiRes()
+        public ProcessorsController() { }
+
+        public ProcessorsController(IAssnCategorySerieProductBusiness bizCategorySerieProduct, IAssnCategorySerieBusiness bizCategorySerie) :
+            base(bizCategorySerieProduct, bizCategorySerie)
         {
-            return View();
+
         }
     }
 }

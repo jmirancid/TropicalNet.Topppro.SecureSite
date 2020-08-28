@@ -1,21 +1,26 @@
-﻿using System;
-using Framework.Interfaces.Business;
+﻿using Microsoft.Practices.Unity.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Framework.Repositories;
+using Unity;
+using xFNet.Entities;
+using xFNet.Interfaces.Business;
 
 namespace Topppro.Test.Business
 {
     [TestClass]
     public abstract class BusinessTest<TEntity, TBusiness>
-        where TEntity : class, new()
-        where TBusiness : IBusiness<TEntity>, new()
+           where TEntity : Entity, new()
+           where TBusiness : IBusiness<TEntity>
     {
-        public static Lazy<TBusiness> bizEntity { get; set; }
+        private static IUnityContainer unity;
+
+        protected static TBusiness Biz { get; set; }
 
         public static void Startup()
         {
-            //RepositoryFactory.ConfigureContainer();
-            bizEntity = new Lazy<TBusiness>();
+            unity = new UnityContainer();
+            unity.LoadConfiguration();
+
+            Biz = unity.Resolve<TBusiness>();
         }
 
         public static void TearDown() { }

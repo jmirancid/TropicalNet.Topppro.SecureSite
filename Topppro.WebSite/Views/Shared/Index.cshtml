@@ -1,32 +1,46 @@
-﻿@using Framework.MVC.Extensions
-@using Topppro.WebSite.Resources
-@using Topppro.WebSite.Extensions
+﻿@using Topppro.WebSite.Extensions;
+@using xFNet.Common.Extensions;
 
 @model IEnumerable<Topppro.Entities.Assn_CategorySerie>
 
-@section Styles {
-    <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/m-icons.min.css")" />
-    <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/m-buttons.min.css")" />
+<div class="container">
+    <!-- CATEGORY -->
+    <div class="row">
+        <div class="col">
+            <span class="text-muted">@ViewContext.RouteData.Values["controller"].ToString().ToUpper()</span>
+        </div>
+    </div>
+
+@foreach (var x in Model)
+{
+    <!-- SERIE-->
+    <div class="row">
+        <div class="col">
+            <div class="pb-2 mt-4 mb-2 border-bottom">
+                <h2 id="@x.Serie.Name.ToSeoSlug()">@x.Serie.Name</h2>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <ul class="list-group list-group-horizontal align-items-stretch flex-wrap">
+                @foreach (var y in x.Assn_CategorySerieProduct)
+                {
+                    <!-- PRODUCT -->
+                    <li class="list-group-item border-0">
+                        <div class="card text-primary text-center border-0 my-3">
+                            <div class="card-title">
+                                <p class="card-text">@y.Product.Name</p>
+                            </div>
+                            <img src="@y.Product.GetThumb()" class="card-img-bottom img-fluid rounded-0">
+                            <a href="@Url.Action("Detail", new { id = y.Id, name = y.Product.Name.ToSeoSlug().ToUpper() })" class="stretched-link"></a>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+    <!-- /LIST -->
 }
-
-<table width="1000" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
-    <tbody>
-        @Html.DisplayForModel()
-    </tbody>
-</table>
-
-<div class="slide-panel left">
-    <h2><a href="javascript:$.panelslider.close();"><i class="m-icon-big-swapleft m-icon-white" style="margin:0px 3px;"></i></a> @CompareResource.Panel_Title</h2>
-    <ul class="compare-list"></ul>
-    <p class="controls">
-        <button id="btn-clear" class="m-btn black">@CompareResource.Panel_Clear <i class="icon-refresh icon-white"></i></button>
-        <button id="btn-compare" class="m-btn green">@CompareResource.Panel_Compare <i class="icon-share-alt icon-white"></i></button>
-    </p>
 </div>
-
-@section Scripts {
-    @Html.PreloadedImages()
-    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.8.3.min.js")"></script>
-    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.panelslider-0.1.1/jquery.panelslider.min.js")"></script>
-    @Html.Partial("_Slide")
-}
+@Html.Partial("_Catalog")

@@ -1,57 +1,42 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web.Mvc;
-using Topppro.Business.Definitions;
-using Topppro.WebSite.Extensions;
-using Framework.Common.Extensions;
+using Topppro.Interfaces.Business;
 
 namespace Topppro.WebSite.Controllers
 {
     public abstract class LayoutController : Controller
     {
-        protected readonly Lazy<AssnCategorySerieBusiness> _bizAssnCategorySerie =
-            new Lazy<AssnCategorySerieBusiness>();
+        protected IAssnCategorySerieProductBusiness BizCategorySerieProduct { get; private set; }
 
-        protected readonly Lazy<AssnCategorySerieProductBusiness> _bizAssnCategorySerieProduct =
-            new Lazy<AssnCategorySerieProductBusiness>();
+        protected IAssnCategorySerieBusiness BizCategorySerie { get; private set; }
 
-        protected readonly Lazy<ProductBusiness> _bizProduct =
-            new Lazy<ProductBusiness>();
+        public LayoutController() { }
 
-        protected readonly Lazy<AttributeBusiness> _bizAttribute =
-            new Lazy<AttributeBusiness>();
+        public LayoutController(IAssnCategorySerieProductBusiness bizCategorySerieProduct, IAssnCategorySerieBusiness bizCategorySerie)
+        {
+            this.BizCategorySerieProduct = bizCategorySerieProduct;
+            this.BizCategorySerie = bizCategorySerie;
+        }
 
-        protected readonly Lazy<DownloadBusiness> _bizDownload =
-            new Lazy<DownloadBusiness>();
-
-        [OutputCache(CacheProfile = "Short", VaryByParam = "culture")]
+        [OutputCache(CacheProfile = "Medium")]
         public virtual ActionResult Index(string controller)
         {
             var categoryId =
                 (int)Enum.Parse(typeof(Topppro.Entities.Category_Enum), controller);
 
             var entities =
-                this._bizAssnCategorySerie.Value.AllByWithRefs(n => n.CategoryId == categoryId && n.Enabled, Context.Current.Culture.TwoLetterISOLanguageName);
+                this.BizCategorySerie.AllBy(x => x.CategoryId == categoryId && x.Enabled);
 
             ViewBag.Title =
                 string.Format(":: Topp Pro Professional Audio {0} ::", controller);
 
-            ViewBag.PreloadedImages =
-                Enumerable.Empty<string>();
-
-            foreach (var entity in entities)
-                foreach (var assn in entity.Assn_CategorySerieProduct)
-                    ViewBag.PreloadedImages = assn.Product.GetThumbs().Concat((IEnumerable<string>)ViewBag.PreloadedImages);
-
             return View(entities);
         }
 
-        [OutputCache(CacheProfile = "Short", VaryByParam = "culture")]
+        [OutputCache(CacheProfile = "Long")]
         public virtual ActionResult Detail(string controller, int id, string name)
         {
-            var entity = this._bizAssnCategorySerieProduct.Value
-                                .GetByCulture(id, Topppro.Context.Current.Culture.TwoLetterISOLanguageName);
+            var entity = this.BizCategorySerieProduct.GetForDetail(id);
 
             ViewBag.Title =
                 string.Format(":: Topp Pro {0} ::", entity.Product.Name.ToUpper());
@@ -59,11 +44,10 @@ namespace Topppro.WebSite.Controllers
             return View(entity);
         }
 
-        [OutputCache(CacheProfile = "Short")]
+        [OutputCache(CacheProfile = "Long")]
         public virtual ActionResult HiRes(string controller, int id, string name)
         {
-            var entity =
-                this._bizAssnCategorySerieProduct.Value.Get(id);
+            var entity = this.BizCategorySerieProduct.GetForHiRes(id);
 
             ViewBag.Title =
                 string.Format(":: Topp Pro {0} HiRes ::", entity.Product.Name.ToUpper());
@@ -71,42 +55,16 @@ namespace Topppro.WebSite.Controllers
             return View(entity);
         }
 
-        [OutputCache(CacheProfile = "Short", VaryByParam = "culture")]
-        public virtual ActionResult Downloads(string controller, int id, string name)
+        [OutputCache(CacheProfile = "Long")]
+        public virtual ActionResult Software(string controller, int id, string name)
         {
-            var entity =
-                this._bizAssnCategorySerieProduct.Value.Get(id);
+            var entity = 
+                this.BizCategorySerieProduct.GetForSoftware(id);
 
-            entity.Product.Downloads =
-                this._bizDownload.Value.AllBy(x => x.ProductId == entity.Product.Id && x.Culture.Code == Topppro.Context.Current.Culture.TwoLetterISOLanguageName)
-                .OrderBy(x => x.Platform.Priority).ThenBy(x => x.Priority)
-                .ToList();
-
-            if (entity.Product.Downloads.IsEmpty())
-                entity.Product.Downloads =
-                    this._bizDownload.Value.AllBy(x => x.ProductId == entity.Product.Id && x.Culture.Code == "en")
-                    .OrderBy(x => x.Platform.Priority).ThenBy(x => x.Priority)
-                    .ToList();
-            
             ViewBag.Title =
-                string.Format(":: Topp Pro {0} Downloads ::", entity.Product.Name.ToUpper());
+                string.Format(":: Topp Pro {0} Software ::", entity.Product.Name.ToUpper());
 
             return View(entity);
-        }
-
-        [OutputCache(CacheProfile = "Mini", VaryByParam = "culture")]
-        public virtual ActionResult Compare(string controller, int lid, string lname, int rid, string rname)
-        {
-            var entities =
-                this._bizAssnCategorySerieProduct.Value.GetByCulture(new int[] { lid, rid }, Topppro.Context.Current.Culture.TwoLetterISOLanguageName);
-
-            var model = 
-                Tuple.Create(entities.FirstOrDefault(), entities.LastOrDefault());
-
-            ViewBag.Title =
-                string.Format(":: Topp Pro {0} vs {1} ::", lname.ToUpper(), rname.ToUpper());
-
-            return View(model);
         }
     }
 }

@@ -1,10 +1,18 @@
-﻿using Framework.Business.Definitions;
-using Topppro.Entities;
+﻿using Topppro.Interfaces.Business;
 using Topppro.Interfaces.Repositories;
+using xFNet.Business;
 
 namespace Topppro.Business.Definitions
 {
-    public class DownloadBusiness : Business<Download, IDownloadRepository>
+    public class DownloadBusiness :
+        Business<Topppro.Entities.Download, IDownloadRepository>, IDownloadBusiness
     {
+        public DownloadBusiness() { }
+
+        public DownloadBusiness(IDownloadRepository repository) :
+            base(repository)
+        {
+
+        }
     }
 }

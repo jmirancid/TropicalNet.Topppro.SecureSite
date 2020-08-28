@@ -1,5 +1,81 @@
-﻿@using Topppro.WebSite.Extensions
+﻿<!-- HEADER -->
+<header>
+    <!-- NAV BAR_MENU -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="@Url.Action("", "Home")">
+                <div class="col-3 col-md-2">
+                    <img src="~/images/topp-logo.png" class="img-fluid d-inline-block" alt="">
+                    <h4 class="d-inline-block font-weight-bold ml-2">Topp Pro Audio</h4>
+                </div>
+            </a>
 
-@model Topppro.Entities.Product
+            <!-- //TODO: mejorar el alineaminto del navbar-toggler -->
+            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown menu-area">
+                        @{ Html.RenderAction("Render", "Menu"); }
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="@Url.Action("", "News")">News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="@Url.Action("", "Distributors")">Distributors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="@Url.Action("", "Home")">Home</a>
+                    </li>
+                    <!--<li class="nav-item dropdown menu-area">
+                        <a class="nav-link dropdown-toggle" href="" id="mega-two" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Features
+                        </a>
+                        <div class="dropdown-menu mega-area" aria-labelledby="mega-two">
+                            <div class="row">
+                                <div class="col-sm-6 col-lg-3">
+                                    <h5>Image</h5>
+                                    <img src="nikolai-chernichenko-qFl7dkulMpE-unsplash.jpg" alt="" width="100%">
+                                </div>
+                                <div class="col-sm-6 col-lg-3">
+                                    <h5>Marketplace we Work</h5>
+                                    <a href="#" class="dropdown-item">Themeforest</a>
+                                    <a href="#" class="dropdown-item">Codester</a>
+                                    <a href="#" class="dropdown-item">Cretive Commons</a>
+                                </div>
+                                <div class="col-sm-6 col-lg-3">
+                                    <h5>IT Consulting</h5>
+                                    <a href="#" class="dropdown-item">Information Technolgy</a>
+                                    <a href="#" class="dropdown-item">Consulting offerings</a>
+                                    <a href="#" class="dropdown-item">Fast Delivery</a>
+                                </div>
+                                <div class="col-sm-6 col-lg-3">
+                                    <h5>Tags</h5>
+                                    <p>
+                                        <span class="badge badge-secondary">Web Design</span>
+                                        <span class="badge badge-secondary">Marketing</span>
+                                        <span class="badge badge-secondary">Graphic Design</span>
+                                        <span class="badge badge-secondary">Consulting</span>
+                                        <span class="badge badge-secondary">Template</span>
+                                        <span class="badge badge-secondary">Joomla</span>
+                                        <span class="badge badge-secondary">WordPress</span>
+                                        <span class="badge badge-secondary">ThemeForest</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>-->
+                </ul>
+                <!--<form class="form-inline mt-2 mt-md-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>-->
+            </div>
 
-<img src="@Model.GetHeader().FirstOrDefault()" alt="@Model.Folder" style="margin-left:-18px;margin-bottom:20px;" />
+        </div>
+    </nav>
+    <!-- /NAV BAR_MENU -->
+    <div class="jumbotron top rounded-0 mb-3" style="height: 350px;"></div>
+</header>
+<!-- /HEADER -->

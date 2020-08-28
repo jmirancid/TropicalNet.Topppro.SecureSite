@@ -1,30 +1,32 @@
-﻿using System.Linq;
-using Framework.Business.Definitions;
+﻿using Topppro.Interfaces.Business;
 using Topppro.Interfaces.Repositories;
+using xFNet.Business;
 
 namespace Topppro.Business.Definitions
 {
     public class AssnCategorySerieBusiness :
-        Business<Topppro.Entities.Assn_CategorySerie, IAssnCategorySerieRepository>
+        Business<Topppro.Entities.Assn_CategorySerie, IAssnCategorySerieRepository>, IAssnCategorySerieBusiness
     {
+        public AssnCategorySerieBusiness() { }
+
+        public AssnCategorySerieBusiness(IAssnCategorySerieRepository repository) :
+            base(repository)
+        {
+
+        }
+
+        #region SecureSite
+
         public int Insert(int categoryId, int serieId, int priority)
         {
-            return Repository.Value.Insert(categoryId, serieId, priority);
+            return base.Repository.Insert(categoryId, serieId, priority);
         }
 
         public void Reorder(int assnCategorySerieId, int priority)
         {
-            Repository.Value.Reorder(assnCategorySerieId, priority);
+            base.Repository.Reorder(assnCategorySerieId, priority);
         }
 
-        public Topppro.Entities.Assn_CategorySerie GetWithProducts(int id)
-        {
-            return base.Repository.Value.GetWithProducts(id);
-        }
-
-        public IQueryable<Topppro.Entities.Assn_CategorySerie> AllByWithRefs(System.Linq.Expressions.Expression<System.Func<Entities.Assn_CategorySerie, bool>> predicate, string cultureCode = "en")
-        {
-            return Repository.Value.AllByWithRefs(predicate, cultureCode);
-        }
+        #endregion
     }
 }

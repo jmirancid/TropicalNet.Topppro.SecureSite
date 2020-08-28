@@ -1,10 +1,10 @@
-﻿using Topppro.Entities;
-using Framework.Interfaces.Repositories;
+﻿using xFNet.Interfaces.Repositories;
 
 namespace Topppro.Interfaces.Repositories
 {
-    public interface IPackageRepository : IRepository<Package>
+    public interface IPackageRepository : 
+        IRepository<Topppro.Entities.Package>
     {
+
     }
 }
-

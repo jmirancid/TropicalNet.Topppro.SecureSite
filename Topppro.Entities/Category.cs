@@ -1,14 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
-using Framework.Entities;
-using Framework.Entities.Resources;
-using Topppro.Entities.Resources;
+﻿using xFNet.Common.Extensions;
+using xFNet.Entities;
 
 namespace Topppro.Entities
 {
-    [MetadataType(typeof(Category_Metadata))]
-    public partial class Category : BaseEntity
+    public partial class Category : Entity
     {
-        public override int Id
+        public override object Id
         {
             get
             {
@@ -16,7 +13,7 @@ namespace Topppro.Entities
             }
             set
             {
-                CategoryId = value;
+                CategoryId = value.To<int>();
             }
         }
     }
@@ -26,17 +23,10 @@ namespace Topppro.Entities
         Speakers = 1,
         Amplifiers = 2,
         Mixers = 3,
-        Packs = 4,
+        Systems = 4,
         Wireless = 5,
         Processors = 6,
         Install = 7,
         Legacy = 8
-    }
-
-    public class Category_Metadata
-    {
-        [Display(Name = "Entity_Name", ResourceType = typeof(Ent_CategoryResource))]
-        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Ent_ValidationResource))]
-        public string Name { get; set; }
     }
 }

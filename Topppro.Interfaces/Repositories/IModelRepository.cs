@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Framework.Interfaces.Repositories;
-using Topppro.Entities;
+﻿using xFNet.Interfaces.Repositories;
 
 namespace Topppro.Interfaces.Repositories
 {
-	public interface IModelRepository : IRepository<Model>
+    public interface IModelRepository : 
+        IRepository<Topppro.Entities.Model>
 	{
+
 	}
 }

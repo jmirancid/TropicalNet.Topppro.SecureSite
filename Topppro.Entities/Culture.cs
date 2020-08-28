@@ -1,14 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
-using Framework.Entities;
-using Framework.Entities.Resources;
-using Topppro.Entities.Resources;
+﻿using xFNet.Common.Extensions;
+using xFNet.Entities;
 
 namespace Topppro.Entities
 {
-    [MetadataType(typeof(Culture_Metadata))]
-    public partial class Culture : BaseEntity
+    public partial class Culture : Entity
     {
-        public override int Id
+        public override object Id
         {
             get
             {
@@ -16,19 +13,8 @@ namespace Topppro.Entities
             }
             set
             {
-                CultureId = value;
+                CultureId = value.To<int>();
             }
         }
-    }
-
-    public class Culture_Metadata
-    {
-        [Display(Name = "Entity_Name", ResourceType = typeof(Ent_CultureResource))]
-        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Ent_ValidationResource))]
-        public string Name { get; set; }
-
-        [Display(Name = "Entity_Code", ResourceType = typeof(Ent_CultureResource))]
-        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Ent_ValidationResource))]
-        public string Code { get; set; }
     }
 }

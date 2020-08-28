@@ -1,9 +1,10 @@
-﻿using Framework.Interfaces.Repositories;
-using Topppro.Entities;
+﻿using xFNet.Interfaces.Repositories;
 
 namespace Topppro.Interfaces.Repositories
 {
-    public interface IDownloadRepository : IRepository<Download>
+    public interface IDownloadRepository : 
+        IRepository<Topppro.Entities.Download>
     {
+
     }
 }

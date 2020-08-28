@@ -1,11 +1,10 @@
-﻿using System.Linq;
-using Framework.Interfaces.Repositories;
-using Topppro.Entities;
+﻿using xFNet.Interfaces.Repositories;
 
 namespace Topppro.Interfaces.Repositories
 {
-    public interface ICountryRepository : IRepository<Country>
+    public interface ICountryRepository : 
+        IRepository<Topppro.Entities.Country>
     {
-        IQueryable<Country> AllHavingDistributors(string cultureCode);
+
     }
 }

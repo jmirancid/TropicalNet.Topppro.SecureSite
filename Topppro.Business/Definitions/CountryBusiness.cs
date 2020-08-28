@@ -1,17 +1,18 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Framework.Business.Definitions;
-using Topppro.Entities;
+﻿using Topppro.Interfaces.Business;
 using Topppro.Interfaces.Repositories;
+using xFNet.Business;
 
 namespace Topppro.Business.Definitions
 {
-    public class CountryBusiness : Business<Country, ICountryRepository>
+    public class CountryBusiness : 
+        Business<Topppro.Entities.Country, ICountryRepository>, ICountryBusiness
     {
-        public IEnumerable<Country> AllHavingDistributors(string cultureCode)
+        public CountryBusiness() { }
+
+        public CountryBusiness(ICountryRepository repository) :
+            base(repository)
         {
-            return base.Repository.Value.AllHavingDistributors(cultureCode);
+
         }
     }
 }
-

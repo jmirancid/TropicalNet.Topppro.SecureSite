@@ -1,31 +1,18 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Framework.Business.Definitions;
-using Topppro.Entities;
+﻿using Topppro.Interfaces.Business;
 using Topppro.Interfaces.Repositories;
+using xFNet.Business;
 
 namespace Topppro.Business.Definitions
 {
-    public class AttributeBusiness : Business<Attribute, IAttributeRepository>
+    public class AttributeBusiness : 
+        Business<Topppro.Entities.Attribute, IAttributeRepository>, IAttributeBusiness
     {
-        public void CreateOrUpdate(Attribute entity)
-        {
-            this.Repository.Value.CreateOrUpdate(entity);
-        }
+        public AttributeBusiness() { }
 
-        public void CreateOrUpdate(IEnumerable<Attribute> entities)
+        public AttributeBusiness(IAttributeRepository repository) :
+            base(repository)
         {
-            this.Repository.Value.CreateOrUpdate(entities);
-        }
 
-        public override IEnumerable<Attribute> Filter(int skip, int take)
-        {
-            return base.Filter(skip, take).ToList();
-        }
-
-        public override IEnumerable<Attribute> FilterBy(int skip, int take, System.Linq.Expressions.Expression<System.Func<Attribute, bool>> predicate)
-        {
-            return base.FilterBy(skip, take, predicate).ToList();
         }
     }
 }

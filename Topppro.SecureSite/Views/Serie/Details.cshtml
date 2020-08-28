@@ -1,0 +1,16 @@
+﻿@model Topppro.Entities.Serie
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<fieldset>
+    <legend>Serie</legend>
+
+    @Html.DisplayFor(m => Model)
+
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SerieId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

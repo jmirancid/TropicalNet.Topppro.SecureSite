@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using Topppro.Interfaces.Business;
 
 namespace Topppro.WebSite.Controllers
 {
     public class AmplifiersController : LayoutController
     {
+        public AmplifiersController() { }
+
+        public AmplifiersController(IAssnCategorySerieProductBusiness bizCategorySerieProduct, IAssnCategorySerieBusiness bizCategorySerie) :
+            base(bizCategorySerieProduct, bizCategorySerie)
+        {
+
+        }
     }
 }
