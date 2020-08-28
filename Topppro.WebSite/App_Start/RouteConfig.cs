@@ -11,6 +11,8 @@ namespace Topppro.WebSite
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
+            routes.IgnoreRoute("");
+            routes.IgnoreRoute("static/world.html");
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapMvcAttributeRoutes();

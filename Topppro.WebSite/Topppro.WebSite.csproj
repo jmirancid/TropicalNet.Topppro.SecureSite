@@ -186,9 +186,12 @@
     <Content Include="Content\Site.css" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="images\americas.jpg" />
     <Content Include="images\amplifiers.jpg" />
+    <Content Include="images\asia.jpg" />
     <Content Include="images\catalogo.jpg" />
     <Content Include="images\distributors.jpg" />
+    <Content Include="images\emea.jpg" />
     <Content Include="images\footer.jpg" />
     <Content Include="images\header.jpg" />
     <Content Include="images\install.jpg" />
@@ -198,11 +201,13 @@
     <Content Include="images\slide-apx.jpg" />
     <Content Include="images\slide-console.jpg" />
     <Content Include="images\slide-speaker.jpg" />
+    <Content Include="images\spanish.translation.jpg" />
     <Content Include="images\speakers.jpg" />
     <Content Include="images\systems.jpg" />
     <Content Include="images\topp-error.jpg" />
     <Content Include="images\topp-logo.png" />
     <Content Include="images\wireless.jpg" />
+    <Content Include="images\worldmap18e.jpg" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
@@ -215,6 +220,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="static\world.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
