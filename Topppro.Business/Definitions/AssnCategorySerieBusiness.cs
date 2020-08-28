@@ -14,5 +14,19 @@ namespace Topppro.Business.Definitions
         {
 
         }
+
+        #region SecureSite
+
+        public int Insert(int categoryId, int serieId, int priority)
+        {
+            return base.Repository.Insert(categoryId, serieId, priority);
+        }
+
+        public void Reorder(int assnCategorySerieId, int priority)
+        {
+            base.Repository.Reorder(assnCategorySerieId, priority);
+        }
+
+        #endregion
     }
 }

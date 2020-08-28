@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Linq.Expressions;
 using Topppro.Entities;
@@ -20,9 +21,9 @@ namespace Topppro.Repositories.Definitions
 
         #region WebSite
 
-        //TODO: Include as a paramenter the posibiliti to add an include list and not have to oaverride allby
+        //TODO: Include as a paramenter the posibility to add an include list and not have to oaverride allby
         // Used in Menu
-        public override IQueryable<Assn_CategorySerieProduct> AllBy(Expression<Func<Assn_CategorySerieProduct, bool>> predicate)
+        public IQueryable<Assn_CategorySerieProduct> AllForMenu(Expression<Func<Assn_CategorySerieProduct, bool>> predicate)
         {
             var dbQuery =
 
@@ -112,6 +113,25 @@ namespace Topppro.Repositories.Definitions
                    .Where(e => e.AssnCategorySerieProductId == (int)id && e.Enabled && e.Product.Draft == false);
 
             return dbQuery.SingleOrDefault();
+        }
+
+        #endregion
+
+        #region SecureSite
+
+        public int Insert(int assnCategorySerieId, int productId, int priority)
+        {
+            var output =
+                new ObjectParameter("Id", typeof(int));
+
+            Context.Assn_CategorySerieProduct_Insert(assnCategorySerieId, productId, priority, output);
+
+            return (int)output.Value;
+        }
+
+        public void Reorder(int assnCategorySerieProductId, int priority)
+        {
+            Context.Assn_CategorySerieProduct_Reorder(assnCategorySerieProductId, priority);
         }
 
         #endregion

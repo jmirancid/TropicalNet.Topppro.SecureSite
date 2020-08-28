@@ -19,7 +19,7 @@ namespace Topppro.WebSite.Controllers
         public virtual PartialViewResult Render(string controller)
         {
             var entities = 
-                this.BizCategorySerieProduct.AllBy(x => x.Enabled);
+                this.BizCategorySerieProduct.AllForMenu(x => x.Enabled);
 
             return PartialView("_Menu", entities);
         }

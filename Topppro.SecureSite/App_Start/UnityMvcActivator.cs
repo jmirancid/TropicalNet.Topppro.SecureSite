@@ -1,6 +1,5 @@
 using System.Linq;
 using System.Web.Mvc;
-
 using Unity.AspNet.Mvc;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Topppro.SecureSite.UnityMvcActivator), nameof(Topppro.SecureSite.UnityMvcActivator.Start))]
@@ -24,7 +23,7 @@ namespace Topppro.SecureSite
             DependencyResolver.SetResolver(new UnityDependencyResolver(UnityConfig.Container));
 
             // TODO: Uncomment if you want to use PerRequestLifetimeManager
-            // Microsoft.Web.Infrastructure.DynamicModuleHelper.DynamicModuleUtility.RegisterModule(typeof(UnityPerRequestHttpModule));
+            //Microsoft.Web.Infrastructure.DynamicModuleHelper.DynamicModuleUtility.RegisterModule(typeof(UnityPerRequestHttpModule));
         }
 
         /// <summary>

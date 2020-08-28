@@ -12,7 +12,7 @@
                     <h5 class="mb-1">@Model.Title</h5>
                     <small>@Model.Date</small>
                 </div>
-                <p class="mb-1">@Model.Content</p>
+                <p class="mb-1">@Html.Raw(Model.Content)</p>
                 <small>@Model.Info</small>
             </div>
         </div>

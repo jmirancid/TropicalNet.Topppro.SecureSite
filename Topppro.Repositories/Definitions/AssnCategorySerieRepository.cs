@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Linq.Expressions;
 using Topppro.Entities;
@@ -41,6 +42,25 @@ namespace Topppro.Repositories.Definitions
                 });
 
             return dbquery.AsEnumerable().Select(n => n.e).AsQueryable(); ;
+        }
+
+        #endregion
+
+        #region SecureSite
+
+        public int Insert(int categoryId, int serieId, int priority)
+        {
+            var output =
+                new ObjectParameter("Id", typeof(int));
+
+            Context.Assn_CategorySerie_Insert(categoryId, serieId, priority, output);
+
+            return (int)output.Value;
+        }
+
+        public void Reorder(int assnCategorySerieId, int priority)
+        {
+            Context.Assn_CategorySerie_Reorder(assnCategorySerieId, priority);
         }
 
         #endregion
