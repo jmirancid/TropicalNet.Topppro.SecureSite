@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <span class="text-muted">@Model.Assn_CategorySerie.Category.Name.ToUpper()<br>@Model.Assn_CategorySerie.Serie.Name</span>
+            <span class="text-muted">@Resources.Global.ResourceManager.GetString(ViewContext.RouteData.Values["controller"].ToString()).ToUpper()<br>@Model.Assn_CategorySerie.Serie.Name</span>
         </div>
     </div>
     <div class="row">
@@ -14,7 +14,7 @@
             <div class="pb-2 mt-4 mb-4 text-primary border-bottom d-flex justify-content-between">
                 <h1>@Model.Product.Name</h1>
                 <small class="mt-auto mb-auto">
-                    <a href="@Url.Action("Index")#@Model.Assn_CategorySerie.Serie.Name.ToSeoSlug()" class="btn text-secondary border-secondary rounded-0 btn-sm">Back</a>
+                    <a href="@Url.Action("Index")#@Model.Assn_CategorySerie.Serie.Name.ToSeoSlug()" class="btn text-secondary border-secondary rounded-0 btn-sm">@Resources.Global.Back</a>
                 </small>
             </div>
         </div>
@@ -103,7 +103,7 @@
     }
     <div class="row mb-4">
         <div class="col text-center">
-            <a href="@Url.Action("Index")#@Model.Assn_CategorySerie.Serie.Name.ToSeoSlug()" class="btn text-secondary border-secondary rounded-0 btn-sm">Back</a>
+            <a href="@Url.Action("Index")#@Model.Assn_CategorySerie.Serie.Name.ToSeoSlug()" class="btn text-secondary border-secondary rounded-0 btn-sm">@Resources.Global.Back</a>
         </div>
     </div>
 </div>
