@@ -129,12 +129,6 @@
   <data name="Distributors" xml:space="preserve">
     <value>Distribuidores</value>
   </data>
-  <data name="DownloadCatalog" xml:space="preserve">
-    <value>Descargue aquí el Catalogo 2020 de nuestra línea de Productos</value>
-  </data>
-  <data name="DownloadNow" xml:space="preserve">
-    <value>Descargar Ahora !</value>
-  </data>
   <data name="Home" xml:space="preserve">
     <value>Home</value>
   </data>
@@ -160,7 +154,7 @@
     <value>Buscar</value>
   </data>
   <data name="Speakers" xml:space="preserve">
-    <value>Gabinetes</value>
+    <value>Bocinas</value>
   </data>
   <data name="SwitchToCulture" xml:space="preserve">
     <value>ENG</value>

@@ -15,6 +15,10 @@ namespace Topppro.WebSite
 
             // Preload cached resources
             ProductAssets.Preload();
+
+            // Custom View Engine
+            ViewEngines.Engines.Clear();
+            ViewEngines.Engines.Add(new CultureViewEngine());
         }
     }
 }

@@ -67,7 +67,7 @@ namespace Topppro.Repositories.Definitions
                         Childs_Products = e.Product.Childs.Select(c => c.ChildProduct),
                         Childs_Bullets = e.Product.Childs.Select(c => c.ChildProduct.Bullets.Where(x => x.Culture.Code == Topppro.Context.Current.Culture.TwoLetterISOLanguageName && x.Enabled).OrderBy(x => x.Priority)),
                         Childs_Attributes = e.Product.Childs.Select(c => c.ChildProduct.Attributes.Where(x => x.Culture.Code == Topppro.Context.Current.Culture.TwoLetterISOLanguageName && x.Enabled).OrderBy(x => x.Priority)),
-                        Downloads = e.Product.Downloads.Where(x => x.Culture.Code == Topppro.Context.Current.Culture.TwoLetterISOLanguageName && x.Enabled).OrderBy(x => x.Priority)
+                        Downloads = e.Product.Downloads.Where(x => x.Enabled).OrderBy(x => x.Priority)
                     });
 
             return dbQuery.AsEnumerable().Select(n => n.e).SingleOrDefault();
@@ -93,7 +93,7 @@ namespace Topppro.Repositories.Definitions
                        Category = e.Assn_CategorySerie.Category,
                        Product = e.Product,
                        Platform = e.Product.Downloads.Select(x => x.Platform),
-                       Downloads = e.Product.Downloads.Where(x => x.Culture.Code == Topppro.Context.Current.Culture.TwoLetterISOLanguageName && x.Enabled).OrderBy(x => x.Platform.Priority).ThenBy(x => x.Priority)
+                       Downloads = e.Product.Downloads.Where(x => x.Enabled).OrderBy(x => x.Platform.Priority).ThenBy(x => x.Priority)
                    });
 
             return dbQuery.AsEnumerable().Select(n => n.e).SingleOrDefault();

@@ -168,6 +168,7 @@
     <Compile Include="Controllers\SpeakersController.cs" />
     <Compile Include="Controllers\MixersController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="CultureViewEngine.cs" />
     <Compile Include="Extensions\DownloadExtensions.cs" />
     <Compile Include="Extensions\HtmlHelperExtensions.cs" />
     <Compile Include="Extensions\PlatformExtensions.cs" />
@@ -257,6 +258,10 @@
     <Content Include="Views\Shared\_Slider.cshtml" />
     <Content Include="Views\Shared\Software.cshtml" />
     <Content Include="Views\Shared\HiRes.cshtml" />
+    <Content Include="Views\Shared\_Catalog.es.cshtml" />
+    <Content Include="Views\Shared\_Slider.es.cshtml" />
+    <Content Include="Views\News\_MyCustomArticle.cshtml" />
+    <Content Include="Views\News\_MyCustomArticle.es.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

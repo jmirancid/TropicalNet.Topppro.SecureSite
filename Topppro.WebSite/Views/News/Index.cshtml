@@ -4,14 +4,22 @@
     <div class="row">
         <div class="col-12">
             <div class="pb-2 mb-2 border-bottom">
-                <h1>@Resources.Global.News</h1>
+                <h1>News</h1>
             </div>
         </div>
     </div>
     @Html.Article(
-        image:"images/spanish.translation.jpg",
+        image:"../images/spanish.translation.jpg",
         title:"Topp Pro Spanish Website",
-        content: "We are working to upload the spanish translation.<br>Sorry for their inconvenience.<br><br>Please come back soon.")
+        content: "We are working to upload the spanish translation.<br>Sorry for the inconvenience. Please come back soon.")
+
+    @Html.Article(
+        culture: "es",
+        image:"../images/spanish.translation.jpg",
+        title:"Sitio de Topp Pro en Español",
+        content: "Estamos trabajando para poner a su disposición el sitio en español.<br>Le pedimos disculpas por el inconveniente.<br>Por favor visítenos pronto nuevamente.")
+
+    @Html.Partial("_MyCustomArticle")
 
     <!-- NEWS ITEM -->
     <!--<div class="row my-3">

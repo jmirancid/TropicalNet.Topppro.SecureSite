@@ -34,9 +34,9 @@
                         <h4 class="my-0 font-weight-normal @p.key.TextColor()"><i class="@p.key.Icon()"></i> @p.key.Name</h4>
                     </div>
                     <div class="card-body text-left">
-                        @foreach (var s in p.list)
-                        {
-                        if (s.Description.IsEmpty() == false) {<small class="text-muted">* @s.Description</small> }
+                    @foreach (var s in p.list)
+                    {
+                        if (s.Description.IsEmpty() == false) { <small class="text-muted">* @s.Description</small> }
                         <a href="@s.GetResource()" class="btn btn-lg btn-block @p.key.BackgroundColor() text-white">@s.Name</a>
                     }
                     </div>

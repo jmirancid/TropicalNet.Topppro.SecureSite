@@ -88,24 +88,6 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Download here our 2020 Catalog Line Product.
-        /// </summary>
-        public static string DownloadCatalog {
-            get {
-                return ResourceManager.GetString("DownloadCatalog", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Download Now !.
-        /// </summary>
-        public static string DownloadNow {
-            get {
-                return ResourceManager.GetString("DownloadNow", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Busca una cadena traducida similar a Home.
         /// </summary>
         public static string Home {
