@@ -18,7 +18,7 @@ namespace Topppro.WebSite.Controllers
         public ActionResult Index()
         {
             var entities = 
-                this.BizDistributor.AllBy(x => x.Enabled && x.Culture.Code == Topppro.Context.Current.Culture.TwoLetterISOLanguageName);
+                this.BizDistributor.AllBy(x => x.Enabled);
 
             return View(entities);
         }

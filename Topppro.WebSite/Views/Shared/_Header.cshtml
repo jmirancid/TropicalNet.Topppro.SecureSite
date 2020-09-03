@@ -1,9 +1,11 @@
-﻿<!-- HEADER -->
+﻿@using Topppro.WebSite.Extensions;
+
+<!-- HEADER -->
 <header>
     <!-- NAV BAR_MENU -->
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="Home">
+            <a class="navbar-brand" href="\@Topppro.Context.Current.Culture.TwoLetterISOLanguageName">
                 <div class="col-3 col-md-2">
                     <img src="~/images/topp-logo.png" class="img-fluid d-inline-block" alt="">
                     <h4 class="d-inline-block font-weight-bold ml-2">Topp Pro Audio</h4>
@@ -20,52 +22,55 @@
                         @{ Html.RenderAction("Render", "Menu"); }
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="@Url.Action("", "News")">News</a>
+                        <a class="nav-link text-white" href="@Url.Action("", "News")">@Resources.Global.News</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="@Url.Action("", "Distributors")">Distributors</a>
+                        <a class="nav-link text-white" href="@Url.Action("", "Distributors")">@Resources.Global.Distributors</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="Home">Home</a>
+                        <a class="nav-link text-white pt-1" href="@Url.SwitchCulture()"><img src="@Resources.Global.SwitchToFlag" alt="@Resources.Global.SwitchToCulture" width="32" height="32" /></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="\@Topppro.Context.Current.Culture.TwoLetterISOLanguageName">@Resources.Global.Home</a>
                     </li>
                     <!--<li class="nav-item dropdown menu-area">
-                        <a class="nav-link dropdown-toggle" href="" id="mega-two" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Features
-                        </a>
-                        <div class="dropdown-menu mega-area" aria-labelledby="mega-two">
-                            <div class="row">
-                                <div class="col-sm-6 col-lg-3">
-                                    <h5>Image</h5>
-                                    <img src="nikolai-chernichenko-qFl7dkulMpE-unsplash.jpg" alt="" width="100%">
-                                </div>
-                                <div class="col-sm-6 col-lg-3">
-                                    <h5>Marketplace we Work</h5>
-                                    <a href="#" class="dropdown-item">Themeforest</a>
-                                    <a href="#" class="dropdown-item">Codester</a>
-                                    <a href="#" class="dropdown-item">Cretive Commons</a>
-                                </div>
-                                <div class="col-sm-6 col-lg-3">
-                                    <h5>IT Consulting</h5>
-                                    <a href="#" class="dropdown-item">Information Technolgy</a>
-                                    <a href="#" class="dropdown-item">Consulting offerings</a>
-                                    <a href="#" class="dropdown-item">Fast Delivery</a>
-                                </div>
-                                <div class="col-sm-6 col-lg-3">
-                                    <h5>Tags</h5>
-                                    <p>
-                                        <span class="badge badge-secondary">Web Design</span>
-                                        <span class="badge badge-secondary">Marketing</span>
-                                        <span class="badge badge-secondary">Graphic Design</span>
-                                        <span class="badge badge-secondary">Consulting</span>
-                                        <span class="badge badge-secondary">Template</span>
-                                        <span class="badge badge-secondary">Joomla</span>
-                                        <span class="badge badge-secondary">WordPress</span>
-                                        <span class="badge badge-secondary">ThemeForest</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </li>-->
+        <a class="nav-link dropdown-toggle" href="" id="mega-two" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Features
+        </a>
+        <div class="dropdown-menu mega-area" aria-labelledby="mega-two">
+            <div class="row">
+                <div class="col-sm-6 col-lg-3">
+                    <h5>Image</h5>
+                    <img src="nikolai-chernichenko-qFl7dkulMpE-unsplash.jpg" alt="" width="100%">
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <h5>Marketplace we Work</h5>
+                    <a href="#" class="dropdown-item">Themeforest</a>
+                    <a href="#" class="dropdown-item">Codester</a>
+                    <a href="#" class="dropdown-item">Cretive Commons</a>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <h5>IT Consulting</h5>
+                    <a href="#" class="dropdown-item">Information Technolgy</a>
+                    <a href="#" class="dropdown-item">Consulting offerings</a>
+                    <a href="#" class="dropdown-item">Fast Delivery</a>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <h5>Tags</h5>
+                    <p>
+                        <span class="badge badge-secondary">Web Design</span>
+                        <span class="badge badge-secondary">Marketing</span>
+                        <span class="badge badge-secondary">Graphic Design</span>
+                        <span class="badge badge-secondary">Consulting</span>
+                        <span class="badge badge-secondary">Template</span>
+                        <span class="badge badge-secondary">Joomla</span>
+                        <span class="badge badge-secondary">WordPress</span>
+                        <span class="badge badge-secondary">ThemeForest</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </li>-->
                 </ul>
                 <!--<form class="form-inline mt-2 mt-md-0">
                     <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">

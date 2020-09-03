@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Routing;
 
 namespace Topppro.WebSite
@@ -12,7 +8,7 @@ namespace Topppro.WebSite
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("");
-            routes.IgnoreRoute("static/world.html");
+            routes.IgnoreRoute("world.html");
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapMvcAttributeRoutes();
@@ -25,26 +21,30 @@ namespace Topppro.WebSite
 
             routes.MapRoute(
                 name: "HiRes", // Route name
-                url: "{controller}/{id}/{name}/HiRes", // URL with parameters
-                defaults: new { action = "HiRes" } // Parameter defaults
+                url: "{culture}/{controller}/{id}/{name}/HiRes", // URL with parameters
+                defaults: new { culture = Context.Current.Culture.TwoLetterISOLanguageName, action = "HiRes" }, // Parameter defaults
+                constraints: new { culture = "[a-zA-Z]{2}" }
             );
 
             routes.MapRoute(
                 name: "Software", // Route name
-                url: "{controller}/{id}/{name}/Software", // URL with parameters
-                defaults: new { action = "Software" } // Parameter defaults
+                url: "{culture}/{controller}/{id}/{name}/Software", // URL with parameters
+                defaults: new { culture = Context.Current.Culture.TwoLetterISOLanguageName, action = "Software" }, // Parameter defaults
+                constraints: new { culture = "[a-zA-Z]{2}" }
             );
 
             routes.MapRoute(
                 name: "Detail", // Route name
-                url: "{controller}/{id}/{name}", // URL with parameters
-                defaults: new { action = "Detail" } // Parameter defaults
+                url: "{culture}/{controller}/{id}/{name}", // URL with parameters
+                defaults: new { culture = Context.Current.Culture.TwoLetterISOLanguageName, action = "Detail" }, // Parameter defaults
+                constraints: new { culture = "[a-zA-Z]{2}" }
             );
 
             routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                url: "{culture}/{controller}/{action}/{id}",
+                defaults: new { culture = Context.Current.Culture.TwoLetterISOLanguageName, controller = "Home", action = "Index", id = UrlParameter.Optional },
+                constraints: new { culture = "[a-zA-Z]{2}" }
             );
         }
     }

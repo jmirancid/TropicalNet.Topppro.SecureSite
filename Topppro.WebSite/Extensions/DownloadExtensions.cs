@@ -15,6 +15,9 @@ namespace Topppro.WebSite.Extensions
             if (string.IsNullOrWhiteSpace(source.Resource))
                 return null;
 
+            if (source.External)
+                return source.Resource;
+
             return UrlHelper.GenerateContentUrl(Path.Combine(Topppro.Configuration.Current.Download.Root, source.Resource), new HttpContextWrapper(HttpContext.Current));
         }
     }

@@ -7,7 +7,7 @@
     <!-- CATEGORY -->
     <div class="row">
         <div class="col">
-            <span class="text-muted">@ViewContext.RouteData.Values["controller"].ToString().ToUpper()</span>
+            <span class="text-muted">@Resources.Global.ResourceManager.GetString(ViewContext.RouteData.Values["controller"].ToString()).ToUpper()</span>
         </div>
     </div>
 

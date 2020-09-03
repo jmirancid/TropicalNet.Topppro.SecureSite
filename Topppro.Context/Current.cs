@@ -22,7 +22,8 @@ namespace Topppro.Context
 
             set
             {
-                System.Threading.Thread.CurrentThread.CurrentCulture = value;
+                System.Threading.Thread.CurrentThread.CurrentCulture =
+                System.Threading.Thread.CurrentThread.CurrentUICulture = value;
             }
         }
     }
