@@ -206,6 +206,8 @@
     <Content Include="images\emea.jpg" />
     <Content Include="images\footer.jpg" />
     <Content Include="images\header.jpg" />
+    <Content Include="images\spain-icon.png" />
+    <Content Include="images\usa-icon.png" />
     <Content Include="images\install.jpg" />
     <Content Include="images\legacy.jpg" />
     <Content Include="images\mixers.jpg" />

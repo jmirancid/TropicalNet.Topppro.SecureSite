@@ -159,6 +159,9 @@
   <data name="SwitchToCulture" xml:space="preserve">
     <value>ENG</value>
   </data>
+  <data name="SwitchToFlag" xml:space="preserve">
+    <value>/images/usa-icon.png</value>
+  </data>
   <data name="Systems" xml:space="preserve">
     <value>Sistemas</value>
   </data>

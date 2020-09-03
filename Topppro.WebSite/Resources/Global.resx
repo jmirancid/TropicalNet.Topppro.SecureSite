@@ -159,6 +159,9 @@
   <data name="SwitchToCulture" xml:space="preserve">
     <value>ESP</value>
   </data>
+  <data name="SwitchToFlag" xml:space="preserve">
+    <value>/images/spain-icon.png</value>
+  </data>
   <data name="Systems" xml:space="preserve">
     <value>Systems</value>
   </data>

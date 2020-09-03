@@ -178,6 +178,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a /images/spain-icon.png.
+        /// </summary>
+        public static string SwitchToFlag {
+            get {
+                return ResourceManager.GetString("SwitchToFlag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Systems.
         /// </summary>
         public static string Systems {
