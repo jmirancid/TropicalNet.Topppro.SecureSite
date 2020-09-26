@@ -196,7 +196,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Wirelss Systems.
+        ///   Busca una cadena traducida similar a Wireless Systems.
         /// </summary>
         public static string Wireless {
             get {
