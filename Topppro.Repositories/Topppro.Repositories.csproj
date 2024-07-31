@@ -83,17 +83,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Template.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="ToppproModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ToppproModel.edmx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="ToppproModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ToppproModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
+    <EntityDeploy Include="ToppproModel.edmx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
