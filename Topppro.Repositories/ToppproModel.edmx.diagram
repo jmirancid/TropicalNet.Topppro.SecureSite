@@ -35,6 +35,10 @@
         <AssociationConnector Association="Topppro.Repositories.Model_Product_FK" ManuallyRouted="false" />
         <AssociationConnector Association="Topppro.Repositories.Package_Child_Product_FK" ManuallyRouted="false" />
         <AssociationConnector Association="Topppro.Repositories.Package_Parent_Product_FK" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Topppro.Repositories.Assn_ProductRegion" Width="1.5" PointX="8.25" PointY="13.75" />
+        <EntityTypeShape EntityType="Topppro.Repositories.Region" Width="1.5" PointX="6" PointY="17.75" />
+        <AssociationConnector Association="Topppro.Repositories.FK_Assn_ProductRegion_Product" />
+        <AssociationConnector Association="Topppro.Repositories.FK_Assn_ProductRegion_Region" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
