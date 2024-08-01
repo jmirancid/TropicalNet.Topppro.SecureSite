@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="Definitions\AssnCategorySerieProductRepository.cs" />
     <Compile Include="Definitions\AssnCategorySerieRepository.cs" />
+    <Compile Include="Definitions\AssnProductRegionRepository.cs" />
     <Compile Include="Definitions\AttributeRepository.cs" />
     <Compile Include="Definitions\BulletRepository.cs" />
     <Compile Include="Definitions\CategoryRepository.cs" />
@@ -75,6 +76,7 @@
     <Compile Include="Definitions\PackageRepository.cs" />
     <Compile Include="Definitions\PlatformRepository.cs" />
     <Compile Include="Definitions\ProductRepository.cs" />
+    <Compile Include="Definitions\RegionRepository.cs" />
     <Compile Include="Definitions\Repository.cs" />
     <Compile Include="Definitions\SerieRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
