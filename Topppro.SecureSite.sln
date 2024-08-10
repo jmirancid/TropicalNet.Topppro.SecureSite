@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2035
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35027.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Topppro", "Topppro", "{A0CDEFBE-327F-4005-8D8F-2BD7C200B7D8}"
 EndProject
@@ -20,8 +20,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Topppro.vsmdi = Topppro.vsmdi
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
 	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Topppro.WebSite", "Topppro.WebSite\Topppro.WebSite.csproj", "{5E026DA3-EB08-4118-81AB-F3C0A92A7CDB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Topppro.Repositories", "Topppro.Repositories\Topppro.Repositories.csproj", "{D4349982-D74C-4E95-98B7-2AC714577465}"
 EndProject
@@ -46,12 +44,6 @@ Global
 		Stage|Any CPU = Stage|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5E026DA3-EB08-4118-81AB-F3C0A92A7CDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5E026DA3-EB08-4118-81AB-F3C0A92A7CDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5E026DA3-EB08-4118-81AB-F3C0A92A7CDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5E026DA3-EB08-4118-81AB-F3C0A92A7CDB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5E026DA3-EB08-4118-81AB-F3C0A92A7CDB}.Stage|Any CPU.ActiveCfg = Release|Any CPU
-		{5E026DA3-EB08-4118-81AB-F3C0A92A7CDB}.Stage|Any CPU.Build.0 = Release|Any CPU
 		{D4349982-D74C-4E95-98B7-2AC714577465}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D4349982-D74C-4E95-98B7-2AC714577465}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4349982-D74C-4E95-98B7-2AC714577465}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -106,7 +98,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B94C264A-85D1-475C-8F59-463B22D2EA7B} = {A0CDEFBE-327F-4005-8D8F-2BD7C200B7D8}
-		{5E026DA3-EB08-4118-81AB-F3C0A92A7CDB} = {A0CDEFBE-327F-4005-8D8F-2BD7C200B7D8}
 		{D4349982-D74C-4E95-98B7-2AC714577465} = {A0CDEFBE-327F-4005-8D8F-2BD7C200B7D8}
 		{7A427E5D-17F5-493E-956C-A08F80595F40} = {A0CDEFBE-327F-4005-8D8F-2BD7C200B7D8}
 		{7788B508-E851-4A22-8B60-4F22A2BD5AC6} = {A0CDEFBE-327F-4005-8D8F-2BD7C200B7D8}
@@ -117,8 +108,8 @@ Global
 		{E312E50B-FE66-4BA3-9AF9-42A1265CA931} = {A0CDEFBE-327F-4005-8D8F-2BD7C200B7D8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35
 		SolutionGuid = {F83B1A87-BD7F-422E-9EA5-6B4885880FA9}
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35
 	EndGlobalSection
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Topppro.vsmdi
