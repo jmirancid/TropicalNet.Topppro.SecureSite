@@ -1,8 +1,12 @@
-﻿using xFNet.Common.Extensions;
+﻿using System.ComponentModel.DataAnnotations;
+using Topppro.Entities.Resources;
+using xFNet.Common.Extensions;
 using xFNet.Entities;
+using xFNet.Entities.Resources;
 
 namespace Topppro.Entities
 {
+    [MetadataType(typeof(Model_Metadata))]
     public partial class Model : Entity
     {
         public override object Id
@@ -33,4 +37,12 @@ namespace Topppro.Entities
         Coaxial = 10,
         Combo = 11
     }
+
+    public class Model_Metadata
+    {
+        [Display(Name = "Entity_Name", ResourceType = typeof(Ent_ModelResource))]
+        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(ValidationResource))]
+        public string Name { get; set; }
+    }
+
 }
