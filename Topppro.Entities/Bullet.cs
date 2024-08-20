@@ -1,9 +1,12 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 using Topppro.Entities.Resources;
 using xFNet.Common.Extensions;
 using xFNet.Entities;
-//using Framework.IO.Attributes;
+using xFNet.Entities.Resources;
+using xFNet.IO.Attributes;
+
 
 namespace Topppro.Entities
 {
@@ -29,19 +32,19 @@ namespace Topppro.Entities
         public int BulletId { get; set; }
 
         [Display(Name = "Entity_Product", ResourceType = typeof(Ent_BulletResource))]
-        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Ent_ValidationResource))]
+        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(ValidationResource))]
         public int ProductId { get; set; }
 
         [Import(Order = 1), Export(Order = 1)]
         [Display(Name = "Entity_Culture", ResourceType = typeof(Ent_BulletResource))]
-        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Ent_ValidationResource))]
+        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(ValidationResource))]
         public int CultureId { get; set; }
 
         [AllowHtml]
         [DataType(DataType.MultilineText)]
         [Import(Order = 2), Export(Order = 2)]
         [Display(Name = "Entity_Name", ResourceType = typeof(Ent_BulletResource))]
-        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Ent_ValidationResource))]
+        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(ValidationResource))]
         public string Name { get; set; }
 
         [AllowHtml]
