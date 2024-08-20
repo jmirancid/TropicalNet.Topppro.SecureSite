@@ -67,9 +67,6 @@
     <Reference Include="xFNet.Entities">
       <HintPath>..\Framework\xFNet.Entities.dll</HintPath>
     </Reference>
-    <Reference Include="xFNet.IO">
-      <HintPath>..\Framework\xFNet.IO.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assn_CategorySerie.cs" />

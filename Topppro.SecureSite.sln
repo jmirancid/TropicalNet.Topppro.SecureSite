@@ -11,7 +11,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{
 		Framework\xFNet.Common.dll = Framework\xFNet.Common.dll
 		Framework\xFNet.Entities.dll = Framework\xFNet.Entities.dll
 		Framework\xFNet.Interfaces.dll = Framework\xFNet.Interfaces.dll
-		Framework\xFNet.IO.dll = Framework\xFNet.IO.dll
 		Framework\xFNet.Repositories.EF6.dll = Framework\xFNet.Repositories.EF6.dll
 	EndProjectSection
 EndProject
