@@ -30,6 +30,7 @@ namespace Topppro.Entities
 
         [Display(Name = "Entity_Code", ResourceType = typeof(Ent_CultureResource))]
         [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(ValidationResource))]
+        [MaxLength(2, ErrorMessageResourceName = "Exceeded_Length", ErrorMessageResourceType = typeof(ValidationResource))]
         public string Code { get; set; }
     }
 }

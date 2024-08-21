@@ -1,11 +1,9 @@
-﻿@using Framework.MVC.Resources
-@using Framework.MVC.Extensions
-@using Topppro.Entities.Resources
+﻿@using Topppro.Entities.Resources
 
 @model Topppro.Entities.Product
 
 @{
-    ViewBag.Title = PersistanceResource.Details;
+    ViewBag.Title = "Details";
 }
 
 <fieldset>
@@ -15,6 +13,6 @@
 
 </fieldset>
 <p>
-    @Html.ActionLink(PersistanceResource.Edit, "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
