@@ -10,22 +10,19 @@ namespace Topppro.Repositories.Definitions
     {
         public DownloadRepository() { }
 
-        public DownloadRepository(ToppproEntities context)
+        public DownloadRepository(ToppproEntities context) :
+            base(context)
         {
 
         }
 
-        #region WebSite
-
         public override IQueryable<Topppro.Entities.Download> AllBy(System.Linq.Expressions.Expression<Func<Topppro.Entities.Download, bool>> predicate)
         {
-            return Context.Download
+            return base.Context.Download
                         .Include(a => a.Product)
                         .Include(a => a.Culture)
                         .Include(a => a.Platform)
                         .Where(predicate);
         }
-
-        #endregion
     }
 }

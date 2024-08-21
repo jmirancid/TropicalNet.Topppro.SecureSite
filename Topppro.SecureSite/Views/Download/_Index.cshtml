@@ -1,6 +1,4 @@
-﻿@using Framework.MVC.Resources
-@using Framework.MVC.Extensions
-@using Topppro.Entities.Resources
+﻿@using Topppro.Entities.Resources
 
 @model IEnumerable<Topppro.Entities.Download>
 
@@ -27,7 +25,7 @@
                 @Html.DisplayNameFor(model => model.Enabled)
             </th>
             <th>
-                @PersistanceResource.Actions
+                Actions
             </th>
         </tr>
     </thead>
@@ -58,10 +56,10 @@
                     {
                         mRender: function (o, t, r) {
 
-                            var tpl = '@Html.CheckBox(Html.NameFor(model => model.Enabled).ToString(), true, new { data_id = 0 })';
+                            var tpl = '@Html.CheckBox("Enabled", true, new { data_id = 0 })';
 
                             if (JSON.parse(o) === false)
-                                tpl = '@Html.CheckBox(Html.NameFor(model => model.Enabled).ToString(), false, new { data_id = 0 })';
+                                tpl = '@Html.CheckBox("Enabled", false, new { data_id = 0 })';
 
                             return tpl.replace(/0/g, r[5]);
                         }
@@ -70,9 +68,9 @@
                         bSortable: false,
                         mRender: function (o) {
 
-                            var tpl = '@Html.ActionLink(PersistanceResource.Edit, "Edit", "Download", new { id = 0 }, new { @class = "editor-dialog", @role = "button", @type = "type-warning", @title = string.Format("{0} {1}", PersistanceResource.Edit, Ent_DownloadResource._Caption) }) | ' +
-                                      '@Html.ActionLink(PersistanceResource.Details, "Details", "Download", new { id = 0 }, new { @class = "display-dialog", @role = "button", @type = "type-warning", @title = string.Format("{0} {1}", PersistanceResource.Details, Ent_DownloadResource._Caption) }) | ' +
-                                      '@Ajax.ActionLink(PersistanceResource.Delete, "Delete", "Download", new { id = 0 }, new AjaxOptions() { HttpMethod = "Post", Confirm = PersistanceResource.Delete_Message, OnSuccess = "$('#download-list').dataTable().fnDeleteRow(el);" }, new { @role = "button", @onclick = "el = $(this).closest('tr');" })';
+                            var tpl = '@Html.ActionLink("Edit", "Edit", "Download", new { id = 0 }, new { @class = "editor-dialog", @role = "button", @type = "type-warning", @title = string.Format("{0} {1}", "Edit", Ent_DownloadResource._Caption) }) | ' +
+                                      '@Html.ActionLink("Details", "Details", "Download", new { id = 0 }, new { @class = "display-dialog", @role = "button", @type = "type-warning", @title = string.Format("{0} {1}", "Details", Ent_DownloadResource._Caption) }) | ' +
+                                      '@Ajax.ActionLink("Delete", "Delete", "Download", new { id = 0 }, new AjaxOptions() { HttpMethod = "Post", Confirm = "Confirm Delete ?", OnSuccess = "$('#download-list').dataTable().fnDeleteRow(el);" }, new { @role = "button", @onclick = "el = $(this).closest('tr');" })';
                             
                             return tpl.replace(/0/g, o);
                         }
