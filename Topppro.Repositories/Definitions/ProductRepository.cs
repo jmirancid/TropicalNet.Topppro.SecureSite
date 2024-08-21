@@ -1,4 +1,7 @@
-﻿using Topppro.Interfaces.Repositories;
+﻿using System.Data.Entity;
+using System.Linq;
+using Topppro.Entities;
+using Topppro.Interfaces.Repositories;
 
 namespace Topppro.Repositories.Definitions
 {
@@ -11,6 +14,11 @@ namespace Topppro.Repositories.Definitions
             base(context)
         {
 
+        }
+
+        public override IQueryable<Product> All()
+        {
+            return base.Context.Product.Include(x => x.Model);
         }
     }
 }
