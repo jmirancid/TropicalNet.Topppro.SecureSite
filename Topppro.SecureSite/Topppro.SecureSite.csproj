@@ -438,13 +438,8 @@
     <Content Include="Views\Model\Edit.cshtml" />
     <Content Include="Views\Model\EditorTemplates\Model.cshtml" />
     <Content Include="Views\Model\Index.cshtml" />
-    <Content Include="Views\Package\Create.cshtml" />
-    <Content Include="Views\Package\Delete.cshtml" />
-    <Content Include="Views\Package\Details.cshtml" />
     <Content Include="Views\Package\DisplayTemplates\Package.cshtml" />
-    <Content Include="Views\Package\Edit.cshtml" />
     <Content Include="Views\Package\EditorTemplates\Package.cshtml" />
-    <Content Include="Views\Package\Index.cshtml" />
     <Content Include="Views\Package\_Create.cshtml" />
     <Content Include="Views\Package\_Details.cshtml" />
     <Content Include="Views\Package\_Edit.cshtml" />
@@ -488,6 +483,10 @@
     <Content Include="Scripts\old\tinymce\skins\xenmce\fonts\icomoon.woff" />
     <Content Include="Scripts\old\tinymce\skins\xenmce\fonts\readme.md" />
     <Content Include="Scripts\old\tinymce\skins\xenmce\skin.json" />
+    <Content Include="Views\Bullet\_Scripts.cshtml" />
+    <Content Include="Views\Attribute\_Scripts.cshtml" />
+    <Content Include="Views\Package\_Scripts.cshtml" />
+    <Content Include="Views\Download\_Scripts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

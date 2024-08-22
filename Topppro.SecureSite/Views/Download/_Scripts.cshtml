@@ -1,0 +1,44 @@
+﻿<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#download-list').dataTable({
+            aoColumns: [
+                    null,
+                    null,
+                    null,
+                    null,
+                    {
+                        mRender: function (o, t, r) {
+
+                            var tpl = '@Html.CheckBox("Enabled", true, new { data_id = 0 })';
+
+                            if (JSON.parse(o) === false)
+                                tpl = '@Html.CheckBox("Enabled", false, new { data_id = 0 })';
+
+                            return tpl.replace(/0/g, r[5]);
+                        }
+                    },
+                    {
+                        bSortable: false,
+                        mRender: function (o) {
+
+                            var tpl = '@Html.ActionLink("Edit", "Edit", "Download", new { id = 0 }, new { @class = "editor-dialog", @role = "button", @type = "type-warning", @title = string.Format("{0} {1}", "Edit", "Download") }) | ' +
+                                      '@Html.ActionLink("Details", "Details", "Download", new { id = 0 }, new { @class = "display-dialog", @role = "button", @type = "type-warning", @title = string.Format("{0} {1}", "Details", "Download") }) | ' +
+                                      '@Ajax.ActionLink("Delete", "Delete", "Download", new { id = 0 }, new AjaxOptions() { HttpMethod = "Post", Confirm = "Confirm Delete ?", OnSuccess = "$('#download-list').dataTable().fnDeleteRow(el);" }, new { @role = "button", @onclick = "el = $(this).closest('tr');" })';
+
+                            return tpl.replace(/0/g, o);
+                        }
+                    }
+                ]
+        });
+
+        $('#download-list tbody').on('change', 'input[type=checkbox]', function(e) {
+
+            var o =
+                $(this);
+
+            $.post('@Url.Action("Toggle", "Download")',
+                { id: o.data('id'), propertyName: o.attr('name') });
+        });
+    })
+</script>
