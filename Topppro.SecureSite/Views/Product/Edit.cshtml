@@ -8,8 +8,7 @@
     <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Scripts/old/dataTables/dataTables.bootstrap.css")" />
     <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Scripts/old/bootstrap-dialog/bootstrap-dialog.min.css")" />
     <style type="text/css">
-        .modal-backdrop
-        {
+        .modal-backdrop {
             z-index: -1 !important;
         }
     </style>
@@ -38,7 +37,7 @@
         @using (Html.BeginForm())
         {
             @Html.ValidationSummary(true, null, new { @class = "alert alert-danger" })
-            
+
             <fieldset>
                 @Html.HiddenFor(model => model.ProductId)
                 @Html.ValidationMessageFor(model => model.ProductId)
@@ -79,7 +78,7 @@
     @Html.Partial("_Validator")
 
     <script type="text/javascript">
-        
+
         var el;
 
         $.ajaxSetup({ async: false });
@@ -157,7 +156,7 @@
                     },
                     onhidden: function (dialog) {
                         //var mce =
-                            //dialog.getModalBody().find('textarea');
+                        //dialog.getModalBody().find('textarea');
 
                         //if (mce) { mce.tinymce().remove(); }
                     }
@@ -175,7 +174,7 @@
                     title: obj.attr('title'),
                     message: function (dialog) {
                         var content =
-                        $('<div></div>').load(obj.attr('href'));
+                            $('<div></div>').load(obj.attr('href'));
 
                         return content;
                     },
@@ -188,7 +187,7 @@
                     }],
                     onhidden: function (dialog) {
                         //var mce =
-                            //dialog.getModalBody().find('textarea');
+                        //dialog.getModalBody().find('textarea');
 
                         //if (mce) { mce.tinymce().remove(); }
                     }
@@ -262,4 +261,8 @@
 
         });
     </script>
+    @Html.Action("Scripts", "Bullet", new { Id = Model.Id })
+    @Html.Action("Scripts", "Attribute", new { Id = Model.Id })
+    @Html.Action("Scripts", "Package", new { Id = Model.Id })
+    @Html.Action("Scripts", "Download", new { Id = Model.Id })
 }

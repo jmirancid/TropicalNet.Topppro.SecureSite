@@ -1,4 +1,10 @@
-﻿using Topppro.Interfaces.Repositories;
+﻿using System;
+using System.Data.Entity;
+using System.Linq;
+using System.Linq.Expressions;
+using Topppro.Entities;
+using Topppro.Interfaces.Repositories;
+using xFNet.Common.Extensions;
 
 namespace Topppro.Repositories.Definitions
 {
@@ -11,6 +17,22 @@ namespace Topppro.Repositories.Definitions
             base(context)
         {
 
+        }
+
+        public override IQueryable<Bullet> AllBy(Expression<Func<Bullet, bool>> predicate)
+        {
+            return
+                base.Context.Bullet
+                    .Include(e => e.Culture)
+                    .Where(predicate);
+        }
+
+        public override Bullet Get(object id)
+        {
+            return
+                base.Context.Bullet
+                    .Include(e => e.Culture)
+                    .FirstOrDefault(e => e.BulletId == (int)id);
         }
     }
 }

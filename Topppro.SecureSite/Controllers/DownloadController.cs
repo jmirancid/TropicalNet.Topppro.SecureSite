@@ -67,12 +67,20 @@ namespace Topppro.SecureSite.Controllers
             return PartialView("_Toolbar");
         }
 
+        [ChildActionOnly]
+        public ActionResult Scripts(int id)
+        {
+            ViewBag.ProductId = id;
+
+            return PartialView("_Scripts");
+        }
+
         public ActionResult Create(int id)
         {
             try
             {
                 var entity =
-                    new Download()
+                    new Topppro.Entities.Download()
                     {
                         ProductId = id
                     };
@@ -205,6 +213,10 @@ namespace Topppro.SecureSite.Controllers
 
         private IEnumerable<string> GetResources()
         {
+#if DEBUG
+            return new List<string>();
+#endif
+
             var key = "Topppro_Resources";
 
             var cached = WebCache.Get(key);
