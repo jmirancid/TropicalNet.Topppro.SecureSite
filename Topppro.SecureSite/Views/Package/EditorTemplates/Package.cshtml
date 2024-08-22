@@ -1,14 +1,11 @@
-﻿@using Framework.MVC.Resources
-@using Framework.MVC.Extensions
-
-@model Topppro.Entities.Package
+﻿@model Topppro.Entities.Package
 
 @Html.HiddenFor(model => model.ParentProductId)
 @Html.ValidationMessageFor(model => model.ParentProductId)
 
 <div class="form-group">
     @Html.LabelFor(model => model.ChildProductId)
-    @Html.DropDownListFor(model => model.ChildProductId, null, PersistanceResource.Selection, new { @class = "form-control", style = "width:400px;" })
+    @Html.DropDownListFor(model => model.ChildProductId, null, "Select...", new { @class = "form-control", style = "width:400px;" })
     @Html.ValidationMessageFor(model => model.ChildProductId, null, new { @class = "label label-danger" })
 </div>
 

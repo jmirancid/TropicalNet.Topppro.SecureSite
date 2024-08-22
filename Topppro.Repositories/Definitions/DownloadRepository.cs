@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.Entity;
 using System.Linq;
+using Topppro.Entities;
 using Topppro.Interfaces.Repositories;
 
 namespace Topppro.Repositories.Definitions
@@ -18,11 +19,22 @@ namespace Topppro.Repositories.Definitions
 
         public override IQueryable<Topppro.Entities.Download> AllBy(System.Linq.Expressions.Expression<Func<Topppro.Entities.Download, bool>> predicate)
         {
-            return base.Context.Download
-                        .Include(a => a.Product)
-                        .Include(a => a.Culture)
-                        .Include(a => a.Platform)
-                        .Where(predicate);
+            return 
+                base.Context.Download
+                    .Include(a => a.Product)
+                    .Include(a => a.Culture)
+                    .Include(a => a.Platform)
+                    .Where(predicate);
+        }
+
+        public override Download Get(object id)
+        {
+            return 
+                base.Context.Download
+                    .Include(a => a.Product)
+                    .Include(a => a.Culture)
+                    .Include(a => a.Platform)
+                    .FirstOrDefault(e => e.DownloadId == (int)id);
         }
     }
 }

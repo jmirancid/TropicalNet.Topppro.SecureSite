@@ -119,6 +119,14 @@ namespace Topppro.SecureSite.Controllers
             return PartialView("_Toolbar");
         }
 
+        [ChildActionOnly]
+        public ActionResult Scripts(int id)
+        {
+            ViewBag.ProductId = id;
+
+            return PartialView("_Scripts");
+        }
+
         public ActionResult Create(int id)
         {
             try

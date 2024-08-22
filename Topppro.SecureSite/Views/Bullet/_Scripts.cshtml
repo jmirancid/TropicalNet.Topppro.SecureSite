@@ -1,0 +1,44 @@
+﻿<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#bullet-list').dataTable({
+            aoColumns: [
+                    null,
+                    null,
+                    null,
+                    null,
+                    {
+                        mRender: function (o, t, r) {
+
+                            var tpl = '@Html.CheckBox("Enabled", true, new { data_id = 0 })';
+
+                            if (JSON.parse(o) === false)
+                                tpl = '@Html.CheckBox("Enabled", false, new { data_id = 0 })';
+
+                            return tpl.replace(/0/g, r[5]);
+                        }
+                    },
+                    {
+                        bSortable: false,
+                        mRender: function (o) {
+
+                            var tpl = '@Html.ActionLink("Edit", "Edit", "Bullet", new { id = 0 }, new { @class = "editor-dialog", @role = "button", @type = "type-warning", @title = string.Format("{0} {1}", "Edit", "Bullet") }) | ' +
+                                      '@Html.ActionLink("Details", "Details", "Bullet", new { id = 0 }, new { @class = "display-dialog", @role = "button", @type = "type-warning", @title = string.Format("{0} {1}", "Details", "Bullet") }) | ' +
+                                      '@Ajax.ActionLink("Delete", "Delete", "Bullet", new { id = 0 }, new AjaxOptions() { HttpMethod = "Post", Confirm = "Confirm Delete ?", OnSuccess = "$('#bullet-list').dataTable().fnDeleteRow(el);" }, new { @role = "button", @onclick = "el = $(this).closest('tr');" })';
+
+                            return tpl.replace(/0/g, o);
+                        }
+                    }
+                ]
+        });
+
+        $('#bullet-list tbody').on('change', 'input[type=checkbox]', function(e) {
+
+            var o =
+                $(this);
+
+            $.post('@Url.Action("Toggle", "Bullet")',
+                { id: o.data('id'), propertyName: o.attr('name') });
+        });
+    })
+</script>
