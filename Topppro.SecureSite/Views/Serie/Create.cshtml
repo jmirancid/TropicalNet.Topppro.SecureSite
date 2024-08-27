@@ -1,10 +1,14 @@
-﻿@model Topppro.Entities.Serie
+﻿@using Topppro.SecureSite.Models;
+
+@model Topppro.Entities.Serie
 
 @{
     ViewBag.Title = "Create";
+    ViewBag.CurrentMenu = Menu_Enum.Series;
 }
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.ValidationSummary(true, null, new { @class = "alert alert-danger" })
     <fieldset>
         <legend>Serie</legend>

@@ -1,10 +1,14 @@
-﻿@model Topppro.Entities.Model
+﻿@using Topppro.SecureSite.Models;
+
+@model Topppro.Entities.Model
 
 @{
     ViewBag.Title = "Create";
+    ViewBag.CurrentMenu = Menu_Enum.Model;
 }
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.ValidationSummary(true, null, new { @class = "alert alert-danger" })
     <fieldset>
         <legend>Model</legend>

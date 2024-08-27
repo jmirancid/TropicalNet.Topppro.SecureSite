@@ -1,28 +1,29 @@
-﻿@using Framework.MVC.Resources
-@using Topppro.Entities.Resources
+﻿@using Topppro.SecureSite.Models;
 
 @model Topppro.Entities.Distributor
 
 @{
-    ViewBag.Title = PersistanceResource.Delete;
+    ViewBag.Title = "Delete";
+    ViewBag.CurrentMenu = Menu_Enum.Distributors;
 }
 
-<h3>@PersistanceResource.Delete_Message</h3>
+<h3>Confirm Delete ?</h3>
 <fieldset>
-    <legend>@Ent_DistributorResource._Caption</legend>
+    <legend>Distributor</legend>
 
     @Html.DisplayForModel()
 
 </fieldset>
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     <p>
-        <input class="btn btn-danger" type="submit" value="@PersistanceResource.Delete" /> |
+        <input class="btn btn-danger" type="submit" value="Delete" /> |
         @Html.ActionLink("Back to List", "Index")
     </p>
 }
 
 @section Scripts
 {
-    <script src="@Url.Content("~/Areas/SecureSite/Scripts/tinymce/tinymce.min.js")" type="text/javascript"></script>
-    <script src="@Url.Content("~/Areas/SecureSite/Scripts/tinymce/jquery.tinymce.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/old/tinymce/tinymce.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/old/tinymce/jquery.tinymce.min.js")" type="text/javascript"></script>
 }

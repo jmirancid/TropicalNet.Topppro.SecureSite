@@ -158,6 +158,7 @@
     <Compile Include="Controllers\AssnCategorySerieProductController.cs" />
     <Compile Include="Controllers\AttributeController.cs" />
     <Compile Include="Controllers\BulletController.cs" />
+    <Compile Include="Controllers\CacheController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\CountryController.cs" />
     <Compile Include="Controllers\CultureController.cs" />
@@ -174,6 +175,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Dashboard.cs" />
+    <Compile Include="Models\Menu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

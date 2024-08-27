@@ -1,13 +1,14 @@
-﻿@using Topppro.Entities.Resources
+﻿@using Topppro.SecureSite.Models;
 
 @model Topppro.Entities.Product
 
 @{
     ViewBag.Title = "Details";
+    ViewBag.CurrentMenu = Menu_Enum.Products;
 }
 
 <fieldset>
-    <legend>@Ent_ProductResource._Caption</legend>
+    <legend>Product</legend>
 
     @Html.DisplayFor(model => Model)
 

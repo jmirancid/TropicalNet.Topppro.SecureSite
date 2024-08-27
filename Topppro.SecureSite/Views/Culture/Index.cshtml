@@ -1,7 +1,10 @@
-﻿@model IEnumerable<Topppro.Entities.Culture>
+﻿@using Topppro.SecureSite.Models;
+
+@model IEnumerable<Topppro.Entities.Culture>
 
 @{
     ViewBag.Title = "Index";
+    ViewBag.CurrentMenu = Menu_Enum.Languages;
 }
 
 @section Styles {
@@ -29,15 +32,15 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr class="odd gradeX">
-            <td>@Html.DisplayFor(modelItem => item.Name)</td>
-            <td>@Html.DisplayFor(modelItem => item.Code)</td>
-            <td class="center">
-                @Html.ActionLink("Edit", "Edit", new { id = item.CultureId }) | 
-                @Html.ActionLink("Details", "Details", new { id = item.CultureId }) | 
-                @Html.ActionLink("Delete", "Delete", new { id = item.CultureId })
-            </td>
-        </tr>
+            <tr class="odd gradeX">
+                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.Code)</td>
+                <td class="center">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CultureId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.CultureId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.CultureId })
+                </td>
+            </tr>
         }
     </tbody>
 </table>

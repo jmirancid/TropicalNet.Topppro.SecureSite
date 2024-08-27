@@ -1,20 +1,19 @@
-﻿@using Framework.MVC.Resources
-@using Framework.MVC.Extensions
-@using Topppro.Entities.Resources
+﻿@using Topppro.SecureSite.Models;
 
 @model Topppro.Entities.Country
 
 @{
-    ViewBag.Title = PersistanceResource.Details;
+    ViewBag.Title = "Details";
+    ViewBag.CurrentMenu = Menu_Enum.Countries;
 }
 
 <fieldset>
-    <legend>@Ent_CountryResource._Caption</legend>
+    <legend>Country</legend>
 
     @Html.DisplayForModel()
 
 </fieldset>
 <p>
-    @Html.ActionLink(PersistanceResource.Edit, "Edit", new { id = Model.CountryId }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CountryId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
