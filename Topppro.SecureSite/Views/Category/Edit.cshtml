@@ -1,10 +1,14 @@
-﻿@model Topppro.Entities.Category
+﻿@using Topppro.SecureSite.Models;
+
+@model Topppro.Entities.Category
 
 @{
     ViewBag.Title = "Edit";
+    ViewBag.CurrentMenu = Menu_Enum.Categories;
 }
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.ValidationSummary(true, null, new { @class = "alert alert-danger" })
     <fieldset>
         <legend>Category</legend>

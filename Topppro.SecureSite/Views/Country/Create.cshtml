@@ -1,22 +1,22 @@
-﻿@using Framework.MVC.Resources
-@using Topppro.Entities.Resources
-@using Topppro.WebSite.Areas.SecureSite.Extensions
+﻿@using Topppro.SecureSite.Models;
 
 @model Topppro.Entities.Country
 
 @{
-    ViewBag.Title = PersistanceResource.Create;
+    ViewBag.Title = "Create";
+    ViewBag.CurrentMenu = Menu_Enum.Countries;
 }
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.ValidationSummary(true, null, new { @class = "alert alert-danger" })
     <fieldset>
-        <legend>@Ent_CountryResource._Caption</legend>
-        
+        <legend>Country</legend>
+
         @Html.EditorForModel()
 
         <p>
-            <input class="btn btn-primary" type="submit" value="@PersistanceResource.Save" />
+            <input class="btn btn-primary" type="submit" value="Save" />
         </p>
     </fieldset>
 }
@@ -26,5 +26,5 @@
 </div>
 
 @section Scripts {
-    @Html.Validator()
+    @Html.Partial("_Validator")
 }

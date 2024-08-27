@@ -1,7 +1,10 @@
-﻿@model IEnumerable<Topppro.Entities.Serie>
+﻿@using Topppro.SecureSite.Models;
+
+@model IEnumerable<Topppro.Entities.Serie>
 
 @{
     ViewBag.Title = "Index";
+    ViewBag.CurrentMenu = Menu_Enum.Series;
 }
 
 @section Styles {
@@ -26,14 +29,14 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td>@Html.DisplayFor(modelItem => item.Name)</td>
-            <td class="center">
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) | 
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) | 
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-            </td>
-        </tr>
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                <td class="center">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
         }
     </tbody>
 </table>

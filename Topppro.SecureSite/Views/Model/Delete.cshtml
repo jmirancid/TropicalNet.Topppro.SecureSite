@@ -1,7 +1,10 @@
-﻿@model Topppro.Entities.Model
+﻿@using Topppro.SecureSite.Models;
+
+@model Topppro.Entities.Model
 
 @{
     ViewBag.Title = "Delete";
+    ViewBag.CurrentMenu = Menu_Enum.Model;
 }
 
 <h3>Confirm Delete ?</h3>
@@ -11,7 +14,8 @@
     @Html.DisplayForModel()
 
 </fieldset>
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     <p>
         <input class="btn btn-danger" type="submit" value="Delete" /> |
         @Html.ActionLink("Back to List", "Index")

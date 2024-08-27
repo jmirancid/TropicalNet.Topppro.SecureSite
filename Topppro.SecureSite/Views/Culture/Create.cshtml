@@ -1,10 +1,14 @@
-﻿@model Topppro.Entities.Culture
+﻿@using Topppro.SecureSite.Models;
+
+model Topppro.Entities.Culture
 
 @{
     ViewBag.Title = "Create";
+    ViewBag.CurrentMenu = Menu_Enum.Languages;
 }
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.ValidationSummary(true, null, new { @class = "alert alert-danger" })
     <fieldset>
         <legend>Culture</legend>

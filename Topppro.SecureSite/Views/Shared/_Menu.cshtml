@@ -1,4 +1,16 @@
-﻿<nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+﻿@using Topppro.SecureSite.Models;
+
+@functions {
+    string ActiveMenu(Menu_Enum current, Menu_Enum active)
+    {
+        if (current == active)
+            return "active-menu";
+
+        return null;
+    }
+}
+
+<nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
             <span class="sr-only">Toggle navigation</span>
@@ -16,36 +28,36 @@
         <ul class="nav" id="main-menu">
             <li class="text-center">
                 <img src="@Url.Content("~/Areas/SecureSite/Content/Images/find_user.png")" class="user-image img-responsive" alt="" />
-			</li>
-            <li>
-                <a class="active-menu" href="@Url.Action("Index", "Home")"><i class="fa fa-home fa-3x"></i> Dashboard</a>
             </li>
             <li>
-                <a href="@Url.Action("Index", "Culture")"><i class="fa fa-language fa-3x"></i> Languages</a>
+                <a class="@ActiveMenu(Menu_Enum.Dashboard, ViewBag.CurrentMenu)" href="@Url.Action("Index", "Home")"><i class="fa fa-home fa-3x"></i> Dashboard</a>
             </li>
             <li>
-                <a href="@Url.Action("Index", "Category")"><i class="fa fa-book fa-3x"></i> Categories</a>
+                <a class="@ActiveMenu(Menu_Enum.Languages, ViewBag.CurrentMenu)" href="@Url.Action("Index", "Culture")"><i class="fa fa-language fa-3x"></i> Languages</a>
             </li>
             <li>
-                <a href="@Url.Action("Index", "Serie")"><i class="fa fa-tags fa-3x"></i> Series</a>
+                <a class="@ActiveMenu(Menu_Enum.Categories, ViewBag.CurrentMenu)" href="@Url.Action("Index", "Category")"><i class="fa fa-book fa-3x"></i> Categories</a>
             </li>
             <li>
-                <a href="@Url.Action("Index", "Model")"><i class="fa fa-bookmark fa-3x"></i> Model</a>
+                <a class="@ActiveMenu(Menu_Enum.Series, ViewBag.CurrentMenu)" href="@Url.Action("Index", "Serie")"><i class="fa fa-tags fa-3x"></i> Series</a>
             </li>
             <li>
-                <a href="@Url.Action("Index", "Product")"><i class="fa fa-cube fa-3x"></i> Products</a>
+                <a class="@ActiveMenu(Menu_Enum.Model, ViewBag.CurrentMenu)" href="@Url.Action("Index", "Model")"><i class="fa fa-bookmark fa-3x"></i> Model</a>
             </li>
             <li>
-                <a href="@Url.Action("Index", "AssnCategorySerie")"><i class="fa fa-code-fork fa-3x"></i> Associations</a>
+                <a class="@ActiveMenu(Menu_Enum.Products, ViewBag.CurrentMenu)" href="@Url.Action("Index", "Product")"><i class="fa fa-cube fa-3x"></i> Products</a>
             </li>
             <li>
-                <a href="@Url.Action("Index", "Country")"><i class="fa fa-flag fa-3x"></i> Countries</a>
+                <a class="@ActiveMenu(Menu_Enum.Associations, ViewBag.CurrentMenu)" href="@Url.Action("Index", "AssnCategorySerie")"><i class="fa fa-code-fork fa-3x"></i> Associations</a>
             </li>
             <li>
-                <a href="@Url.Action("Index", "Distributor")"><i class="fa fa-shopping-cart fa-3x"></i> Distributors</a>
+                <a class="@ActiveMenu(Menu_Enum.Countries, ViewBag.CurrentMenu)" href="@Url.Action("Index", "Country")"><i class="fa fa-flag fa-3x"></i> Countries</a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-wrench fa-3x"></i> Tools<span class="fa arrow"></span></a>
+                <a class="@ActiveMenu(Menu_Enum.Distributors, ViewBag.CurrentMenu)" href="@Url.Action("Index", "Distributor")"><i class="fa fa-shopping-cart fa-3x"></i> Distributors</a>
+            </li>
+            <li>
+                <a class="@ActiveMenu(Menu_Enum.Tools, ViewBag.CurrentMenu)" href="#"><i class="fa fa-wrench fa-3x"></i> Tools<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="@Url.Action("Index", "Cache")">Cache</a>

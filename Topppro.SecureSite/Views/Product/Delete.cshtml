@@ -1,23 +1,24 @@
-﻿@using Framework.MVC.Resources
-@using Framework.MVC.Extensions
-@using Topppro.Entities.Resources
+﻿@using Topppro.SecureSite.Models;
 
 @model Topppro.Entities.Product
 
 @{
-    ViewBag.Title = PersistanceResource.Delete;
+    ViewBag.Title = "Delete";
+    ViewBag.CurrentMenu = Menu_Enum.Products;
 }
 
-<h3>@PersistanceResource.Delete_Message</h3>
+<h3>Confirm Delete?</h3>
 <fieldset>
-    <legend>@Ent_ProductResource._Caption</legend>
+    <legend>Product</legend>
+    @Html.ValidationSummary(true, null, new { @class = "alert alert-danger" })
 
     @Html.DisplayFor(model => Model)
 
 </fieldset>
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     <p>
-        <input class="btn btn-danger" type="submit" value="@PersistanceResource.Delete" /> |
+        <input class="btn btn-danger" type="submit" value="Delete" /> |
         @Html.ActionLink("Back to List", "Index")
     </p>
 }

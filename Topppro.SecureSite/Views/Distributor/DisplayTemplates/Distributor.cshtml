@@ -1,6 +1,4 @@
-﻿@using Framework.MVC.Extensions
-
-@model Topppro.Entities.Distributor
+﻿@model Topppro.Entities.Distributor
 
 <div class="form-group">
     @Html.LabelFor(model => model.CountryId)
@@ -19,7 +17,8 @@
 
 <div class="form-group">
     @Html.LabelFor(model => model.Detail)
-    @Html.TinyMceFor(model => model.Detail, TinyMcePresets.ReadOnly)
+    @*Html.TinyMceFor(model => model.Detail, TinyMcePresets.ReadOnly)*@
+    @Html.TextAreaFor(model => model.Detail)
 </div>
 
 <div class="form-group">
