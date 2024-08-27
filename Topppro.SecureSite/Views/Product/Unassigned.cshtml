@@ -1,12 +1,7 @@
-﻿@using Framework.MVC.Resources
-@using Framework.MVC.Extensions
-@using Topppro.WebSite.Areas.SecureSite.Extensions
-@using Topppro.WebSite.Areas.SecureSite.Resources
-
-@model IEnumerable<Topppro.Entities.Product>
+﻿@model IEnumerable<Topppro.Entities.Product>
 
 @{
-    ViewBag.Title = DashboardResource.Unassigned;
+    ViewBag.Title = "Unassigned";
 }
 
 @section Styles {
@@ -23,7 +18,7 @@
                 @Html.DisplayNameFor(model => model.ModelId)
             </th>
             <th>
-                @PersistanceResource.Actions
+                Actions
             </th>
         </tr>
     </thead>
@@ -34,9 +29,9 @@
                 <td>@Html.DisplayFor(modelItem => item.Name)</td>
                 <td>@Html.DisplayFor(modelItem => item.Model.Name)</td>
                 <td class="center">
-                    @Html.ActionLink(PersistanceResource.Edit, "Edit", new { id = item.Id }) | 
-                    @Html.ActionLink(PersistanceResource.Details, "Details", new { id = item.Id }) | 
-                    @Html.ActionLink(PersistanceResource.Delete, "Delete", new { id = item.Id })
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) | 
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) | 
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
                 </td>
             </tr>
         }

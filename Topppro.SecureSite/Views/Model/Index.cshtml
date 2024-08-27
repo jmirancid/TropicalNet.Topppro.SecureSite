@@ -1,7 +1,10 @@
-﻿@model IEnumerable<Topppro.Entities.Model>
+﻿@using Topppro.SecureSite.Models;
+
+@model IEnumerable<Topppro.Entities.Model>
 
 @{
     ViewBag.Title = "Index";
+    ViewBag.CurrentMenu = Menu_Enum.Model;
 }
 
 @section Styles {
@@ -29,15 +32,15 @@
             <tr>
                 <td>@Html.DisplayFor(modelItem => item.Name)</td>
                 <td class="center">
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) | 
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) | 
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.Id })
                 </td>
             </tr>
         }
     </tbody>
 </table>
-                            
+
 @section Scripts {
     <script type="text/javascript" src="@Url.Content("~/Scripts/old/dataTables/jquery.dataTables.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/old/dataTables/dataTables.bootstrap.js")"></script>

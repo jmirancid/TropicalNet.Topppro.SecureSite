@@ -1,17 +1,17 @@
-﻿@using Framework.MVC.Resources
-@using Topppro.Entities.Resources
-@using Topppro.WebSite.Areas.SecureSite.Extensions
+﻿@using Topppro.SecureSite.Models;
 
 @model Topppro.Entities.Distributor
 
 @{
-    ViewBag.Title = PersistanceResource.Edit;
+    ViewBag.Title = "Edit";
+    ViewBag.CurrentMenu = Menu_Enum.Distributors;
 }
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.ValidationSummary(true, null, new { @class = "alert alert-danger" })
     <fieldset>
-        <legend>@Ent_DistributorResource._Caption</legend>
+        <legend>Distributor</legend>
 
         @Html.HiddenFor(model => model.Id)
         @Html.ValidationMessageFor(model => model.Id)
@@ -19,7 +19,7 @@
         @Html.EditorForModel()
 
         <p>
-            <input class="btn btn-primary" type="submit" value="@PersistanceResource.Save" />
+            <input class="btn btn-primary" type="submit" value="Save" />
         </p>
     </fieldset>
 }
@@ -28,9 +28,9 @@
     @Html.ActionLink("Back to List", "Index")
 </div>
 
-@section Scripts 
+@section Scripts
 {
-    <script src="@Url.Content("~/Areas/SecureSite/Scripts/tinymce/tinymce.min.js")" type="text/javascript"></script>
-    <script src="@Url.Content("~/Areas/SecureSite/Scripts/tinymce/jquery.tinymce.min.js")" type="text/javascript"></script>
-    @Html.Validator()
+    <script src="@Url.Content("~/Scripts/old/tinymce/tinymce.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/old/tinymce/jquery.tinymce.min.js")" type="text/javascript"></script>
+    @Html.Partial("_Validator")
 }

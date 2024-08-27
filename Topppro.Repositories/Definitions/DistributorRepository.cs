@@ -18,13 +18,21 @@ namespace Topppro.Repositories.Definitions
 
         }
 
-        #region WebSite
-
-        public override IQueryable<Distributor> AllBy(Expression<Func<Distributor, bool>> predicate)
+        public override IQueryable<Distributor> All()
         {
-            return Context.Distributor.Include(x => x.Country).Where(predicate).OrderBy(x => x.Priority);
+            return
+                base.Context.Distributor
+                    .Include(e => e.Country)
+                    .Include(e => e.Culture);
         }
 
-        #endregion
+        public override Distributor Get(object id)
+        {
+            return
+                base.Context.Distributor
+                    .Include(e => e.Country)
+                    .Include(e => e.Culture)
+                    .FirstOrDefault(e => e.DistributorId == (int)id);
+        }
     }
 }

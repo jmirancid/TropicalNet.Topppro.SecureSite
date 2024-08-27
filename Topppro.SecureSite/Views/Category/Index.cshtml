@@ -1,7 +1,10 @@
-﻿@model IEnumerable<Topppro.Entities.Category>
+﻿@using Topppro.SecureSite.Models;
+
+@model IEnumerable<Topppro.Entities.Category>
 
 @{
     ViewBag.Title = "Index";
+    ViewBag.CurrentMenu = Menu_Enum.Categories;
 }
 
 @section Styles {

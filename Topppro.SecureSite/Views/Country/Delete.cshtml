@@ -1,16 +1,15 @@
-﻿@using Framework.MVC.Resources
-@using Framework.MVC.Extensions
-@using Topppro.Entities.Resources
+﻿@using Topppro.SecureSite.Models;
 
 @model Topppro.Entities.Country
 
 @{
-    ViewBag.Title = PersistanceResource.Delete;
+    ViewBag.Title = "Delete";
+    ViewBag.CurrentMenu = Menu_Enum.Countries;
 }
 
-<h3>@PersistanceResource.Delete_Message</h3>
+<h3>Confirm Delete?</h3>
 <fieldset>
-    <legend>@Ent_CountryResource._Caption</legend>
+    <legend>Country</legend>
 
     @Html.DisplayForModel()
 
@@ -18,7 +17,7 @@
 @using (Html.BeginForm())
 {
     <p>
-        <input class="btn btn-danger" type="submit" value="@PersistanceResource.Delete" /> |
+        <input class="btn btn-danger" type="submit" value="Delete" /> |
         @Html.ActionLink("Back to List", "Index")
     </p>
 }

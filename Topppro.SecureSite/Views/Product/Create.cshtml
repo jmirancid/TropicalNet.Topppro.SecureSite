@@ -1,17 +1,20 @@
-﻿@model Topppro.Entities.Product
+﻿@using Topppro.SecureSite.Models;
+
+@model Topppro.Entities.Product
 
 @{
     ViewBag.Title = "Create";
+    ViewBag.CurrentMenu = Menu_Enum.Products;
 }
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.ValidationSummary(true, null, new { @class = "alert alert-danger" })
     <fieldset>
         <legend>Product</legend>
 
         @Html.EditorForModel()
-        
+
         <p>
             <input class="btn btn-primary" type="submit" value="Save" />
         </p>
