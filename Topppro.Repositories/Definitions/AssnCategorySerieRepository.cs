@@ -1,8 +1,6 @@
-﻿using System;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Data.Entity.Core.Objects;
 using System.Linq;
-using System.Linq.Expressions;
 using Topppro.Entities;
 using Topppro.Interfaces.Repositories;
 
@@ -19,34 +17,17 @@ namespace Topppro.Repositories.Definitions
 
         }
 
-        #region WebSite
-
-        //TODO: Used in Index
-        public override IQueryable<Assn_CategorySerie> AllBy(Expression<Func<Assn_CategorySerie, bool>> predicate)
+        public override IQueryable<Assn_CategorySerie> All()
         {
-            var dbquery = 
-                
-                Context.Assn_CategorySerie
-                    .Include(e => e.Category)
-                    .Include(e => e.Serie)
-                    .Include(e => e.Assn_CategorySerieProduct)
-                    .Include(e => e.Assn_CategorySerieProduct.Select(b => b.Product))
-                .Where(predicate)
-                .OrderBy(e => e.Priority)
-                .Select(e => new
-                {
-                    e,
-                    Serie = e.Serie,
-                    Assn_CategorySerieProduct = e.Assn_CategorySerieProduct.Where(b => b.Enabled).OrderBy(b => b.Priority),
-                    Products = e.Assn_CategorySerieProduct.Select(b => b.Product)
-                });
+            var dbquery =
 
-            return dbquery.AsEnumerable().Select(n => n.e).AsQueryable(); ;
+                base.Context.Assn_CategorySerie
+                        .Include(e => e.Category)
+                        .Include(e => e.Serie)
+                        .Include(e => e.Assn_CategorySerieProduct);
+
+            return dbquery;
         }
-
-        #endregion
-
-        #region SecureSite
 
         public int Insert(int categoryId, int serieId, int priority)
         {
@@ -62,7 +43,5 @@ namespace Topppro.Repositories.Definitions
         {
             Context.Assn_CategorySerie_Reorder(assnCategorySerieId, priority);
         }
-
-        #endregion
     }
 }
