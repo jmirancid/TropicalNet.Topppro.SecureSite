@@ -19,105 +19,27 @@ namespace Topppro.Repositories.Definitions
 
         }
 
-        #region WebSite
-
-        //TODO: Include as a paramenter the posibility to add an include list and not have to oaverride allby
-        // Used in Menu
-        public IQueryable<Assn_CategorySerieProduct> AllForMenu(Expression<Func<Assn_CategorySerieProduct, bool>> predicate)
+        public override IQueryable<Assn_CategorySerieProduct> AllBy(Expression<Func<Assn_CategorySerieProduct, bool>> predicate)
         {
-            var dbQuery =
-
-                Context.Assn_CategorySerieProduct
+            return 
+                base.Context.Assn_CategorySerieProduct
                     .Include(e => e.Assn_CategorySerie)
-                    .Include(e => e.Assn_CategorySerie.Serie)
-                    .Include(e => e.Product)
-                    .Include(e => e.Product.Model)
-                    .Where(predicate);
-
-            return dbQuery;
-        }
-
-        public Topppro.Entities.Assn_CategorySerieProduct GetForDetail(object id)
-        {
-            var dbQuery =
-
-                Context.Assn_CategorySerieProduct
-                    .Include(e => e.Assn_CategorySerie)
-                    .Include(e => e.Assn_CategorySerie.Serie)
                     .Include(e => e.Assn_CategorySerie.Category)
+                    .Include(e => e.Assn_CategorySerie.Serie)
                     .Include(e => e.Product)
-                    .Include(e => e.Product.Bullets)
-                    .Include(e => e.Product.Attributes)
-                    .Include(e => e.Product.Childs)
-                    .Include(e => e.Product.Childs.Select(x => x.ChildProduct))
-                    .Include(e => e.Product.Childs.Select(x => x.ChildProduct.Bullets))
-                    .Include(e => e.Product.Childs.Select(x => x.ChildProduct.Attributes))
-                    .Include(a => a.Product.Downloads)
-                    .Where(e => e.AssnCategorySerieProductId == (int)id && e.Enabled && e.Product.Draft == false)
-                    .Select(e => new
-                    {
-                        e,
-                        Assn_CategorySerie = e.Assn_CategorySerie,
-                        Serie = e.Assn_CategorySerie.Serie,
-                        Category = e.Assn_CategorySerie.Category,
-                        Product = e.Product,
-                        Bullets = e.Product.Bullets.Where(x => x.Culture.Code == Topppro.Context.Current.Culture.TwoLetterISOLanguageName && x.Enabled).OrderBy(x => x.Priority),
-                        Attributes = e.Product.Attributes.Where(x => x.Culture.Code == Topppro.Context.Current.Culture.TwoLetterISOLanguageName && x.Enabled).OrderBy(x => x.Priority),
-                        Childs = e.Product.Childs,
-                        Childs_Products = e.Product.Childs.Select(c => c.ChildProduct),
-                        Childs_Bullets = e.Product.Childs.Select(c => c.ChildProduct.Bullets.Where(x => x.Culture.Code == Topppro.Context.Current.Culture.TwoLetterISOLanguageName && x.Enabled).OrderBy(x => x.Priority)),
-                        Childs_Attributes = e.Product.Childs.Select(c => c.ChildProduct.Attributes.Where(x => x.Culture.Code == Topppro.Context.Current.Culture.TwoLetterISOLanguageName && x.Enabled).OrderBy(x => x.Priority)),
-                        Downloads = e.Product.Downloads.Where(x => x.Enabled).OrderBy(x => x.Priority)
-                    });
-
-            return dbQuery.AsEnumerable().Select(n => n.e).SingleOrDefault();
+                    .Where(predicate);
         }
 
-        public Topppro.Entities.Assn_CategorySerieProduct GetForSoftware(object id)
+        public override Assn_CategorySerieProduct Get(object id)
         {
-            var dbQuery =
-
-               Context.Assn_CategorySerieProduct
-                   .Include(e => e.Assn_CategorySerie)
-                   .Include(e => e.Assn_CategorySerie.Serie)
-                   .Include(e => e.Assn_CategorySerie.Category)
-                   .Include(e => e.Product)
-                   .Include(e => e.Product.Downloads)
-                   .Include(e => e.Product.Downloads.Select(x => x.Platform))
-                   .Where(e => e.AssnCategorySerieProductId == (int)id && e.Enabled && e.Product.Draft == false)
-                   .Select(e => new
-                   {
-                       e,
-                       Assn_CategorySerie = e.Assn_CategorySerie,
-                       Serie = e.Assn_CategorySerie.Serie,
-                       Category = e.Assn_CategorySerie.Category,
-                       Product = e.Product,
-                       Platform = e.Product.Downloads.Select(x => x.Platform),
-                       Downloads = e.Product.Downloads.Where(x => x.Enabled).OrderBy(x => x.Platform.Priority).ThenBy(x => x.Priority)
-                   });
-
-            return dbQuery.AsEnumerable().Select(n => n.e).SingleOrDefault();
+            return
+                base.Context.Assn_CategorySerieProduct
+                    .Include(e => e.Assn_CategorySerie)
+                    .Include(e => e.Assn_CategorySerie.Category)
+                    .Include(e => e.Assn_CategorySerie.Serie)
+                    .Include(e => e.Product)
+                    .FirstOrDefault(e => e.AssnCategorySerieProductId == (int)id);
         }
-
-        public Topppro.Entities.Assn_CategorySerieProduct GetForHiRes(object id)
-        {
-            var dbQuery =
-
-               Context.Assn_CategorySerieProduct
-                   .Include(e => e.Assn_CategorySerie)
-                   .Include(e => e.Assn_CategorySerie.Serie)
-                   .Include(e => e.Assn_CategorySerie.Category)
-                   .Include(e => e.Product)
-                   .Include(e => e.Product.Childs)
-                   .Include(e => e.Product.Childs.Select(x => x.ChildProduct))
-                   .Where(e => e.AssnCategorySerieProductId == (int)id && e.Enabled && e.Product.Draft == false);
-
-            return dbQuery.SingleOrDefault();
-        }
-
-        #endregion
-
-        #region SecureSite
 
         public int Insert(int assnCategorySerieId, int productId, int priority)
         {
@@ -133,7 +55,5 @@ namespace Topppro.Repositories.Definitions
         {
             Context.Assn_CategorySerieProduct_Reorder(assnCategorySerieProductId, priority);
         }
-
-        #endregion
     }
 }

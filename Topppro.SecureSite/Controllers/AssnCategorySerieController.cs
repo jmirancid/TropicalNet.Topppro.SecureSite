@@ -23,15 +23,19 @@ namespace Topppro.SecureSite.Controllers
 
         public override ActionResult Index()
         {
+            var entities =
+                this.Business.All();
+
             var series =
                 this.BizSerie.All();
 
+            var categories =
+                this.BizCategory.All();
+
             ViewBag.Series = series;
+            ViewBag.Categories = categories;
 
-            var model = (object)null;
-                //this.BizCategory.AllWithSeries();
-
-            return View(model);
+            return View(entities);
         }
 
         public override ActionResult Edit(int id)

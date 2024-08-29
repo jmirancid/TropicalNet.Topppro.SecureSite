@@ -1,38 +1,35 @@
-﻿@using Framework.MVC.Resources
-@using Topppro.Entities.Resources
-@using Framework.Common.Extensions
-@using Topppro.WebSite.Areas.SecureSite.Extensions
+﻿@using Topppro.SecureSite.Models;
 
-@model IEnumerable<Topppro.Entities.Category>
+@model IEnumerable<Topppro.Entities.Assn_CategorySerie>
 
 @{
-    ViewBag.Title = PersistanceResource.Index;
+    ViewBag.Title = "Index";
+    ViewBag.CurrentMenu = Menu_Enum.Associations;
 }
 
 @section Styles {
-    <link href="@Url.Content("~/Areas/SecureSite/Content/Styles/custom-list.css")" rel="stylesheet" type="text/css" />
-    <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Areas/SecureSite/Scripts/bootstrap-dialog/bootstrap-dialog.min.css")" />
-    <link href="@Url.Content("~/Areas/SecureSite/Content/Styles/themes/base/jquery-ui-1.10.4.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/css/custom-list.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Scripts/old/bootstrap-dialog/bootstrap-dialog.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/css/themes/base/jquery-ui-1.10.4.min.css")" rel="stylesheet" type="text/css" />
     <style type="text/css">
-        .modal-backdrop 
-        {
+        .modal-backdrop {
             z-index: -1 !important;
         }
-        .ui-state-highlight
-        {
+
+        .ui-state-highlight {
             border-style: dashed;
         }
-        .ui-state-active
-        {
+
+        .ui-state-active {
             padding: 2px;
             margin-bottom: 5px;
         }
-        .clickable
-        {
+
+        .clickable {
             cursor: pointer;
         }
-        .panel-heading span
-        {
+
+        .panel-heading span {
             margin-top: -20px;
             font-size: 15px;
         }
@@ -40,20 +37,20 @@
 }
 
 @section Title {
-    <h2>@PersistanceResource.Index</h2>
-    <h5>@Ent_AssnCategorySerieResource._Caption</h5>
+    <h2>Index</h2>
+    <h5>Category / Serie</h5>
     <hr />
 }
 
 <div class="row">
-	<div class="col-md-3 col-sm-3">
+    <div class="col-md-3 col-sm-3">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">@Ent_SerieResource._Caption</h3>
+                <h3 class="panel-title">Serie</h3>
             </div>
             <div class="panel-body">
                 <ul class="draggable list-unstyled">
-                    @foreach (var serie in ViewBag.Series)
+                    @foreach (Topppro.Entities.Serie serie in ViewBag.Series)
                     {
                         <li class="ui-state-active" data-id="@serie.Id">@serie.Name</li>
                     }
@@ -61,9 +58,9 @@
             </div>
         </div>
     </div>
-	<div class="col-md-9 col-sm-9">
-		<div class="row">
-            @foreach (var category in Model)
+    <div class="col-md-9 col-sm-9">
+        <div class="row">
+            @foreach (Topppro.Entities.Category category in ViewBag.Categories)
             {
                 <div class="col-md-6 col-sm-6">
                     <div class="panel panel-primary">
@@ -73,23 +70,23 @@
                         </div>
                         <div class="panel-body">
                             <ol class="sortable" data-id="@category.Id">
-                            @foreach (var assn in category.Assn_CategorySerie.OrderBy(a => a.Priority))
-                            {
-                                @Html.Partial("_Render", assn)
-                            }
+                                @foreach (var assn in Model.Where(e => e.CategoryId == category.CategoryId).OrderBy(e => e.Priority))
+                                {
+                                    @Html.Partial("_Render", assn)
+                                }
                             </ol>
                         </div>
                     </div>
                 </div>
             }
-		</div>
-	</div>
+        </div>
+    </div>
 </div>
 
 @section Scripts {
-    <script src="@Url.Content("~/Areas/SecureSite/Scripts/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
-    <script src="@Url.Content("~/Areas/SecureSite/Scripts/bootstrap-dialog/bootstrap-dialog.min.js")" type="text/javascript"></script>
-    @Html.Validator()
+    <script src="@Url.Content("~/Scripts/old/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/old/bootstrap-dialog/bootstrap-dialog.min.js")" type="text/javascript"></script>
+    @Html.Partial("_Validator")
 
     <script type="text/javascript">
 
@@ -114,7 +111,7 @@
                 placeholder: 'ui-state-highlight',
                 receive: function (event, ui) {
 
-                    var el = 
+                    var el =
                         $(this).data().uiSortable.currentItem;
 
                     $.post(
@@ -169,13 +166,13 @@
                         return content;
                     },
                     buttons: [{
-                        label: '@PersistanceResource.Close',
+                        label: 'Close',
                         cssClass: 'btn-default',
                         action: function (dialog) {
                             dialog.close();
                         }
                     }, {
-                        label: '@PersistanceResource.Save',
+                        label: 'Save',
                         cssClass: 'btn-primary',
                         action: function (dialog) {
 
