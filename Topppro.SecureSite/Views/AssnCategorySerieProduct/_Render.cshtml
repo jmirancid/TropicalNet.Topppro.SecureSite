@@ -1,5 +1,4 @@
-﻿@using Framework.MVC.Resources
-@using Topppro.WebSite.Extensions
+﻿@using Topppro.SecureSite.Extensions
 @using Topppro.Entities.Resources
 
 @model Topppro.Entities.Assn_CategorySerieProduct
@@ -16,18 +15,18 @@
         </div>                                                                                                        
         <div class="btn-group pull-right">
 		    <button data-toggle="dropdown" class="btn btn-default btn-xs dropdown-toggle">
-                @PersistanceResource.Actions <span class="caret"></span></button>
+                Actions <span class="caret"></span></button>
 		    <ul class="dropdown-menu">
                 <li>
-                    @Html.ActionLink(PersistanceResource.Edit, "Edit", null,
+                    @Html.ActionLink("Edit", "Edit", null,
                         new { id = Model.Id },
-                        new { @class = "editor-dialog", @role = "button", @type = "type-warning", @title = string.Format("{0} {1}", PersistanceResource.Edit, Model.Product.Name) })
+                        new { @class = "editor-dialog", @role = "button", @type = "type-warning", @title = string.Format("{0} {1}", "Edit", Model.Product.Name) })
                 </li>
                 <li>
-                    @Ajax.ActionLink(PersistanceResource.Delete, "Delete", null,
+                    @Ajax.ActionLink("Delete", "Delete", null,
                         new { id = Model.Id },
-                        new AjaxOptions() { HttpMethod = "Post", Confirm = PersistanceResource.Delete_Message, OnSuccess = "el.remove();" },
-                        new { @title = PersistanceResource.Delete, @onclick = "el = $(this).parents('ol > li');" })
+                        new AjaxOptions() { HttpMethod = "Post", Confirm = "Confirm Delete ?", OnSuccess = "el.remove();" },
+                        new { @title = "Delete", @onclick = "el = $(this).parents('ol > li');" })
                 </li>
 		    </ul>
 	    </div>

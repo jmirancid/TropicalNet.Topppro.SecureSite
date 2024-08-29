@@ -35,8 +35,8 @@ namespace Topppro.SecureSite.Controllers
 
             ViewBag.Products = products;
 
-            var model = (object)null;
-            //    this.BizCategorySerie.GetWithProducts(id);
+            var model =
+                this.Business.AllBy(e => e.AssnCategorySerieId == id);
 
             return View(model);
         }
