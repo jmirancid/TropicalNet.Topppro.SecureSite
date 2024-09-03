@@ -21,7 +21,7 @@
 <div class="form-group">
     @Html.LabelFor(model => model.Detail)
     @*Html.TinyMceFor(model => model.Detail, TinyMcePresets.Lite)*@
-    @Html.TextAreaFor(model => model.Detail, new { @class = "tiny-mce" })
+    @Html.TextAreaFor(model => model.Detail, new { @class = "form-control tiny-mce" })
     @Html.ValidationMessageFor(model => model.Detail, null, new { @class = "label label-danger" })
 </div>
 
