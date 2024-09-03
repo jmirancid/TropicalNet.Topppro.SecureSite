@@ -62,15 +62,6 @@
     <Reference Include="Unity.Container, Version=5.11.5.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.Container.5.11.5\lib\net47\Unity.Container.dll</HintPath>
     </Reference>
-    <Reference Include="xFNet.Business">
-      <HintPath>..\Framework\xFNet.Business.dll</HintPath>
-    </Reference>
-    <Reference Include="xFNet.Entities">
-      <HintPath>..\Framework\xFNet.Entities.dll</HintPath>
-    </Reference>
-    <Reference Include="xFNet.Interfaces">
-      <HintPath>..\Framework\xFNet.Interfaces.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\BusinessTest.cs" />
@@ -88,6 +79,18 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\xFNet\xFNet.Business\xFNet.Business.csproj">
+      <Project>{e500ecaf-f93a-414e-aef4-93815e9daf6b}</Project>
+      <Name>xFNet.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xFNet\xFNet.Entities\xFNet.Entities.csproj">
+      <Project>{20a01a93-6a26-4d4d-8f68-ea69732c7f98}</Project>
+      <Name>xFNet.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xFNet\xFNet.Interfaces\xFNet.Interfaces.csproj">
+      <Project>{1b2a81e5-cb5b-4aec-82b5-98c4a908568c}</Project>
+      <Name>xFNet.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Topppro.Business\Topppro.Business.csproj">
       <Project>{43fe7d4d-0d10-484e-87d3-8695148c85c2}</Project>
       <Name>Topppro.Business</Name>
