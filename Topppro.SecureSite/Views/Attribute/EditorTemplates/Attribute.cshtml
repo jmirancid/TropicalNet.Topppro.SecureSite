@@ -11,7 +11,7 @@
 
 <div class="form-group">
     @Html.LabelFor(model => model.Name)
-    @Html.TextAreaFor(model => model.Name, new { @class = "form-control", style = "width:400px;" })
+    @Html.TextAreaFor(model => model.Name, new { @class = "form-control tiny-mce", style = "width:400px;" })
     @Html.ValidationMessageFor(model => model.Name, null, new { @class = "label label-danger" })
     <small class="help-block" style="width:400px;">
         @Html.Raw(string.Format("Help", Html.DisplayNameFor(model => model.Name), Html.DisplayNameFor(model => model.Value)))</small>
@@ -19,7 +19,7 @@
 
 <div class="form-group">
     @Html.LabelFor(model => model.Value)
-    @Html.TextAreaFor(model => model.Value, new { @class = "form-control", style = "width:400px;" })
+    @Html.TextAreaFor(model => model.Value, new { @class = "form-control tiny-mce", style = "width:400px;" })
     @Html.ValidationMessageFor(model => model.Value, null, new { @class = "label label-danger" })
 </div>
 

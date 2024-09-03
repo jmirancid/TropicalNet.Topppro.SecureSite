@@ -302,6 +302,10 @@
       <Project>{20a01a93-6a26-4d4d-8f68-ea69732c7f98}</Project>
       <Name>xFNet.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xFNet\xFNet.IO\xFNet.IO.csproj">
+      <Project>{6566b884-2ae6-475f-a1b6-30bfc8be656a}</Project>
+      <Name>xFNet.IO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

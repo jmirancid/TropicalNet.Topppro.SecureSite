@@ -5,7 +5,9 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using Topppro.Interfaces.Business;
+using Topppro.SecureSite.Models;
 using xFNet.Common.Extensions;
+using xFNet.IO.Office;
 
 namespace Topppro.SecureSite.Controllers
 {
@@ -244,82 +246,82 @@ namespace Topppro.SecureSite.Controllers
             }
         }
 
-        //public ActionResult Export(int id)
-        //{
-        //    try
-        //    {
-        //        var entities =
-        //            base.Business.AllBy(e => e.ProductId == id).OrderBy(e => e.Priority);
+        public ActionResult Export(int id)
+        {
+            try
+            {
+                var entities =
+                    base.Business.AllBy(e => e.ProductId == id).OrderBy(e => e.Priority);
 
-        //        var product = this.BizProduct.Get(id);
+                var product = this.BizProduct.Get(id);
 
-        //        var excel =
-        //            new Excel();
+                var excel =
+                    new Excel();
 
-        //        var stream =
-        //            new MemoryStream();
+                var stream =
+                    new MemoryStream();
 
-        //        excel.Load(entities);
-        //        excel.SaveAs(stream);
+                excel.Load(entities);
+                excel.SaveAs(stream);
 
-        //        var content =
-        //            new System.Net.Mime.ContentDisposition()
-        //            {
-        //                FileName =
-        //                    string.Format("{0}_{1}.xlsx", product.Name.ToSeoSlug(), typeof(Topppro.Entities.Attribute).Name),
+                var content =
+                    new System.Net.Mime.ContentDisposition()
+                    {
+                        FileName =
+                            string.Format("{0}_{1}.xlsx", product.Name.ToSeoSlug(), typeof(Topppro.Entities.Attribute).Name),
 
-        //                Inline = false
-        //            };
+                        Inline = false
+                    };
 
-        //        Response.AppendHeader("Content-Disposition", content.ToString());
-        //        return File(stream.ToArray(), System.Net.Mime.MediaTypeNames.Application.Octet, string.Format("{0}_{1}.xlsx", product.Name.ToSeoSlug(), typeof(Topppro.Entities.Attribute).Name));
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return BadRequest(ex.Message);
-        //    }
-        //}
+                Response.AppendHeader("Content-Disposition", content.ToString());
+                return File(stream.ToArray(), System.Net.Mime.MediaTypeNames.Application.Octet, string.Format("{0}_{1}.xlsx", product.Name.ToSeoSlug(), typeof(Topppro.Entities.Attribute).Name));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
 
-        //public ActionResult Import(int id)
-        //{
-        //    try
-        //    {
-        //        var model =
-        //            new ImportModel() { EntityId = id };
+        public ActionResult Import(int id)
+        {
+            try
+            {
+                var model =
+                    new ImportViewModel() { EntityId = id };
 
-        //        return PartialView("_Import", model);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return BadRequest(ex.Message);
-        //    }
-        //}
+                return PartialView("_Import", model);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
 
-        //[HttpPost]
-        //public ActionResult Import(ImportModel model)
-        //{
-        //    try
-        //    {
-        //        var excel =
-        //            new Excel(model.File.InputStream);
+        [HttpPost]
+        public ActionResult Import(ImportViewModel model)
+        {
+            try
+            {
+                var excel =
+                    new Excel(model.File.InputStream);
 
-        //        var import =
-        //            excel.ToList<Topppro.Entities.Attribute>(1);
+                var import =
+                    excel.ToList<Topppro.Entities.Attribute>(1);
 
-        //        import.ToList()
-        //            .ForEach(b => { b.ProductId = model.EntityId; });
+                import.ToList()
+                    .ForEach(b => { b.ProductId = model.EntityId; });
 
-        //        base.Business.CreateOrUpdate(import);
+                base.Business.CreateOrUpdate(import);
 
-        //        return Json(import.Select(b =>
-        //                new object[] { this.BizCulture.Get(b.CultureId).Name, b.Name, b.Value, b.Priority, b.Enabled, b.Id }
-        //            ));
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return BadRequest(ex.Message);
-        //    }
-        //}
+                return Json(import.Select(b =>
+                        new object[] { this.BizCulture.Get(b.CultureId).Name, b.Name, b.Value, b.Priority, b.Enabled, b.Id }
+                    ));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
 
         public override void CreateGetPrerender(Topppro.Entities.Attribute entity = null)
         {
