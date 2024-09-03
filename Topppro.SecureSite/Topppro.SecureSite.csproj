@@ -146,7 +146,6 @@
     <Compile Include="Controllers\AssnCategorySerieProductController.cs" />
     <Compile Include="Controllers\AttributeController.cs" />
     <Compile Include="Controllers\BulletController.cs" />
-    <Compile Include="Controllers\CacheController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\CountryController.cs" />
     <Compile Include="Controllers\CultureController.cs" />
@@ -382,10 +381,6 @@
     <Content Include="Views\Bullet\_Import.cshtml" />
     <Content Include="Views\Bullet\_Index.cshtml" />
     <Content Include="Views\Bullet\_Toolbar.cshtml" />
-    <Content Include="Views\Cache\Delete.cshtml" />
-    <Content Include="Views\Cache\DisplayTemplates\CacheEntry.cshtml" />
-    <Content Include="Views\Cache\Index.cshtml" />
-    <Content Include="Views\Cache\_Toolbar.cshtml" />
     <Content Include="Views\Category\Create.cshtml" />
     <Content Include="Views\Category\Delete.cshtml" />
     <Content Include="Views\Category\Details.cshtml" />
