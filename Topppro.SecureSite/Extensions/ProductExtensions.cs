@@ -13,7 +13,7 @@ namespace Topppro.SecureSite.Extensions
         public static IEnumerable<string> GetHeader(this Product source)
         {
             //return GetAssets(source, ToppproSettings.Product.Header);
-            string folderName = Topppro.SecureSite.Settings.Product.Header;
+            string folderName = Topppro.Configuration.Current.Product.Thumb;
             string cultureCode = Context.Current.Culture.TwoLetterISOLanguageName;
 
             if (source.Folder == null) return Enumerable.Empty<string>();
@@ -24,7 +24,7 @@ namespace Topppro.SecureSite.Extensions
 
             if (cached == null)
             {
-                string asset_vpath = Path.Combine(Topppro.SecureSite.Settings.Product.Root, source.Folder, folderName);
+                string asset_vpath = Path.Combine(Topppro.Configuration.Current.Product.Root, source.Folder, folderName);
 
                 string asset_path =
                     HttpContext.Current.Server.MapPath(asset_vpath);
@@ -50,12 +50,12 @@ namespace Topppro.SecureSite.Extensions
 #if DEBUG
             return new List<string>() { "https://picsum.photos/128?random=1" };
 #endif
-            return GetAssets(source, Topppro.SecureSite.Settings.Product.Thumb);
+            return GetAssets(source, Topppro.Configuration.Current.Product.Thumb);
         }
 
         public static IEnumerable<string> GetHiRes(this Product source)
         {
-            return GetAssets(source, Topppro.SecureSite.Settings.Product.HiRes);
+            return GetAssets(source, Topppro.Configuration.Current.Product.HiRes);
         }
 
         public static string GetManual(this Product source)
@@ -63,7 +63,7 @@ namespace Topppro.SecureSite.Extensions
             if (string.IsNullOrWhiteSpace(source.Manual))
                 return null;
 
-            return UrlHelper.GenerateContentUrl(Path.Combine(Topppro.SecureSite.Settings.Manual.Root, source.Manual), new HttpContextWrapper(HttpContext.Current));
+            return UrlHelper.GenerateContentUrl(Path.Combine(Topppro.Configuration.Current.Manual.Root, source.Manual), new HttpContextWrapper(HttpContext.Current));
         }
 
         #region Private Members
@@ -78,7 +78,7 @@ namespace Topppro.SecureSite.Extensions
 
             if (cached == null)
             {
-                string asset_vpath = Path.Combine(Topppro.SecureSite.Settings.Product.Root, source.Folder, folderName);
+                string asset_vpath = Path.Combine(Topppro.Configuration.Current.Product.Root, source.Folder, folderName);
 
                 string asset_path =
                     HttpContext.Current.Server.MapPath(asset_vpath);
