@@ -13,7 +13,7 @@ namespace Topppro.SecureSite.Extensions
         public static IEnumerable<string> GetHeader(this Product source)
         {
             //return GetAssets(source, ToppproSettings.Product.Header);
-            string folderName = Topppro.Configuration.Current.Product.Thumb;
+            string folderName = Topppro.Configuration.Current.Product.Main;
             string cultureCode = Context.Current.Culture.TwoLetterISOLanguageName;
 
             if (source.Folder == null) return Enumerable.Empty<string>();
