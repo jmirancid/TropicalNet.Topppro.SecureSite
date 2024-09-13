@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace Topppro.WebSite.Areas.SecureSite.Controllers
+namespace Topppro.SecureSite.Controllers
 {
     public class HomeController : Controller
     {
