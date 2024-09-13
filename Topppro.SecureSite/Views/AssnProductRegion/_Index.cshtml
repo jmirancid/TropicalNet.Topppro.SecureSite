@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Topppro.Entities.Assn_ProductRegion>
+
+@{
+    Html.RenderAction("Toolbar", "AssnProductRegion", new { id = ViewBag.ProductId });
+}
+
+<table class="table table-striped table-bordered table-hover" id="productregion-list">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RegionId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Region.Code)
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Region.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.Region.Code)</td>
+                <td class="center">@item.Id</td>
+            </tr>
+        }
+    </tbody>
+</table>

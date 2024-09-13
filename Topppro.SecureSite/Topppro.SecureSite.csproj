@@ -215,6 +215,7 @@
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="Controllers\AssnCategorySerieController.cs" />
     <Compile Include="Controllers\AssnCategorySerieProductController.cs" />
+    <Compile Include="Controllers\AssnProductRegionController.cs" />
     <Compile Include="Controllers\AttributeController.cs" />
     <Compile Include="Controllers\BulletController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
@@ -425,10 +426,6 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="unity.config" />
-    <Content Include="Views\Account\ChangePassword.cshtml" />
-    <Content Include="Views\Account\ChangePasswordSuccess.cshtml" />
-    <Content Include="Views\Account\LogOn.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\AssnCategorySerieProduct\EditorTemplates\AssnCategorySerieProduct.cshtml" />
     <Content Include="Views\AssnCategorySerieProduct\Index.cshtml" />
     <Content Include="Views\AssnCategorySerieProduct\_Edit.cshtml" />
@@ -545,6 +542,11 @@
     <Content Include="Views\Attribute\_Scripts.cshtml" />
     <Content Include="Views\Package\_Scripts.cshtml" />
     <Content Include="Views\Download\_Scripts.cshtml" />
+    <Content Include="Views\AssnProductRegion\_Create.cshtml" />
+    <Content Include="Views\AssnProductRegion\_Index.cshtml" />
+    <Content Include="Views\AssnProductRegion\_Scripts.cshtml" />
+    <Content Include="Views\AssnProductRegion\_Toolbar.cshtml" />
+    <Content Include="Views\AssnProductRegion\EditorTemplates\AssnProductRegion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

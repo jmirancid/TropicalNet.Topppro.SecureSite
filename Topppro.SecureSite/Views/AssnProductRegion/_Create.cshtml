@@ -1,0 +1,13 @@
+﻿@model Topppro.Entities.Assn_ProductRegion
+
+@using (Ajax.BeginForm("Create", "AssnProductRegion", null,
+        new AjaxOptions()
+        {
+            OnSuccess = "$('#productregion-list').dataTable().fnAddData(data); $('.bootstrap-dialog').modal('hide');"
+        }))
+{
+     @Html.ValidationSummary(true, null, new { @class = "alert alert-danger" })
+    <fieldset>
+        @Html.EditorForModel("AssnProductRegion")
+    </fieldset>
+}

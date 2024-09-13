@@ -1,0 +1,21 @@
+﻿<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#productregion-list').dataTable({
+            aoColumns: [
+                null,
+                null,
+                {
+                    bSortable: false,
+                    mRender: function (o) {
+
+                        var tpl =
+                            '@Ajax.ActionLink("Delete", "Delete", "AssnProductRegion", new { id = 0 }, new AjaxOptions() { HttpMethod = "Post", Confirm = "Confirm Delete ?", OnSuccess = "$('#productregion-list').dataTable().fnDeleteRow(el);" }, new { @role = "button", @onclick = "el = $(this).closest('tr');" })';
+
+                        return tpl.replace(/0/g, o);
+                    }
+                }
+            ]
+        });
+    });
+</script>

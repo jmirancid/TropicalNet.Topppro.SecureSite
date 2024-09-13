@@ -22,6 +22,9 @@
         <a href="#product" data-toggle="tab" aria-expanded="true">Product</a>
     </li>
     <li>
+        <a href="#region" data-toggle="tab" aria-expanded="true">Regions</a>
+    </li>
+    <li>
         <a href="#bullet" data-toggle="tab" aria-expanded="true">Bullets</a>
     </li>
     <li>
@@ -51,6 +54,9 @@
                 </p>
             </fieldset>
         }
+    </div>
+    <div class="tab-pane fade" id="region">
+        @Html.Action("Index", "AssnProductRegion", new { id = Model.Id })
     </div>
     <div class="tab-pane fade" id="bullet">
         @Html.Action("Index", "Bullet", new { id = Model.Id })
@@ -264,6 +270,7 @@
 
         });
     </script>
+    @Html.Action("Scripts", "AssnProductRegion", new { Id = Model.Id })
     @Html.Action("Scripts", "Bullet", new { Id = Model.Id })
     @Html.Action("Scripts", "Attribute", new { Id = Model.Id })
     @Html.Action("Scripts", "Package", new { Id = Model.Id })

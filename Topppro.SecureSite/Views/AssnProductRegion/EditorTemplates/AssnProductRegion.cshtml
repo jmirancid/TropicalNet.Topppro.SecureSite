@@ -1,0 +1,10 @@
+﻿@model Topppro.Entities.Assn_ProductRegion
+
+@Html.HiddenFor(model => model.ProductId)
+@Html.ValidationMessageFor(model => model.ProductId)
+
+<div class="form-group">
+    @Html.LabelFor(model => model.RegionId)
+    @Html.DropDownListFor(model => model.RegionId, (IEnumerable<SelectListItem>)ViewBag.Regions, "Select...", new { @class = "form-control", style = "width:400px;" })
+    @Html.ValidationMessageFor(model => model.RegionId, null, new { @class = "label label-danger" })
+</div>
