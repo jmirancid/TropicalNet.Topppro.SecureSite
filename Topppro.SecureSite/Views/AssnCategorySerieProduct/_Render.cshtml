@@ -8,10 +8,16 @@
     <b>@Model.Product.Name</b>
     <div class="clearfix">
         <div class="pull-left">
+            @if (Model.Product.Assn_ProductRegion.Any(a => a.RegionId == (int)Topppro.Entities.Region_Enum.America))
+                {<span class="label label-primary">America</span>}
+            @if (Model.Product.Assn_ProductRegion.Any(a => a.RegionId == (int)Topppro.Entities.Region_Enum.Asia))
+                {<span class="label label-primary">Asia</span>}
+            @if (Model.Product.Assn_ProductRegion.Any(a => a.RegionId == (int)Topppro.Entities.Region_Enum.Europe))
+                {<span class="label label-primary">Europe</span>}
             @if (Model.Enabled)
-                { <i class="fa fa-eye" title="@Ent_AssnCategorySerieProductResource.Entity_Enabled"></i> }
+                {<span class="label label-success"><i class="fa fa-eye" title="@Ent_AssnCategorySerieProductResource.Entity_Enabled"></i></span>}
             @if (Model.AllowCompare)
-                { <i class="fa fa-adjust" title="@Ent_AssnCategorySerieProductResource.Entity_AllowCompare"></i> }
+                {<span class="label label-warning"><i class="fa fa-adjust" title="@Ent_AssnCategorySerieProductResource.Entity_AllowCompare"></i></span>}
         </div>                                                                                                        
         <div class="btn-group pull-right">
 		    <button data-toggle="dropdown" class="btn btn-default btn-xs dropdown-toggle">

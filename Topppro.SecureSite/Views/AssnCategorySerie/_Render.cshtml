@@ -1,15 +1,23 @@
 ﻿@model Topppro.Entities.Assn_CategorySerie
 
-<li data-id="@Model.Id" style="text-align:right"><span class="pull-left"><b>@Model.Serie.Name</b></span>
+<li data-id="@Model.Id" style="text-align:right">
+    <span class="pull-left"><b>@Model.Serie.Name</b></span>
+    @if (Model.Assn_CategorySerieProduct.Any(e => e.Product.Assn_ProductRegion.Any(a => a.RegionId == (int)Topppro.Entities.Region_Enum.America)))
+        {<span class="label label-primary">America</span>}
+    @if (Model.Assn_CategorySerieProduct.Any(e => e.Product.Assn_ProductRegion.Any(a => a.RegionId == (int)Topppro.Entities.Region_Enum.Asia)))
+        {<span class="label label-primary">Asia</span>}
+    @if (Model.Assn_CategorySerieProduct.Any(e => e.Product.Assn_ProductRegion.Any(a => a.RegionId == (int)Topppro.Entities.Region_Enum.Europe)))
+        {<span class="label label-primary">Europe</span>}
     @if (Model.Enabled)
-        { <i class="fa fa-eye" title="@Html.DisplayNameFor(model => model.Enabled)"></i> }
+        {<span class="label label-success"><i class="fa fa-eye" title="@Html.DisplayNameFor(model => model.Enabled)"></i></span>}
     @if (Model.AllowCompare)
-        { <i class="fa fa-adjust" title="@Html.DisplayNameFor(model => model.AllowCompare)"></i> }
-    <i class="fa fa-th" title="@Html.DisplayNameFor(model => model.ItemsPerLine)"></i> (@Model.ItemsPerLine)
+        {<span class="label label-warning"><i class="fa fa-adjust" title="@Html.DisplayNameFor(model => model.AllowCompare)"></i></span>}
+    <span class="label label-danger"><i class="fa fa-th" title="@Html.DisplayNameFor(model => model.ItemsPerLine)"></i> (@Model.ItemsPerLine)</span>
     <div class="btn-group">
-		<button data-toggle="dropdown" class="btn btn-default btn-xs dropdown-toggle">
-            Actions <span class="caret"></span></button>
-		<ul class="dropdown-menu">
+        <button data-toggle="dropdown" class="btn btn-default btn-xs dropdown-toggle">
+            Actions <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
             <li>
                 @Html.ActionLink(string.Format("{0} ({1})", "Product", Model.Assn_CategorySerieProduct.Count), "Index", "AssnCategorySerieProduct",
                     new { id = Model.Id },
@@ -27,6 +35,6 @@
                     new AjaxOptions() { HttpMethod = "Post", Confirm = "Confirm Delete ?", OnSuccess = "el.remove();" },
                     new { @title = "Delete", @onclick = "el = $(this).parents('ol > li');" })
             </li>
-		</ul>
-	</div>
+        </ul>
+    </div>
 </li>

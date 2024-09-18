@@ -29,4 +29,11 @@ namespace Topppro.Entities
 
         public string Code { get; set; }
     }
+
+    public enum Region_Enum : int
+    {
+        America = 1,
+        Asia = 2,
+        Europe = 3
+    }
 }

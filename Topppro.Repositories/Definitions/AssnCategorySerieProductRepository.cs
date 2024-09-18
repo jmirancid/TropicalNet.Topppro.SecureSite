@@ -27,6 +27,7 @@ namespace Topppro.Repositories.Definitions
                     .Include(e => e.Assn_CategorySerie.Category)
                     .Include(e => e.Assn_CategorySerie.Serie)
                     .Include(e => e.Product)
+                    .Include(e => e.Product.Assn_ProductRegion)
                     .Where(predicate);
         }
 

@@ -24,7 +24,8 @@ namespace Topppro.Repositories.Definitions
                 base.Context.Assn_CategorySerie
                         .Include(e => e.Category)
                         .Include(e => e.Serie)
-                        .Include(e => e.Assn_CategorySerieProduct);
+                        .Include(e => e.Assn_CategorySerieProduct)
+                        .Include(e => e.Assn_CategorySerieProduct.Select(a => a.Product.Assn_ProductRegion));
 
             return dbquery;
         }
